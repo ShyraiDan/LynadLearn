@@ -11,13 +11,16 @@ export function Header() {
         <nav>
           <ul className={styles['nav-list']}>
             <li className={styles['nav-item']}>
-              <Link href={'/'}>About us</Link>
+              <Link href={'/about-us'}>About us</Link>
             </li>
             <li className={styles['nav-item']}>
-              <Link href={'/'}>Pricing</Link>
+              <Link href={'/pricing'}>Pricing</Link>
             </li>
             <li className={styles['nav-item']}>
-              <Link href={'/'}>Corporate</Link>
+              <Link href={'/corporate'}>Corporate</Link>
+            </li>
+            <li className={styles['nav-item']}>
+              <Link href={'/dashboard/lists'}>Dashboard</Link>
             </li>
             <li className={styles['nav-item']}>English</li>
           </ul>
