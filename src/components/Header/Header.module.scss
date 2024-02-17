@@ -1,0 +1,29 @@
+.header {
+  @apply flex items-center my-2.5 justify-between;
+}
+
+.header-left {
+  @apply flex items-center ml-2.5;
+
+  a {
+    @apply font-bold p-2;
+  }
+}
+
+.header-right {
+  @apply mr-2.5;
+}
+
+.nav-list {
+  @apply hidden;
+}
+
+.nav-item {
+  @apply flex items-center font-bold;
+}
+
+@media screen and (min-width: 992px) {
+  .nav-list {
+    @apply flex items-center gap-5 ml-5;
+  }
+}
