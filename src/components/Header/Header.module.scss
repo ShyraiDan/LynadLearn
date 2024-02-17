@@ -1,5 +1,5 @@
 .header {
-  @apply flex items-center my-2.5 justify-between;
+  @apply flex items-center my-2.5 justify-between 2xl:max-w-1440 2xl:mx-auto;
 }
 
 .header-left {
@@ -15,15 +15,9 @@
 }
 
 .nav-list {
-  @apply hidden;
+  @apply hidden lg:flex lg:items-center lg:gap-5 lg:ml-5;
 }
 
 .nav-item {
   @apply flex items-center font-bold;
-}
-
-@media screen and (min-width: 992px) {
-  .nav-list {
-    @apply flex items-center gap-5 ml-5;
-  }
 }
