@@ -1,7 +1,7 @@
 export default function PricingPage() {
   return (
-    <div>
+    <main>
       <h1>Pricing Page</h1>
-    </div>
+    </main>
   )
 }

@@ -1,7 +1,7 @@
 export default function CorporatePage() {
   return (
-    <div>
+    <main>
       <h1>Corporate</h1>
-    </div>
+    </main>
   )
 }

@@ -1,0 +1,13 @@
+.container {
+  @apply flex flex-col items-center text-[#bcc1c6];
+
+  > p {
+    @apply w-[100px] text-center 
+    sm:w-[135px];
+  }
+}
+
+.photo {
+  @apply border border-[#00000020] border-dashed my-2 w-[100px] h-[100px] rounded-xl flex items-center justify-center font-bold 
+  sm:w-[135px] sm:h-[135px];
+}

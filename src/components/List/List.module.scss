@@ -1,0 +1,11 @@
+.container {
+  @apply my-2;
+}
+
+.image-cont {
+  @apply w-[100px] h-[150px] sm:w-[135px] sm:h-[205px] object-contain;
+}
+
+.title {
+  @apply block text-center max-w-[100px] mt-3 text-sm font-semibold text-[#6c757d] sm:max-w-[135px];
+}

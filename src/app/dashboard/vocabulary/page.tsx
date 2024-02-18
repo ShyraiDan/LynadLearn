@@ -1,7 +1,7 @@
 export default function VocabularyPage() {
   return (
-    <div>
+    <main>
       <h1>Vocabulary page</h1>
-    </div>
+    </main>
   )
 }

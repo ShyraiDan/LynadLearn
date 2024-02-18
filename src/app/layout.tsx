@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import './globals.scss'
-import { SITE_NAME } from '@/constants/soe.constants'
+import { SITE_NAME } from '@/constants/seo.constants'
 
 const font = Roboto({
   subsets: ['cyrillic', 'latin'],

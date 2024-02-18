@@ -6,9 +6,9 @@ interface IDashboard {
 
 export default function DashboardPage({ children }: IDashboard) {
   return (
-    <div>
+    <main>
       <h1>Dashboard</h1>
       {children}
-    </div>
+    </main>
   )
 }

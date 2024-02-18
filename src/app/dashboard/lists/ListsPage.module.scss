@@ -1,0 +1,27 @@
+.container {
+  @apply mx-auto 2xl:max-w-[1320px];
+}
+
+.top {
+  @apply my-2 px-12 pt-10 pb-10 text-center;
+
+  h1 {
+    @apply text-3xl text-[#0e336b] font-semibold lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-lg text-[#0925509D] font-medium sm:text-2xl;
+  }
+}
+
+.learn-vocabulary {
+  @apply flex justify-between bg-[#d2eefc] border-[#57c7ffc4] border rounded-2xl px-6 py-7 mx-4 text-[#0d47a1] text-xl leading-5 mb-6;
+
+  span {
+    @apply font-bold;
+  }
+}
+
+.arrow {
+  @apply flex items-center;
+}

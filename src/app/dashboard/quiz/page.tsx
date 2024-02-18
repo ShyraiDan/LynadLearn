@@ -1,7 +1,7 @@
 export default function QuizPage() {
   return (
-    <div>
+    <main>
       <h1>Quiz page</h1>
-    </div>
+    </main>
   )
 }

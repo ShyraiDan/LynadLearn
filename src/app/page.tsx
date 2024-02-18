@@ -3,10 +3,10 @@ import { Footer } from '@/components/Footer/Footer'
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Header />
-      Home Page
+      <main>Home Page</main>
       <Footer />
-    </div>
+    </>
   )
 }
