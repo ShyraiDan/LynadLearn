@@ -4,7 +4,7 @@ import { DCategories } from '@/mock/Categories.mock'
 
 export default function ListsPage() {
   return (
-    <main className={styles.container}>
+    <div className={styles.container}>
       <div className={styles.top}>
         <h1>English Vocabulary</h1>
         <h2>Categorized word lists</h2>
@@ -15,15 +15,13 @@ export default function ListsPage() {
           <br />
           Learning <span>English</span> Vocabulary
         </p>
-
         <div className={styles.arrow}>0</div>
       </div>
-
       {DCategories.map((item) => (
         <div key={item.id} className={styles.list}>
           <Category title={item.title} id={item.id} lists={item.lists} description={item.description} />
         </div>
       ))}
-    </main>
+    </div>
   )
 }

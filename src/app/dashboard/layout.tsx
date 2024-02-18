@@ -5,10 +5,5 @@ interface IDashboard {
 }
 
 export default function DashboardPage({ children }: IDashboard) {
-  return (
-    <main>
-      <h1>Dashboard</h1>
-      {children}
-    </main>
-  )
+  return <main>{children}</main>
 }

@@ -1,0 +1,7 @@
+.btn {
+  @apply flex items-center justify-center py-2 text-sm font-medium text-[#37352f59] border rounded;
+
+  .plus {
+    @apply mr-1;
+  }
+}
