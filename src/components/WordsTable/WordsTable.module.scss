@@ -1,0 +1,37 @@
+.container {
+  @apply flex overflow-x-auto text-sm;
+  // origin-center rotate-180
+
+  .table {
+    // @apply origin-center -rotate-180;
+
+    .table-data {
+    }
+
+    .row {
+      @apply grid grid-cols-[repeat(6,_minmax(150px,_1fr))] w-full;
+
+      div {
+        @apply border-l border-t p-1;
+
+        .icon {
+          @apply mr-1.5;
+        }
+
+        &:first-child {
+          @apply border-l-0;
+        }
+      }
+
+      &:first-child {
+        div {
+          @apply flex items-center;
+        }
+      }
+
+      &:last-child {
+        @apply border-b;
+      }
+    }
+  }
+}
