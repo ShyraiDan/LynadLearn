@@ -10,6 +10,22 @@
   }
 }
 
+.user {
+  @apply flex items-center;
+}
+
+.arrow {
+  @apply ml-2;
+}
+
+.user-avatar {
+  @apply rounded-full bg-black w-10 h-10 flex items-center justify-center;
+}
+
+.icon {
+  @apply fill-white;
+}
+
 .header-right {
   @apply mr-2.5;
 }

@@ -1,8 +1,19 @@
 import Link from 'next/link'
 import styles from './Header.module.scss'
 import { Button } from '../ui/Button/Button'
+// import { useState } from 'react'
+import UserModal from '../UserModal/UserModal'
+
+import { FaUser } from 'react-icons/fa'
+import { IoIosArrowDown } from 'react-icons/io'
 
 export function Header() {
+  // const [isUserModal, setUserModal] = useState()
+  // const [isAuth, setAuth] = useState()
+
+  const isAuth = true
+  const isUserModal = true
+
   return (
     <header className={styles.header}>
       <div className={styles['header-left']}>
@@ -26,9 +37,23 @@ export function Header() {
           </ul>
         </nav>
       </div>
-      <div className={styles['header-right']}>
-        <Button>Login</Button>
-      </div>
+      {isAuth ? (
+        <>
+          <div>
+            <div className={styles.user}>
+              <div className={styles['user-avatar']}>
+                <FaUser className={styles.icon} />
+              </div>
+              <IoIosArrowDown className={styles.arrow} />
+            </div>
+            {isUserModal && <UserModal />}
+          </div>
+        </>
+      ) : (
+        <div className={styles['header-right']}>
+          <Button>Login</Button>
+        </div>
+      )}
     </header>
   )
 }
