@@ -1,6 +1,10 @@
 import styles from './Footer.module.scss'
 import Link from 'next/link'
 
+import { FaInstagram } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
+import { FaFacebook } from 'react-icons/fa'
+
 export function Footer() {
   return (
     <>
@@ -26,9 +30,15 @@ export function Footer() {
             <div className={styles['footer-right']}>
               <p>Follow us</p>
               <ul>
-                <li>O</li>
-                <li>O</li>
-                <li>O</li>
+                <li>
+                  <FaInstagram />
+                </li>
+                <li>
+                  <FaXTwitter />
+                </li>
+                <li>
+                  <FaFacebook />
+                </li>
               </ul>
             </div>
           </div>

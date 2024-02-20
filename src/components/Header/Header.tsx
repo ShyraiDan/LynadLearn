@@ -3,6 +3,7 @@ import styles from './Header.module.scss'
 import { Button } from '../ui/Button/Button'
 // import { useState } from 'react'
 import UserModal from '../UserModal/UserModal'
+import LanguageModal from '../LanguageModal/LanguageModal'
 
 import { FaUser } from 'react-icons/fa'
 import { IoIosArrowDown } from 'react-icons/io'
@@ -10,9 +11,11 @@ import { IoIosArrowDown } from 'react-icons/io'
 export function Header() {
   // const [isUserModal, setUserModal] = useState()
   // const [isAuth, setAuth] = useState()
+  // const [isLanguageModal, setLanguageModal] = useState()
 
   const isAuth = true
   const isUserModal = true
+  const isLanguageModal = true
 
   return (
     <header className={styles.header}>
@@ -34,6 +37,7 @@ export function Header() {
               <Link href={'/dashboard/lists'}>Dashboard</Link>
             </li>
             <li className={styles['nav-item']}>English</li>
+            {isLanguageModal && <LanguageModal />}
           </ul>
         </nav>
       </div>
