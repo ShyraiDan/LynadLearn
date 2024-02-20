@@ -2,6 +2,8 @@ import styles from './ListsPage.module.scss'
 import { Category } from '@/components/Category/Category'
 import { DCategories } from '@/mock/Categories.mock'
 
+import { IoIosArrowForward } from 'react-icons/io'
+
 export default function ListsPage() {
   return (
     <div className={styles.container}>
@@ -15,7 +17,10 @@ export default function ListsPage() {
           <br />
           Learning <span>English</span> Vocabulary
         </p>
-        <div className={styles.arrow}>0</div>
+        <div className={styles.arrow}>
+          <span>Start</span>
+          <IoIosArrowForward />
+        </div>
       </div>
       {DCategories.map((item) => (
         <div key={item.id} className={styles.list}>
