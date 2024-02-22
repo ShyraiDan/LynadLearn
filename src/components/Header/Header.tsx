@@ -14,8 +14,8 @@ export function Header() {
   // const [isLanguageModal, setLanguageModal] = useState()
 
   const isAuth = true
-  const isUserModal = true
-  const isLanguageModal = true
+  const isUserModal = false
+  const isLanguageModal = false
 
   return (
     <header className={styles.header}>
