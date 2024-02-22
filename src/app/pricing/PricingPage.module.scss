@@ -1,8 +1,8 @@
 .container {
-  @apply px-4;
+  @apply px-4 pb-20;
 
-  > div {
-    @apply flex leading-6 pt-10 pb-20 relative mx-auto flex flex-col items-center justify-center py-2;
+  .top {
+    @apply flex leading-6 pt-10 relative mx-auto flex flex-col items-center justify-center py-2;
 
     h1 {
       @apply text-lg font-bold mb-10
@@ -16,6 +16,64 @@
       md:flex-row md:gap-3
       lg:mb-28 lg:gap-4
       xl:gap-10;
+    }
+  }
+
+  h2 {
+    @apply mb-4 self-start font-semibold text-base
+    sm:text-lg 
+    lg:text-2xl;
+  }
+
+  p {
+    @apply mb-8 self-start text-sm
+    sm:mb-10 sm:text-base 
+    lg:mb-20 lg:w-[80%] lg:text-lg;
+  }
+
+  .table {
+    @apply relative w-full rounded-3xl;
+
+    table {
+      @apply w-full relative rounded-3xl z-20;
+
+      thead {
+        @apply bg-blue-100 text-white;
+
+        th {
+          @apply pr-0 
+          sm:pr-0 sm:p-6
+          first:p-4 first:rounded-tl-3xl
+          last:p-4 last:rounded-tr-3xl;
+        }
+      }
+
+      tbody {
+        tr {
+          @apply p-4 text-sm font-bold
+          sm:p-6 sm:text-base 
+          lg:text-lg
+          odd:bg-white-100;
+
+          td {
+            @apply text-center text-center
+            lg:text-base
+            first:text-left first:pr-0 first:p-4
+            last:pl-0 last:p-4;
+
+            svg {
+              display: unset;
+            }
+          }
+
+          &:last-child {
+            td {
+              @apply first:p-4 first:rounded-bl-3xl
+              last:p-4 last:rounded-br-3xl;
+            }
+          }
+        }
+      }
     }
   }
 }
