@@ -1,0 +1,86 @@
+.card {
+  @apply relative bg-white-100 flex flex-col pt-6 pb-7 pl-6 pr-4 h-[317px] w-[300px] rounded-2xl rounded-tr-3xl justify-between
+  sm:w-[400px]
+  md:w-[32%]
+  lg:pl-9 lg:pr-6
+  after:content-[''] after:bg-blue-100 after:w-3 after:h-full after:rounded-2xl after:absolute after:left-0 after:top-0
+  after:first:bg-grey
+  before:content-[''] before:bg-purple before:w-full before:h-3 before:rounded-2xl before:absolute before:bottom-0 before:left-0
+  before:first:bg-grey;
+
+  a {
+    @apply text-center hover:bg-purple bg-blue-100 text-white border-0 transition-all ease-linear duration-150 w-full self-end cursor-pointer font-medium text-base align-baseline py-3 px-10 rounded-3xl 
+    sm:w-[200px];
+  }
+
+  h6 {
+    @apply font-medium text-lg 
+    lg:text-2xl;
+  }
+
+  .title {
+    @apply mt-3.5 flex text-2xl font-bold relative flex items-baseline
+    lg:text-4xl;
+
+    h3 {
+      @apply text-2xl font-bold mb-3 mr-3 
+      lg:text-4xl;
+    }
+
+    span {
+      @apply line-through text-grey flex items-center text-lg font-medium 
+      lg:text-2xl;
+    }
+  }
+
+  ul {
+    li {
+      @apply mt-6 lg:mt-4 flex items-center h-6 text-black text-sm font-medium
+      lg:text-[.95rem];
+    }
+  }
+
+  svg {
+    @apply text-orange mr-1.5 text-2xl
+    md:hidden 
+    lg:block;
+  }
+
+  .outline {
+    @apply bg-transparent text-blue-100 border-[1.5px] border-solid border-blue-100 bg-transparent transition-all ease-linear duration-150 w-full self-end cursor-pointer font-medium text-base align-baseline py-3 px-10 rounded-3xl 
+    sm:w-[200px];
+  }
+
+  .popular {
+    @apply absolute right-[-6px] top-4;
+
+    svg {
+      @apply w-[123px];
+    }
+    p {
+      @apply text-xs font-medium absolute top-[11px] left-[25px] text-white;
+    }
+  }
+
+  .best {
+    @apply absolute right-[-6px] top-4;
+
+    svg {
+      @apply w-[123px];
+    }
+    p {
+      @apply text-xs font-medium absolute top-[11px] left-[25px] text-white;
+    }
+  }
+
+  .discount {
+    @apply absolute right-[-6px] top-16;
+
+    svg {
+      @apply w-[63px];
+    }
+    p {
+      @apply text-xs font-medium absolute top-[9px] left-[20px] text-white;
+    }
+  }
+}

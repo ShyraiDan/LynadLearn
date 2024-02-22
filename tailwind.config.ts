@@ -21,6 +21,16 @@ const config: Config = {
       },
       maxWidth: {
         '1440': '1440px'
+      },
+      colors: {
+        blue: {
+          100: '#1b7bd7',
+          200: '#0e4aa4'
+        },
+        purple: '#7b56bd',
+        grey: '#B8b8b8',
+        'white-100': '#f0f4fa',
+        orange: '#FFA944'
       }
     }
   },
