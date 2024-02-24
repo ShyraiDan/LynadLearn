@@ -1,5 +1,6 @@
 .container {
-  @apply px-4 pb-20;
+  @apply mx-4 pb-20 overflow-x-hidden 
+  2xl:max-w-[1290px] 2xl:mx-auto;
 
   .top {
     @apply flex leading-6 pt-10 relative mx-auto flex flex-col items-center justify-center py-2;
@@ -26,7 +27,7 @@
   }
 
   p {
-    @apply mb-8 self-start text-sm
+    @apply mb-8 self-start text-sm 
     sm:mb-10 sm:text-base 
     lg:mb-20 lg:w-[80%] lg:text-lg;
   }
@@ -41,10 +42,11 @@
         @apply bg-blue-100 text-white;
 
         th {
-          @apply pr-0 
-          sm:pr-0 sm:p-6
-          first:p-4 first:rounded-tl-3xl
-          last:p-4 last:rounded-tr-3xl;
+          @apply pr-0
+          sm:px-0 sm:p-6 sm:text-lg
+          lg:text-2xl
+          first:p-4 first:sm:p-6 first:rounded-tl-3xl first:text-left
+          last:p-4 last:sm:p-6 last:rounded-tr-3xl;
         }
       }
 
@@ -58,7 +60,7 @@
           td {
             @apply text-center text-center
             lg:text-base
-            first:text-left first:pr-0 first:p-4
+            first:text-left first:pr-0 first:p-4 first:lg:text-lg
             last:pl-0 last:p-4;
 
             svg {
