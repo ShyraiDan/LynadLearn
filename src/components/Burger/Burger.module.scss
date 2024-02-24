@@ -1,0 +1,62 @@
+.burger-btn {
+  @apply ml-3 w-[30px] h-[20px] relative z-[1];
+
+  span {
+    @apply absolute left-0 h-[2px] w-full top-[9px] bg-[#000]
+    first:top-0
+    last:top-[18px];
+  }
+}
+
+.burger {
+  @apply bg-slate-300 fixed top-0 left-[-100%] h-full w-[290px] px-2.5 z-[2] flex justify-between flex-col;
+
+  .top {
+    > div {
+      @apply py-4 flex justify-between items-center border-b border-[#0000001a];
+
+      h2 {
+        @apply font-bold text-2xl;
+      }
+    }
+
+    ul {
+      @apply py-4;
+
+      li {
+        @apply my-1;
+
+        a {
+          @apply font-medium text-base my-1 capitalize;
+        }
+      }
+    }
+  }
+
+  .bottom {
+    .auth {
+      @apply flex flex-col pb-4;
+
+      button {
+        @apply flex items-center justify-center w-full self-start py-2 px-6 mt-4 my-auto items-center bg-blue-200 ml-auto font-bold rounded-full text-white transition-all duration-300
+        hover:no-underline hover:bg-purple;
+
+        svg {
+          @apply mr-2;
+        }
+      }
+    }
+
+    .social {
+      @apply flex justify-center border-t border-[#0000001a] pt-4;
+    }
+
+    ul {
+      @apply flex gap-3 items-center ml-2;
+    }
+  }
+}
+
+.burger.active {
+  @apply py-2.5 px-5 left-0;
+}

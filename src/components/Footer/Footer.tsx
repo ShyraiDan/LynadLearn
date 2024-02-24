@@ -31,13 +31,19 @@ export function Footer() {
               <p>Follow us</p>
               <ul>
                 <li>
-                  <FaInstagram />
+                  <Link href={'https://www.instagram.com/'}>
+                    <FaInstagram />
+                  </Link>
                 </li>
                 <li>
-                  <FaXTwitter />
+                  <Link href={'https://twitter.com/'}>
+                    <FaXTwitter />
+                  </Link>
                 </li>
                 <li>
-                  <FaFacebook />
+                  <Link href={'https://www.facebook.com/'}>
+                    <FaFacebook />
+                  </Link>
                 </li>
               </ul>
             </div>

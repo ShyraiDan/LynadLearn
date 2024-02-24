@@ -12,6 +12,10 @@
   }
 }
 
+.header-right {
+  @apply flex items-center;
+}
+
 .user {
   @apply flex items-center;
 }
