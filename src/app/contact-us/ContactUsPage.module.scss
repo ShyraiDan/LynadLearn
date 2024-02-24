@@ -1,0 +1,47 @@
+.container {
+  @apply px-4 flex flex-col
+  md:mt-16 md:flex-row
+  2xl:max-w-[1290px] 2xl:mx-auto;
+
+  .left {
+    @apply basis-1/2;
+
+    h1 {
+      @apply text-3xl text-blue-200 px-6 font-bold;
+    }
+
+    p {
+      @apply px-6 mb-2 pt-2 text-justify text-[#092550] text-base font-medium;
+    }
+  }
+
+  .form {
+    @apply mt-6 px-2 basis-1/2
+    sm:mt-0
+    lg:pl-0
+    xl:pl-12;
+
+    > div {
+      @apply bg-[#ffffffda] shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] border-0 rounded-[20px] xl:p-24 sm:p-12 p-6 lg:m-0 overflow-hidden;
+
+      form {
+        div {
+          @apply mb-4;
+
+          label {
+            @apply block font-semibold mb-2;
+          }
+
+          input,
+          textarea {
+            @apply font-medium text-[#6c757d] opacity-90 px-3 py-1.5 rounded border border-[#ced4da] w-full;
+          }
+        }
+
+        button {
+          @apply font-medium rounded text-white bg-blue-200 border-blue-200 px-3 py-1.5;
+        }
+      }
+    }
+  }
+}
