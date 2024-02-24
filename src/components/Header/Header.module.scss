@@ -1,9 +1,11 @@
 .header {
-  @apply flex items-center my-2.5 justify-between 2xl:max-w-1440 2xl:mx-auto;
+  @apply flex items-center p-4 justify-between
+  sm:mx-3 
+  xl:max-w-[1320px] xl:mx-auto;
 }
 
 .header-left {
-  @apply flex items-center ml-2.5;
+  @apply flex items-center;
 
   a {
     @apply font-bold p-2;
@@ -26,12 +28,9 @@
   @apply fill-white;
 }
 
-.header-right {
-  @apply mr-2.5;
-}
-
 .nav-list {
-  @apply hidden lg:flex lg:items-center lg:gap-5 lg:ml-5;
+  @apply hidden 
+  lg:flex lg:items-center lg:gap-5 lg:ml-5;
 }
 
 .nav-item {
