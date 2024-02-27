@@ -22,7 +22,7 @@ export function Footer() {
                     <Link href={'/pricing'}>Pricing</Link>
                   </li>
                   <li className={styles['nav-item']}>
-                    <Link href={'/corporate'}>Corporate</Link>
+                    <Link href={'/contact-us'}>Contact Us</Link>
                   </li>
                 </ul>
               </nav>

@@ -60,8 +60,7 @@
           td {
             @apply text-center text-center
             lg:text-base
-            first:text-left first:pr-0 first:p-4 first:lg:text-lg
-            last:pl-0 last:p-4;
+            first:text-left first:pr-0 first:p-4 first:lg:text-lg;
 
             svg {
               display: unset;
