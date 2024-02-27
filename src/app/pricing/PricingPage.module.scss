@@ -33,10 +33,10 @@
   }
 
   .table {
-    @apply relative w-full rounded-3xl;
+    @apply w-full rounded-3xl;
 
     table {
-      @apply w-full relative rounded-3xl z-20;
+      @apply w-full rounded-3xl;
 
       thead {
         @apply bg-blue-100 text-white;
