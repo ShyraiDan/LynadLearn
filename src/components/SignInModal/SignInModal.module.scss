@@ -1,11 +1,59 @@
-.modal {
-  @apply flex flex-col justify-between h-full w-full;
-
-  > div {
-    @apply flex flex-col mt-auto mb-auto items-center p-8;
+.btn {
+  button {
+    svg {
+      @apply mr-2;
+    }
   }
 }
 
-.icon {
-  @apply mr-2;
+.modal {
+  @apply flex flex-col justify-center h-full
+  lg:flex-row;
+
+  .image {
+    @apply hidden w-[375px] pr-4 items-center
+    lg:flex lg:basis-1/2;
+  }
+
+  .form-container {
+    @apply basis-1/2;
+
+    h2 {
+      @apply mb-2 text-3xl font-bold;
+    }
+
+    p {
+      @apply mb-7;
+    }
+
+    .form {
+      label {
+        @apply mb-1;
+      }
+
+      input {
+        @apply mb-3;
+      }
+    }
+
+    button {
+      @apply mt-2 text-black shadow-md bg-transparent mb-2 w-full rounded
+    last:mt-6 last:bg-blue-200 last:text-white last:shadow-none;
+
+      svg {
+        @apply mr-2;
+      }
+    }
+
+    span {
+      @apply text-center text-sm my-2;
+    }
+    div {
+      @apply flex justify-between mt-10;
+
+      span {
+        @apply my-0 text-base;
+      }
+    }
+  }
 }

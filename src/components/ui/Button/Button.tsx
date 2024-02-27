@@ -3,8 +3,6 @@ import { IButton } from './Button.interface'
 import Link from 'next/link'
 
 export function Button({ children, href, onClick, type, outline }: IButton) {
-  console.log('btn', outline)
-
   return (
     <>
       {href ? (

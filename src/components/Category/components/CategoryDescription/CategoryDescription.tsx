@@ -3,8 +3,6 @@ import styles from './CategoryDescription.module.scss'
 import { ICategory } from '@/intefaces/Category.interface'
 
 export default function CategoryDescription({ title, id, description }: Omit<ICategory, 'lists'>) {
-  console.log(description)
-
   return (
     <>
       <div className={styles.top}>
