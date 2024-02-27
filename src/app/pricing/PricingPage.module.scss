@@ -1,6 +1,6 @@
 .container {
-  @apply mx-4 pb-20 overflow-x-hidden 
-  2xl:max-w-[1290px] 2xl:mx-auto;
+  @apply pb-20 overflow-x-hidden px-4
+  2xl:max-w-[1320px] 2xl:mx-auto;
 
   .top {
     @apply flex leading-6 pt-10 relative mx-auto flex flex-col items-center justify-center py-2;

@@ -9,7 +9,7 @@
   before:first:bg-grey;
 
   a {
-    @apply text-center hover:bg-purple bg-blue-100 text-white border-0 transition-all ease-linear duration-150 w-full self-end cursor-pointer font-medium text-base align-baseline py-3 px-10 rounded-3xl 
+    @apply w-full self-end py-3 px-10 
     sm:w-[200px];
   }
 
@@ -44,11 +44,6 @@
     @apply text-orange mr-1.5 text-2xl
     md:hidden 
     lg:block;
-  }
-
-  .outline {
-    @apply bg-transparent text-blue-100 border-[1.5px] border-solid border-blue-100 bg-transparent transition-all ease-linear duration-150 w-full self-end cursor-pointer font-medium text-base align-baseline py-3 px-10 rounded-3xl 
-    sm:w-[200px];
   }
 
   .popular {

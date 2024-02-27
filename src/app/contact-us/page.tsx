@@ -1,4 +1,5 @@
 import styles from './ContactUsPage.module.scss'
+import { Button } from '@/components/ui/Button/Button'
 
 export default function ContactUsPage() {
   return (
@@ -32,7 +33,7 @@ export default function ContactUsPage() {
               <textarea name='message' id='message' placeholder='Enter your message' />
             </div>
 
-            <button type='submit'>Submit</button>
+            <Button type='submit'>Submit</Button>
           </form>
         </div>
       </div>

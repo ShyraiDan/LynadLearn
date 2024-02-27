@@ -1,14 +1,9 @@
-import { useEffect, ReactNode } from 'react'
+import { useEffect } from 'react'
 import { ReactPortal } from './ReactPortal/ReactPortal'
+import { IModal } from './Modal.interface'
 import styles from './Modal.module.scss'
 
 import { RxCross1 } from 'react-icons/rx'
-
-interface IModal {
-  children: ReactNode
-  isOpen: boolean
-  handleClose: () => void
-}
 
 export function Modal({ children, isOpen, handleClose }: IModal) {
   useEffect(() => {
