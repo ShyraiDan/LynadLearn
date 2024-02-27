@@ -8,6 +8,7 @@ import Burder from '../Burger/Burder'
 
 import { FaUser } from 'react-icons/fa'
 import { IoIosArrowDown } from 'react-icons/io'
+import { SignInModal } from '../SignInModal/SignInModal'
 
 export function Header() {
   // const [isUserModal, setUserModal] = useState()
@@ -54,7 +55,7 @@ export function Header() {
             {isUserModal && <UserModal />}
           </>
         ) : (
-          <Button>Login</Button>
+          <SignInModal />
         )}
 
         <Burder />

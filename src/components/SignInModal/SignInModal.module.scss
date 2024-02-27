@@ -1,0 +1,11 @@
+.modal {
+  @apply flex flex-col justify-between h-full w-full;
+
+  > div {
+    @apply flex flex-col mt-auto mb-auto items-center p-8;
+  }
+}
+
+.icon {
+  @apply mr-2;
+}

@@ -1,0 +1,16 @@
+.layout {
+  @apply fixed top-0 left-0 w-screen h-screen z-10 bg-neutral-800 opacity-50;
+}
+.modal {
+  @apply fixed flex flex-col box-border min-w-fit overflow-hidden p-5 bg-white inset-y-0 inset-x-0 z-20
+  md:inset-x-12 md:inset-y-20 md:rounded
+  lg:inset-x-20 lg:inset-y-32;
+
+  button {
+    @apply py-2 px-2 self-end font-bold;
+  }
+
+  > div {
+    @apply box-border h-5/6;
+  }
+}
