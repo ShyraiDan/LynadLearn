@@ -6,11 +6,7 @@ import Burder from '../Burger/Burder'
 import { UserModal } from '../UserModal/UserModal'
 
 export function Header() {
-  // const [isUserModal, setUserModal] = useState()
-  // const [isLanguageModal, setLanguageModal] = useState()
-
-  const isAuth = true
-  const isLanguageModal = false
+  const isAuth = false
 
   return (
     <header className={styles.header}>
@@ -31,8 +27,7 @@ export function Header() {
             <li className={styles['nav-item']}>
               <Link href={'/dashboard/lists'}>Dashboard</Link>
             </li>
-            <li className={styles['nav-item']}>English</li>
-            {isLanguageModal && <LanguageModal />}
+            <LanguageModal />
           </ul>
         </nav>
       </div>
