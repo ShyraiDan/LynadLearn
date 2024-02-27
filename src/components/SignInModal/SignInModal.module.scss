@@ -46,13 +46,14 @@
     }
 
     span {
-      @apply text-center text-sm my-2;
+      @apply block text-center text-sm my-2;
     }
+
     div {
       @apply flex justify-between mt-10;
 
       span {
-        @apply my-0 text-base;
+        @apply my-0 text-base cursor-pointer block;
       }
     }
   }
