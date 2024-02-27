@@ -4,7 +4,7 @@
 .modal {
   @apply fixed max-w-[1040px] flex flex-col box-border min-w-fit overflow-hidden p-5 bg-white inset-y-0 inset-x-0 z-20
   sm:inset-x-12 sm:inset-y-28 sm:rounded
-  lg:inset-x-20 lg:inset-y-36 lg:p-8
+  lg:inset-x-20 lg:inset-y-24 lg:p-8
   xl:mx-auto;
 
   button {

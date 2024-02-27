@@ -16,7 +16,8 @@
   }
 
   .form-container {
-    @apply basis-1/2;
+    @apply basis-1/2
+    lg:flex lg:justify-center lg:flex-col;
 
     h2 {
       @apply mb-2 text-3xl font-bold;
