@@ -16,22 +16,6 @@
   @apply flex items-center;
 }
 
-.user {
-  @apply flex items-center;
-}
-
-.arrow {
-  @apply ml-2;
-}
-
-.user-avatar {
-  @apply rounded-full bg-black w-10 h-10 flex items-center justify-center;
-}
-
-.icon {
-  @apply fill-white;
-}
-
 .nav-list {
   @apply hidden 
   lg:flex lg:items-center lg:gap-5 lg:ml-5;

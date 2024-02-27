@@ -28,7 +28,7 @@ export default function Burder() {
         <div className={styles.top}>
           <div>
             <h2>LynadLearn</h2>
-            <RxCross1 size={'24px'} />
+            <RxCross1 onClick={() => setBurgerShow((state) => !state)} size={'24px'} />
           </div>
           <ul>
             <li>

@@ -1,22 +1,15 @@
 import Link from 'next/link'
 import styles from './Header.module.scss'
-import { Button } from '../ui/Button/Button'
-// import { useState } from 'react'
-import UserModal from '../UserModal/UserModal'
 import LanguageModal from '../LanguageModal/LanguageModal'
-import Burder from '../Burger/Burder'
-
-import { FaUser } from 'react-icons/fa'
-import { IoIosArrowDown } from 'react-icons/io'
 import { SignInModal } from '../SignInModal/SignInModal'
+import Burder from '../Burger/Burder'
+import { UserModal } from '../UserModal/UserModal'
 
 export function Header() {
   // const [isUserModal, setUserModal] = useState()
-  // const [isAuth, setAuth] = useState()
   // const [isLanguageModal, setLanguageModal] = useState()
 
-  const isAuth = false
-  const isUserModal = false
+  const isAuth = true
   const isLanguageModal = false
 
   return (
@@ -44,20 +37,7 @@ export function Header() {
         </nav>
       </div>
       <div className={styles['header-right']}>
-        {isAuth ? (
-          <>
-            <div className={styles.user}>
-              <div className={styles['user-avatar']}>
-                <FaUser className={styles.icon} />
-              </div>
-              <IoIosArrowDown className={styles.arrow} />
-            </div>
-            {isUserModal && <UserModal />}
-          </>
-        ) : (
-          <SignInModal />
-        )}
-
+        {isAuth ? <UserModal /> : <SignInModal />}
         <Burder />
       </div>
     </header>
