@@ -1,4 +1,8 @@
+'use client'
+
 import Link from 'next/link'
+import { useState } from 'react'
+import { Button } from '../ui/Button/Button'
 import styles from './Burger.module.scss'
 
 import { FaUser } from 'react-icons/fa'
@@ -9,17 +13,18 @@ import { MdLogin } from 'react-icons/md'
 import { RxCross1 } from 'react-icons/rx'
 
 export default function Burder() {
-  const isShow = true
+  const [isBurgerShow, setBurgerShow] = useState(false)
   const isAuth = false
 
   return (
     <>
-      <div className={styles['burger-btn']}>
+      <div onClick={() => setBurgerShow((state) => !state)} className={styles['burger-btn']}>
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <div className={`${styles.burger} ${isShow && styles.active}`}>
+
+      <div className={`${styles.burger} ${isBurgerShow && styles.active}`}>
         <div className={styles.top}>
           <div>
             <h2>LynadLearn</h2>
@@ -49,14 +54,14 @@ export default function Burder() {
 
         <div className={styles.bottom}>
           <div className={styles.auth}>
-            <button>
+            <Button>
               <FaUser />
               Sign In
-            </button>
-            <button>
+            </Button>
+            <Button>
               <MdLogin />
               Sign Up
-            </button>
+            </Button>
           </div>
           <div className={styles.social}>
             <p>Follow us</p>
