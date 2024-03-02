@@ -40,5 +40,21 @@
     "advanced_vocabulary_features": "Advanced vocabulary features",
     "daily_vocabulary_feature": "Daily vocabulary feature",
     "limited": "limited"
+  },
+  "Contact_Us": {
+    "contact_us": "Contact Us",
+    "we_take_our_commitment": "We take our commitment to our users seriously. If you need our help with your user account, have questions about how to use the platform or are experiencing technical difficulties, please do not hesitate to contact us.",
+    "we_are_also_proud": "We are also proud to work with other similar corporations and investors."
+  },
+  "Forms": {
+    "full_name": "Full Name",
+    "enter_your_name": "Enter your full name",
+    "email": "Email",
+    "enter_your_email": "Enter your email",
+    "subject": "Subject",
+    "enter_subject": "Enter subject",
+    "message": "Message",
+    "enter_message": "Enter your message",
+    "submit": "Submit"
   }
 }

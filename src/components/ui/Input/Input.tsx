@@ -1,13 +1,13 @@
 import styles from './Input.module.scss'
 import { IInput } from './Input.interface'
 
-export function Input({ type, placeholder, name, id, children }: IInput) {
+export function Input({ type, placeholder, name, id, children, required }: IInput) {
   return (
     <>
       <label className={styles.label} htmlFor={id}>
         {children}
       </label>
-      <input className={styles.input} type={type} placeholder={placeholder} name={name} id={id} />
+      <input required={required} className={styles.input} type={type} placeholder={placeholder} name={name} id={id} />
     </>
   )
 }

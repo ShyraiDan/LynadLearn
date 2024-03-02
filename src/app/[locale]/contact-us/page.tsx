@@ -1,39 +1,41 @@
 import styles from './ContactUsPage.module.scss'
 import { Button } from '@/components/ui/Button/Button'
+import { useTranslations } from 'next-intl'
+import { Input } from '@/components/ui/Input/Input'
 
 export default function ContactUsPage() {
+  const t = useTranslations()
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-        <h1>Contact Us</h1>
-        <p>
-          We take our commitment to our users seriously. If you need our help with your user account, have questions
-          about how to use the platform or are experiencing technical difficulties, please do not hesitate to contact
-          us.
-        </p>
-        <p>We are also proud to work with other similar corporations and investors.</p>
+        <h1>{t('Contact_Us.contact_us')}</h1>
+        <p>{t('Contact_Us.we_take_our_commitment')}</p>
+        <p>{t('Contact_Us.we_are_also_proud')}</p>
       </div>
       <div className={styles.form}>
         <div>
           <form action=''>
             <div>
-              <label htmlFor='fullName'>Full Name</label>
-              <input type='text' name='fullName' id='fullName' placeholder='Enter your full name' />
+              <Input required type='text' name='fullName' id='fullName' placeholder={t('Forms.enter_your_name')}>
+                {t('Forms.full_name')}
+              </Input>
             </div>
             <div>
-              <label htmlFor='email'>Email</label>
-              <input type='email' name='email' id='email' placeholder='Enter your email' />
+              <Input required type='email' name='email' id='email' placeholder={t('Forms.enter_your_email')}>
+                {t('Forms.email')}
+              </Input>
             </div>
             <div>
-              <label htmlFor='subject'>Subject</label>
-              <input type='text' name='subject' id='subject' placeholder='Enter subject' />
+              <Input required type='text' name='subject' id='subject' placeholder={t('Forms.enter_subject')}>
+                {t('Forms.subject')}
+              </Input>
             </div>
             <div>
-              <label htmlFor='message'>Message</label>
-              <textarea name='message' id='message' placeholder='Enter your message' />
+              <label htmlFor='message'>{t('Forms.message')}</label>
+              <textarea required name='message' id='message' placeholder={t('Forms.enter_message')} />
             </div>
-
-            <Button type='submit'>Submit</Button>
+            <Button type='submit'>{t('Forms.submit')}</Button>
           </form>
         </div>
       </div>
