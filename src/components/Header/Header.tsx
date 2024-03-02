@@ -4,8 +4,10 @@ import { SignInModal } from '../SignInModal/SignInModal'
 import Burder from '../Burger/Burder'
 import { UserModal } from '../UserModal/UserModal'
 import NavigationLink from '../ui/NavigationLink/NavigationLink'
+import { useTranslations } from 'next-intl'
 
 export function Header() {
+  const t = useTranslations('Header')
   const isAuth = false
 
   return (
@@ -16,16 +18,16 @@ export function Header() {
         <nav>
           <ul className={styles['nav-list']}>
             <li className={styles['nav-item']}>
-              <NavigationLink href='/about-us'>About us</NavigationLink>
+              <NavigationLink href='/about-us'>{t('about_us')}</NavigationLink>
             </li>
             <li className={styles['nav-item']}>
-              <NavigationLink href='/pricing'>Pricing</NavigationLink>
+              <NavigationLink href='/pricing'>{t('pricing')}</NavigationLink>
             </li>
             <li className={styles['nav-item']}>
-              <NavigationLink href={'/contact-us'}>Contact Us</NavigationLink>
+              <NavigationLink href={'/contact-us'}>{t('contact_us')}</NavigationLink>
             </li>
             <li className={styles['nav-item']}>
-              <NavigationLink href={'/dashboard/lists'}>Dashboard</NavigationLink>
+              <NavigationLink href={'/dashboard/lists'}>{t('dashboard')}</NavigationLink>
             </li>
             <LanguageModal />
           </ul>

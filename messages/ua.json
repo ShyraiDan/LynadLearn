@@ -1,5 +1,18 @@
 {
   "Index": {
     "title": "Привітик"
+  },
+  "Header": {
+    "about_us": "Про нас",
+    "pricing": "Ціна",
+    "contact_us": "Зверніться до нас",
+    "dashboard": "Дошка",
+    "sign_in": "Увійти",
+    "sign_up": "Зареєструватись",
+    "follow_us": "Приєднуйтесь до нас"
+  },
+  "Language": {
+    "english": "Англійська",
+    "ukrainian": "Українська"
   }
 }

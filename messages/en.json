@@ -1,5 +1,18 @@
 {
   "Index": {
     "title": "Hello world!"
+  },
+  "Header": {
+    "about_us": "About us",
+    "pricing": "Pricing",
+    "contact_us": "Contact Us",
+    "dashboard": "Dashboard",
+    "sign_in": "Sign in",
+    "sign_up": "Sign up",
+    "follow_us": "Follow us"
+  },
+  "Language": {
+    "english": "English",
+    "ukrainian": "Ukrainian"
   }
 }

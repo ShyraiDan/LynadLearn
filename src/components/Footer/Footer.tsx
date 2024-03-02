@@ -1,12 +1,15 @@
 import styles from './Footer.module.scss'
 import NavigationLink from '../ui/NavigationLink/NavigationLink'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 import { FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { FaFacebook } from 'react-icons/fa'
 
 export function Footer() {
+  const t = useTranslations('Header')
+
   return (
     <>
       <footer className={styles.footer}>
@@ -17,19 +20,19 @@ export function Footer() {
               <nav>
                 <ul className={styles['nav-list']}>
                   <li className={styles['nav-item']}>
-                    <NavigationLink href='/about-us'>About us</NavigationLink>
+                    <NavigationLink href='/about-us'>{t('about_us')}</NavigationLink>
                   </li>
                   <li className={styles['nav-item']}>
-                    <NavigationLink href='/pricing'>Pricing</NavigationLink>
+                    <NavigationLink href='/pricing'>{t('pricing')}</NavigationLink>
                   </li>
                   <li className={styles['nav-item']}>
-                    <NavigationLink href={'/contact-us'}>Contact Us</NavigationLink>
+                    <NavigationLink href={'/contact-us'}>{t('contact_us')}</NavigationLink>
                   </li>
                 </ul>
               </nav>
             </div>
             <div className={styles['footer-right']}>
-              <p>Follow us</p>
+              <p>{t('follow_us')}</p>
               <ul>
                 <li>
                   <Link href={'https://www.instagram.com/'}>
