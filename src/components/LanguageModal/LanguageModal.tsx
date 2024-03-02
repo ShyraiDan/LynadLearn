@@ -1,12 +1,26 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, ChangeEvent, useTransition } from 'react'
+import { useLocale } from 'next-intl'
+import { useRouter, usePathname } from 'next/navigation'
 import styles from './LanguageModal.module.scss'
 
 import { IoIosArrowDown } from 'react-icons/io'
 
 export default function LanguageModal() {
   const [isLanguageModal, setLanguageModal] = useState(false)
+  const [isPending, startTransition] = useTransition()
+  const router = useRouter()
+  const pathname = usePathname()
+  const localActive = useLocale()
+
+  const changeLang = (lang: string) => {
+    const path = pathname
+    const newPath = path.split('/')
+    newPath.splice(0, 2)
+
+    router.replace(`/${lang}/${newPath.join('/')}`)
+  }
 
   return (
     <>
@@ -17,8 +31,8 @@ export default function LanguageModal() {
       {isLanguageModal && (
         <div className={styles.modal}>
           <ul>
-            <li>English</li>
-            <li>Ukrainian</li>
+            <li onClick={() => changeLang('en')}>English</li>
+            <li onClick={() => changeLang('ua')}>Ukrainian</li>
           </ul>
         </div>
       )}

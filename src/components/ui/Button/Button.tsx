@@ -1,19 +1,12 @@
 import styles from './Button.module.scss'
 import { IButton } from './Button.interface'
-import Link from 'next/link'
 
-export function Button({ children, href, onClick, type, outline }: IButton) {
+export function Button({ children, onClick, type, outline }: IButton) {
   return (
     <>
-      {href ? (
-        <Link href={href} className={`${styles.button} ${outline && styles.outline}`}>
-          {children}
-        </Link>
-      ) : (
-        <button type={type} className={`${styles.button} ${outline && styles.outline}`} onClick={onClick}>
-          {children}
-        </button>
-      )}
+      <button type={type} className={`${styles.button} ${outline && styles.outline}`} onClick={onClick}>
+        {children}
+      </button>
     </>
   )
 }

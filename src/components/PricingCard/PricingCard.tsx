@@ -1,8 +1,7 @@
-import Link from 'next/link'
 import styles from './PricingCard.module.scss'
 import { IPricing } from '@/intefaces/Pricing.interface'
 import Image from 'next/image'
-import { Button } from '../ui/Button/Button'
+import NavigationLink from '../ui/NavigationLink/NavigationLink'
 
 import { AiOutlineThunderbolt } from 'react-icons/ai'
 import { TbZoomMoney } from 'react-icons/tb'
@@ -34,9 +33,10 @@ export default function PricingCard({ data }: { data: IPricing }) {
           ))}
         </ul>
       </div>
-      <Button outline={data.price === 'Free'} href='/'>
+
+      <NavigationLink className={`${data.price === 'Free' && styles.outline}`} href='/'>
         {data.price === 'Free' ? 'Current' : 'Sign in'}
-      </Button>
+      </NavigationLink>
 
       {data.duration === '1 Year' && (
         <div className={styles.popular}>

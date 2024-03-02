@@ -1,4 +1,5 @@
 import styles from './Footer.module.scss'
+import NavigationLink from '../ui/NavigationLink/NavigationLink'
 import Link from 'next/link'
 
 import { FaInstagram } from 'react-icons/fa'
@@ -10,19 +11,19 @@ export function Footer() {
     <>
       <footer className={styles.footer}>
         <div className={styles['footer-main']}>
-          <Link href={'/'}>LynadLearn</Link>
+          <NavigationLink href={'/'}>LynadLearn</NavigationLink>
           <div className={styles['footer-center']}>
             <div className={styles['footer-left']}>
               <nav>
                 <ul className={styles['nav-list']}>
                   <li className={styles['nav-item']}>
-                    <Link href={'/about-us'}>About us</Link>
+                    <NavigationLink href='/about-us'>About us</NavigationLink>
                   </li>
                   <li className={styles['nav-item']}>
-                    <Link href={'/pricing'}>Pricing</Link>
+                    <NavigationLink href='/pricing'>Pricing</NavigationLink>
                   </li>
                   <li className={styles['nav-item']}>
-                    <Link href={'/contact-us'}>Contact Us</Link>
+                    <NavigationLink href={'/contact-us'}>Contact Us</NavigationLink>
                   </li>
                 </ul>
               </nav>

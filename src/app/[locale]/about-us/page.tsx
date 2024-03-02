@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styles from './AboutUsPage.module.scss'
 
-import image from './../../assets/about-us.png'
+import image from '@/assets/about-us.png'
 
 export default function AboutUsPage() {
   return (
