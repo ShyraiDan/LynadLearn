@@ -1,42 +1,42 @@
 import styles from './PricingPage.module.scss'
 import PricingCard from '@/components/PricingCard/PricingCard'
 import { DPricing } from '@/mock/Pricing.mock'
+import { useTranslations } from 'next-intl'
 
 import { TiTick } from 'react-icons/ti'
 
 export default function PricingPage() {
+  const t = useTranslations('Pricing')
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        <h1>Pricing</h1>
+        <h1>{t('pricing')}</h1>
         <div>
           {DPricing.map((item) => (
             <PricingCard key={item.price} data={item} />
           ))}
         </div>
       </div>
-      <h2>Take the next step to achieve your goals</h2>
-      <p>
-        LanGeek&apos;s Basic membership offers essential language learning tools, while our Premium membership unlocks a
-        treasure trove of advanced features and personalized learning experiences.
-      </p>
+      <h2>{t('take_the_next_step')}</h2>
+      <p>{t('lynadLearn_basic_membership_offers')}</p>
       <div className={styles.table}>
         <table>
           <thead>
             <tr>
-              <th>Compare plans</th>
-              <th>Free</th>
-              <th>Premium</th>
+              <th>{t('compare_plans')}</th>
+              <th>{t('free')}</th>
+              <th>{t('premium')}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Available platforms</td>
+              <td>{t('available_platforms')}</td>
               <td>Web, Android, iOS</td>
               <td>Web, Android, iOS</td>
             </tr>
             <tr>
-              <td>Grammar Library</td>
+              <td>{t('grammar_library')}</td>
               <td>
                 <TiTick />
               </td>
@@ -45,7 +45,7 @@ export default function PricingPage() {
               </td>
             </tr>
             <tr>
-              <td>Pronunciation Lessons</td>
+              <td>{t('pronunciation_lessons')}</td>
               <td>
                 <TiTick />
               </td>
@@ -54,7 +54,7 @@ export default function PricingPage() {
               </td>
             </tr>
             <tr>
-              <td>Vocabulary review</td>
+              <td>{t('vocabulary_review')}</td>
               <td>
                 <TiTick />
               </td>
@@ -63,22 +63,22 @@ export default function PricingPage() {
               </td>
             </tr>
             <tr>
-              <td>Custom word lists</td>
-              <td>limited</td>
+              <td>{t('custom_word_lists')}</td>
+              <td>{t('limited')}</td>
               <td>
                 <TiTick />
               </td>
             </tr>
             <tr>
-              <td>Advanced vocabulary features</td>
-              <td>limited</td>
+              <td>{t('advanced_vocabulary_features')}</td>
+              <td>{t('limited')}</td>
               <td>
                 <TiTick />
               </td>
             </tr>
             <tr>
-              <td>Daily vocabulary feature</td>
-              <td>limited</td>
+              <td>{t('daily_vocabulary_feature')}</td>
+              <td>{t('limited')}</td>
               <td>
                 <TiTick />
               </td>

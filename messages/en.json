@@ -14,5 +14,31 @@
   "Language": {
     "english": "English",
     "ukrainian": "Ukrainian"
+  },
+  "Pricing": {
+    "pricing": "Pricing",
+    "basic": "Basic",
+    "year": "Year",
+    "years": "Years",
+    "quick_access": "Quick access to basic features",
+    "guarantee": "7-Day money back guarantee",
+    "vat_may": "Vat may apply",
+    "most_popular": "Most Popular",
+    "best_offer": "Best Offer",
+    "current": "Сurrent",
+    "sign_in": "Sign in",
+    "take_the_next_step": "Take the next step to achieve your goals",
+    "lynadLearn_basic_membership_offers": "LynadLearn's Basic membership offers essential language learning tools, while our Premium membership unlocks a treasure trove of advanced features and personalized learning experiences.",
+    "compare_plans": "Compare plans",
+    "free": "Free",
+    "premium": "Premium",
+    "available_platforms": "Available platforms",
+    "grammar_library": "Grammar Library",
+    "pronunciation_lessons": "Pronunciation Lessons",
+    "vocabulary_review": "Vocabulary review",
+    "custom_word_lists": "Custom word lists",
+    "advanced_vocabulary_features": "Advanced vocabulary features",
+    "daily_vocabulary_feature": "Daily vocabulary feature",
+    "limited": "limited"
   }
 }

@@ -4,7 +4,7 @@
   },
   "Header": {
     "about_us": "Про нас",
-    "pricing": "Ціна",
+    "pricing": "Ціноутворення",
     "contact_us": "Зверніться до нас",
     "dashboard": "Дошка",
     "sign_in": "Увійти",
@@ -14,5 +14,31 @@
   "Language": {
     "english": "Англійська",
     "ukrainian": "Українська"
+  },
+  "Pricing": {
+    "pricing": "Ціноутворення",
+    "basic": "Базова",
+    "year": "Рік",
+    "years": "Роки",
+    "quick_access": "Швидкий доступ до основних функцій",
+    "guarantee": "7-денна гарантія повернення грошей",
+    "vat_may": "Може стягуватися ПДВ",
+    "most_popular": "Найпопулярніше",
+    "best_offer": "Найкраща пропозиція",
+    "current": "Поточне",
+    "sign_in": "Увійти",
+    "take_the_next_step": "Зробіть наступний крок для досягнення своїх цілей",
+    "lynadLearn_basic_membership_offers": "Базове членство LynadLearn пропонує основні інструменти для вивчення мови, а наше преміум-членство відкриває скарбницю розширених функцій і персоналізованого досвіду навчання.",
+    "compare_plans": "Порівняти плани",
+    "free": "Безкоштовно",
+    "premium": "Преміум",
+    "available_platforms": "Доступні платформи",
+    "grammar_library": "Граматична бібліотека",
+    "pronunciation_lessons": "Уроки вимови",
+    "vocabulary_review": "Огляд словника",
+    "custom_word_lists": "Спеціальні списки слів",
+    "advanced_vocabulary_features": "Розширені функції словника",
+    "daily_vocabulary_feature": "Функція щоденного словника",
+    "limited": "обмежено"
   }
 }

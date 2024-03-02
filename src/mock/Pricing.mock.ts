@@ -2,43 +2,43 @@ import { IPricing } from '@/intefaces/Pricing.interface'
 
 export const DPricing: IPricing[] = [
   {
-    duration: 'Basic',
-    price: 'Free',
+    duration: 'basic',
+    price: 'free',
     advantages: [
       {
         icon: 'thunder',
-        text: 'Quick access to basic features'
+        text: 'quick_access'
       }
     ]
   },
   {
-    duration: '1 Year',
+    duration: 'year',
     price: '€12',
-    tag: 'Most Popular',
+    tag: 'most_popular',
     advantages: [
       {
         icon: 'return',
-        text: '7-Day money back guarantee'
+        text: 'guarantee'
       },
       {
         icon: 'percent',
-        text: 'Vat may apply'
+        text: 'vat_may'
       }
     ]
   },
   {
-    duration: '3 Years',
+    duration: 'years',
     price: '€24',
-    tag: 'Best offer',
+    tag: 'best_offer',
     previousPrice: '€36.00',
     advantages: [
       {
         icon: 'return',
-        text: '7-Day money back guarantee'
+        text: 'guarantee'
       },
       {
         icon: 'percent',
-        text: 'Vat may apply'
+        text: 'vat_may'
       }
     ]
   }

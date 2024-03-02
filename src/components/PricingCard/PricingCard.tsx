@@ -2,6 +2,7 @@ import styles from './PricingCard.module.scss'
 import { IPricing } from '@/intefaces/Pricing.interface'
 import Image from 'next/image'
 import NavigationLink from '../ui/NavigationLink/NavigationLink'
+import { useTranslations, useLocale } from 'next-intl'
 
 import { AiOutlineThunderbolt } from 'react-icons/ai'
 import { TbZoomMoney } from 'react-icons/tb'
@@ -11,12 +12,16 @@ import BestOffer from '@/assets/box-1.svg'
 import Discount from '@/assets/box.svg'
 
 export default function PricingCard({ data }: { data: IPricing }) {
+  const t = useTranslations('Pricing')
+  const localActive = useLocale()
+
   return (
     <div className={styles.card}>
       <div>
-        <h6>{data.duration}</h6>
+        <h6>{`${data.duration === 'years' ? '3 ' : data.duration === 'year' ? '1 ' : ''}${t(data.duration)}`}</h6>
         <div className={styles.title}>
-          <h3>{data.price}</h3> {data.previousPrice && <span>{data.previousPrice}</span>}
+          <h3>{data.price === 'free' ? t(data.price) : data.price}</h3>{' '}
+          {data.previousPrice && <span>{data.previousPrice}</span>}
         </div>
         <ul>
           {data.advantages.map((item) => (
@@ -28,20 +33,20 @@ export default function PricingCard({ data }: { data: IPricing }) {
               ) : (
                 <AiOutlineThunderbolt />
               )}
-              {item.text}
+              {t(item.text)}
             </li>
           ))}
         </ul>
       </div>
 
-      <NavigationLink className={`${data.price === 'Free' && styles.outline}`} href='/'>
-        {data.price === 'Free' ? 'Current' : 'Sign in'}
+      <NavigationLink className={`${data.price === 'free' && styles.outline}`} href='/'>
+        {data.price === 'free' ? t('current') : t('sign_in')}
       </NavigationLink>
 
-      {data.duration === '1 Year' && (
+      {data.duration === 'year' && (
         <div className={styles.popular}>
           <Image src={MostPopular} alt='' />
-          <p>Most Popular</p>
+          <p>{t('most_popular')}</p>
         </div>
       )}
 
@@ -52,10 +57,10 @@ export default function PricingCard({ data }: { data: IPricing }) {
         </div>
       )}
 
-      {data.duration === '3 Years' && (
+      {data.duration === 'years' && (
         <div className={styles.best}>
           <Image src={BestOffer} alt='' />
-          <p>Best offer</p>
+          <p className={`${localActive === 'ua' && styles.changed}`}>{t('best_offer')}</p>
         </div>
       )}
     </div>

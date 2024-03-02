@@ -59,7 +59,7 @@
       @apply w-[123px];
     }
     p {
-      @apply text-xs font-medium absolute top-[11px] left-[25px] text-white;
+      @apply text-xs font-medium absolute top-[11px] left-[15px] text-white;
     }
   }
 
@@ -70,7 +70,11 @@
       @apply w-[123px];
     }
     p {
-      @apply text-xs font-medium absolute top-[11px] left-[25px] text-white;
+      @apply text-xs font-medium absolute top-[11px] left-[15px] text-white;
+    }
+
+    .changed {
+      @apply top-[4px];
     }
   }
 
