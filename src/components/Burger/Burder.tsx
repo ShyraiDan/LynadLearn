@@ -2,17 +2,18 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { Button } from '../ui/Button/Button'
 import styles from './Burger.module.scss'
+import NavigationLink from '../ui/NavigationLink/NavigationLink'
+import { useTranslations } from 'next-intl'
+import { SignInModal } from '../SignInModal/SignInModal'
 
-import { FaUser } from 'react-icons/fa'
 import { FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { FaFacebook } from 'react-icons/fa'
-import { MdLogin } from 'react-icons/md'
 import { RxCross1 } from 'react-icons/rx'
 
 export default function Burder() {
+  const t = useTranslations('Header')
   const [isBurgerShow, setBurgerShow] = useState(false)
   const isAuth = false
 
@@ -32,16 +33,16 @@ export default function Burder() {
           </div>
           <ul>
             <li>
-              <Link href={'/about-us'}>About us</Link>
+              <NavigationLink href={'/about-us'}>{t('about_us')}</NavigationLink>
             </li>
             <li>
-              <Link href={'/pricing'}>Pricing</Link>
+              <NavigationLink href={'/pricing'}>{t('pricing')}</NavigationLink>
             </li>
             <li>
-              <Link href={'/contact-us'}>Contact Us</Link>
+              <NavigationLink href={'/contact-us'}>{t('contact_us')}</NavigationLink>
             </li>
             <li>
-              <Link href={'/dashboard/lists'}>Dashboard</Link>
+              <NavigationLink href={'/dashboard/lists'}>{t('dashboard')}</NavigationLink>
             </li>
 
             {isAuth && (
@@ -53,18 +54,9 @@ export default function Burder() {
         </div>
 
         <div className={styles.bottom}>
-          <div className={styles.auth}>
-            <Button>
-              <FaUser />
-              Sign In
-            </Button>
-            <Button>
-              <MdLogin />
-              Sign Up
-            </Button>
-          </div>
+          <div className={styles.auth}>{!isAuth && <SignInModal />}</div>
           <div className={styles.social}>
-            <p>Follow us</p>
+            <p>{t('follow_us')}</p>
             <ul>
               <li>
                 <Link href={'https://www.instagram.com/'}>
