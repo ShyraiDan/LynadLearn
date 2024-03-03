@@ -77,5 +77,21 @@
     "back_home": "Back Home",
     "if_page_broken": "If the page is broken",
     "let_us_know": "Let us know"
+  },
+  "About_us": {
+    "our_goal": "What is our goal",
+    "improve_language_learning": "To improve language learning process with the help of AI",
+    "we_believe_modern_learning": "We believe modern learning means a user-centric approach with the help of all kinds of contents available on the internet. Our mission is to create an AI based platform to make learning more fun and customized.",
+    "how_can_AI_help": "How can AI help?",
+    "a_substantial_part_of_learning": "A substantial part of learning a new language includes a constant search for new content to learn and keeping track of everything that you have learned.",
+    "with_the_help_of_AI": "With the help of AI this process can be fully automated, decreasing the time it takes to learn a new language substantially.",
+    "to_put_it_simply": "To put it simply, we provide you with what you need to learn for the next step and help you use it in the real world.",
+    "why_is_learning_difficult": "Why is learning a new language difficult?",
+    "languages_are_these_huge_chunks": "Languages are these huge chunks of content and to learn a new one needs a lot of time and dedication.",
+    "learn_new_language": "To learn a new language at an advanced level (at least C1) you need to learn about 10000 new words.",
+    "always_fun_start": "It is always fun to start learning but to maintain this process needs strong determination that not everyone has.",
+    "if_only_there": "If only there was a way to learn languages faster and easier.",
+    "who_are_we": "Who are we?",
+    "we_are_team": "We are a team of software developers and language experts with years of experience in designing and developing large-scale language learning platforms and products. We came to the realization that AI can help learners in many ways and are determined to change the way languages are taught and learned."
   }
 }
