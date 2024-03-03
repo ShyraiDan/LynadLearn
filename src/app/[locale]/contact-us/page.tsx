@@ -18,7 +18,7 @@ export default function ContactUsPage() {
           <form action=''>
             <div>
               <Input required type='text' name='fullName' id='fullName' placeholder={t('Forms.enter_your_name')}>
-                {t('Forms.full_name')}
+                {t('Forms.user_name')}
               </Input>
             </div>
             <div>

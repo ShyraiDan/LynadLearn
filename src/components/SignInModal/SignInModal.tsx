@@ -6,6 +6,7 @@ import { Button } from '../ui/Button/Button'
 import { Input } from '../ui/Input/Input'
 import Image from 'next/image'
 import styles from './SignInModal.module.scss'
+import { useTranslations } from 'next-intl'
 
 import { FaUser } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
@@ -14,12 +15,13 @@ import image from '@/assets/keep_your_learning_data.png'
 export function SignInModal() {
   const [isModalOpen, setModalOpen] = useState(false)
   const [isSignUpModal, setSignUpModal] = useState(false)
+  const t = useTranslations('Forms')
 
   return (
     <>
       <div className={styles.btn}>
         <Button onClick={() => setModalOpen(!isModalOpen)}>
-          <FaUser /> Sign in
+          <FaUser /> {t('sign_in')}
         </Button>
       </div>
       {isModalOpen && (
@@ -30,52 +32,53 @@ export function SignInModal() {
             </div>
             {isSignUpModal ? (
               <div className={styles['form-container']}>
-                <h2>Hello!</h2>
-                <p>Please enter your details to sign up.</p>
+                <h2>{t('hello')}</h2>
+                <p>{t('enter_details_sign_up')}</p>
                 <form action='' className={styles.form}>
-                  <Input type='email' name='email' id='email' placeholder='Enter your email address'>
-                    Email
+                  <Input required type='email' name='email' id='email' placeholder={t('enter_your_email')}>
+                    {t('email')}
                   </Input>
-                  <Input type='text' name='userName' id='userName' placeholder='Enter your user name'>
-                    User name
+                  <Input required type='text' name='userName' id='userName' placeholder={t('enter_your_name')}>
+                    {t('user_name')}
                   </Input>
-                  <Input type='password' name='password' id='password' placeholder='Enter your password'>
-                    Password
+                  <Input required type='password' name='password' id='password' placeholder={t('enter_password')}>
+                    {t('password')}
                   </Input>
                   <Input
+                    required
                     type='password'
                     name='confirmPassword'
                     id='confirmPassword'
-                    placeholder='Confirm your password'>
-                    Confirm password
+                    placeholder={t('confirm_your_password')}>
+                    {t('confirm_password')}
                   </Input>
-                  <Button type='submit'>Sign up</Button>
+                  <Button type='submit'>{t('sign_up')}</Button>
                 </form>
-                <span>or</span>
+                <span>{t('or')}</span>
                 <Button>
-                  <FcGoogle /> Sign in with Goggle
+                  <FcGoogle /> {t('sign_up_google')}
                 </Button>
                 <div>
-                  Do you already have an account?
-                  <span onClick={() => setSignUpModal((state) => !state)}>Sign in</span>
+                  {t('have_account')}
+                  <span onClick={() => setSignUpModal((state) => !state)}>{t('sign_in')}</span>
                 </div>
               </div>
             ) : (
               <div className={styles['form-container']}>
-                <h2>Welcome back!</h2>
-                <p>Please enter your details to sign in.</p>
+                <h2>{t('welcome')}</h2>
+                <p>{t('enter_details_sign_in')}</p>
                 <form action='' className={styles.form}>
-                  <Input type='email' name='email' id='email' placeholder='Enter your email address'>
-                    Email
+                  <Input required type='email' name='email' id='email' placeholder={t('enter_your_email')}>
+                    {t('email')}
                   </Input>
-                  <Input type='password' name='password' id='password' placeholder='Enter your password'>
-                    Password
+                  <Input required type='password' name='password' id='password' placeholder={t('enter_password')}>
+                    {t('password')}
                   </Input>
-                  <Button type='submit'>Sign in</Button>
+                  <Button type='submit'>{t('sign_in')}</Button>
                 </form>
                 <div>
-                  Don&apos;t have an account yet?
-                  <span onClick={() => setSignUpModal((state) => !state)}>Sign up</span>
+                  {t('not_have_account')}
+                  <span onClick={() => setSignUpModal((state) => !state)}>{t('sign_up')}</span>
                 </div>
               </div>
             )}
