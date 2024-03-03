@@ -70,5 +70,12 @@
     "message": "Message",
     "enter_message": "Enter your message",
     "submit": "Submit"
+  },
+  "404page": {
+    "page_not_found": "Page not found",
+    "sorry_the_page": "Sorry, the page you were looking for does not exist.",
+    "back_home": "Back Home",
+    "if_page_broken": "If the page is broken",
+    "let_us_know": "Let us know"
   }
 }
