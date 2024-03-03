@@ -1,6 +1,7 @@
 .container {
   @apply px-4 flex flex-col
-  md:mt-16 md:flex-row
+  md:mt-16 md:flex-row md:min-h-[calc(100vh-72px-168px-64px)]
+  lg:min-h-[calc(100vh-72px-96px-64px)]
   2xl:max-w-[1320px] 2xl:mx-auto;
 
   .left {
