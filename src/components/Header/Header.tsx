@@ -18,19 +18,29 @@ export function Header() {
         <nav>
           <ul className={styles['nav-list']}>
             <li className={styles['nav-item']}>
-              <NavigationLink href='/about-us'>{t('about_us')}</NavigationLink>
+              <NavigationLink hover href='/about-us'>
+                {t('about_us')}
+              </NavigationLink>
             </li>
             <li className={styles['nav-item']}>
-              <NavigationLink href='/pricing'>{t('pricing')}</NavigationLink>
+              <NavigationLink hover href='/pricing'>
+                {t('pricing')}
+              </NavigationLink>
             </li>
             <li className={styles['nav-item']}>
-              <NavigationLink href={'/contact-us'}>{t('contact_us')}</NavigationLink>
+              <NavigationLink hover href={'/contact-us'}>
+                {t('contact_us')}
+              </NavigationLink>
             </li>
             <li className={styles['nav-item']}>
-              <NavigationLink href={'/mobile-app'}>Mobile app</NavigationLink>
+              <NavigationLink hover href={'/mobile-app'}>
+                Mobile app
+              </NavigationLink>
             </li>
             <li className={styles['nav-item']}>
-              <NavigationLink href={'/dashboard/lists'}>{t('dashboard')}</NavigationLink>
+              <NavigationLink hover href={'/dashboard/lists'}>
+                {t('dashboard')}
+              </NavigationLink>
             </li>
             <LanguageModal />
           </ul>
