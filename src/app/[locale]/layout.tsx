@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Roboto } from 'next/font/google'
+import { Roboto, Comfortaa } from 'next/font/google'
 import './globals.scss'
 import { SITE_NAME } from '@/constants/seo.constants'
 import { Header } from '@/components/Header/Header'
@@ -37,7 +37,7 @@ export default function RootLayout({ children, params: { locale } }: Readonly<Ro
       <body className={font.className}>
         <NextIntlClientProvider messages={messages}>
           <Header />
-          {children}
+          <main>{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

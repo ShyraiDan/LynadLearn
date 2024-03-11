@@ -9,8 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
+        'gradient-primary': 'linear-gradient(90deg, #124798, #7c68ee)'
       },
       screens: {
         sm: '576px',
@@ -25,7 +24,8 @@ const config: Config = {
       colors: {
         blue: {
           100: '#1b7bd7',
-          200: '#0e4aa4'
+          200: '#0e4aa4',
+          300: '#2959a2'
         },
         purple: '#7b56bd',
         grey: '#B8b8b8',

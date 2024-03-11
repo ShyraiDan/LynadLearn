@@ -27,6 +27,9 @@ export function Header() {
               <NavigationLink href={'/contact-us'}>{t('contact_us')}</NavigationLink>
             </li>
             <li className={styles['nav-item']}>
+              <NavigationLink href={'/mobile-app'}>Mobile app</NavigationLink>
+            </li>
+            <li className={styles['nav-item']}>
               <NavigationLink href={'/dashboard/lists'}>{t('dashboard')}</NavigationLink>
             </li>
             <LanguageModal />

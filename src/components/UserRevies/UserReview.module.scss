@@ -1,0 +1,43 @@
+.container {
+  @apply transition-transform duration-[500ms] bg-white rounded-3xl flex flex-col justify-between p-4 relative mb-8 w-full h-[240px];
+
+  > svg {
+    @apply w-[37px] absolute right-[5%] top-[-8%];
+  }
+
+  .user {
+    @apply flex flex-row items-center mb-4;
+
+    img {
+      @apply w-[44px] mr-3 rounded-full border border-solid border-white-100;
+    }
+
+    p {
+      @apply font-bold;
+    }
+  }
+
+  > p {
+    @apply text-sm mb-2 font-medium;
+  }
+
+  .mark {
+    @apply flex items-center justify-between;
+
+    .stars {
+      @apply flex;
+    }
+
+    .platform {
+      @apply flex items-center;
+
+      svg {
+        @apply mr-2;
+      }
+
+      p {
+        @apply font-medium text-[#949494];
+      }
+    }
+  }
+}

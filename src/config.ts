@@ -20,13 +20,16 @@ export const pathnames = {
     en: '/dashboard',
     ua: '/dashboard'
   },
+  '/mobile-app': {
+    en: '/mobile-app',
+    ua: '/mobile-app'
+  },
   '/dashboard/lists': {
     en: '/dashboard/lists',
     ua: '/dashboard/lists'
   }
 } satisfies Pathnames<typeof locales>
 
-// Use the default: `always`
 export const localePrefix = undefined
 
 export type AppPathnames = keyof typeof pathnames

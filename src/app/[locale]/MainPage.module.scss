@@ -1,0 +1,130 @@
+.container {
+  .hero {
+    @apply my-6 flex justify-center flex-col items-center  
+    sm:mt-12;
+
+    h2 {
+      @apply font-semibold text-lg mb-4 font-bold 
+      sm:text-4xl 
+      md:text-[40px];
+
+      .title {
+        @apply text-blue-300;
+      }
+
+      span {
+        @apply text-purple;
+      }
+    }
+
+    p {
+      @apply font-semibold text-sm text-center 
+      md:text-lg;
+    }
+  }
+
+  .info {
+    @apply px-4;
+
+    + div {
+      @apply flex leading-6 pb-6 pt-2 flex-col-reverse items-center justify-between  
+      lg:flex-row;
+    }
+    .users {
+      h3 {
+        @apply font-bold text-left mb-4
+        sm:text-lg 
+        md:text-lg 
+        lg:text-2xl;
+      }
+
+      > p {
+        @apply mb-4;
+      }
+
+      .advantages {
+        @apply mt-14 flex justify-between;
+      }
+    }
+  }
+
+  .premium {
+    @apply flex leading-6 items-center justify-center my-14 px-4 
+    sm:mt-44 
+    lg:mt-[10.5rem] 
+    xl:mt-[11.5rem];
+
+    > div {
+      @apply w-full bg-gradient-primary flex justify-between flex-col mb-4 rounded-3xl
+      sm:mb-0 sm:flex-row sm:h-[290px];
+
+      .description {
+        @apply flex flex-col font-bold text-white m-4 
+        md:ml-14 md:my-auto;
+
+        h3 {
+          @apply mb-4 font-bold
+          sm:text-lg 
+          md:text-2xl;
+        }
+
+        .item {
+          @apply flex items-center mb-4;
+
+          svg {
+            @apply mr-2;
+          }
+
+          p {
+            @apply mb-0 text-sm font-medium;
+          }
+        }
+
+        a {
+          @apply text-center text-black bg-white w-full py-3 px-12 border-0 rounded-3xl font-medium transition-[background] duration-[.3s] ease-in-out;
+        }
+      }
+    }
+  }
+
+  .review {
+    @apply pb-8 bg-white-100 pt-8 my-14 px-4;
+
+    > div {
+      @apply flex leading-6 flex-col items-center 
+      sm:mx-[-15px] 
+      lg:mx-0;
+
+      h3 {
+        @apply text-center text-2xl font-bold mb-4;
+      }
+    }
+  }
+
+  .download {
+    @apply mt-4 mb-14 flex flex-col items-center;
+
+    .info {
+      @apply flex flex-col;
+
+      h3 {
+        @apply font-bold  
+        sm:text-lg 
+        lg:text-2xl;
+      }
+
+      p {
+        @apply text-sm my-4 font-medium;
+      }
+
+      a {
+        @apply px-12 py-3 bg-blue-200 w-full text-center font-medium ease-in-out rounded-3xl border-0 text-white transition-[background] duration-[.3s]  
+        hover:bg-purple;
+      }
+    }
+
+    .image {
+      @apply w-[230px] mt-4;
+    }
+  }
+}
