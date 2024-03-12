@@ -51,7 +51,7 @@ export const DReview: IReview[] = [
     id: 7,
     name: 'Asher Grayson',
     avatar: userIcon7,
-    text: "I've tried other language learning apps, but LynadLearn's comprehensive grammar explanations and diverse range of vocabulary sets it apart. It's truly a one-stop-shop for language learners."
+    text: "I've tried other language learning apps, but LynadLearn's comprehensive grammar explanations and diverse range of vocabulary sets it apart."
   },
   {
     id: 8,

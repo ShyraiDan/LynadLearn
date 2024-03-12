@@ -1,9 +1,7 @@
 .container {
-  @apply transition-transform duration-[500ms] bg-white rounded-3xl flex flex-col justify-between p-4 relative mb-8 w-full h-[240px];
-
-  > svg {
-    @apply w-[37px] absolute right-[5%] top-[-8%];
-  }
+  @apply transition-transform duration-[500ms] bg-white rounded-3xl flex flex-col justify-between p-4 relative mb-14 h-[240px]
+  sm:mx-8
+  md:mx-0;
 
   .user {
     @apply flex flex-row items-center mb-4;
