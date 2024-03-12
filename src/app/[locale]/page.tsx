@@ -6,10 +6,13 @@ import styles from './MainPage.module.scss'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Image from 'next/image'
 import UserReview from '@/components/UserRevies/UserReview'
+import { Button } from '@/components/ui/Button/Button'
 
 import { TiTickOutline } from 'react-icons/ti'
 import premiumImage from '@/assets/figure-01.png'
 import app from '@/assets/app.png'
+import gif from '@/assets/langeek-demo-min.gif'
+import pluses from '@/assets/pattern-3.svg'
 
 export default function Home() {
   const t = useTranslations('Index')
@@ -31,7 +34,6 @@ export default function Home() {
           <div className={styles.users}>
             <h3>Join thousands of users on LanGeek</h3>
             <p>LanGeek is a language learning platform that helps you learn easier, faster and smarter.</p>
-
             <div className={styles.advantages}>
               {DAdvantages.map((item) => (
                 <AdvantageItem key={item.title} {...item} />
@@ -39,6 +41,24 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <div className={styles.help}>
+          <div className={styles['description']}>
+            <h3>How can AI help with learning a new language?</h3>
+            <p>
+              By processing the structure of a sentence and how words relate to each other, AI can also help learners in
+              understanding how grammatical structures work. LanGeek is a highly intelligent language teacher always at
+              hand and ready to help.
+            </p>
+            <Button>Try it</Button>
+          </div>
+          <div className={styles.image}>
+            <Image className={styles.back} src={pluses} alt='' width={131} height={131}></Image>
+            <div className={styles.rect} />
+            <Image className={styles.front} src={gif} alt=''></Image>
+          </div>
+        </div>
+
         <div className={styles.premium}>
           <div>
             <div className={styles.description}>
@@ -56,12 +76,14 @@ export default function Home() {
             </div>
           </div>
         </div>
+
         <div className={styles.review}>
           <div>
             <h3>Users Reviews</h3>
             <UserReview />
           </div>
         </div>
+
         <div className={styles.download}>
           <div className={styles.info}>
             <h3>Download Mobile Application</h3>
