@@ -1,8 +1,11 @@
 .footer {
-  @apply p-4 pb-2 bg-[#f7f9fc] 
-  sm:mx-3 
-  lg:flex lg:flex-col 
-  xl:max-w-[1320px] xl:mx-auto;
+  @apply p-4 pb-2 bg-[#f7f9fc];
+
+  .footer-container {
+    @apply sm:mx-3
+    lg:flex lg:flex-col
+    xl:max-w-[1320px] xl:mx-auto;
+  }
 }
 
 .footer-main {

@@ -13,51 +13,53 @@ export function Footer() {
   return (
     <>
       <footer className={styles.footer}>
-        <div className={styles['footer-main']}>
-          <NavigationLink href={'/'}>LynadLearn</NavigationLink>
-          <div className={styles['footer-center']}>
-            <div className={styles['footer-left']}>
-              <nav>
-                <ul className={styles['nav-list']}>
-                  <li className={styles['nav-item']}>
-                    <NavigationLink href='/about-us'>{t('about_us')}</NavigationLink>
+        <div className={styles['footer-container']}>
+          <div className={styles['footer-main']}>
+            <NavigationLink href={'/'}>LynadLearn</NavigationLink>
+            <div className={styles['footer-center']}>
+              <div className={styles['footer-left']}>
+                <nav>
+                  <ul className={styles['nav-list']}>
+                    <li className={styles['nav-item']}>
+                      <NavigationLink href='/about-us'>{t('about_us')}</NavigationLink>
+                    </li>
+                    <li className={styles['nav-item']}>
+                      <NavigationLink href='/pricing'>{t('pricing')}</NavigationLink>
+                    </li>
+                    <li className={styles['nav-item']}>
+                      <NavigationLink href={'/contact-us'}>{t('contact_us')}</NavigationLink>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div className={styles['footer-right']}>
+                <p>{t('follow_us')}</p>
+                <ul>
+                  <li>
+                    <Link href={'https://www.instagram.com/'}>
+                      <FaInstagram />
+                    </Link>
                   </li>
-                  <li className={styles['nav-item']}>
-                    <NavigationLink href='/pricing'>{t('pricing')}</NavigationLink>
+                  <li>
+                    <Link href={'https://twitter.com/'}>
+                      <FaXTwitter />
+                    </Link>
                   </li>
-                  <li className={styles['nav-item']}>
-                    <NavigationLink href={'/contact-us'}>{t('contact_us')}</NavigationLink>
+                  <li>
+                    <Link href={'https://www.facebook.com/'}>
+                      <FaFacebook />
+                    </Link>
                   </li>
                 </ul>
-              </nav>
-            </div>
-            <div className={styles['footer-right']}>
-              <p>{t('follow_us')}</p>
-              <ul>
-                <li>
-                  <Link href={'https://www.instagram.com/'}>
-                    <FaInstagram />
-                  </Link>
-                </li>
-                <li>
-                  <Link href={'https://twitter.com/'}>
-                    <FaXTwitter />
-                  </Link>
-                </li>
-                <li>
-                  <Link href={'https://www.facebook.com/'}>
-                    <FaFacebook />
-                  </Link>
-                </li>
-              </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div className={styles['footer-bottom']}>
-          © Copyright {new Date().getFullYear()}.{' '}
-          <Link replace={true} href={'/'}>
-            LynadLearn
-          </Link>
+          <div className={styles['footer-bottom']}>
+            © Copyright {new Date().getFullYear()}.{' '}
+            <Link replace={true} href={'/'}>
+              LynadLearn
+            </Link>
+          </div>
         </div>
       </footer>
     </>
