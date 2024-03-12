@@ -1,6 +1,5 @@
 .header {
-  @apply flex items-center p-4 justify-between
-  sm:mx-3 
+  @apply sticky top-0 z-20 w-full backdrop-blur bg-white bg-opacity-80 flex items-center p-4 justify-between
   xl:max-w-[1320px] xl:mx-auto;
 }
 
