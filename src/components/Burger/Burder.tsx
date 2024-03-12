@@ -24,25 +24,42 @@ export default function Burder() {
         <span></span>
         <span></span>
       </div>
-
+      <div className={`${isBurgerShow && styles.layout}`} />
       <div className={`${styles.burger} ${isBurgerShow && styles.active}`}>
         <div className={styles.top}>
           <div>
-            <h2>LynadLearn</h2>
+            <h2>
+              <NavigationLink href='/' onClick={() => setBurgerShow((state) => !state)}>
+                LynadLearn
+              </NavigationLink>
+            </h2>
             <RxCross1 onClick={() => setBurgerShow((state) => !state)} size={'24px'} />
           </div>
           <ul>
             <li>
-              <NavigationLink href={'/about-us'}>{t('about_us')}</NavigationLink>
+              <NavigationLink onClick={() => setBurgerShow((state) => !state)} href={'/about-us'}>
+                {t('about_us')}
+              </NavigationLink>
             </li>
             <li>
-              <NavigationLink href={'/pricing'}>{t('pricing')}</NavigationLink>
+              <NavigationLink onClick={() => setBurgerShow((state) => !state)} href={'/pricing'}>
+                {t('pricing')}
+              </NavigationLink>
             </li>
             <li>
-              <NavigationLink href={'/contact-us'}>{t('contact_us')}</NavigationLink>
+              <NavigationLink onClick={() => setBurgerShow((state) => !state)} href={'/contact-us'}>
+                {t('contact_us')}
+              </NavigationLink>
             </li>
             <li>
-              <NavigationLink href={'/dashboard/lists'}>{t('dashboard')}</NavigationLink>
+              <NavigationLink onClick={() => setBurgerShow((state) => !state)} href={'/mobile-app'}>
+                Mobile app
+              </NavigationLink>
+            </li>
+            <li>
+              <NavigationLink onClick={() => setBurgerShow((state) => !state)} href={'/dashboard/lists'}>
+                {t('dashboard')}
+              </NavigationLink>
             </li>
 
             {isAuth && (

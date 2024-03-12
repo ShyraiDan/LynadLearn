@@ -9,8 +9,12 @@
   }
 }
 
+.layout {
+  @apply fixed top-0 left-0 w-full h-screen z-10 bg-neutral-800 opacity-50;
+}
+
 .burger {
-  @apply bg-slate-300 fixed top-0 left-[-100%] h-[100vh] w-[290px] px-2.5 z-[2] flex justify-between flex-col transition-all ease-in-out duration-300
+  @apply bg-slate-300 fixed top-0 left-[-100%] h-[100vh] w-[290px] px-2.5 z-[20] flex justify-between flex-col transition-all ease-in-out duration-300
   lg:hidden;
 
   .top {
