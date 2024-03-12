@@ -12,6 +12,7 @@ const config: Config = {
         'gradient-primary': 'linear-gradient(90deg, #124798, #7c68ee)'
       },
       screens: {
+        xs: '480px',
         sm: '576px',
         md: '768px',
         lg: '992px',

@@ -13,6 +13,7 @@ import premiumImage from '@/assets/figure-01.png'
 import app from '@/assets/app.png'
 import gif from '@/assets/langeek-demo-min.gif'
 import pluses from '@/assets/pattern-3.svg'
+import line from '@/assets/line.svg'
 
 export default function Home() {
   const t = useTranslations('Index')
@@ -22,7 +23,7 @@ export default function Home() {
       <div className={styles.container}>
         <div className={styles.hero}>
           <h2>
-            Learn With
+            Learn with
             <span className={styles.title}> Lynad</span>
             <span>Learn</span>
           </h2>
@@ -32,8 +33,8 @@ export default function Home() {
         <div className={styles.info}>
           <div></div>
           <div className={styles.users}>
-            <h3>Join thousands of users on LanGeek</h3>
-            <p>LanGeek is a language learning platform that helps you learn easier, faster and smarter.</p>
+            <h3>Join thousands of users on LynadLearn</h3>
+            <p>LynadLearn is a language learning platform that helps you learn easier, faster and smarter.</p>
             <div className={styles.advantages}>
               {DAdvantages.map((item) => (
                 <AdvantageItem key={item.title} {...item} />
@@ -47,15 +48,15 @@ export default function Home() {
             <h3>How can AI help with learning a new language?</h3>
             <p>
               By processing the structure of a sentence and how words relate to each other, AI can also help learners in
-              understanding how grammatical structures work. LanGeek is a highly intelligent language teacher always at
-              hand and ready to help.
+              understanding how grammatical structures work. LynadLearn is a highly intelligent language teacher always
+              at hand and ready to help.
             </p>
             <Button>Try it</Button>
           </div>
           <div className={styles.image}>
-            <Image className={styles.back} src={pluses} alt='' width={131} height={131}></Image>
+            <Image className={styles.back} src={pluses} alt='' />
             <div className={styles.rect} />
-            <Image className={styles.front} src={gif} alt=''></Image>
+            <Image className={styles.front} src={gif} alt='' />
           </div>
         </div>
 
@@ -71,8 +72,8 @@ export default function Home() {
               ))}
               <NavigationLink href='/pricing'>Premium</NavigationLink>
             </div>
-            <div>
-              <Image src={premiumImage} alt='premium image'></Image>
+            <div className={styles.image}>
+              <Image src={premiumImage} alt='premium image' />
             </div>
           </div>
         </div>
@@ -87,6 +88,7 @@ export default function Home() {
         <div className={styles.download}>
           <div className={styles.info}>
             <h3>Download Mobile Application</h3>
+            <Image src={line} alt='line' />
             <p>Install the LynadLearn application on your mobile and learn the language you want.</p>
             <NavigationLink href='/mobile-app'>Download</NavigationLink>
           </div>
