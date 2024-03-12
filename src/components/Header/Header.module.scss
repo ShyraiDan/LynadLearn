@@ -32,6 +32,10 @@
 
     .nav-item {
       @apply flex items-center font-bold;
+
+      a {
+        @apply text-blue-200;
+      }
     }
   }
 }

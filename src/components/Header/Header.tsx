@@ -37,7 +37,7 @@ export function Header() {
               </li>
               <li className={styles['nav-item']}>
                 <NavigationLink hover href={'/mobile-app'}>
-                  Mobile app
+                  {t('mobile_app')}
                 </NavigationLink>
               </li>
               <li className={styles['nav-item']}>

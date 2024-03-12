@@ -34,8 +34,12 @@ export default function LanguageModal() {
       {isLanguageModal && (
         <div className={styles.modal}>
           <ul>
-            <li onClick={() => changeLang('en')}>{t('english')}</li>
-            <li onClick={() => changeLang('ua')}>{t('ukrainian')}</li>
+            <li className={`${localActive === 'en' && styles.selected}`} onClick={() => changeLang('en')}>
+              {t('english')}
+            </li>
+            <li className={`${localActive === 'ua' && styles.selected}`} onClick={() => changeLang('ua')}>
+              {t('ukrainian')}
+            </li>
           </ul>
         </div>
       )}

@@ -29,6 +29,9 @@ export function Footer() {
                     <li className={styles['nav-item']}>
                       <NavigationLink href={'/contact-us'}>{t('contact_us')}</NavigationLink>
                     </li>
+                    <li className={styles['nav-item']}>
+                      <NavigationLink href={'/mobile-app'}>{t('mobile_app')}</NavigationLink>
+                    </li>
                   </ul>
                 </nav>
               </div>
