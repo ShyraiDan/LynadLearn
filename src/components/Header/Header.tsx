@@ -1,7 +1,7 @@
 import styles from './Header.module.scss'
 import LanguageModal from '../LanguageModal/LanguageModal'
 import { SignInModal } from '../SignInModal/SignInModal'
-import Burder from '../Burger/Burder'
+import Burger from '../Burger/Burger'
 import { UserModal } from '../UserModal/UserModal'
 import NavigationLink from '../ui/NavigationLink/NavigationLink'
 import { useTranslations } from 'next-intl'
@@ -14,7 +14,9 @@ export function Header() {
     <header className={styles.header}>
       <div className={styles['header-left']}>
         <div></div>
-        <NavigationLink href={'/'}>LynadLearn</NavigationLink>
+        <NavigationLink href={'/'}>
+          Lynad<span>Learn</span>
+        </NavigationLink>
         <nav>
           <ul className={styles['nav-list']}>
             <li className={styles['nav-item']}>
@@ -48,7 +50,7 @@ export function Header() {
       </div>
       <div className={styles['header-right']}>
         {isAuth ? <UserModal /> : <SignInModal />}
-        <Burder />
+        <Burger />
       </div>
     </header>
   )

@@ -12,14 +12,20 @@ import { FaXTwitter } from 'react-icons/fa6'
 import { FaFacebook } from 'react-icons/fa'
 import { RxCross1 } from 'react-icons/rx'
 
-export default function Burder() {
+export default function Burger() {
   const t = useTranslations('Header')
   const [isBurgerShow, setBurgerShow] = useState(false)
   const isAuth = false
 
+  const showModal = () => {
+    const html = document.querySelector('html') as HTMLElement
+    setBurgerShow((state) => !state)
+    isBurgerShow === false ? (html.style.overflowY = 'hidden') : (html.style.overflowY = 'scroll')
+  }
+
   return (
     <>
-      <div onClick={() => setBurgerShow((state) => !state)} className={styles['burger-btn']}>
+      <div onClick={() => showModal()} className={styles['burger-btn']}>
         <span></span>
         <span></span>
         <span></span>
@@ -29,35 +35,35 @@ export default function Burder() {
         <div className={styles.top}>
           <div>
             <h2>
-              <NavigationLink href='/' onClick={() => setBurgerShow((state) => !state)}>
-                LynadLearn
+              <NavigationLink href='/' onClick={() => showModal()}>
+                Lynad<span>Learn</span>
               </NavigationLink>
             </h2>
-            <RxCross1 onClick={() => setBurgerShow((state) => !state)} size={'24px'} />
+            <RxCross1 onClick={() => showModal()} size={'24px'} />
           </div>
           <ul>
             <li>
-              <NavigationLink onClick={() => setBurgerShow((state) => !state)} href={'/about-us'}>
+              <NavigationLink onClick={() => showModal()} href={'/about-us'}>
                 {t('about_us')}
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink onClick={() => setBurgerShow((state) => !state)} href={'/pricing'}>
+              <NavigationLink onClick={() => showModal()} href={'/pricing'}>
                 {t('pricing')}
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink onClick={() => setBurgerShow((state) => !state)} href={'/contact-us'}>
+              <NavigationLink onClick={() => showModal()} href={'/contact-us'}>
                 {t('contact_us')}
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink onClick={() => setBurgerShow((state) => !state)} href={'/mobile-app'}>
+              <NavigationLink onClick={() => showModal()} href={'/mobile-app'}>
                 Mobile app
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink onClick={() => setBurgerShow((state) => !state)} href={'/dashboard/lists'}>
+              <NavigationLink onClick={() => showModal()} href={'/dashboard/lists'}>
                 {t('dashboard')}
               </NavigationLink>
             </li>

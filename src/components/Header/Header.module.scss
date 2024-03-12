@@ -6,8 +6,16 @@
 .header-left {
   @apply flex items-center;
 
+  > a {
+    @apply text-blue-300 sm:text-2xl;
+  }
+
   a {
     @apply font-bold p-2;
+
+    span {
+      @apply text-purple;
+    }
   }
 }
 
