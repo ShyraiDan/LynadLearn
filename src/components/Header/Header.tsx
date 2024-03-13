@@ -21,27 +21,27 @@ export function Header() {
           <nav>
             <ul className={styles['nav-list']}>
               <li className={styles['nav-item']}>
-                <NavigationLink hover href='/about-us'>
+                <NavigationLink hover isHeader href='/about-us'>
                   {t('about_us')}
                 </NavigationLink>
               </li>
               <li className={styles['nav-item']}>
-                <NavigationLink hover href='/pricing'>
+                <NavigationLink hover isHeader href='/pricing'>
                   {t('pricing')}
                 </NavigationLink>
               </li>
               <li className={styles['nav-item']}>
-                <NavigationLink hover href={'/contact-us'}>
+                <NavigationLink hover isHeader href={'/contact-us'}>
                   {t('contact_us')}
                 </NavigationLink>
               </li>
               <li className={styles['nav-item']}>
-                <NavigationLink hover href={'/mobile-app'}>
+                <NavigationLink hover isHeader href={'/mobile-app'}>
                   {t('mobile_app')}
                 </NavigationLink>
               </li>
               <li className={styles['nav-item']}>
-                <NavigationLink hover href={'/dashboard/lists'}>
+                <NavigationLink hover isHeader href={'/dashboard/lists'}>
                   {t('dashboard')}
                 </NavigationLink>
               </li>

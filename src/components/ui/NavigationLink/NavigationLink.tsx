@@ -10,18 +10,22 @@ import styles from './NavigationLink.module.scss'
 export default function NavigationLink<Pathname extends AppPathnames>({
   href,
   hover,
+  isHeader,
   ...rest
-}: ComponentProps<typeof Link<Pathname>> & { hover?: boolean }) {
+}: ComponentProps<typeof Link<Pathname>> & { hover?: boolean; isHeader?: boolean }) {
   const selectedLayoutSegment = useSelectedLayoutSegment()
   const pathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : '/'
   const isActive = pathname === href
 
   const isOtherLink = href !== '/' && hover
-
   return (
     <Link
       aria-current={isActive ? 'page' : undefined}
-      className={` ${isOtherLink && styles.link} ${pathname === href && isOtherLink && styles.active}`}
+      className={`${isOtherLink && isHeader && styles['link-header']} ${
+        pathname === href && isOtherLink && isHeader && styles['active-header']
+      } ${isOtherLink && !isHeader && styles['link-burger']} ${
+        pathname === href && isOtherLink && !isHeader && styles['active-burger']
+      }`}
       href={href}
       {...rest}
     />

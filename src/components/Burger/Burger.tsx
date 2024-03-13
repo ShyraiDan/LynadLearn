@@ -43,27 +43,27 @@ export default function Burger() {
           </div>
           <ul>
             <li>
-              <NavigationLink onClick={() => showModal()} href={'/about-us'}>
+              <NavigationLink hover onClick={() => showModal()} href={'/about-us'}>
                 {t('about_us')}
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink onClick={() => showModal()} href={'/pricing'}>
+              <NavigationLink hover onClick={() => showModal()} href={'/pricing'}>
                 {t('pricing')}
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink onClick={() => showModal()} href={'/contact-us'}>
+              <NavigationLink hover onClick={() => showModal()} href={'/contact-us'}>
                 {t('contact_us')}
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink onClick={() => showModal()} href={'/mobile-app'}>
-                Mobile app
+              <NavigationLink hover onClick={() => showModal()} href={'/mobile-app'}>
+                {t('mobile_app')}
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink onClick={() => showModal()} href={'/dashboard/lists'}>
+              <NavigationLink hover onClick={() => showModal()} href={'/dashboard/lists'}>
                 {t('dashboard')}
               </NavigationLink>
             </li>

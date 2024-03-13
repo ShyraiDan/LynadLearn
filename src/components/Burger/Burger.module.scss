@@ -3,7 +3,7 @@
   lg:hidden;
 
   span {
-    @apply absolute left-0 h-[2px] w-full top-[9px] bg-[#000]
+    @apply absolute left-0 h-[2px] w-full top-[9px] bg-blue-200
     first:top-0
     last:top-[18px];
   }
@@ -47,6 +47,10 @@
         a {
           @apply font-medium text-base my-1 capitalize;
         }
+
+        .active {
+          @apply after:content-none after:bg-slate-300;
+        }
       }
     }
   }
@@ -66,6 +70,11 @@
 
     .social {
       @apply flex justify-center border-t border-[#0000001a] pt-4;
+
+      a {
+        @apply transition-all ease-in-out duration-150
+        hover:text-purple;
+      }
     }
 
     ul {
