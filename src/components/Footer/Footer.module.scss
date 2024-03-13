@@ -12,9 +12,13 @@
   @apply lg:flex;
 
   > a {
-    @apply text-center block font-bold p-2 mb-4 text-2xl 
+    @apply text-center block font-bold p-2 mb-4 text-2xl text-blue-200  
     sm:text-left 
     lg:mb-0;
+
+    span {
+      @apply text-purple;
+    }
   }
 }
 
@@ -30,7 +34,8 @@
   2xl:ml-2.5;
 
   a {
-    @apply block font-bold p-2;
+    @apply block font-bold p-2 text-blue-200 transition-all ease-in-out duration-150
+    hover:text-purple;
   }
 
   ul {
@@ -40,7 +45,7 @@
 }
 
 .footer-right {
-  @apply flex flex-col items-center 
+  @apply flex flex-col items-center text-blue-200 
   sm:items-start sm:flex-row sm:pl-2 
   lg:items-center 
   2xl:mr-2.5;
@@ -48,10 +53,15 @@
   ul {
     @apply flex gap-3 items-center mt-4 
     sm:mt-0 sm:ml-3;
+
+    a {
+      @apply transition-all ease-in-out duration-150
+      hover:text-purple;
+    }
   }
 }
 
 .footer-bottom {
-  @apply text-center text-xs mt-2 
+  @apply text-center text-xs mt-2 text-blue-200
   sm:text-left sm:pl-2;
 }

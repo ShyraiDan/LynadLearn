@@ -15,7 +15,9 @@ export function Footer() {
       <footer className={styles.footer}>
         <div className={styles['footer-container']}>
           <div className={styles['footer-main']}>
-            <NavigationLink href={'/'}>LynadLearn</NavigationLink>
+            <NavigationLink href={'/'}>
+              Lynad<span>Learn</span>
+            </NavigationLink>
             <div className={styles['footer-center']}>
               <div className={styles['footer-left']}>
                 <nav>

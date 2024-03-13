@@ -55,7 +55,8 @@
       @apply flex justify-between mt-10;
 
       span {
-        @apply my-0 text-base cursor-pointer block;
+        @apply my-0 text-base cursor-pointer block underline transition-all ease-in-out duration-150
+        hover:text-purple;
       }
     }
   }
