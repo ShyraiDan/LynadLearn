@@ -16,25 +16,25 @@ import pluses from '@/assets/pattern-3.svg'
 import line from '@/assets/line.svg'
 
 export default function Home() {
-  const t = useTranslations('Index')
+  const t = useTranslations('Home')
 
   return (
     <>
       <div className={styles.container}>
         <div className={styles.hero}>
           <h2>
-            Learn with
+            {t('learn_with')}
             <span className={styles.title}> Lynad</span>
             <span>Learn</span>
           </h2>
-          <p>LynadLearn is a language learning platform that helps you learn easier, faster and smarter.</p>
+          <p>{t('lynadLearn_is_learning')}</p>
         </div>
 
         <div className={styles.info}>
           <div></div>
           <div className={styles.users}>
-            <h3>Join thousands of users on LynadLearn</h3>
-            <p>LynadLearn is a language learning platform that helps you learn easier, faster and smarter.</p>
+            <h3>{t('join_thousands')}</h3>
+            <p>{t('lynadLearn_is_learning')}</p>
             <div className={styles.advantages}>
               {DAdvantages.map((item) => (
                 <AdvantageItem key={item.title} {...item} />
@@ -45,13 +45,9 @@ export default function Home() {
 
         <div className={styles.help}>
           <div className={styles['description']}>
-            <h3>How can AI help with learning a new language?</h3>
-            <p>
-              By processing the structure of a sentence and how words relate to each other, AI can also help learners in
-              understanding how grammatical structures work. LynadLearn is a highly intelligent language teacher always
-              at hand and ready to help.
-            </p>
-            <Button>Try it</Button>
+            <h3>{t('how_can_AI_help')}</h3>
+            <p>{t('by_processing_the_structure')}</p>
+            <Button> {t('try_it')}</Button>
           </div>
           <div className={styles.image}>
             <Image className={styles.back} src={pluses} alt='' />
@@ -63,14 +59,14 @@ export default function Home() {
         <div className={styles.premium}>
           <div>
             <div className={styles.description}>
-              <h3>Premium Learning Experience</h3>
+              <h3>{t('premium_learning_experience')}</h3>
               {DPremAdvantages.map((item) => (
                 <div className={styles.item} key={item}>
                   <TiTickOutline />
-                  <p>{item}</p>
+                  <p>{t(`${item}`)}</p>
                 </div>
               ))}
-              <NavigationLink href='/pricing'>Premium</NavigationLink>
+              <NavigationLink href='/pricing'>{t('premium')}</NavigationLink>
             </div>
             <div className={styles.image}>
               <Image src={premiumImage} alt='premium image' />
@@ -80,17 +76,17 @@ export default function Home() {
 
         <div className={styles.review}>
           <div>
-            <h3>Users Reviews</h3>
+            <h3>{t('user_reviews')}</h3>
             <UserReview />
           </div>
         </div>
 
         <div className={styles.download}>
           <div className={styles.info}>
-            <h3>Download Mobile Application</h3>
+            <h3>{t('download_mobile_app')}</h3>
             <Image src={line} alt='line' />
-            <p>Install the LynadLearn application on your mobile and learn the language you want.</p>
-            <NavigationLink href='/mobile-app'>Download</NavigationLink>
+            <p>{t('install_app')}</p>
+            <NavigationLink href='/mobile-app'>{t('download')}</NavigationLink>
           </div>
           <Image src={app} alt='App' className={styles.image} />
         </div>

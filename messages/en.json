@@ -16,6 +16,26 @@
     "english": "English",
     "ukrainian": "Ukrainian"
   },
+  "Home": {
+    "learn_with": "Learn with",
+    "lynadLearn_is_learning": "LynadLearn is a language learning platform that helps you learn easier, faster and smarter.",
+    "join_thousands": "Join thousands of users on LynadLearn",
+    "words_to_learn": "Words To Learn",
+    "users": "Users",
+    "grammar_lessons": "Grammar lessons",
+    "how_can_AI_help": "How can AI help with learning a new language?",
+    "by_processing_the_structure": "By processing the structure of a sentence and how words relate to each other, AI can also help learners in understanding how grammatical structures work. LynadLearn is a highly intelligent language teacher always at hand and ready to help.",
+    "try_it": "Try it",
+    "premium_learning_experience": "Premium Learning Experience",
+    "advanced_vocabulary": "Advanced Vocabulary Features",
+    "leither_system": "Leither system",
+    "custom_word_lists": "Custom Word-lists",
+    "premium": "Premium",
+    "user_reviews": "User reviews",
+    "download_mobile_app": "Download Mobile Application",
+    "install_app": "Install the LynadLearn application on your mobile and learn the language you want.",
+    "download": "Download"
+  },
   "Pricing": {
     "pricing": "Pricing",
     "basic": "Basic",
