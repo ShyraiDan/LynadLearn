@@ -15,6 +15,16 @@ import gif from '@/assets/langeek-demo-min.gif'
 import pluses from '@/assets/pattern-3.svg'
 import line from '@/assets/line.svg'
 
+import user1 from '@/assets/16.png'
+import user2 from '@/assets/26.png'
+import user3 from '@/assets/22.png'
+import user4 from '@/assets/10.png'
+import user5 from '@/assets/18.png'
+import user6 from '@/assets/27.png'
+import user7 from '@/assets/31.png'
+import user8 from '@/assets/21.png'
+import user9 from '@/assets/6.png'
+
 export default function Home() {
   const t = useTranslations('Home')
 
@@ -31,7 +41,40 @@ export default function Home() {
         </div>
 
         <div className={styles.info}>
-          <div></div>
+          <div className={styles.diagram}>
+            <div className={styles.circle}>
+              <div>
+                <div></div>
+              </div>
+            </div>
+            <div className={styles['person-one']}>
+              <Image src={user1} alt='user'></Image>
+            </div>
+            <div className={styles['person-two']}>
+              <Image src={user2} alt='user'></Image>
+            </div>
+            <div className={styles['person-three']}>
+              <Image src={user3} alt='user'></Image>
+            </div>
+            <div className={styles['person-four']}>
+              <Image src={user4} alt='user'></Image>
+            </div>
+            <div className={styles['person-five']}>
+              <Image src={user5} alt='user'></Image>
+            </div>
+            <div className={styles['person-six']}>
+              <Image src={user6} alt='user'></Image>
+            </div>
+            <div className={styles['person-seven']}>
+              <Image src={user7} alt='user'></Image>
+            </div>
+            <div className={styles['person-eight']}>
+              <Image src={user8} alt='user'></Image>
+            </div>
+            <div className={styles['person-nine']}>
+              <Image src={user9} alt='user'></Image>
+            </div>
+          </div>
           <div className={styles.users}>
             <h3>{t('join_thousands')}</h3>
             <p>{t('lynadLearn_is_learning')}</p>

@@ -28,7 +28,7 @@
           @apply text-blue-300;
 
           span {
-            @apply text-purple;
+            @apply text-purple-100;
           }
         }
       }
@@ -73,7 +73,7 @@
 
       a {
         @apply transition-all ease-in-out duration-150
-        hover:text-purple;
+        hover:text-purple-100;
       }
     }
 

@@ -26,12 +26,27 @@ const config: Config = {
         blue: {
           100: '#1b7bd7',
           200: '#0e4aa4',
-          300: '#2959a2'
+          300: '#2959a2',
+          400: '#f0f4fa'
         },
-        purple: '#7b56bd',
+        purple: {
+          100: '#7b56bd',
+          300: '#d3c9eb',
+          400: '#efebf7'
+        },
         grey: '#B8b8b8',
         'white-100': '#f0f4fa',
         orange: '#FFA944'
+      },
+      keyframes: {
+        pong: {
+          '0%, 100%': {
+            transform: 'translateY(-10%)'
+          },
+          '50%': {
+            transform: 'none'
+          }
+        }
       }
     }
   },

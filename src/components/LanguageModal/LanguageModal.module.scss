@@ -21,7 +21,7 @@
     }
 
     li:not(.selected) {
-      @apply hover:text-purple;
+      @apply hover:text-purple-100;
     }
 
     .selected {

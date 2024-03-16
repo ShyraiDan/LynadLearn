@@ -5,18 +5,18 @@
   lg:pl-9 lg:pr-6
   after:content-[''] after:bg-blue-100 after:w-3 after:h-full after:rounded-2xl after:absolute after:left-0 after:top-0
   after:first:bg-grey
-  before:content-[''] before:bg-purple before:w-full before:h-3 before:rounded-2xl before:absolute before:bottom-0 before:left-0
+  before:content-[''] before:bg-purple-100 before:w-full before:h-3 before:rounded-2xl before:absolute before:bottom-0 before:left-0
   before:first:bg-grey;
 
   a {
     @apply flex justify-center items-center text-center py-2 px-6 items-center bg-blue-200 font-bold rounded-full text-white transition-all ease-linear duration-150 w-full self-end py-3 px-10 
     sm:w-[200px]
-    hover:bg-purple;
+    hover:bg-purple-100;
   }
 
   .outline {
     @apply bg-transparent text-blue-200 border border-solid border-blue-200
-    hover:bg-transparent hover:border-purple hover:text-purple;
+    hover:bg-transparent hover:border-purple-100 hover:text-purple-100;
   }
 
   h6 {

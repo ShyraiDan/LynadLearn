@@ -1,6 +1,6 @@
 .link-burger {
   @apply transition-all ease-in-out duration-150
-  hover:text-purple;
+  hover:text-purple-100;
 }
 
 .link-header {
@@ -10,7 +10,7 @@
 }
 
 .active-burger {
-  @apply text-purple;
+  @apply text-purple-100;
 }
 
 .active-header {
