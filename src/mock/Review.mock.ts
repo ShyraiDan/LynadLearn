@@ -1,4 +1,4 @@
-import { IReview } from '@/intefaces/Review.interface'
+import { IReview } from '@/interfaces/Review.interface'
 
 import userIcon1 from '@/assets/user-icon1.png'
 import userIcon2 from '@/assets/user-icon2.png'

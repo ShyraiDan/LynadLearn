@@ -1,4 +1,4 @@
-import { IWord } from '@/intefaces/Word.interface'
+import { IWord } from '@/interfaces/Word.interface'
 
 export const DWords: IWord[] = [
   {

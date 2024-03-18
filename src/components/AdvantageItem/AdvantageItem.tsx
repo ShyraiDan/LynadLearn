@@ -1,5 +1,5 @@
 import styles from './AdvantageItem.module.scss'
-import { IAdvantage } from '@/intefaces/Advantage.interface'
+import { IAdvantage } from '@/interfaces/Advantage.interface'
 import { useTranslations } from 'next-intl'
 
 import { TiTickOutline } from 'react-icons/ti'

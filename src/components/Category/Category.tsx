@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ICategory } from '@/intefaces/Category.interface'
+import { ICategory } from '@/interfaces/Category.interface'
 import styles from './Category.module.scss'
 import List from '../List/List'
 import CategoryDescription from './components/CategoryDescription/CategoryDescription'

@@ -1,4 +1,4 @@
-import { IPricing } from '@/intefaces/Pricing.interface'
+import { IPricing } from '@/interfaces/Pricing.interface'
 
 export const DPricing: IPricing[] = [
   {

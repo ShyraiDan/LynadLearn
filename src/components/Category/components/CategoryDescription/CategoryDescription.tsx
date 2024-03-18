@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import styles from './CategoryDescription.module.scss'
-import { ICategory } from '@/intefaces/Category.interface'
+import { ICategory } from '@/interfaces/Category.interface'
 
 export default function CategoryDescription({ title, id, description }: Omit<ICategory, 'lists'>) {
   return (

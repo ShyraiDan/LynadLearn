@@ -1,5 +1,5 @@
 import styles from './List.module.scss'
-import { IList } from '@/intefaces/List.interface'
+import { IList } from '@/interfaces/List.interface'
 import Image from 'next/image'
 
 export default function List({ id, title, image }: IList) {

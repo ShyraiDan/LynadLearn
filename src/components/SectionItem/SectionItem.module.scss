@@ -1,0 +1,26 @@
+.item {
+  @apply shadow flex flex-col justify-between rounded-3xl p-4 h-[125px] 
+  sm:p-6 sm:h-[135px]
+  lg:h-auto 
+  hover:shadow-md 
+  [&_h3]:hover:text-purple-100;
+
+  div {
+    @apply flex items-center;
+
+    img {
+      @apply w-6 h-6 
+      sm:w-auto sm:h-auto;
+    }
+
+    h3 {
+      @apply font-semibold text-sm mb-0 ml-2 
+      sm:text-lg;
+    }
+  }
+
+  p {
+    @apply text-xs mt-4 mb-0 
+    sm:text-sm;
+  }
+}

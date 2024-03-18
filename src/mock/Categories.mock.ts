@@ -1,4 +1,4 @@
-import { ICategory } from '@/intefaces/Category.interface'
+import { ICategory } from '@/interfaces/Category.interface'
 import A1 from '@/assets/A1.png'
 import A2 from '@/assets/A2.png'
 import B1 from '@/assets/B1.png'

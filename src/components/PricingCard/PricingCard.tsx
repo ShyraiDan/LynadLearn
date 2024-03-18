@@ -1,5 +1,5 @@
 import styles from './PricingCard.module.scss'
-import { IPricing } from '@/intefaces/Pricing.interface'
+import { IPricing } from '@/interfaces/Pricing.interface'
 import Image from 'next/image'
 import NavigationLink from '../ui/NavigationLink/NavigationLink'
 import { useTranslations, useLocale } from 'next-intl'
