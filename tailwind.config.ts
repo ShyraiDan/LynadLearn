@@ -27,7 +27,8 @@ const config: Config = {
           100: '#1b7bd7',
           200: '#0e4aa4',
           300: '#2959a2',
-          400: '#f0f4fa'
+          400: '#f0f4fa',
+          500: '#f7f9fc'
         },
         purple: {
           100: '#7b56bd',

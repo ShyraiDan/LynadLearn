@@ -4,9 +4,9 @@
   md:w-[32%]
   lg:pl-9 lg:pr-6
   after:content-[''] after:bg-blue-100 after:w-3 after:h-full after:rounded-2xl after:absolute after:left-0 after:top-0
-  after:first:bg-grey-100-100
+  after:first:bg-grey-100
   before:content-[''] before:bg-purple-100 before:w-full before:h-3 before:rounded-2xl before:absolute before:bottom-0 before:left-0
-  before:first:bg-grey-100-100;
+  before:first:bg-grey-100;
 
   a {
     @apply flex justify-center items-center text-center py-2 px-6 items-center bg-blue-200 font-bold rounded-full text-white transition-all ease-linear duration-150 w-full self-end py-3 px-10 
@@ -34,7 +34,7 @@
     }
 
     span {
-      @apply line-through text-grey-100-100 flex items-center text-lg font-medium 
+      @apply line-through text-grey-100 flex items-center text-lg font-medium 
       lg:text-2xl;
     }
   }

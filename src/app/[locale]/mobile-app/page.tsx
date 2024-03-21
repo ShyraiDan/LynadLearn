@@ -7,10 +7,12 @@ import AdvantageItem from '@/components/AdvantageItem/AdvantageItem'
 import { DAdvantages } from '@/mock/Advantages.mock'
 import { DSectionLeft, DSectionRight } from '@/mock/Sections.mock'
 import { SectionItem } from '@/components/SectionItem/SectionItem'
+import Accordion from '@/components/Accordion/Accordion'
 
 import { FaGooglePlay, FaApple } from 'react-icons/fa6'
 import line from '@/assets/line.svg'
 import phone from '@/assets/phone.svg'
+import faq from '@/assets/faq.svg'
 
 export default function MobileApp() {
   const t = useTranslations('')
@@ -86,6 +88,13 @@ export default function MobileApp() {
             ))}
           </div>
         </div>
+      </div>
+      <div className={styles.questions}>
+        <div className={styles.items}>
+          <h3>Frequently asked questions</h3>
+          <Accordion />
+        </div>
+        <Image src={faq}></Image>
       </div>
     </div>
   )
