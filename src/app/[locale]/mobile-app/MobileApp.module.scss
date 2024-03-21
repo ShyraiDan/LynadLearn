@@ -151,5 +151,86 @@
         @apply text-2xl font-bold mb-4;
       }
     }
+
+    img {
+      @apply w-[219px] h-[205px]
+      sm:w-[300px] sm:h-[281px]
+      lg:w-[395px] lg:h-[371px];
+    }
+  }
+
+  .platform {
+    @apply flex leading-6 pb-8 pt-8 flex-col justify-center  
+    md:flex-row;
+
+    > div {
+      @apply w-full flex flex-col justify-between bg-gradient-to-l to-purple-100 from-blue-200 rounded-3xl relative 
+      md:h-[300px] md:flex-row;
+
+      .install {
+        @apply z-[1] w-[90%] m-4 text-white
+        sm:ml-8 sm:my-8 
+        md:my-auto md:ml-16;
+
+        h3 {
+          @apply font-bold mb-2 
+          sm:text-lg;
+        }
+
+        p {
+          @apply text-sm font-medium mb-4;
+        }
+
+        .buttons {
+          @apply flex mt-6 mb-6 w-full justify-start
+          sm:mb-auto sm:mt-12 
+          md:pb-0 md:justify-start;
+
+          a {
+            @apply hidden p-0 w-[188px] 
+            sm:flex sm:mr-4  
+            hover:no-underline;
+
+            button {
+              @apply w-full py-2 px-4 bg-grey-200 rounded-3xl justify-center items-center border-none h-12 flex
+              hover:bg-grey-300;
+
+              svg {
+                @apply mr-2 fill-black;
+              }
+
+              div {
+                @apply text-start flex flex-col justify-center;
+
+                span {
+                  @apply text-black text-[10px];
+                }
+
+                p {
+                  @apply text-black text-sm font-bold mb-0 mt-[-5px];
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .pc {
+        @apply rounded-3xl hidden h-full self-end 
+        lg:block;
+      }
+
+      .tablet {
+        @apply rounded-3xl hidden w-[342px] absolute right-0 h-[270px] self-end 
+        md:block 
+        lg:hidden;
+      }
+
+      .mobile {
+        @apply rounded-3xl block mt-[-6.5rem] self-end w-full  
+        xs:w-1/2
+        md:hidden;
+      }
+    }
   }
 }

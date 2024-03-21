@@ -1,8 +1,8 @@
 .accordion {
   @apply mb-4 min-h-14 w-full cursor-pointer bg-blue-500 rounded-3xl p-4 transition-all duration-[.3s] ease-in-out 
   hover:bg-blue-400 
-  [&_svg]:hover:text-purple-100 
-  [&_h6]:hover:text-purple-100;
+  [&_svg]:transition-all [&_svg]:duration-[.3s] [&_svg]:ease-in-out [&_svg]:hover:text-purple-100 
+  [&_h6]:transition-all [&_h6]:duration-[.3s] [&_h6]:ease-in-out [&_h6]:hover:text-purple-100;
 
   > div {
     @apply flex justify-between items-center;

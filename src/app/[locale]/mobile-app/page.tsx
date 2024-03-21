@@ -13,6 +13,9 @@ import { FaGooglePlay, FaApple } from 'react-icons/fa6'
 import line from '@/assets/line.svg'
 import phone from '@/assets/phone.svg'
 import faq from '@/assets/faq.svg'
+import installPc from '@/assets/app-download.png'
+import installMd from '@/assets/app-tablet.png'
+import installSm from '@/assets/app-mobile.png'
 
 export default function MobileApp() {
   const t = useTranslations('')
@@ -94,7 +97,38 @@ export default function MobileApp() {
           <h3>Frequently asked questions</h3>
           <Accordion />
         </div>
-        <Image src={faq}></Image>
+        <Image src={faq} alt='faq'></Image>
+      </div>
+      <div className={styles.platform}>
+        <div>
+          <div className={styles.install}>
+            <h3>There is no platform like LanGeek</h3>
+            <p>Have LanGeek always at hand by downloading our Android or iOS app</p>
+            <div className={styles.buttons}>
+              <Link href='https://play.google.com/store/games/'>
+                <Button>
+                  <FaGooglePlay size='24' />
+                  <div>
+                    <span>Get it on</span>
+                    <p>Google Play</p>
+                  </div>
+                </Button>
+              </Link>
+              <Link href='https://www.apple.com/app-store/'>
+                <Button>
+                  <FaApple size='28' />
+                  <div>
+                    <span>Get it on</span>
+                    <p>App Store</p>
+                  </div>
+                </Button>
+              </Link>
+            </div>
+          </div>
+          <Image src={installPc} className={styles.pc} alt='install' />
+          <Image src={installMd} className={styles.tablet} alt='install' />
+          <Image src={installSm} className={styles.mobile} alt='install' />
+        </div>
       </div>
     </div>
   )
