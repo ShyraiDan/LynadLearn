@@ -16,8 +16,8 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 export default function UserReview() {
   return (
-    <div className={styles.aboba}>
-      <div className={styles.abober}>
+    <div className={styles.container}>
+      <div className={styles['item-container']}>
         <Swiper
           navigation={{ nextEl: '.arrow-right', prevEl: '.arrow-left' }}
           pagination={{
@@ -38,7 +38,7 @@ export default function UserReview() {
           {DReview.map((review, index) => {
             return (
               <SwiperSlide key={index}>
-                <div key={review.id} className={styles.container}>
+                <div key={review.id} className={styles.item}>
                   <div className={styles.user}>
                     <Image src={review.avatar} alt='user-icon'></Image>
                     <p>{review.name}</p>

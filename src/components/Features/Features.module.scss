@@ -1,15 +1,38 @@
-.slider-item {
-  > div {
-    @apply flex mt-6 items-center font-medium
-    lg:mt-10;
+.container {
+  .item {
+    @apply mb-14 
+    lg:mb-10;
 
-    img {
-      @apply mr-2;
+    > div {
+      @apply flex mt-6 items-center font-medium
+      lg:mt-10;
+
+      img {
+        @apply mr-2;
+      }
+    }
+
+    p {
+      @apply text-sm text-black mb-0 mt-5 font-medium 
+      lg:text-base;
     }
   }
 
-  p {
-    @apply text-sm text-black mb-0 mt-5 font-medium 
-    lg:text-base;
+  .btns {
+    @apply relative;
+
+    .arrow-left {
+      @apply absolute top-[-37px] left-[65px] z-[11]
+      sm:left-[190px]
+      md:left-[290px]
+      lg:top-[calc(50%-37px)] lg:left-[90px];
+    }
+
+    .arrow-right {
+      @apply absolute top-[-37px] right-[65px] z-[11]
+      sm:right-[190px]
+      md:right-[290px] 
+      lg:top-[calc(50%-37px)] lg:right-[90px];
+    }
   }
 }

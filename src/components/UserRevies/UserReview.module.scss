@@ -1,7 +1,7 @@
-.aboba {
+.container {
   @apply sm:relative;
 
-  .abober {
+  .item-container {
     @apply max-w-[280px] 
     sm:max-w-[545px] 
     md:max-w-[750px]
@@ -9,7 +9,7 @@
     xl:max-w-[1150px]
     2xl:max-w-[1288px];
 
-    .container {
+    .item {
       @apply transition-transform duration-[500ms] bg-white rounded-3xl flex flex-col justify-between p-2.5 relative mb-14 h-[240px]
       sm:mx-8
       md:mx-0
@@ -63,18 +63,6 @@
       .arrow-right {
         @apply absolute top-[-37px] right-[40px] z-[11] 
         sm:top-[calc(50%-35px)] sm:right-0;
-      }
-
-      @media screen and (min-width: 576px) {
-        .swiper-button-prev {
-          top: 41% !important;
-          left: 3px !important;
-        }
-
-        .swiper-button-next {
-          top: 41% !important;
-          right: 3px !important;
-        }
       }
     }
   }
