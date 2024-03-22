@@ -34,39 +34,8 @@ body {
   }
 }
 
-.swiper-button-prev,
-.swiper-button-next {
-  top: 92% !important;
-  z-index: 11 !important;
-  color: #000000 !important;
-}
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  font-size: 1.5rem !important;
-}
-
-.swiper-button-prev {
-  left: 25% !important;
-}
-
-.swiper-button-next {
-  right: 25% !important;
-}
-
 .swiper-pagination-bullet-active {
   background-color: rgb(123 86 189) !important;
-}
-
-@media screen and (min-width: 576px) {
-  .swiper-button-prev {
-    top: 41% !important;
-    left: 3px !important;
-  }
-
-  .swiper-button-next {
-    top: 41% !important;
-    right: 3px !important;
-  }
 }
 
 @media screen and (min-width: 576px) {

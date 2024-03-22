@@ -1,40 +1,80 @@
-.container {
-  @apply transition-transform duration-[500ms] bg-white rounded-3xl flex flex-col justify-between p-4 relative mb-14 h-[240px]
-  sm:mx-8
-  md:mx-0;
+.aboba {
+  @apply sm:relative;
 
-  .user {
-    @apply flex flex-row items-center mb-4;
+  .abober {
+    @apply max-w-[280px] 
+    sm:max-w-[545px] 
+    md:max-w-[750px]
+    lg:max-w-[950px]
+    xl:max-w-[1150px]
+    2xl:max-w-[1288px];
 
-    img {
-      @apply w-[44px] mr-3 rounded-full border border-solid border-white-100;
-    }
+    .container {
+      @apply transition-transform duration-[500ms] bg-white rounded-3xl flex flex-col justify-between p-2.5 relative mb-14 h-[240px]
+      sm:mx-8
+      md:mx-0
+      lg:p-4;
 
-    p {
-      @apply font-bold;
-    }
-  }
+      .user {
+        @apply flex flex-row items-center mb-4;
 
-  > p {
-    @apply text-sm mb-2 font-medium;
-  }
+        img {
+          @apply w-[44px] mr-3 rounded-full border border-solid border-white-100;
+        }
 
-  .mark {
-    @apply flex items-center justify-between;
-
-    .stars {
-      @apply flex;
-    }
-
-    .platform {
-      @apply flex items-center;
-
-      svg {
-        @apply mr-2;
+        p {
+          @apply font-bold;
+        }
       }
 
-      p {
-        @apply font-medium text-[#949494];
+      > p {
+        @apply text-sm mb-2 font-medium;
+      }
+
+      .mark {
+        @apply flex items-center justify-between;
+
+        .stars {
+          @apply flex;
+        }
+
+        .platform {
+          @apply flex items-center;
+
+          svg {
+            @apply mr-2;
+          }
+
+          p {
+            @apply font-medium text-[#949494];
+          }
+        }
+      }
+    }
+
+    .btns {
+      @apply relative sm:static;
+
+      .arrow-left {
+        @apply absolute top-[-37px] left-[40px] z-[11]
+        sm:top-[calc(50%-35px)] sm:left-0;
+      }
+
+      .arrow-right {
+        @apply absolute top-[-37px] right-[40px] z-[11] 
+        sm:top-[calc(50%-35px)] sm:right-0;
+      }
+
+      @media screen and (min-width: 576px) {
+        .swiper-button-prev {
+          top: 41% !important;
+          left: 3px !important;
+        }
+
+        .swiper-button-next {
+          top: 41% !important;
+          right: 3px !important;
+        }
       }
     }
   }

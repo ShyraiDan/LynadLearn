@@ -8,6 +8,8 @@ import { DAdvantages } from '@/mock/Advantages.mock'
 import { DSectionLeft, DSectionRight } from '@/mock/Sections.mock'
 import { SectionItem } from '@/components/SectionItem/SectionItem'
 import Accordion from '@/components/Accordion/Accordion'
+import UserReview from '@/components/UserRevies/UserReview'
+import Features from '@/components/Features/Features'
 
 import { FaGooglePlay, FaApple } from 'react-icons/fa6'
 import line from '@/assets/line.svg'
@@ -16,6 +18,9 @@ import faq from '@/assets/faq.svg'
 import installPc from '@/assets/app-download.png'
 import installMd from '@/assets/app-tablet.png'
 import installSm from '@/assets/app-mobile.png'
+import book from '@/assets/icons/book.svg'
+import message from '@/assets/massage-arrow.svg'
+import vocabulary from '@/assets/vocabulary.png'
 
 export default function MobileApp() {
   const t = useTranslations('')
@@ -90,6 +95,28 @@ export default function MobileApp() {
               <SectionItem key={item.title} {...item} />
             ))}
           </div>
+        </div>
+      </div>
+      <div className={styles.features}>
+        <div className={styles.slider}>
+          <h3>LanGeek app features</h3>
+          <Features />
+        </div>
+
+        <Image src={message} alt='arrow' />
+
+        <div className={styles['features-image']}>
+          <div className={styles['light-blue']}></div>
+          <div className={styles['dark-blue']}></div>
+          <div className={styles.image}>
+            <Image src={vocabulary} alt='vocabulary' />
+          </div>
+        </div>
+      </div>
+      <div className={styles.review}>
+        <div>
+          <h3>{t('user_reviews')}</h3>
+          <UserReview />
         </div>
       </div>
       <div className={styles.questions}>

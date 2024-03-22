@@ -12,54 +12,66 @@ import 'swiper/css/pagination'
 
 import { IoStarSharp } from 'react-icons/io5'
 import { FaGooglePlay } from 'react-icons/fa6'
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 export default function UserReview() {
   return (
-    <>
-      <Swiper
-        navigation
-        pagination={{
-          type: 'bullets',
-          dynamicBullets: true,
-          dynamicMainBullets: 1
-        }}
-        centeredSlides={true}
-        spaceBetween={20}
-        slidesPerView={1}
-        breakpoints={{
-          768: {
-            slidesPerView: 3
-          }
-        }}
-        modules={[Navigation, Pagination]}
-        className='w-full rounded-lg'>
-        {DReview.map((review, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <div key={review.id} className={styles.container}>
-                <div className={styles.user}>
-                  <Image src={review.avatar} alt='user-icon'></Image>
-                  <p>{review.name}</p>
-                </div>
-                <p>{review.text}</p>
-                <div className={styles.mark}>
-                  <div className={styles.stars}>
-                    <IoStarSharp size={'20px'} fill='#FFA944' />
-                    <IoStarSharp size={'20px'} fill='#FFA944' />
-                    <IoStarSharp size={'20px'} fill='#FFA944' />
-                    <IoStarSharp size={'20px'} fill='#FFA944' />
-                    <IoStarSharp size={'20px'} fill='#FFA944' />
+    <div className={styles.aboba}>
+      <div className={styles.abober}>
+        <Swiper
+          navigation={{ nextEl: '.arrow-right', prevEl: '.arrow-left' }}
+          pagination={{
+            type: 'bullets',
+            dynamicBullets: true,
+            dynamicMainBullets: 1
+          }}
+          centeredSlides={true}
+          spaceBetween={20}
+          slidesPerView={1}
+          breakpoints={{
+            768: {
+              slidesPerView: 3
+            }
+          }}
+          modules={[Navigation, Pagination]}
+          className='w-full rounded-lg'>
+          {DReview.map((review, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <div key={review.id} className={styles.container}>
+                  <div className={styles.user}>
+                    <Image src={review.avatar} alt='user-icon'></Image>
+                    <p>{review.name}</p>
                   </div>
-                  <div className={styles.platform}>
-                    <FaGooglePlay />
-                    <p>Google Play</p>
+                  <p>{review.text}</p>
+                  <div className={styles.mark}>
+                    <div className={styles.stars}>
+                      <IoStarSharp size={'20px'} fill='#FFA944' />
+                      <IoStarSharp size={'20px'} fill='#FFA944' />
+                      <IoStarSharp size={'20px'} fill='#FFA944' />
+                      <IoStarSharp size={'20px'} fill='#FFA944' />
+                      <IoStarSharp size={'20px'} fill='#FFA944' />
+                    </div>
+                    <div className={styles.platform}>
+                      <FaGooglePlay />
+                      <p>Google Play</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          )
-        })}
-      </Swiper>
-    </>
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
+
+        <div className={styles.btns}>
+          <button className={`arrow-left ${styles['arrow-left']}`}>
+            <IoIosArrowBack size={28} />
+          </button>
+          <button className={`arrow-right ${styles['arrow-right']}`}>
+            <IoIosArrowForward size={28} />
+          </button>
+        </div>
+      </div>
+    </div>
   )
 }
