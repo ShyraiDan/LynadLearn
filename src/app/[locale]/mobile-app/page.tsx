@@ -21,6 +21,8 @@ import installSm from '@/assets/app-mobile.png'
 import book from '@/assets/icons/book.svg'
 import message from '@/assets/massage-arrow.svg'
 import vocabulary from '@/assets/vocabulary.png'
+import gif from '@/assets/langeek-demo-min.gif'
+import pluses from '@/assets/pattern-3.svg'
 
 export default function MobileApp() {
   const t = useTranslations('')
@@ -62,7 +64,7 @@ export default function MobileApp() {
         <div className={styles.image}>{/* <Image src={line} alt='line' /> */}</div>
       </div>
       <div className={styles.app}>
-        <div>
+        <div className={styles.learning}>
           <h3>With LanGeek app , language learning will never be a challenge again</h3>
           <p>
             With this app, language learning will never be a challenge again, and you will quickly pursue your dream of
@@ -73,6 +75,11 @@ export default function MobileApp() {
               <AdvantageItem key={item.title} {...item} />
             ))}
           </div>
+        </div>
+        <div className={styles.image}>
+          <Image className={styles.back} src={pluses} alt='' />
+          <div className={styles.rect} />
+          <Image className={styles.front} src={gif} alt='' />
         </div>
       </div>
       <div className={styles.sections}>
