@@ -1,26 +1,17 @@
 import styles from './ListsPage.module.scss'
 import { Category } from '@/components/Category/Category'
 import { DCategories } from '@/mock/Categories.mock'
+import Image from 'next/image'
 
-import { IoIosArrowForward } from 'react-icons/io'
+import line from '@/assets/line.svg'
 
 export default function ListsPage() {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
         <h1>English Vocabulary</h1>
-        <h2>Categorized word lists</h2>
-      </div>
-      <div className={styles['learn-vocabulary']}>
-        <p>
-          Start
-          <br />
-          Learning <span>English</span> Vocabulary
-        </p>
-        <div className={styles.arrow}>
-          <span>Start</span>
-          <IoIosArrowForward />
-        </div>
+        <Image src={line} alt='line' />
+        <p>Lets start your journey to learn categorized English vocabulary on Langeek.</p>
       </div>
       {DCategories.map((item) => (
         <div key={item.id} className={styles.list}>
