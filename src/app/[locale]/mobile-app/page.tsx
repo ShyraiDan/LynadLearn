@@ -18,34 +18,33 @@ import faq from '@/assets/faq.svg'
 import installPc from '@/assets/app-download.png'
 import installMd from '@/assets/app-tablet.png'
 import installSm from '@/assets/app-mobile.png'
-import book from '@/assets/icons/book.svg'
 import message from '@/assets/massage-arrow.svg'
 import vocabulary from '@/assets/vocabulary.png'
 import gif from '@/assets/langeek-demo-min.gif'
 import pluses from '@/assets/pattern-3.svg'
 
 export default function MobileApp() {
-  const t = useTranslations('')
+  const t = useTranslations('Mobile_app')
 
   return (
     <div className={styles.container}>
       <div className={styles.download}>
         <div className={styles.top}>
           <h1>
-            Download{' '}
+            {t('download')}{' '}
             <span>
               Lynad<span>Learn </span>
             </span>
-            Mobile App
+            {t('mobile_app')}
           </h1>
           <Image src={line} alt='line' />
-          <p>Have LynadLearn always at hand by downloading our Android or iOS app</p>
+          <p>{t('always_download')}</p>
           <div>
             <Link href='https://play.google.com/store/games/'>
               <Button>
                 <FaGooglePlay size='24' />
                 <div>
-                  <span>Get it on</span>
+                  <span>{t('get_it_on')}</span>
                   <p>Google Play</p>
                 </div>
               </Button>
@@ -54,22 +53,19 @@ export default function MobileApp() {
               <Button>
                 <FaApple size='28' />
                 <div>
-                  <span>Get it on</span>
+                  <span>{t('get_it_on')}</span>
                   <p>App Store</p>
                 </div>
               </Button>
             </Link>
           </div>
         </div>
-        <div className={styles.image}>{/* <Image src={line} alt='line' /> */}</div>
+        <div className={styles.image}></div>
       </div>
       <div className={styles.app}>
         <div className={styles.learning}>
-          <h3>With LanGeek app , language learning will never be a challenge again</h3>
-          <p>
-            With this app, language learning will never be a challenge again, and you will quickly pursue your dream of
-            learning a language.
-          </p>
+          <h3>{t('with_lynadlearn')}</h3>
+          <p>{t('with_lynadlearn')}</p>
           <div>
             {DAdvantages.map((item) => (
               <AdvantageItem key={item.title} {...item} />
@@ -83,7 +79,7 @@ export default function MobileApp() {
         </div>
       </div>
       <div className={styles.sections}>
-        <h3>Main sections of the application</h3>
+        <h3>{t('main_sections')}</h3>
         <div className={styles.items}>
           <div className={styles.left}>
             {DSectionLeft.map((item) => (
@@ -106,7 +102,7 @@ export default function MobileApp() {
       </div>
       <div className={styles.features}>
         <div className={styles.slider}>
-          <h3>LanGeek app features</h3>
+          <h3>{t('app_features')}</h3>
           <Features />
         </div>
 
@@ -122,13 +118,13 @@ export default function MobileApp() {
       </div>
       <div className={styles.review}>
         <div>
-          <h3>{t('user_reviews')}</h3>
+          <h3>{t('reviews')}</h3>
           <UserReview />
         </div>
       </div>
       <div className={styles.questions}>
         <div className={styles.items}>
-          <h3>Frequently asked questions</h3>
+          <h3>{t('faq')}</h3>
           <Accordion />
         </div>
         <Image src={faq} alt='faq'></Image>
@@ -136,14 +132,14 @@ export default function MobileApp() {
       <div className={styles.platform}>
         <div>
           <div className={styles.install}>
-            <h3>There is no platform like LanGeek</h3>
-            <p>Have LanGeek always at hand by downloading our Android or iOS app</p>
+            <h3>{t('no_platform')}</h3>
+            <p>{t('have_lynadlearn')}</p>
             <div className={styles.buttons}>
               <Link href='https://play.google.com/store/games/'>
                 <Button>
                   <FaGooglePlay size='24' />
                   <div>
-                    <span>Get it on</span>
+                    <span>{t('get_it_on')}</span>
                     <p>Google Play</p>
                   </div>
                 </Button>
@@ -152,7 +148,7 @@ export default function MobileApp() {
                 <Button>
                   <FaApple size='28' />
                   <div>
-                    <span>Get it on</span>
+                    <span>{t('get_it_on')}</span>
                     <p>App Store</p>
                   </div>
                 </Button>

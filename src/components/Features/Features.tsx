@@ -5,15 +5,17 @@ import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import { DFeatures } from '@/mock/Features.mock'
+import { useTranslations } from 'next-intl'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
-import book from '@/assets/icons/book.svg'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
 export default function Features() {
+  const t = useTranslations('Mobile_app')
+
   return (
     <>
       <div className={styles.container}>
@@ -35,9 +37,9 @@ export default function Features() {
                   <div className={styles.item}>
                     <div>
                       <Image src={item.icon} alt='book' />
-                      <h6>{item.title}</h6>
+                      <h6>{t(item.title)}</h6>
                     </div>
-                    <p>{item.description}</p>
+                    <p>{t(item.description)}</p>
                   </div>
                 </SwiperSlide>
               )
