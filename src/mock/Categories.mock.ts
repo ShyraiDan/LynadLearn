@@ -8,14 +8,14 @@ import C1 from '@/assets/C1.png'
 export const DCategories: ICategory[] = [
   {
     id: '1',
-    title: 'Your Word Lists',
-    description: 'User collection card text.',
+    title: 'your_lists',
+    description: '',
     lists: []
   },
   {
     id: '2',
-    title: 'CEFR Wordlist',
-    description: 'Here you will find different wordlists categorized by level according to CEFR.',
+    title: 'cefr_wordlist',
+    description: 'cefr_wordlist_detail',
     lists: [
       {
         id: '1',
@@ -46,8 +46,8 @@ export const DCategories: ICategory[] = [
   },
   {
     id: '3',
-    title: 'CEFR Wordlist',
-    description: 'Here you will find different wordlists categorized by level according to CEFR.',
+    title: 'cefr_wordlist',
+    description: 'cefr_wordlist_detail',
     lists: [
       {
         id: '1',

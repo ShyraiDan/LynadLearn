@@ -165,5 +165,19 @@
     "is_dictionary_answer": "Yes, it does. The app includes a comprehensive dictionary that covers all the words and phrases you learn with LynadLearn. You can also use the dictionary to look up any word or phrase you encounter in your learning journey. However, please note that the web version of the dictionary may be more up-to-date than the app version.",
     "no_platform": "There is no platform like LynadLearn",
     "have_lynadlearn": "Have LynadLearn always at hand by downloading our Android or iOS app"
+  },
+  "dashboard": {
+    "lists": {
+      "english_vocabulary": "English Vocabulary",
+      "lets_start": "Lets start your journey to learn categorized English vocabulary on LynadLearn.",
+      "your_lists": "Your Word Lists",
+      "add_list": "Add a new list",
+      "see_all": "See all",
+      "explore": "Explore",
+      "cefr_wordlist": "CEFR Wordlist",
+      "cefr_wordlist_detail": "Here you will find different wordlists categorized by level according to CEFR.",
+      "wordlist": "Wordlist",
+      "level": "Level"
+    }
   }
 }
