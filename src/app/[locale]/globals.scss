@@ -42,6 +42,21 @@ body {
   margin-left: 0 !important;
 }
 
+::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #b8b8b8;
+}
+
 @media screen and (min-width: 576px) {
   .swiper-slide {
     opacity: 0.7 !important;
