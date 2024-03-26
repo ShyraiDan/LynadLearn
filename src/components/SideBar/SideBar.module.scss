@@ -3,7 +3,7 @@
   lg:flex lg:flex-col;
 
   > ul {
-    @apply flex flex-col fixed;
+    @apply flex flex-col fixed w-[222px];
 
     li {
       a {
