@@ -5,5 +5,5 @@ export interface IInput {
   name: string
   id: string
   required?: boolean
-  children: ReactNode
+  children?: ReactNode
 }

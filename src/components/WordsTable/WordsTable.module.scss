@@ -1,6 +1,5 @@
 .container {
-  @apply flex overflow-x-auto text-sm
-  origin-center rotate-180;
+  @apply flex overflow-x-auto text-sm origin-center rotate-180;
   .table {
     @apply origin-center -rotate-180;
 
@@ -28,6 +27,16 @@
       &:last-child {
         @apply border-b;
       }
+    }
+
+    .header {
+      @apply bg-blue-100 text-white text-base;
+    }
+
+    .no-words {
+      @apply flex items-center justify-center h-[100vh] w-[calc(100vw-5px)] 
+      text-2xl font-bold text-center
+      lg:w-[calc(100vw-260px)];
     }
   }
 }
