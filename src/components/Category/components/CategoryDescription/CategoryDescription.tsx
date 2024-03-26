@@ -15,7 +15,7 @@ export default function CategoryDescription({ title, id, description }: Omit<ICa
       <div className={styles.description}>
         <div className={styles.info}>
           <h3 className={styles.title}>{t(title)}</h3>
-          <p className={styles.desc}>{t(description)}</p>
+          <p className={styles.desc}>{description && t(description)}</p>
         </div>
         <div className={styles['link-cont']}>
           <Link className={styles.link} href={`/lists:${id}`}>

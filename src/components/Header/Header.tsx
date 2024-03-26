@@ -1,3 +1,5 @@
+'use client'
+
 import styles from './Header.module.scss'
 import LanguageModal from '../LanguageModal/LanguageModal'
 import { SignInModal } from '../SignInModal/SignInModal'
@@ -5,14 +7,17 @@ import Burger from '../Burger/Burger'
 import { UserModal } from '../UserModal/UserModal'
 import NavigationLink from '../ui/NavigationLink/NavigationLink'
 import { useTranslations } from 'next-intl'
+import { usePathname } from 'next/navigation'
 
 export function Header() {
   const t = useTranslations('Header')
   const isAuth = false
 
+  const path = usePathname()
+
   return (
     <header className={styles.header}>
-      <div className={styles['header-container']}>
+      <div className={`${styles['header-container']} ${path.split('/')[2] === 'dashboard' && styles.dashboard}`}>
         <div className={styles['header-left']}>
           <div></div>
           <NavigationLink href={'/'}>

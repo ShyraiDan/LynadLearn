@@ -3,7 +3,7 @@
 
   .header-container {
     @apply flex items-center p-4 justify-between
-    xl:max-w-[1320px] xl:mx-auto;
+    lg:max-w-[1320px] lg:mx-auto;
 
     .header-left {
       @apply flex items-center;
@@ -37,5 +37,9 @@
         @apply text-blue-200;
       }
     }
+  }
+
+  .dashboard {
+    @apply border-b border-[#e5e7eb] lg:max-w-[100%];
   }
 }

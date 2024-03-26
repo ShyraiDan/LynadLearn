@@ -24,9 +24,33 @@ export const pathnames = {
     en: '/mobile-app',
     ua: '/mobile-app'
   },
+  '/profile': {
+    en: '/profile',
+    ua: '/profile'
+  },
+  '/settings': {
+    en: '/settings',
+    ua: '/settings'
+  },
   '/dashboard/lists': {
     en: '/dashboard/lists',
     ua: '/dashboard/lists'
+  },
+  '/dashboard/vocabulary': {
+    en: '/dashboard/vocabulary',
+    ua: '/dashboard/vocabulary'
+  },
+  '/dashboard/quiz': {
+    en: '/dashboard/quiz',
+    ua: '/dashboard/quiz'
+  },
+  '/dashboard/grammar': {
+    en: '/dashboard/grammar',
+    ua: '/dashboard/grammar'
+  },
+  '/dashboard/flashcard': {
+    en: '/dashboard/flashcard',
+    ua: '/dashboard/flashcard'
   }
 } satisfies Pathnames<typeof locales>
 

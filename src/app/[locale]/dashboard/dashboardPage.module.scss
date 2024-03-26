@@ -1,0 +1,3 @@
+.container {
+  @apply lg:grid lg:grid-cols-[255px_calc(100%-255px)] max-w-[100vw];
+}

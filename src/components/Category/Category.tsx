@@ -26,10 +26,11 @@ export function Category({ title, id, lists, description }: ICategory) {
             pagination={true}
             modules={[Pagination]}
             className={styles.slider}
+            spaceBetween={10}
+            loop={true}
             breakpoints={{
               320: {
-                slidesPerView: 2,
-                spaceBetween: 10
+                slidesPerView: 2
               },
               400: {
                 slidesPerView: 3
@@ -54,6 +55,15 @@ export function Category({ title, id, lists, description }: ICategory) {
               },
               1150: {
                 slidesPerView: 5
+              },
+              1300: {
+                slidesPerView: 6
+              },
+              1450: {
+                slidesPerView: 7
+              },
+              1600: {
+                slidesPerView: 8
               }
             }}>
             {lists.map((item) => (

@@ -1,5 +1,5 @@
 .container {
-  @apply mx-auto;
+  @apply mx-auto lg:mx-0;
 
   .top {
     @apply flex flex-col items-center my-2 px-12 pt-10 pb-10 text-center;

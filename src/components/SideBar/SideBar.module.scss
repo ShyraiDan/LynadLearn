@@ -1,35 +1,23 @@
 .container {
-  @apply flex flex-col w-[256px] pl-3;
+  @apply hidden px-4 py-6 h-full border-r border-b border-[#e5e7eb]
+  lg:flex lg:flex-col;
 
-  section {
-    @apply flex flex-col;
+  > ul {
+    @apply flex flex-col fixed;
 
-    h3 {
-      @apply mb-2 bg-[#f1f1ef] text-xl font-medium p-1;
-    }
+    li {
+      a {
+        @apply flex w-full items-center text-blue-200 mb-1 py-2 px-3 rounded-lg font-bold transition-all ease-linear duration-150
+        hover:bg-[#2a41e812];
 
-    div {
-      @apply flex items-center border-b pb-1 font-medium;
-
-      .diagram {
-        @apply mr-1;
+        svg {
+          @apply mr-2;
+        }
       }
-
-      .diagram {
-        @apply mr-1;
-      }
-
-      .arrow {
-        @apply ml-1;
-      }
-    }
-
-    &:not(:first-child) {
-      @apply mt-5;
     }
   }
 }
 
-.accordion {
-  @apply flex flex-col pt-4 pb-1 gap-4;
+.selected {
+  @apply bg-[#2a41e812];
 }

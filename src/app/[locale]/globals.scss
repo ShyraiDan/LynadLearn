@@ -38,6 +38,10 @@ body {
   background-color: rgb(123 86 189) !important;
 }
 
+.swiper {
+  margin-left: 0 !important;
+}
+
 @media screen and (min-width: 576px) {
   .swiper-slide {
     opacity: 0.7 !important;

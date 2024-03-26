@@ -4,12 +4,13 @@
 
   > div {
     @apply md:flex  
-    lg:max-w-[1320px] lg:mx-auto;
+    lg:max-w-[1320px] lg:mx-auto lg:block;
 
     .list-group {
       @apply px-8 flex gap-3
       sm:bg-[#deede671] sm:my-6 sm:pt-10 sm:pb-5 sm:rounded-2xl sm:shadow-sm sm:shadow-[#00000013]
-      md:rounded-l-none md:basis-7/12 md:max-w-[calc(100%-300px)];
+      md:rounded-l-none md:basis-7/12 md:max-w-[calc(100%-300px)]
+      lg:max-w-[calc(100vw-300px)] lg:rounded-2xl;
     }
   }
 }

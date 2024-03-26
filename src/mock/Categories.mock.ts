@@ -41,6 +41,56 @@ export const DCategories: ICategory[] = [
         id: '5',
         title: 'C1 Level Wordlist',
         image: C1
+      },
+      {
+        id: '1',
+        title: 'A1 Level Wordlist',
+        image: A1
+      },
+      {
+        id: '2',
+        title: 'A2 Level Wordlist',
+        image: A2
+      },
+      {
+        id: '3',
+        title: 'B1 Level Wordlist',
+        image: B1
+      },
+      {
+        id: '4',
+        title: 'B2 Level Wordlist',
+        image: B2
+      },
+      {
+        id: '5',
+        title: 'C1 Level Wordlist',
+        image: C1
+      },
+      {
+        id: '1',
+        title: 'A1 Level Wordlist',
+        image: A1
+      },
+      {
+        id: '2',
+        title: 'A2 Level Wordlist',
+        image: A2
+      },
+      {
+        id: '3',
+        title: 'B1 Level Wordlist',
+        image: B1
+      },
+      {
+        id: '4',
+        title: 'B2 Level Wordlist',
+        image: B2
+      },
+      {
+        id: '5',
+        title: 'C1 Level Wordlist',
+        image: C1
       }
     ]
   },
@@ -49,6 +99,56 @@ export const DCategories: ICategory[] = [
     title: 'cefr_wordlist',
     description: 'cefr_wordlist_detail',
     lists: [
+      {
+        id: '1',
+        title: 'A1 Level Wordlist',
+        image: A1
+      },
+      {
+        id: '2',
+        title: 'A2 Level Wordlist',
+        image: A2
+      },
+      {
+        id: '3',
+        title: 'B1 Level Wordlist',
+        image: B1
+      },
+      {
+        id: '4',
+        title: 'B2 Level Wordlist',
+        image: B2
+      },
+      {
+        id: '5',
+        title: 'C1 Level Wordlist',
+        image: C1
+      },
+      {
+        id: '1',
+        title: 'A1 Level Wordlist',
+        image: A1
+      },
+      {
+        id: '2',
+        title: 'A2 Level Wordlist',
+        image: A2
+      },
+      {
+        id: '3',
+        title: 'B1 Level Wordlist',
+        image: B1
+      },
+      {
+        id: '4',
+        title: 'B2 Level Wordlist',
+        image: B2
+      },
+      {
+        id: '5',
+        title: 'C1 Level Wordlist',
+        image: C1
+      },
       {
         id: '1',
         title: 'A1 Level Wordlist',

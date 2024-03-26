@@ -1,6 +1,7 @@
 .top {
   @apply px-4 mb-6 flex justify-between 
-  sm:hidden;
+  sm:hidden
+  lg:flex;
 
   h6 {
     @apply font-bold mb-2 text-[#0e336b];
@@ -14,7 +15,8 @@
 .description {
   @apply hidden 
   sm:flex sm:rounded-2xl sm:border sm:border-[#849adba1] sm:flex-col sm:px-2 
-  md:basis-5/12 md:justify-between md:min-w-[300px];
+  md:basis-5/12 md:justify-between md:min-w-[300px]
+  lg:hidden;
 
   h3 {
     @apply sm:mb-3 text-[#0e336b] text-2xl font-bold  
