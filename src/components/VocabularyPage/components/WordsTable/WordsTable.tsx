@@ -1,4 +1,5 @@
 import styles from './WordsTable.module.scss'
+import { IWordsTable } from './IWordsTable.interface'
 
 import { DWords } from '@/mock/Words.mock'
 
@@ -9,11 +10,15 @@ import { FaRunning } from 'react-icons/fa'
 import { SlSpeech } from 'react-icons/sl'
 import { AiOutlineTranslation } from 'react-icons/ai'
 
-export default function WordsTable() {
+export default function WordsTable({ isAdding, setAdding }: IWordsTable) {
+  console.log(isAdding)
+
   return (
     <div className={styles.container}>
       <div className={styles.table}>
         {!DWords.length && <div className={styles['no-words']}>Unfortunately you don&apos;t have any words yet</div>}
+        {isAdding && 'isAdding'}
+
         {DWords.length ? (
           <div className={styles['table-data']}>
             <div className={`${styles.row} ${styles.header}`}>

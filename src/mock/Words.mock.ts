@@ -14,7 +14,7 @@ export const DWords: IWord[] = [
   {
     id: 2,
     word: 'Ephemeral',
-    part_of_speech: 'Adjective',
+    part_of_speech: 'Adjectives',
     definition: 'Lasting for a very short time.',
     pronunciation: '/ɪˈfɛm(ə)r(ə)l/',
     translation: '',

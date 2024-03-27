@@ -1,12 +1,5 @@
-import WordsTable from '@/components/WordsTable/WordsTable'
-import styles from './VocabularyPage.module.scss'
-import TopBar from '@/components/TopBar/TopBar'
+import VocabularyPage from '@/components/VocabularyPage/VocabularyPage'
 
-export default function VocabularyPage() {
-  return (
-    <div className={styles.container}>
-      <TopBar />
-      <WordsTable />
-    </div>
-  )
+export default function SingleListPage() {
+  return <VocabularyPage />
 }

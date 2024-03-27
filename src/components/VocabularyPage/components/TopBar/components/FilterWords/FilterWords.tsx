@@ -7,7 +7,7 @@ import { IoIosArrowDown } from 'react-icons/io'
 
 export default function FilterWords() {
   const [isFilterOpen, setFilterOpen] = useState(false)
-  const [selectedFilter, setFilter] = useState('newest')
+  const [selectedFilter, setFilter] = useState('Newest')
 
   const changeFilter = (filter: string) => {
     setFilter(filter)
