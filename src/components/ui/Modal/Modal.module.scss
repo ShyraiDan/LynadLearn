@@ -8,10 +8,15 @@
   xl:mx-auto;
 
   button {
-    @apply py-2 px-2 self-end font-bold  z-[2];
+    @apply py-2 px-2 self-end font-bold z-[2];
+
+    svg {
+      @apply transition-all ease-linear duration-150
+      hover:text-purple-100;
+    }
   }
 
   > div {
-    @apply box-border h-5/6;
+    @apply box-border;
   }
 }

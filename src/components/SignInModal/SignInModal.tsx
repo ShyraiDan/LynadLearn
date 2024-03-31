@@ -7,6 +7,7 @@ import { Input } from '../ui/Input/Input'
 import Image from 'next/image'
 import styles from './SignInModal.module.scss'
 import { useTranslations } from 'next-intl'
+import { removeScrollBar } from '@/constants/shared'
 
 import { FaUser } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
@@ -17,15 +18,20 @@ export function SignInModal() {
   const [isSignUpModal, setSignUpModal] = useState(false)
   const t = useTranslations('Forms')
 
+  const showModal = () => {
+    setModalOpen((state) => !state)
+    removeScrollBar(isModalOpen)
+  }
+
   return (
     <>
       <div className={styles.btn}>
-        <Button onClick={() => setModalOpen(!isModalOpen)}>
+        <Button onClick={() => showModal()}>
           <FaUser /> {t('sign_in')}
         </Button>
       </div>
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} handleClose={() => setModalOpen(!isModalOpen)}>
+        <Modal isOpen={isModalOpen} handleClose={() => showModal()}>
           <div className={styles.modal}>
             <div className={styles.image}>
               <Image alt='Keep learning' src={image} />

@@ -7,8 +7,10 @@
 }
 
 .modal {
-  @apply flex flex-col justify-center h-full
-  lg:flex-row;
+  @apply flex flex-col justify-center h-[calc(100vh-85px)] overflow-y-auto
+  sm:h-[calc(100vh-300px)] 
+  lg:flex-row lg:h-[calc(100vh-305px)] 
+  xl:h-[calc(100vh-275px)];
 
   .image {
     @apply hidden w-[375px] pr-4 items-center
@@ -16,8 +18,8 @@
   }
 
   .form-container {
-    @apply basis-1/2
-    lg:flex lg:justify-center lg:flex-col;
+    @apply basis-1/2 pr-2 h-full
+    lg:flex lg:justify-start lg:flex-col;
 
     h2 {
       @apply mb-2 text-3xl font-bold;

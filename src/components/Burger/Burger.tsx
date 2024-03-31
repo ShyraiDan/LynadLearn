@@ -6,6 +6,7 @@ import styles from './Burger.module.scss'
 import NavigationLink from '../ui/NavigationLink/NavigationLink'
 import { useTranslations } from 'next-intl'
 import { SignInModal } from '../SignInModal/SignInModal'
+import { removeScrollBar } from '@/constants/shared'
 
 import { FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
@@ -18,9 +19,8 @@ export default function Burger() {
   const isAuth = false
 
   const showModal = () => {
-    const html = document.querySelector('html') as HTMLElement
     setBurgerShow((state) => !state)
-    isBurgerShow === false ? (html.style.overflowY = 'hidden') : (html.style.overflowY = 'scroll')
+    removeScrollBar(isBurgerShow)
   }
 
   return (

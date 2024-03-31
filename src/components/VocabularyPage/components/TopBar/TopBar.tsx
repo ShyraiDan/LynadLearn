@@ -1,7 +1,7 @@
 import styles from './TopBar.module.scss'
 import { Input } from '@/components/ui/Input/Input'
 import FilterWords from './components/FilterWords/FilterWords'
-import { AddingWordForm } from '../AddingWordForm/AddingWordForm'
+import { AddingWordForm } from './components/AddingWordForm/AddingWordForm'
 
 export default function TopBar() {
   return (
