@@ -1,0 +1,44 @@
+.modal {
+  @apply overflow-y-auto h-[calc(100vh-305px)];
+
+  h2 {
+    @apply mb-2 text-3xl font-bold;
+  }
+
+  p {
+    @apply mb-7;
+  }
+
+  .form {
+    > div {
+      @apply pr-2 h-full;
+
+      .row {
+        @apply grid grid-cols-2 gap-4;
+
+        > div {
+          @apply flex flex-col;
+
+          label {
+            @apply font-semibold mb-2;
+          }
+
+          select {
+            @apply font-medium px-3 py-1.5 rounded border border-[#ced4da] w-full h-[38px];
+          }
+        }
+      }
+
+      label {
+        @apply mt-4
+        first:mt-0;
+      }
+
+      button {
+        @apply px-6 mt-2 text-black shadow-md bg-transparent mb-2 rounded
+        last:mt-6 last:bg-blue-200 last:text-white last:shadow-none
+        hover:bg-grey-100 last:hover:bg-purple-100;
+      }
+    }
+  }
+}

@@ -1,12 +1,15 @@
 .container {
   @apply flex overflow-x-auto text-sm origin-center rotate-180;
+
   .table {
     @apply origin-center -rotate-180;
 
     .row {
-      @apply grid grid-cols-[repeat(6,_minmax(150px,_1fr))] w-full;
+      @apply cursor-pointer relative grid grid-cols-[repeat(6,_minmax(150px,_1fr))] w-full transition-all duration-[.3s] ease-in-out
+      even:bg-white-100
+      [&_.word-modal]:hover:visible;
 
-      div {
+      > div {
         @apply border-l border-t p-1;
 
         .icon {
@@ -26,6 +29,10 @@
 
       &:last-child {
         @apply border-b;
+      }
+
+      .word-modal {
+        @apply invisible rounded-lg shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] bg-[#ffffff] p-2 absolute bottom-[5px] left-[5px] w-[60px] h-[33px];
       }
     }
 

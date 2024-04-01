@@ -8,6 +8,7 @@ import { BsChatDotsFill } from 'react-icons/bs'
 import { FaRunning } from 'react-icons/fa'
 import { SlSpeech } from 'react-icons/sl'
 import { AiOutlineTranslation } from 'react-icons/ai'
+import EditDeleteWordModal from './EditDeleteWordModal/EditDeleteWordModal'
 
 export default function WordsTable() {
   return (
@@ -51,6 +52,9 @@ export default function WordsTable() {
                   <div>{item.translation}</div>
                   <div>{item.pronunciation}</div>
                   <div>{item.example}</div>
+                  <div className={styles['word-modal']}>
+                    <EditDeleteWordModal />{' '}
+                  </div>
                 </div>
               )
             })}

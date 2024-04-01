@@ -1,0 +1,8 @@
+.modal {
+  @apply flex justify-between;
+
+  svg {
+    @apply cursor-pointer transition-[color] duration-[.15s] ease-in-out
+    hover:text-purple-100;
+  }
+}
