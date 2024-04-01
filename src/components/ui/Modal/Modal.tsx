@@ -5,7 +5,7 @@ import styles from './Modal.module.scss'
 
 import { RxCross1 } from 'react-icons/rx'
 
-export function Modal({ children, isOpen, handleClose }: IModal) {
+export function Modal({ children, isOpen, handleClose, className }: IModal) {
   useEffect(() => {
     const closeOnEscapeKey = (e: KeyboardEvent) => (e.key === 'Escape' ? handleClose() : null)
     document.body.addEventListener('keydown', closeOnEscapeKey)
@@ -28,7 +28,7 @@ export function Modal({ children, isOpen, handleClose }: IModal) {
     <ReactPortal wrapperId='react-portal-modal-container'>
       <>
         <div className={styles.layout} />
-        <div className={styles.modal}>
+        <div className={`${styles.modal} ${className}`}>
           <button onClick={handleClose}>
             <RxCross1 size={'24px'} />
           </button>
