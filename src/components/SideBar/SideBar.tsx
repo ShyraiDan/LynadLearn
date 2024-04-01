@@ -20,7 +20,7 @@ export default function SideBar() {
     <div className={styles.container}>
       <ul>
         <li>
-          <NavigationLink href={'/profile'} className={`${page === 'profile' && styles.selected}`}>
+          <NavigationLink href={'/dashboard/profile'} className={`${page === 'profile' && styles.selected}`}>
             <FaUser /> Profile
           </NavigationLink>
         </li>
@@ -49,7 +49,7 @@ export default function SideBar() {
           </NavigationLink>
         </li>
         <li>
-          <NavigationLink href={'/settings'} className={`${page === 'settings' && styles.selected}`}>
+          <NavigationLink href={'/dashboard/settings'} className={`${page === 'settings' && styles.selected}`}>
             <IoSettingsSharp />
             Settings
           </NavigationLink>
