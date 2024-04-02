@@ -4,11 +4,13 @@
   lg:flex;
 
   h6 {
-    @apply font-bold mb-2 text-[#0e336b];
+    @apply font-bold mb-2 text-[#0e336b] 
+    md:mb-0;
   }
 
   a {
-    @apply text-[#0d47a1] font-bold text-sm;
+    @apply text-[#0d47a1] font-bold text-sm transition-all duration-150 ease-in-out
+    hover:text-purple-100;
   }
 }
 

@@ -48,7 +48,7 @@
 .footer-right {
   @apply flex flex-col items-center text-blue-200 
   sm:items-start sm:flex-row sm:pl-2 
-  lg:items-center 
+  md:items-center 
   2xl:mr-2.5;
 
   ul {

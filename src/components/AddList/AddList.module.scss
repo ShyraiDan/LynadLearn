@@ -1,5 +1,7 @@
 .container {
-  @apply flex flex-col items-center text-[#bcc1c6];
+  @apply flex flex-col items-center text-[#bcc1c6] transition-all ease-linear duration-150
+  [&_div]:transition-all [&_div]:ease-linear [&_div]:duration-150
+  hover:text-purple-100 [&_div]:hover:text-purple-100 [&_div]:hover:border-purple-100;
 
   > p {
     @apply w-[100px] text-center cursor-pointer 
