@@ -12,10 +12,12 @@ import { FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { FaFacebook } from 'react-icons/fa'
 import { RxCross1 } from 'react-icons/rx'
+import { IoIosArrowDown } from 'react-icons/io'
 
 export default function Burger() {
   const t = useTranslations('Header')
   const [isBurgerShow, setBurgerShow] = useState(false)
+  const [isLastOpen, setLastOpen] = useState(false)
   const isAuth = false
 
   const showModal = () => {
@@ -62,17 +64,45 @@ export default function Burger() {
                 {t('mobile_app')}
               </NavigationLink>
             </li>
-            <li>
-              <NavigationLink hover onClick={() => showModal()} href={'/dashboard/lists'}>
-                {t('dashboard')}
-              </NavigationLink>
-            </li>
 
             {isAuth && (
               <li>
-                <Link href={'/profile'}>Profile</Link>
+                <NavigationLink hover onClick={() => showModal()} href={'/dashboard/profile'}>
+                  Profile
+                </NavigationLink>
               </li>
             )}
+            <li>
+              <NavigationLink hover onClick={() => showModal()} href={'/dashboard/settings'}>
+                Settings
+              </NavigationLink>
+            </li>
+            <li onClick={() => setLastOpen((state) => !state)}>
+              <div className={styles['dropdown-btn']}>
+                <NavigationLink hover onClick={() => showModal()} href={'/dashboard/lists'}>
+                  {t('dashboard')}
+                </NavigationLink>
+
+                <IoIosArrowDown size={20} className={`${styles.arrow} ${isLastOpen && styles.rotated}`} />
+              </div>
+              <ul className={`${styles.dropdown}  ${isLastOpen && styles['dropdown-active']}`}>
+                <li>
+                  <NavigationLink hover onClick={() => showModal()} href={'/dashboard/settings'}>
+                    Quiz
+                  </NavigationLink>
+                </li>
+                <li>
+                  <NavigationLink hover onClick={() => showModal()} href={'/dashboard/settings'}>
+                    Grammar
+                  </NavigationLink>
+                </li>
+                <li>
+                  <NavigationLink hover onClick={() => showModal()} href={'/dashboard/settings'}>
+                    Flashcard
+                  </NavigationLink>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
 
