@@ -11,11 +11,6 @@ export default function ListsPage() {
 
   return (
     <div className={styles.container}>
-      {/* <div className={styles.top}>
-        <h1>{t('english_vocabulary')}</h1>
-        <Image src={line} alt='line' />
-        <p>{t('lets_start')}</p>
-      </div> */}
       {DCategories.map((item) => (
         <div key={item.id} className={styles.list}>
           <Category title={item.title} id={item.id} lists={item.lists} description={item.description} />
