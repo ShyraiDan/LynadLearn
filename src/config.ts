@@ -1,6 +1,7 @@
 import { Pathnames } from 'next-intl/navigation'
 
 export const locales = ['en', 'ua'] as const
+const arr = [1, 2, 3, 4]
 
 export const pathnames = {
   '/': '/',
@@ -47,6 +48,10 @@ export const pathnames = {
   '/dashboard/grammar': {
     en: '/dashboard/grammar',
     ua: '/dashboard/grammar'
+  },
+  '/dashboard/grammar/[id]': {
+    en: '/dashboard/grammar/[id]',
+    ua: '/dashboard/grammar/[id]'
   },
   '/dashboard/flashcard': {
     en: '/dashboard/flashcard',
