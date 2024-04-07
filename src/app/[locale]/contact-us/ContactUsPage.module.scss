@@ -35,12 +35,16 @@
 
           input,
           textarea {
-            @apply font-medium text-[#6c757d] opacity-90 px-3 py-1.5 rounded border border-[#ced4da] w-full;
+            @apply resize-none font-medium text-[#6c757d] opacity-90 px-3 py-1.5 rounded border border-[#ced4da] w-full;
           }
         }
 
         button {
           @apply px-3 rounded;
+        }
+
+        .error {
+          @apply text-red mt-1.5;
         }
       }
     }

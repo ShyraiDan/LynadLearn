@@ -1,5 +1,5 @@
 .button {
-  @apply flex justify-center items-center text-center py-2 px-6 items-center bg-blue-200 font-bold rounded-full text-white transition-all ease-linear duration-150
+  @apply flex justify-center items-center text-center py-2 px-6 items-center bg-blue-200 font-bold rounded-full text-white transition-all ease-linear duration-150 cursor-pointer
   hover:bg-purple-100;
 }
 

@@ -5,4 +5,5 @@ export interface IButton {
   type?: 'button' | 'submit' | 'reset'
   outline?: boolean
   onClick?: () => void
+  disabled?: boolean
 }

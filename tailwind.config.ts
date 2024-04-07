@@ -41,7 +41,8 @@ const config: Config = {
           300: '#e6e6e6'
         },
         'white-100': '#f0f4fa',
-        orange: '#FFA944'
+        orange: '#FFA944',
+        red: '#E74C3C'
       },
       keyframes: {
         pong: {

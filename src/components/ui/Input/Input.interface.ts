@@ -6,4 +6,5 @@ export interface IInput {
   id: string
   required?: boolean
   children?: ReactNode
+  obj?: Object
 }
