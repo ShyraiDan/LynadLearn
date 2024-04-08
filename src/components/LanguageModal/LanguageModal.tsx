@@ -28,7 +28,7 @@ export default function LanguageModal() {
   return (
     <>
       <li className={styles['nav-item']} onClick={() => setLanguageModal((state) => !state)}>
-        English
+        {localActive === 'en' ? t('english') : t('ukrainian')}
         <IoIosArrowDown className={`${styles.arrow} ${isLanguageModal && styles.active}`} />
       </li>
       {isLanguageModal && (
