@@ -25,18 +25,8 @@
       @apply mb-2 text-3xl font-bold;
     }
 
-    p {
-      @apply mb-7;
-    }
-
-    .form {
-      label {
-        @apply mb-1;
-      }
-
-      input {
-        @apply mb-3;
-      }
+    > p {
+      @apply mb-5;
     }
 
     button {

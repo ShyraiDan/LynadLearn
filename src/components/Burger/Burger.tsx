@@ -5,7 +5,7 @@ import { useState } from 'react'
 import styles from './Burger.module.scss'
 import NavigationLink from '../ui/NavigationLink/NavigationLink'
 import { useTranslations } from 'next-intl'
-import { SignInModal } from '../SignInModal/SignInModal'
+import { AuthModal } from '../AuthModal/AuthModal'
 import { removeScrollBar } from '@/constants/shared'
 
 import { FaInstagram } from 'react-icons/fa'
@@ -107,7 +107,7 @@ export default function Burger() {
         </div>
 
         <div className={styles.bottom}>
-          <div className={styles.auth}>{!isAuth && <SignInModal />}</div>
+          <div className={styles.auth}>{!isAuth && <AuthModal />}</div>
           <div className={styles.social}>
             <p>{t('follow_us')}</p>
             <ul>

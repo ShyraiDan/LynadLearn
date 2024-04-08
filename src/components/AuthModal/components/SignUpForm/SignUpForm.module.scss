@@ -1,0 +1,13 @@
+.form {
+  label {
+    @apply mb-1;
+  }
+
+  input {
+    @apply mb-2;
+  }
+
+  .error {
+    @apply text-red text-sm mb-1;
+  }
+}

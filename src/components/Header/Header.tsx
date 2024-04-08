@@ -2,7 +2,7 @@
 
 import styles from './Header.module.scss'
 import LanguageModal from '../LanguageModal/LanguageModal'
-import { SignInModal } from '../SignInModal/SignInModal'
+import { AuthModal } from '../AuthModal/AuthModal'
 import Burger from '../Burger/Burger'
 import { UserModal } from '../UserModal/UserModal'
 import NavigationLink from '../ui/NavigationLink/NavigationLink'
@@ -55,7 +55,7 @@ export function Header() {
           </nav>
         </div>
         <div className={styles['header-right']}>
-          {isAuth ? <UserModal /> : <SignInModal />}
+          {isAuth ? <UserModal /> : <AuthModal />}
           <Burger />
         </div>
       </div>
