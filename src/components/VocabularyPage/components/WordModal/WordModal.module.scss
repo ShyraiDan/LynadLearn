@@ -5,7 +5,7 @@
     @apply mb-2 text-3xl font-bold;
   }
 
-  p {
+  > p {
     @apply mb-7;
   }
 
@@ -32,6 +32,10 @@
       label {
         @apply mt-4
         first:mt-0;
+      }
+
+      .error {
+        @apply text-red mt-1.5 text-sm;
       }
 
       button {

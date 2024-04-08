@@ -12,7 +12,7 @@ export default function ContactUsPage() {
 
   const {
     register,
-    formState: { errors, isValid },
+    formState: { errors },
     handleSubmit
   } = useForm<IContactUS>({
     mode: 'onBlur'
