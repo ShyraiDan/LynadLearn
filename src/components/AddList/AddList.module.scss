@@ -22,6 +22,10 @@
       @apply w-full mb-5;
     }
 
+    .error {
+      @apply text-red mt-1.5 text-sm;
+    }
+
     button {
       @apply rounded-lg w-full mt-3;
     }

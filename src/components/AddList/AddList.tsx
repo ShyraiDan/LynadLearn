@@ -7,6 +7,8 @@ import { removeScrollBar } from '@/constants/shared'
 import { Modal } from '../ui/Modal/Modal'
 import { Input } from '../ui/Input/Input'
 import { Button } from '../ui/Button/Button'
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { IList } from '@/interfaces/List.interface'
 
 import { FaPlus } from 'react-icons/fa'
 
@@ -17,6 +19,18 @@ export default function AddList() {
   const openModal = () => {
     setAdding((state) => !state)
     removeScrollBar(isAdding)
+  }
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit
+  } = useForm<IList>({
+    mode: 'onBlur'
+  })
+
+  const onSubmit: SubmitHandler<IList> = async (values) => {
+    console.log(values)
   }
 
   return (
@@ -30,13 +44,23 @@ export default function AddList() {
 
       {isAdding && (
         <Modal isOpen={isAdding} className={styles['add-list']} handleClose={() => openModal()}>
-          <form className={styles['list-form']}>
+          <form className={styles['list-form']} onSubmit={handleSubmit(onSubmit)}>
             <div className={`${styles.photo} ${styles['add-photo']}`}>
               <FaPlus />
             </div>
-            <Input required type='text' name='listName' id='listName' placeholder={'Enter list name'}>
+            <Input
+              type='text'
+              name='title'
+              id='title'
+              placeholder={'Enter list name'}
+              obj={register('title', {
+                required: { value: true, message: 'List name is required field' },
+                minLength: { value: 3, message: 'List name must be more than 3 characters' },
+                maxLength: { value: 30, message: 'List name must be less than 70 characters' }
+              })}>
               List name
             </Input>
+            {errors?.title && <p className={styles.error}>{errors.title.message}</p>}
             <Button type='submit'>Create list</Button>
           </form>
         </Modal>
