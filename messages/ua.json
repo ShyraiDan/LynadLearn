@@ -178,6 +178,28 @@
       "cefr_wordlist_detail": "Тут ви знайдете різні списки слів, класифіковані за рівнями відповідно до CEFR.",
       "wordlist": "Список",
       "level": "Рівень"
+    },
+    "vocabulary": {
+      "add_new_word": "Додати нове слово",
+      "enter_word_details": "Введіть деталі нового слова",
+      "your_word": "Ваше слово",
+      "field_is_required": "Це поле обов'язкове",
+      "word_maxLength": "Слово повинне бути менше 30 символів",
+      "enter_definition": "Введіть значення",
+      "definition_maxLength": "Значення повинне бути менше 70 символів",
+      "definition": "Значення",
+      "enter_translation": "Введіть переклад",
+      "translation_maxLength": "Переклад повинен бути менше 70 символів",
+      "transition_required": "Переклад є обов'язковим полем",
+      "translation": "Переклад",
+      "enter_pronunciation": "Введіть вимову",
+      "pronunciation_maxLength": "Вимова повинна бути менше 30 символів",
+      "pronunciation": "Вимова",
+      "enter_example": "Введіть приклад",
+      "example_maxLength": "Приклад повинен бути менше 150 символів",
+      "example": "Приклад",
+      "add_word": "Додати слово",
+      "edit_word": "Змінити слово"
     }
   }
 }

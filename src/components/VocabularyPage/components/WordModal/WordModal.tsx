@@ -3,8 +3,11 @@ import { Input } from '@/components/ui/Input/Input'
 import { Button } from '@/components/ui/Button/Button'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { IWord } from '@/interfaces/Word.interface'
+import { useTranslations } from 'next-intl'
 
 export default function WordModal() {
+  const t = useTranslations('dashboard.vocabulary')
+
   const {
     register,
     formState: { errors },
@@ -19,8 +22,8 @@ export default function WordModal() {
 
   return (
     <div className={styles.modal}>
-      <h2>Add a new word</h2>
-      <p>Enter details of the new word</p>
+      <h2>{t('add_new_word')}</h2>
+      <p>{t('enter_word_details')}</p>
       <form action='' className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div>
           <div className={styles.row}>
@@ -29,12 +32,12 @@ export default function WordModal() {
                 type='text'
                 name='word'
                 id='word'
-                placeholder={'Your word'}
+                placeholder={t('your_word')}
                 obj={register('word', {
-                  required: { value: true, message: 'This is required field' },
-                  maxLength: { value: 30, message: 'Word must be less than 30 characters' }
+                  required: { value: true, message: t('field_is_required') },
+                  maxLength: { value: 30, message: t('word_maxLength') }
                 })}>
-                {'Your word'}
+                {t('your_word')}
               </Input>
               {errors?.word && <p className={styles.error}>{errors.word.message}</p>}
             </div>
@@ -56,48 +59,48 @@ export default function WordModal() {
             type='text'
             name='definition'
             id='definition'
-            placeholder={'Enter definition'}
+            placeholder={t('enter_definition')}
             obj={register('definition', {
-              maxLength: { value: 70, message: 'Translation must be less than 70 characters' }
+              maxLength: { value: 70, message: t('definition_maxLength') }
             })}>
-            {'Definition'}
+            {t('definition')}
           </Input>
           {errors?.definition && <p className={styles.error}>{errors.definition.message}</p>}
           <Input
             type='text'
             name='translation'
             id='translation'
-            placeholder={'Enter translation'}
+            placeholder={t('enter_translation')}
             obj={register('translation', {
-              required: { value: true, message: 'Translation is required field' },
-              maxLength: { value: 70, message: 'Translation must be less than 70 characters' }
+              required: { value: true, message: t('transition_required') },
+              maxLength: { value: 70, message: t('translation_maxLength') }
             })}>
-            {'Translation'}
+            {t('translation')}
           </Input>
           {errors?.translation && <p className={styles.error}>{errors.translation.message}</p>}
           <Input
             type='text'
             name='pronunciation'
             id='pronunciation'
-            placeholder={'Enter pronunciation'}
+            placeholder={t('enter_pronunciation')}
             obj={register('pronunciation', {
-              maxLength: { value: 30, message: 'Pronunciation must be less than 30 characters' }
+              maxLength: { value: 30, message: t('pronunciation_maxLength') }
             })}>
-            {'Pronunciation'}
+            {t('pronunciation')}
           </Input>
           {errors?.pronunciation && <p className={styles.error}>{errors.pronunciation.message}</p>}
           <Input
             type='text'
             name='example'
             id='example'
-            placeholder={'Enter example'}
+            placeholder={t('enter_example')}
             obj={register('example', {
-              maxLength: { value: 150, message: 'Example must be less than 150 characters' }
+              maxLength: { value: 150, message: t('example_maxLength') }
             })}>
-            {'Example'}
+            {t('example')}
           </Input>
           {errors?.example && <p className={styles.error}>{errors.example.message}</p>}
-          <Button type='submit'>{'Add word'}</Button>
+          <Button type='submit'>{t('add_word')}</Button>
         </div>
       </form>
     </div>
