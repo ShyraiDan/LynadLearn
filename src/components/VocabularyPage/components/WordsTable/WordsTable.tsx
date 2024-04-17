@@ -9,38 +9,41 @@ import { FaRunning } from 'react-icons/fa'
 import { SlSpeech } from 'react-icons/sl'
 import { AiOutlineTranslation } from 'react-icons/ai'
 import EditDeleteWordModal from './EditDeleteWordModal/EditDeleteWordModal'
+import { useTranslations } from 'next-intl'
 
 export default function WordsTable() {
+  const t = useTranslations('dashboard.vocabulary')
+
   return (
     <div className={styles.container}>
       <div className={styles.table}>
-        {!DWords.length && <div className={styles['no-words']}>Unfortunately you don&apos;t have any words yet</div>}
+        {!DWords.length && <div className={styles['no-words']}>{t('no_words')}</div>}
         {DWords.length ? (
           <div className={styles['table-data']}>
             <div className={`${styles.row} ${styles.header}`}>
               <div>
                 <TbVocabulary className={styles.icon} />
-                Word
+                {t('word')}
               </div>
               <div>
                 <SlSpeech className={styles.icon} />
-                Part of Speech
+                {t('part_of_speech')}
               </div>
               <div>
                 <FaBookAtlas className={styles.icon} />
-                Definition
+                {t('definition')}
               </div>
               <div>
                 <AiOutlineTranslation className={styles.icon} />
-                Translation
+                {t('translation')}
               </div>
               <div>
                 <BsChatDotsFill className={styles.icon} />
-                Pronunciation
+                {t('pronunciation')}
               </div>
               <div>
                 <FaRunning className={styles.icon} />
-                Example
+                {t('example')}
               </div>
             </div>
             {DWords.map((item) => {

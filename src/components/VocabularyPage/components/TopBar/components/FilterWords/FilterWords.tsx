@@ -2,12 +2,14 @@
 
 import styles from './FilterWords.module.scss'
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 import { IoIosArrowDown } from 'react-icons/io'
 
 export default function FilterWords() {
   const [isFilterOpen, setFilterOpen] = useState(false)
   const [selectedFilter, setFilter] = useState('Newest')
+  const t = useTranslations('dashboard.vocabulary')
 
   const changeFilter = (filter: string) => {
     setFilter(filter)

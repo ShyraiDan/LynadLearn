@@ -41,9 +41,9 @@
     }
 
     .no-words {
-      @apply flex items-center justify-center h-[100vh] w-[calc(100vw-5px)] 
+      @apply flex items-center text-blue-200 justify-center h-[calc(100vh-150px)] w-[calc(100vw-30px)] 
       text-2xl font-bold text-center
-      lg:w-[calc(100vw-260px)];
+      lg:w-[calc(100vw-290px)] lg:h-[calc(100vh-245px)];
     }
   }
 }

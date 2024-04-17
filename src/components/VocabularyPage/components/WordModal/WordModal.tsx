@@ -6,7 +6,7 @@ import { IWord } from '@/interfaces/Word.interface'
 import { useTranslations } from 'next-intl'
 
 export default function WordModal() {
-  const t = useTranslations('dashboard.vocabulary')
+  const t = useTranslations('dashboard.vocabulary.modal')
 
   const {
     register,
