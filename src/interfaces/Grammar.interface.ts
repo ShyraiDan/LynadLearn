@@ -1,4 +1,4 @@
-interface IGrammarTopic {
+export interface IGrammarTopic {
   id: number
   title: string
 }
