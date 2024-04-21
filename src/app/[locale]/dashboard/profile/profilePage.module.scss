@@ -1,0 +1,47 @@
+.container {
+  @apply flex flex-col p-4 min-h-[100vh];
+
+  .user-info {
+    @apply grid grid-cols-[80px_1fr] gap-4;
+
+    .user-photo {
+      @apply h-[80px] w-[80px] rounded-full bg-[#2a41e812] shadow-md flex items-center justify-center text-blue-200;
+    }
+
+    .user-details {
+      @apply flex flex-col;
+
+      h3 {
+        @apply font-bold text-lg mt-4;
+      }
+
+      .rate {
+        @apply p-2 bg-[#2a41e812] shadow-md rounded text-blue-200 font-bold w-fit;
+      }
+
+      .achivements {
+        @apply grid grid-cols-2 gap-3 mt-3 max-w-[500px]
+        sm:grid-cols-4;
+
+        li {
+          @apply flex-col text-[32px];
+
+          p {
+            @apply text-[12px];
+          }
+        }
+      }
+    }
+  }
+
+  .achievements-section {
+    @apply mt-4 font-bold text-lg;
+
+    .achievements {
+      @apply mt-4 grid grid-cols-1 gap-4 
+      sm:grid-cols-2 
+      md:grid-cols-3 
+      xl:grid-cols-4;
+    }
+  }
+}

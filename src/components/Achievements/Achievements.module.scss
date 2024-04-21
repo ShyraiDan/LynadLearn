@@ -1,0 +1,15 @@
+.achievement {
+  @apply flex flex-col items-center p-4 rounded-3xl bg-[#eeefff] shadow-md;
+
+  .icon {
+    @apply h-[60px] w-[60px] rounded-full bg-[#2a41e812] shadow-md flex items-center justify-center text-blue-200;
+  }
+
+  h6 {
+    @apply text-[16px];
+  }
+
+  p {
+    @apply text-[12px];
+  }
+}
