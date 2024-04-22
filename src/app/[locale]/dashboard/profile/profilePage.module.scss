@@ -15,8 +15,12 @@
         @apply font-bold text-lg mt-4;
       }
 
+      p {
+        @apply mt-2;
+      }
+
       .rate {
-        @apply p-2 bg-[#2a41e812] shadow-md rounded text-blue-200 font-bold w-fit;
+        @apply mt-2 p-2 bg-[#2a41e812] shadow-md rounded text-blue-200 font-bold w-fit;
       }
 
       .achivements {

@@ -1,5 +1,5 @@
 .achievement {
-  @apply flex flex-col items-center p-4 rounded-3xl bg-[#eeefff] shadow-md;
+  @apply opacity-50 flex flex-col items-center p-4 rounded-3xl bg-[#eeefff] shadow-md;
 
   .icon {
     @apply h-[60px] w-[60px] rounded-full bg-[#2a41e812] shadow-md flex items-center justify-center text-blue-200;
@@ -12,4 +12,16 @@
   p {
     @apply text-[12px];
   }
+
+  .progress {
+    @apply w-[150px] rounded h-[3px] bg-[#cbd4e1] relative;
+
+    > div {
+      @apply absolute left-0 top-0 h-full bg-purple-100 rounded;
+    }
+  }
+}
+
+.reached {
+  @apply opacity-100;
 }
