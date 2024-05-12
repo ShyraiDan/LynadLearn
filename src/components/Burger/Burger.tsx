@@ -66,13 +66,13 @@ export default function Burger() {
             </li>
             <li>
               <NavigationLink hover onClick={() => showModal()} href={'/settings'}>
-                Settings
+                {t('settings')}
               </NavigationLink>
             </li>
             {isAuth && (
               <li>
                 <NavigationLink hover onClick={() => showModal()} href={'/dashboard/profile'}>
-                  Profile
+                  {t('profile')}
                 </NavigationLink>
               </li>
             )}
@@ -81,30 +81,28 @@ export default function Burger() {
                 <NavigationLink hover onClick={() => showModal()} href={'/dashboard/lists'}>
                   {t('dashboard')}
                 </NavigationLink>
-
                 <IoIosArrowDown size={20} className={`${styles.arrow} ${isLastOpen && styles.rotated}`} />
               </div>
               <ul className={`${styles.dropdown}  ${isLastOpen && styles['dropdown-active']}`}>
                 <li>
                   <NavigationLink hover onClick={() => showModal()} href={'/dashboard/quiz'}>
-                    Quiz
+                    {t('quiz')}
                   </NavigationLink>
                 </li>
                 <li>
                   <NavigationLink hover onClick={() => showModal()} href={'/dashboard/grammar'}>
-                    Grammar
+                    {t('grammar')}
                   </NavigationLink>
                 </li>
                 <li>
                   <NavigationLink hover onClick={() => showModal()} href={'/dashboard/flashcard'}>
-                    Flashcard
+                    {t('flashcard')}
                   </NavigationLink>
                 </li>
               </ul>
             </li>
           </ul>
         </div>
-
         <div className={styles.bottom}>
           <div className={styles.auth}>{!isAuth && <AuthModal />}</div>
           <div className={styles.social}>

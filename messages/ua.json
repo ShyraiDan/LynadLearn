@@ -8,6 +8,12 @@
     "contact_us": "Зворотній зв'язок",
     "dashboard": "Дошка",
     "mobile_app": "Додаток",
+    "settings": "Налаштування",
+    "quiz": "Вікторини",
+    "grammar": "Граматика",
+    "flashcard": "Флеш-карти",
+    "profile": "Профіль",
+    "vocabulary": "Словник",
     "sign_in": "Увійти",
     "sign_up": "Зареєструватись",
     "follow_us": "Приєднуйтесь до нас"
@@ -189,6 +195,15 @@
         "enter_definition": "Введіть значення",
         "definition_maxLength": "Значення повинне бути менше 70 символів",
         "definition": "Значення",
+        "part_of_speech": "Частина мови",
+        "noun": "Іменник",
+        "verb": "Дієслово",
+        "adjective": "Прикметник",
+        "adverb": "Прислівник",
+        "preposition": "Прийменник",
+        "conjunction": "Сполучник",
+        "interjection": "Вставне слово",
+        "pronoun": "Займенник",
         "enter_translation": "Введіть переклад",
         "translation_maxLength": "Переклад повинен бути менше 70 символів",
         "transition_required": "Переклад є обов'язковим полем",
@@ -200,7 +215,10 @@
         "example_maxLength": "Приклад повинен бути менше 150 символів",
         "example": "Приклад",
         "add_word": "Додати слово",
-        "edit_word": "Змінити слово"
+        "edit_word": "Змінити слово",
+        "really_delete": "Ви впевнені, що хочете видалити це слово?",
+        "cancel": "Скасувати",
+        "delete": "Видалити"
       },
       "no_words": "На жаль, у вас немає слів",
       "word": "Слово",
@@ -213,6 +231,21 @@
       "newest": "Новіші",
       "alphabeta-z": "За алфавітом A-Z",
       "alphabetz-a": "За алфавітом Z-A"
+    },
+    "profile": {
+      "achievements": "Досягнення",
+      "rate": "Рейтинг",
+      "success_quiz": "Успішних вікторин",
+      "finished_quiz": "Завершених вікторин",
+      "list_created": "Списків створено",
+      "words_learned": "Слів вивчено"
+    },
+    "quiz": {
+      "quiz_page": "Вікотрини",
+      "filter": "Фільтри",
+      "grammar": "Граматика",
+      "vocabulary": "Лексика",
+      "no_lists": "У вас немає списків для цієї категорії"
     }
   }
 }

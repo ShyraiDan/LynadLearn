@@ -8,6 +8,12 @@
     "contact_us": "Contact Us",
     "dashboard": "Dashboard",
     "mobile_app": "Mobile app",
+    "settings": "Settings",
+    "quiz": "Quiz",
+    "grammar": "Grammar",
+    "flashcard": "Flashcard",
+    "profile": "Profile",
+    "vocabulary": "Vocabulary",
     "sign_in": "Sign in",
     "sign_up": "Sign up",
     "follow_us": "Follow us"
@@ -189,6 +195,15 @@
         "enter_definition": "Enter definition",
         "definition_maxLength": "Definition must be less than 70 characters",
         "definition": "Definition",
+        "part_of_speech": "Part of Speech",
+        "noun": "Noun",
+        "verb": "Verb",
+        "adjective": "Adjective",
+        "adverb": "Adverb",
+        "preposition": "Preposition",
+        "conjunction": "Conjunction",
+        "interjection": "Interjection",
+        "pronoun": "Pronoun",
         "enter_translation": "Enter translation",
         "translation_maxLength": "Translation must be less than 70 characters",
         "transition_required": "Translation is required field",
@@ -200,7 +215,10 @@
         "example_maxLength": "Example must be less than 150 characters",
         "example": "Example",
         "add_word": "Add word",
-        "edit_word": "Edit word"
+        "edit_word": "Edit word",
+        "really_delete": "Do you really want to delete the word?",
+        "cancel": "Cancel",
+        "delete": "Delete"
       },
       "no_words": "Unfortunately you don't have any words yet",
       "word": "Word",
@@ -213,6 +231,21 @@
       "newest": "Newest",
       "alphabeta-z": "Alphabet A-Z",
       "alphabetz-a": "Alphabet Z-A"
+    },
+    "profile": {
+      "achievements": "Achievements",
+      "rate": "Rate",
+      "success_quiz": "Success quiz",
+      "finished_quiz": "Finished quiz(es)",
+      "list_created": "List(s) created",
+      "words_learned": "Word(s) learned"
+    },
+    "quiz": {
+      "quiz_page": "Quiz page",
+      "filter": "Filter",
+      "grammar": "Grammar",
+      "vocabulary": "Vocabulary",
+      "no_lists": "There are no lists for this category"
     }
   }
 }

@@ -1,4 +1,6 @@
 import styles from './WordsTable.module.scss'
+import EditDeleteWordModal from './EditDeleteWordModal/EditDeleteWordModal'
+import { useTranslations } from 'next-intl'
 
 import { DWords } from '@/mock/Words.mock'
 
@@ -8,8 +10,6 @@ import { BsChatDotsFill } from 'react-icons/bs'
 import { FaRunning } from 'react-icons/fa'
 import { SlSpeech } from 'react-icons/sl'
 import { AiOutlineTranslation } from 'react-icons/ai'
-import EditDeleteWordModal from './EditDeleteWordModal/EditDeleteWordModal'
-import { useTranslations } from 'next-intl'
 
 export default function WordsTable() {
   const t = useTranslations('dashboard.vocabulary')

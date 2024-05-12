@@ -42,16 +42,16 @@ export default function WordModal() {
               {errors?.word && <p className={styles.error}>{errors.word.message}</p>}
             </div>
             <div>
-              <label htmlFor='partOfSpeech'>Part of speech</label>
+              <label htmlFor='partOfSpeech'>{t('part_of_speech')}</label>
               <select id='partOfSpeech' {...register('part_of_speech')}>
-                <option value='noun'>Noun</option>
-                <option value='verb'>Verb</option>
-                <option value='adjective'>Adjective</option>
-                <option value='adverb'>Adverb</option>
-                <option value='pronoun'>Pronoun</option>
-                <option value='interjection'>Interjection</option>
-                <option value='conjunction'>Conjunction</option>
-                <option value='preposition'>Preposition</option>
+                <option value='noun'>{t('noun')}</option>
+                <option value='verb'>{t('verb')}</option>
+                <option value='adjective'>{t('adjective')}</option>
+                <option value='adverb'>{t('adverb')}</option>
+                <option value='pronoun'>{t('pronoun')}</option>
+                <option value='interjection'>{t('interjection')}</option>
+                <option value='conjunction'>{t('conjunction')}</option>
+                <option value='preposition'>{t('preposition')}</option>
               </select>
             </div>
           </div>

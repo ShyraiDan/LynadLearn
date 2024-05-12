@@ -4,24 +4,27 @@ import styles from './QuizPage.module.scss'
 import { useState } from 'react'
 import { DGrammar } from '@/mock/Grammar.mock'
 import QuizCard from '@/components/QuizCard/QuizCard'
+import { useTranslations } from 'next-intl'
 
 export default function QuizPage() {
   const [type, setType] = useState('grammar')
   const len = 0
 
+  const t = useTranslations('dashboard.quiz')
+
   return (
     <>
       <div className={styles.container}>
-        <h2>Quiz page</h2>
+        <h2>{t('quiz_page')}</h2>
         <div className={styles.sections}>
           <div className={styles.top}>
-            <h4>Filter</h4>
+            <h4>{t('filter')}</h4>
             <div className={styles.tags}>
               <span onClick={() => setType('grammar')} className={`${type === 'grammar' && styles.active}`}>
-                Grammar
+                {t('grammar')}
               </span>
               <span onClick={() => setType('vocabulary')} className={`${type === 'vocabulary' && styles.active}`}>
-                Vocabulary
+                {t('vocabulary')}
               </span>
             </div>
           </div>
@@ -43,7 +46,7 @@ export default function QuizPage() {
               <div className={styles.level}>
                 {len === 0 && (
                   <div className={styles['no-list']}>
-                    <h2>There are no lists for this category</h2>
+                    <h2>{t('no_lists')}</h2>
                   </div>
                 )}
                 {len !== 0 && (
