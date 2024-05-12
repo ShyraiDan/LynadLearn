@@ -1,7 +1,10 @@
+'use client'
+
 import styles from './Footer.module.scss'
 import NavigationLink from '../ui/NavigationLink/NavigationLink'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
+import { usePathname } from 'next/navigation'
 
 import { FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
@@ -10,9 +13,11 @@ import { FaFacebook } from 'react-icons/fa'
 export function Footer() {
   const t = useTranslations('Header')
 
+  const path = usePathname()
+
   return (
     <>
-      <footer className={styles.footer}>
+      <footer className={`${styles.footer} ${path.split('/')[2] === 'dashboard' && styles.dashboard}`}>
         <div className={styles['footer-container']}>
           <div className={styles['footer-main']}>
             <NavigationLink href={'/'}>

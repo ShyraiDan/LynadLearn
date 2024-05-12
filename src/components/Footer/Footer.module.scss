@@ -62,6 +62,15 @@
   }
 }
 
+.dashboard {
+  @apply border-t border-[#e5e7eb];
+
+  .footer-container {
+    @apply mx-0
+    lg:max-w-[100%];
+  }
+}
+
 .footer-bottom {
   @apply text-center text-xs mt-2 text-blue-200
   sm:text-left sm:pl-2;

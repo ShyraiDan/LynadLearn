@@ -5,7 +5,6 @@ import { DGrammar } from '@/mock/Grammar.mock'
 
 export default function BlogPostPage({ params }: any) {
   const data = DGrammar[params.id - 1].topics[0]
-  console.log(data)
 
   return (
     <div className={styles.container}>
