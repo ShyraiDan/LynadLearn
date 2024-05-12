@@ -30,8 +30,8 @@ export default function SignInForm() {
         id='email'
         placeholder={t('enter_your_email')}
         obj={register('email', {
-          required: { value: true, message: 'Email is required field' },
-          pattern: { value: /^\S+@\S+$/i, message: 'Email is not valid' }
+          required: { value: true, message: t('email_required') },
+          pattern: { value: /^\S+@\S+$/i, message: t('email_invalid') }
         })}>
         {t('email')}
       </Input>
@@ -42,9 +42,9 @@ export default function SignInForm() {
         id='password'
         placeholder={t('enter_password')}
         obj={register('password', {
-          required: { value: true, message: 'Password is required field' },
-          minLength: { value: 8, message: 'Password must be at least 8 characters' },
-          maxLength: { value: 20, message: 'Password must be less than 20 characters' }
+          required: { value: true, message: t('password_required') },
+          minLength: { value: 8, message: t('password_minLength') },
+          maxLength: { value: 20, message: t('password_maxLength') }
         })}>
         {t('password')}
       </Input>

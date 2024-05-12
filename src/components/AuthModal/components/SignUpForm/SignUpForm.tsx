@@ -31,8 +31,8 @@ export default function SignUpForm() {
         id='email'
         placeholder={t('enter_your_email')}
         obj={register('email', {
-          required: { value: true, message: 'Email is required field' },
-          pattern: { value: /^\S+@\S+$/i, message: 'Email is not valid' }
+          required: { value: true, message: t('email_required') },
+          pattern: { value: /^\S+@\S+$/i, message: t('email_invalid') }
         })}>
         {t('email')}
       </Input>
@@ -43,9 +43,9 @@ export default function SignUpForm() {
         id='userName'
         placeholder={t('enter_your_name')}
         obj={register('userName', {
-          required: { value: true, message: 'User name is required field' },
-          minLength: { value: 3, message: 'User name must be at least 3 characters' },
-          maxLength: { value: 20, message: 'User name must be less than 20 characters' }
+          required: { value: true, message: t('name_required') },
+          minLength: { value: 3, message: t('name_minLength') },
+          maxLength: { value: 20, message: t('name_maxLength') }
         })}>
         {t('user_name')}
       </Input>
@@ -56,9 +56,9 @@ export default function SignUpForm() {
         id='password'
         placeholder={t('enter_password')}
         obj={register('password', {
-          required: { value: true, message: 'Password is required field' },
-          minLength: { value: 8, message: 'Password must be at least 8 characters' },
-          maxLength: { value: 20, message: 'Password must be less than 20 characters' }
+          required: { value: true, message: t('password_required') },
+          minLength: { value: 8, message: t('password_minLength') },
+          maxLength: { value: 20, message: t('password_maxLength') }
         })}>
         {t('password')}
       </Input>
@@ -69,8 +69,8 @@ export default function SignUpForm() {
         id='confirmPassword'
         placeholder={t('confirm_your_password')}
         obj={register('confirmPassword', {
-          required: { value: true, message: 'You need to confirm password' },
-          validate: (value) => value === watch('password') || 'Passwords must be equal'
+          required: { value: true, message: t('confirm_password_required') },
+          validate: (value) => value === watch('password') || t('confirm_password_mismatch')
         })}>
         {t('confirm_password')}
       </Input>

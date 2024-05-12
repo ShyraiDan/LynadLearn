@@ -7,9 +7,10 @@ import { useTranslations } from 'next-intl'
 import { IoIosArrowDown } from 'react-icons/io'
 
 export default function FilterWords() {
-  const [isFilterOpen, setFilterOpen] = useState(false)
-  const [selectedFilter, setFilter] = useState('Newest')
   const t = useTranslations('dashboard.vocabulary')
+
+  const [isFilterOpen, setFilterOpen] = useState(false)
+  const [selectedFilter, setFilter] = useState(t('newest'))
 
   const changeFilter = (filter: string) => {
     setFilter(filter)
@@ -25,9 +26,9 @@ export default function FilterWords() {
       {isFilterOpen && (
         <div className={styles.modal}>
           <ul>
-            <li onClick={() => changeFilter('Newest')}>Newest</li>
-            <li onClick={() => changeFilter('Alphabet A-Z')}>Alphabet A-Z</li>
-            <li onClick={() => changeFilter('Alphabet Z-A')}>Alphabet Z-A</li>
+            <li onClick={() => changeFilter(t('newest'))}>{t('newest')}</li>
+            <li onClick={() => changeFilter(t('alphabeta-z'))}>{t('alphabeta-z')}</li>
+            <li onClick={() => changeFilter(t('alphabetz-a'))}>{t('alphabetz-a')}</li>
           </ul>
         </div>
       )}

@@ -52,16 +52,16 @@ export default function AddList() {
               type='text'
               name='title'
               id='title'
-              placeholder={'Enter list name'}
+              placeholder={t('enter_list_name')}
               obj={register('title', {
-                required: { value: true, message: 'List name is required field' },
-                minLength: { value: 3, message: 'List name must be more than 3 characters' },
-                maxLength: { value: 30, message: 'List name must be less than 70 characters' }
+                required: { value: true, message: t('list_name_required') },
+                minLength: { value: 3, message: t('list_name_minLength') },
+                maxLength: { value: 30, message: t('list_name_maxLength') }
               })}>
-              List name
+              {t('list_name')}
             </Input>
             {errors?.title && <p className={styles.error}>{errors.title.message}</p>}
-            <Button type='submit'>Create list</Button>
+            <Button type='submit'>{t('create_list')}</Button>
           </form>
         </Modal>
       )}
