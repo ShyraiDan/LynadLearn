@@ -87,17 +87,17 @@ export default function Burger() {
               </div>
               <ul className={`${styles.dropdown}  ${isLastOpen && styles['dropdown-active']}`}>
                 <li>
-                  <NavigationLink hover onClick={() => showModal()} href={'/dashboard/settings'}>
+                  <NavigationLink hover onClick={() => showModal()} href={'/dashboard/quiz'}>
                     Quiz
                   </NavigationLink>
                 </li>
                 <li>
-                  <NavigationLink hover onClick={() => showModal()} href={'/dashboard/settings'}>
+                  <NavigationLink hover onClick={() => showModal()} href={'/dashboard/grammar'}>
                     Grammar
                   </NavigationLink>
                 </li>
                 <li>
-                  <NavigationLink hover onClick={() => showModal()} href={'/dashboard/settings'}>
+                  <NavigationLink hover onClick={() => showModal()} href={'/dashboard/flashcard'}>
                     Flashcard
                   </NavigationLink>
                 </li>
