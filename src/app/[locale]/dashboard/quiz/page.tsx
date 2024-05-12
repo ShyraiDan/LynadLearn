@@ -7,6 +7,7 @@ import QuizCard from '@/components/QuizCard/QuizCard'
 
 export default function QuizPage() {
   const [type, setType] = useState('grammar')
+  const len = 0
 
   return (
     <>
@@ -40,8 +41,17 @@ export default function QuizPage() {
               ))
             ) : (
               <div className={styles.level}>
-                <h2>Select your list</h2>
-                <div className={styles.topics}></div>
+                {len === 0 && (
+                  <div className={styles['no-list']}>
+                    <h2>There are no lists for this category</h2>
+                  </div>
+                )}
+                {len !== 0 && (
+                  <>
+                    <h2>Select your list</h2>
+                    <div className={styles.topics}></div>
+                  </>
+                )}
               </div>
             )}
           </div>

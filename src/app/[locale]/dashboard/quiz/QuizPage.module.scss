@@ -39,12 +39,20 @@
         @apply text-center text-xl font-bold text-blue-200 my-4
         sm:text-2xl;
       }
+
       .topics {
         @apply grid grid-cols-1 gap-4
         sm:grid-cols-2
         md:grid-cols-3
         lg:grid-cols-2
         xl:grid-cols-3;
+      }
+
+      .no-list {
+        @apply min-h-[calc(100vh-72px-352px)] flex items-center justify-center text-2xl font-bold text-gray-300
+        sm:min-h-[calc(100vh-223px-192px)]
+        md:min-h-[calc(100vh-223px-152px)]
+        lg:min-h-[calc(100vh-223px-96px)];
       }
     }
   }
