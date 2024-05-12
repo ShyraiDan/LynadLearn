@@ -1,4 +1,4 @@
 .item {
-  @apply h-[100px] flex items-center justify-center cursor-pointer bg-white font-bold text-blue-200 p-6 rounded-lg shadow-md transition-all ease-in-out duration-[.15s]
+  @apply h-[100px] flex items-center justify-center cursor-pointer bg-[#eeefff] font-bold text-blue-200 p-6 rounded-lg shadow-md transition-all ease-in-out duration-[.15s]
   hover:text-purple-100 hover:bg-grey-200;
 }
