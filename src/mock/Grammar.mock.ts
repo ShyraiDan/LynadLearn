@@ -7,7 +7,67 @@ export const DGrammar: IGrammar[] = [
     topics: [
       {
         id: 1,
-        title: 'Adjectives and prepositions'
+        title: 'Adjectives and prepositions',
+        data: {
+          description: [
+            "Some adjectives go with certain prepositions. There are no grammatical rules for which preposition is used with which adjective, so it's a good idea to try to learn them together. To help you do this, write new vocabulary in your notebook in a sentence or phrase.",
+            "However, there are some patterns that can help you. Let's look at them first. Remember that a preposition is followed by a noun or a gerund (-ing form)."
+          ],
+          example: [
+            {
+              title: 'With at',
+              description:
+                'We use at with adjectives like good/bad/amazing/brilliant/terrible, etc. to talk about skills and abilities.',
+              examples: [
+                "He's really good at English.",
+                "She's amazing at the piano.",
+                "They're terrible at organising anything.",
+                "I'm not very good at drawing."
+              ]
+            },
+            {
+              title: 'With about',
+              description:
+                'We often use about with adjectives of feelings like angry/excited/happy/nervous/sad/stressed/worried, etc. to explain what is causing that feeling.',
+              examples: [
+                "I'm angry about the decision.",
+                "He's nervous about the presentation.",
+                "She's excited about the new job.",
+                'They were worried about the exam.'
+              ]
+            },
+            {
+              title: 'With of',
+              description: 'However, sometimes we use of with feelings.',
+              examples: [
+                'She was afraid of telling her mum.',
+                "I'm frightened of having an accident.",
+                "He's scared of flying.",
+                'You should be proud of your progress.'
+              ]
+            },
+            {
+              title: 'With to',
+              description: 'We can use to to show the connection between people or things.',
+              examples: [
+                "He's married to the director.",
+                "I'm addicted to my phone.",
+                "I'm allergic to nuts.",
+                "It's similar to the old one."
+              ]
+            },
+            {
+              title: 'With for',
+              description: '',
+              examples: [
+                'Exercise is good for you.',
+                'Stress is bad for you.',
+                'The town is famous for its cheese.',
+                "I'm responsible for the financial side of the business."
+              ]
+            }
+          ]
+        }
       },
       {
         id: 2,
