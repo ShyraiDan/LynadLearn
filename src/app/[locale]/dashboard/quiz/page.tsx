@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl'
 
 export default function QuizPage() {
   const [type, setType] = useState('grammar')
-  const len = 1
+  const len = 0
 
   const t = useTranslations('dashboard.quiz')
 
@@ -31,13 +31,11 @@ export default function QuizPage() {
           <div className={styles.items}>
             {type === 'grammar' ? (
               DGrammar.map((item) => (
-                <div key={item.id} className={styles.level}>
+                <div key={item.level} className={styles.level}>
                   <h2>{item.level}</h2>
                   <div className={styles.topics}>
                     {item.topics.map((topic) => (
-                      <>
-                        <QuizCard key={topic.id} topic={topic} />
-                      </>
+                      <QuizCard key={topic.title} topic={topic} />
                     ))}
                   </div>
                 </div>

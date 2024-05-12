@@ -21,7 +21,6 @@ export function Category({ title, id, lists, description }: ICategory) {
         <CategoryDescription title={title} description={description} id={id} />
         <div className={styles['list-group']}>
           {title === 'your_lists' && <AddList />}
-
           <Swiper
             pagination={true}
             modules={[Pagination]}
