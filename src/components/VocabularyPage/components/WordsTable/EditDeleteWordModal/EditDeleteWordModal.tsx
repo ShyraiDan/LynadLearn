@@ -24,6 +24,10 @@ export default function EditDeleteWordModal() {
     removeScrollBar(isDelete)
   }
 
+  const deleteWord = () => {
+    showDeleteModal()
+  }
+
   return (
     <>
       <div className={styles.modal}>
@@ -41,8 +45,8 @@ export default function EditDeleteWordModal() {
           <div className={styles.delete}>
             <h6> Do you really want to delete the word?</h6>
             <div className={styles.btns}>
-              <Button>Cancel</Button>
-              <Button>Delete</Button>
+              <Button onClick={() => showDeleteModal()}>Cancel</Button>
+              <Button onClick={() => deleteWord()}>Delete</Button>
             </div>
           </div>
         </Modal>
