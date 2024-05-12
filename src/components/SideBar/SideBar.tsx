@@ -49,7 +49,7 @@ export default function SideBar() {
           </NavigationLink>
         </li>
         <li>
-          <NavigationLink href={'/dashboard/settings'} className={`${page === 'settings' && styles.selected}`}>
+          <NavigationLink href={'/settings'} className={`${page === 'settings' && styles.selected}`}>
             <IoSettingsSharp />
             Settings
           </NavigationLink>

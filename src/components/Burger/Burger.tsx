@@ -64,7 +64,11 @@ export default function Burger() {
                 {t('mobile_app')}
               </NavigationLink>
             </li>
-
+            <li>
+              <NavigationLink hover onClick={() => showModal()} href={'/settings'}>
+                Settings
+              </NavigationLink>
+            </li>
             {isAuth && (
               <li>
                 <NavigationLink hover onClick={() => showModal()} href={'/dashboard/profile'}>
@@ -72,11 +76,6 @@ export default function Burger() {
                 </NavigationLink>
               </li>
             )}
-            <li>
-              <NavigationLink hover onClick={() => showModal()} href={'/dashboard/settings'}>
-                Settings
-              </NavigationLink>
-            </li>
             <li onClick={() => setLastOpen((state) => !state)}>
               <div className={styles['dropdown-btn']}>
                 <NavigationLink hover onClick={() => showModal()} href={'/dashboard/lists'}>

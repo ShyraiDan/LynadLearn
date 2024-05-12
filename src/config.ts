@@ -25,13 +25,13 @@ export const pathnames = {
     en: '/mobile-app',
     ua: '/mobile-app'
   },
+  '/settings': {
+    en: '/settings',
+    ua: '/settings'
+  },
   '/dashboard/profile': {
     en: '/dashboard/profile',
     ua: '/dashboard/profile'
-  },
-  '/dashboard/settings': {
-    en: '/dashboard/settings',
-    ua: '/dashboard/settings'
   },
   '/dashboard/lists': {
     en: '/dashboard/lists',
