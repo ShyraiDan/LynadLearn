@@ -1,10 +1,12 @@
 import styles from './SingleGrammar.module.scss'
+import { useTranslations } from 'next-intl'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 
 import { DGrammar } from '@/mock/Grammar.mock'
 
 export default function BlogPostPage({ params }: any) {
   const data = DGrammar[params.id - 1].topics[0]
+  const t = useTranslations('dashboard.grammar')
 
   return (
     <div className={styles.container}>
@@ -28,7 +30,7 @@ export default function BlogPostPage({ params }: any) {
         })}
       </div>
       <div className={styles.test}>
-        <NavigationLink href='/'>Move to Grammar test</NavigationLink>
+        <NavigationLink href='/'>{t('move_to_test')}</NavigationLink>
       </div>
     </div>
   )

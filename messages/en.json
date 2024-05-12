@@ -245,7 +245,11 @@
       "filter": "Filter",
       "grammar": "Grammar",
       "vocabulary": "Vocabulary",
-      "no_lists": "There are no lists for this category"
+      "no_lists": "There are no lists for this category",
+      "select_your_list": "Select your list"
+    },
+    "grammar": {
+      "move_to_test": "Move to Grammar test"
     }
   }
 }

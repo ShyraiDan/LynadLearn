@@ -2,22 +2,26 @@
   @apply p-4;
 
   h1 {
-    @apply text-center font-bold text-lg  
+    @apply text-blue-200 text-center font-bold text-lg  
     md:text-2xl;
   }
 
   > p {
-    @apply mt-5;
+    @apply mt-5 text-blue-300;
   }
 
   .examples {
     h2 {
-      @apply my-3 font-bold text-lg  
+      @apply my-3 font-bold text-lg text-blue-200  
       md:text-2xl;
     }
 
+    p {
+      @apply text-blue-300;
+    }
+
     > ul {
-      @apply pl-3 mt-2 border-l border-l-4 border-l-blue-200;
+      @apply flex flex-col w-fit bg-blue-400 rounded p-3 mt-2 border-l border-l-4 border-l-blue-200 text-blue-300;
     }
   }
 

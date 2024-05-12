@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl'
 
 export default function QuizPage() {
   const [type, setType] = useState('grammar')
-  const len = 0
+  const len = 1
 
   const t = useTranslations('dashboard.quiz')
 
@@ -51,7 +51,7 @@ export default function QuizPage() {
                 )}
                 {len !== 0 && (
                   <>
-                    <h2>Select your list</h2>
+                    <h2>{t('select_your_list')}</h2>
                     <div className={styles.topics}></div>
                   </>
                 )}
