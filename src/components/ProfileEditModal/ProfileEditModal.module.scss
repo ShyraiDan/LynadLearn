@@ -1,0 +1,33 @@
+.edit-profile {
+  @apply cursor-pointer absolute right-[0px] top-[0px] text-blue-200 text-lg;
+}
+
+.edit-modal {
+  @apply sm:h-[570px] sm:w-[500px] sm:self-center sm:justify-self-center;
+
+  .title {
+    @apply text-2xl font-bold mb-5;
+  }
+
+  .form {
+    .user-photo {
+      @apply relative h-[80px] w-[80px] rounded-full bg-[#2a41e812] shadow-md flex items-center justify-center text-blue-200;
+
+      .edit {
+        @apply flex items-center justify-center absolute right-[-25px] top-0;
+      }
+    }
+
+    .subtitle {
+      @apply text-xl font-bold my-3;
+    }
+
+    .input-container {
+      @apply mb-3;
+    }
+
+    button {
+      @apply rounded px-5;
+    }
+  }
+}
