@@ -24,13 +24,11 @@ export default function FilterWords() {
         <IoIosArrowDown className={`${styles.arrow} ${isFilterOpen && styles.active}`} />
       </div>
       {isFilterOpen && (
-        <div className={styles.modal}>
-          <ul>
-            <li onClick={() => changeFilter(t('newest'))}>{t('newest')}</li>
-            <li onClick={() => changeFilter(t('alphabeta-z'))}>{t('alphabeta-z')}</li>
-            <li onClick={() => changeFilter(t('alphabetz-a'))}>{t('alphabetz-a')}</li>
-          </ul>
-        </div>
+        <ul className={styles.modal}>
+          <li onClick={() => changeFilter(t('newest'))}>{t('newest')}</li>
+          <li onClick={() => changeFilter(t('alphabeta-z'))}>{t('alphabeta-z')}</li>
+          <li onClick={() => changeFilter(t('alphabetz-a'))}>{t('alphabetz-a')}</li>
+        </ul>
       )}
     </>
   )

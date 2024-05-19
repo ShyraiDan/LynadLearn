@@ -2,10 +2,10 @@
   @apply flex justify-between py-3 mb-2 items-center;
 
   .filters {
-    @apply flex items-center font-bold;
+    @apply flex items-center font-bold relative;
 
     input {
-      @apply ml-3 sm:w-[280px] md:w-[400px];
+      @apply ml-3 w-[150px] sm:w-[280px] md:w-[400px];
     }
   }
 }

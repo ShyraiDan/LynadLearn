@@ -1,33 +1,29 @@
 .filters {
-  @apply flex items-center font-bold cursor-pointer text-blue-200 transition-all ease-in-out duration-150
+  @apply flex gap-[8px] items-center font-bold cursor-pointer text-blue-200 transition-all ease-in-out duration-150
   hover:text-purple-100 [&_svg]:hover:text-purple-100;
 
   svg {
-    @apply ml-2 transition-all ease-in-out;
+    @apply transition-all ease-in-out;
   }
 }
 
 .modal {
-  @apply flex flex-col relative z-[1];
+  @apply absolute z-[1] rounded-lg shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] bg-[#ffffff] absolute top-[40px] left-[0px] w-[180px] h-[110px] p-2;
 
-  ul {
-    @apply rounded-lg shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] bg-[#ffffff] absolute top-[20px] right-[-65px] w-[180px] h-[110px] p-2;
+  li {
+    @apply text-blue-200 font-medium px-4 py-1 flex items-center cursor-pointer transition-all ease-in-out duration-150;
 
-    li {
-      @apply text-blue-200 font-medium px-4 py-1 flex items-center cursor-pointer transition-all ease-in-out duration-150;
-
-      .icon {
-        @apply mr-1;
-      }
+    .icon {
+      @apply mr-1;
     }
+  }
 
-    li:not(.selected) {
-      @apply hover:text-purple-100;
-    }
+  li:not(.selected) {
+    @apply hover:text-purple-100;
+  }
 
-    .selected {
-      @apply cursor-default opacity-50;
-    }
+  .selected {
+    @apply cursor-default opacity-50;
   }
 }
 
