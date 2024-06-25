@@ -14,7 +14,7 @@ export const getYourLists = async (): Promise<IList[]> => {
   }
 }
 
-export const getListById = async (id: string): Promise<IList[]> => {
+export const getListById = async (id: string): Promise<IList> => {
   try {
     await connectMongoDB()
     const list = await List.findById(id)

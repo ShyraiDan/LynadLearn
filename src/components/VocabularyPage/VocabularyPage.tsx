@@ -8,25 +8,22 @@ import { Suspense, useEffect } from 'react'
 import styles from './VocabularyPage.module.scss'
 import { getListById } from '@/lib/lists'
 import { useParams } from 'next/navigation'
+import { IList } from '@/interfaces/List.interface'
 
 export default function VocabularyPage() {
   const { id } = useParams()
-  const [data, setData] = useState<any>()
+  const [data, setData] = useState<IList | null>(null)
 
   useEffect(() => {
     getListById(id as string).then((res) => {
-      try {
-        setData(res)
-      } catch (error) {
-        console.log(error)
-      }
+      setData(res)
     })
   }, [])
 
   return (
     <div className={styles.container}>
       <TopBar />
-      <WordsTable list={data} />
+      {data !== null && <WordsTable list={data} />}
     </div>
   )
 }
