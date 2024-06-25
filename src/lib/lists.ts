@@ -14,12 +14,26 @@ export const getYourLists = async (): Promise<IList[]> => {
   }
 }
 
+export const getListById = async (id: string): Promise<IList[]> => {
+  try {
+    await connectMongoDB()
+    const list = await List.findById(id)
+    const data = JSON.parse(JSON.stringify(list))
+
+    return data
+  } catch (error: any) {
+    throw new Error(error)
+  }
+}
+
 export const createList = async (list: IList) => {
   try {
     await connectMongoDB()
 
     const doc = new List({
-      title: list.title
+      title: list.title,
+      words: [],
+      userId: '667089268e4f38e9c82cb91d'
     })
 
     await doc.save()

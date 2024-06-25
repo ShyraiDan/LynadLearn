@@ -6,7 +6,7 @@ import NavigationLink from '../ui/NavigationLink/NavigationLink'
 export default function List({ title, image }: Omit<IList, '_id'>) {
   return (
     <div className={styles.container}>
-      <NavigationLink href={`/dashboard/vocabulary`}>
+      <NavigationLink href={`/dashboard/vocabulary/1`}>
         <div className={styles['image-cont']}>{image && <Image src={image} alt={title} />}</div>
         <span className={styles.title}>{title}</span>
       </NavigationLink>
