@@ -4,8 +4,9 @@ import { Button } from '@/components/ui/Button/Button'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { IWord } from '@/interfaces/Word.interface'
 import { useTranslations } from 'next-intl'
+import { createWord } from '@/lib/word'
 
-export default function WordModal() {
+export default function WordModal({ handleClose }: any) {
   const t = useTranslations('dashboard.vocabulary.modal')
 
   const {
@@ -18,6 +19,8 @@ export default function WordModal() {
 
   const onSubmit: SubmitHandler<IWord> = async (values) => {
     console.log(values)
+    await createWord(values)
+    handleClose()
   }
 
   return (

@@ -1,3 +1,5 @@
+'use server'
+
 import connectMongoDB from './mongodb'
 import User, { IUser, IUserDTO } from '@/interfaces/User.interface'
 import bcrypt from 'bcrypt'

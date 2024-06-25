@@ -23,7 +23,7 @@ export const AddingWordForm = () => {
       </div>
       {isAdding && (
         <Modal isOpen={isAdding} handleClose={() => showModal()}>
-          <WordModal />
+          <WordModal handleClose={showModal} />
         </Modal>
       )}
     </>

@@ -39,7 +39,7 @@ export default function EditDeleteWordModal() {
       </div>
       {isEdit && (
         <Modal isOpen={isEdit} handleClose={() => showEditModal()}>
-          <WordModal />
+          <WordModal handleClose={showEditModal} />
         </Modal>
       )}
 
