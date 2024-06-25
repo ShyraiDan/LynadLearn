@@ -3,7 +3,7 @@ import styles from './CategoryDescription.module.scss'
 import { ICategory } from '@/interfaces/Category.interface'
 import { useTranslations } from 'next-intl'
 
-export default function CategoryDescription({ title, id, description }: Omit<ICategory, 'lists'>) {
+export default function CategoryDescription({ title, description }: Omit<ICategory, 'lists' | '_id'>) {
   const t = useTranslations('dashboard.lists')
 
   return (

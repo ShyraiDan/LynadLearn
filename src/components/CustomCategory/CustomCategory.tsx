@@ -1,27 +1,23 @@
-'use client'
-
+import styles from './CustomCategory.module.scss'
 import { ICategory } from '@/interfaces/Category.interface'
-import styles from './Category.module.scss'
-import List from '../List/List'
-import CategoryDescription from './components/CategoryDescription/CategoryDescription'
+import { useTranslations } from 'next-intl'
+import CategoryDescription from '../Category/components/CategoryDescription/CategoryDescription'
 import AddList from '../AddList/AddList'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper/modules'
-import { useTranslations } from 'next-intl'
 import CustomList from '../CustomList/CustomList'
 
-import 'swiper/css'
-import 'swiper/css/pagination'
+export default function CustomCategory({ title, _id, lists, description }: ICategory) {
+  const t = useTranslations()
 
-export function Category({ title, _id, lists, description }: ICategory) {
-  const t = useTranslations('dashboard.lists')
+  console.log(lists)
 
   return (
     <div className={styles.container}>
       <div>
-        <CategoryDescription title={title} description={description} />
+        <CategoryDescription title={t('your_lists')} description={''} />
         <div className={styles['list-group']}>
-          {title === 'your_lists' && <AddList />}
+          <AddList />
           {/* <Swiper
             pagination={true}
             modules={[Pagination]}
@@ -67,10 +63,9 @@ export function Category({ title, _id, lists, description }: ICategory) {
               }
             }}> */}
           {lists.map((item) => (
-            <SwiperSlide key={item._id}>
-              <List title={item.title} image={item.image} />
-              {/* <CustomList title={item.title} image={item.image} /> */}
-            </SwiperSlide>
+            // <SwiperSlide key={item._id}>
+            <CustomList title={item.title} image={item.image} key={item._id} />
+            // </SwiperSlide>
           ))}
           {/* </Swiper> */}
         </div>

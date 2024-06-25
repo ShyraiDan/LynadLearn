@@ -9,6 +9,7 @@ import { Input } from '../ui/Input/Input'
 import { Button } from '../ui/Button/Button'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { IList } from '@/interfaces/List.interface'
+import { createList } from '@/lib/lists'
 
 import { FaPlus } from 'react-icons/fa'
 
@@ -31,6 +32,7 @@ export default function AddList() {
 
   const onSubmit: SubmitHandler<IList> = async (values) => {
     console.log(values)
+    await createList(values)
   }
 
   return (

@@ -6,171 +6,171 @@ import B2 from '@/assets/B2.png'
 import C1 from '@/assets/C1.png'
 
 export const DCategories: ICategory[] = [
+  // {
+  //   id: '1',
+  //   title: 'your_lists',
+  //   description: '',
+  //   lists: []
+  // },
   {
-    id: '1',
-    title: 'your_lists',
-    description: '',
-    lists: []
-  },
-  {
-    id: '2',
+    _id: '1',
     title: 'cefr_wordlist',
     description: 'cefr_wordlist_detail',
     lists: [
       {
-        id: '1',
+        _id: '1',
         title: 'A1 Level Wordlist',
         image: A1
       },
       {
-        id: '2',
+        _id: '2',
         title: 'A2 Level Wordlist',
         image: A2
       },
       {
-        id: '3',
+        _id: '3',
         title: 'B1 Level Wordlist',
         image: B1
       },
       {
-        id: '4',
+        _id: '4',
         title: 'B2 Level Wordlist',
         image: B2
       },
       {
-        id: '5',
+        _id: '5',
         title: 'C1 Level Wordlist',
         image: C1
       },
       {
-        id: '1',
+        _id: '1',
         title: 'A1 Level Wordlist',
         image: A1
       },
       {
-        id: '2',
+        _id: '2',
         title: 'A2 Level Wordlist',
         image: A2
       },
       {
-        id: '3',
+        _id: '3',
         title: 'B1 Level Wordlist',
         image: B1
       },
       {
-        id: '4',
+        _id: '4',
         title: 'B2 Level Wordlist',
         image: B2
       },
       {
-        id: '5',
+        _id: '5',
         title: 'C1 Level Wordlist',
         image: C1
       },
       {
-        id: '1',
+        _id: '1',
         title: 'A1 Level Wordlist',
         image: A1
       },
       {
-        id: '2',
+        _id: '2',
         title: 'A2 Level Wordlist',
         image: A2
       },
       {
-        id: '3',
+        _id: '3',
         title: 'B1 Level Wordlist',
         image: B1
       },
       {
-        id: '4',
+        _id: '4',
         title: 'B2 Level Wordlist',
         image: B2
       },
       {
-        id: '5',
+        _id: '5',
         title: 'C1 Level Wordlist',
         image: C1
       }
     ]
   },
   {
-    id: '3',
+    _id: '2',
     title: 'cefr_wordlist',
     description: 'cefr_wordlist_detail',
     lists: [
       {
-        id: '1',
+        _id: '1',
         title: 'A1 Level Wordlist',
         image: A1
       },
       {
-        id: '2',
+        _id: '2',
         title: 'A2 Level Wordlist',
         image: A2
       },
       {
-        id: '3',
+        _id: '3',
         title: 'B1 Level Wordlist',
         image: B1
       },
       {
-        id: '4',
+        _id: '4',
         title: 'B2 Level Wordlist',
         image: B2
       },
       {
-        id: '5',
+        _id: '5',
         title: 'C1 Level Wordlist',
         image: C1
       },
       {
-        id: '1',
+        _id: '1',
         title: 'A1 Level Wordlist',
         image: A1
       },
       {
-        id: '2',
+        _id: '2',
         title: 'A2 Level Wordlist',
         image: A2
       },
       {
-        id: '3',
+        _id: '3',
         title: 'B1 Level Wordlist',
         image: B1
       },
       {
-        id: '4',
+        _id: '4',
         title: 'B2 Level Wordlist',
         image: B2
       },
       {
-        id: '5',
+        _id: '5',
         title: 'C1 Level Wordlist',
         image: C1
       },
       {
-        id: '1',
+        _id: '1',
         title: 'A1 Level Wordlist',
         image: A1
       },
       {
-        id: '2',
+        _id: '2',
         title: 'A2 Level Wordlist',
         image: A2
       },
       {
-        id: '3',
+        _id: '3',
         title: 'B1 Level Wordlist',
         image: B1
       },
       {
-        id: '4',
+        _id: '4',
         title: 'B2 Level Wordlist',
         image: B2
       },
       {
-        id: '5',
+        _id: '5',
         title: 'C1 Level Wordlist',
         image: C1
       }

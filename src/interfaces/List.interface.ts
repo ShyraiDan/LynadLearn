@@ -1,7 +1,24 @@
 import { StaticImport } from 'next/dist/shared/lib/get-img-props'
+import mongoose, { Schema } from 'mongoose'
 
 export interface IList {
-  id: string
+  _id: string
   title: string
   image?: string | StaticImport | undefined
 }
+
+const listSchema = new Schema(
+  {
+    title: {
+      type: String,
+      required: true
+    },
+    avatarUrl: String
+  },
+  {
+    timestamps: true
+  }
+)
+
+const List = mongoose.models.Lists || mongoose.model('Lists', listSchema)
+export default List
