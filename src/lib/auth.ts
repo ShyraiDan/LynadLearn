@@ -1,7 +1,7 @@
 'use server'
 
 import connectMongoDB from './mongodb'
-import User, { IUser, IUserDTO } from '@/interfaces/User.interface'
+import User, { IUser } from '@/interfaces/User.interface'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
@@ -20,7 +20,7 @@ export const authMe = async () => {
   }
 }
 
-export const register = async (user: IUserDTO) => {
+export const registerUser = async (user: any) => {
   try {
     await connectMongoDB()
 

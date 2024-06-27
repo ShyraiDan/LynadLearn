@@ -7,7 +7,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
 import { ISignIn } from '../Auth.interface'
 
-export default function SignInForm() {
+export default function SignInForm({ handleClose }: any) {
   const t = useTranslations('Forms')
 
   const {
@@ -20,6 +20,7 @@ export default function SignInForm() {
 
   const onSubmit: SubmitHandler<ISignIn> = async (values) => {
     console.log(values)
+    handleClose()
   }
 
   return (

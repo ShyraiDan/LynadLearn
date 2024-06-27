@@ -8,15 +8,6 @@ export interface IUser {
   description: string
 }
 
-export interface IUserDTO {
-  email: string
-  password: string
-  userName: string
-  location?: string
-  description?: string
-  avatarUrl?: string
-}
-
 const userSchema = new Schema(
   {
     userName: {

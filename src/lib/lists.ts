@@ -1,5 +1,6 @@
 'use server'
 
+import { revalidatePath } from 'next/cache'
 import connectMongoDB from './mongodb'
 import List, { IList } from '@/interfaces/List.interface'
 
@@ -37,6 +38,8 @@ export const createList = async (list: IList) => {
     })
 
     await doc.save()
+
+    revalidatePath('[locale]/dashboard/lists', 'page')
   } catch (error: any) {
     // return NextResponse.redirect('/login')
     throw new Error(error)

@@ -41,7 +41,7 @@ export function AuthModal() {
               <div className={styles['form-container']}>
                 <h2>{t('hello')}</h2>
                 <p>{t('enter_details_sign_up')}</p>
-                <SignUpForm />
+                <SignUpForm handleClose={showModal} />
                 <span>{t('or')}</span>
                 <Button>
                   <FcGoogle /> {t('sign_up_google')}
@@ -55,7 +55,7 @@ export function AuthModal() {
               <div className={styles['form-container']}>
                 <h2>{t('welcome')}</h2>
                 <p>{t('enter_details_sign_in')}</p>
-                <SignInForm />
+                <SignInForm handleClose={showModal} />
                 <div>
                   {t('not_have_account')}
                   <span onClick={() => setSignInModal((state) => !state)}>{t('sign_up')}</span>

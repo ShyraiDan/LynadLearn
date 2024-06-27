@@ -6,8 +6,9 @@ import { Button } from '@/components/ui/Button/Button'
 import { useTranslations } from 'next-intl'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { ISignUp } from '../Auth.interface'
+import { registerUser } from '@/lib/auth'
 
-export default function SignUpForm() {
+export default function SignUpForm({ handleClose }: any) {
   const t = useTranslations('Forms')
 
   const {
@@ -21,6 +22,8 @@ export default function SignUpForm() {
 
   const onSubmit: SubmitHandler<ISignUp> = async (values) => {
     console.log(values)
+    // await registerUser(values)
+    // handleClose()
   }
 
   return (

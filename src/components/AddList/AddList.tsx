@@ -9,11 +9,11 @@ import { Input } from '../ui/Input/Input'
 import { Button } from '../ui/Button/Button'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { IList } from '@/interfaces/List.interface'
-import { createList, getYourLists } from '@/lib/lists'
+import { createList } from '@/lib/lists'
 
 import { FaPlus } from 'react-icons/fa'
 
-export default function AddList({ setUpdate }: any) {
+export default function AddList() {
   const [isAdding, setAdding] = useState(false)
   const t = useTranslations('dashboard.lists')
 
@@ -33,7 +33,6 @@ export default function AddList({ setUpdate }: any) {
   const onSubmit: SubmitHandler<IList> = async (values) => {
     console.log(values)
     await createList(values)
-    setUpdate((state: boolean) => !state)
     openModal()
   }
 
