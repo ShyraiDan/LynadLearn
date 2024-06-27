@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button/Button'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
 import { ISignIn } from '../Auth.interface'
+import { login } from '@/lib/auth'
 
 export default function SignInForm({ handleClose }: any) {
   const t = useTranslations('Forms')
@@ -19,7 +20,7 @@ export default function SignInForm({ handleClose }: any) {
   })
 
   const onSubmit: SubmitHandler<ISignIn> = async (values) => {
-    console.log(values)
+    login(values)
     handleClose()
   }
 
