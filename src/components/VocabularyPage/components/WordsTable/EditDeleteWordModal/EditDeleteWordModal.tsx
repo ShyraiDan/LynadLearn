@@ -19,8 +19,6 @@ export default function EditDeleteWordModal({ word }: { word: IWord }) {
 
   const t = useTranslations('dashboard.vocabulary.modal')
 
-  console.log(word)
-
   const showEditModal = () => {
     setEdit((state) => !state)
     removeScrollBar(isEdit)

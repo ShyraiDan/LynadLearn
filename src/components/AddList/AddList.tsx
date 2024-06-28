@@ -32,8 +32,7 @@ export default function AddList() {
 
   const onSubmit: SubmitHandler<IList> = async (values) => {
     console.log(values)
-    const list = await createList(values)
-    console.log(list)
+    await createList(values)
 
     openModal()
   }

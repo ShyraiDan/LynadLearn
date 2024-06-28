@@ -20,8 +20,6 @@ export default function WordModal({
   const params = useParams()
   const { id } = params
 
-  console.log('word modal', word)
-
   const {
     register,
     formState: { errors },
