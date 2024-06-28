@@ -4,33 +4,64 @@ import { Button } from '@/components/ui/Button/Button'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { IWord } from '@/interfaces/Word.interface'
 import { useTranslations } from 'next-intl'
-import { createWord } from '@/lib/word'
+import { createWord, updateWordById } from '@/lib/word'
 import { useParams } from 'next/navigation'
 
-export default function WordModal({ handleClose }: any) {
+export default function WordModal({
+  handleClose,
+  isEdit,
+  word
+}: {
+  handleClose: () => void
+  isEdit: boolean
+  word?: IWord
+}) {
   const t = useTranslations('dashboard.vocabulary.modal')
   const params = useParams()
   const { id } = params
+
+  console.log('word modal', word)
 
   const {
     register,
     formState: { errors },
     handleSubmit
   } = useForm<IWord>({
-    mode: 'onBlur'
+    mode: 'onBlur',
+    defaultValues: {
+      word: word?.word || '',
+      part_of_speech: word?.part_of_speech || '',
+      definition: word?.definition || '',
+      translation: word?.translation || '',
+      pronunciation: word?.pronunciation || '',
+      example: word?.example || ''
+    }
   })
 
   const onSubmit: SubmitHandler<IWord> = async (values) => {
     console.log(values)
     values.listId = id as string
-    await createWord(values)
+
+    if (word) {
+      word.word = values.word
+      word.definition = values.definition
+      word.example = values.example
+      word.part_of_speech = values.part_of_speech
+      word.translation = values.translation
+      word.pronunciation = values.pronunciation
+
+      await updateWordById(word)
+    } else {
+      await createWord(values)
+    }
+
     handleClose()
   }
 
   return (
     <div className={styles.modal}>
-      <h2>{t('add_new_word')}</h2>
-      <p>{t('enter_word_details')}</p>
+      <h2>{isEdit ? 'Edit word' : t('add_new_word')}</h2>
+      <p>{isEdit ? 'Change word details' : t('enter_word_details')}</p>
       <form action='' className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div>
           <div className={styles.row}>

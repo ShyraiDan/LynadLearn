@@ -7,15 +7,19 @@ import { Modal } from '@/components/ui/Modal/Modal'
 import { removeScrollBar } from '@/constants/shared'
 import { Button } from '@/components/ui/Button/Button'
 import { useTranslations } from 'next-intl'
+import { deleteWordById } from '@/lib/word'
+import { IWord } from '@/interfaces/Word.interface'
 
 import { MdEdit } from 'react-icons/md'
 import { FaTrash } from 'react-icons/fa'
 
-export default function EditDeleteWordModal() {
+export default function EditDeleteWordModal({ word }: { word: IWord }) {
   const [isEdit, setEdit] = useState(false)
   const [isDelete, setDelete] = useState(false)
 
   const t = useTranslations('dashboard.vocabulary.modal')
+
+  console.log(word)
 
   const showEditModal = () => {
     setEdit((state) => !state)
@@ -28,6 +32,7 @@ export default function EditDeleteWordModal() {
   }
 
   const deleteWord = () => {
+    deleteWordById(word._id)
     showDeleteModal()
   }
 
@@ -39,7 +44,7 @@ export default function EditDeleteWordModal() {
       </div>
       {isEdit && (
         <Modal isOpen={isEdit} handleClose={() => showEditModal()}>
-          <WordModal handleClose={showEditModal} />
+          <WordModal handleClose={showEditModal} isEdit={true} word={word} />
         </Modal>
       )}
 

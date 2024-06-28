@@ -29,3 +29,28 @@ export const getWordsByListId = async (id: string): Promise<IWord[]> => {
 
   return data
 }
+
+export const updateWordById = async (word: IWord): Promise<void> => {
+  await connectMongoDB()
+
+  await Word.updateOne(
+    { _id: word._id },
+    {
+      word: word.word,
+      definition: word.definition,
+      example: word.example,
+      part_of_speech: word.part_of_speech,
+      translation: word.translation,
+      pronunciation: word.pronunciation
+    }
+  )
+
+  revalidatePath('[locale]/dashboard/vocabulary/[id]', 'page')
+}
+
+export const deleteWordById = async (id: string): Promise<void> => {
+  await connectMongoDB()
+  await Word.deleteOne({ _id: id })
+
+  revalidatePath('[locale]/dashboard/vocabulary/[id]', 'page')
+}

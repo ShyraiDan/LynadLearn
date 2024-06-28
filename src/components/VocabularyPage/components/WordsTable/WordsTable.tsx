@@ -63,7 +63,7 @@ export default async function WordsTable({ listId }: { listId: string }) {
             })} */}
             {words.map((item: any) => {
               return (
-                <div key={item.id} className={styles.row}>
+                <div key={item._id} className={styles.row}>
                   <div>{item.word}</div>
                   <div>{item.part_of_speech}</div>
                   <div>{item.definition}</div>
@@ -71,7 +71,7 @@ export default async function WordsTable({ listId }: { listId: string }) {
                   <div>{item.pronunciation}</div>
                   <div>{item.example}</div>
                   <div className={styles['word-modal']}>
-                    <EditDeleteWordModal />{' '}
+                    <EditDeleteWordModal word={item} />
                   </div>
                 </div>
               )
