@@ -22,8 +22,8 @@ export default function SignUpForm({ handleClose }: any) {
 
   const onSubmit: SubmitHandler<ISignUp> = async (values) => {
     console.log(values)
-    // await registerUser(values)
-    // handleClose()
+    await registerUser(values)
+    handleClose()
   }
 
   return (
