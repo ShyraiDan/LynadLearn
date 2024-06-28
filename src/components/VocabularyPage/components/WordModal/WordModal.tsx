@@ -7,15 +7,7 @@ import { useTranslations } from 'next-intl'
 import { createWord, updateWordById } from '@/lib/word'
 import { useParams } from 'next/navigation'
 
-export default function WordModal({
-  handleClose,
-  isEdit,
-  word
-}: {
-  handleClose: () => void
-  isEdit: boolean
-  word?: IWord
-}) {
+export default function WordModal({ handleClose, word }: { handleClose: () => void; word?: IWord }) {
   const t = useTranslations('dashboard.vocabulary.modal')
   const params = useParams()
   const { id } = params
@@ -58,8 +50,8 @@ export default function WordModal({
 
   return (
     <div className={styles.modal}>
-      <h2>{isEdit ? 'Edit word' : t('add_new_word')}</h2>
-      <p>{isEdit ? 'Change word details' : t('enter_word_details')}</p>
+      <h2>{word ? t('edit_word') : t('add_new_word')}</h2>
+      <p>{word ? t('change_details') : t('enter_word_details')}</p>
       <form action='' className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div>
           <div className={styles.row}>
@@ -136,7 +128,7 @@ export default function WordModal({
             {t('example')}
           </Input>
           {errors?.example && <p className={styles.error}>{errors.example.message}</p>}
-          <Button type='submit'>{t('add_word')}</Button>
+          <Button type='submit'>{word ? t('edit_word') : t('add_word')}</Button>
         </div>
       </form>
     </div>
