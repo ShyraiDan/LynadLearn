@@ -1,11 +1,12 @@
 import mongoose, { Schema } from 'mongoose'
 
 export interface IUser {
-  id: number
-  userName: string
+  userName?: string
   email: string
-  location: string
-  description: string
+  location?: string
+  description?: string
+  avatarUrl?: string
+  password: string
 }
 
 const userSchema = new Schema(

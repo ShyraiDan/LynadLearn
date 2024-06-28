@@ -3,7 +3,6 @@
 import connectMongoDB from './mongodb'
 import User, { IUser } from '@/interfaces/User.interface'
 import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
 import { getIronSession } from 'iron-session'
 import { SessionOptions } from 'iron-session'
 import { cookies } from 'next/headers'
@@ -41,7 +40,7 @@ export const getSession = async () => {
 }
 
 // auth -> login
-export const login = async (data: any) => {
+export const login = async (data: IUser) => {
   await connectMongoDB()
   const session = await getSession()
 
@@ -59,19 +58,17 @@ export const login = async (data: any) => {
 
   const { passwordHash, ...userData } = user._doc
   session.isLoggedIn = true
-
+  session.userId = userData._id
   session.userName = userData.userName
   session.email = userData.email
   session.description = userData.description
   session.location = userData.location
   session.avatarUrl = userData.avatarUrl
 
-  console.log('session login', session)
-
   await session.save()
 }
 
-export const registerUser = async (user: any) => {
+export const registerUser = async (user: IUser) => {
   await connectMongoDB()
   const session = await getSession()
 
@@ -89,16 +86,13 @@ export const registerUser = async (user: any) => {
 
   const userDoc = await doc.save()
 
-  console.log('backend', userDoc)
-
   session.isLoggedIn = true
+  session.userId = userDoc._id
   session.userName = userDoc.userName
   session.email = userDoc.email
   session.description = userDoc.description
   session.location = userDoc.location
   session.avatarUrl = userDoc.avatarUrl
-
-  console.log('session register', session)
 
   await session.save()
 }
