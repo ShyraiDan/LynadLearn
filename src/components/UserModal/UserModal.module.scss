@@ -1,35 +1,43 @@
 .user {
   @apply flex items-center cursor-pointer;
 
-  .arrow {
-    @apply ml-2 transition-all ease-in-out duration-300;
-  }
+  // .arrow {
+  //   @apply ml-2 transition-all ease-in-out duration-300;
+  // }
 
   .user-avatar {
-    @apply rounded-full bg-black w-10 h-10 flex items-center justify-center;
+    @apply rounded-full bg-[#2a41e812] w-10 h-10 flex items-center justify-center;
   }
 
   .icon {
-    @apply fill-white;
+    @apply fill-blue-200;
   }
 }
 
-.active {
-  @apply rotate-180;
-}
+// .active {
+//   @apply rotate-180;
+// }
 
 .modal {
   @apply flex flex-col relative;
 
   ul {
-    @apply bg-[#f1f1ef] absolute top-[28px] right-0 w-[160px] h-[110px] py-2;
+    @apply rounded-lg shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] bg-[#ffffff] absolute top-[28px] right-0 w-[160px] h-[110px] py-2;
 
     li {
-      @apply px-4 py-1 flex items-center;
+      @apply px-4 py-1 flex items-center text-blue-200 font-medium cursor-pointer transition-all ease-in-out duration-150;
+
+      a {
+        @apply flex items-center;
+      }
 
       .icon {
         @apply mr-1;
       }
+    }
+
+    li:not(.selected) {
+      @apply hover:text-purple-100;
     }
   }
 }

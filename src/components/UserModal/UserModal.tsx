@@ -2,11 +2,12 @@
 
 import styles from './UserModal.module.scss'
 import { useState } from 'react'
+import NavigationLink from '../ui/NavigationLink/NavigationLink'
+import { logout } from '@/lib/auth'
 
 import { MdEdit } from 'react-icons/md'
 import { FaUser } from 'react-icons/fa'
 import { MdLogout } from 'react-icons/md'
-import { IoIosArrowDown } from 'react-icons/io'
 
 export function UserModal() {
   const [isUserModal, setUserModal] = useState(false)
@@ -17,19 +18,20 @@ export function UserModal() {
         <div className={styles['user-avatar']}>
           <FaUser className={styles.icon} />
         </div>
-        <IoIosArrowDown className={`${styles.arrow} ${isUserModal && styles.active}`} />
       </div>
       {isUserModal && (
         <div className={styles.modal}>
           <ul>
             <li>
-              <FaUser className={styles.icon} />
-              Profile
+              <NavigationLink href={'/dashboard/profile'}>
+                <FaUser className={styles.icon} />
+                Profile
+              </NavigationLink>
             </li>
             <li>
               <MdEdit className={styles.icon} /> Edit Profile
             </li>
-            <li>
+            <li onClick={() => logout()}>
               <MdLogout className={styles.icon} /> Logout
             </li>
           </ul>

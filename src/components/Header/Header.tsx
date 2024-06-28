@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import styles from './Header.module.scss'
 import LanguageModal from '../LanguageModal/LanguageModal'
@@ -8,16 +8,28 @@ import { UserModal } from '../UserModal/UserModal'
 import NavigationLink from '../ui/NavigationLink/NavigationLink'
 import { useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { getSession } from '@/lib/auth'
+import { useRouter } from 'next/router'
 
 export function Header() {
-  const t = useTranslations('Header')
-  const isAuth = false
+  // const [session, setSession] = useState<any>(null)
 
-  const path = usePathname()
+  const t = useTranslations('Header')
+  const isAuth = true
+
+  // const path = usePathname()
+
+  // useEffect(() => {
+  //   getSession().then((session) => setSession(session))
+  // }, [session === null])
+  // const router = useRouter()
+  // console.log(router)
 
   return (
     <header className={styles.header}>
-      <div className={`${styles['header-container']} ${path.split('/')[2] === 'dashboard' && styles.dashboard}`}>
+      {/* <div className={`${styles['header-container']} ${path.split('/')[2] === 'dashboard' && styles.dashboard}`}> */}
+      <div className={`${styles['header-container']}`}>
         <div className={styles['header-left']}>
           <div></div>
           <NavigationLink href={'/'}>

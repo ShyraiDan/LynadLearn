@@ -6,6 +6,7 @@ import bcrypt from 'bcrypt'
 import { getIronSession } from 'iron-session'
 import { SessionOptions } from 'iron-session'
 import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
 
 interface SessionData {
   userId?: string
@@ -95,4 +96,13 @@ export const registerUser = async (user: IUser) => {
   session.avatarUrl = userDoc.avatarUrl
 
   await session.save()
+}
+
+export const logout = async () => {
+  const session = await getSession()
+  const cookieStore = cookies()
+  const locale = cookieStore.get('NEXT_LOCALE')
+
+  session.destroy()
+  redirect(`/${locale?.value}`)
 }
