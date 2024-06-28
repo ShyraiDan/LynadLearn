@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 
 import styles from './Header.module.scss'
 import LanguageModal from '../LanguageModal/LanguageModal'
@@ -13,23 +13,19 @@ import { getSession } from '@/lib/auth'
 import { useRouter } from 'next/router'
 
 export function Header() {
-  // const [session, setSession] = useState<any>(null)
+  const [isAuth, setAuth] = useState<any>(null)
 
   const t = useTranslations('Header')
-  const isAuth = true
 
-  // const path = usePathname()
+  const path = usePathname()
 
-  // useEffect(() => {
-  //   getSession().then((session) => setSession(session))
-  // }, [session === null])
-  // const router = useRouter()
-  // console.log(router)
+  useEffect(() => {
+    getSession().then((session) => setAuth(session.isLoggedIn))
+  }, [isAuth === null])
 
   return (
     <header className={styles.header}>
-      {/* <div className={`${styles['header-container']} ${path.split('/')[2] === 'dashboard' && styles.dashboard}`}> */}
-      <div className={`${styles['header-container']}`}>
+      <div className={`${styles['header-container']} ${path.split('/')[2] === 'dashboard' && styles.dashboard}`}>
         <div className={styles['header-left']}>
           <div></div>
           <NavigationLink href={'/'}>
