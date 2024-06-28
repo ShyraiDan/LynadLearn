@@ -1,8 +1,7 @@
 import styles from './WordsTable.module.scss'
 import EditDeleteWordModal from './EditDeleteWordModal/EditDeleteWordModal'
 import { useTranslations } from 'next-intl'
-
-import { DWords } from '@/mock/Words.mock'
+import { getWordsByListId } from '@/lib/word'
 
 import { FaBookAtlas } from 'react-icons/fa6'
 import { TbVocabulary } from 'react-icons/tb'
@@ -11,14 +10,15 @@ import { FaRunning } from 'react-icons/fa'
 import { SlSpeech } from 'react-icons/sl'
 import { AiOutlineTranslation } from 'react-icons/ai'
 
-export default function WordsTable({ list }: any) {
+export default async function WordsTable({ listId }: { listId: string }) {
   const t = useTranslations('dashboard.vocabulary')
+  const words = await getWordsByListId(listId)
 
   return (
     <div className={styles.container}>
       <div className={styles.table}>
-        {!list.words.length && <div className={styles['no-words']}>{t('no_words')}</div>}
-        {list.words.length > 0 && (
+        {!words.length && <div className={styles['no-words']}>{t('no_words')}</div>}
+        {words.length > 0 && (
           <div className={styles['table-data']}>
             <div className={`${styles.row} ${styles.header}`}>
               <div>
@@ -61,7 +61,7 @@ export default function WordsTable({ list }: any) {
                 </div>
               )
             })} */}
-            {list.words.map((item: any) => {
+            {words.map((item: any) => {
               return (
                 <div key={item.id} className={styles.row}>
                   <div>{item.word}</div>

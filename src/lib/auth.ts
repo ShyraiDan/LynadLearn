@@ -40,7 +40,6 @@ export const getSession = async () => {
   return session
 }
 
-// auth -> login
 export const login = async (data: IUser) => {
   await connectMongoDB()
   const session = await getSession()

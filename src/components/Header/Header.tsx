@@ -1,31 +1,19 @@
-'use client'
-
 import styles from './Header.module.scss'
 import LanguageModal from '../LanguageModal/LanguageModal'
 import { AuthModal } from '../AuthModal/AuthModal'
 import Burger from '../Burger/Burger'
 import { UserModal } from '../UserModal/UserModal'
 import NavigationLink from '../ui/NavigationLink/NavigationLink'
-import { useTranslations } from 'next-intl'
-import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
 import { getSession } from '@/lib/auth'
-import { useRouter } from 'next/router'
+import { getTranslations } from 'next-intl/server'
 
-export function Header() {
-  const [isAuth, setAuth] = useState<any>(null)
-
-  const t = useTranslations('Header')
-
-  const path = usePathname()
-
-  useEffect(() => {
-    getSession().then((session) => setAuth(session.isLoggedIn))
-  }, [isAuth === null])
+export async function Header() {
+  const { isLoggedIn } = await getSession()
+  const t = await getTranslations('Header')
 
   return (
     <header className={styles.header}>
-      <div className={`${styles['header-container']} ${path.split('/')[2] === 'dashboard' && styles.dashboard}`}>
+      <div className={`${styles['header-container']} ${styles.dashboard}`}>
         <div className={styles['header-left']}>
           <div></div>
           <NavigationLink href={'/'}>
@@ -63,7 +51,7 @@ export function Header() {
           </nav>
         </div>
         <div className={styles['header-right']}>
-          {isAuth ? <UserModal /> : <AuthModal />}
+          {isLoggedIn ? <UserModal /> : <AuthModal />}
           <Burger />
         </div>
       </div>

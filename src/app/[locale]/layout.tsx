@@ -5,7 +5,6 @@ import { SITE_NAME } from '@/constants/seo.constants'
 import { Header } from '@/components/Header/Header'
 import { Footer } from '@/components/Footer/Footer'
 import { NextIntlClientProvider, useMessages } from 'next-intl'
-// import { headers } from 'next/headers'
 
 const font = Roboto({
   subsets: ['cyrillic', 'latin'],
@@ -32,9 +31,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children, params: { locale } }: Readonly<RootLayoutProps>) {
   const messages = useMessages()
-  // const pathname = headers().get('x-nextjs-pathname') as string
 
-  // console.log(pathname)
   return (
     <html lang={locale}>
       <body className={font.className}>

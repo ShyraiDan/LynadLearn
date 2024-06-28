@@ -5,9 +5,12 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { IWord } from '@/interfaces/Word.interface'
 import { useTranslations } from 'next-intl'
 import { createWord } from '@/lib/word'
+import { useParams } from 'next/navigation'
 
 export default function WordModal({ handleClose }: any) {
   const t = useTranslations('dashboard.vocabulary.modal')
+  const params = useParams()
+  const { id } = params
 
   const {
     register,
@@ -19,6 +22,7 @@ export default function WordModal({ handleClose }: any) {
 
   const onSubmit: SubmitHandler<IWord> = async (values) => {
     console.log(values)
+    values.listId = id as string
     await createWord(values)
     handleClose()
   }

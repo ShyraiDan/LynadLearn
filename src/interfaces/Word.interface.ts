@@ -8,6 +8,7 @@ export interface IWord {
   translation: string
   pronunciation?: string
   example?: string
+  listId: string
 }
 const wordsSchema = new Schema(
   {
@@ -23,6 +24,11 @@ const wordsSchema = new Schema(
     },
     translation: {
       type: String,
+      required: true
+    },
+    listId: {
+      type: Schema.Types.ObjectId,
+      ref: 'List',
       required: true
     },
     pronunciation: String

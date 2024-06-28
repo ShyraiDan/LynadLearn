@@ -1,10 +1,6 @@
 .user {
   @apply flex items-center cursor-pointer;
 
-  // .arrow {
-  //   @apply ml-2 transition-all ease-in-out duration-300;
-  // }
-
   .user-avatar {
     @apply rounded-full bg-[#2a41e812] w-10 h-10 flex items-center justify-center;
   }
@@ -13,10 +9,6 @@
     @apply fill-blue-200;
   }
 }
-
-// .active {
-//   @apply rotate-180;
-// }
 
 .modal {
   @apply flex flex-col relative;
