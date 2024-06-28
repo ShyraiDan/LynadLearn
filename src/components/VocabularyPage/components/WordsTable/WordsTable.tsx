@@ -18,7 +18,7 @@ export default function WordsTable({ list }: any) {
     <div className={styles.container}>
       <div className={styles.table}>
         {!list.words.length && <div className={styles['no-words']}>{t('no_words')}</div>}
-        {list.words.length && (
+        {list.words.length > 0 && (
           <div className={styles['table-data']}>
             <div className={`${styles.row} ${styles.header}`}>
               <div>
