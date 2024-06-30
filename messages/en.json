@@ -234,7 +234,8 @@
         "edit_word": "Edit word",
         "really_delete": "Do you really want to delete the word?",
         "cancel": "Cancel",
-        "delete": "Delete"
+        "delete": "Delete",
+        "change_details": "Change word details"
       },
       "no_words": "Unfortunately you don't have any words yet",
       "word": "Word",

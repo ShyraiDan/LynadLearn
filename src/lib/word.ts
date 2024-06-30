@@ -24,7 +24,9 @@ export const createWord = async (userWord: IWord) => {
 
 export const getWordsByListId = async (id: string): Promise<IWord[]> => {
   await connectMongoDB()
-  const list = await Word.find({ listId: id })
+  const list = await Word.find({ listId: id }).sort({
+    updatedAt: -1
+  })
   const data = JSON.parse(JSON.stringify(list))
 
   return data
@@ -53,4 +55,23 @@ export const deleteWordById = async (id: string): Promise<void> => {
   await Word.deleteOne({ _id: id })
 
   revalidatePath('[locale]/dashboard/vocabulary/[id]', 'page')
+}
+
+export const getWordsByListIdSortedByName = async (id: string, sort: string): Promise<IWord[]> => {
+  await connectMongoDB()
+  let list = []
+
+  if (sort === 'a-z') {
+    list = await Word.find({ listId: id }).sort({
+      word: 1
+    })
+  } else {
+    list = await Word.find({ listId: id }).sort({
+      word: -1
+    })
+  }
+
+  const data = JSON.parse(JSON.stringify(list))
+
+  return data
 }

@@ -4,46 +4,51 @@
   .table {
     @apply origin-center -rotate-180;
 
-    .row {
-      @apply cursor-pointer relative grid grid-cols-[repeat(6,_minmax(150px,_1fr))] w-full transition-all duration-[.3s] ease-in-out
-      even:bg-white-100
-      [&_.word-modal]:hover:visible;
+    .table-data {
+      @apply h-[calc(100vh-150px)] w-full min-w-[calc(100vw-30px)]   
+      lg:h-[calc(100vh-245px)] lg:min-w-[calc(100vw-290px)];
 
-      > div {
-        @apply border-l border-t p-1;
+      .row {
+        @apply cursor-pointer relative grid grid-cols-[repeat(6,_minmax(150px,_1fr))] w-full transition-all duration-[.3s] ease-in-out
+        even:bg-white-100
+        [&_.word-modal]:hover:visible;
 
-        .icon {
-          @apply mr-1.5;
+        > div {
+          @apply border-l border-t p-1;
+
+          .icon {
+            @apply mr-1.5;
+          }
+
+          &:first-child {
+            @apply border-l-0;
+          }
         }
 
         &:first-child {
-          @apply border-l-0;
+          div {
+            @apply flex items-center border-t-0;
+          }
+        }
+
+        &:last-child {
+          @apply border-b;
+        }
+
+        .word-modal {
+          @apply invisible rounded-lg shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] bg-[#ffffff] p-2 absolute bottom-[5px] left-[5px] w-[60px] h-[33px];
         }
       }
 
-      &:first-child {
-        div {
-          @apply flex items-center border-t-0;
-        }
+      .header {
+        @apply bg-blue-100 text-white text-base;
       }
 
-      &:last-child {
-        @apply border-b;
+      .no-words {
+        @apply flex items-center text-blue-200 justify-center h-[calc(100vh-150px)] w-[calc(100vw-30px)] 
+        text-2xl font-bold text-center
+        lg:w-[calc(100vw-290px)] lg:h-[calc(100vh-245px)];
       }
-
-      .word-modal {
-        @apply invisible rounded-lg shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] bg-[#ffffff] p-2 absolute bottom-[5px] left-[5px] w-[60px] h-[33px];
-      }
-    }
-
-    .header {
-      @apply bg-blue-100 text-white text-base;
-    }
-
-    .no-words {
-      @apply flex items-center text-blue-200 justify-center h-[calc(100vh-150px)] w-[calc(100vw-30px)] 
-      text-2xl font-bold text-center
-      lg:w-[calc(100vw-290px)] lg:h-[calc(100vh-245px)];
     }
   }
 }

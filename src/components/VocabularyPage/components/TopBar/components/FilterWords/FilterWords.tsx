@@ -3,16 +3,18 @@
 import styles from './FilterWords.module.scss'
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/navigation'
 
 import { IoIosArrowDown } from 'react-icons/io'
 
 export default function FilterWords() {
   const t = useTranslations('dashboard.vocabulary')
-
   const [isFilterOpen, setFilterOpen] = useState(false)
   const [selectedFilter, setFilter] = useState(t('newest'))
+  const router = useRouter()
 
-  const changeFilter = (filter: string) => {
+  const changeFilter = (filter: string, filterType: string) => {
+    router.push(`?sort=${filterType}`)
     setFilter(filter)
     setFilterOpen(false)
   }
@@ -25,9 +27,9 @@ export default function FilterWords() {
       </div>
       {isFilterOpen && (
         <ul className={styles.modal}>
-          <li onClick={() => changeFilter(t('newest'))}>{t('newest')}</li>
-          <li onClick={() => changeFilter(t('alphabeta-z'))}>{t('alphabeta-z')}</li>
-          <li onClick={() => changeFilter(t('alphabetz-a'))}>{t('alphabetz-a')}</li>
+          <li onClick={() => changeFilter(t('newest'), 'newest')}>{t('newest')}</li>
+          <li onClick={() => changeFilter(t('alphabeta-z'), 'a-z')}>{t('alphabeta-z')}</li>
+          <li onClick={() => changeFilter(t('alphabetz-a'), 'z-a')}>{t('alphabetz-a')}</li>
         </ul>
       )}
     </>
