@@ -6,12 +6,6 @@ import B2 from '@/assets/B2.png'
 import C1 from '@/assets/C1.png'
 
 export const DCategories: ICategory[] = [
-  // {
-  //   id: '1',
-  //   title: 'your_lists',
-  //   description: '',
-  //   lists: []
-  // },
   {
     _id: '1',
     title: 'cefr_wordlist',

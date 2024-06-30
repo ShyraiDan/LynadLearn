@@ -1,5 +1,8 @@
 .container {
-  @apply flex flex-col p-4 min-h-[100vh];
+  @apply flex flex-col p-4 min-h-[calc(100vh-397px-81px)]
+  sm:min-h-[calc(100vh-193px-81px)] 
+  md:min-h-[calc(100vh-153px-81px)] 
+  lg:min-h-[calc(100vh-97px-81px)];
 
   .user-info {
     @apply grid grid-cols-[80px_1fr] gap-4 relative;

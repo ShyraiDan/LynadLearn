@@ -7,6 +7,7 @@ export interface IUser {
   description?: string
   avatarUrl?: string
   password: string
+  rating: number
 }
 
 const userSchema = new Schema(
@@ -26,7 +27,12 @@ const userSchema = new Schema(
     },
     avatarUrl: String,
     location: String,
-    description: String
+    description: String,
+    rating: {
+      type: Number,
+      default: 0,
+      required: true
+    }
   },
   {
     timestamps: true

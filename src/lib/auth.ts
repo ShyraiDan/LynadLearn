@@ -1,12 +1,13 @@
 'use server'
 
 import connectMongoDB from './mongodb'
-import User, { IUser } from '@/interfaces/User.interface'
+import User from '@/interfaces/User.interface'
 import bcrypt from 'bcrypt'
 import { getIronSession } from 'iron-session'
 import { SessionOptions } from 'iron-session'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
+import { ISignUp, ISignIn } from '@/components/AuthModal/components/Auth.interface'
 
 interface SessionData {
   userId?: string
@@ -16,6 +17,7 @@ interface SessionData {
   description?: string
   location?: string
   isLoggedIn: boolean
+  rating?: number
 }
 const defaultSession: SessionData = {
   isLoggedIn: false
@@ -40,7 +42,7 @@ export const getSession = async () => {
   return session
 }
 
-export const login = async (data: IUser) => {
+export const login = async (data: ISignIn) => {
   await connectMongoDB()
   const session = await getSession()
 
@@ -64,11 +66,12 @@ export const login = async (data: IUser) => {
   session.description = userData.description
   session.location = userData.location
   session.avatarUrl = userData.avatarUrl
+  session.rating = userData.rating
 
   await session.save()
 }
 
-export const registerUser = async (user: IUser) => {
+export const registerUser = async (user: ISignUp) => {
   await connectMongoDB()
   const session = await getSession()
 
@@ -79,9 +82,10 @@ export const registerUser = async (user: IUser) => {
     email: user.email,
     passwordHash: hash,
     userName: user.userName,
-    location: user?.location,
-    description: user?.description,
-    avatarUrl: user?.avatarUrl
+    location: '',
+    description: '',
+    avatarUrl: '',
+    rating: 0
   })
 
   const userDoc = await doc.save()
@@ -104,4 +108,18 @@ export const logout = async () => {
 
   session.destroy()
   redirect(`/${locale?.value}`)
+}
+
+export const updateUser = async (user: any) => {
+  const session = await getSession()
+
+  await connectMongoDB()
+  await User.updateOne(
+    { _id: session.userId },
+    {
+      userName: user.userName,
+      description: user.description,
+      location: user.location
+    }
+  )
 }

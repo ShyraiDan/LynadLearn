@@ -30,4 +30,8 @@
       @apply rounded px-5;
     }
   }
+
+  .error {
+    @apply text-red text-sm mt-1;
+  }
 }

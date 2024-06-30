@@ -8,11 +8,13 @@ import { IUser } from '@/interfaces/User.interface'
 import { Input } from '../ui/Input/Input'
 import { useTranslations } from 'next-intl'
 import { Button } from '../ui/Button/Button'
+import { removeScrollBar } from '@/constants/shared'
+import { updateUser } from '@/lib/auth'
 
 import { MdModeEdit } from 'react-icons/md'
 import { FaUser } from 'react-icons/fa'
 
-export default function ProfileEditModal() {
+export default function ProfileEditModal({ session }: any) {
   const t = useTranslations('Forms')
   const [showEditModal, setShowEditModal] = useState(false)
 
@@ -26,10 +28,15 @@ export default function ProfileEditModal() {
 
   const openEditModal = () => {
     setShowEditModal((state) => !state)
+    removeScrollBar(showEditModal)
   }
 
   const onSubmit: SubmitHandler<IUser> = async (values) => {
     console.log(values)
+    await updateUser(values)
+    session.userName = values.userName
+    session.description = values.description
+    session.location = values.location
   }
 
   return (
@@ -40,7 +47,7 @@ export default function ProfileEditModal() {
 
       {showEditModal && (
         <Modal isOpen={showEditModal} className={styles['edit-modal']} handleClose={() => openEditModal()}>
-          <h3 className={styles.title}>Edit Profile</h3>
+          <h3 className={styles.title}>{t('edit_profile')}</h3>
           <form action='' className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.photo}>
               <div className={styles['user-photo']}>
@@ -50,19 +57,19 @@ export default function ProfileEditModal() {
                 </div>
               </div>
             </div>
-            <h5 className={styles.subtitle}>Personal info</h5>
+            <h5 className={styles.subtitle}>{t('personal_info')}</h5>
             <div className={styles['input-container']}>
               <Input
                 type='text'
                 name='userName'
                 id='userName'
-                placeholder={''}
+                placeholder={t('enter_your_name')}
                 obj={register('userName', {
                   required: { value: true, message: t('name_required') },
                   minLength: { value: 3, message: t('name_minLength') },
                   maxLength: { value: 20, message: t('name_maxLength') }
                 })}>
-                Name
+                {t('name')}
               </Input>
               {errors?.userName && <p className={styles.error}>{errors.userName.message}</p>}
             </div>
@@ -71,11 +78,9 @@ export default function ProfileEditModal() {
                 type='text'
                 name='description'
                 id='description'
-                placeholder={''}
-                obj={register('description', {
-                  required: { value: true, message: t('name_required') }
-                })}>
-                Description
+                placeholder={t('enter_your_description')}
+                obj={register('description')}>
+                {t('description')}
               </Input>
               {errors?.description && <p className={styles.error}>{errors.description.message}</p>}
             </div>
@@ -84,15 +89,13 @@ export default function ProfileEditModal() {
                 type='text'
                 name='location'
                 id='location'
-                placeholder={''}
-                obj={register('location', {
-                  required: { value: true, message: t('name_required') }
-                })}>
-                Location
+                placeholder={t('enter_your_location')}
+                obj={register('location')}>
+                {t('location')}
               </Input>
               {errors?.location && <p className={styles.error}>{errors.location.message}</p>}
             </div>
-            <Button type='submit'>Save</Button>
+            <Button type='submit'>{t('save')}</Button>
           </form>
         </Modal>
       )}

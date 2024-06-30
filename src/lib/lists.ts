@@ -31,7 +31,7 @@ export const createList = async (list: IList) => {
 
   const doc = new List({
     title: list.title,
-    words: [],
+    // words: [],
     userId: session.userId
   })
 

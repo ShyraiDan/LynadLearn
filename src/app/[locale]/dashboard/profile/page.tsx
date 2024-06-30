@@ -1,26 +1,30 @@
 import styles from './profilePage.module.scss'
 import Achievements from '@/components/Achievements/Achievements'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import ProfileEditModal from '@/components/ProfileEditModal/ProfileEditModal'
+import { getSession } from '@/lib/auth'
 
 import { FaUser } from 'react-icons/fa'
 
-export default function profilePage() {
-  const t = useTranslations('dashboard.profile')
+export default async function ProfilePage() {
+  const session = await getSession()
+  const t = await getTranslations('dashboard.profile')
 
   return (
     <>
       <div className={styles.container}>
         <div className={styles['user-info']}>
-          <ProfileEditModal />
+          <ProfileEditModal session={session} />
           <div className={styles['user-photo']}>
             <FaUser />
           </div>
           <div className={styles['user-details']}>
-            <h3>UserName</h3>
-            <p>Address</p>
-            <div className={styles.rate}>{t('rate')}: 1500</div>
-            <p>Description</p>
+            <h3>{session.userName}</h3>
+            <p>Address: {session.location}</p>
+            <div className={styles.rate}>
+              {t('rate')}: {session.rating}
+            </div>
+            <p>Description: {session.description}</p>
             <ul className={styles.achivements}>
               <li>
                 100% <p>{t('success_quiz')}</p>

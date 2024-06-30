@@ -106,7 +106,15 @@
     "enter_subject": "Введіть тему",
     "message": "Повідомлення",
     "enter_message": "Введіть повідомлення",
-    "submit": "Надіслати"
+    "submit": "Надіслати",
+    "edit_profile": "Редагування профілю",
+    "personal_info": "Персональна інформація",
+    "name": "Ім'я",
+    "description": "Опис",
+    "location": "Локація",
+    "save": "Зберегти",
+    "enter_your_description": "Введіть опис",
+    "enter_your_location": "Введіть локацію"
   },
   "404page": {
     "page_not_found": "Сторінка не знайдена",
