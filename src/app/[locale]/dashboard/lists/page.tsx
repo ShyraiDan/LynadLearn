@@ -5,12 +5,13 @@ import { getYourLists } from '@/lib/lists'
 import { useTranslations } from 'next-intl'
 import { Suspense } from 'react'
 import CustomCategory from '@/components/CustomCategory/CustomCategory'
+import Loader from '@/components/Loader/Loader'
 
 async function YourCategories({ title }: any) {
   const yourCategory = await getYourLists()
 
   return (
-    <div className={styles.container}>
+    <>
       <div className={styles.list}>
         <CustomCategory title={title} _id={title} lists={yourCategory} description={''} />
       </div>
@@ -20,7 +21,7 @@ async function YourCategories({ title }: any) {
           <Category title={item.title} _id={item._id} lists={item.lists} description={item.description} />
         </div>
       ))}
-    </div>
+    </>
   )
 }
 
@@ -28,8 +29,10 @@ export default function ListsPage() {
   const t = useTranslations()
 
   return (
-    <Suspense>
-      <YourCategories title={t('your_lists')} />
-    </Suspense>
+    <div className={styles.container}>
+      <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
+        <YourCategories title={t('your_lists')} />
+      </Suspense>
+    </div>
   )
 }

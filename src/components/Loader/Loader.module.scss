@@ -1,0 +1,27 @@
+.preloader {
+  @apply fixed w-full h-full flex items-center justify-center;
+
+  .load {
+    @apply absolute top-[calc(50%-50px)] left-[calc(50%-50px)] w-[100px] h-[100px];
+
+    .preloader-item {
+      @apply w-[40%] h-[40%] absolute rounded-full m-0 border-none;
+    }
+
+    .first {
+      @apply bg-blue-100 animate-[loader_2s_ease_infinite_1.5s];
+    }
+
+    .second {
+      @apply bg-blue-200 animate-[loader_2s_ease_infinite_1s];
+    }
+
+    .third {
+      @apply bg-purple-100 animate-[loader_2s_ease_infinite_0.5s];
+    }
+
+    .fourth {
+      @apply bg-purple-200 animate-[loader_2s_ease_infinite];
+    }
+  }
+}

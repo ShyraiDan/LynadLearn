@@ -52,6 +52,20 @@ const config: Config = {
           '50%': {
             transform: 'none'
           }
+        },
+        loader: {
+          '0%, 100%': {
+            transform: 'translate(0)'
+          },
+          '25%': {
+            transform: 'translate(160%)'
+          },
+          '50%': {
+            transform: 'translate(160%, 160%)'
+          },
+          '75%': {
+            transform: 'translate(0, 160%)'
+          }
         }
       }
     }

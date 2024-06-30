@@ -1,5 +1,5 @@
 .container {
-  @apply flex flex-col p-4 min-h-[calc(100vh-397px-81px)]
+  @apply flex flex-col p-4 min-h-[calc(100vh-397px-73px)]
   sm:min-h-[calc(100vh-193px-81px)] 
   md:min-h-[calc(100vh-153px-81px)] 
   lg:min-h-[calc(100vh-97px-81px)];
@@ -50,5 +50,12 @@
       md:grid-cols-3 
       xl:grid-cols-4;
     }
+  }
+
+  .loader {
+    @apply h-[calc(100vh-397px-73px)] 
+    sm:h-[calc(100vh-193px-81px)] 
+    md:h-[calc(100vh-153px-81px)] 
+    lg:h-[calc(100vh-97px-81px)] lg:w-[calc(100vw-254px-32px)];
   }
 }

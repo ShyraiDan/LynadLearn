@@ -1,5 +1,9 @@
 .container {
-  @apply mx-auto lg:mx-0;
+  @apply mx-auto 
+  min-h-[calc(100vh-397px-81px)]
+  sm:min-h-[calc(100vh-193px-81px)] 
+  md:min-h-[calc(100vh-153px-81px)] 
+  lg:min-h-[calc(100vh-97px-81px)] lg:mx-0;
 
   .top {
     @apply flex flex-col items-center my-2 px-12 pt-10 pb-10 text-center;
@@ -26,5 +30,12 @@
       sm:text-base 
       lg:text-lg;
     }
+  }
+
+  .loader {
+    @apply h-[calc(100vh-397px-73px)] 
+    sm:h-[calc(100vh-193px-81px)] 
+    md:h-[calc(100vh-153px-81px)] 
+    lg:h-[calc(100vh-97px-81px)] lg:w-[calc(100vw-254px)];
   }
 }

@@ -3,15 +3,18 @@
 import styles from './FilterWords.module.scss'
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 import { IoIosArrowDown } from 'react-icons/io'
 
 export default function FilterWords() {
   const t = useTranslations('dashboard.vocabulary')
   const [isFilterOpen, setFilterOpen] = useState(false)
-  const [selectedFilter, setFilter] = useState(t('newest'))
   const router = useRouter()
+  const sort = useSearchParams().get('sort')
+  const [selectedFilter, setFilter] = useState(
+    t(sort === 'a-z' ? 'alphabeta-z' : sort === 'z-a' ? 'alphabetz-a' : 'newest')
+  )
 
   const changeFilter = (filter: string, filterType: string) => {
     router.push(`?sort=${filterType}`)
