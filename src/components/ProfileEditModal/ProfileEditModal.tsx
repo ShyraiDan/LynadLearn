@@ -23,7 +23,12 @@ export default function ProfileEditModal({ session }: any) {
     formState: { errors },
     handleSubmit
   } = useForm<IUser>({
-    mode: 'onBlur'
+    mode: 'onBlur',
+    defaultValues: {
+      userName: session.userName,
+      description: session.description,
+      location: session.location
+    }
   })
 
   const openEditModal = () => {
@@ -34,9 +39,7 @@ export default function ProfileEditModal({ session }: any) {
   const onSubmit: SubmitHandler<IUser> = async (values) => {
     console.log(values)
     await updateUser(values)
-    session.userName = values.userName
-    session.description = values.description
-    session.location = values.location
+    openEditModal()
   }
 
   return (

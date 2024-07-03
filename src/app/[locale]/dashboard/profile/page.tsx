@@ -21,11 +21,11 @@ async function YourProfile() {
         </div>
         <div className={styles['user-details']}>
           <h3>{session.userName}</h3>
-          <p>Address: {session.location}</p>
+          <p>{session.location}</p>
           <div className={styles.rate}>
             {t('rate')}: {session.rating}
           </div>
-          <p>Description: {session.description}</p>
+          <p>{session.description}</p>
           <ul className={styles.achivements}>
             <li>
               100% <p>{t('success_quiz')}</p>

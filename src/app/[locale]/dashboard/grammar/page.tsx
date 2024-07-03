@@ -3,7 +3,7 @@ import QuizCard from '@/components/QuizCard/QuizCard'
 
 import { DGrammar } from '@/mock/Grammar.mock'
 
-export default function grammarPage() {
+export default function GrammarPage() {
   return (
     <div className={styles.container}>
       {DGrammar.map((item) => {

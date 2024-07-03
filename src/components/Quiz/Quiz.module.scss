@@ -1,0 +1,43 @@
+.container {
+  @apply flex flex-col min-h-[calc(100vh-397px-73px)]
+  sm:min-h-[calc(100vh-193px-81px)] 
+  md:min-h-[calc(100vh-153px-81px)] 
+  lg:min-h-[calc(100vh-97px-81px)];
+
+  .top {
+    @apply p-4 flex justify-between;
+
+    > div {
+      @apply flex text-blue-200;
+
+      .questions {
+        @apply mr-2;
+      }
+
+      .time {
+        @apply animate-[pulse_1s_linear_infinite_0.25s] text-red;
+      }
+    }
+
+    h2 {
+      @apply text-blue-200 font-bold mb-4;
+    }
+  }
+
+  .quiz {
+    @apply flex flex-col items-center justify-between h-full px-4 pb-4;
+
+    h1 {
+      @apply text-center text-[32px] text-blue-200 font-bold mb-4;
+    }
+
+    .answers {
+      @apply grid grid-cols-1 gap-3 w-full
+      lg:grid-cols-2 gap-4;
+
+      button {
+        @apply rounded-lg;
+      }
+    }
+  }
+}

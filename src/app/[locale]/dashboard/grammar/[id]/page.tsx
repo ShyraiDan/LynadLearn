@@ -4,7 +4,7 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 
 import { DGrammar } from '@/mock/Grammar.mock'
 
-export default function BlogPostPage({ params }: any) {
+export default function SingleGrammarPage({ params }: any) {
   const data = DGrammar[params.id - 1].topics[0]
   const t = useTranslations('dashboard.grammar')
 
@@ -30,7 +30,7 @@ export default function BlogPostPage({ params }: any) {
         })}
       </div>
       <div className={styles.test}>
-        <NavigationLink href='/'>{t('move_to_test')}</NavigationLink>
+        <NavigationLink href={`/dashboard/quiz/${params.id}`}>{t('move_to_test')}</NavigationLink>
       </div>
     </div>
   )

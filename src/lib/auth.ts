@@ -8,6 +8,7 @@ import { SessionOptions } from 'iron-session'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { ISignUp, ISignIn } from '@/components/AuthModal/components/Auth.interface'
+import { revalidatePath } from 'next/cache'
 
 interface SessionData {
   userId?: string
@@ -122,4 +123,12 @@ export const updateUser = async (user: any) => {
       location: user.location
     }
   )
+
+  session.userName = user.userName
+  session.description = user.description
+  session.location = user.location
+
+  await session.save()
+
+  revalidatePath('[locale]/dashboard/profile', 'page')
 }
