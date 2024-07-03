@@ -4,25 +4,19 @@ import { ICategory } from '@/interfaces/Category.interface'
 import styles from './Category.module.scss'
 import List from '../List/List'
 import CategoryDescription from './components/CategoryDescription/CategoryDescription'
-import AddList from '../AddList/AddList'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper/modules'
-import { useTranslations } from 'next-intl'
-import CustomList from '../CustomList/CustomList'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
 
-export function Category({ title, _id, lists, description }: ICategory) {
-  const t = useTranslations('dashboard.lists')
-
+export function Category({ title, lists, description }: ICategory) {
   return (
     <div className={styles.container}>
       <div>
         <CategoryDescription title={title} description={description} />
         <div className={styles['list-group']}>
-          {title === 'your_lists' && <AddList />}
-          {/* <Swiper
+          <Swiper
             pagination={true}
             modules={[Pagination]}
             className={styles.slider}
@@ -44,11 +38,8 @@ export function Category({ title, _id, lists, description }: ICategory) {
               700: {
                 slidesPerView: 4
               },
-              768: {
-                slidesPerView: 2
-              },
               840: {
-                slidesPerView: 3
+                slidesPerView: 5
               },
               992: {
                 slidesPerView: 4
@@ -65,14 +56,13 @@ export function Category({ title, _id, lists, description }: ICategory) {
               1600: {
                 slidesPerView: 8
               }
-            }}> */}
-          {lists.map((item) => (
-            <SwiperSlide key={item._id}>
-              <List title={item.title} image={item.image} />
-              {/* <CustomList title={item.title} image={item.image} /> */}
-            </SwiperSlide>
-          ))}
-          {/* </Swiper> */}
+            }}>
+            {lists.map((item) => (
+              <SwiperSlide key={item._id}>
+                <List title={item.title} image={item.image} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
     </div>

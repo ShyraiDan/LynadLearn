@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import styles from './CategoryDescription.module.scss'
 import { ICategory } from '@/interfaces/Category.interface'
 import { useTranslations } from 'next-intl'

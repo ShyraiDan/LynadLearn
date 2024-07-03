@@ -4,7 +4,7 @@ import { IList } from '@/interfaces/List.interface'
 
 import noImage from '@/assets/no-image.jpg'
 
-export default function CustomList({ title, image }: Omit<IList, 'words'>) {
+export default function CustomList({ title, image }: Omit<IList, 'words' | '_id'>) {
   return (
     <div className={styles.container}>
       <div className={styles.photo}>
