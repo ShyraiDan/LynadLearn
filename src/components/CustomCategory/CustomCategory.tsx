@@ -6,6 +6,7 @@ import AddList from '../AddList/AddList'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper/modules'
 import CustomList from '../CustomList/CustomList'
+import NavigationLink from '../ui/NavigationLink/NavigationLink'
 
 export default function CustomCategory({ title, _id, lists, description }: ICategory) {
   const t = useTranslations()
@@ -62,7 +63,9 @@ export default function CustomCategory({ title, _id, lists, description }: ICate
             }}> */}
           {lists.map((item: any) => (
             // <SwiperSlide key={item._id}>
-            <CustomList title={item.title} image={item.image} key={item._id} _id={item._id} />
+            <NavigationLink key={item._id} href={`/dashboard/vocabulary/${item._id}`}>
+              <CustomList title={item.title} image={item.image} />
+            </NavigationLink>
             // </SwiperSlide>
           ))}
           {/* </Swiper> */}
