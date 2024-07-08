@@ -16,7 +16,7 @@ export default function CustomCategory({ lists }: ICategory) {
         <div className={styles['list-group']}>
           <AddList />
           {lists.map((item: any) => (
-            <NavigationLink key={item._id} href={`/dashboard/vocabulary/${item._id}`}>
+            <NavigationLink key={item._id} href={`/dashboard/vocabulary/${item._id}?sort=newest`}>
               <CustomList title={item.title} image={item.image} />
             </NavigationLink>
           ))}
