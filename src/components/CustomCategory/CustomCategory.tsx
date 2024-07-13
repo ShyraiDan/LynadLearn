@@ -5,8 +5,9 @@ import CategoryDescription from '../Category/components/CategoryDescription/Cate
 import AddList from '../AddList/AddList'
 import CustomList from '../CustomList/CustomList'
 import NavigationLink from '../ui/NavigationLink/NavigationLink'
+import { IList } from '@/interfaces/List.interface'
 
-export default function CustomCategory({ lists }: ICategory) {
+export default function CustomCategory({ lists }: Pick<ICategory, 'lists'>) {
   const t = useTranslations()
 
   return (
@@ -15,7 +16,7 @@ export default function CustomCategory({ lists }: ICategory) {
         <CategoryDescription title={t('your_lists')} description={''} />
         <div className={styles['list-group']}>
           <AddList />
-          {lists.map((item: any) => (
+          {lists.map((item: IList) => (
             <NavigationLink key={item._id} href={`/dashboard/vocabulary/${item._id}?sort=newest`}>
               <CustomList title={item.title} image={item.image} />
             </NavigationLink>

@@ -1,5 +1,8 @@
 .container {
-  @apply p-4;
+  @apply p-4 min-h-[calc(100vh-397px-81px)]
+  sm:min-h-[calc(100vh-193px-81px)] 
+  md:min-h-[calc(100vh-153px-81px)] 
+  lg:min-h-[calc(100vh-97px-81px)];
 
   h1 {
     @apply text-blue-200 text-center font-bold text-lg  

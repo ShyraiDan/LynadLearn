@@ -52,7 +52,7 @@ export async function Header() {
         </div>
         <div className={styles['header-right']}>
           {isLoggedIn ? <UserModal /> : <AuthModal />}
-          <Burger />
+          <Burger isAuth={isLoggedIn} />
         </div>
       </div>
     </header>

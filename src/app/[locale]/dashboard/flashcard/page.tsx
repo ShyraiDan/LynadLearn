@@ -4,26 +4,43 @@ import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
 import CustomList from '@/components/CustomList/CustomList'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
+import { DCategories } from '@/mock/Categories.mock'
+import { getTranslations } from 'next-intl/server'
+import List from '@/components/List/List'
 
 async function YourLists() {
   const lists = await getYourLists()
-
+  const t = await getTranslations()
   return (
     <>
-      <h2>Flashcard page</h2>
+      <h2>{t('dashboard.flashcard.flashcard_page')}</h2>
       <div className={styles.sections}>
         <div className={styles.top}>
-          <h4>Choose a word list to learn:</h4>
+          <h4>{t('dashboard.flashcard.choose_word_list')}</h4>
         </div>
         <div className={styles.items}>
           {lists.map((item) => (
             <div key={item._id} className={styles.item}>
               <NavigationLink href={`/dashboard/flashcard/${item._id}`}>
-                <CustomList title={item.title} image={item.image} _id={item._id} />
+                <CustomList title={item.title} image={item.image} />
               </NavigationLink>
             </div>
           ))}
         </div>
+        {DCategories.map((item) => (
+          <>
+            <div className={styles.top}>
+              <h4>{t(`dashboard.lists.${item.title}`)}</h4>
+            </div>
+            <div className={styles.items}>
+              {item.lists.map((list) => (
+                <div key={list._id} className={styles.item}>
+                  <List title={list.title} image={list.image} />
+                </div>
+              ))}
+            </div>
+          </>
+        ))}
       </div>
     </>
   )

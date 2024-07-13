@@ -71,7 +71,8 @@
   "Contact_Us": {
     "contact_us": "Contact Us",
     "we_take_our_commitment": "We take our commitment to our users seriously. If you need our help with your user account, have questions about how to use the platform or are experiencing technical difficulties, please do not hesitate to contact us.",
-    "we_are_also_proud": "We are also proud to work with other similar corporations and investors."
+    "we_are_also_proud": "We are also proud to work with other similar corporations and investors.",
+    "form_submitted": "The form has been submitted!"
   },
   "Forms": {
     "sign_in": "Sign in",
@@ -207,7 +208,9 @@
       "list_name_required": "List name is required field",
       "list_name_minLength": "List name must be at least 3 characters",
       "list_name_maxLength": "List name must be less than 30 characters",
-      "create_list": "Create List"
+      "create_list": "Create List",
+      "need_login": "You must be signed in to add a list",
+      "list_created": "You successfully created a list"
     },
     "vocabulary": {
       "modal": {
@@ -263,7 +266,9 @@
       "success_quiz": "Success quiz",
       "finished_quiz": "Finished quiz(es)",
       "list_created": "List(s) created",
-      "words_learned": "Word(s) learned"
+      "words_learned": "Word(s) learned",
+      "profile": "Profile",
+      "logout": "Logout"
     },
     "quiz": {
       "quiz_page": "Quiz page",
@@ -271,10 +276,30 @@
       "grammar": "Grammar",
       "vocabulary": "Vocabulary",
       "no_lists": "There are no lists for this category",
-      "select_your_list": "Select your list"
+      "select_your_list": "Select your list",
+      "no_time": "No time!",
+      "no_question": "",
+      "back": "Back",
+      "to_quiz": "Go to Quizes",
+      "start_quiz": "Start Quiz",
+      "you_got": "You scored {correct} out of {length} in {time} seconds",
+      "need_login": "You need to be logged in",
+      "correct": "You answered correctly",
+      "wrong": "You answered incorrectly"
     },
     "grammar": {
       "move_to_test": "Move to Grammar test"
+    },
+    "flashcard": {
+      "flashcard_page": "Flashcard page",
+      "choose_word_list": "Choose a word list to learn:",
+      "words_from": "Words from {list} list",
+      "view_list": "View list",
+      "correct": "You answered correctly",
+      "wrong": "You answered incorrectly",
+      "answer": "Correct answer: {answer}",
+      "check": "Check",
+      "enter_word": "Enter word"
     }
   }
 }

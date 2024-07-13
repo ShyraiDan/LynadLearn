@@ -32,3 +32,11 @@
     }
   }
 }
+
+.correct {
+  @apply border border-[#11a762] bg-[#11a762] text-white;
+}
+
+.wrong {
+  @apply border border-red bg-red text-white;
+}

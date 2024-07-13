@@ -10,11 +10,12 @@ import { useTranslations } from 'next-intl'
 import { Button } from '../ui/Button/Button'
 import { removeScrollBar } from '@/constants/shared'
 import { updateUser } from '@/lib/auth'
+import { ISession } from '@/lib/auth'
 
 import { MdModeEdit } from 'react-icons/md'
 import { FaUser } from 'react-icons/fa'
 
-export default function ProfileEditModal({ session }: any) {
+export default function ProfileEditModal({ session }: { session: ISession }) {
   const t = useTranslations('Forms')
   const [showEditModal, setShowEditModal] = useState(false)
 

@@ -1,6 +1,6 @@
 import styles from './Loader.module.scss'
 
-export default function Loader({ dimensionClass }: any) {
+export default function Loader({ dimensionClass }: { dimensionClass?: string }) {
   return (
     <div className={`${styles.preloader} ${dimensionClass}`}>
       <div className={styles.load}>

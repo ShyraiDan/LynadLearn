@@ -10,6 +10,9 @@ import { Button } from '../ui/Button/Button'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { IList } from '@/interfaces/List.interface'
 import { createList } from '@/lib/lists'
+import { getSession } from '@/lib/auth'
+import { toast } from 'sonner'
+import SnackBar from '../ui/SnackBar/SnackBar'
 
 import { FaPlus } from 'react-icons/fa'
 
@@ -17,9 +20,17 @@ export default function AddList() {
   const [isAdding, setAdding] = useState(false)
   const t = useTranslations('dashboard.lists')
 
-  const openModal = () => {
-    setAdding((state) => !state)
-    removeScrollBar(isAdding)
+  const openModal = async () => {
+    const session = await getSession()
+    if (session.isLoggedIn) {
+      setAdding((state) => !state)
+      removeScrollBar(isAdding)
+    } else {
+      toast.error(t('need_login'), {
+        duration: 3000,
+        className: styles.wrong
+      })
+    }
   }
 
   const {
@@ -33,17 +44,21 @@ export default function AddList() {
   const onSubmit: SubmitHandler<IList> = async (values) => {
     console.log(values)
     await createList(values)
+    toast.success(t('list_created'), { duration: 3000, className: styles.correct })
 
     openModal()
   }
 
   return (
     <>
-      <div className={styles.container} onClick={() => openModal()}>
-        <div className={styles.photo}>
-          <FaPlus />
+      <div>
+        <div className={styles.container} onClick={() => openModal()}>
+          <div className={styles.photo}>
+            <FaPlus />
+          </div>
+          <p>{t('add_list')}</p>
         </div>
-        <p>{t('add_list')}</p>
+        <SnackBar />
       </div>
 
       {isAdding && (

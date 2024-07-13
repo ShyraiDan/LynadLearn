@@ -1,5 +1,6 @@
 .user {
-  @apply flex items-center cursor-pointer;
+  @apply flex items-center cursor-pointer relative 
+  [&_div]:hover:visible [&_div]:hover:opacity-100;
 
   .user-avatar {
     @apply rounded-full bg-[#2a41e812] w-10 h-10 flex items-center justify-center;
@@ -11,20 +12,21 @@
 }
 
 .modal {
-  @apply flex flex-col relative;
+  @apply invisible opacity-0 flex flex-col absolute top-[40px] right-[0px] pt-2 transition-all ease-linear duration-150;
 
   ul {
-    @apply rounded-lg shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] bg-[#ffffff] absolute top-[28px] right-0 w-[160px] h-[110px] py-2;
+    @apply flex-col rounded-lg shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] bg-[#ffffff] w-[160px] h-[80px] py-2;
 
     li {
-      @apply px-4 py-1 flex items-center text-blue-200 font-medium cursor-pointer transition-all ease-in-out duration-150;
+      @apply px-4 py-1 flex items-center text-blue-200 font-medium cursor-pointer
+      hover:text-purple-100 [&_svg]:hover:fill-purple-100;
 
       a {
-        @apply flex items-center;
+        @apply flex items-center transition-all ease-in-out duration-150;
       }
 
       .icon {
-        @apply mr-1;
+        @apply mr-1 transition-all ease-in-out duration-150;
       }
     }
 

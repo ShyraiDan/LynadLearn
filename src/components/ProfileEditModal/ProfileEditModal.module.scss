@@ -1,5 +1,6 @@
 .edit-profile {
-  @apply cursor-pointer absolute right-[0px] top-[0px] text-blue-200 text-lg;
+  @apply cursor-pointer absolute right-[0px] top-[0px] text-blue-200 text-lg transition-all ease-in-out duration-150
+  hover:text-purple-100;
 }
 
 .edit-modal {

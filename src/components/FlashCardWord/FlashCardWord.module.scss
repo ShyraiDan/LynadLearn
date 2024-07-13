@@ -1,0 +1,40 @@
+.container {
+  @apply flex flex-col justify-between h-full;
+
+  .hidden-word {
+    @apply text-center relative h-full flex flex-col items-center justify-center;
+
+    h2 {
+      @apply flex items-center justify-center text-center text-3xl text-blue-200 font-bold;
+    }
+
+    h6 {
+      @apply text-center text-purple-100 text-lg font-medium;
+    }
+  }
+
+  input {
+    @apply font-medium text-[#6c757d] opacity-90 px-3 py-1.5 rounded border border-[#ced4da] w-full mb-2;
+  }
+
+  button {
+    @apply rounded w-full;
+  }
+
+  .icon {
+    @apply cursor-pointer ml-3 transition-all ease-in-out duration-150
+    hover:text-purple-100;
+  }
+
+  .answer {
+    @apply absolute rounded bottom-0 left-0 mb-2 p-2 bg-[#11a762] text-white;
+  }
+}
+
+.correct {
+  @apply border border-[#11a762] bg-[#11a762] text-white;
+}
+
+.wrong {
+  @apply border border-red bg-red text-white;
+}

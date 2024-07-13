@@ -38,3 +38,10 @@ export const createList = async (list: IList) => {
 
   revalidatePath('[locale]/dashboard/lists', 'page')
 }
+
+export const getListById = async (id: string): Promise<IList> => {
+  await connectMongoDB()
+  const list = await List.findById(id)
+  const data = JSON.parse(JSON.stringify(list))
+  return data
+}

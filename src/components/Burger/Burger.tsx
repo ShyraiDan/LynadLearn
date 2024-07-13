@@ -7,6 +7,7 @@ import NavigationLink from '../ui/NavigationLink/NavigationLink'
 import { useTranslations } from 'next-intl'
 import { AuthModal } from '../AuthModal/AuthModal'
 import { removeScrollBar } from '@/constants/shared'
+import { getSession } from '@/lib/auth'
 
 import { FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
@@ -14,11 +15,10 @@ import { FaFacebook } from 'react-icons/fa'
 import { RxCross1 } from 'react-icons/rx'
 import { IoIosArrowDown } from 'react-icons/io'
 
-export default function Burger() {
+export default function Burger({ isAuth }: { isAuth: boolean }) {
   const t = useTranslations('Header')
   const [isBurgerShow, setBurgerShow] = useState(false)
   const [isLastOpen, setLastOpen] = useState(false)
-  const isAuth = false
 
   const showModal = () => {
     setBurgerShow((state) => !state)
@@ -85,7 +85,7 @@ export default function Burger() {
               </div>
               <ul className={`${styles.dropdown}  ${isLastOpen && styles['dropdown-active']}`}>
                 <li>
-                  <NavigationLink hover onClick={() => showModal()} href={'/dashboard/quiz'}>
+                  <NavigationLink hover onClick={() => showModal()} href={'/dashboard/quiz?type=grammar'}>
                     {t('quiz')}
                   </NavigationLink>
                 </li>

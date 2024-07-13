@@ -7,14 +7,22 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { useState } from 'react'
 import { DQuiz } from '@/mock/Quiz.mock'
 import { Modal } from '@/components/ui/Modal/Modal'
+import { useTranslations } from 'next-intl'
 
-export default function SingleQuizPage({ params }: any) {
+type TSingleQuizPage = {
+  params: {
+    id: any
+  }
+}
+
+export default function SingleQuizPage({ params }: TSingleQuizPage) {
   const [isQuiz, setQuiz] = useState(false)
   const [timer, setTimer] = useState(0)
   const [isFinished, setIsFinished] = useState(false)
   const [correct, setCorrect] = useState(0)
   const [finishTime, setFinishTime] = useState(0)
   const [startTime, setStartTime] = useState(0)
+  const t = useTranslations('dashboard.quiz')
 
   const showModal = () => {
     setIsFinished((state) => !state)
@@ -31,14 +39,16 @@ export default function SingleQuizPage({ params }: any) {
     setStartTime(Date.now())
   }
 
+  console.log(correct)
+
   return (
     <>
       {!isQuiz && (
         <div className={styles.container}>
           <h1>{DQuiz.title}</h1>
           <div>
-            <NavigationLink href={'/dashboard/quiz'}>Go to Quizes</NavigationLink>
-            <Button onClick={() => startQuiz()}>Start Quiz</Button>
+            <NavigationLink href={'/dashboard/quiz?type=grammar'}>{t('to_quiz')}</NavigationLink>
+            <Button onClick={() => startQuiz()}>{t('start_quiz')}</Button>
           </div>
         </div>
       )}
@@ -59,13 +69,17 @@ export default function SingleQuizPage({ params }: any) {
         <Modal className={styles['no-time-modal']} isOpen={isFinished} handleClose={() => showModal()}>
           <div className={styles.modal}>
             <h3>
-              Час вичерпано!
-              <br /> На жаль, час на відповідь на це запитання вікторини минув. <br />
-              You scored {correct} out of {DQuiz.questions.length} in {Math.floor((finishTime - startTime) / 1000)}{' '}
-              seconds
+              {t('no_time')}
+              <br /> {t('no_question')}
+              <br />
+              {t('you_got', {
+                correct: correct,
+                length: DQuiz.questions.length,
+                time: Math.floor((finishTime - startTime) / 1000)
+              })}
             </h3>
 
-            <Button onClick={() => returnToQuiz()}>Back</Button>
+            <Button onClick={() => returnToQuiz()}>{t('back')}</Button>
           </div>
         </Modal>
       )}

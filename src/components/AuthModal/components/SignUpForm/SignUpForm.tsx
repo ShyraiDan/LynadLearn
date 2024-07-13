@@ -8,7 +8,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { ISignUp } from '../Auth.interface'
 import { registerUser } from '@/lib/auth'
 
-export default function SignUpForm({ handleClose }: any) {
+export default function SignUpForm({ handleClose }: { handleClose: () => void }) {
   const t = useTranslations('Forms')
 
   const {

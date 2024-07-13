@@ -17,7 +17,10 @@ const config: Config = {
         md: '768px',
         lg: '992px',
         xl: '1200px',
-        '2xl': '1440px'
+        '2xl': '1440px',
+        '3xl': '1580px',
+        '4xl': '1720px',
+        '5xl': '1860px'
       },
       maxWidth: {
         '1440': '1440px'
@@ -67,6 +70,9 @@ const config: Config = {
             transform: 'translate(0, 160%)'
           }
         }
+      },
+      gridTemplateColumns: {
+        'auto-fit-140': 'repeat(auto-fit, minmax(140px, 1fr))'
       }
     }
   },

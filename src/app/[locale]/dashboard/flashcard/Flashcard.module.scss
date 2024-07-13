@@ -1,5 +1,8 @@
 .container {
-  @apply flex flex-col items-center justify-center p-4;
+  @apply flex flex-col p-4 min-h-[calc(100vh-397px-73px)]
+  sm:min-h-[calc(100vh-193px-81px)]
+  md:min-h-[calc(100vh-153px-81px)]
+  lg:min-h-[calc(100vh-97px-81px)];
 
   > h2 {
     @apply text-center text-xl font-bold text-blue-200 my-4
@@ -18,15 +21,18 @@
     }
 
     .items {
-      @apply grid grid-cols-2
-      sm:grid-cols-3 
-      md:grid-cols-5
-      lg:grid-cols-4
-      xl:grid-cols-5;
+      @apply grid gap-4 grid-cols-auto-fit-140;
 
       .item {
         @apply flex items-center justify-center;
       }
     }
+  }
+
+  .loader {
+    @apply h-[calc(100vh-397px-73px)] w-[calc(100vw-32px)]
+    sm:h-[calc(100vh-193px-81px)] 
+    md:h-[calc(100vh-153px-81px)] 
+    lg:h-[calc(100vh-97px-81px-32px)] lg:w-[calc(100vw-254px-32px)];
   }
 }

@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl'
 import { ISignIn } from '../Auth.interface'
 import { login } from '@/lib/auth'
 
-export default function SignInForm({ handleClose }: any) {
+export default function SignInForm({ handleClose }: { handleClose: () => void }) {
   const t = useTranslations('Forms')
 
   const {

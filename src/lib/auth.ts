@@ -10,7 +10,7 @@ import { redirect } from 'next/navigation'
 import { ISignUp, ISignIn } from '@/components/AuthModal/components/Auth.interface'
 import { revalidatePath } from 'next/cache'
 
-interface SessionData {
+export interface ISession {
   userId?: string
   userName?: string
   email?: string
@@ -20,7 +20,7 @@ interface SessionData {
   isLoggedIn: boolean
   rating?: number
 }
-const defaultSession: SessionData = {
+const defaultSession: ISession = {
   isLoggedIn: false
 }
 
@@ -34,7 +34,7 @@ const sessionOptions: SessionOptions = {
 }
 
 export const getSession = async () => {
-  const session = await getIronSession<SessionData>(cookies(), sessionOptions)
+  const session = await getIronSession<ISession>(cookies(), sessionOptions)
 
   if (!session.isLoggedIn) {
     session.isLoggedIn = defaultSession.isLoggedIn

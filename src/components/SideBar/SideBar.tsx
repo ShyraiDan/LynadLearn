@@ -12,7 +12,7 @@ import { TbWriting } from 'react-icons/tb'
 import { IoSettingsSharp } from 'react-icons/io5'
 import { BsQuestionSquareFill } from 'react-icons/bs'
 
-export default function SideBar() {
+export default function SideBar({ isAuth }: { isAuth: boolean }) {
   const t = useTranslations('Header')
   const path = usePathname()
 
@@ -21,11 +21,13 @@ export default function SideBar() {
   return (
     <div className={styles.container}>
       <ul>
-        <li>
-          <NavigationLink href={'/dashboard/profile'} className={`${page === 'profile' && styles.selected}`}>
-            <FaUser /> {t('profile')}
-          </NavigationLink>
-        </li>
+        {isAuth && (
+          <li>
+            <NavigationLink href={'/dashboard/profile'} className={`${page === 'profile' && styles.selected}`}>
+              <FaUser /> {t('profile')}
+            </NavigationLink>
+          </li>
+        )}
         <li>
           <NavigationLink href={'/dashboard/lists'} className={`${page === 'lists' && styles.selected}`}>
             <TbVocabulary />
@@ -33,7 +35,7 @@ export default function SideBar() {
           </NavigationLink>
         </li>
         <li>
-          <NavigationLink href={'/dashboard/quiz'} className={`${page === 'quiz' && styles.selected}`}>
+          <NavigationLink href={'/dashboard/quiz?type=grammar'} className={`${page === 'quiz' && styles.selected}`}>
             <BsQuestionSquareFill />
             {t('quiz')}
           </NavigationLink>

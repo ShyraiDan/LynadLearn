@@ -1,5 +1,8 @@
 .container {
-  @apply flex flex-col items-center justify-center p-4;
+  @apply flex flex-col items-center p-4 min-h-[calc(100vh-397px-73px)]
+  sm:min-h-[calc(100vh-193px-81px)]
+  md:min-h-[calc(100vh-153px-81px)]
+  lg:min-h-[calc(100vh-97px-81px)];
 
   > h2 {
     @apply text-center text-xl font-bold text-blue-200 my-4
@@ -46,6 +49,10 @@
         md:grid-cols-3
         lg:grid-cols-2
         xl:grid-cols-3;
+      }
+
+      .lists {
+        @apply grid gap-4 grid-cols-auto-fit-140;
       }
 
       .no-list {

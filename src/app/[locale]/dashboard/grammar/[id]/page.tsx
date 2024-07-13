@@ -4,8 +4,14 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 
 import { DGrammar } from '@/mock/Grammar.mock'
 
-export default function SingleGrammarPage({ params }: any) {
-  const data = DGrammar[params.id - 1].topics[0]
+type TSingleGrammarPage = {
+  params: {
+    id: any
+  }
+}
+
+export default function SingleGrammarPage({ params }: TSingleGrammarPage) {
+  const data = DGrammar[0].topics[params.id - 1]
   const t = useTranslations('dashboard.grammar')
 
   return (

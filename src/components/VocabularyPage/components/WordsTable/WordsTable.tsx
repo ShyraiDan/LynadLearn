@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server'
 import { getWordsByListId, getWordsByListIdSortedByName } from '@/lib/word'
 import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
+import { IWord } from '@/interfaces/Word.interface'
 
 import { FaBookAtlas } from 'react-icons/fa6'
 import { TbVocabulary } from 'react-icons/tb'
@@ -14,7 +15,7 @@ import { AiOutlineTranslation } from 'react-icons/ai'
 
 async function WordsList({ listId, sorting }: { listId: string; sorting: string }) {
   const t = await getTranslations('dashboard.vocabulary')
-  let words: any = null
+  let words: IWord[] = []
 
   switch (sorting) {
     case 'a-z':
@@ -59,7 +60,7 @@ async function WordsList({ listId, sorting }: { listId: string; sorting: string 
               {t('example')}
             </div>
           </div>
-          {words.map((item: any) => {
+          {words.map((item: IWord) => {
             return (
               <div key={item._id} className={styles.row}>
                 <div>{item.word}</div>
