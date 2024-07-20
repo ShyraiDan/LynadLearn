@@ -1,5 +1,5 @@
 .card {
-  @apply relative bg-white-100 flex flex-col pt-6 pb-7 pl-6 pr-4 h-[317px] w-[300px] rounded-2xl rounded-tr-3xl justify-between
+  @apply relative bg-white-200 flex flex-col pt-6 pb-7 pl-6 pr-4 h-[317px] w-[300px] rounded-2xl rounded-tr-3xl justify-between
   sm:w-[400px]
   md:w-[32%]
   lg:pl-9 lg:pr-6
@@ -9,7 +9,7 @@
   before:first:bg-grey-100;
 
   a {
-    @apply flex justify-center items-center text-center py-2 px-6 items-center bg-blue-200 font-bold rounded-full text-white transition-all ease-linear duration-150 w-full self-end py-3 px-10 
+    @apply flex justify-center items-center text-center py-2 px-6 items-center bg-blue-200 font-bold rounded-full text-white-100 transition-all ease-linear duration-150 w-full self-end py-3 px-10 
     sm:w-[200px]
     hover:bg-purple-100;
   }
@@ -59,7 +59,7 @@
       @apply w-[123px];
     }
     p {
-      @apply text-xs font-medium absolute top-[11px] left-[15px] text-white;
+      @apply text-xs font-medium absolute top-[11px] left-[15px] text-white-100;
     }
   }
 
@@ -70,7 +70,7 @@
       @apply w-[123px];
     }
     p {
-      @apply text-xs font-medium absolute top-[11px] left-[15px] text-white;
+      @apply text-xs font-medium absolute top-[11px] left-[15px] text-white-100;
     }
 
     .changed {
@@ -85,7 +85,7 @@
       @apply w-[63px];
     }
     p {
-      @apply text-xs font-medium absolute top-[9px] left-[20px] text-white;
+      @apply text-xs font-medium absolute top-[9px] left-[20px] text-white-100;
     }
   }
 }

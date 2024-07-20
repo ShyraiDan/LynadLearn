@@ -204,7 +204,7 @@
   }
 
   .review {
-    @apply pb-8 bg-white-100 pt-8 my-14 px-4;
+    @apply pb-8 bg-white-200 pt-8 my-14 px-4;
 
     > div {
       @apply flex leading-6 flex-col items-center 
@@ -248,7 +248,7 @@
       md:h-[300px] md:flex-row;
 
       .install {
-        @apply z-[1] w-[90%] m-4 text-white
+        @apply z-[1] w-[90%] m-4 text-white-100
         sm:ml-8 sm:my-8 
         md:my-auto md:ml-16;
 

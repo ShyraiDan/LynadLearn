@@ -3,11 +3,11 @@
   [&_div]:hover:visible [&_div]:hover:opacity-100;
 
   .user-avatar {
-    @apply rounded-full bg-[#2a41e812] w-10 h-10 flex items-center justify-center;
+    @apply rounded-full bg-blue-200 w-10 h-10 flex items-center justify-center;
   }
 
   .icon {
-    @apply fill-blue-200;
+    @apply fill-white-200;
   }
 }
 
@@ -15,7 +15,7 @@
   @apply invisible opacity-0 flex flex-col absolute top-[40px] right-[0px] pt-2 transition-all ease-linear duration-150;
 
   ul {
-    @apply flex-col rounded-lg shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] bg-[#ffffff] w-[160px] h-[80px] py-2;
+    @apply flex-col rounded-lg shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] bg-white-100 w-[160px] h-[80px] py-2;
 
     li {
       @apply px-4 py-1 flex items-center text-blue-200 font-medium cursor-pointer

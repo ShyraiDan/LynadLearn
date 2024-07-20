@@ -27,14 +27,14 @@
   }
 
   .answer {
-    @apply absolute rounded bottom-0 left-0 mb-2 p-2 bg-[#11a762] text-white;
+    @apply absolute rounded bottom-0 left-0 mb-2 p-2 bg-green-100 text-white-100;
   }
 }
 
 .correct {
-  @apply border border-[#11a762] bg-[#11a762] text-white;
+  @apply border border-green-100 bg-green-100 text-white-100;
 }
 
 .wrong {
-  @apply border border-red bg-red text-white;
+  @apply border border-red bg-red text-white-100;
 }

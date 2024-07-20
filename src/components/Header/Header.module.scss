@@ -1,5 +1,5 @@
 .header {
-  @apply sticky top-0 z-20 w-full backdrop-blur bg-white bg-opacity-80;
+  @apply sticky top-0 z-20 w-full backdrop-blur bg-white-100 bg-opacity-80;
 
   .header-container {
     @apply flex items-center p-4 justify-between

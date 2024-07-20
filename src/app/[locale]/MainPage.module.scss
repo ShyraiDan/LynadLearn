@@ -49,7 +49,7 @@
       }
 
       .person-one {
-        @apply w-[65px] h-[65px] translate-y-[-10%] animate-[pong_2.1s_ease-in-out_infinite] absolute flex justify-center items-end bg-white rounded-full right-[35%]
+        @apply w-[65px] h-[65px] translate-y-[-10%] animate-[pong_2.1s_ease-in-out_infinite] absolute flex justify-center items-end bg-white-100 rounded-full right-[35%]
         sm:w-[88px] sm:h-[88px];
         animation-delay: 0.5s;
 
@@ -59,7 +59,7 @@
       }
 
       .person-two {
-        @apply w-[56px] h-[56px] translate-y-[-10%] animate-[pong_2s_ease-in-out_infinite] absolute flex justify-center items-end bg-blue-400 rounded-full right-[55%] top-[-10%]
+        @apply w-[56px] h-[56px] translate-y-[-10%] animate-[pong_2s_ease-in-out_infinite] absolute flex justify-center items-end bg-white-200 rounded-full right-[55%] top-[-10%]
         sm:w-[69px] sm:h-[69px];
         animation-delay: 0.2s;
 
@@ -69,7 +69,7 @@
       }
 
       .person-three {
-        @apply w-[48px] h-[48px] translate-y-[-10%] animate-[pong_1.7s_ease-in-out_infinite] absolute flex justify-center items-end bg-blue-400 rounded-full right-[65%] top-[50%];
+        @apply w-[48px] h-[48px] translate-y-[-10%] animate-[pong_1.7s_ease-in-out_infinite] absolute flex justify-center items-end bg-white-200 rounded-full right-[65%] top-[50%];
         animation-delay: 50ms;
 
         img {
@@ -78,7 +78,7 @@
       }
 
       .person-four {
-        @apply w-[48px] h-[48px] translate-y-[-10%] animate-[pong_2s_ease-in-out_infinite] absolute flex justify-center items-end bg-blue-400 rounded-full right-[20%] top-[5%];
+        @apply w-[48px] h-[48px] translate-y-[-10%] animate-[pong_2s_ease-in-out_infinite] absolute flex justify-center items-end bg-white-200 rounded-full right-[20%] top-[5%];
 
         img {
           @apply w-full rounded-full;
@@ -86,7 +86,7 @@
       }
 
       .person-five {
-        @apply w-[56px] h-[56px] translate-y-[-10%] animate-[pong_2.1s_ease-in-out_infinite] absolute flex justify-center items-end bg-blue-400 rounded-full left-[5%] top-[25%] 
+        @apply w-[56px] h-[56px] translate-y-[-10%] animate-[pong_2.1s_ease-in-out_infinite] absolute flex justify-center items-end bg-white-200 rounded-full left-[5%] top-[25%] 
         sm:w-[69px] sm:h-[69px];
         animation-delay: 0.5s;
 
@@ -96,7 +96,7 @@
       }
 
       .person-six {
-        @apply w-[56px] h-[56px] translate-y-[-10%] animate-[pong_2s_ease-in-out_infinite] absolute flex justify-center items-end bg-blue-400 rounded-full left-[15%] bottom-[-30px]
+        @apply w-[56px] h-[56px] translate-y-[-10%] animate-[pong_2s_ease-in-out_infinite] absolute flex justify-center items-end bg-white-200 rounded-full left-[15%] bottom-[-30px]
         sm:bottom-0 sm:w-[69px] sm:h-[69px];
         animation-delay: 0.2s;
 
@@ -106,7 +106,7 @@
       }
 
       .person-seven {
-        @apply w-[54px] h-[54px] translate-y-[-10%] animate-[pong_1.7s_ease-in-out_infinite] absolute flex justify-center items-end bg-blue-400 rounded-full right-0 top-[25%] 
+        @apply w-[54px] h-[54px] translate-y-[-10%] animate-[pong_1.7s_ease-in-out_infinite] absolute flex justify-center items-end bg-white-200 rounded-full right-0 top-[25%] 
         sm:w-[64px] sm:h-[64px];
         animation-delay: 50ms;
 
@@ -116,7 +116,7 @@
       }
 
       .person-eight {
-        @apply w-[48px] h-[48px] translate-y-[-10%] animate-[pong_2s_ease-in-out_infinite] absolute flex justify-center items-end bg-blue-400 rounded-full right-[40%] bottom-[-10%];
+        @apply w-[48px] h-[48px] translate-y-[-10%] animate-[pong_2s_ease-in-out_infinite] absolute flex justify-center items-end bg-white-200 rounded-full right-[40%] bottom-[-10%];
 
         img {
           @apply w-full rounded-full;
@@ -124,7 +124,7 @@
       }
 
       .person-nine {
-        @apply w-[62px] h-[62px] translate-y-[-10%] animate-[pong_2.1s_ease-in-out_infinite] absolute flex justify-center items-end bg-blue-400 rounded-full right-[5%] top-[65%];
+        @apply w-[62px] h-[62px] translate-y-[-10%] animate-[pong_2.1s_ease-in-out_infinite] absolute flex justify-center items-end bg-white-200 rounded-full right-[5%] top-[65%];
         animation-delay: 0.5s;
 
         img {
@@ -216,7 +216,7 @@
       sm:mb-0 sm:flex-row sm:h-[290px];
 
       .description {
-        @apply flex flex-col font-bold text-white m-4 
+        @apply flex flex-col font-bold text-white-100 m-4 
         md:ml-14 md:my-auto;
 
         h3 {
@@ -238,7 +238,7 @@
         }
 
         a {
-          @apply text-center text-black bg-white w-full py-3 px-12 border-0 rounded-3xl font-medium transition-[background] duration-[.3s] ease-in-out;
+          @apply text-center text-black bg-white-100 w-full py-3 px-12 border-0 rounded-3xl font-medium transition-[background] duration-[.3s] ease-in-out;
         }
       }
 
@@ -256,7 +256,7 @@
   }
 
   .review {
-    @apply pb-8 bg-white-100 pt-8 my-14 px-4;
+    @apply pb-8 bg-white-200 pt-8 my-14 px-4;
 
     > div {
       @apply flex leading-6 flex-col items-center 
@@ -292,7 +292,7 @@
       }
 
       a {
-        @apply px-6 py-3 bg-blue-200 w-full text-center font-medium ease-in-out rounded-3xl border-0 text-white text-center transition-[background] duration-[.3s]  
+        @apply px-6 py-3 bg-blue-200 w-full text-center font-medium ease-in-out rounded-3xl border-0 text-white-100 text-center transition-[background] duration-[.3s]  
         hover:bg-purple-100
         xs:max-w-[172px];
       }

@@ -30,7 +30,6 @@ const config: Config = {
           100: '#1b7bd7',
           200: '#0e4aa4',
           300: '#2959a2',
-          400: '#f0f4fa',
           500: '#f7f9fc'
         },
         purple: {
@@ -43,9 +42,15 @@ const config: Config = {
           200: '#fafafa',
           300: '#e6e6e6'
         },
-        'white-100': '#f0f4fa',
-        orange: '#FFA944',
-        red: '#E74C3C'
+        white: {
+          100: '#ffffff',
+          200: '#f0f4fa'
+        },
+        green: {
+          100: '#11a762'
+        },
+        orange: '#ffa944',
+        red: '#e74c3c'
       },
       keyframes: {
         pong: {

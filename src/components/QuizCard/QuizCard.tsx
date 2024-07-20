@@ -4,7 +4,7 @@ import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 
 export default function QuizCard({ topic }: { topic: IGrammarTopic }) {
   return (
-    <NavigationLink className={styles.item} href={`/dashboard/grammar/${topic.id}`}>
+    <NavigationLink className={styles.item} href={`/dashboard/grammar/${topic._id}`}>
       <div>{topic.title}</div>
     </NavigationLink>
   )

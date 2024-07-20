@@ -1,7 +1,9 @@
+import mongoose, { Schema } from 'mongoose'
+
 export interface IGrammarTopic {
-  id: number
+  level: string
   title: string
-  data?: {
+  data: {
     description: Array<string>
     example: Array<{
       title: string
@@ -11,8 +13,24 @@ export interface IGrammarTopic {
   }
 }
 
-export interface IGrammar {
-  id: number
-  level: string
-  topics: Array<IGrammarTopic>
-}
+const grammarSchema = new Schema({
+  level: {
+    type: String,
+    required: true
+  },
+  title: {
+    type: String,
+    required: true
+  },
+  data: {
+    description: Array<String>,
+    example: Array<{
+      title: String
+      description: String
+      examples: Array<String>
+    }>
+  }
+})
+
+const Grammar = mongoose.models.Grammars || mongoose.model('Grammars', grammarSchema)
+export default Grammar

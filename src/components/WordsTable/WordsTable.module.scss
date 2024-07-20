@@ -10,7 +10,7 @@
 
       .row {
         @apply cursor-pointer relative grid grid-cols-[repeat(6,_minmax(150px,_1fr))] w-full transition-all duration-[.3s] ease-in-out
-        even:bg-white-100
+        even:bg-white-200
         [&_.word-modal]:hover:visible;
 
         > div {
@@ -36,12 +36,12 @@
         }
 
         .word-modal {
-          @apply invisible rounded-lg shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] bg-[#ffffff] p-2 absolute bottom-[5px] left-[5px] w-[60px] h-[33px];
+          @apply invisible rounded-lg shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] bg-white-100 p-2 absolute bottom-[5px] left-[5px] w-[60px] h-[33px];
         }
       }
 
       .header {
-        @apply bg-blue-100 text-white text-base;
+        @apply bg-blue-100 text-white-100 text-base;
       }
 
       .no-words {

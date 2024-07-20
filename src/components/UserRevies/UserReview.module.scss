@@ -10,7 +10,7 @@
     2xl:max-w-[1288px];
 
     .item {
-      @apply transition-transform duration-[500ms] bg-white rounded-3xl flex flex-col justify-between p-2.5 relative mb-14 h-[240px]
+      @apply transition-transform duration-[500ms] bg-white-100 rounded-3xl flex flex-col justify-between p-2.5 relative mb-14 h-[240px]
       sm:mx-8
       md:mx-0
       lg:p-4;
@@ -19,7 +19,7 @@
         @apply flex flex-row items-center mb-4;
 
         img {
-          @apply w-[44px] mr-3 rounded-full border border-solid border-white-100;
+          @apply w-[44px] mr-3 rounded-full border border-solid border-white-200;
         }
 
         p {

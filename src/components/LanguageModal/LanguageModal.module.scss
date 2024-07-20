@@ -11,7 +11,7 @@
   @apply flex flex-col relative z-[1];
 
   ul {
-    @apply rounded-lg shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] bg-[#ffffff] absolute top-[15px] right-[-3px] w-[120px] h-[80px] py-2;
+    @apply rounded-lg shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] bg-white-100 absolute top-[15px] right-[-3px] w-[120px] h-[80px] py-2;
 
     li {
       @apply text-blue-200 font-medium px-4 py-1 flex items-center cursor-pointer transition-all ease-in-out duration-150;

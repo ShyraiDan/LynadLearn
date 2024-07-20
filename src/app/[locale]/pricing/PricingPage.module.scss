@@ -39,7 +39,7 @@
       @apply w-full rounded-3xl;
 
       thead {
-        @apply bg-blue-100 text-white;
+        @apply bg-blue-100 text-white-100;
 
         th {
           @apply pr-0
@@ -55,7 +55,7 @@
           @apply p-4 text-sm font-bold
           sm:p-6 sm:text-base 
           lg:text-lg
-          odd:bg-white-100;
+          odd:bg-white-200;
 
           td {
             @apply text-center text-center

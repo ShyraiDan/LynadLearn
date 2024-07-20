@@ -1,5 +1,4 @@
 import styles from './QuizPage.module.scss'
-import { DGrammar } from '@/mock/Grammar.mock'
 import QuizCard from '@/components/QuizCard/QuizCard'
 import { useTranslations } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
@@ -9,46 +8,71 @@ import { getSession } from '@/lib/auth'
 import Loader from '@/components/Loader/Loader'
 import { Suspense } from 'react'
 import CustomList from '@/components/CustomList/CustomList'
+import { getAllGrammar } from '@/lib/grammar'
 
-async function VocabularyQuizPage() {
-  const session = await getSession()
+async function CategoryQuizPage({ type }: any) {
   const t = await getTranslations('dashboard.quiz')
 
-  if (!session.isLoggedIn) {
+  if (type === 'grammar') {
+    const grammarElementary = await getAllGrammar('A1-A2')
+
     return (
       <>
-        <div className={styles['no-list']}>
-          <h2>{t('need_login')}</h2>
+        <div className={styles.level}>
+          <h2>A1-A2 grammar</h2>
+          <div className={styles.topics}>
+            {grammarElementary.map((item: any) => {
+              return (
+                <div key={item._id}>
+                  <QuizCard topic={item} />
+                </div>
+              )
+            })}
+          </div>
         </div>
       </>
     )
   }
 
-  const data = await getYourLists()
+  if (type === 'vocabulary') {
+    const session = await getSession()
 
-  return (
-    <>
-      <div className={styles.level}>
-        {!data.length && (
+    if (!session.isLoggedIn) {
+      return (
+        <>
           <div className={styles['no-list']}>
-            <h2>{t('no_lists')}</h2>
+            <h2>{t('need_login')}</h2>
           </div>
-        )}
-        {data.length > 0 && (
-          <>
-            <h2>{t('select_your_list')}</h2>
-            <div className={styles.lists}>
-              {data.map((item) => (
-                <NavigationLink key={item._id} href={`/dashboard/quiz/${item._id}`}>
-                  <CustomList title={item.title} image={item.image} />
-                </NavigationLink>
-              ))}
+        </>
+      )
+    }
+
+    const data = await getYourLists()
+
+    return (
+      <>
+        <div className={styles.level}>
+          {!data.length && (
+            <div className={styles['no-list']}>
+              <h2>{t('no_lists')}</h2>
             </div>
-          </>
-        )}
-      </div>
-    </>
-  )
+          )}
+          {data.length > 0 && (
+            <>
+              <h2>{t('select_your_list')}</h2>
+              <div className={styles.lists}>
+                {data.map((item) => (
+                  <NavigationLink key={item._id} href={`/dashboard/quiz/${item._id}`}>
+                    <CustomList title={item.title} image={item.image} />
+                  </NavigationLink>
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </>
+    )
+  }
 }
 
 export default function QuizPage({ searchParams }: any) {
@@ -72,22 +96,9 @@ export default function QuizPage({ searchParams }: any) {
             </div>
           </div>
           <div className={styles.items}>
-            {type === 'grammar' ? (
-              DGrammar.map((item) => (
-                <div key={item.level} className={styles.level}>
-                  <h2>{item.level}</h2>
-                  <div className={styles.topics}>
-                    {item.topics.map((topic) => (
-                      <QuizCard key={topic.title} topic={topic} />
-                    ))}
-                  </div>
-                </div>
-              ))
-            ) : (
-              <Suspense fallback={<Loader />}>
-                <VocabularyQuizPage />
-              </Suspense>
-            )}
+            <Suspense fallback={<Loader />}>
+              <CategoryQuizPage type={type} />
+            </Suspense>
           </div>
         </div>
         <div className={styles.sections}></div>
