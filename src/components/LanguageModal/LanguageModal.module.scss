@@ -1,6 +1,8 @@
 .nav-item {
   @apply flex items-center font-bold cursor-pointer text-blue-200 transition-all ease-in-out duration-150
-  hover:text-purple-100 [&_svg]:hover:text-purple-100;
+  hover:text-purple-100 
+  [&_svg]:hover:text-purple-100 [&_svg]:hover:rotate-180
+  [&_div]:hover:visible [&_div]:hover:opacity-100;
 
   svg {
     @apply ml-2 transition-all ease-in-out;
@@ -8,7 +10,7 @@
 }
 
 .modal {
-  @apply flex flex-col relative z-[1];
+  @apply invisible opacity-0 flex flex-col relative z-[1] transition-all ease-linear duration-150;
 
   ul {
     @apply rounded-lg shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] bg-white-100 absolute top-[15px] right-[-3px] w-[120px] h-[80px] py-2;

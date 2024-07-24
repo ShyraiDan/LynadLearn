@@ -12,7 +12,7 @@
     }
 
     p {
-      @apply px-6 mb-2 pt-2 text-justify text-[#092550] text-base font-medium;
+      @apply px-6 mb-2 pt-2 text-justify text-blue-125 text-base font-medium;
     }
   }
 
@@ -35,7 +35,7 @@
 
           input,
           textarea {
-            @apply resize-none font-medium text-[#6c757d] opacity-90 px-3 py-1.5 rounded border border-[#ced4da] w-full;
+            @apply resize-none font-medium text-blue-350 opacity-90 px-3 py-1.5 rounded border border-grey-400 w-full;
           }
         }
 

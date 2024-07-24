@@ -148,10 +148,10 @@
         xl:flex;
 
         > div {
-          @apply relative w-[378px] h-[378px] bg-[#EBE6F5] rounded-full flex items-center justify-center;
+          @apply relative w-[378px] h-[378px] bg-purple-400 rounded-full flex items-center justify-center;
 
           > div {
-            @apply bg-[#D1C7E2] w-[311px] h-[311px] rounded-full;
+            @apply bg-purple-300 w-[311px] h-[311px] rounded-full;
 
             img {
               @apply absolute right-[15%] top-0;

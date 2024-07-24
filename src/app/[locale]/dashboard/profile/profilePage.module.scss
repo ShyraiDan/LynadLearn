@@ -8,7 +8,7 @@
     @apply grid grid-cols-[80px_1fr] gap-4 relative;
 
     .user-photo {
-      @apply h-[80px] w-[80px] rounded-full bg-[#2a41e812] shadow-md flex items-center justify-center text-blue-200;
+      @apply h-[80px] w-[80px] rounded-full bg-blue-225 shadow-md flex items-center justify-center text-blue-200;
     }
 
     .user-details {
@@ -23,7 +23,7 @@
       }
 
       .rate {
-        @apply mt-2 p-2 bg-[#2a41e812] shadow-md rounded text-blue-200 font-bold w-fit;
+        @apply mt-2 p-2 bg-blue-225 shadow-md rounded text-blue-200 font-bold w-fit;
       }
 
       .achivements {

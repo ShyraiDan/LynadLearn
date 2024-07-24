@@ -1,7 +1,4 @@
 {
-  "Index": {
-    "title": "Hello world!"
-  },
   "Header": {
     "about_us": "About us",
     "pricing": "Pricing",
@@ -16,7 +13,8 @@
     "vocabulary": "Vocabulary",
     "sign_in": "Sign in",
     "sign_up": "Sign up",
-    "follow_us": "Follow us"
+    "follow_us": "Follow us",
+    "logout": "Logout"
   },
   "Language": {
     "english": "English",
@@ -268,38 +266,73 @@
       "list_created": "List(s) created",
       "words_learned": "Word(s) learned",
       "profile": "Profile",
-      "logout": "Logout"
-    },
-    "quiz": {
-      "quiz_page": "Quiz page",
-      "filter": "Filter",
-      "grammar": "Grammar",
-      "vocabulary": "Vocabulary",
-      "no_lists": "There are no lists for this category",
-      "select_your_list": "Select your list",
-      "no_time": "No time!",
-      "no_question": "",
-      "back": "Back",
-      "to_quiz": "Go to Quizes",
-      "start_quiz": "Start Quiz",
-      "you_got": "You scored {correct} out of {length} in {time} seconds",
-      "need_login": "You need to be logged in",
-      "correct": "You answered correctly",
-      "wrong": "You answered incorrectly"
-    },
-    "grammar": {
-      "move_to_test": "Move to Grammar test"
-    },
-    "flashcard": {
-      "flashcard_page": "Flashcard page",
-      "choose_word_list": "Choose a word list to learn:",
-      "words_from": "Words from {list} list",
-      "view_list": "View list",
-      "correct": "You answered correctly",
-      "wrong": "You answered incorrectly",
-      "answer": "Correct answer: {answer}",
-      "check": "Check",
-      "enter_word": "Enter word"
+      "logout": "Logout",
+
+      "quiz": {
+        "quiz_page": "Quiz page",
+        "filter": "Filter",
+        "grammar": "Grammar",
+        "vocabulary": "Vocabulary",
+        "no_lists": "There are no lists for this category",
+        "select_your_list": "Select your list",
+        "no_time": "No time!",
+        "no_question": "",
+        "back": "Back",
+        "to_quiz": "Go to Quizes",
+        "start_quiz": "Start Quiz",
+        "you_got": "You scored {correct} out of {length} in {time} seconds",
+        "need_login": "You need to be logged in",
+        "correct": "You answered correctly",
+        "wrong": "You answered incorrectly"
+      },
+      "grammar": {
+        "move_to_test": "Move to Grammar test"
+      },
+      "flashcard": {
+        "flashcard_page": "Flashcard page",
+        "choose_word_list": "Choose a word list to learn:",
+        "words_from": "Words from {list} list",
+        "view_list": "View list",
+        "correct": "You answered correctly",
+        "wrong": "You answered incorrectly",
+        "answer": "Correct answer: {answer}",
+        "check": "Check",
+        "enter_word": "Enter word"
+      }
     }
+  },
+  "achievement": {
+    "first_word": "First word",
+    "first_word_desc": "Learn your first word",
+    "beginner": "Beginner",
+    "beginner_desc": "Learn 10 words",
+    "enthusiastic_learner": "Enthusiastic learner",
+    "enthusiastic_learner_desc": "Learn 50 words",
+    "vocabulary_master": "Vocabulary Master",
+    "vocabulary_master_desc": "Learn 100 words",
+    "language_guru": "Language Guru",
+    "language_guru_desc": "Learn 500 words",
+    "first_step": "First Step",
+    "first_step_desc": "Complete your first quiz",
+    "quiz_champion": "Quiz Champion",
+    "quiz_champion_desc": "Complete 10 quiz",
+    "brainstormer": "Brainstormer",
+    "brainstormer_desc": "Complete 50 quiz",
+    "quiz_master": "Quiz Master",
+    "quiz_master_desc": "Complete 100 quiz",
+    "words_collector": "Words Collector",
+    "words_collector_desc": "Create your first word list",
+    "langugage_architect": "Language Architect",
+    "language_architect_desc": "Create 5 word lists",
+    "language_tycoon": "Language Tycoon",
+    "language_tycoon_desc": "Create 10 word lists",
+    "vocabulary_starter": "Vocabulary Starter",
+    "vocabulary_starter_desc": "Add your first word to a list",
+    "vocabulary_organizer": "Vocabulary Organizer",
+    "vocabulary_organizer_desc": "Add 50 words to lists",
+    "vocabulary_master": "Vocabulary Master",
+    "vocabulary_master_desc": "Add 200 words to lists",
+    "vocabulary_archivist": "Vocabulary Archivist",
+    "vocabulary_archivist_desc": "Add 500 words to lists"
   }
 }

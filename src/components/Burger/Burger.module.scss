@@ -89,12 +89,16 @@
     .auth {
       @apply flex flex-col pb-4;
 
-      button {
-        @apply flex items-center justify-center w-full mt-4;
+      .logout {
+        @apply bg-red;
 
         svg {
           @apply mr-2;
         }
+      }
+
+      button {
+        @apply mt-4;
       }
     }
 

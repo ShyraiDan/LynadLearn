@@ -36,4 +36,11 @@
       hover:bg-purple-100;
     }
   }
+
+  .loader {
+    @apply h-[calc(100vh-397px-73px)] w-[calc(100vw-32px)]
+    sm:h-[calc(100vh-193px-81px)] 
+    md:h-[calc(100vh-153px-81px)] 
+    lg:h-[calc(100vh-97px-81px-32px)] lg:w-[calc(100vw-254px-32px)];
+  }
 }

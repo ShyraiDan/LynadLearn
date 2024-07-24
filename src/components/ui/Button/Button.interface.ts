@@ -6,4 +6,5 @@ export interface IButton {
   outline?: boolean
   onClick?: () => void
   disabled?: boolean
+  className?: string
 }

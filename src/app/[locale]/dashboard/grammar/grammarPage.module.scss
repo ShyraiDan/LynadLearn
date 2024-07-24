@@ -1,5 +1,8 @@
 .container {
-  @apply p-4;
+  @apply p-4 min-h-[calc(100vh-397px-73px)]
+  sm:min-h-[calc(100vh-193px-81px)]
+  md:min-h-[calc(100vh-153px-81px)]
+  lg:min-h-[calc(100vh-97px-81px)];
 
   .level {
     @apply mb-6
@@ -16,5 +19,12 @@
       lg:grid-cols-2
       xl:grid-cols-3;
     }
+  }
+
+  .loader {
+    @apply h-[calc(100vh-397px-73px)] w-[calc(100vw-32px)]
+    sm:h-[calc(100vh-193px-81px)] 
+    md:h-[calc(100vh-153px-81px)] 
+    lg:h-[calc(100vh-97px-81px-32px)] lg:w-[calc(100vw-254px-32px)];
   }
 }

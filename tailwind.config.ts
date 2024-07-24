@@ -28,8 +28,14 @@ const config: Config = {
       colors: {
         blue: {
           100: '#1b7bd7',
+          125: '#092550',
+          150: '#0e336b',
           200: '#0e4aa4',
+          225: '#2a41e812',
+          250: '#2e538b',
           300: '#2959a2',
+          350: '#6c757d',
+          400: '#7b8ba5',
           500: '#f7f9fc'
         },
         purple: {
@@ -40,7 +46,11 @@ const config: Config = {
         grey: {
           100: '#B8b8b8',
           200: '#fafafa',
-          300: '#e6e6e6'
+          250: '#eeefff',
+          275: '#e5e7eb',
+          300: '#e6e6e6',
+          400: '#ced4da',
+          500: '#353738'
         },
         white: {
           100: '#ffffff',

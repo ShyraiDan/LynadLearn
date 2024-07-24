@@ -1,5 +1,5 @@
 .container {
-  @apply hidden px-4 py-6 h-full border-r border-[#e5e7eb]
+  @apply hidden px-4 py-6 h-full border-r border-grey-275
   lg:flex lg:flex-col;
 
   > ul {
@@ -8,7 +8,7 @@
     li {
       a {
         @apply flex w-full items-center text-blue-200 mb-1 py-2 px-3 rounded-lg font-bold transition-all ease-linear duration-150
-        hover:bg-[#2a41e812];
+        hover:bg-blue-225;
 
         svg {
           @apply mr-2;
@@ -19,5 +19,5 @@
 }
 
 .selected {
-  @apply bg-[#2a41e812];
+  @apply bg-blue-225;
 }

@@ -82,26 +82,25 @@ export default function QuizPage({ searchParams }: any) {
   return (
     <>
       <div className={styles.container}>
-        <h2>{t('quiz_page')}</h2>
-        <div className={styles.sections}>
-          <div className={styles.top}>
-            <h4>{t('filter')}</h4>
-            <div className={styles.tags}>
-              <span className={`${type === 'grammar' && styles.active}`}>
-                <NavigationLink href='/dashboard/quiz?type=grammar'>{t('grammar')}</NavigationLink>
-              </span>
-              <span className={`${type === 'vocabulary' && styles.active}`}>
-                <NavigationLink href='/dashboard/quiz?type=vocabulary'>{t('vocabulary')}</NavigationLink>
-              </span>
+        <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
+          <h2>{t('quiz_page')}</h2>
+          <div className={styles.sections}>
+            <div className={styles.top}>
+              <h4>{t('filter')}</h4>
+              <div className={styles.tags}>
+                <span className={`${type === 'grammar' && styles.active}`}>
+                  <NavigationLink href='/dashboard/quiz?type=grammar'>{t('grammar')}</NavigationLink>
+                </span>
+                <span className={`${type === 'vocabulary' && styles.active}`}>
+                  <NavigationLink href='/dashboard/quiz?type=vocabulary'>{t('vocabulary')}</NavigationLink>
+                </span>
+              </div>
+            </div>
+            <div className={styles.items}>
+              <CategoryQuizPage type={type} />
             </div>
           </div>
-          <div className={styles.items}>
-            <Suspense fallback={<Loader />}>
-              <CategoryQuizPage type={type} />
-            </Suspense>
-          </div>
-        </div>
-        <div className={styles.sections}></div>
+        </Suspense>
       </div>
     </>
   )

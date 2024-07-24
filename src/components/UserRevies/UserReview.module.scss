@@ -36,6 +36,10 @@
 
         .stars {
           @apply flex;
+
+          svg {
+            @apply fill-orange;
+          }
         }
 
         .platform {

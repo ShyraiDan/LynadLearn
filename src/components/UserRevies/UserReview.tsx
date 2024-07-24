@@ -25,8 +25,9 @@ export default function UserReview() {
             dynamicBullets: true,
             dynamicMainBullets: 1
           }}
-          centeredSlides={true}
           spaceBetween={20}
+          loop={true}
+          centeredSlides={true}
           slidesPerView={1}
           breakpoints={{
             768: {
@@ -46,11 +47,11 @@ export default function UserReview() {
                   <p>{review.text}</p>
                   <div className={styles.mark}>
                     <div className={styles.stars}>
-                      <IoStarSharp size={'20px'} fill='#FFA944' />
-                      <IoStarSharp size={'20px'} fill='#FFA944' />
-                      <IoStarSharp size={'20px'} fill='#FFA944' />
-                      <IoStarSharp size={'20px'} fill='#FFA944' />
-                      <IoStarSharp size={'20px'} fill='#FFA944' />
+                      <IoStarSharp size={'20px'} />
+                      <IoStarSharp size={'20px'} />
+                      <IoStarSharp size={'20px'} />
+                      <IoStarSharp size={'20px'} />
+                      <IoStarSharp size={'20px'} />
                     </div>
                     <div className={styles.platform}>
                       <FaGooglePlay />

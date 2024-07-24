@@ -1,8 +1,8 @@
 .achievement {
-  @apply opacity-50 flex flex-col items-center p-4 rounded-3xl bg-[#eeefff] shadow-md;
+  @apply opacity-50 flex flex-col items-center p-4 rounded-3xl bg-grey-250 shadow-md;
 
   .icon {
-    @apply h-[60px] w-[60px] rounded-full bg-[#2a41e812] shadow-md flex items-center justify-center text-blue-200;
+    @apply h-[60px] w-[60px] rounded-full bg-blue-225 shadow-md flex items-center justify-center text-blue-200 text-3xl;
   }
 
   h6 {
@@ -10,7 +10,7 @@
   }
 
   p {
-    @apply text-[12px];
+    @apply text-[12px] text-center leading-6;
   }
 
   .progress {

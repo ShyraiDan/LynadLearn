@@ -7,7 +7,8 @@ import NavigationLink from '../ui/NavigationLink/NavigationLink'
 import { useTranslations } from 'next-intl'
 import { AuthModal } from '../AuthModal/AuthModal'
 import { removeScrollBar } from '@/constants/shared'
-import { getSession } from '@/lib/auth'
+import { logout } from '@/lib/auth'
+import { Button } from '../ui/Button/Button'
 
 import { FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
@@ -104,7 +105,15 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
           </ul>
         </div>
         <div className={styles.bottom}>
-          <div className={styles.auth}>{!isAuth && <AuthModal />}</div>
+          <div className={styles.auth}>
+            {isAuth ? (
+              <Button className={styles.logout} onClick={() => logout()}>
+                {t('logout')}
+              </Button>
+            ) : (
+              <AuthModal />
+            )}
+          </div>
           <div className={styles.social}>
             <p>{t('follow_us')}</p>
             <ul>

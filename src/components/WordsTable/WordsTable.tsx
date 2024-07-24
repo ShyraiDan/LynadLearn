@@ -13,6 +13,8 @@ import { FaRunning } from 'react-icons/fa'
 import { SlSpeech } from 'react-icons/sl'
 import { AiOutlineTranslation } from 'react-icons/ai'
 
+//TODO: fix loader
+
 async function WordsList({ listId, sorting }: { listId: string; sorting: string }) {
   const t = await getTranslations('dashboard.vocabulary')
   let words: IWord[] = []

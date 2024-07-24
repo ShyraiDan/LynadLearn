@@ -4,7 +4,7 @@
   lg:flex;
 
   h6 {
-    @apply font-bold mb-2 text-[#0e336b] 
+    @apply font-bold mb-2 text-blue-150 
     md:mb-0;
   }
 }
@@ -16,7 +16,7 @@
   lg:hidden;
 
   h3 {
-    @apply sm:mb-3 text-[#0e336b] text-2xl font-bold  
+    @apply sm:mb-3 text-blue-150 text-2xl font-bold  
     md:pt-6 md:text-3xl;
   }
 }
@@ -26,5 +26,5 @@
 }
 
 .desc {
-  @apply py-2 text-[#6c757d] font-medium;
+  @apply py-2 text-blue-350 font-medium;
 }

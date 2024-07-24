@@ -23,7 +23,7 @@ async function Content({ children }: IDashboard) {
 
 export default function DashboardPage({ children }: IDashboard) {
   return (
-    <main className={styles.container}>
+    <div className={styles.container}>
       <Suspense
         fallback={
           <div className={styles['loader-wrapper']}>
@@ -32,6 +32,6 @@ export default function DashboardPage({ children }: IDashboard) {
         }>
         <Content>{children}</Content>
       </Suspense>
-    </main>
+    </div>
   )
 }

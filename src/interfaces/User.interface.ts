@@ -32,6 +32,31 @@ const userSchema = new Schema(
       type: Number,
       default: 0,
       required: true
+    },
+    wordLists: {
+      type: Number,
+      default: 0,
+      required: true
+    },
+    totalQuizzes: {
+      type: Number,
+      default: 0,
+      required: true
+    },
+    successfulQuizzes: {
+      type: Number,
+      default: 0,
+      required: true
+    },
+    flashcardsLearned: {
+      type: Number,
+      default: 0,
+      required: true
+    },
+    words: {
+      type: Number,
+      default: 0,
+      required: true
     }
   },
   {

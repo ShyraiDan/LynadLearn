@@ -1,6 +1,7 @@
 .user {
-  @apply flex items-center cursor-pointer relative 
-  [&_div]:hover:visible [&_div]:hover:opacity-100;
+  @apply hidden items-center cursor-pointer relative
+  [&_div]:hover:visible [&_div]:hover:opacity-100
+  lg:flex;
 
   .user-avatar {
     @apply rounded-full bg-blue-200 w-10 h-10 flex items-center justify-center;
@@ -26,7 +27,7 @@
       }
 
       .icon {
-        @apply mr-1 transition-all ease-in-out duration-150;
+        @apply mr-1 transition-all ease-in-out duration-150 fill-blue-200;
       }
     }
 

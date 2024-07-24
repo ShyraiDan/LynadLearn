@@ -19,6 +19,11 @@ export interface ISession {
   location?: string
   isLoggedIn: boolean
   rating?: number
+  wordLists?: number
+  totalQuizzes?: number
+  successfulQuizzes?: number
+  flashcardsLearned?: number
+  words?: number
 }
 const defaultSession: ISession = {
   isLoggedIn: false
@@ -68,6 +73,11 @@ export const login = async (data: ISignIn) => {
   session.location = userData.location
   session.avatarUrl = userData.avatarUrl
   session.rating = userData.rating
+  session.wordLists = userData.wordLists
+  session.totalQuizzes = userData.totalQuizzes
+  session.successfulQuizzes = userData.successfulQuizzes
+  session.flashcardsLearned = userData.flashcardsLearned
+  session.words = userData.words
 
   await session.save()
 }
@@ -86,7 +96,12 @@ export const registerUser = async (user: ISignUp) => {
     location: '',
     description: '',
     avatarUrl: '',
-    rating: 0
+    rating: 0,
+    wordLists: 0,
+    totalQuizzes: 0,
+    successfulQuizzes: 0,
+    flashcardsLearned: 0,
+    words: 0
   })
 
   const userDoc = await doc.save()
@@ -98,6 +113,12 @@ export const registerUser = async (user: ISignUp) => {
   session.description = userDoc.description
   session.location = userDoc.location
   session.avatarUrl = userDoc.avatarUrl
+  session.rating = userDoc.rating
+  session.wordLists = userDoc.wordLists
+  session.totalQuizzes = userDoc.totalQuizzes
+  session.successfulQuizzes = userDoc.successfulQuizzes
+  session.flashcardsLearned = userDoc.flashcardsLearned
+  session.words = userDoc.words
 
   await session.save()
 }
