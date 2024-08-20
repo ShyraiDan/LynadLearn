@@ -19,7 +19,7 @@ export const AddingWordForm = () => {
   return (
     <>
       <div className={styles.add} onClick={() => showModal()}>
-        <FaPlus fill={'white'} size={16} />
+        <FaPlus size={16} />
       </div>
       {isAdding && (
         <Modal isOpen={isAdding} handleClose={() => showModal()}>

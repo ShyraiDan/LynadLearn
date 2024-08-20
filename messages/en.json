@@ -11,6 +11,7 @@
     "flashcard": "Flashcard",
     "profile": "Profile",
     "vocabulary": "Vocabulary",
+    "bookmarks": "Bookmarks",
     "sign_in": "Sign in",
     "sign_up": "Sign up",
     "follow_us": "Follow us",
@@ -208,7 +209,21 @@
       "list_name_maxLength": "List name must be less than 30 characters",
       "create_list": "Create List",
       "need_login": "You must be signed in to add a list",
-      "list_created": "You successfully created a list"
+      "list_created": "You successfully created a list",
+      "categorized_wordlist": "Categorized Wordlist",
+      "adverbs": "Adverbs",
+      "verbs": "Verbs",
+      "adjectives": "Adjectives",
+      "other": "Other",
+      "a1_list": "A1 Level Wordlist",
+      "a2_list": "A2 Level Wordlist",
+      "b1_list": "B1 Level Wordlist",
+      "b2_list": "B2 Level Wordlist",
+      "c1_list": "C1 Level Wordlist",
+      "c2_list": "C2 Level Wordlist",
+      "learn": {
+        "example": "Example"
+      }
     },
     "vocabulary": {
       "modal": {
@@ -266,39 +281,54 @@
       "list_created": "List(s) created",
       "words_learned": "Word(s) learned",
       "profile": "Profile",
-      "logout": "Logout",
-
-      "quiz": {
-        "quiz_page": "Quiz page",
-        "filter": "Filter",
-        "grammar": "Grammar",
-        "vocabulary": "Vocabulary",
-        "no_lists": "There are no lists for this category",
-        "select_your_list": "Select your list",
-        "no_time": "No time!",
-        "no_question": "",
-        "back": "Back",
-        "to_quiz": "Go to Quizes",
-        "start_quiz": "Start Quiz",
-        "you_got": "You scored {correct} out of {length} in {time} seconds",
-        "need_login": "You need to be logged in",
-        "correct": "You answered correctly",
-        "wrong": "You answered incorrectly"
-      },
-      "grammar": {
-        "move_to_test": "Move to Grammar test"
-      },
-      "flashcard": {
-        "flashcard_page": "Flashcard page",
-        "choose_word_list": "Choose a word list to learn:",
-        "words_from": "Words from {list} list",
-        "view_list": "View list",
-        "correct": "You answered correctly",
-        "wrong": "You answered incorrectly",
-        "answer": "Correct answer: {answer}",
-        "check": "Check",
-        "enter_word": "Enter word"
-      }
+      "logout": "Logout"
+    },
+    "quiz": {
+      "quiz_page": "Quiz page",
+      "filter": "Filter",
+      "grammar": "Grammar",
+      "vocabulary": "Vocabulary",
+      "no_lists": "There are no lists for this category",
+      "select_your_list": "Select your list",
+      "no_time": "No time!",
+      "no_question": "",
+      "back": "Back",
+      "to_quiz": "Go to Quizes",
+      "start_quiz": "Start Quiz",
+      "you_got": "You scored {correct} out of {length} in {time} seconds",
+      "need_login": "You need to be logged in",
+      "correct": "You answered correctly",
+      "wrong": "You answered incorrectly",
+      "next": "Next"
+    },
+    "grammar": {
+      "move_to_test": "Move to Grammar test"
+    },
+    "flashcard": {
+      "flashcard_page": "Flashcard page",
+      "choose_word_list": "Choose a word list to learn:",
+      "words_from": "Words from {list} list",
+      "view_list": "View list",
+      "answer": "Correct answer: {answer}",
+      "check": "Check",
+      "enter_word": "Enter word",
+      "show_definition": "See definition",
+      "examples": "Examples",
+      "correct": "Correct",
+      "incorrect": "Incorrect"
+    },
+    "collections": {
+      "hours": "h",
+      "minutes": "m",
+      "lessons": "Lessons",
+      "words": "Words"
+    },
+    "bookmarks": {
+      "bookmarks": "Bookmarks",
+      "no_bookmarks": "There are no bookmarks",
+      "no_bookmarks_description": "You need to add list or grammar topic",
+      "grammar": "Grammar",
+      "vocabulary": "Vocabulary"
     }
   },
   "achievement": {

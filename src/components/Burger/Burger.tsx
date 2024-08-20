@@ -65,15 +65,22 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
                 {t('mobile_app')}
               </NavigationLink>
             </li>
-            <li>
+            {/* <li>
               <NavigationLink hover onClick={() => showModal()} href={'/settings'}>
                 {t('settings')}
               </NavigationLink>
-            </li>
+            </li> */}
             {isAuth && (
               <li>
                 <NavigationLink hover onClick={() => showModal()} href={'/dashboard/profile'}>
                   {t('profile')}
+                </NavigationLink>
+              </li>
+            )}
+            {isAuth && (
+              <li>
+                <NavigationLink hover onClick={() => showModal()} href={'/dashboard/bookmarks'}>
+                  {t('bookmarks')}
                 </NavigationLink>
               </li>
             )}

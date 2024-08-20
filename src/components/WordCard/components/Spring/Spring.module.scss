@@ -1,0 +1,15 @@
+.spring {
+  @apply absolute w-5 h-5;
+
+  .dot {
+    @apply w-5 h-5 bg-[#ffffff] rounded-full absolute;
+  }
+
+  .small-dot {
+    @apply w-4 h-4 bg-[#D6D6D6] rounded-full absolute left-[-6px] top-[-6px] translate-x-1/2 translate-y-1/2;
+  }
+
+  .line {
+    @apply w-3 h-7 bg-[#D6D6D6] translate-y-3/4 translate-x-1/2 absolute left-[-2px] top-[-31px] rounded-lg;
+  }
+}

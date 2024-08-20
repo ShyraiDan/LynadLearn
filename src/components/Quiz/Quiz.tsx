@@ -6,11 +6,15 @@ import { useState, useEffect } from 'react'
 import { toast } from 'sonner'
 import SnackBar from '../ui/SnackBar/SnackBar'
 import { useTranslations } from 'next-intl'
+import { Input } from '../ui/Input/Input'
+
+import { FaArrowRight } from 'react-icons/fa'
 
 export default function Quiz({ quiz, setCorrect, setQuiz, setIsFinished, setFinishTime }: any) {
-  const [seconds, setSeconds] = useState(10)
+  const [seconds, setSeconds] = useState(60)
   const [question, setQuestion] = useState(0)
   const t = useTranslations('dashboard.quiz')
+  const [selectedOption, setSelectedOption] = useState(false)
 
   useEffect(() => {
     if (seconds > 0) {
@@ -32,16 +36,13 @@ export default function Quiz({ quiz, setCorrect, setQuiz, setIsFinished, setFini
     } else {
       toast.error(t('wrong'), { duration: 3000, className: styles.wrong })
     }
-
     if (quiz.questions.length - 1 > question) {
       setQuestion(question + 1)
     }
-
     if (quiz.questions.length - 1 === question) {
       setCorrect(0)
       setQuiz((state: boolean) => !state)
     }
-
     clearInterval(seconds)
     setSeconds(60)
   }
@@ -57,15 +58,31 @@ export default function Quiz({ quiz, setCorrect, setQuiz, setIsFinished, setFini
           </div>
         </div>
         <div className={styles.quiz}>
-          <h1>{quiz.questions[question].question}</h1>
-          <div className={styles.answers}>
-            {quiz.questions[question].options.map((item: any) => {
-              return (
-                <Button key={item.option} onClick={() => changeQuestion(item.correct)}>
-                  {item.option}
-                </Button>
-              )
-            })}
+          <div>
+            <h1>{quiz.questions[question].question}</h1>
+            <div className={styles.answers}>
+              {quiz.questions[question].options.map((item: any, i: number) => {
+                return (
+                  <>
+                    <div className={styles.option} key={item._id}>
+                      <Input
+                        type='radio'
+                        name='option'
+                        id={`option-${i}`}
+                        onChange={() => setSelectedOption(item.correct)}
+                        value={item.option}>
+                        {item.option}
+                      </Input>
+                    </div>
+                  </>
+                )
+              })}
+            </div>
+          </div>
+          <div className={styles.button}>
+            <Button className={styles.btn} onClick={() => changeQuestion(selectedOption)}>
+              Next <FaArrowRight />
+            </Button>
           </div>
         </div>
       </div>

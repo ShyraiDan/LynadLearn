@@ -1,0 +1,49 @@
+.lists-item {
+  @apply gap-4 
+  lg:gap-6 p-4 
+  lg:p-6 bg-[#F7F9FC]  
+  transition-all blur-0 border-0 duration-[250ms] flex rounded-3xl flex-col flex-nowrap;
+
+  .info {
+    @apply grid grid-cols-[110px_1fr] gap-6;
+
+    .info-text {
+      @apply text-left flex flex-col gap-4;
+
+      .header {
+        @apply flex items-start justify-between;
+
+        h3 {
+          @apply font-bold mb-2 text-lg;
+
+          span {
+            @apply line-clamp-2 cursor-vertical-text text-ellipsis overflow-hidden break-words text-[#666666] m-0 text-sm leading-5
+            sm:text-base sm:leading-6  
+            lg:text-lg lg:leading-7;
+          }
+        }
+
+        button {
+          @apply stroke-black text-black flex items-center justify-center p-2 rounded-2xl bg-[#F0F0F0] transition-all ease-in-out duration-150
+          hover:bg-purple-100 hover:text-white-100 hover:stroke-white-100 hover:fill-white-100;
+        }
+
+        .active {
+          @apply bg-blue-200 text-white-100 stroke-white-100 fill-white-100;
+        }
+      }
+    }
+
+    p {
+      @apply text-[#666666] mb-0 mt-[-9px] overflow-hidden font-medium text-sm font-normal;
+    }
+
+    .image {
+      @apply w-[110px] h-[165px];
+
+      img {
+        @apply shadow-md rounded-[5px] w-[110px] h-[165px];
+      }
+    }
+  }
+}

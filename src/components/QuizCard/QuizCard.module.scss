@@ -1,4 +1,28 @@
 .item {
-  @apply text-center h-[100px] flex items-center justify-center cursor-pointer bg-grey-250 font-bold text-blue-200 p-6 rounded-lg shadow-md transition-all ease-in-out duration-[.15s]
-  hover:text-purple-100 hover:bg-grey-200;
+  @apply flex h-full flex-col cursor-pointer text-lg bg-grey-250 p-2 rounded-lg shadow-md transition-all ease-in-out
+  hover:text-purple-100 hover:bg-grey-200
+  [&_div]:hover:text-purple-100 [&_p]:hover:text-purple-100;
+
+  .top {
+    @apply flex justify-between items-start text-blue-200;
+
+    h4 {
+      @apply m-0 font-medium font-bold text-base duration-150 mb-2
+      md:text-lg 
+      lg:text-xl;
+    }
+
+    button {
+      @apply stroke-black text-black flex items-center justify-center p-2 rounded-2xl bg-[#F0F0F0] transition-all ease-in-out duration-150
+      hover:bg-purple-100 hover:text-white-100 hover:stroke-white-100 hover:fill-white-100;
+    }
+
+    .active {
+      @apply bg-blue-200 text-white-100 stroke-white-100 fill-white-100;
+    }
+  }
+
+  p {
+    @apply m-0 text-sm duration-150;
+  }
 }

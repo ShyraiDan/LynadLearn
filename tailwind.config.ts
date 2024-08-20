@@ -84,6 +84,14 @@ const config: Config = {
           '75%': {
             transform: 'translate(0, 160%)'
           }
+        },
+        rotateCard: {
+          '0%': {
+            transform: 'translate(0)'
+          },
+          '100%': {
+            transform: 'rotateY(180deg)'
+          }
         }
       },
       gridTemplateColumns: {
@@ -94,4 +102,3 @@ const config: Config = {
   plugins: []
 }
 export default config
-

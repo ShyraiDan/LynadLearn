@@ -10,7 +10,7 @@ import { Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
-export function Category({ title, lists, description }: ICategory) {
+export function Category({ title, lists, description }: Omit<ICategory, '_id'>) {
   return (
     <div className={styles.container}>
       <div>
@@ -19,7 +19,7 @@ export function Category({ title, lists, description }: ICategory) {
           <Swiper
             pagination={true}
             modules={[Pagination]}
-            className={styles.slider}
+            // className={styles.slider}
             spaceBetween={10}
             loop={true}
             breakpoints={{

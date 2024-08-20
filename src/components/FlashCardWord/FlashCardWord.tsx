@@ -1,63 +1,94 @@
 'use client'
 
 import styles from './FlashCardWord.module.scss'
-import { useState } from 'react'
-import { Button } from '../ui/Button/Button'
-import { useRef } from 'react'
-import SnackBar from '../ui/SnackBar/SnackBar'
-import { toast } from 'sonner'
 import { IWord } from '@/interfaces/Word.interface'
+import Image from 'next/image'
+import { Button } from '../ui/Button/Button'
+import { useState } from 'react'
+import { DWords } from '@/mock/Words.mock'
 import { useTranslations } from 'next-intl'
 
-import { FaEye } from 'react-icons/fa'
-import { FaEyeSlash } from 'react-icons/fa'
+import usFlag from '@/assets/icons/us.svg'
+import { RiArrowGoBackFill } from 'react-icons/ri'
+import { TiTick } from 'react-icons/ti'
+import { RxCross2 } from 'react-icons/rx'
+import example from '@/assets/icons/message-question.svg'
+import uaFlag from '@/assets/icons/uk.png'
+import { IoReturnUpForward } from 'react-icons/io5'
 
-export default function FlashCardWord({ words }: { words: IWord[] }) {
-  const [showTranslation, setShowTranslation] = useState(false)
-  const [correct, setCorrect] = useState<IWord[]>([])
-  const [incorrect, setIncorrect] = useState<IWord[]>([])
+export default function FlashCardWord({ words, isActive }: { words: any; isActive: boolean }) {
+  const word = DWords[0]
+  const [isRotate, setRotate] = useState(false)
   const t = useTranslations('dashboard.flashcard')
 
-  const inputRef = useRef<HTMLInputElement>(null)
-
-  const word = words[0]
-  const checkWord = () => {
-    if (inputRef.current?.value === word.word) {
-      setCorrect([...correct, word])
-      toast.success(t('correct'), { duration: 3000 })
-    } else {
-      setIncorrect([...incorrect, word])
-      toast.error(t('wrong'), { duration: 3000 })
-    }
+  const handleRotate = () => {
+    if (!isActive) return
+    setRotate((state) => !state)
   }
 
-  console.log('correct', correct)
-  console.log('incorrect', incorrect)
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles['hidden-word']}>
-          <h2>
-            {word.translation}
-            {!showTranslation && (
-              <FaEye className={styles.icon} onClick={() => setShowTranslation((state) => !state)} />
-            )}
-            {showTranslation && (
-              <FaEyeSlash className={styles.icon} onClick={() => setShowTranslation((state) => !state)} />
-            )}
-          </h2>
-          {word.pronunciation && <h6>[{word.pronunciation}]</h6>}
-          {showTranslation && <div className={styles.answer}>{t('answer')}</div>}
-        </div>
-
-        <div className={styles.bottom}>
-          <input type='text' ref={inputRef} placeholder={t('enter_word')} name='word' id='word' />
-          <Button type='button' onClick={() => checkWord()}>
-            {t('check')}
+      <div className={`${styles.card} ${styles.center} ${isRotate ? styles.active : ''}`}>
+        <div className={styles.front}>
+          <div className={styles['word-info']}>
+            <div className={styles.info}>
+              <h3 className={styles.word}>{word.word}</h3>
+              <h6 className={styles['part-of-speech']}>[{word.part_of_speech}]</h6>
+            </div>
+            <div className={styles.pronunciation}>
+              <Image src={usFlag} alt='flag' width={24} />
+              <p>{word.pronunciation}</p>
+            </div>
+          </div>
+          <Button className={styles.footer} onClick={() => handleRotate()}>
+            <h6>
+              <RiArrowGoBackFill />
+              {t('show_definition')}
+            </h6>
           </Button>
         </div>
+        <div className={styles.back}>
+          <Button className={styles['back-btn']} onClick={() => handleRotate()}>
+            <IoReturnUpForward size={24} />
+          </Button>
+          <div className={styles['word-info']}>
+            <div>
+              <div className={styles.translation}>
+                <Image src={uaFlag} alt='flag' width={24} />
+                <p>{word.translation}</p>
+              </div>
+              <p>{word.definition}</p>
+            </div>
+            <div className={styles.examples}>
+              <div className={styles.top}>
+                <div>
+                  <Image src={example} alt='example' />
+                  <h3>{t('examples')}</h3>
+                </div>
+              </div>
+              <ul className={styles['example-list']}>
+                {word.examples.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className={styles.footer}>
+            <Button className={styles['btn-left']}>
+              <h6>
+                <RxCross2 fill='#CE302D' />
+                {t('incorrect')}
+              </h6>
+            </Button>
+            <Button className={styles['btn-right']}>
+              <h6>
+                <TiTick fill='#2ABFA5' />
+                {t('correct')}
+              </h6>
+            </Button>
+          </div>
+        </div>
       </div>
-      <SnackBar styleClass={inputRef.current?.value === word.word ? styles.correct : styles.wrong} />
     </>
   )
 }

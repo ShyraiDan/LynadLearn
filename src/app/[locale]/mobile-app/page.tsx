@@ -105,9 +105,7 @@ export default function MobileApp() {
           <h3>{t('app_features')}</h3>
           <Features />
         </div>
-
         <Image src={message} alt='arrow' />
-
         <div className={styles['features-image']}>
           <div className={styles['light-blue']}></div>
           <div className={styles['dark-blue']}></div>

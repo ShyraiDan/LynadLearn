@@ -1,7 +1,6 @@
 import { Pathnames } from 'next-intl/navigation'
 
 export const locales = ['en', 'ua'] as const
-const arr = [1, 2, 3, 4]
 
 export const pathnames = {
   '/': '/',
@@ -36,6 +35,10 @@ export const pathnames = {
   '/dashboard/lists': {
     en: '/dashboard/lists',
     ua: '/dashboard/lists'
+  },
+  '/dashboard/bookmarks': {
+    en: '/dashboard/bookmarks',
+    ua: '/dashboard/bookmarks'
   },
   '/dashboard/vocabulary': {
     en: '/dashboard/vocabulary',

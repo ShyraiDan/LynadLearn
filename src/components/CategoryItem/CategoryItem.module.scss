@@ -1,0 +1,19 @@
+.category-item {
+  @apply flex items-center justify-center bg-red w-full h-[140px] bg-cover rounded-3xl text-2xl font-bold;
+}
+
+.adverbs {
+  @apply text-[#363884] bg-[url('../../../src/assets/adverbs.png')] bg-[#e4e4f2];
+}
+
+.verbs {
+  @apply text-[#363884] bg-[url('../../../src/assets/verbs.png')] bg-[#dfefe7];
+}
+
+.adjectives {
+  @apply text-[#363884] bg-[url('../../../src/assets/adjectives.png')] bg-[#d6eef8];
+}
+
+.others {
+  @apply text-[#363884] bg-[url('../../../src/assets/others.png')] bg-[#f7d7ed];
+}

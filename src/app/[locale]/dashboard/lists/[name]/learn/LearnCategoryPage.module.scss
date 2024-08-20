@@ -1,0 +1,12 @@
+.container {
+  @apply mb-20 relative;
+
+  .switcher {
+    @apply flex gap-4 absolute right-0 top-[32px] w-[130px] h-[44px];
+
+    .btn {
+      @apply bg-transparent text-black flex items-center justify-center p-3 rounded-2xl bg-[#F0F0F0]
+      hover:bg-blue-200 hover:text-white-100;
+    }
+  }
+}

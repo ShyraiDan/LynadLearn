@@ -4,6 +4,7 @@ import A2 from '@/assets/A2.png'
 import B1 from '@/assets/B1.png'
 import B2 from '@/assets/B2.png'
 import C1 from '@/assets/C1.png'
+import C2 from '@/assets/C2.png'
 
 export const DCategories: ICategory[] = [
   {
@@ -13,78 +14,93 @@ export const DCategories: ICategory[] = [
     lists: [
       {
         _id: '1',
-        title: 'A1 Level Wordlist',
+        title: 'a1_list',
         image: A1
       },
       {
         _id: '2',
-        title: 'A2 Level Wordlist',
+        title: 'a2_list',
         image: A2
       },
       {
         _id: '3',
-        title: 'B1 Level Wordlist',
+        title: 'b1_list',
         image: B1
       },
       {
         _id: '4',
-        title: 'B2 Level Wordlist',
+        title: 'b2_list',
         image: B2
       },
       {
         _id: '5',
-        title: 'C1 Level Wordlist',
+        title: 'c1_list',
         image: C1
       },
       {
-        _id: '1',
-        title: 'A1 Level Wordlist',
+        _id: '6',
+        title: 'c2_list',
+        image: C2
+      },
+      {
+        _id: '7',
+        title: 'a1_list',
         image: A1
       },
       {
-        _id: '2',
-        title: 'A2 Level Wordlist',
+        _id: '8',
+        title: 'a2_list',
         image: A2
       },
       {
-        _id: '3',
-        title: 'B1 Level Wordlist',
+        _id: '9',
+        title: 'b1_list',
         image: B1
       },
       {
-        _id: '4',
-        title: 'B2 Level Wordlist',
+        _id: '10',
+        title: 'b2_list',
         image: B2
       },
       {
-        _id: '5',
-        title: 'C1 Level Wordlist',
+        _id: '11',
+        title: 'c1_list',
         image: C1
       },
       {
-        _id: '1',
-        title: 'A1 Level Wordlist',
+        _id: '12',
+        title: 'c2_list',
+        image: C2
+      },
+      {
+        _id: '13',
+        title: 'a1_list',
         image: A1
       },
       {
-        _id: '2',
-        title: 'A2 Level Wordlist',
+        _id: '14',
+        title: 'a2_list',
         image: A2
       },
       {
-        _id: '3',
-        title: 'B1 Level Wordlist',
+        _id: '15',
+        title: 'b1_list',
         image: B1
       },
       {
-        _id: '4',
-        title: 'B2 Level Wordlist',
+        _id: '16',
+        title: 'b2_list',
         image: B2
       },
       {
-        _id: '5',
-        title: 'C1 Level Wordlist',
+        _id: '17',
+        title: 'c1_list',
         image: C1
+      },
+      {
+        _id: '18',
+        title: 'c2_list',
+        image: C2
       }
     ]
   },
@@ -95,78 +111,93 @@ export const DCategories: ICategory[] = [
     lists: [
       {
         _id: '1',
-        title: 'A1 Level Wordlist',
+        title: 'a1_list',
         image: A1
       },
       {
         _id: '2',
-        title: 'A2 Level Wordlist',
+        title: 'a2_list',
         image: A2
       },
       {
         _id: '3',
-        title: 'B1 Level Wordlist',
+        title: 'b1_list',
         image: B1
       },
       {
         _id: '4',
-        title: 'B2 Level Wordlist',
+        title: 'b2_list',
         image: B2
       },
       {
         _id: '5',
-        title: 'C1 Level Wordlist',
+        title: 'c1_list',
         image: C1
       },
       {
-        _id: '1',
-        title: 'A1 Level Wordlist',
+        _id: '6',
+        title: 'c2_list',
+        image: C2
+      },
+      {
+        _id: '7',
+        title: 'a1_list',
         image: A1
       },
       {
-        _id: '2',
-        title: 'A2 Level Wordlist',
+        _id: '8',
+        title: 'a2_list',
         image: A2
       },
       {
-        _id: '3',
-        title: 'B1 Level Wordlist',
+        _id: '9',
+        title: 'b1_list',
         image: B1
       },
       {
-        _id: '4',
-        title: 'B2 Level Wordlist',
+        _id: '10',
+        title: 'b2_list',
         image: B2
       },
       {
-        _id: '5',
-        title: 'C1 Level Wordlist',
+        _id: '11',
+        title: 'c1_list',
         image: C1
       },
       {
-        _id: '1',
-        title: 'A1 Level Wordlist',
+        _id: '12',
+        title: 'c2_list',
+        image: C2
+      },
+      {
+        _id: '13',
+        title: 'a1_list',
         image: A1
       },
       {
-        _id: '2',
-        title: 'A2 Level Wordlist',
+        _id: '14',
+        title: 'a2_list',
         image: A2
       },
       {
-        _id: '3',
-        title: 'B1 Level Wordlist',
+        _id: '15',
+        title: 'b1_list',
         image: B1
       },
       {
-        _id: '4',
-        title: 'B2 Level Wordlist',
+        _id: '16',
+        title: 'b2_list',
         image: B2
       },
       {
-        _id: '5',
-        title: 'C1 Level Wordlist',
+        _id: '17',
+        title: 'c1_list',
         image: C1
+      },
+      {
+        _id: '18',
+        title: 'c2_list',
+        image: C2
       }
     ]
   }

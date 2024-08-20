@@ -11,6 +11,7 @@ import { TbCardsFilled } from 'react-icons/tb'
 import { TbWriting } from 'react-icons/tb'
 import { IoSettingsSharp } from 'react-icons/io5'
 import { BsQuestionSquareFill } from 'react-icons/bs'
+import { FaBookmark } from 'react-icons/fa6'
 
 export default function SideBar({ isAuth }: { isAuth: boolean }) {
   const t = useTranslations('Header')
@@ -25,6 +26,14 @@ export default function SideBar({ isAuth }: { isAuth: boolean }) {
           <li>
             <NavigationLink href={'/dashboard/profile'} className={`${page === 'profile' && styles.selected}`}>
               <FaUser /> {t('profile')}
+            </NavigationLink>
+          </li>
+        )}
+        {isAuth && (
+          <li>
+            <NavigationLink href={'/dashboard/bookmarks'} className={`${page === 'bookmarks' && styles.selected}`}>
+              <FaBookmark />
+              {t('bookmarks')}
             </NavigationLink>
           </li>
         )}
@@ -52,12 +61,12 @@ export default function SideBar({ isAuth }: { isAuth: boolean }) {
             {t('flashcard')}
           </NavigationLink>
         </li>
-        <li>
+        {/* <li>
           <NavigationLink href={'/settings'} className={`${page === 'settings' && styles.selected}`}>
             <IoSettingsSharp />
             {t('settings')}
           </NavigationLink>
-        </li>
+        </li> */}
       </ul>
     </div>
   )

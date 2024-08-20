@@ -16,8 +16,9 @@
   lg:hidden;
 
   h3 {
-    @apply sm:mb-3 text-blue-150 text-2xl font-bold  
-    md:pt-6 md:text-3xl;
+    @apply text-blue-150 text-2xl font-bold
+    sm:mb-3  
+    md:text-3xl;
   }
 }
 

@@ -1,7 +1,7 @@
 .container {
-  @apply flex flex-col min-h-[calc(100vh-397px-73px)]
-  sm:min-h-[calc(100vh-193px-81px)] 
-  md:min-h-[calc(100vh-153px-81px)] 
+  @apply h-auto flex flex-col min-h-[calc(100vh-397px-73px)]
+  sm:min-h-[calc(100vh-193px-81px)]
+  md:min-h-[calc(100vh-153px-81px)]
   lg:min-h-[calc(100vh-97px-81px)];
 
   .top {
@@ -25,18 +25,38 @@
   }
 
   .quiz {
-    @apply flex flex-col items-center justify-between h-full px-4 pb-4;
+    @apply flex flex-col justify-between h-full px-4 pb-4;
 
     h1 {
-      @apply text-center text-[32px] text-blue-200 font-bold mb-4;
+      @apply text-base font-bold text-blue-200 mb-2 
+      sm:text-3xl;
     }
 
     .answers {
-      @apply grid grid-cols-1 gap-3 w-full
-      lg:grid-cols-2 gap-4;
+      .option {
+        @apply cursor-pointer flex flex-row-reverse justify-end items-center gap-2 mb-4 text-blue-100 font-bold;
 
-      button {
-        @apply rounded-lg;
+        label {
+          @apply mb-0 text-blue-200 
+          sm:text-lg;
+        }
+
+        input {
+          @apply w-min;
+        }
+      }
+    }
+
+    .button {
+      @apply flex justify-end;
+
+      .btn {
+        @apply text-center py-3 px-6 gap-2 pr-[14px] bg-blue-200 font-bold rounded-full text-white-100 transition-all ease-out duration-150 
+        hover:bg-purple-100 [&__svg]:hover:mr-0 hover:gap-[18px];
+
+        svg {
+          @apply mr-2.5 transition-all ease-out duration-150;
+        }
       }
     }
   }

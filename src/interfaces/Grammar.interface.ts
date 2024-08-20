@@ -1,8 +1,10 @@
 import mongoose, { Schema } from 'mongoose'
 
 export interface IGrammarTopic {
+  _id: string
   level: string
   title: string
+  titleUa: string
   data: {
     description: Array<string>
     example: Array<{

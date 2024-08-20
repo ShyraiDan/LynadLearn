@@ -1,0 +1,115 @@
+.container {
+  @apply p-4;
+
+  .lessons {
+    @apply flex leading-6 w-full;
+
+    > div {
+      @apply my-12 w-full grid gap-3 
+      sm:gap-6
+      xl:mx-0;
+
+      .lesson-item {
+        @apply w-full;
+
+        > div {
+          @apply flex w-full  items-center gap-4 
+          sm:gap-6;
+
+          &.opened {
+            @apply items-start;
+          }
+
+          .icon-number {
+            @apply grid grid-cols-1 relative grid-rows-1 w-12 h-12 
+            sm:w-16 sm:h-16;
+
+            .icon {
+              @apply w-12 h-12 col-span-1 row-span-1
+              sm:w-16 sm:h-16;
+            }
+
+            .number {
+              @apply text-white-100 font-bold text-base col-span-1 row-span-1 z-[3] w-12 h-12 flex items-center justify-center
+              sm:w-16 sm:h-16;
+            }
+          }
+
+          .accordion-wrapper {
+            @apply w-full;
+
+            .accordion {
+              @apply w-full flex flex-col shadow-none border-none;
+            }
+
+            .accordion-summary {
+              @apply flex cursor-pointer justify-between items-center bg-[#EBF0F7] rounded-3xl p-4 z-[9];
+
+              &.active {
+                @apply rounded-b-none;
+
+                h3 {
+                  @apply text-purple-100;
+                }
+              }
+
+              > div {
+                h3 {
+                  @apply font-medium text-base mb-0;
+                }
+              }
+            }
+
+            .accordion-details {
+              @apply grid grid-rows-[0fr] transition-all duration-500 grid-rows-[1fr];
+
+              .accordion-details-container {
+                @apply flex justify-between items-center bg-[#F0F4FA] p-3 rounded-b-3xl
+                sm:px-6 sm:py-4;
+
+                .btns {
+                  @apply flex gap-4;
+
+                  .tip-btn {
+                    @apply bg-transparent text-black p-0 m-0 text-xl transition-all ease-out duration-150
+                    hover:text-purple-100;
+                  }
+
+                  a {
+                    @apply text-xl transition-all ease-out duration-150
+                    hover:text-purple-100;
+                  }
+                }
+
+                .info {
+                  @apply flex items-center gap-6;
+
+                  > div {
+                    @apply flex items-center gap-4;
+
+                    > div {
+                      @apply flex items-center text-[#949494] gap-[6px] text-sm;
+
+                      img {
+                        @apply w-[24px] fill-grey-100;
+                      }
+                    }
+                  }
+
+                  a {
+                    @apply flex justify-center items-center text-center py-2 px-6 gap-2 pr-[14px] bg-blue-200 font-bold rounded-full text-white-100 transition-all ease-out duration-150 
+                    hover:bg-purple-100 [&__svg]:hover:mr-0 hover:gap-[18px];
+
+                    svg {
+                      @apply mr-2.5 transition-all ease-out duration-150;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

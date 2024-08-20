@@ -1,0 +1,57 @@
+.heading {
+  @apply flex justify-between gap-6 flex-col-reverse items-center mb-14
+  sm:mb-16 
+  lg:flex-row lg:mb-20;
+
+  .heading-left {
+    @apply flex flex-col gap-4 items-center 
+    lg:w-[60%] lg:items-start lg:gap-6;
+
+    h1 {
+      @apply text-center my-0 text-lg font-bold mb-4 
+      sm:text-2xl 
+      lg:text-4xl;
+    }
+
+    p {
+      @apply text-sm self-start mb-4 
+      sm:text-base;
+    }
+
+    .breadcrumbs {
+      @apply text-[0.8rem] mb-2 font-bold font-medium text-[#6a778db9] tracking-[0.15px] z-[2] w-full
+      sm:text-[0.95rem] 
+      lg:block md:flex hidden;
+
+      ul {
+        @apply flex flex-wrap list-none m-0 p-0 capitalize;
+
+        li {
+          @apply [&:not(:last-child)]:after:content-['/'] [&:not(:last-child)]:after:px-1 [&:not(:last-child)]:after:opacity-70 text-blue-100;
+        }
+      }
+    }
+
+    .stats {
+      @apply flex gap-4 items-center;
+
+      > div {
+        @apply flex items-center gap-[6px] text-[#949494];
+
+        p {
+          @apply m-0 text-xs 
+          sm:text-sm;
+        }
+      }
+    }
+  }
+
+  .heading-right {
+    @apply w-[150px] text-center  
+    sm:w-[200px] sm:text-start;
+
+    img {
+      @apply mt-6 w-full h-auto;
+    }
+  }
+}

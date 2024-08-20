@@ -1,7 +1,7 @@
 import styles from './Input.module.scss'
 import { IInput } from './Input.interface'
 
-export function Input({ type, placeholder, name, id, children, required, obj }: IInput) {
+export function Input({ type, placeholder, name, id, children, required, obj, onChange, value, checked }: IInput) {
   return (
     <>
       <label className={styles.label} htmlFor={id}>
@@ -14,6 +14,9 @@ export function Input({ type, placeholder, name, id, children, required, obj }: 
         placeholder={placeholder}
         name={name}
         id={id}
+        value={value}
+        onChange={onChange}
+        checked={checked}
         {...obj}
       />
     </>

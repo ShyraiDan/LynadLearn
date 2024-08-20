@@ -10,7 +10,7 @@ import { Suspense } from 'react'
 import CustomList from '@/components/CustomList/CustomList'
 import { getAllGrammar } from '@/lib/grammar'
 
-async function CategoryQuizPage({ type }: any) {
+async function CategoryQuizPage({ locale, type }: any) {
   const t = await getTranslations('dashboard.quiz')
 
   if (type === 'grammar') {
@@ -24,7 +24,7 @@ async function CategoryQuizPage({ type }: any) {
             {grammarElementary.map((item: any) => {
               return (
                 <div key={item._id}>
-                  <QuizCard topic={item} />
+                  <QuizCard topic={item} lang={locale} />
                 </div>
               )
             })}
@@ -75,10 +75,11 @@ async function CategoryQuizPage({ type }: any) {
   }
 }
 
-export default function QuizPage({ searchParams }: any) {
-  const { type } = searchParams
-
+export default function QuizPage({ searchParams, params }: any) {
   const t = useTranslations('dashboard.quiz')
+  const { type } = searchParams
+  const { locale } = params
+
   return (
     <>
       <div className={styles.container}>
@@ -97,7 +98,7 @@ export default function QuizPage({ searchParams }: any) {
               </div>
             </div>
             <div className={styles.items}>
-              <CategoryQuizPage type={type} />
+              <CategoryQuizPage type={type} locale={locale} />
             </div>
           </div>
         </Suspense>
