@@ -94,8 +94,6 @@ export default function QuizPage({ searchParams, params }: TQuizPage) {
   const { type } = searchParams
   const { locale } = params
 
-  console.log('type', type)
-
   return (
     <>
       <div className={styles.container}>

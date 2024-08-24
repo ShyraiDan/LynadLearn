@@ -104,7 +104,12 @@ export default function SingleQuizPage() {
         </div>
       )}
 
-      {!loading && !quiz && <div className={styles.container}>Quiz not found</div>}
+      {!loading && !quiz && (
+        <div className={styles.container}>
+          <h3>{t('no_quiz')}</h3>
+          <NavigationLink href='/dashboard/quiz?type=grammar'>{t('move_to_quizzes')}</NavigationLink>
+        </div>
+      )}
     </>
   )
 }

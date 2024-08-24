@@ -307,10 +307,13 @@
       "next": "Next",
       "go_to_quiz": "Go to Quiz",
       "no_page": "We don't have such quiz type",
-      "move_to_quizzes": "Move to Quizzes"
+      "move_to_quizzes": "Move to Quizzes",
+      "no_quiz": "No quiz found. Try to open another list."
     },
     "grammar": {
-      "move_to_test": "Move to Grammar test"
+      "move_to_test": "Move to Grammar test",
+      "no_grammar": "No grammar found. Try to open another list.",
+      "move_to_grammar": "Move to Grammar"
     },
     "flashcard": {
       "flashcard_page": "Flashcard page",

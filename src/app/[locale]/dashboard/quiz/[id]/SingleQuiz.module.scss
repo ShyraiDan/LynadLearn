@@ -20,6 +20,16 @@
       @apply border rounded;
     }
   }
+
+  > h3 {
+    @apply text-center text-lg font-bold text-blue-200 mb-2
+    sm:text-[2rem] sm:mb-4;
+  }
+
+  > a {
+    @apply flex font-medium items-center justify-center bg-blue-200 text-white-100 px-3 py-1.5 rounded transition-all ease-in-out duration-300
+    hover:bg-purple-100;
+  }
 }
 
 .no-time-modal {

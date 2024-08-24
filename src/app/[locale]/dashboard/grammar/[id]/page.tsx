@@ -18,8 +18,8 @@ async function Grammar({ params }: TSingleGrammarPage) {
   if (!grammar) {
     return (
       <div className={styles['no-grammar']}>
-        <h3>Grammar not found</h3>
-        <NavigationLink href='/dashboard/grammar'>Move to Grammar</NavigationLink>
+        <h3>{t('no_grammar')}</h3>
+        <NavigationLink href='/dashboard/grammar'>{t('move_to_grammar')}</NavigationLink>
       </div>
     )
   }
