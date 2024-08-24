@@ -315,7 +315,11 @@
       "show_definition": "See definition",
       "examples": "Examples",
       "correct": "Correct",
-      "incorrect": "Incorrect"
+      "incorrect": "Incorrect",
+      "no_lists": "No list found. Try to open another list.",
+      "move_flashcards": "Move to Flashcards",
+      "no_words": "You don't have any words in this list.",
+      "move_list": "Move to List"
     },
     "collections": {
       "hours": "h",

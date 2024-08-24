@@ -4,8 +4,7 @@ import styles from './FlashCardWord.module.scss'
 import { IWord } from '@/interfaces/Word.interface'
 import Image from 'next/image'
 import { Button } from '../ui/Button/Button'
-import { useState } from 'react'
-import { DWords } from '@/mock/Words.mock'
+import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 
 import usFlag from '@/assets/icons/us.svg'
@@ -16,8 +15,7 @@ import example from '@/assets/icons/message-question.svg'
 import uaFlag from '@/assets/icons/uk.png'
 import { IoReturnUpForward } from 'react-icons/io5'
 
-export default function FlashCardWord({ words, isActive }: { words: any; isActive: boolean }) {
-  const word = DWords[0]
+export default function FlashCardWord({ word, isActive }: { word: IWord; isActive: boolean }) {
   const [isRotate, setRotate] = useState(false)
   const t = useTranslations('dashboard.flashcard')
 
@@ -25,6 +23,10 @@ export default function FlashCardWord({ words, isActive }: { words: any; isActiv
     if (!isActive) return
     setRotate((state) => !state)
   }
+
+  useEffect(() => {
+    setRotate(false)
+  }, [isActive])
 
   return (
     <>
@@ -67,9 +69,12 @@ export default function FlashCardWord({ words, isActive }: { words: any; isActiv
                 </div>
               </div>
               <ul className={styles['example-list']}>
-                {word.examples.map((item) => (
+                {/* Change this for different types of words (from default list, from custom list) */}
+
+                {/* {word.example.map((item: string) => (
                   <li key={item}>{item}</li>
-                ))}
+                ))} */}
+                <li>{word.example}</li>
               </ul>
             </div>
           </div>
