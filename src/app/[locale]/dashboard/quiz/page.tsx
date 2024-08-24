@@ -10,7 +10,21 @@ import { Suspense } from 'react'
 import CustomList from '@/components/CustomList/CustomList'
 import { getAllGrammar } from '@/lib/grammar'
 
-async function CategoryQuizPage({ locale, type }: any) {
+type TQuizPage = {
+  searchParams: {
+    type: string
+  }
+  params: {
+    locale: string
+  }
+}
+
+type TCategoryQuizPage = {
+  type: string
+  locale: string
+}
+
+async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
   const t = await getTranslations('dashboard.quiz')
 
   if (type === 'grammar') {
@@ -75,33 +89,44 @@ async function CategoryQuizPage({ locale, type }: any) {
   }
 }
 
-export default function QuizPage({ searchParams, params }: any) {
+export default function QuizPage({ searchParams, params }: TQuizPage) {
   const t = useTranslations('dashboard.quiz')
   const { type } = searchParams
   const { locale } = params
 
+  console.log('type', type)
+
   return (
     <>
       <div className={styles.container}>
-        <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
-          <h2>{t('quiz_page')}</h2>
-          <div className={styles.sections}>
-            <div className={styles.top}>
-              <h4>{t('filter')}</h4>
-              <div className={styles.tags}>
-                <span className={`${type === 'grammar' && styles.active}`}>
-                  <NavigationLink href='/dashboard/quiz?type=grammar'>{t('grammar')}</NavigationLink>
-                </span>
-                <span className={`${type === 'vocabulary' && styles.active}`}>
-                  <NavigationLink href='/dashboard/quiz?type=vocabulary'>{t('vocabulary')}</NavigationLink>
-                </span>
+        {!(type === 'grammar' || type === 'vocabulary') && (
+          <div className={styles['no-page']}>
+            <h3>{t('no_page')}</h3>
+            <NavigationLink href='/dashboard/quiz?type=grammar'>{t('move_to_quizzes')}</NavigationLink>
+          </div>
+        )}
+
+        {(type === 'grammar' || type === 'vocabulary') && (
+          <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
+            <h2>{t('quiz_page')}</h2>
+            <div className={styles.sections}>
+              <div className={styles.top}>
+                <h4>{t('filter')}</h4>
+                <div className={styles.tags}>
+                  <span className={`${type === 'grammar' && styles.active}`}>
+                    <NavigationLink href='/dashboard/quiz?type=grammar'>{t('grammar')}</NavigationLink>
+                  </span>
+                  <span className={`${type === 'vocabulary' && styles.active}`}>
+                    <NavigationLink href='/dashboard/quiz?type=vocabulary'>{t('vocabulary')}</NavigationLink>
+                  </span>
+                </div>
+              </div>
+              <div className={styles.items}>
+                <CategoryQuizPage type={type} locale={locale} />
               </div>
             </div>
-            <div className={styles.items}>
-              <CategoryQuizPage type={type} locale={locale} />
-            </div>
-          </div>
-        </Suspense>
+          </Suspense>
+        )}
       </div>
     </>
   )

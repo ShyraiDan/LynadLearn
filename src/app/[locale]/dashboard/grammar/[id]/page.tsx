@@ -11,11 +11,18 @@ type TSingleGrammarPage = {
   }
 }
 
-//TODO add message when we don't have any topic
-
 async function Grammar({ params }: TSingleGrammarPage) {
   const grammar = await getSingleGrammar(params.id)
   const t = await getTranslations('dashboard.grammar')
+
+  if (!grammar) {
+    return (
+      <div className={styles['no-grammar']}>
+        <h3>Grammar not found</h3>
+        <NavigationLink href='/dashboard/grammar'>Move to Grammar</NavigationLink>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -40,12 +47,10 @@ async function Grammar({ params }: TSingleGrammarPage) {
             ))}
           </div>
           <div className={styles.test}>
-            <NavigationLink href={`/dashboard/quiz/${params.id}`}>{t('move_to_test')}</NavigationLink>
+            <NavigationLink href={`/dashboard/quiz/${grammar.quizId}`}>{t('move_to_test')}</NavigationLink>
           </div>
         </div>
       )}
-
-      {!grammar && <div>No topic</div>}
     </>
   )
 }

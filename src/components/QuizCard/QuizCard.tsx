@@ -8,7 +8,12 @@ import { useState, MouseEvent } from 'react'
 
 import { BookmarkAdd, BookmarkDelete } from '../ui/Icons/Icons'
 
-export default function QuizCard({ topic, lang }: { topic: IGrammarTopic; lang: string }) {
+type TQuizCard = {
+  topic: IGrammarTopic
+  lang: string
+}
+
+export default function QuizCard({ topic, lang }: TQuizCard) {
   const [isBookmarked, setIsBookmarked] = useState(false)
 
   const handleAddBookmark = (e: MouseEvent<HTMLButtonElement>) => {

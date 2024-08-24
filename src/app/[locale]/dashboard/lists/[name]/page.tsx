@@ -24,6 +24,9 @@ type TSingleDefaultList = {
   }
 }
 
+//TODO:
+// add loader and message when no list found
+
 export default function SingleDefaultList({ params }: TSingleDefaultList) {
   const { name, locale } = params
   const t = useTranslations('dashboard.lists.learn')

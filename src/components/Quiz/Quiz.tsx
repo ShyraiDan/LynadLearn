@@ -34,7 +34,7 @@ export default function Quiz({ quiz, setCorrect, setQuiz, setIsFinished, setFini
       toast.success(t('correct'), { duration: 1500, className: styles.correct })
       setCorrect((state: number) => state + 1)
     } else {
-      toast.error(t('wrong'), { duration: 1500, className: styles.wrong })
+      toast.error(t('incorrect'), { duration: 1500, className: styles.wrong })
     }
     if (quiz.questions.length - 1 > question) {
       setQuestion(question + 1)

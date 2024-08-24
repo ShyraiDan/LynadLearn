@@ -9,10 +9,11 @@ import { Modal } from '@/components/ui/Modal/Modal'
 import { useTranslations } from 'next-intl'
 import { getSingleQuiz } from '@/lib/quiz'
 import { IQuiz } from '@/interfaces/Quiz.interface'
+import Loader from '@/components/Loader/Loader'
+import { useParams } from 'next/navigation'
 
 // TODO
-// add loader and message when no quiz found
-// isFinished modal not working
+// isFinished modal not working (after answering the last question)
 
 export default function SingleQuizPage() {
   const [isQuiz, setIsQuiz] = useState(false)
@@ -21,12 +22,15 @@ export default function SingleQuizPage() {
   const [correct, setCorrect] = useState(0)
   const [finishTime, setFinishTime] = useState(0)
   const [startTime, setStartTime] = useState(0)
+  const [loading, isLoading] = useState(true)
   const t = useTranslations('dashboard.quiz')
   const [quiz, setQuiz] = useState<IQuiz | null>(null)
+  const { id } = useParams()
 
   useEffect(() => {
-    getSingleQuiz('Adjectives and prepositions').then((quiz: any) => {
+    getSingleQuiz(id as string).then((quiz: IQuiz | null) => {
       setQuiz(quiz)
+      isLoading(false)
     })
   }, [])
 
@@ -47,14 +51,11 @@ export default function SingleQuizPage() {
 
   console.log(correct)
 
-  if (!quiz) {
-    return <div>We don&apos;t have such quiz</div>
-  }
   return (
     <>
-      {!isQuiz && (
+      {quiz && !isQuiz && (
         <div className={styles.container}>
-          <h1>{quiz.title}</h1>
+          <h1>{quiz?.title}</h1>
           <div>
             <NavigationLink href={'/dashboard/quiz?type=grammar'}>{t('to_quiz')}</NavigationLink>
             <Button onClick={() => startQuiz()}>{t('start_quiz')}</Button>
@@ -83,19 +84,27 @@ export default function SingleQuizPage() {
               <br />
               {t('you_got', {
                 correct: correct,
-                length: quiz.questions.length,
+                length: quiz?.questions.length,
                 time: Math.floor((finishTime - startTime) / 1000)
               })}
             </h3>
             <div className={styles['nav-btns']}>
               <Button onClick={() => returnToQuiz()}>{t('back')}</Button>
-              <NavigationLink className={styles.link} href={'/dashboard/quiz'}>
+              <NavigationLink className={styles.link} href={'/dashboard/quiz?type=grammar'}>
                 {t('go_to_quiz')}
               </NavigationLink>
             </div>
           </div>
         </Modal>
       )}
+
+      {loading && (
+        <div className={styles.container}>
+          <Loader dimensionClass={styles.loader} />
+        </div>
+      )}
+
+      {!loading && !quiz && <div className={styles.container}>Quiz not found</div>}
     </>
   )
 }

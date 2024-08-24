@@ -305,7 +305,9 @@
       "correct": "You answered correctly",
       "incorrect": "You answered incorrectly",
       "next": "Next",
-      "go_to_quiz": "Go to Quiz"
+      "go_to_quiz": "Go to Quiz",
+      "no_page": "We don't have such quiz type",
+      "move_to_quizzes": "Move to Quizzes"
     },
     "grammar": {
       "move_to_test": "Move to Grammar test"

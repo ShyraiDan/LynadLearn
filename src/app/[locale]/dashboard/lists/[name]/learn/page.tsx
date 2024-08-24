@@ -9,6 +9,9 @@ import { useState } from 'react'
 import { IoIosArrowBack } from 'react-icons/io'
 import { IoIosArrowForward } from 'react-icons/io'
 
+//TODO:
+// add loader and message when no list found
+
 export default function LearnCategoryPage() {
   const [word, setWord] = useState(0)
   const ttt = DWords[word]

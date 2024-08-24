@@ -13,6 +13,7 @@ export interface IGrammarTopic {
       examples: Array<string>
     }>
   }
+  quizId: string
 }
 
 const grammarSchema = new Schema({
@@ -24,6 +25,10 @@ const grammarSchema = new Schema({
     type: String,
     required: true
   },
+  titleUa: {
+    type: String,
+    required: true
+  },
   data: {
     description: Array<String>,
     example: Array<{
@@ -31,6 +36,10 @@ const grammarSchema = new Schema({
       description: String
       examples: Array<String>
     }>
+  },
+  quizId: {
+    type: String,
+    required: true
   }
 })
 
