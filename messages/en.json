@@ -222,7 +222,12 @@
       "c1_list": "C1 Level Wordlist",
       "c2_list": "C2 Level Wordlist",
       "learn": {
-        "example": "Example"
+        "example": "Example",
+        "words": "Words",
+        "start": "Start",
+        "hours": "h",
+        "minutes": "m",
+        "lessons": "Lessons"
       }
     },
     "vocabulary": {

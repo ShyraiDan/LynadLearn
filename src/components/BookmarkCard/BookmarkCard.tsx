@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { ICollections } from '@/interfaces/Collections.interface'
 import { Button } from '../ui/Button/Button'
-import { useState } from 'react'
+import { useState, MouseEvent } from 'react'
 
 import { BookmarkAdd, BookmarkDelete } from '../ui/Icons/Icons'
 
@@ -14,7 +14,7 @@ export const BookmarkCard = ({ item, locale }: { item: ICollections; locale: str
   const t = useTranslations('dashboard.collections')
   const [isBookmarked, setIsBookmarked] = useState(false)
 
-  const handleAddBookmark = (e: any) => {
+  const handleAddBookmark = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     setIsBookmarked(!isBookmarked)
   }

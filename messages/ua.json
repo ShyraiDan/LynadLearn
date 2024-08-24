@@ -222,7 +222,12 @@
       "c1_list": "Список слів рівня C1",
       "c2_list": "Список слів рівня C2",
       "learn": {
-        "example": "Приклад"
+        "example": "Приклад",
+        "words": "Слів",
+        "start": "Почати",
+        "hours": "год",
+        "minutes": "хв",
+        "lessons": "Уроків"
       }
     },
     "vocabulary": {
@@ -328,7 +333,7 @@
       "to_flashcards": "До Флеш-карт"
     },
     "collections": {
-      "hours": "год.",
+      "hours": "год",
       "minutes": "хв",
       "lessons": "Уроків",
       "words": "Слів"

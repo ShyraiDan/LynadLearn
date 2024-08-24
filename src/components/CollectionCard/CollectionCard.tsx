@@ -57,9 +57,7 @@ export const CollectionCard = ({ item, locale }: { item: ICollections; locale: s
             <FaClock />
             <p>
               <span>
-                {Math.floor(item.words / 60)}
-                {t('hours')} {item.words % 60}
-                {t('minutes')}
+                {Math.floor(item.words / 120)} {t('hours')} {Math.ceil((item.words % 60) / 2)} {t('minutes')}
               </span>
             </p>
           </div>

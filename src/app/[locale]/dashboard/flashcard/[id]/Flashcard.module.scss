@@ -52,10 +52,7 @@
 }
 
 .finished {
-  // @apply sm:h-[410px] sm:w-[350px] sm:self-center sm:justify-self-center;
-
   > div {
-    // items-center justify-center
     @apply flex w-full h-full mb-10;
   }
 

@@ -16,7 +16,9 @@ interface IPageHeading {
 }
 
 export default function PageHeading({ name, id, title, description, showStatistics }: IPageHeading) {
-  const t = useTranslations()
+  const t = useTranslations('dashboard')
+  const lessons = 20
+  const words = 500
 
   const links = [
     { link: '/', title: 'Home' },
@@ -52,19 +54,26 @@ export default function PageHeading({ name, id, title, description, showStatisti
             <div>
               <FaBookOpen />
               <p>
-                <span>20</span> Lesson
+                <span>{lessons}</span> {t('lists.learn.lessons')}
               </p>
             </div>
             <div>
               <MdPlayLesson />
               <p>
-                <span>500</span> Word
+                <span>{words}</span> {t('lists.learn.words')}
               </p>
             </div>
             <div>
               <FaClock />
               <p>
-                <span>4h 13m</span>
+                <span>
+                  {Math.floor(words / 120) > 1 && (
+                    <>
+                      {Math.floor(words / 120)} {t('lists.learn.hours')}{' '}
+                    </>
+                  )}
+                  {Math.ceil((words % 60) / 2)} {t('lists.learn.minutes')}
+                </span>
               </p>
             </div>
           </div>
