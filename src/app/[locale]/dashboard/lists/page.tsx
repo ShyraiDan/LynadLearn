@@ -11,19 +11,23 @@ import { getTranslations } from 'next-intl/server'
 const categories = [
   {
     title: 'adverbs',
-    class: 'adverbs'
+    class: 'adverbs',
+    href: '/dashboard/collections/adverbs'
   },
   {
     title: 'verbs',
-    class: 'verbs'
+    class: 'verbs',
+    href: '/dashboard/collections/verbs'
   },
   {
     title: 'adjectives',
-    class: 'adjectives'
+    class: 'adjectives',
+    href: '/dashboard/collections/adjectives'
   },
   {
     title: 'other',
-    class: 'others'
+    class: 'others',
+    href: '/dashboard/collections/others'
   }
 ]
 
@@ -48,7 +52,7 @@ async function YourCategories() {
         </div>
         <div className={styles.categories}>
           {categories.map((item) => (
-            <CategoryItem key={item.title} title={t(item.title)} cssClass={item.class} />
+            <CategoryItem key={item.title} title={t(item.title)} cssClass={item.class} href={item.href} />
           ))}
         </div>
       </div>
