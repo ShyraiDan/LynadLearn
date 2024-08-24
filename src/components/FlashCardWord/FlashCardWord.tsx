@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { Button } from '../ui/Button/Button'
 import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
+import { useSwiper } from 'swiper/react'
 
 import usFlag from '@/assets/icons/us.svg'
 import { RiArrowGoBackFill } from 'react-icons/ri'
@@ -15,13 +16,45 @@ import example from '@/assets/icons/message-question.svg'
 import uaFlag from '@/assets/icons/uk.png'
 import { IoReturnUpForward } from 'react-icons/io5'
 
-export default function FlashCardWord({ word, isActive }: { word: IWord; isActive: boolean }) {
+type TFlashCardWord = {
+  word: IWord
+  isActive: boolean
+  isLast: boolean
+  setWords: React.Dispatch<React.SetStateAction<IWord[]>>
+  setWrongWords: React.Dispatch<React.SetStateAction<IWord[]>>
+  setFinished: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export default function FlashCardWord({
+  word,
+  isActive,
+  isLast,
+  setWords,
+  setFinished,
+  setWrongWords
+}: TFlashCardWord) {
   const [isRotate, setRotate] = useState(false)
   const t = useTranslations('dashboard.flashcard')
+  const swiper = useSwiper()
 
   const handleRotate = () => {
     if (!isActive) return
     setRotate((state) => !state)
+  }
+
+  const handleCorrect = () => {
+    if (isLast) {
+      setFinished(true)
+    }
+
+    swiper.slideNext()
+  }
+
+  const handleIncorrect = () => {
+    setWrongWords((state) => [...state, word])
+
+    setWords((state: IWord[]) => [...state, word])
+    swiper.slideNext()
   }
 
   useEffect(() => {
@@ -79,13 +112,13 @@ export default function FlashCardWord({ word, isActive }: { word: IWord; isActiv
             </div>
           </div>
           <div className={styles.footer}>
-            <Button className={styles['btn-left']}>
+            <Button className={styles['btn-left']} onClick={() => handleIncorrect()}>
               <h6>
                 <RxCross2 fill='#CE302D' />
                 {t('incorrect')}
               </h6>
             </Button>
-            <Button className={styles['btn-right']}>
+            <Button className={styles['btn-right']} onClick={() => handleCorrect()}>
               <h6>
                 <TiTick fill='#2ABFA5' />
                 {t('correct')}

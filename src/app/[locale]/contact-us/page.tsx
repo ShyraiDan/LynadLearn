@@ -23,8 +23,6 @@ export default function ContactUsPage() {
   })
 
   const onSubmit: SubmitHandler<IContactUS> = async (values) => {
-    console.log(values)
-
     await sendContacts(values)
     toast.success(t('Contact_Us.form_submitted'), { duration: 3000 })
 

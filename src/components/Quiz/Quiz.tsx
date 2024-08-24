@@ -11,7 +11,7 @@ import { Input } from '../ui/Input/Input'
 import { FaArrowRight } from 'react-icons/fa'
 
 export default function Quiz({ quiz, setCorrect, setQuiz, setIsFinished, setFinishTime }: any) {
-  const [seconds, setSeconds] = useState(60)
+  const [seconds, setSeconds] = useState(10)
   const [question, setQuestion] = useState(0)
   const t = useTranslations('dashboard.quiz')
   const [selectedOption, setSelectedOption] = useState(false)
@@ -31,10 +31,10 @@ export default function Quiz({ quiz, setCorrect, setQuiz, setIsFinished, setFini
 
   const changeQuestion = (correct: boolean) => {
     if (correct) {
-      toast.success(t('correct'), { duration: 3000, className: styles.correct })
+      toast.success(t('correct'), { duration: 1500, className: styles.correct })
       setCorrect((state: number) => state + 1)
     } else {
-      toast.error(t('wrong'), { duration: 3000, className: styles.wrong })
+      toast.error(t('wrong'), { duration: 1500, className: styles.wrong })
     }
     if (quiz.questions.length - 1 > question) {
       setQuestion(question + 1)
@@ -81,7 +81,7 @@ export default function Quiz({ quiz, setCorrect, setQuiz, setIsFinished, setFini
           </div>
           <div className={styles.button}>
             <Button className={styles.btn} onClick={() => changeQuestion(selectedOption)}>
-              Next <FaArrowRight />
+              {t('next')} <FaArrowRight />
             </Button>
           </div>
         </div>

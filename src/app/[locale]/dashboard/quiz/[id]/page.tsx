@@ -87,8 +87,12 @@ export default function SingleQuizPage() {
                 time: Math.floor((finishTime - startTime) / 1000)
               })}
             </h3>
-
-            <Button onClick={() => returnToQuiz()}>{t('back')}</Button>
+            <div className={styles['nav-btns']}>
+              <Button onClick={() => returnToQuiz()}>{t('back')}</Button>
+              <NavigationLink className={styles.link} href={'/dashboard/quiz'}>
+                {t('go_to_quiz')}
+              </NavigationLink>
+            </div>
           </div>
         </Modal>
       )}

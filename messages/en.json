@@ -291,15 +291,16 @@
       "no_lists": "There are no lists for this category",
       "select_your_list": "Select your list",
       "no_time": "No time!",
-      "no_question": "",
+      "no_question": "Unfortunately, the time to answer this quiz question has expired.",
       "back": "Back",
       "to_quiz": "Go to Quizes",
       "start_quiz": "Start Quiz",
       "you_got": "You scored {correct} out of {length} in {time} seconds",
       "need_login": "You need to be logged in",
       "correct": "You answered correctly",
-      "wrong": "You answered incorrectly",
-      "next": "Next"
+      "incorrect": "You answered incorrectly",
+      "next": "Next",
+      "go_to_quiz": "Go to Quiz"
     },
     "grammar": {
       "move_to_test": "Move to Grammar test"
@@ -319,7 +320,12 @@
       "no_lists": "No list found. Try to open another list.",
       "move_flashcards": "Move to Flashcards",
       "no_words": "You don't have any words in this list.",
-      "move_list": "Move to List"
+      "move_list": "Move to List",
+      "congrats": "Congrats!",
+      "you_learned": "You successfully learned {words} new words",
+      "no_difficult_words": "You have not met any difficult words!",
+      "add_difficult_words": "Add difficult words to your list!",
+      "to_flashcards": "Go to Flashcards"
     },
     "collections": {
       "hours": "h",

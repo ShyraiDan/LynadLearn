@@ -4,15 +4,14 @@ import styles from './QuizCard.module.scss'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 import { Button } from '../ui/Button/Button'
-import { useState } from 'react'
+import { useState, MouseEvent } from 'react'
 
 import { BookmarkAdd, BookmarkDelete } from '../ui/Icons/Icons'
 
 export default function QuizCard({ topic, lang }: { topic: IGrammarTopic; lang: string }) {
   const [isBookmarked, setIsBookmarked] = useState(false)
-  console.log(topic)
 
-  const handleAddBookmark = (e: any) => {
+  const handleAddBookmark = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     setIsBookmarked(!isBookmarked)
   }

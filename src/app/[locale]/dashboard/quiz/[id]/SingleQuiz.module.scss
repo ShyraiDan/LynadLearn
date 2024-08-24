@@ -36,8 +36,17 @@
       @apply text-lg text-center font-bold text-blue-200;
     }
 
-    button {
-      @apply mt-2 rounded px-10 self-center;
+    .nav-btns {
+      @apply flex gap-4;
+
+      .link {
+        @apply w-[135px] mt-2 text-center rounded px-5 py-2 self-center bg-blue-200 text-white-100 font-bold transition-all ease-linear duration-150
+        hover:bg-purple-100;
+      }
+
+      button {
+        @apply w-[135px] mt-2 rounded px-10 self-center;
+      }
     }
   }
 }
