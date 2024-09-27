@@ -47,7 +47,7 @@ async function Grammar({ params }: TSingleGrammarPage) {
             ))}
           </div>
           <div className={styles.test}>
-            <NavigationLink href={`/dashboard/quiz/${grammar.quizId}`}>{t('move_to_test')}</NavigationLink>
+            <NavigationLink href={`/dashboard/quiz/${grammar.quizId}?type=grammar`}>{t('move_to_test')}</NavigationLink>
           </div>
         </div>
       )}

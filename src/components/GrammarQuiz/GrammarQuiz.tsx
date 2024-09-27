@@ -1,6 +1,6 @@
 'use client'
 
-import styles from './Quiz.module.scss'
+import styles from './GrammerQuiz.module.scss'
 import { Button } from '../ui/Button/Button'
 import { useState, useEffect } from 'react'
 import { toast } from 'sonner'
@@ -10,7 +10,7 @@ import { Input } from '../ui/Input/Input'
 
 import { FaArrowRight } from 'react-icons/fa'
 
-export default function Quiz({ quiz, setCorrect, setQuiz, setIsFinished, setFinishTime }: any) {
+export default function GrammarQuiz({ quiz, setCorrect, setQuiz, setIsFinished, setFinishTime }: any) {
   const [seconds, setSeconds] = useState(10)
   const [question, setQuestion] = useState(0)
   const t = useTranslations('dashboard.quiz')

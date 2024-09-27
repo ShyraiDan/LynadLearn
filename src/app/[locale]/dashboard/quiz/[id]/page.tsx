@@ -2,7 +2,7 @@
 
 import styles from './SingleQuiz.module.scss'
 import { Button } from '@/components/ui/Button/Button'
-import Quiz from '@/components/Quiz/Quiz'
+import GrammarQuiz from '@/components/GrammarQuiz/GrammarQuiz'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { useState, useEffect } from 'react'
 import { Modal } from '@/components/ui/Modal/Modal'
@@ -10,7 +10,10 @@ import { useTranslations } from 'next-intl'
 import { getSingleQuiz } from '@/lib/quiz'
 import { IQuiz } from '@/interfaces/Quiz.interface'
 import Loader from '@/components/Loader/Loader'
-import { useParams } from 'next/navigation'
+import { useParams, useSearchParams } from 'next/navigation'
+import { getListById } from '@/lib/lists'
+import { getWordsByListId } from '@/lib/word'
+import { IList } from '@/interfaces/List.interface'
 
 // TODO
 // isFinished modal not working (after answering the last question)
@@ -24,15 +27,36 @@ export default function SingleQuizPage() {
   const [startTime, setStartTime] = useState(0)
   const [loading, isLoading] = useState(true)
   const t = useTranslations('dashboard.quiz')
-  const [quiz, setQuiz] = useState<IQuiz | null>(null)
+  const [grammarQuiz, setGrammarQuiz] = useState<IQuiz | null>(null)
+  const [vocabularyQuiz, setVocabularyQuiz] = useState<any>(null)
   const { id } = useParams()
+  const type = useSearchParams().get('type')
 
   useEffect(() => {
-    getSingleQuiz(id as string).then((quiz: IQuiz | null) => {
-      setQuiz(quiz)
+    if (type === 'grammar') {
+      console.log('GRAMMAR')
+
+      getSingleQuiz(id as string).then((quiz: IQuiz | null) => {
+        setGrammarQuiz(quiz)
+        isLoading(false)
+      })
+    } else if (type === 'vocabulary') {
+      console.log('VOCABULARY')
+
+      Promise.all([getListById(id as string), getWordsByListId(id as string)]).then(([list, words]) =>
+        setVocabularyQuiz({
+          title: `Vocabulary quiz from the list: ${list?.title}`,
+          words
+        })
+      )
       isLoading(false)
-    })
+    } else {
+      console.log('ELSE')
+      isLoading(false)
+    }
   }, [])
+
+  console.log('quiz', vocabularyQuiz)
 
   const showModal = () => {
     setIsFinished((state) => !state)
@@ -49,13 +73,13 @@ export default function SingleQuizPage() {
     setStartTime(Date.now())
   }
 
-  console.log(correct)
+  // console.log(correct)
 
   return (
     <>
-      {quiz && !isQuiz && (
+      {(grammarQuiz || vocabularyQuiz) && !isQuiz && (
         <div className={styles.container}>
-          <h1>{quiz?.title}</h1>
+          <h1>{type === 'grammar' ? grammarQuiz?.title : vocabularyQuiz?.title}</h1>
           <div>
             <NavigationLink href={'/dashboard/quiz?type=grammar'}>{t('to_quiz')}</NavigationLink>
             <Button onClick={() => startQuiz()}>{t('start_quiz')}</Button>
@@ -63,9 +87,9 @@ export default function SingleQuizPage() {
         </div>
       )}
 
-      {isQuiz && (
-        <Quiz
-          quiz={quiz}
+      {type === 'grammar' && isQuiz && (
+        <GrammarQuiz
+          quiz={grammarQuiz}
           setCorrect={setCorrect}
           setQuiz={setIsQuiz}
           setTimer={setTimer}
@@ -74,6 +98,8 @@ export default function SingleQuizPage() {
           setFinishTime={setFinishTime}
         />
       )}
+
+      {type === 'vocabulary' && isQuiz && <div>Vocab quiz</div>}
 
       {isFinished && (
         <Modal className={styles['no-time-modal']} isOpen={isFinished} handleClose={() => showModal()}>
@@ -84,7 +110,7 @@ export default function SingleQuizPage() {
               <br />
               {t('you_got', {
                 correct: correct,
-                length: quiz?.questions.length,
+                length: grammarQuiz?.questions.length,
                 time: Math.floor((finishTime - startTime) / 1000)
               })}
             </h3>
@@ -104,7 +130,7 @@ export default function SingleQuizPage() {
         </div>
       )}
 
-      {!loading && !quiz && (
+      {!loading && !grammarQuiz && !vocabularyQuiz && (
         <div className={styles.container}>
           <h3>{t('no_quiz')}</h3>
           <NavigationLink href='/dashboard/quiz?type=grammar'>{t('move_to_quizzes')}</NavigationLink>
