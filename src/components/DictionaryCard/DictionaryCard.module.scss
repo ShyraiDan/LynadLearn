@@ -1,0 +1,43 @@
+.card {
+  @apply bg-[#e6eaf0] rounded-3xl cursor-pointer gap-3 bg-opacity-50 p-4 h-[100%]
+  md:flex md:flex-col md:gap-4
+  hover:bg-gray-50;
+
+  .container {
+    @apply flex gap-2 flex-wrap h-full justify-between
+    sm:flex-row 
+    md:flex-col md:gap-3 
+    max-md:items-center;
+
+    .info {
+      @apply flex flex-col gap-2;
+
+      h5 {
+        @apply text-sm font-bold capitalize m-0 font-bold 
+        md:flex md:text-base;
+      }
+
+      .translation {
+        @apply flex items-center gap-2 mt-1.5 my-2 
+        sm:mt-2;
+
+        .flag {
+          @apply w-5 h-5 
+          md:w-6 md:h-6;
+        }
+
+        p {
+          @apply leading-5 cursor-text text-ellipsis overflow-hidden break-words m-0 text-sm 
+          sm:text-base sm:leading-6 
+          lg:text-lg lg:leading-7;
+        }
+      }
+    }
+
+    h6 {
+      @apply font-bold text-xs capitalize 
+      max-[320px]:text-[10px] max-[320px]:min-w-[65px]
+      md:flex md:text-sm;
+    }
+  }
+}

@@ -46,6 +46,11 @@ export async function Header() {
                   {t('dashboard')}
                 </NavigationLink>
               </li>
+              <li className={styles['nav-item']}>
+                <NavigationLink hover isHeader href='/dictionary'>
+                  Dictionary
+                </NavigationLink>
+              </li>
               <LanguageModal />
             </ul>
           </nav>

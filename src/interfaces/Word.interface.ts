@@ -1,14 +1,36 @@
 import mongoose, { Schema } from 'mongoose'
 
-export interface IWord {
-  _id: string
-  word: string
+interface IDefinition {
+  definition: string
   part_of_speech: string
-  definition?: string
-  translation: string
-  pronunciation?: string
-  example?: string
-  listId: string
+  examples: Array<string>
+  synonyms: Array<string>
+  category: Array<string>
+  level: string
+}
+
+export interface IWord {
+  // _id: string
+  // word: string
+  // part_of_speech: string
+  // definition?: string
+  // translation: string
+  // pronunciation?: string
+  // example?: string
+  // listId: string
+
+  _id?: string
+  word: string
+  results: Array<IDefinition>
+  pronunciation: string
+  translation: {
+    ua: Array<string>
+  }
+  common_adverb?: number
+  common_noun?: number
+  common_verb?: number
+  common_adjective?: number
+  common_phrase?: number
 }
 const wordsSchema = new Schema(
   {

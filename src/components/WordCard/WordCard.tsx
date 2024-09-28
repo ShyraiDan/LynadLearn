@@ -1,10 +1,11 @@
 import styles from './WordCard.module.scss'
 import Image from 'next/image'
-import { Spring } from './components/Spring/Spring'
+// import { Spring } from '../ui/Spring/Spring'
 import { Button } from '../ui/Button/Button'
 import { useTranslations } from 'next-intl'
+import { WordExamples } from '../WordExamples/WordExamples'
 
-import example from '@/assets/icons/message-question.svg'
+// import example from '@/assets/icons/message-question.svg'
 import usFlag from '@/assets/icons/us.svg'
 import { FaPlus } from 'react-icons/fa'
 
@@ -29,7 +30,9 @@ export const WordCard = ({ word }: { word: any }) => {
         <div className={styles['part-of-speech']}>{word.part_of_speech}</div>
         <p>{word.definition}</p>
       </div>
-      <div className={styles['examples-container']}>
+      <WordExamples word={word} />
+
+      {/* <div className={styles['examples-container']}>
         <Spring right='1rem' />
         <Spring right='3rem' />
         <Spring left='1rem' />
@@ -50,7 +53,7 @@ export const WordCard = ({ word }: { word: any }) => {
             ))}
           </ul>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
