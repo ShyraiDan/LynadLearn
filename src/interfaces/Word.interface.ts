@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
 
-interface IDefinition {
+export interface IDefinition {
   definition: string
   part_of_speech: string
   examples: Array<string>

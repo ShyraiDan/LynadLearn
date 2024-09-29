@@ -3,6 +3,7 @@ import styles from './DictionaryWord.module.scss'
 import { WordExamples } from '@/components/WordExamples/WordExamples'
 import { Button } from '@/components/ui/Button/Button'
 import Image from 'next/image'
+import { MeaningCard } from '@/components/MeaningCard/MeaningCard'
 
 import us from '@/assets/icons/us.svg'
 import example from '@/assets/icons/message-question.svg'
@@ -48,29 +49,7 @@ export default function DictionaryWordPage({ params }: IDictionaryWordPage) {
           </div>
         </div>
 
-        <div className={styles.meanings}>
-          <div className={styles['meaning-header']}>
-            <h6 className={styles.title}>{word.word}</h6>
-          </div>
-          <div className={styles['meaning-content']}>
-            <div>
-              <div className={styles.content}>
-                <div className={styles.meaning}>
-                  <div className={styles.number}>01</div>
-                  <p>used with a number to show that it is not exact</p>
-                </div>
-                <div className={styles.synonyms}>
-                  <Button>
-                    <span>≈</span> approximately
-                  </Button>
-                </div>
-              </div>
-              <div className={styles.exams}>
-                <WordExamples examples={word.results[0].examples} />
-              </div>
-            </div>
-          </div>
-        </div>
+        <MeaningCard word={word} />
       </div>
       <div className={styles['col-2']}>
         <WordExamples examples={word.results[0].examples} />

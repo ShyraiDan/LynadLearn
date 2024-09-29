@@ -1,0 +1,68 @@
+.meanings {
+  @apply rounded-3xl mt-8 shadow-md
+  md:rounded-3xl;
+
+  .meaning-header {
+    @apply flex justify-between bg-[#EBEEFF] items-center p-4 rounded-t-3xl 
+    md:p-6;
+
+    .title {
+      @apply font-medium text-lg
+      md:text-2xl;
+    }
+
+    .badge {
+      @apply relative text-white-100 rounded-3xl capitalize font-bold py-2 px-4;
+    }
+  }
+
+  .meaning-content {
+    @apply flex flex-wrap flex-col rounded-b-3xl justify-center 
+    md:justify-start w-[100%];
+
+    > div {
+      @apply flex flex-wrap flex-row justify-between w-[100%] relative;
+
+      .content {
+        @apply font-medium text-xl leading-7 p-4
+        md:p-6;
+
+        .meaning {
+          @apply flex;
+
+          .number {
+            @apply text-purple-100 rounded-lg bg-purple-300 font-bold px-2 h-fit py-1 text-sm;
+          }
+
+          p {
+            @apply ml-3 font-medium text-lg;
+          }
+        }
+
+        .synonyms {
+          @apply mt-7 flex gap-2 flex-wrap;
+
+          button {
+            @apply text-black mt-2 text-sm py-3 px-3 flex items-center rounded-2xl bg-[#C9F8E1] font-medium;
+
+            > span {
+              @apply mt-[2px] h-[18px];
+            }
+          }
+        }
+      }
+    }
+
+    .exams {
+      @apply p-4 w-full;
+    }
+  }
+
+  .adjective {
+    @apply bg-[#F499E8];
+  }
+
+  .adverb {
+    @apply bg-[#3498DB];
+  }
+}
