@@ -25,7 +25,7 @@ export const WordExamples = ({ examples }: { examples: Array<string> }) => {
           {examples.map((item: string, index: number, i) => (
             <li key={index}>
               <span className={styles.dot}></span>
-              {item}
+              <p>{item}</p>
             </li>
           ))}
         </ul>

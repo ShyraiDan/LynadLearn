@@ -28,6 +28,10 @@
         span {
           @apply w-2 h-2 bg-orange rounded-full flex-shrink-0;
         }
+
+        p {
+          @apply first-letter:uppercase;
+        }
       }
     }
   }
