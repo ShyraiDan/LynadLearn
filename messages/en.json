@@ -15,6 +15,8 @@
     "sign_in": "Sign in",
     "sign_up": "Sign up",
     "follow_us": "Follow us",
+    "dictionary": "Dictionary",
+    "translator": "Translator",
     "logout": "Logout"
   },
   "Language": {
@@ -189,6 +191,48 @@
     "is_dictionary_answer": "Yes, it does. The app includes a comprehensive dictionary that covers all the words and phrases you learn with LynadLearn. You can also use the dictionary to look up any word or phrase you encounter in your learning journey. However, please note that the web version of the dictionary may be more up-to-date than the app version.",
     "no_platform": "There is no platform like LynadLearn",
     "have_lynadlearn": "Have LynadLearn always at hand by downloading our Android or iOS app"
+  },
+  "Dictionary": {
+    "perfect_dictionary": "English Perfect Dictionary",
+    "search_word": "Search a word",
+    "online_dictionary": "An online dictionary for learners of American English, offering free access to definitions, images, example sentences, synonyms, and more",
+    "cards": {
+      "animals": "Animals",
+      "birds": "Birds and Insects",
+      "fish": "Fish",
+      "food": "Food",
+      "drinks": "Drinks",
+      "fruits": "Fruits",
+      "vegetables": "Vegetables",
+      "jobs": "Jobs",
+      "body": "Face and Body",
+      "furniture": "Furniture",
+      "appliances": "Home Appliances",
+      "kitchen": "Kitchen Wares",
+      "building": "Building Parts",
+      "clothes": "Clothes",
+      "sports": "Sports",
+      "nature": "Nature",
+      "transportation": "Transportation",
+      "cityLocations": "City Locations",
+      "hobbies": "Hobbies and Games",
+      "shapes": "Shapes",
+      "feelings": "Feelings",
+      "musicalInstruments": "Musical Instruments",
+      "personalCare": "Personal Care",
+      "art": "Art"
+    },
+    "example": "Example",
+    "nearby_words": "Synonyms",
+    "adjective": "Adjective",
+    "adverb": "Adverb",
+    "noun": "Noun",
+    "verb": "Verb",
+    "preposition": "Preposition",
+    "pronoun": "Pronoun",
+    "phrase": "Phrase",
+    "conjunction": "Conjunction",
+    "interjection": "Interjection"
   },
   "dashboard": {
     "lists": {

@@ -4,6 +4,7 @@ import { WordExamples } from '@/components/WordExamples/WordExamples'
 import { Button } from '@/components/ui/Button/Button'
 import Image from 'next/image'
 import { MeaningCard } from '@/components/MeaningCard/MeaningCard'
+import { useTranslations } from 'next-intl'
 
 import us from '@/assets/icons/us.svg'
 import example from '@/assets/icons/message-question.svg'
@@ -14,6 +15,7 @@ interface IDictionaryWordPage {
 
 export default function DictionaryWordPage({ params }: IDictionaryWordPage) {
   const { id } = params
+  const t = useTranslations('Dictionary')
 
   const word = DWords[0]
 
@@ -57,7 +59,7 @@ export default function DictionaryWordPage({ params }: IDictionaryWordPage) {
           <div className={styles['examples-header']}>
             <div className={styles.title}>
               <Image src={example} alt='example' />
-              <h3>Близькі Слова</h3>
+              <h3>{t('nearby_words')}</h3>
             </div>
           </div>
           <ul className={styles.synonyms}>

@@ -1,5 +1,8 @@
 .container {
-  // @apply;
+  @apply min-h-[calc(100vh-397px-73px)]
+   sm:min-h-[calc(100vh-193px-81px)]
+   md:min-h-[calc(100vh-153px-81px)]
+   lg:min-h-[calc(100vh-97px-81px)];
 
   .heading {
     @apply py-8 px-4 flex flex-col bg-[#F3F7FF] 

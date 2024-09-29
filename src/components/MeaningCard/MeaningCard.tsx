@@ -2,33 +2,16 @@ import styles from './MeaningCard.module.scss'
 import { IWord } from '@/interfaces/Word.interface'
 import { Button } from '../ui/Button/Button'
 import { WordExamples } from '../WordExamples/WordExamples'
+import { groupByPartOfSpeech } from '@/utils/middlewares'
+import { useTranslations } from 'next-intl'
 
 interface IMeaningCard {
   word: IWord
 }
 
-interface Result {
-  definition: string
-  part_of_speech: string
-  examples: string[]
-  synonyms: string[]
-  category: string[]
-  level: string
-}
-
 export const MeaningCard = ({ word }: IMeaningCard) => {
-  const groupByPartOfSpeech = (wordData: IWord) => {
-    return wordData.results.reduce((acc: { [key: string]: Result[] }, result) => {
-      const partOfSpeech = result.part_of_speech
-      if (!acc[partOfSpeech]) {
-        acc[partOfSpeech] = []
-      }
-      acc[partOfSpeech].push(result)
-      return acc
-    }, {})
-  }
-
   const meanings = groupByPartOfSpeech(word)
+  const t = useTranslations('Dictionary')
 
   return (
     <>
@@ -36,7 +19,7 @@ export const MeaningCard = ({ word }: IMeaningCard) => {
         <div className={styles.meanings} key={partOfSpeech}>
           <div className={styles['meaning-header']}>
             <h6 className={styles.title}>{word.word}</h6>
-            <div className={`${styles.badge} ${styles[partOfSpeech]}`}>{partOfSpeech}</div>
+            <div className={`${styles.badge} ${styles[partOfSpeech]}`}>{t(partOfSpeech)}</div>
           </div>
           {results.map((result, index) => (
             <div className={`${styles['meaning-content']} ${index !== 0 && 'rounded-3xl'}`} key={index}>

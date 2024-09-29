@@ -18,6 +18,7 @@ const DictionaryCard = ({ word }: IDictionaryCard) => {
             <Image src={ua} alt='ua' className={styles.flag} />
             <p>{word.translation.ua[0]}</p>
           </div>
+          <p>{word.results[0].definition}</p>
         </div>
         <h6>[{word.results[0].part_of_speech}]</h6>
       </div>

@@ -12,6 +12,18 @@ export const pathnames = {
     en: '/pricing',
     ua: '/pricing'
   },
+  '/dictionary': {
+    en: '/dictionary',
+    ua: '/dictionary'
+  },
+  '/dictionary/[id]': {
+    en: '/dictionary/[id]',
+    ua: '/dictionary/[id]'
+  },
+  '/translator': {
+    en: '/translator',
+    ua: '/translator'
+  },
   '/contact-us': {
     en: '/contact-us',
     ua: '/contact-us'

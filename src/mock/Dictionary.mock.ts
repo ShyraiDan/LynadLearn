@@ -26,98 +26,98 @@ import art from '@/assets/arts.jpg'
 export const mocks = [
   {
     image: animals,
-    title: 'Animals'
+    title: 'animals'
   },
   {
     image: birds,
-    title: 'Birds and Insects'
+    title: 'birds'
   },
   {
     image: fish,
-    title: 'Fish'
+    title: 'fish'
   },
   {
     image: food,
-    title: 'Food'
+    title: 'food'
   },
   {
     image: drinks,
-    title: 'Drinks'
+    title: 'drinks'
   },
   {
     image: fruits,
-    title: 'Fruits'
+    title: 'fruits'
   },
   {
     image: vegetables,
-    title: 'Vegetables'
+    title: 'vegetables'
   },
   {
     image: jobs,
-    title: 'Jobs'
+    title: 'jobs'
   },
   {
     image: body,
-    title: 'Face and Body'
+    title: 'body'
   },
   {
     image: furniture,
-    title: 'Furniture'
+    title: 'furniture'
   },
   {
     image: appliances,
-    title: 'Home Appliances'
+    title: 'appliances'
   },
   {
     image: kitchen,
-    title: 'Kitchen Wares'
+    title: 'kitchen'
   },
   {
     image: building,
-    title: 'Building Parts'
+    title: 'building'
   },
   {
     image: clothes,
-    title: 'Clothes'
+    title: 'clothes'
   },
   {
     image: sports,
-    title: 'Sports'
+    title: 'sports'
   },
   {
     image: nature,
-    title: 'Nature'
+    title: 'nature'
   },
   {
     image: transportation,
-    title: 'Transportation'
+    title: 'transportation'
   },
   {
     image: cityLocations,
-    title: 'City Locations'
+    title: 'cityLocations'
   },
   {
     image: hobbies,
-    title: 'Hobbies and Games'
+    title: 'hobbies'
   },
   {
     image: shapes,
-    title: 'Shapes'
+    title: 'shapes'
   },
   {
     image: feelings,
-    title: 'Feelings'
+    title: 'feelings'
   },
   {
     image: musicalInstruments,
-    title: 'Musical Instruments'
+    title: 'musicalInstruments'
   },
   {
     image: personalCare,
-    title: 'Personal Care'
+    title: 'personalCare'
   },
   {
     image: art,
-    title: 'Art'
+    title: 'art'
   }
 ]

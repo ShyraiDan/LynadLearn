@@ -11,9 +11,10 @@ import DictionaryCard from '@/components/DictionaryCard/DictionaryCard'
 import { FaSearch } from 'react-icons/fa'
 import { mocks } from '@/mock/Dictionary.mock'
 import { DWords } from '@/mock/Words.mock'
+import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 
 export default function Dictionary() {
-  const t = useTranslations('Mobile_app')
+  const t = useTranslations('Dictionary')
   const [search, setSearch] = useState('')
 
   const firstCol = mocks.filter((_, i) => i % 4 === 0)
@@ -21,36 +22,35 @@ export default function Dictionary() {
   const thirdCol = mocks.filter((_, i) => i % 4 === 2)
   const forthCol = mocks.filter((_, i) => i % 4 === 3)
 
-  console.log(search)
-
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
         <div className={styles['sub-container']}>
-          <h1 className={styles.title}>English Perfect Dictionary</h1>
+          <h1 className={styles.title}>{t('perfect_dictionary')}</h1>
           <div className={styles['input-container']}>
             <Input
               onChange={(e) => setSearch(e.target.value)}
               type='text'
               name='search'
               id='search'
-              placeholder='Search a word'
+              placeholder={t('search_word')}
             />
             <Button>
               <FaSearch />
             </Button>
           </div>
-          <p className={styles.desc}>
-            An online dictionary for learners of American English, offering free access to definitions, images, example
-            sentences, synonyms, and more
-          </p>
+          <p className={styles.desc}>{t('online_dictionary')}</p>
         </div>
       </div>
       <div className={styles['sub-container']}>
         <div className={styles.words}>
           {search.length > 0 &&
             DWords.map((item, i) => {
-              return <DictionaryCard key={item.word} word={item} />
+              return (
+                <NavigationLink href={`/dictionary/about`} key={i}>
+                  <DictionaryCard key={item.word} word={item} />
+                </NavigationLink>
+              )
             })}
           {search.length === 0 && (
             <>
@@ -61,7 +61,7 @@ export default function Dictionary() {
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2>{item.title}</h2>
+                      <h2>{t(`cards.${item.title}`)}</h2>
                     </div>
                   </div>
                 ))}
@@ -73,7 +73,7 @@ export default function Dictionary() {
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2>{item.title}</h2>
+                      <h2>{t(`cards.${item.title}`)}</h2>
                     </div>
                   </div>
                 ))}
@@ -85,7 +85,7 @@ export default function Dictionary() {
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2>{item.title}</h2>
+                      <h2>{t(`cards.${item.title}`)}</h2>
                     </div>
                   </div>
                 ))}
@@ -97,7 +97,7 @@ export default function Dictionary() {
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2>{item.title}</h2>
+                      <h2>{t(`cards.${item.title}`)}</h2>
                     </div>
                   </div>
                 ))}

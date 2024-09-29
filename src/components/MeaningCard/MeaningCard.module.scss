@@ -65,4 +65,32 @@
   .adverb {
     @apply bg-[#3498DB];
   }
+
+  .noun {
+    @apply bg-[#E67E22];
+  }
+
+  .verb {
+    @apply bg-[#1ABC9C];
+  }
+
+  .preposition {
+    @apply bg-purple-100;
+  }
+
+  .pronoun {
+    @apply bg-[#8192F6];
+  }
+
+  .phrase {
+    @apply bg-[#95A5A6];
+  }
+
+  .conjunction {
+    @apply bg-[#747373];
+  }
+
+  .interjection {
+    @apply bg-[#B6EEA6];
+  }
 }

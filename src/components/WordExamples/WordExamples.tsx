@@ -4,7 +4,6 @@ import styles from './WordExamples.module.scss'
 import { useTranslations } from 'next-intl'
 
 import { Spring } from '@/components/ui/Spring/Spring'
-import { IWord } from '@/interfaces/Word.interface'
 
 export const WordExamples = ({ examples }: { examples: Array<string> }) => {
   const t = useTranslations('dashboard.lists.learn')
