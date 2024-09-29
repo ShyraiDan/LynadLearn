@@ -22,11 +22,10 @@ export default function LearnCategoryPage() {
         <Button className={styles.btn} onClick={() => setWord(word - 1 < 0 ? 0 : word - 1)}>
           <IoIosArrowBack size={20} />
         </Button>
-        <Button className={styles.btn}>
-          <IoIosArrowForward
-            size={20}
-            onClick={() => setWord(word + 1 >= DWords.length - 1 ? DWords.length - 1 : word + 1)}
-          />
+        <Button
+          className={styles.btn}
+          onClick={() => setWord(word + 1 >= DWords.length - 1 ? DWords.length - 1 : word + 1)}>
+          <IoIosArrowForward size={20} />
         </Button>
       </div>
 

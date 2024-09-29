@@ -16,8 +16,7 @@
         md:p-6 md:gap-5;
 
         .heading {
-          @apply flex flex-col grid-cols-4 justify-between  
-          md:grid;
+          @apply flex justify-between;
 
           .word-section {
             @apply text-lg my-auto font-bold leading-8 
@@ -27,6 +26,11 @@
           .btns {
             @apply flex gap-2 
             md:ml-auto;
+
+            .btn {
+              @apply bg-transparent text-black flex items-center justify-center p-3 rounded-2xl bg-[#F0F0F0]
+              hover:bg-blue-200 hover:text-white-100;
+            }
           }
         }
 

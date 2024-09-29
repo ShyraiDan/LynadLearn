@@ -1,8 +1,9 @@
 import styles from './WordCard.module.scss'
 import Image from 'next/image'
-import { Button } from '../ui/Button/Button'
-import { WordExamples } from '../WordExamples/WordExamples'
+import { Button } from '@/components/ui/Button/Button'
+import { WordExamples } from '@/components/WordExamples/WordExamples'
 import { IWord } from '@/interfaces/Word.interface'
+import { Badge } from '@/components/Badge/Badge'
 
 import usFlag from '@/assets/icons/us.svg'
 import { FaPlus } from 'react-icons/fa'
@@ -21,12 +22,20 @@ export const WordCard = ({ word }: { word: IWord }) => {
         </div>
         <div className={styles.pronunciation}>
           <Image src={usFlag} alt='flag' width={24} />
-          <h6>{word.pronunciation}</h6>
+          <h6>/{word.pronunciation}/</h6>
         </div>
-        <div className={styles['part-of-speech']}>{word.results[0].part_of_speech}</div>
+        <Badge part={word.results[0].part_of_speech} className={styles['part-of-speech']} />
         <p>{word.results[0].definition}</p>
+        <div className={styles.synonyms}>
+          {word.results[0].synonyms.map((synonym) => (
+            <Button key={synonym}>
+              <span>≈</span> {synonym}
+            </Button>
+          ))}
+        </div>
       </div>
-      <WordExamples examples={word.results[0].examples} />
+
+      {word.results[0].examples.length > 0 && <WordExamples examples={word.results[0].examples} />}
     </div>
   )
 }

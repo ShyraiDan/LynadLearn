@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl'
 
 import us from '@/assets/icons/us.svg'
 import example from '@/assets/icons/message-question.svg'
+import { FaPlus } from 'react-icons/fa'
 
 interface IDictionaryWordPage {
   params: { id: string }
@@ -36,7 +37,11 @@ export default function DictionaryWordPage({ params }: IDictionaryWordPage) {
           <div className={styles.word}>
             <div className={styles.heading}>
               <div className={styles['word-section']}>{word.word}</div>
-              <div className={styles.btns}></div>
+              <div className={styles.btns}>
+                <Button className={styles.btn}>
+                  <FaPlus size={20} />
+                </Button>
+              </div>
             </div>
             <div className={styles.translation}>
               <Image src={us} alt='us' className={styles.flag} />/{word.pronunciation}/

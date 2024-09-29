@@ -10,10 +10,6 @@
       @apply font-medium text-lg
       md:text-2xl;
     }
-
-    .badge {
-      @apply relative text-white-100 rounded-3xl capitalize font-bold py-2 px-4;
-    }
   }
 
   .meaning-content {
@@ -56,41 +52,5 @@
     .exams {
       @apply p-4 w-full;
     }
-  }
-
-  .adjective {
-    @apply bg-[#F499E8];
-  }
-
-  .adverb {
-    @apply bg-[#3498DB];
-  }
-
-  .noun {
-    @apply bg-[#E67E22];
-  }
-
-  .verb {
-    @apply bg-[#1ABC9C];
-  }
-
-  .preposition {
-    @apply bg-purple-100;
-  }
-
-  .pronoun {
-    @apply bg-[#8192F6];
-  }
-
-  .phrase {
-    @apply bg-[#95A5A6];
-  }
-
-  .conjunction {
-    @apply bg-[#747373];
-  }
-
-  .interjection {
-    @apply bg-[#B6EEA6];
   }
 }
