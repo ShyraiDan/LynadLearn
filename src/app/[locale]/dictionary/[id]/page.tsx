@@ -60,7 +60,9 @@ export default function DictionaryWordPage({ params }: IDictionaryWordPage) {
                   <p>used with a number to show that it is not exact</p>
                 </div>
                 <div className={styles.synonyms}>
-                  <Button>approximately</Button>
+                  <Button>
+                    <span>≈</span> approximately
+                  </Button>
                 </div>
               </div>
               <div className={styles.exams}>
