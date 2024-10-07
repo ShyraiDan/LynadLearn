@@ -98,7 +98,7 @@ export default function TranslatorPage() {
                       <span className='text-sm pr-4'>{sourceText.length} / 2000</span>
                     </div>
                   </div>
-                  <div className=' z-10 flex flex-col  p-3  border rounded-lg shadow-lg  '>
+                  <div className='z-10 flex flex-col p-3 border rounded-lg shadow-lg'>
                     <TextArea
                       id='target-language'
                       value={targetText || ''}

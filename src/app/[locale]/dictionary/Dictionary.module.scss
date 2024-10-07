@@ -50,8 +50,9 @@
     xl:max-w-[1170px];
 
     .words {
-      @apply mx-auto grid grid-cols-2 gap-4 my-6 px-4
-      md:grid-cols-4;
+      @apply mx-auto grid grid-cols-1 gap-4 my-6 px-4
+      sm:grid-cols-2
+      lg:grid-cols-4;
 
       .column {
         @apply w-full mx-auto flex flex-col flex-wrap gap-6;

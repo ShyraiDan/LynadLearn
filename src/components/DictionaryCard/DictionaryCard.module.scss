@@ -4,10 +4,7 @@
   hover:bg-gray-50;
 
   .container {
-    @apply flex gap-2 flex-wrap h-full justify-between
-    sm:flex-row 
-    md:flex-col md:gap-3 
-    max-md:items-center;
+    @apply flex flex-col gap-3 gap-2 flex-wrap h-full justify-between;
 
     .info {
       @apply flex flex-col gap-2;
