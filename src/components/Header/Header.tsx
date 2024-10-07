@@ -15,7 +15,7 @@ export async function Header() {
     <header className={styles.header}>
       <div className={`${styles['header-container']} ${styles.dashboard}`}>
         <div className={styles['header-left']}>
-          <div></div>
+          {/* <div></div> */}
           <NavigationLink href={'/'}>
             Lynad<span>Learn</span>
           </NavigationLink>

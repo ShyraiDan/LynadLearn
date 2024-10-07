@@ -234,6 +234,11 @@
     "conjunction": "Conjunction",
     "interjection": "Interjection"
   },
+  "translator": {
+    "target_language": "Translation",
+    "source_language": "Enter your sentence",
+    "slogan": "Bridging Voices, Connecting Worlds."
+  },
   "dashboard": {
     "lists": {
       "english_vocabulary": "English Vocabulary",

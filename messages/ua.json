@@ -234,6 +234,11 @@
     "conjunction": "Сполучник",
     "interjection": "Вигук"
   },
+  "translator": {
+    "target_language": "Переклад",
+    "source_language": "Введіть ваше речення",
+    "slogan": "Поєднання голосів, з’єднання світів."
+  },
   "dashboard": {
     "lists": {
       "english_vocabulary": "Англійська лексика",
