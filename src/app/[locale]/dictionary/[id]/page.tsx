@@ -5,10 +5,10 @@ import { Button } from '@/components/ui/Button/Button'
 import Image from 'next/image'
 import { MeaningCard } from '@/components/MeaningCard/MeaningCard'
 import { useTranslations } from 'next-intl'
+import { ListsModal } from '@/components/ListsModal/ListsModal'
 
 import us from '@/assets/icons/us.svg'
 import example from '@/assets/icons/message-question.svg'
-import { FaPlus } from 'react-icons/fa'
 
 interface IDictionaryWordPage {
   params: { id: string }
@@ -38,9 +38,7 @@ export default function DictionaryWordPage({ params }: IDictionaryWordPage) {
             <div className={styles.heading}>
               <div className={styles['word-section']}>{word.word}</div>
               <div className={styles.btns}>
-                <Button className={styles.btn}>
-                  <FaPlus size={20} />
-                </Button>
+                <ListsModal />
               </div>
             </div>
             <div className={styles.translation}>

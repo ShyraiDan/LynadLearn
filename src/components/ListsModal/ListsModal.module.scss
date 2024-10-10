@@ -1,0 +1,19 @@
+.btn {
+  @apply bg-transparent text-black flex items-center justify-center p-3 rounded-2xl bg-[#F0F0F0]
+  hover:bg-blue-200 hover:text-white-100;
+}
+
+.modal {
+  @apply h-[calc(100vh-85px)] overflow-y-auto
+  sm:h-[calc(100vh-300px)] 
+  lg:h-[calc(100vh-305px)] 
+  xl:h-[calc(100vh-275px)];
+
+  .title {
+    @apply text-2xl font-bold mb-5;
+  }
+
+  .list {
+    @apply grid grid-cols-auto-fit-140;
+  }
+}

@@ -232,7 +232,11 @@
     "pronoun": "Займенник",
     "phrase": "Вираз",
     "conjunction": "Сполучник",
-    "interjection": "Вигук"
+    "interjection": "Вигук",
+    "modal": {
+      "need_auth": "You need to log in to browse your lists",
+      "choose_list": "Choose list to add word"
+    }
   },
   "translator": {
     "target_language": "Переклад",

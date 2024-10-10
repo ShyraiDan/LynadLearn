@@ -4,9 +4,9 @@ import { Button } from '@/components/ui/Button/Button'
 import { WordExamples } from '@/components/WordExamples/WordExamples'
 import { IWord } from '@/interfaces/Word.interface'
 import { Badge } from '@/components/Badge/Badge'
+import { ListsModal } from '@/components/ListsModal/ListsModal'
 
 import usFlag from '@/assets/icons/us.svg'
-import { FaPlus } from 'react-icons/fa'
 
 export const WordCard = ({ word }: { word: IWord }) => {
   return (
@@ -15,9 +15,7 @@ export const WordCard = ({ word }: { word: IWord }) => {
         <div className={styles.title}>
           <div className={styles.word}>{word.word}</div>
           <div className={styles.btns}>
-            <Button className={styles.btn}>
-              <FaPlus size={20} />
-            </Button>
+            <ListsModal />
           </div>
         </div>
         <div className={styles.pronunciation}>

@@ -232,7 +232,11 @@
     "pronoun": "Pronoun",
     "phrase": "Phrase",
     "conjunction": "Conjunction",
-    "interjection": "Interjection"
+    "interjection": "Interjection",
+    "modal": {
+      "need_auth": "Вам потрібно увійти, щоб переглядати списки",
+      "choose_list": "Виберіть список, щоб додати слово"
+    }
   },
   "translator": {
     "target_language": "Translation",
