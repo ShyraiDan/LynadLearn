@@ -5,6 +5,7 @@ import { getWordsByListId, getWordsByListIdSortedByName } from '@/lib/word'
 import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
 import { IWord } from '@/interfaces/Word.interface'
+import { DWords } from '@/mock/Words.mock'
 
 import { FaBookAtlas } from 'react-icons/fa6'
 import { TbVocabulary } from 'react-icons/tb'
@@ -12,6 +13,7 @@ import { BsChatDotsFill } from 'react-icons/bs'
 import { FaRunning } from 'react-icons/fa'
 import { SlSpeech } from 'react-icons/sl'
 import { AiOutlineTranslation } from 'react-icons/ai'
+import { IoDocument } from 'react-icons/io5'
 
 //TODO: fix loader
 
@@ -31,46 +33,64 @@ async function WordsList({ listId, sorting }: { listId: string; sorting: string 
       break
   }
 
+  if (!words?.length) {
+    return <div className={styles['no-words']}>{t('no_words')}</div>
+  }
+
+  words = DWords
+  //
+  console.log()
+
   return (
     <>
-      {!words?.length && <div className={styles['no-words']}>{t('no_words')}</div>}
+      {/* {!words?.length && <div className={styles['no-words']}>{t('no_words')}</div>} */}
       {words && words.length && (
         <div className={styles['table-data']}>
           <div className={`${styles.row} ${styles.header}`}>
             <div>
-              <TbVocabulary className={styles.icon} />
+              <TbVocabulary className={styles.icon} size={16} />
               {t('word')}
             </div>
             <div>
-              <SlSpeech className={styles.icon} />
+              <SlSpeech className={styles.icon} size={16} />
               {t('part_of_speech')}
             </div>
             <div>
-              <FaBookAtlas className={styles.icon} />
+              <IoDocument className={styles.icon} size={16} />
               {t('definition')}
             </div>
             <div>
-              <AiOutlineTranslation className={styles.icon} />
+              <FaBookAtlas className={styles.icon} size={16} />
+              {t('synonym')}
+            </div>
+            <div>
+              <AiOutlineTranslation className={styles.icon} size={16} />
               {t('translation')}
             </div>
             <div>
-              <BsChatDotsFill className={styles.icon} />
+              <BsChatDotsFill className={styles.icon} size={16} />
               {t('pronunciation')}
             </div>
             <div>
-              <FaRunning className={styles.icon} />
+              <FaRunning className={styles.icon} size={16} />
               {t('example')}
             </div>
           </div>
           {words.map((item: IWord) => {
             return (
               <div key={item._id} className={styles.row}>
-                <div>{item.word}</div>
-                <div>{item.part_of_speech}</div>
-                <div>{item.definition}</div>
-                <div>{item.translation}</div>
-                <div>{item.pronunciation}</div>
-                <div>{item.example}</div>
+                <div className='lowercase'>{item.word}</div>
+                <div className='lowercase'>
+                  {[...new Set(item.results.map((result) => result.part_of_speech))].join(', ')}
+                </div>
+                <div className='lowercase'>{item.results[0].definition}</div>
+                <div className='lowercase'>
+                  {[...new Set([item.results.map((result) => result.synonyms)].flat(2))].slice(0, 5).join(', ')}
+                </div>
+                <div className='lowercase'>{item.translation.ua.join(', ')}</div>
+                <div className='lowercase'>{item.pronunciation}</div>
+                <div className=''>{item.results[0].examples.join(', ')}</div>
+
                 <div className={styles['word-modal']}>
                   <EditDeleteWordModal word={item} />
                 </div>

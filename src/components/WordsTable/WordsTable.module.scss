@@ -9,7 +9,8 @@
       lg:h-[calc(100vh-245px)] lg:min-w-[calc(100vw-290px)];
 
       .row {
-        @apply cursor-pointer relative grid grid-cols-[repeat(6,_minmax(150px,_1fr))] w-full transition-all duration-[.3s] ease-in-out
+        // repeat(6,_minmax(150px,_1fr))
+        @apply cursor-pointer relative grid grid-cols-[minmax(100px,_10fr)_minmax(140px,_14fr)_minmax(180px,_18fr)_minmax(100px,_10fr)_minmax(115px,_11.5fr)_minmax(135px,_13.5fr)_minmax(120px,_12fr)] w-full transition-all duration-[.3s] ease-in-out
         even:bg-white-200
         [&_.word-modal]:hover:visible;
 
