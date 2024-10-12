@@ -1,9 +1,15 @@
-import { useEffect } from 'react'
+import { useEffect, ReactNode } from 'react'
 import { ReactPortal } from './ReactPortal/ReactPortal'
-import { IModal } from './Modal.interface'
 import styles from './Modal.module.scss'
 
 import { RxCross1 } from 'react-icons/rx'
+
+interface IModal {
+  children: ReactNode
+  isOpen: boolean
+  handleClose: (e?: any) => void
+  className?: string
+}
 
 export function Modal({ children, isOpen, handleClose, className }: IModal) {
   useEffect(() => {
@@ -29,7 +35,7 @@ export function Modal({ children, isOpen, handleClose, className }: IModal) {
       <>
         <div className={styles.layout} />
         <div className={`${styles.modal} ${className}`}>
-          <button onClick={handleClose}>
+          <button onClick={(e) => handleClose(e)}>
             <RxCross1 size={'24px'} />
           </button>
           <div>{children}</div>

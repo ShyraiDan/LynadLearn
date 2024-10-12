@@ -13,8 +13,8 @@
   }
 
   .meaning-content {
-    @apply flex flex-wrap flex-col rounded-b-3xl justify-center 
-    md:justify-start w-[100%];
+    @apply flex flex-wrap flex-col rounded-b-3xl justify-center w-[100%] 
+    md:justify-start;
 
     > div {
       @apply flex flex-wrap flex-row justify-between w-[100%] relative;

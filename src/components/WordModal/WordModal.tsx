@@ -7,7 +7,12 @@ import { useTranslations } from 'next-intl'
 import { createWord, updateWordById } from '@/lib/word'
 import { useParams } from 'next/navigation'
 
-export default function WordModal({ handleClose, word }: { handleClose: () => void; word?: IWord }) {
+interface IWordModal {
+  handleClose: (e?: any) => void
+  word?: IWord
+}
+
+export default function WordModal({ handleClose, word }: IWordModal) {
   const t = useTranslations('dashboard.vocabulary.modal')
   const params = useParams()
   const { id } = params

@@ -6,6 +6,7 @@ import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
 import { IWord } from '@/interfaces/Word.interface'
 import { DWords } from '@/mock/Words.mock'
+import { WordDefinition } from '../WordDefinition/WordDefinition'
 
 import { FaBookAtlas } from 'react-icons/fa6'
 import { TbVocabulary } from 'react-icons/tb'
@@ -38,8 +39,6 @@ async function WordsList({ listId, sorting }: { listId: string; sorting: string 
   }
 
   words = DWords
-  //
-  console.log()
 
   return (
     <>
@@ -76,27 +75,8 @@ async function WordsList({ listId, sorting }: { listId: string; sorting: string 
               {t('example')}
             </div>
           </div>
-          {words.map((item: IWord) => {
-            return (
-              <div key={item._id} className={styles.row}>
-                <div className='lowercase'>{item.word}</div>
-                <div className='lowercase'>
-                  {[...new Set(item.results.map((result) => result.part_of_speech))].join(', ')}
-                </div>
-                <div className='lowercase'>{item.results[0].definition}</div>
-                <div className='lowercase'>
-                  {[...new Set([item.results.map((result) => result.synonyms)].flat(2))].slice(0, 5).join(', ')}
-                </div>
-                <div className='lowercase'>{item.translation.ua.join(', ')}</div>
-                <div className='lowercase'>{item.pronunciation}</div>
-                <div className=''>{item.results[0].examples.join(', ')}</div>
 
-                <div className={styles['word-modal']}>
-                  <EditDeleteWordModal word={item} />
-                </div>
-              </div>
-            )
-          })}
+          <WordDefinition words={words} />
         </div>
       )}
     </>

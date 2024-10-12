@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, MouseEvent } from 'react'
 import styles from './EditDeleteWordModal.module.scss'
 import WordModal from '../../WordModal/WordModal'
 import { Modal } from '@/components/ui/Modal/Modal'
@@ -19,39 +19,42 @@ export default function EditDeleteWordModal({ word }: { word: IWord }) {
 
   const t = useTranslations('dashboard.vocabulary.modal')
 
-  const showEditModal = () => {
+  const showEditModal = (e: MouseEvent<SVGElement>) => {
+    e.stopPropagation()
     setEdit((state) => !state)
     removeScrollBar(isEdit)
   }
 
-  const showDeleteModal = () => {
+  const showDeleteModal = (e: MouseEvent<SVGElement>) => {
+    e.stopPropagation()
     setDelete((state) => !state)
     removeScrollBar(isDelete)
   }
 
   const deleteWord = () => {
-    deleteWordById(word._id)
-    showDeleteModal()
+    word._id && deleteWordById(word._id)
+    setDelete((state) => !state)
+    removeScrollBar(isDelete)
   }
 
   return (
     <>
       <div className={styles.modal}>
-        <MdEdit onClick={() => showEditModal()} size={'16px'} />
-        <FaTrash onClick={() => showDeleteModal()} />
+        <MdEdit onClick={(e) => showEditModal(e)} size={'16px'} />
+        <FaTrash onClick={(e) => showDeleteModal(e)} />
       </div>
       {isEdit && (
-        <Modal isOpen={isEdit} handleClose={() => showEditModal()}>
-          <WordModal handleClose={showEditModal} word={word} />
+        <Modal isOpen={isEdit} handleClose={(e) => showEditModal(e)}>
+          <WordModal handleClose={(e) => showEditModal(e)} word={word} />
         </Modal>
       )}
 
       {isDelete && (
-        <Modal className={styles['delete-modal']} isOpen={isDelete} handleClose={() => showDeleteModal()}>
+        <Modal className={styles['delete-modal']} isOpen={isDelete} handleClose={(e) => showDeleteModal(e)}>
           <div className={styles.delete}>
             <h6>{t('really_delete')}</h6>
             <div className={styles.btns}>
-              <Button onClick={() => showDeleteModal()}>{t('cancel')}</Button>
+              <Button onClick={(e) => showDeleteModal(e)}>{t('cancel')}</Button>
               <Button onClick={() => deleteWord()}>{t('delete')}</Button>
             </div>
           </div>
