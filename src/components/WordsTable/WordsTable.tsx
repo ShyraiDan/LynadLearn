@@ -1,12 +1,11 @@
 import styles from './WordsTable.module.scss'
-import EditDeleteWordModal from './EditDeleteWordModal/EditDeleteWordModal'
 import { getTranslations } from 'next-intl/server'
 import { getWordsByListId, getWordsByListIdSortedByName } from '@/lib/word'
 import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
 import { IWord } from '@/interfaces/Word.interface'
 import { DWords } from '@/mock/Words.mock'
-import { WordDefinition } from '../WordDefinition/WordDefinition'
+import { WordDefinition } from '@/components/WordDefinition/WordDefinition'
 
 import { FaBookAtlas } from 'react-icons/fa6'
 import { TbVocabulary } from 'react-icons/tb'

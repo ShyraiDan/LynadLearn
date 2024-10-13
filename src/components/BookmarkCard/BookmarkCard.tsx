@@ -5,10 +5,10 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { ICollections } from '@/interfaces/Collections.interface'
-import { Button } from '../ui/Button/Button'
+import { Button } from '@/components/ui/Button/Button'
 import { useState, MouseEvent } from 'react'
 
-import { BookmarkAdd, BookmarkDelete } from '../ui/Icons/Icons'
+import { BookmarkAdd, BookmarkDelete } from '@/components/ui/Icons/Icons'
 
 export const BookmarkCard = ({ item, locale }: { item: ICollections; locale: string }) => {
   const t = useTranslations('dashboard.collections')

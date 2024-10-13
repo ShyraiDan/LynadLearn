@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './Footer.module.scss'
-import NavigationLink from '../ui/NavigationLink/NavigationLink'
+import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'

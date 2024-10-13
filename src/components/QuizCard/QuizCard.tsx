@@ -3,10 +3,10 @@
 import styles from './QuizCard.module.scss'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { IGrammarTopic } from '@/interfaces/Grammar.interface'
-import { Button } from '../ui/Button/Button'
+import { Button } from '@/components/ui/Button/Button'
 import { useState, MouseEvent } from 'react'
 
-import { BookmarkAdd, BookmarkDelete } from '../ui/Icons/Icons'
+import { BookmarkAdd, BookmarkDelete } from '@/components/ui/Icons/Icons'
 
 type TQuizCard = {
   topic: IGrammarTopic

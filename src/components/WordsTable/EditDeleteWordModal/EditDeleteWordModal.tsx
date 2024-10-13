@@ -2,7 +2,7 @@
 
 import { useState, MouseEvent } from 'react'
 import styles from './EditDeleteWordModal.module.scss'
-import WordModal from '../../WordModal/WordModal'
+import WordModal from '@/components/WordModal/WordModal'
 import { Modal } from '@/components/ui/Modal/Modal'
 import { removeScrollBar } from '@/constants/shared'
 import { Button } from '@/components/ui/Button/Button'

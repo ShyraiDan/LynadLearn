@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Modal } from '../ui/Modal/Modal'
-import { Button } from '../ui/Button/Button'
+import { Modal } from '@/components/ui/Modal/Modal'
+import { Button } from '@/components/ui/Button/Button'
 import Image from 'next/image'
 import styles from './AuthModal.module.scss'
 import { useTranslations } from 'next-intl'

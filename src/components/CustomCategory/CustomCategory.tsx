@@ -1,10 +1,10 @@
 import styles from './CustomCategory.module.scss'
 import { ICategory } from '@/interfaces/Category.interface'
 import { useTranslations } from 'next-intl'
-import CategoryDescription from '../Category/components/CategoryDescription/CategoryDescription'
-import AddList from '../AddList/AddList'
-import CustomList from '../CustomList/CustomList'
-import NavigationLink from '../ui/NavigationLink/NavigationLink'
+import CategoryDescription from '@/components/Category/components/CategoryDescription/CategoryDescription'
+import AddList from '@/components/AddList/AddList'
+import CustomList from '@/components/CustomList/CustomList'
+import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { IList } from '@/interfaces/List.interface'
 
 export default function CustomCategory({ lists }: Pick<ICategory, 'lists'>) {

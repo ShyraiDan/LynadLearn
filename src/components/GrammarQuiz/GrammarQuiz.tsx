@@ -1,12 +1,12 @@
 'use client'
 
 import styles from './GrammerQuiz.module.scss'
-import { Button } from '../ui/Button/Button'
+import { Button } from '@/components/ui/Button/Button'
 import { useState, useEffect } from 'react'
 import { toast } from 'sonner'
-import SnackBar from '../ui/SnackBar/SnackBar'
+import SnackBar from '@/components/ui/SnackBar/SnackBar'
 import { useTranslations } from 'next-intl'
-import { Input } from '../ui/Input/Input'
+import { Input } from '@/components/ui/Input/Input'
 
 import { FaArrowRight } from 'react-icons/fa'
 

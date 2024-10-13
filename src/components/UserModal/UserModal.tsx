@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './UserModal.module.scss'
-import NavigationLink from '../ui/NavigationLink/NavigationLink'
+import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { logout } from '@/lib/auth'
 import { useTranslations } from 'next-intl'
 

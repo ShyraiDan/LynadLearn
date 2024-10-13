@@ -4,7 +4,7 @@ import { useState } from 'react'
 import styles from './AddingWordForm.module.scss'
 import { Modal } from '@/components/ui/Modal/Modal'
 import { removeScrollBar } from '@/constants/shared'
-import WordModal from '../../../WordModal/WordModal'
+import WordModal from '@/components/WordModal/WordModal'
 
 import { FaPlus } from 'react-icons/fa'
 

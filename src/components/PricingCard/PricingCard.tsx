@@ -1,7 +1,7 @@
 import styles from './PricingCard.module.scss'
 import { IPricing } from '@/interfaces/Pricing.interface'
 import Image from 'next/image'
-import NavigationLink from '../ui/NavigationLink/NavigationLink'
+import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { useTranslations, useLocale } from 'next-intl'
 
 import { AiOutlineThunderbolt } from 'react-icons/ai'

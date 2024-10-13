@@ -3,7 +3,7 @@
 import styles from './FlashCardWord.module.scss'
 import { IWord } from '@/interfaces/Word.interface'
 import Image from 'next/image'
-import { Button } from '../ui/Button/Button'
+import { Button } from '@/components/ui/Button/Button'
 import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { useSwiper } from 'swiper/react'

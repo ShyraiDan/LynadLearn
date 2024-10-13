@@ -1,5 +1,5 @@
 import styles from './CategoryItem.module.scss'
-import NavigationLink from '../ui/NavigationLink/NavigationLink'
+import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 
 type TCategoryItem = {
   title: string

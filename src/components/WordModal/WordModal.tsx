@@ -1,7 +1,7 @@
 import styles from './WordModal.module.scss'
 import { Input } from '@/components/ui/Input/Input'
 import { Button } from '@/components/ui/Button/Button'
-import { useForm, SubmitHandler, useFieldArray } from 'react-hook-form'
+import { useForm, SubmitHandler } from 'react-hook-form'
 import { IWord, IDefinitionWithId } from '@/interfaces/Word.interface'
 import { useTranslations } from 'next-intl'
 import { createWord, updateWordById } from '@/lib/word'

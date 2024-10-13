@@ -1,9 +1,9 @@
 import styles from './Header.module.scss'
-import LanguageModal from '../LanguageModal/LanguageModal'
-import { AuthModal } from '../AuthModal/AuthModal'
-import Burger from '../Burger/Burger'
-import { UserModal } from '../UserModal/UserModal'
-import NavigationLink from '../ui/NavigationLink/NavigationLink'
+import LanguageModal from '@/components/LanguageModal/LanguageModal'
+import { AuthModal } from '@/components/AuthModal/AuthModal'
+import Burger from '@/components/Burger/Burger'
+import { UserModal } from '@/components/UserModal/UserModal'
+import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { getSession } from '@/lib/auth'
 import { getTranslations } from 'next-intl/server'
 
@@ -15,7 +15,6 @@ export async function Header() {
     <header className={styles.header}>
       <div className={`${styles['header-container']} ${styles.dashboard}`}>
         <div className={styles['header-left']}>
-          {/* <div></div> */}
           <NavigationLink href={'/'}>
             Lynad<span>Learn</span>
           </NavigationLink>

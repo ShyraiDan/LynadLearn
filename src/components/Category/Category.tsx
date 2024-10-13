@@ -2,7 +2,7 @@
 
 import { ICategory } from '@/interfaces/Category.interface'
 import styles from './Category.module.scss'
-import List from '../List/List'
+import List from '@/components/List/List'
 import CategoryDescription from './components/CategoryDescription/CategoryDescription'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper/modules'

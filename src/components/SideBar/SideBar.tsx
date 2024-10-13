@@ -2,7 +2,7 @@
 
 import styles from './SideBar.module.scss'
 import { usePathname } from 'next/navigation'
-import NavigationLink from '../ui/NavigationLink/NavigationLink'
+import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { useTranslations } from 'next-intl'
 
 import { FaUser } from 'react-icons/fa'
