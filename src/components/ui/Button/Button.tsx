@@ -1,5 +1,14 @@
 import styles from './Button.module.scss'
-import { IButton } from './Button.interface'
+import { ReactNode } from 'react'
+
+interface IButton {
+  children?: ReactNode
+  type?: 'button' | 'submit' | 'reset'
+  outline?: boolean
+  onClick?: (() => void) | ((e: any) => void)
+  disabled?: boolean
+  className?: string
+}
 
 export function Button({ children, onClick, type, outline, disabled, className }: IButton) {
   return (

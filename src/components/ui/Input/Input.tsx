@@ -1,5 +1,18 @@
 import styles from './Input.module.scss'
-import { IInput } from './Input.interface'
+import { HTMLInputTypeAttribute, ReactNode } from 'react'
+
+interface IInput {
+  type: HTMLInputTypeAttribute | undefined
+  placeholder?: string
+  name: string
+  id: string
+  required?: boolean
+  children?: ReactNode
+  onChange?: (e: any) => void
+  value?: string
+  checked?: boolean
+  obj?: Object
+}
 
 export function Input({ type, placeholder, name, id, children, required, obj, onChange, value, checked }: IInput) {
   return (
