@@ -14,15 +14,6 @@ export interface IDefinitionWithId extends IDefinition {
 }
 
 export interface IWord {
-  // _id: string
-  // word: string
-  // part_of_speech: string
-  // definition?: string
-  // translation: string
-  // pronunciation?: string
-  // example?: string
-  // listId: string
-
   _id?: string
   word: string
   results: Array<IDefinition>
@@ -30,6 +21,7 @@ export interface IWord {
   translation: {
     ua: Array<string>
   }
+  listId?: string
   common_adverb?: number
   common_noun?: number
   common_verb?: number

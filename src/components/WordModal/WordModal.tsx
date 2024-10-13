@@ -35,14 +35,10 @@ export default function WordModal({ handleClose, word }: IWordModal) {
   )
   const [isEdit, setEdit] = useState<number | null>(null)
 
-  console.log(results)
-
   const {
     register,
     formState: { errors },
-    handleSubmit,
-    watch,
-    control
+    handleSubmit
   } = useForm<IWord>({
     mode: 'onBlur',
     defaultValues: {
@@ -56,21 +52,28 @@ export default function WordModal({ handleClose, word }: IWordModal) {
   })
 
   const onSubmit: SubmitHandler<IWord> = async (values) => {
-    // values.listId = id as string
+    values.listId = id as string
 
     if (word) {
       word.word = values.word
       word.pronunciation = values.pronunciation
       word.translation.ua = [...translationsList]
       word.results = [...results]
+      word.listId = id as string
 
-      // await updateWordById(word)
+      await updateWordById(word)
+    } else {
+      await createWord({
+        word: values.word,
+        pronunciation: values.pronunciation,
+        translation: {
+          ua: [...translationsList]
+        },
+        results: [...results]
+      })
     }
-    // else {
-    // await createWord(values)
-    // handleClose()
 
-    console.log('submitting', word)
+    handleClose()
   }
 
   const handleAddTranslation = () => {
@@ -89,6 +92,10 @@ export default function WordModal({ handleClose, word }: IWordModal) {
       setResults((state) => [...state, obj])
     }
     setEdit(null)
+  }
+
+  const handleDeleteDefinition = (id: string) => {
+    setResults((state) => state.filter((item) => item.id !== id))
   }
 
   return (
@@ -134,7 +141,7 @@ export default function WordModal({ handleClose, word }: IWordModal) {
                       </div>
                       <div className={styles.icons}>
                         <MdEdit onClick={() => setEdit(index)} />
-                        <FaTrash />
+                        <FaTrash onClick={() => handleDeleteDefinition(item.id)} />
                       </div>
                     </div>
                     <Badge className='w-min text-sm mt-2' part={item.part_of_speech} />
