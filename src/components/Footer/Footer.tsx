@@ -39,6 +39,12 @@ export function Footer() {
                     <li className={styles['nav-item']}>
                       <NavigationLink href={'/mobile-app'}>{t('mobile_app')}</NavigationLink>
                     </li>
+                    <li className={styles['nav-item']}>
+                      <NavigationLink href='/dictionary'>{t('dictionary')}</NavigationLink>
+                    </li>
+                    <li className={styles['nav-item']}>
+                      <NavigationLink href='/translator'>{t('translator')}</NavigationLink>
+                    </li>
                   </ul>
                 </nav>
               </div>
