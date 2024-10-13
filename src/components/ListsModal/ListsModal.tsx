@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/Button/Button'
 import styles from './ListsModal.module.scss'
 import { getYourLists } from '@/lib/lists'
-import { FaPlus } from 'react-icons/fa'
 import { Modal } from '@/components/ui/Modal/Modal'
 import { removeScrollBar } from '@/constants/shared'
 import { IList } from '@/interfaces/List.interface'
@@ -14,6 +13,8 @@ import { ISession } from '@/lib/auth'
 import { toast } from 'sonner'
 import SnackBar from '@/components/ui/SnackBar/SnackBar'
 import { useTranslations } from 'next-intl'
+
+import { FaPlus } from 'react-icons/fa'
 
 //TODO:
 // fix error when user can authenticate on /dictionary/[id] page but they still saw toaster with no auth error

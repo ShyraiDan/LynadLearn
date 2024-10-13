@@ -31,19 +31,20 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
     <>
       {words.map((word: IWord) => {
         return (
-          <div key={word._id} className={styles.row} onClick={(e) => showModal(e, word)}>
-            <div className='lowercase'>{word.word}</div>
-            <div className='lowercase'>
-              {[...new Set(word.results.map((result) => result.part_of_speech))].join(', ')}
+          <div key={word._id}>
+            <div className={styles.row} onClick={(e) => showModal(e, word)}>
+              <div className='lowercase'>{word.word}</div>
+              <div className='lowercase'>
+                {[...new Set(word.results.map((result) => result.part_of_speech))].join(', ')}
+              </div>
+              <div className='lowercase'>{word.results[0].definition}</div>
+              <div className='lowercase'>
+                {[...new Set([word.results.map((result) => result.synonyms)].flat(2))].slice(0, 5).join(', ')}
+              </div>
+              <div className='lowercase'>{word.translation.ua.join(', ')}</div>
+              <div className='lowercase'>{word.pronunciation}</div>
+              <div>{word.results[0].examples.join(', ')}</div>
             </div>
-            <div className='lowercase'>{word.results[0].definition}</div>
-            <div className='lowercase'>
-              {[...new Set([word.results.map((result) => result.synonyms)].flat(2))].slice(0, 5).join(', ')}
-            </div>
-            <div className='lowercase'>{word.translation.ua.join(', ')}</div>
-            <div className='lowercase'>{word.pronunciation}</div>
-            <div>{word.results[0].examples.join(', ')}</div>
-
             <div className={styles['word-modal']}>
               <EditDeleteWordModal word={word} />
             </div>

@@ -13,24 +13,92 @@
     > div {
       @apply pr-2 h-full;
 
-      .row {
-        @apply grid grid-cols-2 gap-4;
+      .definition {
+        @apply rounded-lg shadow-md bg-white-100 p-2 mb-2 flex flex-wrap flex-col rounded-3xl justify-center w-[100%] 
+        md:justify-start;
 
         > div {
-          @apply flex flex-col;
+          @apply flex flex-wrap flex-row justify-between w-[100%] relative;
 
-          label {
-            @apply font-semibold mb-2;
+          .content {
+            @apply font-medium text-xl leading-7 p-4
+            md:p-4;
+
+            .meaning {
+              @apply flex;
+
+              .number {
+                @apply text-purple-100 rounded-lg bg-purple-300 font-bold px-2 h-fit py-1 text-sm;
+              }
+
+              p {
+                @apply m-0 ml-3 font-medium text-lg;
+              }
+            }
+
+            .synonyms {
+              @apply mt-3 flex gap-2 flex-wrap;
+
+              button {
+                @apply text-black mt-2 text-sm py-3 px-3 flex items-center rounded-2xl bg-[#C9F8E1] font-medium;
+
+                > span {
+                  @apply mt-[2px] h-[18px];
+                }
+              }
+            }
           }
+        }
 
-          select {
-            @apply font-medium px-3 py-1.5 rounded border border-grey-400 w-full h-[38px];
+        .exams {
+          @apply p-4 w-full;
+
+          .content {
+            @apply p-0 text-left w-full italic flex flex-col gap-4;
+
+            > li {
+              @apply flex gap-2 items-baseline cursor-pointer w-full whitespace-normal text-left;
+
+              span {
+                @apply w-2 h-2 bg-orange rounded-full flex-shrink-0;
+              }
+
+              p {
+                @apply m-0 text-lg font-semibold
+                first-letter:uppercase;
+              }
+            }
           }
         }
       }
 
+      .translations {
+        @apply flex items-center flex-wrap gap-2;
+
+        .controls {
+          @apply flex items-center;
+
+          input {
+            @apply w-[160px];
+          }
+
+          .add-translation {
+            @apply m-0 ml-2 h-[38px];
+          }
+        }
+
+        .card {
+          @apply p-4 py-2 bg-blue-200 text-white-100 rounded-3xl font-bold;
+        }
+      }
+
       label {
-        @apply mt-4
+        @apply mt-4 
+        first:mt-0;
+      }
+
+      p {
+        @apply mt-4 block font-semibold mb-2
         first:mt-0;
       }
 
@@ -39,9 +107,8 @@
       }
 
       button {
-        @apply px-6 mt-2 text-black shadow-md bg-transparent mb-2 rounded
-        last:mt-6 last:bg-blue-200 last:text-white-100 last:shadow-none
-        hover:bg-grey-100 last:hover:bg-purple-100;
+        @apply px-6 mt-2 bg-blue-200 text-white-100 shadow-md mb-2 rounded
+        hover:bg-purple-100;
       }
     }
   }
