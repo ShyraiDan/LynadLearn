@@ -1,24 +1,27 @@
 import { Input } from '@/components/ui/Input/Input'
 import { Button } from '@/components/ui/Button/Button'
 import styles from './AddEditDefinitionForm.module.scss'
-import { IDefinition } from '@/interfaces/Word.interface'
+import { IDefinitionWithId } from '@/interfaces/Word.interface'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
+import { nanoid } from 'nanoid'
 
 import { FaPlus, FaTrash } from 'react-icons/fa'
 
 interface IAddEditDefinitionForm {
-  allowedAction: (odj: IDefinition) => void
+  allowedAction: (odj: IDefinitionWithId) => void
+  isEdit?: boolean
+  definition?: IDefinitionWithId | null
 }
-export const AddEditDefinitionForm = ({ allowedAction }: IAddEditDefinitionForm) => {
+export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAddEditDefinitionForm) => {
   const t = useTranslations('dashboard.vocabulary.modal')
   const [synonymsInput, setSynonymsInput] = useState('')
-  const [synonyms, setSynonyms] = useState<string[]>([])
+  const [synonyms, setSynonyms] = useState<string[]>(definition ? definition.synonyms : [])
   const [isDefinitionForm, setDefinitionForm] = useState(false)
-  const [examples, setExamples] = useState<string[]>([])
+  const [examples, setExamples] = useState<string[]>(definition ? definition.examples : [])
   const [exampleInput, setExampleInput] = useState('')
-  const [definitionInput, setDefinitionInput] = useState('')
-  const [partOfSpeech, setPartOfSpeech] = useState('')
+  const [definitionInput, setDefinitionInput] = useState(definition ? definition.definition : '')
+  const [partOfSpeech, setPartOfSpeech] = useState(definition ? definition.part_of_speech : '')
 
   const handleAddSynonym = () => {
     if (synonymsInput) {
@@ -36,6 +39,7 @@ export const AddEditDefinitionForm = ({ allowedAction }: IAddEditDefinitionForm)
 
   const handleAddDefinition = () => {
     allowedAction({
+      id: definition ? definition.id : nanoid(),
       definition: definitionInput,
       part_of_speech: partOfSpeech,
       examples: examples,
@@ -44,7 +48,7 @@ export const AddEditDefinitionForm = ({ allowedAction }: IAddEditDefinitionForm)
       level: ''
     })
 
-    setDefinitionForm((state) => !state)
+    setDefinitionForm(false)
     setExamples([])
     setSynonyms([])
     setPartOfSpeech('')
@@ -60,7 +64,7 @@ export const AddEditDefinitionForm = ({ allowedAction }: IAddEditDefinitionForm)
 
   return (
     <div className={styles['form-container']}>
-      {isDefinitionForm && (
+      {(isDefinitionForm || isEdit) && (
         <div className={styles['add-definition-form']}>
           <div>
             <div className={styles.meaning}>
@@ -69,6 +73,7 @@ export const AddEditDefinitionForm = ({ allowedAction }: IAddEditDefinitionForm)
                 name='definition'
                 id='definition'
                 placeholder={t('enter_definition')}
+                value={definitionInput}
                 onChange={(e) => setDefinitionInput(e.target.value)}>
                 {t('definition')}
               </Input>
@@ -154,7 +159,7 @@ export const AddEditDefinitionForm = ({ allowedAction }: IAddEditDefinitionForm)
           </div>
         </div>
       )}
-      {!isDefinitionForm && (
+      {!isDefinitionForm && !isEdit && (
         <Button className={styles['add-definition']} type='button' onClick={() => setDefinitionForm((state) => !state)}>
           {t('add_definition')}
         </Button>

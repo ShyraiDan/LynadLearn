@@ -21,18 +21,26 @@
           @apply flex flex-wrap flex-row justify-between w-[100%] relative;
 
           .content {
-            @apply font-medium text-xl leading-7 p-4
+            @apply font-medium text-xl leading-7 p-4 w-full
             md:p-4;
 
             .meaning {
-              @apply flex;
+              @apply flex justify-between w-full;
 
-              .number {
-                @apply text-purple-100 rounded-lg bg-purple-300 font-bold px-2 h-fit py-1 text-sm;
+              .title {
+                @apply flex;
+
+                .number {
+                  @apply text-purple-100 rounded-lg bg-purple-300 font-bold px-2 h-fit py-1 text-sm;
+                }
+
+                p {
+                  @apply m-0 ml-3 font-medium text-lg;
+                }
               }
 
-              p {
-                @apply m-0 ml-3 font-medium text-lg;
+              .icons {
+                @apply flex items-center gap-2;
               }
             }
 

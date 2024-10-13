@@ -1,16 +1,18 @@
 import styles from './WordModal.module.scss'
 import { Input } from '@/components/ui/Input/Input'
 import { Button } from '@/components/ui/Button/Button'
-import { useForm, SubmitHandler } from 'react-hook-form'
-import { IWord, IDefinition } from '@/interfaces/Word.interface'
+import { useForm, SubmitHandler, useFieldArray } from 'react-hook-form'
+import { IWord, IDefinitionWithId } from '@/interfaces/Word.interface'
 import { useTranslations } from 'next-intl'
 import { createWord, updateWordById } from '@/lib/word'
 import { useParams } from 'next/navigation'
 import { useState } from 'react'
 import { Badge } from '@/components/Badge/Badge'
 import { AddEditDefinitionForm } from './AddEditDefinitionForm/AddEditDefinitionForm'
+import { nanoid } from 'nanoid'
 
-import { FaPlus } from 'react-icons/fa'
+import { FaPlus, FaTrash } from 'react-icons/fa'
+import { MdEdit } from 'react-icons/md'
 
 interface IWordModal {
   handleClose: (e?: any) => void
@@ -23,12 +25,24 @@ export default function WordModal({ handleClose, word }: IWordModal) {
   const { id } = params
   const [translations, setTranslations] = useState('')
   const [translationsList, setTranslationsList] = useState<string[]>(word?.translation?.ua || [])
-  const [results, setResults] = useState<IDefinition[]>(word?.results || [])
+  const [results, setResults] = useState<IDefinitionWithId[]>(
+    word?.results.map((item) => {
+      return {
+        ...item,
+        id: nanoid()
+      }
+    }) || []
+  )
+  const [isEdit, setEdit] = useState<number | null>(null)
+
+  console.log(results)
 
   const {
     register,
     formState: { errors },
-    handleSubmit
+    handleSubmit,
+    watch,
+    control
   } = useForm<IWord>({
     mode: 'onBlur',
     defaultValues: {
@@ -66,8 +80,15 @@ export default function WordModal({ handleClose, word }: IWordModal) {
     }
   }
 
-  const handleAddDefinition = (obj: IDefinition) => {
-    setResults((state) => [...state, obj])
+  const handleAddDefinition = (obj: IDefinitionWithId) => {
+    console.log(obj)
+
+    if (isEdit !== null) {
+      setResults((state) => state.map((item) => (item.id === obj.id ? obj : item)))
+    } else {
+      setResults((state) => [...state, obj])
+    }
+    setEdit(null)
   }
 
   return (
@@ -102,34 +123,45 @@ export default function WordModal({ handleClose, word }: IWordModal) {
 
           <p>{t('definition')}</p>
           {results.map((item, index) => (
-            <div className={styles.definition} key={item.definition}>
-              <div>
-                <div className={styles.content}>
-                  <div className={styles.meaning}>
-                    <div className={styles.number}>{index + 1}</div>
-                    <p>{item.definition}</p>
+            <>
+              <div className={styles.definition} key={item.definition}>
+                <div>
+                  <div className={styles.content}>
+                    <div className={styles.meaning}>
+                      <div className={styles.title}>
+                        <div className={styles.number}>{index + 1}</div>
+                        <p>{item.definition}</p>
+                      </div>
+                      <div className={styles.icons}>
+                        <MdEdit onClick={() => setEdit(index)} />
+                        <FaTrash />
+                      </div>
+                    </div>
+                    <Badge className='w-min text-sm mt-2' part={item.part_of_speech} />
+                    <div className={styles.synonyms}>
+                      {item.synonyms.map((synonym, i) => (
+                        <Button key={i}>
+                          <span>≈</span> {synonym}
+                        </Button>
+                      ))}
+                    </div>
                   </div>
-                  <Badge className='w-min text-sm mt-2' part={item.part_of_speech} />
-                  <div className={styles.synonyms}>
-                    {item.synonyms.map((synonym, i) => (
-                      <Button key={i}>
-                        <span>≈</span> {synonym}
-                      </Button>
-                    ))}
+                  <div className={styles.exams}>
+                    <ul className={styles.content}>
+                      {item.examples.map((item: string, index: number, i) => (
+                        <li key={index}>
+                          <span className={styles.dot}></span>
+                          <p>{item}</p>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </div>
-                <div className={styles.exams}>
-                  <ul className={styles.content}>
-                    {item.examples.map((item: string, index: number, i) => (
-                      <li key={index}>
-                        <span className={styles.dot}></span>
-                        <p>{item}</p>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </div>
-            </div>
+              {index === isEdit && (
+                <AddEditDefinitionForm isEdit definition={item} allowedAction={handleAddDefinition} />
+              )}
+            </>
           ))}
           <AddEditDefinitionForm allowedAction={handleAddDefinition} />
           <p>{t('translation')}</p>
@@ -148,7 +180,6 @@ export default function WordModal({ handleClose, word }: IWordModal) {
                 onChange={(e) => setTranslations(e.target.value)}
                 value={translations}
               />
-
               <Button className={styles['add-translation']} type='button' onClick={() => handleAddTranslation()}>
                 <FaPlus size={20} />
               </Button>

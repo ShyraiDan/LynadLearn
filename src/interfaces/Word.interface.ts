@@ -9,6 +9,10 @@ export interface IDefinition {
   level: string
 }
 
+export interface IDefinitionWithId extends IDefinition {
+  id: string
+}
+
 export interface IWord {
   // _id: string
   // word: string
