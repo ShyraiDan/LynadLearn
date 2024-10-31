@@ -28,16 +28,19 @@ import user9 from '@/assets/6.png'
 export default function Home() {
   const t = useTranslations('Home')
 
+  //TODO
+  // Add hover on Premium buttons
+
   return (
     <>
       <div className={styles.container}>
         <div className={styles.hero}>
-          <h2>
+          <h2 className='dark:text-grey-600'>
             {t('learn_with')}
             <span className={styles.title}> Lynad</span>
             <span>Learn</span>
           </h2>
-          <p>{t('lynadLearn_is_learning')}</p>
+          <p className='dark:text-grey-600'>{t('lynadLearn_is_learning')}</p>
         </div>
 
         <div className={styles.info}>
@@ -76,8 +79,8 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.users}>
-            <h3>{t('join_thousands')}</h3>
-            <p>{t('lynadLearn_is_learning')}</p>
+            <h3 className='dark:text-grey-600'>{t('join_thousands')}</h3>
+            <p className='dark:text-grey-600'>{t('lynadLearn_is_learning')}</p>
             <div className={styles.advantages}>
               {DAdvantages.map((item) => (
                 <AdvantageItem key={item.title} {...item} />
@@ -88,8 +91,8 @@ export default function Home() {
 
         <div className={styles.help}>
           <div className={styles['description']}>
-            <h3>{t('how_can_AI_help')}</h3>
-            <p>{t('by_processing_the_structure')}</p>
+            <h3 className={`${styles['help-description-title']} dark:text-grey-600`}>{t('how_can_AI_help')}</h3>
+            <p className='dark:text-grey-600'>{t('by_processing_the_structure')}</p>
             <Button> {t('try_it')}</Button>
           </div>
           <div className={styles.image}>
@@ -117,18 +120,18 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.review}>
+        <div className={`${styles.review} dark:bg-[#18223D]`}>
           <div>
-            <h3>{t('user_reviews')}</h3>
+            <h3 className='dark:text-grey-600'>{t('user_reviews')}</h3>
             <UserReview />
           </div>
         </div>
 
         <div className={styles.download}>
           <div className={styles.info}>
-            <h3>{t('download_mobile_app')}</h3>
+            <h3 className='dark:text-grey-600'>{t('download_mobile_app')}</h3>
             <Image src={line} alt='line' />
-            <p>{t('install_app')}</p>
+            <p className='dark:text-grey-600'>{t('install_app')}</p>
             <NavigationLink href='/mobile-app'>{t('download')}</NavigationLink>
           </div>
           <Image src={app} alt='App' className={styles.image} />

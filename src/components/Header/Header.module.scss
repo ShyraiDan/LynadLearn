@@ -32,14 +32,14 @@
 
     .nav-item {
       @apply flex items-center font-bold;
-
-      a {
-        @apply text-blue-200;
-      }
     }
   }
 
   .dashboard {
     @apply border-b border-grey-275 lg:max-w-[100%];
   }
+}
+
+.link {
+  @apply text-blue-200;
 }

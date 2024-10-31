@@ -164,12 +164,6 @@
       @apply w-full relative mb-4 
       lg:w-[42%] lg:mb-0;
 
-      h3 {
-        @apply font-bold mt-10 mb-4 text-black 
-        sm:text-lg 
-        lg:text-2xl;
-      }
-
       p {
         @apply text-sm mb-2             
         lg:text-base;
@@ -255,20 +249,6 @@
     }
   }
 
-  .review {
-    @apply pb-8 bg-white-200 pt-8 my-14 px-4;
-
-    > div {
-      @apply flex leading-6 flex-col items-center 
-      sm:mx-[-15px] 
-      lg:mx-0 lg:max-w-[1320px] lg:mx-auto;
-
-      h3 {
-        @apply text-center text-2xl font-bold mb-4;
-      }
-    }
-  }
-
   .download {
     @apply mt-4 mb-14 flex flex-col items-center px-4
     lg:flex-row lg:justify-between lg:max-w-[1320px] lg:mx-auto;
@@ -302,6 +282,26 @@
       @apply w-[80%] mt-4 
       xs:w-1/2 
       md:w-1/3 max-w-[430px];
+    }
+  }
+}
+
+.help-description-title {
+  @apply font-bold mt-10 mb-4 text-black  
+  sm:text-lg 
+  lg:text-2xl;
+}
+
+.review {
+  @apply pb-8 bg-white-200 pt-8 my-14 px-4;
+
+  > div {
+    @apply flex leading-6 flex-col items-center 
+    sm:mx-[-15px] 
+    lg:mx-0 lg:max-w-[1320px] lg:mx-auto;
+
+    h3 {
+      @apply text-center text-2xl font-bold mb-4;
     }
   }
 }

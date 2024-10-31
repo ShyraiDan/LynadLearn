@@ -24,6 +24,8 @@ export function AuthModal() {
     removeScrollBar(isModalOpen)
   }
 
+  //TODO add opportunity to see the password
+
   return (
     <>
       <div className={styles.btn}>
@@ -32,31 +34,31 @@ export function AuthModal() {
         </Button>
       </div>
       {isModalOpen && (
-        <Modal isOpen={isModalOpen} handleClose={() => showModal()}>
+        <Modal className='dark:bg-[#0B152E]' isOpen={isModalOpen} handleClose={() => showModal()}>
           <div className={styles.modal}>
             <div className={styles.image}>
               <Image alt='Keep learning' src={image} />
             </div>
             {isSignInModal ? (
               <div className={styles['form-container']}>
-                <h2>{t('hello')}</h2>
-                <p>{t('enter_details_sign_up')}</p>
+                <h2 className='dark:text-grey-600'>{t('hello')}</h2>
+                <p className='dark:text-grey-600'>{t('enter_details_sign_up')}</p>
                 <SignUpForm handleClose={showModal} />
-                <span>{t('or')}</span>
+                <span className='dark:text-grey-600'>{t('or')}</span>
                 <Button>
                   <FcGoogle /> {t('sign_up_google')}
                 </Button>
-                <div>
+                <div className='dark:text-grey-600'>
                   {t('have_account')}
                   <span onClick={() => setSignInModal((state) => !state)}>{t('sign_in')}</span>
                 </div>
               </div>
             ) : (
               <div className={styles['form-container']}>
-                <h2>{t('welcome')}</h2>
-                <p>{t('enter_details_sign_in')}</p>
+                <h2 className='dark:text-grey-600'>{t('welcome')}</h2>
+                <p className='dark:text-grey-600'>{t('enter_details_sign_in')}</p>
                 <SignInForm handleClose={showModal} />
-                <div>
+                <div className='dark:text-grey-600'>
                   {t('not_have_account')}
                   <span onClick={() => setSignInModal((state) => !state)}>{t('sign_up')}</span>
                 </div>

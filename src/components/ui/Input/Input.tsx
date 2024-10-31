@@ -17,12 +17,12 @@ interface IInput {
 export function Input({ type, placeholder, name, id, children, required, obj, onChange, value, checked }: IInput) {
   return (
     <>
-      <label className={styles.label} htmlFor={id}>
+      <label className={`${styles.label} dark:text-grey-600`} htmlFor={id}>
         {children}
       </label>
       <input
         required={required}
-        className={styles.input}
+        className={`${styles.input} dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600`}
         type={type}
         placeholder={placeholder}
         name={name}

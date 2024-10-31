@@ -9,10 +9,10 @@ export default function AdvantageItem({ title, description }: IAdvantage) {
 
   return (
     <div className={styles.container}>
-      <h6>{title}</h6>
+      <h6 className='dark:text-grey-600'>{title}</h6>
       <div className={styles.description}>
-        <TiTickOutline />
-        <p>{t(`${description}`)}</p>
+        <TiTickOutline className='dark:text-grey-600' />
+        <p className='dark:text-grey-600'>{t(`${description}`)}</p>
       </div>
     </div>
   )

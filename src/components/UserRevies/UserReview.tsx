@@ -39,12 +39,12 @@ export default function UserReview() {
           {DReview.map((review, index) => {
             return (
               <SwiperSlide key={index}>
-                <div key={review.id} className={styles.item}>
+                <div key={review.id} className={`${styles.item} dark:bg-[#050e26]`}>
                   <div className={styles.user}>
                     <Image src={review.avatar} alt='user-icon'></Image>
-                    <p>{review.name}</p>
+                    <p className='dark:text-grey-600'>{review.name}</p>
                   </div>
-                  <p>{review.text}</p>
+                  <p className='dark:text-grey-600'>{review.text}</p>
                   <div className={styles.mark}>
                     <div className={styles.stars}>
                       <IoStarSharp size={'20px'} />
@@ -54,7 +54,7 @@ export default function UserReview() {
                       <IoStarSharp size={'20px'} />
                     </div>
                     <div className={styles.platform}>
-                      <FaGooglePlay />
+                      <FaGooglePlay className='dark:text-grey-600' />
                       <p>Google Play</p>
                     </div>
                   </div>

@@ -26,15 +26,19 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
     removeScrollBar(isBurgerShow)
   }
 
+  // TODO
+  // fix hover on accordion
+  // add dictionary and translation links
+
   return (
     <>
       <div onClick={() => showModal()} className={styles['burger-btn']}>
-        <span></span>
-        <span></span>
-        <span></span>
+        <span className='dark:bg-grey-600'></span>
+        <span className='dark:bg-grey-600'></span>
+        <span className='dark:bg-grey-600'></span>
       </div>
-      <div className={`${isBurgerShow && styles.layout}`} />
-      <div className={`${styles.burger} ${isBurgerShow && styles.active}`}>
+      <div className={`${isBurgerShow && styles.layout} `} />
+      <div className={`${styles.burger} ${isBurgerShow && styles.active} dark:bg-blue-600`}>
         <div className={styles.top}>
           <div>
             <h2>
@@ -42,26 +46,26 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
                 Lynad<span>Learn</span>
               </NavigationLink>
             </h2>
-            <RxCross1 onClick={() => showModal()} size={'24px'} />
+            <RxCross1 className='dark:text-grey-600' onClick={() => showModal()} size={'24px'} />
           </div>
           <ul>
             <li>
-              <NavigationLink hover onClick={() => showModal()} href={'/about-us'}>
+              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href={'/about-us'}>
                 {t('about_us')}
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink hover onClick={() => showModal()} href={'/pricing'}>
+              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href={'/pricing'}>
                 {t('pricing')}
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink hover onClick={() => showModal()} href={'/contact-us'}>
+              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href={'/contact-us'}>
                 {t('contact_us')}
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink hover onClick={() => showModal()} href={'/mobile-app'}>
+              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href={'/mobile-app'}>
                 {t('mobile_app')}
               </NavigationLink>
             </li>
@@ -72,38 +76,66 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
             </li> */}
             {isAuth && (
               <li>
-                <NavigationLink hover onClick={() => showModal()} href={'/dashboard/profile'}>
+                <NavigationLink
+                  className='dark:text-grey-600'
+                  hover
+                  onClick={() => showModal()}
+                  href={'/dashboard/profile'}>
                   {t('profile')}
                 </NavigationLink>
               </li>
             )}
             {isAuth && (
               <li>
-                <NavigationLink hover onClick={() => showModal()} href={'/dashboard/bookmarks'}>
+                <NavigationLink
+                  className='dark:text-grey-600'
+                  hover
+                  onClick={() => showModal()}
+                  href={'/dashboard/bookmarks'}>
                   {t('bookmarks')}
                 </NavigationLink>
               </li>
             )}
-            <li onClick={() => setLastOpen((state) => !state)}>
+            <li>
               <div className={styles['dropdown-btn']}>
-                <NavigationLink hover onClick={() => showModal()} href={'/dashboard/lists'}>
+                <NavigationLink
+                  className='dark:text-grey-600'
+                  hover
+                  onClick={() => showModal()}
+                  href={'/dashboard/lists'}>
                   {t('dashboard')}
                 </NavigationLink>
-                <IoIosArrowDown size={20} className={`${styles.arrow} ${isLastOpen && styles.rotated}`} />
+                <IoIosArrowDown
+                  size={20}
+                  onClick={() => setLastOpen((state) => !state)}
+                  className={`${styles.arrow} ${isLastOpen && styles.rotated} dark:text-grey-600`}
+                />
               </div>
               <ul className={`${styles.dropdown}  ${isLastOpen && styles['dropdown-active']}`}>
                 <li>
-                  <NavigationLink hover onClick={() => showModal()} href={'/dashboard/quiz?type=grammar'}>
+                  <NavigationLink
+                    className='dark:text-grey-600'
+                    hover
+                    onClick={() => showModal()}
+                    href={'/dashboard/quiz?type=grammar'}>
                     {t('quiz')}
                   </NavigationLink>
                 </li>
                 <li>
-                  <NavigationLink hover onClick={() => showModal()} href={'/dashboard/grammar'}>
+                  <NavigationLink
+                    className='dark:text-grey-600'
+                    hover
+                    onClick={() => showModal()}
+                    href={'/dashboard/grammar'}>
                     {t('grammar')}
                   </NavigationLink>
                 </li>
                 <li>
-                  <NavigationLink hover onClick={() => showModal()} href={'/dashboard/flashcard'}>
+                  <NavigationLink
+                    className='dark:text-grey-600'
+                    hover
+                    onClick={() => showModal()}
+                    href={'/dashboard/flashcard'}>
                     {t('flashcard')}
                   </NavigationLink>
                 </li>
@@ -122,21 +154,21 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
             )}
           </div>
           <div className={styles.social}>
-            <p>{t('follow_us')}</p>
+            <p className='dark:text-grey-600'>{t('follow_us')}</p>
             <ul>
               <li>
                 <Link href={'https://www.instagram.com/'}>
-                  <FaInstagram />
+                  <FaInstagram className='dark:text-grey-600' />
                 </Link>
               </li>
               <li>
                 <Link href={'https://twitter.com/'}>
-                  <FaXTwitter />
+                  <FaXTwitter className='dark:text-grey-600 ' />
                 </Link>
               </li>
               <li>
                 <Link href={'https://www.facebook.com/'}>
-                  <FaFacebook />
+                  <FaFacebook className='dark:text-grey-600' />
                 </Link>
               </li>
             </ul>

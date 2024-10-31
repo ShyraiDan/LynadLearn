@@ -6,6 +6,7 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       backgroundImage: {
@@ -36,7 +37,10 @@ const config: Config = {
           300: '#2959a2',
           350: '#6c757d',
           400: '#7b8ba5',
-          500: '#f7f9fc'
+          500: '#f7f9fc',
+          600: '#0B152E',
+          700: '#18223D',
+          800: '#111C38'
         },
         purple: {
           100: '#7b56bd',
@@ -50,7 +54,8 @@ const config: Config = {
           275: '#e5e7eb',
           300: '#e6e6e6',
           400: '#ced4da',
-          500: '#353738'
+          500: '#353738',
+          600: '#d4d5d6'
         },
         white: {
           100: '#ffffff',

@@ -67,3 +67,16 @@ body {
   }
 }
 
+.dark {
+  body {
+    @apply bg-blue-600;
+  }
+
+  .swiper-pagination-bullet {
+    background-color: #d4d5d6 !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: rgb(123 86 189) !important;
+  }
+}

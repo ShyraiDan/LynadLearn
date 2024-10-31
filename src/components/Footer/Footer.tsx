@@ -15,9 +15,13 @@ export function Footer() {
 
   const path = usePathname()
 
+  // TODO
+  // Add hover on footer icons
+  // Check icons styles on mobile
+
   return (
     <>
-      <footer className={`${styles.footer} ${path.split('/')[2] === 'dashboard' && styles.dashboard}`}>
+      <footer className={`${styles.footer} ${path.split('/')[2] === 'dashboard' && styles.dashboard} dark:bg-blue-800`}>
         <div className={styles['footer-container']}>
           <div className={styles['footer-main']}>
             <NavigationLink href={'/'}>
@@ -28,49 +32,61 @@ export function Footer() {
                 <nav>
                   <ul className={styles['nav-list']}>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/about-us'>{t('about_us')}</NavigationLink>
+                      <NavigationLink href='/about-us' className='dark:text-grey-600'>
+                        {t('about_us')}
+                      </NavigationLink>
                     </li>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/pricing'>{t('pricing')}</NavigationLink>
+                      <NavigationLink href='/pricing' className='dark:text-grey-600'>
+                        {t('pricing')}
+                      </NavigationLink>
                     </li>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href={'/contact-us'}>{t('contact_us')}</NavigationLink>
+                      <NavigationLink href='/contact-us' className='dark:text-grey-600'>
+                        {t('contact_us')}
+                      </NavigationLink>
                     </li>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href={'/mobile-app'}>{t('mobile_app')}</NavigationLink>
+                      <NavigationLink href='/mobile-app' className='dark:text-grey-600'>
+                        {t('mobile_app')}
+                      </NavigationLink>
                     </li>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/dictionary'>{t('dictionary')}</NavigationLink>
+                      <NavigationLink href='/dictionary' className='dark:text-grey-600'>
+                        {t('dictionary')}
+                      </NavigationLink>
                     </li>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/translator'>{t('translator')}</NavigationLink>
+                      <NavigationLink href='/translator' className='dark:text-grey-600'>
+                        {t('translator')}
+                      </NavigationLink>
                     </li>
                   </ul>
                 </nav>
               </div>
               <div className={styles['footer-right']}>
-                <p>{t('follow_us')}</p>
+                <p className='dark:text-grey-600'>{t('follow_us')}</p>
                 <ul>
                   <li>
                     <Link href={'https://www.instagram.com/'}>
-                      <FaInstagram />
+                      <FaInstagram className='dark:text-grey-600' />
                     </Link>
                   </li>
                   <li>
                     <Link href={'https://twitter.com/'}>
-                      <FaXTwitter />
+                      <FaXTwitter className='dark:text-grey-600' />
                     </Link>
                   </li>
                   <li>
                     <Link href={'https://www.facebook.com/'}>
-                      <FaFacebook />
+                      <FaFacebook className='dark:text-grey-600' />
                     </Link>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-          <div className={styles['footer-bottom']}>
+          <div className={`${styles['footer-bottom']} dark:text-grey-600`}>
             © Copyright {new Date().getFullYear()}.{' '}
             <Link replace={true} href={'/'}>
               LynadLearn

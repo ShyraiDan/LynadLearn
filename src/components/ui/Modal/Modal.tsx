@@ -36,7 +36,7 @@ export function Modal({ children, isOpen, handleClose, className }: IModal) {
         <div className={styles.layout} />
         <div className={`${styles.modal} ${className}`}>
           <button onClick={(e) => handleClose(e)}>
-            <RxCross1 size={'24px'} />
+            <RxCross1 size={'24px'} className='dark:text-grey-600' />
           </button>
           <div>{children}</div>
         </div>

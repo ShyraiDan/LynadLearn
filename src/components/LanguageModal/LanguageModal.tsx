@@ -23,7 +23,7 @@ export default function LanguageModal() {
 
   return (
     <>
-      <li className={styles['nav-item']}>
+      <li className={`${styles['nav-item']} dark:text-grey-600`}>
         {localActive === 'en' ? t('english') : t('ukrainian')}
         <IoIosArrowDown />
         <div className={styles.modal}>
