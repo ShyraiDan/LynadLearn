@@ -11,15 +11,15 @@ export default function PricingPage() {
   return (
     <div className={styles.container}>
       <div className={styles.top}>
-        <h1>{t('pricing')}</h1>
+        <h1 className='dark:text-grey-600'>{t('pricing')}</h1>
         <div>
           {DPricing.map((item) => (
             <PricingCard key={item.price} data={item} />
           ))}
         </div>
       </div>
-      <h2>{t('take_the_next_step')}</h2>
-      <p>{t('lynadLearn_basic_membership_offers')}</p>
+      <h2 className='dark:text-grey-600'>{t('take_the_next_step')}</h2>
+      <p className='dark:text-grey-600'>{t('lynadLearn_basic_membership_offers')}</p>
       <div className={styles.table}>
         <table>
           <thead>
@@ -30,57 +30,58 @@ export default function PricingPage() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>{t('available_platforms')}</td>
-              <td>Web, Android, iOS</td>
-              <td>Web, Android, iOS</td>
+            {/* 1C2947 */}
+            <tr className={`${styles.row} dark:odd:bg-[#1C2947]`}>
+              <td className='dark:text-grey-600'>{t('available_platforms')}</td>
+              <td className='dark:text-grey-600'>Web, Android, iOS</td>
+              <td className='dark:text-grey-600'>Web, Android, iOS</td>
             </tr>
-            <tr>
-              <td>{t('grammar_library')}</td>
+            <tr className={`${styles.row} `}>
+              <td className='dark:text-grey-600'>{t('grammar_library')}</td>
               <td>
-                <TiTick />
+                <TiTick className='dark:text-purple-100' />
               </td>
               <td>
-                <TiTick />
-              </td>
-            </tr>
-            <tr>
-              <td>{t('pronunciation_lessons')}</td>
-              <td>
-                <TiTick />
-              </td>
-              <td>
-                <TiTick />
+                <TiTick className='dark:text-purple-100' />
               </td>
             </tr>
-            <tr>
-              <td>{t('vocabulary_review')}</td>
+            <tr className={`${styles.row} dark:odd:bg-[#1C2947]`}>
+              <td className='dark:text-grey-600'>{t('pronunciation_lessons')}</td>
               <td>
-                <TiTick />
+                <TiTick className='dark:text-purple-100' />
               </td>
               <td>
-                <TiTick />
-              </td>
-            </tr>
-            <tr>
-              <td>{t('custom_word_lists')}</td>
-              <td>{t('limited')}</td>
-              <td>
-                <TiTick />
+                <TiTick className='dark:text-purple-100' />
               </td>
             </tr>
-            <tr>
-              <td>{t('advanced_vocabulary_features')}</td>
-              <td>{t('limited')}</td>
+            <tr className={`${styles.row}`}>
+              <td className='dark:text-grey-600'>{t('vocabulary_review')}</td>
               <td>
-                <TiTick />
+                <TiTick className='dark:text-purple-100' />
+              </td>
+              <td>
+                <TiTick className='dark:text-purple-100' />
               </td>
             </tr>
-            <tr>
-              <td>{t('daily_vocabulary_feature')}</td>
-              <td>{t('limited')}</td>
+            <tr className={`${styles.row} dark:odd:bg-[#1C2947]`}>
+              <td className='dark:text-grey-600'>{t('custom_word_lists')}</td>
+              <td className='dark:text-grey-600'>{t('limited')}</td>
               <td>
-                <TiTick />
+                <TiTick className='dark:text-purple-100' />
+              </td>
+            </tr>
+            <tr className={`${styles.row}`}>
+              <td className='dark:text-grey-600'>{t('advanced_vocabulary_features')}</td>
+              <td className='dark:text-grey-600'>{t('limited')}</td>
+              <td>
+                <TiTick className='dark:text-purple-100' />
+              </td>
+            </tr>
+            <tr className={`${styles.row} dark:odd:bg-[#1C2947]`}>
+              <td className='dark:text-grey-600'>{t('daily_vocabulary_feature')}</td>
+              <td className='dark:text-grey-600'>{t('limited')}</td>
+              <td>
+                <TiTick className='dark:text-purple-100' />
               </td>
             </tr>
           </tbody>

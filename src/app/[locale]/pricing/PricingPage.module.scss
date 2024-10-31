@@ -52,11 +52,6 @@
 
       tbody {
         tr {
-          @apply p-4 text-sm font-bold
-          sm:p-6 sm:text-base 
-          lg:text-lg
-          odd:bg-white-200;
-
           td {
             @apply text-center text-center
             lg:text-base
@@ -77,4 +72,11 @@
       }
     }
   }
+}
+
+.row {
+  @apply p-4 text-sm font-bold
+  sm:p-6 sm:text-base 
+  lg:text-lg
+  odd:bg-white-200;
 }

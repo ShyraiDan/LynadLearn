@@ -16,16 +16,18 @@ export default function PricingCard({ data }: { data: IPricing }) {
   const localActive = useLocale()
 
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} dark:bg-[#111C38]`}>
       <div>
-        <h6>{`${data.duration === 'years' ? '3 ' : data.duration === 'year' ? '1 ' : ''}${t(data.duration)}`}</h6>
+        <h6 className='dark:text-grey-600'>{`${
+          data.duration === 'years' ? '3 ' : data.duration === 'year' ? '1 ' : ''
+        }${t(data.duration)}`}</h6>
         <div className={styles.title}>
-          <h3>{data.price === 'free' ? t(data.price) : data.price}</h3>{' '}
+          <h3 className='dark:text-grey-600'>{data.price === 'free' ? t(data.price) : data.price}</h3>{' '}
           {data.previousPrice && <span>{data.previousPrice}</span>}
         </div>
         <ul>
           {data.advantages.map((item) => (
-            <li key={item.text}>
+            <li key={item.text} className='dark:text-grey-600'>
               {item.icon === 'return' ? (
                 <TbZoomMoney />
               ) : item.icon === 'percent' ? (
