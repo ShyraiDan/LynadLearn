@@ -3,15 +3,12 @@
 import styles from './Themes.module.scss'
 import { Button } from '../ui/Button/Button'
 import { useState, useEffect } from 'react'
+import { changeTheme } from '@/lib/auth'
 
 import { FaRegMoon, FaRegSun } from 'react-icons/fa'
 
 export const Themes = () => {
-  const [theme, setTheme] = useState('light')
-
-  useEffect(() => {
-    setTheme(localStorage.getItem('theme') || 'light')
-  }, [])
+  const [theme, setTheme] = useState<string>(localStorage.getItem('theme') || 'light')
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -23,9 +20,13 @@ export const Themes = () => {
     }
   }, [theme])
 
+  const handleChangeTheme = async (theme: 'light' | 'dark') => {
+    await changeTheme(theme).then(() => setTheme(theme))
+  }
+
   return (
     <div className={styles['theme-btn']}>
-      <Button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+      <Button onClick={() => handleChangeTheme(theme === 'light' ? 'dark' : 'light')}>
         {theme === 'dark' ? <FaRegSun className={'dark:fill-[#fff]'} /> : <FaRegMoon className={'dark:fill-[#fff]'} />}
       </Button>
     </div>

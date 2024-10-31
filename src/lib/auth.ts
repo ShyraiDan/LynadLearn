@@ -10,13 +10,14 @@ import { ISignUp, ISignIn } from '@/components/AuthModal/components/Auth.interfa
 import { revalidatePath } from 'next/cache'
 
 export interface ISession {
+  isLoggedIn: boolean
+  theme: 'light' | 'dark'
   userId?: string
   userName?: string
   email?: string
   avatarUrl?: string
   description?: string
   location?: string
-  isLoggedIn: boolean
   rating?: number
   wordLists?: number
   totalQuizzes?: number
@@ -25,7 +26,8 @@ export interface ISession {
   words?: number
 }
 const defaultSession: ISession = {
-  isLoggedIn: false
+  isLoggedIn: false,
+  theme: 'light'
 }
 
 const sessionOptions: SessionOptions = {
@@ -42,6 +44,7 @@ export const getSession = async () => {
 
   if (!session.isLoggedIn) {
     session.isLoggedIn = defaultSession.isLoggedIn
+    session.theme = defaultSession.theme
   }
 
   return session
@@ -151,4 +154,10 @@ export const updateUser = async (user: any) => {
   await session.save()
 
   revalidatePath('[locale]/dashboard/profile', 'page')
+}
+
+export const changeTheme = async (theme: 'light' | 'dark') => {
+  const session = await getSession()
+  session.theme = theme
+  await session.save()
 }
