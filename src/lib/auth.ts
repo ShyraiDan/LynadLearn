@@ -11,7 +11,7 @@ import { revalidatePath } from 'next/cache'
 
 export interface ISession {
   isLoggedIn: boolean
-  theme: 'light' | 'dark'
+  // theme: 'light' | 'dark'
   userId?: string
   userName?: string
   email?: string
@@ -26,8 +26,8 @@ export interface ISession {
   words?: number
 }
 const defaultSession: ISession = {
-  isLoggedIn: false,
-  theme: 'light'
+  isLoggedIn: false
+  // theme: 'light'
 }
 
 const sessionOptions: SessionOptions = {
@@ -44,7 +44,7 @@ export const getSession = async () => {
 
   if (!session.isLoggedIn) {
     session.isLoggedIn = defaultSession.isLoggedIn
-    session.theme = defaultSession.theme
+    // session.theme = defaultSession.theme
   }
 
   return session
@@ -156,8 +156,8 @@ export const updateUser = async (user: any) => {
   revalidatePath('[locale]/dashboard/profile', 'page')
 }
 
-export const changeTheme = async (theme: 'light' | 'dark') => {
-  const session = await getSession()
-  session.theme = theme
-  await session.save()
-}
+// export const changeTheme = async (theme: 'light' | 'dark') => {
+//   const session = await getSession()
+//   session.theme = theme
+//   await session.save()
+// }

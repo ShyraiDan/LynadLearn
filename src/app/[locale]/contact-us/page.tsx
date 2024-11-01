@@ -33,12 +33,12 @@ export default function ContactUsPage() {
     <>
       <div className={styles.container}>
         <div className={styles.left}>
-          <h1>{t('Contact_Us.contact_us')}</h1>
-          <p>{t('Contact_Us.we_take_our_commitment')}</p>
-          <p>{t('Contact_Us.we_are_also_proud')}</p>
+          <h1 className={`${styles.title} dark:text-grey-600`}>{t('Contact_Us.contact_us')}</h1>
+          <p className={`${styles.subtitle} dark:text-grey-600`}>{t('Contact_Us.we_take_our_commitment')}</p>
+          <p className={`${styles.subtitle} dark:text-grey-600`}>{t('Contact_Us.we_are_also_proud')}</p>
         </div>
         <div className={styles.form}>
-          <div>
+          <div className={`${styles['form-container']} dark:bg-[#1C213F]`}>
             <form action='' onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <Input
@@ -82,8 +82,11 @@ export default function ContactUsPage() {
                 {errors?.subject && <p className={styles.error}>{errors.subject.message}</p>}
               </div>
               <div>
-                <label htmlFor='message'>{t('Forms.message')}</label>
+                <label className='dark:text-grey-600' htmlFor='message'>
+                  {t('Forms.message')}
+                </label>
                 <textarea
+                  className='dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600'
                   id='message'
                   placeholder={t('Forms.enter_message')}
                   {...register('message', {
