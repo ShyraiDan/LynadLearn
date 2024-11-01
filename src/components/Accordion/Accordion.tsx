@@ -20,14 +20,16 @@ export default function Accordion() {
         return (
           <div
             key={item.id}
-            className={`${styles.accordion} ${open === i && styles.active}`}
+            className={`${styles.accordion} dark:text-grey-600 dark:bg-[#111C38] dark:hover:bg-[#111C38]  ${
+              open === i && `${styles.active}`
+            } `}
             onClick={() => toggleAccordion(i)}>
             <div>
-              <h6>{t(item.question)}</h6>
+              <h6 className={`${open === i && 'text-purple-100'}`}>{t(item.question)}</h6>
               <IoIosArrowDown size={20} />
             </div>
 
-            {i === open && <p>{t(item.answer)}</p>}
+            {i === open && <p className='dark:text-grey-600'>{t(item.answer)}</p>}
           </div>
         )
       })}

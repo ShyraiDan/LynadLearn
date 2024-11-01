@@ -37,19 +37,19 @@ export default function Features() {
                   <div className={styles.item}>
                     <div>
                       <Image src={item.icon} alt='book' />
-                      <h6>{t(item.title)}</h6>
+                      <h6 className='dark:text-grey-600'>{t(item.title)}</h6>
                     </div>
-                    <p>{t(item.description)}</p>
+                    <p className={`${styles['item-description']} dark:text-grey-600`}>{t(item.description)}</p>
                   </div>
                 </SwiperSlide>
               )
             })}
           </Swiper>
           <div className={styles.btns}>
-            <button className={`features-left ${styles['arrow-left']}`}>
+            <button className={`features-left ${styles['arrow-left']} dark:text-grey-600`}>
               <IoIosArrowBack size={28} />
             </button>
-            <button className={`features-right ${styles['arrow-right']}`}>
+            <button className={`features-right ${styles['arrow-right']} dark:text-grey-600`}>
               <IoIosArrowForward size={28} />
             </button>
           </div>

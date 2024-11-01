@@ -30,7 +30,6 @@ export default function PricingPage() {
             </tr>
           </thead>
           <tbody>
-            {/* 1C2947 */}
             <tr className={`${styles.row} dark:odd:bg-[#1C2947]`}>
               <td className='dark:text-grey-600'>{t('available_platforms')}</td>
               <td className='dark:text-grey-600'>Web, Android, iOS</td>

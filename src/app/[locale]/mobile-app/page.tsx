@@ -23,6 +23,8 @@ import vocabulary from '@/assets/vocabulary.png'
 import gif from '@/assets/langeek-demo-min.gif'
 import pluses from '@/assets/pattern-3.svg'
 
+//TODO check hover on Advantages items
+
 export default function MobileApp() {
   const t = useTranslations('Mobile_app')
 
@@ -30,7 +32,7 @@ export default function MobileApp() {
     <div className={styles.container}>
       <div className={styles.download}>
         <div className={styles.top}>
-          <h1>
+          <h1 className={`${styles.title} dark:text-grey-600`}>
             {t('download')}{' '}
             <span>
               Lynad<span>Learn </span>
@@ -38,7 +40,7 @@ export default function MobileApp() {
             {t('mobile_app')}
           </h1>
           <Image src={line} alt='line' />
-          <p>{t('always_download')}</p>
+          <p className='dark:text-grey-600'>{t('always_download')}</p>
           <div>
             <Link href='https://play.google.com/store/games/'>
               <Button>
@@ -64,8 +66,8 @@ export default function MobileApp() {
       </div>
       <div className={styles.app}>
         <div className={styles.learning}>
-          <h3>{t('with_lynadlearn')}</h3>
-          <p>{t('with_lynadlearn')}</p>
+          <h3 className='dark:text-grey-600'>{t('with_lynadlearn')}</h3>
+          <p className='dark:text-grey-600'>{t('with_lynadlearn')}</p>
           <div>
             {DAdvantages.map((item) => (
               <AdvantageItem key={item.title} {...item} />
@@ -79,7 +81,7 @@ export default function MobileApp() {
         </div>
       </div>
       <div className={styles.sections}>
-        <h3>{t('main_sections')}</h3>
+        <h3 className='dark:text-grey-600'>{t('main_sections')}</h3>
         <div className={styles.items}>
           <div className={styles.left}>
             {DSectionLeft.map((item) => (
@@ -102,7 +104,7 @@ export default function MobileApp() {
       </div>
       <div className={styles.features}>
         <div className={styles.slider}>
-          <h3>{t('app_features')}</h3>
+          <h3 className={`${styles['features-title']} dark:text-grey-600`}>{t('app_features')}</h3>
           <Features />
         </div>
         <Image src={message} alt='arrow' />
@@ -114,15 +116,15 @@ export default function MobileApp() {
           </div>
         </div>
       </div>
-      <div className={styles.review}>
+      <div className={`${styles.review} dark:bg-[#18223D]`}>
         <div>
-          <h3>{t('reviews')}</h3>
+          <h3 className='dark:text-grey-600'>{t('reviews')}</h3>
           <UserReview />
         </div>
       </div>
       <div className={styles.questions}>
         <div className={styles.items}>
-          <h3>{t('faq')}</h3>
+          <h3 className='dark:text-grey-600'>{t('faq')}</h3>
           <Accordion />
         </div>
         <Image src={faq} alt='faq'></Image>

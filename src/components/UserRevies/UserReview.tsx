@@ -65,10 +65,10 @@ export default function UserReview() {
         </Swiper>
 
         <div className={styles.btns}>
-          <button className={`arrow-left ${styles['arrow-left']}`}>
+          <button className={`arrow-left ${styles['arrow-left']} dark:text-grey-600`}>
             <IoIosArrowBack size={28} />
           </button>
-          <button className={`arrow-right ${styles['arrow-right']}`}>
+          <button className={`arrow-right ${styles['arrow-right']} dark:text-grey-600`}>
             <IoIosArrowForward size={28} />
           </button>
         </div>
