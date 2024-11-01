@@ -24,9 +24,9 @@ export default function Dictionary() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.heading}>
+      <div className={`${styles.heading} dark:bg-[#18223D]`}>
         <div className={styles['sub-container']}>
-          <h1 className={styles.title}>{t('perfect_dictionary')}</h1>
+          <h1 className={`${styles.title} dark:text-grey-600`}>{t('perfect_dictionary')}</h1>
           <div className={styles['input-container']}>
             <Input
               onChange={(e) => setSearch(e.target.value)}
@@ -39,7 +39,7 @@ export default function Dictionary() {
               <FaSearch />
             </Button>
           </div>
-          <p className={styles.desc}>{t('online_dictionary')}</p>
+          <p className={`${styles.desc} dark:text-grey-600`}>{t('online_dictionary')}</p>
         </div>
       </div>
       <div className={styles['sub-container']}>
@@ -56,48 +56,64 @@ export default function Dictionary() {
             <>
               <div className={styles.column}>
                 {firstCol.map((item, i) => (
-                  <div key={item.title} className={`${styles.card} ${i % 2 !== 0 && styles.expanded}`}>
+                  <div
+                    key={item.title}
+                    className={`${styles.card} ${
+                      i % 2 !== 0 && styles.expanded
+                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}>
                     <div>
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2>{t(`cards.${item.title}`)}</h2>
+                      <h2 className='dark:text-grey-600'>{t(`cards.${item.title}`)}</h2>
                     </div>
                   </div>
                 ))}
               </div>
               <div className={styles.column}>
                 {secondCol.map((item, i) => (
-                  <div key={item.title} className={`${styles.card} ${i % 2 === 0 && styles.expanded}`}>
+                  <div
+                    key={item.title}
+                    className={`${styles.card} ${
+                      i % 2 === 0 && styles.expanded
+                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}>
                     <div>
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2>{t(`cards.${item.title}`)}</h2>
+                      <h2 className='dark:text-grey-600'>{t(`cards.${item.title}`)}</h2>
                     </div>
                   </div>
                 ))}
               </div>
               <div className={styles.column}>
                 {thirdCol.map((item, i) => (
-                  <div key={item.title} className={`${styles.card} ${i % 2 !== 0 && styles.expanded}`}>
+                  <div
+                    key={item.title}
+                    className={`${styles.card} ${
+                      i % 2 !== 0 && styles.expanded
+                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}>
                     <div>
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2>{t(`cards.${item.title}`)}</h2>
+                      <h2 className='dark:text-grey-600'>{t(`cards.${item.title}`)}</h2>
                     </div>
                   </div>
                 ))}
               </div>
               <div className={styles.column}>
                 {forthCol.map((item, i) => (
-                  <div key={item.title} className={`${styles.card} ${i % 2 === 0 && styles.expanded}`}>
+                  <div
+                    key={item.title}
+                    className={`${styles.card} ${
+                      i % 2 === 0 && styles.expanded
+                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}>
                     <div>
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2>{t(`cards.${item.title}`)}</h2>
+                      <h2 className='dark:text-grey-600'>{t(`cards.${item.title}`)}</h2>
                     </div>
                   </div>
                 ))}

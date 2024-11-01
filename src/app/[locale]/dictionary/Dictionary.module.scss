@@ -4,45 +4,6 @@
    md:min-h-[calc(100vh-153px-81px)]
    lg:min-h-[calc(100vh-97px-81px)];
 
-  .heading {
-    @apply py-8 px-4 flex flex-col bg-[#F3F7FF] 
-    lg:pt-12;
-
-    .sub-container {
-      @apply mx-auto 
-      md:max-w-[738px]
-      lg:max-w-[962px]
-      xl:max-w-[1170px];
-
-      .title {
-        @apply text-center font-bold mt-4 mb-3 text-lg 
-        sm:text-2xl
-        md:mb-6
-        lg:text-[40px];
-      }
-
-      .input-container {
-        @apply flex;
-
-        > input {
-          @apply rounded-l-3xl;
-        }
-
-        > button {
-          @apply rounded-none rounded-r-3xl px-4
-          md:px-8;
-        }
-      }
-
-      .desc {
-        @apply mt-4 leading-5 text-justify text-sm
-        sm:text-base
-        md:mt-6 md:px-8 md:text-center md:w-[770px] md:mx-auto  
-        lg:px-0 lg:w-full lg:text-center lg:text-lg;
-      }
-    }
-  }
-
   .sub-container {
     @apply mx-auto 
     md:max-w-[738px]
@@ -57,30 +18,6 @@
       .column {
         @apply w-full mx-auto flex flex-col flex-wrap gap-6;
 
-        .card {
-          @apply bg-[#e6eaf0] h-[144px] cursor-pointer rounded-3xl text-center flex flex-col items-center justify-center gap-3 
-          lg:h-[182px] 
-          [&_h2]:hover:text-purple-100 
-          hover:bg-[#E6EAF0];
-
-          > div {
-            @apply flex flex-col gap-3 items-center;
-
-            h2 {
-              @apply font-medium text-sm 
-            lg:text-base;
-            }
-
-            .photos {
-              @apply flex items-center justify-center h-[72px] w-[72px];
-
-              img {
-                @apply max-w-full h-auto;
-              }
-            }
-          }
-        }
-
         .expanded {
           @apply h-[192px]
         lg:h-[253px];
@@ -91,6 +28,69 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+.heading {
+  @apply py-8 px-4 flex flex-col bg-[#F3F7FF] 
+  lg:pt-12;
+
+  .sub-container {
+    @apply mx-auto 
+    md:max-w-[738px]
+    lg:max-w-[962px]
+    xl:max-w-[1170px];
+
+    .title {
+      @apply text-center font-bold mt-4 mb-3 text-lg 
+      sm:text-2xl
+      md:mb-6
+      lg:text-[40px];
+    }
+
+    .input-container {
+      @apply flex;
+
+      > input {
+        @apply rounded-l-3xl;
+      }
+
+      > button {
+        @apply rounded-none rounded-r-3xl px-4
+        md:px-8;
+      }
+    }
+
+    .desc {
+      @apply mt-4 leading-5 text-justify text-sm
+      sm:text-base
+      md:mt-6 md:px-8 md:text-center md:w-[770px] md:mx-auto  
+      lg:px-0 lg:w-full lg:text-center lg:text-lg;
+    }
+  }
+}
+
+.card {
+  @apply bg-[#e6eaf0] h-[144px] cursor-pointer rounded-3xl text-center flex flex-col items-center justify-center gap-3 
+  lg:h-[182px] 
+  [&_h2]:hover:text-purple-100 
+  hover:bg-[#E6EAF0];
+
+  > div {
+    @apply flex flex-col gap-3 items-center;
+
+    h2 {
+      @apply font-medium text-sm 
+    lg:text-base;
+    }
+
+    .photos {
+      @apply flex items-center justify-center h-[72px] w-[72px];
+
+      img {
+        @apply max-w-full h-auto;
       }
     }
   }
