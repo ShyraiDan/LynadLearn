@@ -69,22 +69,22 @@ export default function TranslatorPage() {
     <>
       <div className='w-full'>
         <div className='overflow-hidden h-screen'>
-          <div className=' mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-24'>
+          <div className='mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-24 max-w-[1320px]'>
             <div className='text-center'>
-              <h1 className='text-4xl sm:text-6xl font-bold'>
+              <h1 className='text-4xl sm:text-6xl font-bold dark:text-grey-600'>
                 Lynad<span className='text-[#7c68ee]'>Translate</span>
               </h1>
-              <p className='mt-3'>{t('slogan')}</p>
+              <p className='mt-3 dark:text-grey-600'>{t('slogan')}</p>
               <div className='mt-7 sm:mt-12 mx-auto'>
                 <div className='grid gap-4 md:grid-cols-2 grid-cols-1'>
-                  <div className='z-10 flex flex-col p-3 border rounded-lg shadow-lg'>
+                  <div className='z-10 flex flex-col p-3 border rounded-lg shadow-lg dark:border-[#ffffff20]'>
                     <TextArea
                       id='source-language'
                       value={sourceText}
                       onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setSourceText(e.target.value)}
                       placeholder={t('source_language')}
                     />
-                    <div className='flex flex-row justify-between w-full'>
+                    <div className='flex flex-row justify-between w-full mt-3'>
                       <span className='cursor-pointer flex space-x-2 flex-row'>
                         <SpeechRecognitionComponent setSourceText={setSourceText} />
                         <FaVolumeHigh
@@ -95,17 +95,17 @@ export default function TranslatorPage() {
                         <FileUpload handleFileUpload={handleFileUpload} />
                         <LinkPaste handleLinkPaste={handleLinkPaste} />
                       </span>
-                      <span className='text-sm pr-4'>{sourceText.length} / 2000</span>
+                      <span className='text-sm pr-4 dark:text-grey-600'>{sourceText.length} / 2000</span>
                     </div>
                   </div>
-                  <div className='z-10 flex flex-col p-3 border rounded-lg shadow-lg'>
+                  <div className='z-10 flex flex-col p-3 border rounded-lg shadow-lg dark:border-[#ffffff20]'>
                     <TextArea
                       id='target-language'
                       value={targetText || ''}
                       onChange={() => {}}
                       placeholder={t('target_language')}
                     />
-                    <div className='flex flex-row justify-between w-full'>
+                    <div className='flex flex-row justify-between w-full mt-3'>
                       <span className='cursor-pointer flex items-center flex-row'>
                         <FaVolumeHigh
                           className='text-gray-400'
