@@ -13,6 +13,7 @@ import { createList } from '@/lib/lists'
 import { getSession } from '@/lib/auth'
 import { toast } from 'sonner'
 import SnackBar from '@/components/ui/SnackBar/SnackBar'
+import { twMerge } from 'tailwind-merge'
 
 import { FaPlus } from 'react-icons/fa'
 
@@ -53,7 +54,7 @@ export default function AddList() {
     <>
       <div>
         <div className={styles.container} onClick={() => openModal()}>
-          <div className={styles.photo}>
+          <div className={twMerge(styles.photo, 'dark:bg-[#233869] dark:shadow-lg')}>
             <FaPlus />
           </div>
           <p>{t('add_list')}</p>
@@ -62,9 +63,12 @@ export default function AddList() {
       </div>
 
       {isAdding && (
-        <Modal isOpen={isAdding} className={styles['add-list']} handleClose={() => openModal()}>
+        <Modal
+          isOpen={isAdding}
+          className={twMerge(styles['add-list'], 'dark:bg-[#0B152E]')}
+          handleClose={() => openModal()}>
           <form className={styles['list-form']} onSubmit={handleSubmit(onSubmit)}>
-            <div className={`${styles.photo} ${styles['add-photo']}`}>
+            <div className={twMerge(styles.photo, styles['add-photo'], 'dark:bg-[#233869] dark:shadow-lg')}>
               <FaPlus />
             </div>
             <Input

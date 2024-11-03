@@ -4,6 +4,7 @@ import styles from './FilterWords.module.scss'
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { twMerge } from 'tailwind-merge'
 
 import { IoIosArrowDown } from 'react-icons/io'
 
@@ -24,15 +25,21 @@ export default function FilterWords() {
 
   return (
     <>
-      <div className={styles.filters} onClick={() => setFilterOpen((state) => !state)}>
+      <div className={twMerge(styles.filters, 'dark:text-grey-600')} onClick={() => setFilterOpen((state) => !state)}>
         {selectedFilter}
         <IoIosArrowDown className={`${styles.arrow} ${isFilterOpen && styles.active}`} />
       </div>
       {isFilterOpen && (
-        <ul className={styles.modal}>
-          <li onClick={() => changeFilter(t('newest'), 'newest')}>{t('newest')}</li>
-          <li onClick={() => changeFilter(t('alphabeta-z'), 'a-z')}>{t('alphabeta-z')}</li>
-          <li onClick={() => changeFilter(t('alphabetz-a'), 'z-a')}>{t('alphabetz-a')}</li>
+        <ul className={twMerge(styles.modal, 'dark:bg-[#1D2D4D]')}>
+          <li className='dark:text-grey-600' onClick={() => changeFilter(t('newest'), 'newest')}>
+            {t('newest')}
+          </li>
+          <li className='dark:text-grey-600' onClick={() => changeFilter(t('alphabeta-z'), 'a-z')}>
+            {t('alphabeta-z')}
+          </li>
+          <li className='dark:text-grey-600' onClick={() => changeFilter(t('alphabetz-a'), 'z-a')}>
+            {t('alphabetz-a')}
+          </li>
         </ul>
       )}
     </>

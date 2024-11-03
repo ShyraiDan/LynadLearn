@@ -6,6 +6,7 @@ import Loader from '@/components/Loader/Loader'
 import { IWord } from '@/interfaces/Word.interface'
 import { DWords } from '@/mock/Words.mock'
 import { WordDefinition } from '@/components/WordDefinition/WordDefinition'
+import { twMerge } from 'tailwind-merge'
 
 import { FaBookAtlas } from 'react-icons/fa6'
 import { TbVocabulary } from 'react-icons/tb'
@@ -33,19 +34,19 @@ async function WordsList({ listId, sorting }: { listId: string; sorting: string 
       break
   }
 
-  if (!words?.length) {
-    return <div className={styles['no-words']}>{t('no_words')}</div>
-  }
-
   words = DWords
+  // words = []
+
+  if (!words?.length) {
+    return <div className={twMerge(styles['no-words'], 'dark:text-grey-600')}>{t('no_words')}</div>
+  }
 
   return (
     <>
-      {/* {!words?.length && <div className={styles['no-words']}>{t('no_words')}</div>} */}
       {words && words.length && (
-        <div className={styles['table-data']}>
-          <div className={`${styles.row} ${styles.header}`}>
-            <div>
+        <div className={twMerge(styles['table-data'])}>
+          <div className={twMerge(styles.row, styles.header, 'rounded-t-lg dark:bg-[#1D2D4D]')}>
+            <div className='rounded-tl-sm'>
               <TbVocabulary className={styles.icon} size={16} />
               {t('word')}
             </div>

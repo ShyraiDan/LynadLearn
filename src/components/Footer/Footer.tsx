@@ -5,6 +5,7 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
+import { twMerge } from 'tailwind-merge'
 
 import { FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
@@ -21,45 +22,39 @@ export function Footer() {
 
   return (
     <>
-      <footer className={`${styles.footer} ${path.split('/')[2] === 'dashboard' && styles.dashboard} dark:bg-blue-800`}>
+      <footer
+        className={twMerge(
+          styles.footer,
+          path.split('/')[2] === 'dashboard' && styles.dashboard,
+          'dark:bg-blue-800 dark:border-[#1D2D4D]'
+        )}>
         <div className={styles['footer-container']}>
           <div className={styles['footer-main']}>
             <NavigationLink href={'/'}>
-              Lynad<span>Learn</span>
+              <span className={styles.logo}>Lynad</span>
+              <span>Learn</span>
             </NavigationLink>
             <div className={styles['footer-center']}>
               <div className={styles['footer-left']}>
                 <nav>
                   <ul className={styles['nav-list']}>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/about-us' className='dark:text-grey-600'>
-                        {t('about_us')}
-                      </NavigationLink>
+                      <NavigationLink href='/about-us'>{t('about_us')}</NavigationLink>
                     </li>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/pricing' className='dark:text-grey-600'>
-                        {t('pricing')}
-                      </NavigationLink>
+                      <NavigationLink href='/pricing'>{t('pricing')}</NavigationLink>
                     </li>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/contact-us' className='dark:text-grey-600'>
-                        {t('contact_us')}
-                      </NavigationLink>
+                      <NavigationLink href='/contact-us'>{t('contact_us')}</NavigationLink>
                     </li>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/mobile-app' className='dark:text-grey-600'>
-                        {t('mobile_app')}
-                      </NavigationLink>
+                      <NavigationLink href='/mobile-app'>{t('mobile_app')}</NavigationLink>
                     </li>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/dictionary' className='dark:text-grey-600'>
-                        {t('dictionary')}
-                      </NavigationLink>
+                      <NavigationLink href='/dictionary'>{t('dictionary')}</NavigationLink>
                     </li>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/translator' className='dark:text-grey-600'>
-                        {t('translator')}
-                      </NavigationLink>
+                      <NavigationLink href='/translator'>{t('translator')}</NavigationLink>
                     </li>
                   </ul>
                 </nav>

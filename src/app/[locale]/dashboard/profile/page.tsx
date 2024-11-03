@@ -6,6 +6,7 @@ import { getSession, ISession } from '@/lib/auth'
 import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
 import { DAchievement } from '@/mock/Achievments.mock'
+import { twMerge } from 'tailwind-merge'
 
 import { FaUser } from 'react-icons/fa'
 
@@ -50,34 +51,34 @@ async function YourProfile() {
     <>
       <div className={styles['user-info']}>
         <ProfileEditModal session={session} />
-        <div className={styles['user-photo']}>
-          <FaUser />
+        <div className={twMerge(styles['user-photo'], 'dark:bg-[#1D2D4D]')}>
+          <FaUser className='dark:fill-grey-600' />
         </div>
         <div className={styles['user-details']}>
-          <h3>{session.userName}</h3>
-          <p>{session.location}</p>
-          <div className={styles.rate}>
+          <h3 className='dark:text-grey-600'>{session.userName}</h3>
+          <p className='dark:text-grey-600'>{session.location}</p>
+          <div className={twMerge(styles.rate, 'dark:text-grey-600 dark:bg-[#1D2D4D]')}>
             {t('rate')}: {(session.rating as number) + calculateRate(session)}
           </div>
-          <p>{session.description}</p>
+          <p className='dark:text-grey-600'>{session.description}</p>
           <ul className={styles.achivements}>
-            <li>
+            <li className='dark:text-grey-600'>
               {session.successfulQuizzes && session.totalQuizzes && session.successfulQuizzes / session.totalQuizzes} %{' '}
               <p>{t('success_quiz')}</p>
             </li>
-            <li>
+            <li className='dark:text-grey-600'>
               {session.totalQuizzes} <p>{t('finished_quiz')}</p>
             </li>
-            <li>
+            <li className='dark:text-grey-600'>
               {session.wordLists} <p>{t('list_created')}</p>
             </li>
-            <li>
+            <li className='dark:text-grey-600'>
               {session.flashcardsLearned} <p>{t('words_learned')}</p>
             </li>
           </ul>
         </div>
       </div>
-      <div className={styles['achievements-section']}>
+      <div className={twMerge(styles['achievements-section'], 'dark:text-grey-600')}>
         {t('achievements')}
         <div className={styles.achievements}>
           {DAchievement.map((item, i) => (

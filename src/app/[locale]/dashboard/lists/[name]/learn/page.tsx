@@ -5,6 +5,7 @@ import { WordCard } from '@/components/WordCard/WordCard'
 import { DWords } from '@/mock/Words.mock'
 import { Button } from '@/components/ui/Button/Button'
 import { useState } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 import { IoIosArrowBack } from 'react-icons/io'
 import { IoIosArrowForward } from 'react-icons/io'
@@ -19,11 +20,13 @@ export default function LearnCategoryPage() {
   return (
     <div className={styles.container}>
       <div className={styles.switcher}>
-        <Button className={styles.btn} onClick={() => setWord(word - 1 < 0 ? 0 : word - 1)}>
+        <Button
+          className={twMerge(styles.btn, 'dark:!bg-[#1D2D4D] dark:!text-grey-600 dark:hover:!bg-purple-100')}
+          onClick={() => setWord(word - 1 < 0 ? 0 : word - 1)}>
           <IoIosArrowBack size={20} />
         </Button>
         <Button
-          className={styles.btn}
+          className={twMerge(styles.btn, 'dark:!bg-[#1D2D4D] dark:!text-grey-600 dark:hover:!bg-purple-100')}
           onClick={() => setWord(word + 1 >= DWords.length - 1 ? DWords.length - 1 : word + 1)}>
           <IoIosArrowForward size={20} />
         </Button>

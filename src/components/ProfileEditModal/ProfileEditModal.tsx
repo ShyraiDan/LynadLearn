@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/Button/Button'
 import { removeScrollBar } from '@/constants/shared'
 import { updateUser } from '@/lib/auth'
 import { ISession } from '@/lib/auth'
+import { twMerge } from 'tailwind-merge'
 
 import { MdModeEdit } from 'react-icons/md'
 import { FaUser } from 'react-icons/fa'
@@ -45,23 +46,26 @@ export default function ProfileEditModal({ session }: { session: ISession }) {
 
   return (
     <>
-      <div className={styles['edit-profile']} onClick={() => openEditModal()}>
-        <MdModeEdit />
+      <div className={twMerge(styles['edit-profile'], 'dark:bg-[#1D2D4D]')} onClick={() => openEditModal()}>
+        <MdModeEdit className='dark:fill-grey-600' />
       </div>
 
       {showEditModal && (
-        <Modal isOpen={showEditModal} className={styles['edit-modal']} handleClose={() => openEditModal()}>
-          <h3 className={styles.title}>{t('edit_profile')}</h3>
+        <Modal
+          isOpen={showEditModal}
+          className={twMerge(styles['edit-modal'], 'dark:bg-[#0B152E]')}
+          handleClose={() => openEditModal()}>
+          <h3 className={twMerge(styles.title, 'dark:text-grey-600')}>{t('edit_profile')}</h3>
           <form action='' className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.photo}>
-              <div className={styles['user-photo']}>
-                <FaUser />
+              <div className={twMerge(styles['user-photo'], 'dark:bg-[#1D2D4D]')}>
+                <FaUser className='dark:fill-grey-600' />
                 <div className={styles.edit}>
-                  <MdModeEdit />
+                  <MdModeEdit className='dark:fill-grey-600' />
                 </div>
               </div>
             </div>
-            <h5 className={styles.subtitle}>{t('personal_info')}</h5>
+            <h5 className={twMerge(styles.subtitle, 'dark:text-grey-600')}>{t('personal_info')}</h5>
             <div className={styles['input-container']}>
               <Input
                 type='text'

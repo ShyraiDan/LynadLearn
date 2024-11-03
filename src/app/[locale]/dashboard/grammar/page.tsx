@@ -3,6 +3,7 @@ import QuizCard from '@/components/QuizCard/QuizCard'
 import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
 import { getAllGrammar } from '@/lib/grammar'
+import { twMerge } from 'tailwind-merge'
 
 async function ShowGrammar({ params }: any) {
   const grammarElementary = await getAllGrammar('A1-A2')
@@ -10,7 +11,7 @@ async function ShowGrammar({ params }: any) {
   return (
     <>
       <div className={styles.level}>
-        <h2>A1-A2 grammar</h2>
+        <h2 className={twMerge(styles.title, 'dark:text-grey-600')}>A1-A2 grammar</h2>
         <div className={styles.topics}>
           {grammarElementary.map((item: any, i) => {
             return (

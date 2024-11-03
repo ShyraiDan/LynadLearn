@@ -42,10 +42,6 @@
   .modal {
     @apply flex justify-center items-center flex-col;
 
-    h3 {
-      @apply text-lg text-center font-bold text-blue-200;
-    }
-
     .nav-btns {
       @apply flex gap-4;
 
@@ -59,4 +55,8 @@
       }
     }
   }
+}
+
+.modal-title {
+  @apply text-lg text-center font-bold text-blue-200;
 }

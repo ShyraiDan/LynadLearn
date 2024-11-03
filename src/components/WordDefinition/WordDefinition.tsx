@@ -9,6 +9,7 @@ import { removeScrollBar } from '@/constants/shared'
 import Image from 'next/image'
 import { Button } from '@/components/ui/Button/Button'
 import { MeaningCard } from '@/components/MeaningCard/MeaningCard'
+import { twMerge } from 'tailwind-merge'
 
 import us from '@/assets/icons/us.svg'
 
@@ -32,18 +33,20 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
       {words.map((word: IWord) => {
         return (
           <div key={word._id}>
-            <div className={styles.row} onClick={(e) => showModal(e, word)}>
-              <div className='lowercase'>{word.word}</div>
-              <div className='lowercase'>
+            <div
+              className={twMerge(styles.row, 'dark:bg-[#1D2D4D] dark:hover:bg-purple-100')}
+              onClick={(e) => showModal(e, word)}>
+              <div className='lowercase dark:text-grey-600'>{word.word}</div>
+              <div className='lowercase dark:text-grey-600'>
                 {[...new Set(word.results.map((result) => result.part_of_speech))].join(', ')}
               </div>
-              <div className='lowercase'>{word.results[0].definition}</div>
-              <div className='lowercase'>
+              <div className='lowercase dark:text-grey-600'>{word.results[0].definition}</div>
+              <div className='lowercase dark:text-grey-600'>
                 {[...new Set([word.results.map((result) => result.synonyms)].flat(2))].slice(0, 5).join(', ')}
               </div>
-              <div className='lowercase'>{word.translation.ua.join(', ')}</div>
-              <div className='lowercase'>{word.pronunciation}</div>
-              <div>{word.results[0].examples.join(', ')}</div>
+              <div className='lowercase dark:text-grey-600'>{word.translation.ua.join(', ')}</div>
+              <div className='lowercase dark:text-grey-600'>{word.pronunciation}</div>
+              <div className='dark:text-grey-600'>{word.results[0].examples.join(', ')}</div>
             </div>
             <div className={styles['word-modal']}>
               <EditDeleteWordModal word={word} />

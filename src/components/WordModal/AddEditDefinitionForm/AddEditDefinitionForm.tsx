@@ -5,7 +5,7 @@ import { IDefinitionWithId } from '@/interfaces/Word.interface'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
-
+import { twMerge } from 'tailwind-merge'
 import { FaPlus, FaTrash } from 'react-icons/fa'
 
 interface IAddEditDefinitionForm {
@@ -65,7 +65,7 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
   return (
     <div className={styles['form-container']}>
       {(isDefinitionForm || isEdit) && (
-        <div className={styles['add-definition-form']}>
+        <div className={twMerge(styles['add-definition-form'], 'dark:!bg-[#1D2D4D]')}>
           <div>
             <div className={styles.meaning}>
               <Input
@@ -78,13 +78,15 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
                 {t('definition')}
               </Input>
             </div>
-            <label className={styles['part_of_speech-label']} htmlFor='partOfSpeech'>
+
+            <label className={twMerge(styles['part_of_speech-label'], 'dark:text-grey-600')} htmlFor='partOfSpeech'>
               {t('part_of_speech')}
             </label>
             <select
               id='partOfSpeech'
               value={partOfSpeech || undefined}
-              onChange={(e) => setPartOfSpeech(e.target.value)}>
+              onChange={(e) => setPartOfSpeech(e.target.value)}
+              className={'dark:bg-[#17294c] dark:ml-[1px] dark:!border-[#ffffff20] dark:!text-grey-600'}>
               <option value='noun'>{t('noun')}</option>
               <option value='verb'>{t('verb')}</option>
               <option value='adjective'>{t('adjective')}</option>
@@ -94,7 +96,7 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
               <option value='conjunction'>{t('conjunction')}</option>
               <option value='preposition'>{t('preposition')}</option>
             </select>
-            <p>{t('synonym')}</p>
+            <p className='dark:text-grey-600'>{t('synonym')}</p>
             <div className={styles.translation}>
               {synonyms.map((item) => (
                 <div className={styles.card} key={item}>
@@ -121,7 +123,7 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
               </div>
             </div>
 
-            <p>{t('example')}</p>
+            <p className='dark:text-grey-600'>{t('example')}</p>
             <div className={styles.exams}>
               <ul className={styles.content}>
                 {examples.map((item: string, index: number, i) => (

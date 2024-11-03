@@ -4,6 +4,7 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { getSingleGrammar } from '@/lib/grammar'
 import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
+import { twMerge } from 'tailwind-merge'
 
 type TSingleGrammarPage = {
   params: {
@@ -18,7 +19,7 @@ async function Grammar({ params }: TSingleGrammarPage) {
   if (!grammar) {
     return (
       <div className={styles['no-grammar']}>
-        <h3>{t('no_grammar')}</h3>
+        <h3 className='dark:text-grey-600'>{t('no_grammar')}</h3>
         <NavigationLink href='/dashboard/grammar'>{t('move_to_grammar')}</NavigationLink>
       </div>
     )
@@ -28,19 +29,23 @@ async function Grammar({ params }: TSingleGrammarPage) {
     <>
       {grammar && (
         <div className={styles.container}>
-          <h1>{grammar.title}</h1>
+          <h1 className='dark:text-grey-600'>{grammar.title}</h1>
           {grammar.data.description.map((item, i) => (
-            <p key={i}>{item}</p>
+            <p className='dark:text-grey-600' key={i}>
+              {item}
+            </p>
           ))}
 
           <div className={styles.examples}>
             {grammar.data.example.map((item, i) => (
               <>
-                <h2>{item.title}</h2>
-                <p>{item.description}</p>
-                <ul>
+                <h2 className={twMerge(styles['example-title'], 'dark:text-grey-600')}>{item.title}</h2>
+                <p className={twMerge(styles['example-description'], 'dark:text-grey-600')}>{item.description}</p>
+                <ul className={twMerge(styles['example-list'], 'dark:bg-[#1D2D4D] dark:border-l-purple-100')}>
                   {item.examples.map((item: any, i: number) => (
-                    <li key={`example-${i}`}>{item}</li>
+                    <li className='dark:text-grey-600' key={`example-${i}`}>
+                      {item}
+                    </li>
                   ))}
                 </ul>
               </>

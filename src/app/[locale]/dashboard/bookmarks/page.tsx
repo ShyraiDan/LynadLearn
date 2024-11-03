@@ -42,7 +42,7 @@ async function Bookmarks({ params }: any) {
     <>
       {bookmarks.length > 0 && (
         <>
-          <h2>{t('bookmarks')}</h2>
+          <h2 className='dark:text-grey-600'>{t('bookmarks')}</h2>
           <div className={styles.bookmarks}>
             {bookmarks.map((item) => (
               <BookmarkCard key={item.id} item={item} locale={locale} />
@@ -53,8 +53,8 @@ async function Bookmarks({ params }: any) {
 
       {!bookmarks.length && (
         <div className={styles['no-bookmarks']}>
-          <h3>{t('no_bookmarks')}</h3>
-          <p>{t('no_bookmarks_description')}</p>
+          <h3 className='dark:text-grey-600'>{t('no_bookmarks')}</h3>
+          <p className='dark:text-grey-600'>{t('no_bookmarks_description')}</p>
           <div className={styles.links}>
             <NavigationLink href='/dashboard/grammar'>{t('grammar')}</NavigationLink>
             <NavigationLink href='/dashboard/lists'>{t('vocabulary')}</NavigationLink>

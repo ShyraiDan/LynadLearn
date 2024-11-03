@@ -1,5 +1,6 @@
 import styles from './Button.module.scss'
 import { ReactNode } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 interface IButton {
   children?: ReactNode
@@ -16,7 +17,7 @@ export function Button({ children, onClick, type, outline, disabled, className }
       <button
         type={type}
         disabled={disabled}
-        className={`${styles.button} ${outline && styles.outline} ${className}`}
+        className={twMerge(styles.button, outline && styles.outline, className)}
         onClick={onClick}>
         {children}
       </button>

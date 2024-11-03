@@ -21,27 +21,12 @@
 
       .tags {
         @apply flex items-center gap-3 ml-3;
-
-        > span {
-          @apply text-sm px-2 py-1 rounded-2xl border border-blue-200 cursor-pointer transition-all ease-in-out duration-[.15s]
-          hover:bg-purple-100 hover:text-white-100 hover:border-purple-100;
-        }
-
-        .active {
-          @apply text-white-100 bg-blue-200 cursor-default
-          hover:bg-blue-200 hover:text-white-100 hover:border-blue-100;
-        }
       }
     }
 
     .level {
       @apply mb-6
       last:mb-0;
-
-      h2 {
-        @apply text-center text-xl font-bold text-blue-200 my-4
-        sm:text-2xl;
-      }
 
       .topics {
         @apply grid grid-cols-1 gap-4
@@ -86,4 +71,19 @@
       hover:bg-purple-100;
     }
   }
+}
+
+.badge {
+  @apply text-sm px-2 py-1 rounded-2xl border border-blue-200 cursor-pointer transition-all ease-in-out duration-[.15s]
+  hover:bg-purple-100 hover:text-white-100 hover:border-purple-100;
+}
+
+.active {
+  @apply text-white-100 bg-blue-200 cursor-default
+  hover:bg-blue-200 hover:text-white-100 hover:border-blue-100;
+}
+
+.level-title {
+  @apply text-center text-xl font-bold text-blue-200 my-4
+  sm:text-2xl;
 }

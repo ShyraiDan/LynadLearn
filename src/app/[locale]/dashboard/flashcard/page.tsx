@@ -13,10 +13,10 @@ async function YourLists() {
   const t = await getTranslations()
   return (
     <>
-      <h2>{t('dashboard.flashcard.flashcard_page')}</h2>
+      <h2 className='dark:text-grey-600'>{t('dashboard.flashcard.flashcard_page')}</h2>
       <div className={styles.sections}>
         <div className={styles.top}>
-          <h4>{t('dashboard.flashcard.choose_word_list')}</h4>
+          <h4 className='dark:text-grey-600'>{t('dashboard.flashcard.choose_word_list')}</h4>
         </div>
         <div className={styles.items}>
           {lists.map((item) => (
@@ -30,7 +30,7 @@ async function YourLists() {
         {DCategories.map((item) => (
           <>
             <div className={styles.top}>
-              <h4>{t(`dashboard.lists.${item.title}`)}</h4>
+              <h4 className='dark:text-grey-600'>{t(`dashboard.lists.${item.title}`)}</h4>
             </div>
             <div className={styles.items}>
               {item.lists.map((list) => (

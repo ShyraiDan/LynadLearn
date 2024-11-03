@@ -6,14 +6,6 @@
 
   .top {
     @apply flex justify-between;
-
-    h2 {
-      @apply text-blue-200 font-bold mb-4;
-    }
-
-    a {
-      @apply text-blue-200 font-medium transition-all ease-in-out duration-150  hover:text-purple-100;
-    }
   }
 
   .flashcard-slider {
@@ -110,4 +102,12 @@
       hover:bg-purple-100;
     }
   }
+}
+
+.title {
+  @apply text-blue-200 font-bold mb-0;
+}
+
+.link {
+  @apply text-blue-200 font-medium transition-all ease-in-out duration-150 hover:text-purple-100 mb-0;
 }

@@ -10,6 +10,7 @@ import { useState } from 'react'
 import { Badge } from '@/components/Badge/Badge'
 import { AddEditDefinitionForm } from './AddEditDefinitionForm/AddEditDefinitionForm'
 import { nanoid } from 'nanoid'
+import { twMerge } from 'tailwind-merge'
 
 import { FaPlus, FaTrash } from 'react-icons/fa'
 import { MdEdit } from 'react-icons/md'
@@ -100,8 +101,8 @@ export default function WordModal({ handleClose, word }: IWordModal) {
 
   return (
     <div className={styles.modal}>
-      <h2>{word ? t('edit_word') : t('add_new_word')}</h2>
-      <p>{word ? t('change_details') : t('enter_word_details')}</p>
+      <h2 className='dark:text-grey-600'>{word ? t('edit_word') : t('add_new_word')}</h2>
+      <p className='dark:text-grey-600'>{word ? t('change_details') : t('enter_word_details')}</p>
       <form action='' className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div>
           <Input
@@ -128,20 +129,20 @@ export default function WordModal({ handleClose, word }: IWordModal) {
           </Input>
           {errors?.pronunciation && <p className={styles.error}>{errors.pronunciation.message}</p>}
 
-          <p>{t('definition')}</p>
+          <p className='dark:text-grey-600'>{t('definition')}</p>
           {results.map((item, index) => (
             <>
-              <div className={styles.definition} key={item.definition}>
+              <div className={twMerge(styles.definition, 'dark:!bg-[#1D2D4D]')} key={item.definition}>
                 <div>
                   <div className={styles.content}>
                     <div className={styles.meaning}>
                       <div className={styles.title}>
                         <div className={styles.number}>{index + 1}</div>
-                        <p>{item.definition}</p>
+                        <p className='dark:text-grey-600'>{item.definition}</p>
                       </div>
                       <div className={styles.icons}>
-                        <MdEdit onClick={() => setEdit(index)} />
-                        <FaTrash onClick={() => handleDeleteDefinition(item.id)} />
+                        <MdEdit className='dark:text-grey-600' onClick={() => setEdit(index)} />
+                        <FaTrash className='dark:text-grey-600' onClick={() => handleDeleteDefinition(item.id)} />
                       </div>
                     </div>
                     <Badge className='w-min text-sm mt-2' part={item.part_of_speech} />
@@ -158,7 +159,7 @@ export default function WordModal({ handleClose, word }: IWordModal) {
                       {item.examples.map((item: string, index: number, i) => (
                         <li key={index}>
                           <span className={styles.dot}></span>
-                          <p>{item}</p>
+                          <p className='dark:text-grey-600'>{item}</p>
                         </li>
                       ))}
                     </ul>
@@ -171,7 +172,7 @@ export default function WordModal({ handleClose, word }: IWordModal) {
             </>
           ))}
           <AddEditDefinitionForm allowedAction={handleAddDefinition} />
-          <p>{t('translation')}</p>
+          <p className='dark:text-grey-600'>{t('translation')}</p>
           <div className={styles.translations}>
             {translationsList.map((item) => (
               <div className={styles.card} key={item}>

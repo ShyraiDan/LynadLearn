@@ -11,18 +11,18 @@
       md:text-lg 
       lg:text-xl;
     }
-
-    button {
-      @apply stroke-black text-black flex items-center justify-center p-2 rounded-2xl bg-[#F0F0F0] transition-all ease-in-out duration-300
-      hover:bg-purple-100 hover:text-white-100 hover:stroke-white-100 hover:fill-white-100;
-    }
-
-    .active {
-      @apply bg-blue-200 text-white-100 stroke-white-100 fill-white-100;
-    }
   }
 
   p {
     @apply m-0 text-sm duration-150;
   }
+}
+
+.button-bookmark {
+  @apply stroke-black text-black flex items-center justify-center p-2 w-10 rounded-2xl bg-[#F0F0F0] transition-all ease-in-out duration-300
+  hover:bg-purple-100 hover:text-white-100 hover:stroke-white-100 hover:fill-white-100;
+}
+
+.active {
+  @apply bg-blue-200 text-white-100 stroke-white-100 fill-white-100;
 }

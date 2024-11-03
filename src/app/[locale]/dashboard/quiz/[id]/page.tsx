@@ -13,6 +13,7 @@ import Loader from '@/components/Loader/Loader'
 import { useParams, useSearchParams } from 'next/navigation'
 import { getListById } from '@/lib/lists'
 import { getWordsByListId } from '@/lib/word'
+import { twMerge } from 'tailwind-merge'
 import { IList } from '@/interfaces/List.interface'
 
 // TODO
@@ -79,10 +80,12 @@ export default function SingleQuizPage() {
     <>
       {(grammarQuiz || vocabularyQuiz) && !isQuiz && (
         <div className={styles.container}>
-          <h1>{type === 'grammar' ? grammarQuiz?.title : vocabularyQuiz?.title}</h1>
+          <h1 className='dark:text-grey-600'>{type === 'grammar' ? grammarQuiz?.title : vocabularyQuiz?.title}</h1>
           <div>
             <NavigationLink href={'/dashboard/quiz?type=grammar'}>{t('to_quiz')}</NavigationLink>
-            <Button onClick={() => startQuiz()}>{t('start_quiz')}</Button>
+            <Button className='dark:border-none' onClick={() => startQuiz()}>
+              {t('start_quiz')}
+            </Button>
           </div>
         </div>
       )}
@@ -102,9 +105,12 @@ export default function SingleQuizPage() {
       {type === 'vocabulary' && isQuiz && <div>Vocab quiz</div>}
 
       {isFinished && (
-        <Modal className={styles['no-time-modal']} isOpen={isFinished} handleClose={() => showModal()}>
+        <Modal
+          className={twMerge(styles['no-time-modal'], 'dark:bg-[#0B152E]')}
+          isOpen={isFinished}
+          handleClose={() => showModal()}>
           <div className={styles.modal}>
-            <h3>
+            <h3 className={twMerge(styles['modal-title'], 'dark:text-grey-600')}>
               {t('no_time')}
               <br /> {t('no_question')}
               <br />
@@ -132,7 +138,7 @@ export default function SingleQuizPage() {
 
       {!loading && !grammarQuiz && !vocabularyQuiz && (
         <div className={styles.container}>
-          <h3>{t('no_quiz')}</h3>
+          <h3 className='dark:text-grey-600'>{t('no_quiz')}</h3>
           <NavigationLink href='/dashboard/quiz?type=grammar'>{t('move_to_quizzes')}</NavigationLink>
         </div>
       )}

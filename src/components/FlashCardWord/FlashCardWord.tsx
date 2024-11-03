@@ -7,14 +7,16 @@ import { Button } from '@/components/ui/Button/Button'
 import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { useSwiper } from 'swiper/react'
+import { twMerge } from 'tailwind-merge'
 
 import usFlag from '@/assets/icons/us.svg'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 import { TiTick } from 'react-icons/ti'
 import { RxCross2 } from 'react-icons/rx'
-import example from '@/assets/icons/message-question.svg'
+// import example from '@/assets/icons/message-question.svg'
 import uaFlag from '@/assets/icons/uk.png'
 import { IoReturnUpForward } from 'react-icons/io5'
+import { MessageQuestion } from '@/components/ui/Icons/Icons'
 
 type TFlashCardWord = {
   word: IWord
@@ -64,15 +66,15 @@ export default function FlashCardWord({
   return (
     <>
       <div className={`${styles.card} ${styles.center} ${isRotate ? styles.active : ''}`}>
-        <div className={styles.front}>
+        <div className={twMerge(styles.front, 'dark:bg-[#18223D]')}>
           <div className={styles['word-info']}>
             <div className={styles.info}>
-              <h3 className={styles.word}>{word.word}</h3>
-              <h6 className={styles['part-of-speech']}>[{word.part_of_speech}]</h6>
+              <h3 className={twMerge(styles.word, 'dark:text-grey-600')}>{word.word}</h3>
+              <h6 className={twMerge(styles['part-of-speech'], 'dark:text-grey-600')}>[{word.part_of_speech}]</h6>
             </div>
             <div className={styles.pronunciation}>
               <Image src={usFlag} alt='flag' width={24} />
-              <p>{word.pronunciation}</p>
+              <p className='dark:text-grey-600'>{word.pronunciation}</p>
             </div>
           </div>
           <Button className={styles.footer} onClick={() => handleRotate()}>
@@ -82,7 +84,7 @@ export default function FlashCardWord({
             </h6>
           </Button>
         </div>
-        <div className={styles.back}>
+        <div className={twMerge(styles.back, 'dark:bg-[#18223D]')}>
           <Button className={styles['back-btn']} onClick={() => handleRotate()}>
             <IoReturnUpForward size={24} />
           </Button>
@@ -90,15 +92,15 @@ export default function FlashCardWord({
             <div>
               <div className={styles.translation}>
                 <Image src={uaFlag} alt='flag' width={24} />
-                <p>{word.translation}</p>
+                <p className='dark:text-grey-600'>{word.translation}</p>
               </div>
-              <p>{word.definition}</p>
+              <p className='dark:text-grey-600'>{word.definition}</p>
             </div>
-            <div className={styles.examples}>
+            <div className={twMerge(styles.examples, 'dark:bg-[#1D2D4D]')}>
               <div className={styles.top}>
                 <div>
-                  <Image src={example} alt='example' />
-                  <h3>{t('examples')}</h3>
+                  <MessageQuestion className='dark:fill-grey-600' />
+                  <h3 className='dark:text-grey-600'>{t('examples')}</h3>
                 </div>
               </div>
               <ul className={styles['example-list']}>
@@ -107,7 +109,7 @@ export default function FlashCardWord({
                 {/* {word.example.map((item: string) => (
                   <li key={item}>{item}</li>
                 ))} */}
-                <li>{word.example}</li>
+                <li className='dark:text-grey-600'>{word.example}</li>
               </ul>
             </div>
           </div>

@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl'
 import { ICollections } from '@/interfaces/Collections.interface'
 import { Button } from '@/components/ui/Button/Button'
 import { useState } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 import { FaBookOpen, FaClock, FaArrowRight } from 'react-icons/fa6'
 import { MdPlayLesson } from 'react-icons/md'
@@ -21,41 +22,47 @@ export const CollectionCard = ({ item, locale }: { item: ICollections; locale: s
   }
 
   return (
-    <div className={styles['lists-item']}>
+    <div className={twMerge(styles['lists-item'], 'dark:bg-[#18223D]')}>
       <div className={styles.info}>
         <div className={styles.image}>
           <Image src={item.image} alt='' />
         </div>
         <div className={styles['info-text']}>
           <div className={styles.header}>
-            <h3>
+            <h3 className='dark:text-grey-600'>
               {locale === 'en' ? item.title : item.titleUa}
-              {locale === 'ua' && <span>{item.title}</span>}
+              {locale === 'ua' && <span className='dark:!text-grey-600'>{item.title}</span>}
             </h3>
-            <Button className={`${isBookmarked && styles.active}`} onClick={() => handleAddBookmark()}>
-              {isBookmarked ? <BookmarkDelete /> : <BookmarkAdd />}
-            </Button>
+            <div
+              className={twMerge(
+                styles['button-bookmark'],
+                'dark:bg-[#1D2D4D]',
+                isBookmarked && `${styles.active} dark:bg-blue-200`
+              )}
+              onClick={() => handleAddBookmark()}>
+              {isBookmarked ? <BookmarkDelete /> : <BookmarkAdd className='dark:stroke-white-100' />}
+            </div>
           </div>
-          <p>{locale === 'en' ? item.description : item.descriptionUa}</p>
+          <p className='dark:!text-grey-600'>{locale === 'en' ? item.description : item.descriptionUa}</p>
         </div>
       </div>
       <div className={styles['lists-info']}>
         <div className={styles['lists-stats']}>
           <div className={styles['lists-stats-item']}>
-            <FaBookOpen />
-            <p>
+            <FaBookOpen className='dark:text-grey-600' />
+            <p className='dark:text-grey-600'>
               <span>{item.lessons}</span> {t('lessons')}
             </p>
           </div>
           <div className={styles['lists-stats-item']}>
-            <MdPlayLesson />
-            <p>
+            <MdPlayLesson className='dark:text-grey-600' />
+            <p className='dark:text-grey-600'>
               <span>{item.words}</span> {t('words')}
             </p>
           </div>
           <div className={styles['lists-stats-item']}>
-            <FaClock />
-            <p>
+            <FaClock className='dark:text-grey-600' />
+            <p className='dark:text-grey-600'>
               <span>
                 {Math.floor(item.words / 120)} {t('hours')} {Math.ceil((item.words % 60) / 2)} {t('minutes')}
               </span>

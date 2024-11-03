@@ -9,6 +9,7 @@ import Loader from '@/components/Loader/Loader'
 import { Suspense } from 'react'
 import CustomList from '@/components/CustomList/CustomList'
 import { getAllGrammar } from '@/lib/grammar'
+import { twMerge } from 'tailwind-merge'
 
 type TQuizPage = {
   searchParams: {
@@ -33,7 +34,7 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
     return (
       <>
         <div className={styles.level}>
-          <h2>A1-A2 grammar</h2>
+          <h2 className={twMerge(styles['level-title'], 'dark:text-grey-600')}>A1-A2 grammar</h2>
           <div className={styles.topics}>
             {grammarElementary.map((item: any) => {
               return (
@@ -106,17 +107,33 @@ export default function QuizPage({ searchParams, params }: TQuizPage) {
 
         {(type === 'grammar' || type === 'vocabulary') && (
           <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
-            <h2>{t('quiz_page')}</h2>
+            <h2 className='dark:text-grey-600'>{t('quiz_page')}</h2>
             <div className={styles.sections}>
               <div className={styles.top}>
-                <h4>{t('filter')}</h4>
+                <h4 className='dark:text-grey-600'>{t('filter')}</h4>
                 <div className={styles.tags}>
-                  <span className={`${type === 'grammar' && styles.active}`}>
-                    <NavigationLink href='/dashboard/quiz?type=grammar'>{t('grammar')}</NavigationLink>
-                  </span>
-                  <span className={`${type === 'vocabulary' && styles.active}`}>
-                    <NavigationLink href='/dashboard/quiz?type=vocabulary'>{t('vocabulary')}</NavigationLink>
-                  </span>
+                  <NavigationLink href='/dashboard/quiz?type=grammar'>
+                    <span
+                      className={twMerge(
+                        styles.badge,
+                        'dark:bg-[#1D2D4D] dark:border-[#1D2D4D]',
+                        type === 'grammar' &&
+                          `${styles.active} dark:border-purple-100 dark:bg-purple-100 dark:hover:bg-purple-100 dark:hover:border-purple-100`
+                      )}>
+                      {t('grammar')}
+                    </span>
+                  </NavigationLink>
+                  <NavigationLink href='/dashboard/quiz?type=vocabulary'>
+                    <span
+                      className={twMerge(
+                        styles.badge,
+                        'dark:bg-[#1D2D4D] dark:border-[#1D2D4D]',
+                        type === 'vocabulary' &&
+                          `${styles.active} dark:border-purple-100 dark:bg-purple-100 dark:hover:bg-purple-100 dark:hover:border-purple-100`
+                      )}>
+                      {t('vocabulary')}
+                    </span>
+                  </NavigationLink>
                 </div>
               </div>
               <div className={styles.items}>

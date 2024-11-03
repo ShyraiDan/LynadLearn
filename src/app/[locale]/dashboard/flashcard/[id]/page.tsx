@@ -3,7 +3,7 @@
 import styles from './Flashcard.module.scss'
 import { getWordsByListId } from '@/lib/word'
 import { getListById } from '@/lib/lists'
-import { useEffect, useRef, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
 import FlashCardWord from '@/components/FlashCardWord/FlashCardWord'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -13,6 +13,7 @@ import { IList } from '@/interfaces/List.interface'
 import Loader from '@/components/Loader/Loader'
 import { Modal } from '@/components/ui/Modal/Modal'
 import { Button } from '@/components/ui/Button/Button'
+import { twMerge } from 'tailwind-merge'
 import 'swiper/css'
 
 import { TbCardsFilled, TbVocabulary } from 'react-icons/tb'
@@ -36,6 +37,27 @@ type TSingleFlashcardPage = {
 type TSlideContent = {
   isActive: boolean
   word: IWord
+  isLast: boolean
+  setWords: Dispatch<SetStateAction<IWord[]>>
+  setIsFinished: Dispatch<SetStateAction<boolean>>
+  setWrongWords: Dispatch<SetStateAction<IWord[]>>
+}
+
+const SlideContent = ({ isActive, word, isLast, setWords, setIsFinished, setWrongWords }: TSlideContent) => {
+  return (
+    <>
+      <div className={styles.flashcard}>
+        <FlashCardWord
+          word={word}
+          isActive={isActive}
+          isLast={isLast}
+          setWords={setWords}
+          setFinished={setIsFinished}
+          setWrongWords={setWrongWords}
+        />
+      </div>
+    </>
+  )
 }
 
 export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
@@ -74,31 +96,18 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
     setLoading(false)
   }, [])
 
-  const SlideContent = ({ isActive, word }: TSlideContent) => {
-    return (
-      <>
-        <div className={styles.flashcard}>
-          <FlashCardWord
-            word={word}
-            isActive={isActive}
-            isLast={isLast}
-            setWords={setWords}
-            setFinished={setIsFinished}
-            setWrongWords={setWrongWords}
-          />
-        </div>
-      </>
-    )
-  }
-
   return (
     <>
       <div className={styles.container}>
         {!loading && list && words.length !== 0 && (
           <>
             <div className={styles.top}>
-              <h2> {t('words_from', { list: list?.title })} </h2>
-              <NavigationLink href={`/dashboard/vocabulary/${listId}`}>{t('view_list')}</NavigationLink>
+              <h2 className={twMerge(styles.title, 'dark:text-grey-600')}>{t('words_from', { list: list?.title })} </h2>
+              <NavigationLink
+                className={twMerge(styles.link, 'dark:text-grey-600')}
+                href={`/dashboard/vocabulary/${listId}`}>
+                {t('view_list')}
+              </NavigationLink>
             </div>
             <div className={styles['flashcard-slider']}>
               <Swiper
@@ -130,7 +139,16 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
                 }}>
                 {words.map((word, i) => (
                   <SwiperSlide key={i}>
-                    {({ isActive }) => <SlideContent word={word} isActive={isActive} />}
+                    {({ isActive }) => (
+                      <SlideContent
+                        word={word}
+                        isActive={isActive}
+                        isLast={isLast}
+                        setWords={setWords}
+                        setIsFinished={setIsFinished}
+                        setWrongWords={setWrongWords}
+                      />
+                    )}
                   </SwiperSlide>
                 ))}
               </Swiper>

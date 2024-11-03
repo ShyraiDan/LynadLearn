@@ -13,12 +13,14 @@ import { ISession } from '@/lib/auth'
 import { toast } from 'sonner'
 import SnackBar from '@/components/ui/SnackBar/SnackBar'
 import { useTranslations } from 'next-intl'
+import { twMerge } from 'tailwind-merge'
 
 import { FaPlus } from 'react-icons/fa'
 
 //TODO:
 // fix error when user can authenticate on /dictionary/[id] page but they still saw toaster with no auth error
 // add adding word to the list functionality
+
 export const ListsModal = () => {
   const [open, setOpen] = useState(false)
   const [lists, setLists] = useState<IList[]>([])
@@ -57,13 +59,15 @@ export const ListsModal = () => {
 
   return (
     <>
-      <Button className={styles.btn} onClick={() => showModal()}>
+      <Button
+        className={twMerge(styles.btn, 'dark:!bg-[#1D2D4D] dark:text-grey-600 dark:hover:!bg-purple-100')}
+        onClick={() => showModal()}>
         <FaPlus size={20} />
       </Button>
       {open && (
-        <Modal isOpen={open} handleClose={() => showModal()}>
+        <Modal isOpen={open} className='dark:bg-[#0B152E]' handleClose={() => showModal()}>
           <div className={styles.modal}>
-            <h3 className={styles.title}>{t('choose_list')}</h3>
+            <h3 className={twMerge(styles.title, 'dark:text-grey-600')}>{t('choose_list')}</h3>
             <div className={styles.list}>
               {lists.map((list) => (
                 <div key={list._id} onClick={() => addWordToList()}>

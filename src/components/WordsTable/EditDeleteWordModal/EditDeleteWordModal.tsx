@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/Button/Button'
 import { useTranslations } from 'next-intl'
 import { deleteWordById } from '@/lib/word'
 import { IWord } from '@/interfaces/Word.interface'
+import { twMerge } from 'tailwind-merge'
 
 import { MdEdit } from 'react-icons/md'
 import { FaTrash } from 'react-icons/fa'
@@ -44,15 +45,18 @@ export default function EditDeleteWordModal({ word }: { word: IWord }) {
         <FaTrash onClick={(e) => showDeleteModal(e)} />
       </div>
       {isEdit && (
-        <Modal isOpen={isEdit} handleClose={(e) => showEditModal(e)}>
+        <Modal className={'dark:bg-[#0B152E]'} isOpen={isEdit} handleClose={(e) => showEditModal(e)}>
           <WordModal handleClose={(e) => showEditModal(e)} word={word} />
         </Modal>
       )}
 
       {isDelete && (
-        <Modal className={styles['delete-modal']} isOpen={isDelete} handleClose={(e) => showDeleteModal(e)}>
+        <Modal
+          className={twMerge(styles['delete-modal'], 'dark:bg-[#0B152E]')}
+          isOpen={isDelete}
+          handleClose={(e) => showDeleteModal(e)}>
           <div className={styles.delete}>
-            <h6>{t('really_delete')}</h6>
+            <h6 className='dark:text-grey-600'>{t('really_delete')}</h6>
             <div className={styles.btns}>
               <Button onClick={(e) => showDeleteModal(e)}>{t('cancel')}</Button>
               <Button onClick={() => deleteWord()}>{t('delete')}</Button>

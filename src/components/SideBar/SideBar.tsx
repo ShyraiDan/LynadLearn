@@ -4,6 +4,7 @@ import styles from './SideBar.module.scss'
 import { usePathname } from 'next/navigation'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { useTranslations } from 'next-intl'
+import { twMerge } from 'tailwind-merge'
 
 import { FaUser } from 'react-icons/fa'
 import { TbVocabulary, TbCardsFilled, TbWriting } from 'react-icons/tb'
@@ -18,7 +19,7 @@ export default function SideBar({ isAuth }: { isAuth: boolean }) {
   const page = path.split('/')[3]
 
   return (
-    <div className={styles.container}>
+    <div className={twMerge(styles.container, 'dark:border-[#1D2D4D]')}>
       <ul>
         {isAuth && (
           <li>

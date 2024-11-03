@@ -5,127 +5,6 @@
 .card {
   @apply w-[280px] h-[480px] cursor-pointer
   sm:w-[340px] sm:h-[480px];
-
-  .front,
-  .back {
-    @apply bg-white-200 w-full h-full overflow-hidden absolute transition-transform ease-in duration-[500ms] box-border mx-auto text-center z-[2] border-none rounded-3xl overflow-hidden flex flex-col min-w-0 border border-opacity-10;
-
-    backface-visibility: hidden;
-  }
-
-  .front {
-    transform: perspective(600px) rotateY(0deg);
-
-    .word-info {
-      @apply h-[calc(100%-56px)] flex justify-center items-center flex-col gap-8;
-
-      .info {
-        @apply flex flex-col gap-6;
-
-        .word {
-          @apply text-lg font-bold
-          sm:text-2xl;
-        }
-
-        .part-of-speech {
-          @apply text-base
-          sm:text-lg font-medium;
-        }
-      }
-
-      .pronunciation {
-        @apply flex gap-2;
-      }
-    }
-
-    .footer {
-      @apply flex items-center justify-center w-full h-14 overflow-hidden bg-transparent z-[1] bg-blue-200 rounded-t-none rounded-b-3xl transition-all ease-in-out duration-150
-      hover:bg-purple-100;
-
-      h6 {
-        @apply text-white-100 font-medium leading-none m-0 flex items-center gap-2;
-      }
-    }
-  }
-
-  .back {
-    @apply bg-white-100 shadow-lg;
-
-    transform: perspective(600px) rotateY(180deg);
-
-    .back-btn {
-      @apply absolute top-[0px] left-[0px] rounded-none rounded-br-3xl text-white-100 font-medium leading-none m-0 items-center;
-    }
-
-    .word-info {
-      @apply h-[calc(100%-56px)] flex justify-between flex-col gap-8;
-
-      > div {
-        .translation {
-          @apply px-4 pt-12 mb-1.5 flex items-center gap-2 mt-4 mt-0;
-
-          > p {
-            @apply font-medium leading-6 line-clamp-2 cursor-vertical-text text-ellipsis overflow-hidden break-words m-0 text-base 
-            sm:text-lg sm:leading-7  
-            lg:text-xl lg:leading-8;
-          }
-        }
-
-        > p {
-          @apply px-4 font-medium text-left text-sm 
-          sm:text-base;
-        }
-      }
-
-      .examples {
-        @apply w-full px-2 py-4 bg-white-200
-        sm:px-4;
-
-        .top {
-          @apply flex items-center justify-between mb-4;
-
-          > div {
-            @apply flex items-center gap-2;
-
-            h3 {
-              @apply m-0 text-base font-medium 
-              sm:text-lg;
-            }
-          }
-        }
-
-        .example-list {
-          @apply text-left w-full italic flex flex-col gap-4;
-
-          li {
-            @apply flex gap-2 items-baseline cursor-pointer w-full not-italic whitespace-normal text-left;
-          }
-        }
-      }
-    }
-
-    .footer {
-      @apply flex items-center justify-center w-full h-14 overflow-hidden z-[1] rounded-t-none rounded-b-3xl;
-
-      .btn-right {
-        @apply bg-[#C9F8E1] px-4 w-[140px] h-full rounded-none rounded-br-3xl text-[#104132] font-medium leading-none m-0 items-center
-        sm:py-4 sm:px-6 sm:w-[170px];
-
-        h6 {
-          @apply flex items-center gap-1;
-        }
-      }
-
-      .btn-left {
-        @apply bg-[#FEE6E5] px-4 w-[140px] h-full rounded-none rounded-bl-3xl text-[#BD2927] font-medium leading-none m-0 items-center
-        sm:py-4 sm:px-6 sm:w-[170px];
-
-        h6 {
-          @apply flex items-center gap-1;
-        }
-      }
-    }
-  }
 }
 
 .active > .front {
@@ -133,4 +12,125 @@
 }
 .active > .back {
   transform: perspective(600px) rotateY(0deg);
+}
+
+.front,
+.back {
+  @apply bg-white-200 w-full h-full overflow-hidden absolute transition-transform ease-in duration-[500ms] box-border mx-auto text-center z-[2] border-none rounded-3xl overflow-hidden flex flex-col min-w-0 border border-opacity-10;
+
+  backface-visibility: hidden;
+}
+
+.front {
+  transform: perspective(600px) rotateY(0deg);
+
+  .word-info {
+    @apply h-[calc(100%-56px)] flex justify-center items-center flex-col gap-8;
+
+    .info {
+      @apply flex flex-col gap-6;
+
+      .word {
+        @apply text-lg font-bold
+        sm:text-2xl;
+      }
+
+      .part-of-speech {
+        @apply text-base
+        sm:text-lg font-medium;
+      }
+    }
+
+    .pronunciation {
+      @apply flex gap-2;
+    }
+  }
+
+  .footer {
+    @apply flex items-center justify-center w-full h-14 overflow-hidden bg-transparent z-[1] bg-blue-200 rounded-t-none rounded-b-3xl transition-all ease-in-out duration-150
+    hover:bg-purple-100;
+
+    h6 {
+      @apply text-white-100 font-medium leading-none m-0 flex items-center gap-2;
+    }
+  }
+}
+
+.back {
+  @apply bg-white-100 shadow-lg;
+
+  transform: perspective(600px) rotateY(180deg);
+
+  .back-btn {
+    @apply absolute top-[0px] left-[0px] rounded-none rounded-br-3xl text-white-100 font-medium leading-none m-0 items-center;
+  }
+
+  .word-info {
+    @apply h-[calc(100%-56px)] flex justify-between flex-col gap-8;
+
+    > div {
+      .translation {
+        @apply px-4 pt-12 mb-1.5 flex items-center gap-2 mt-4 mt-0;
+
+        > p {
+          @apply font-medium leading-6 line-clamp-2 cursor-vertical-text text-ellipsis overflow-hidden break-words m-0 text-base 
+          sm:text-lg sm:leading-7  
+          lg:text-xl lg:leading-8;
+        }
+      }
+
+      > p {
+        @apply px-4 font-medium text-left text-sm 
+        sm:text-base;
+      }
+    }
+  }
+
+  .footer {
+    @apply flex items-center justify-center w-full h-14 overflow-hidden z-[1] rounded-t-none rounded-b-3xl;
+
+    .btn-right {
+      @apply bg-[#C9F8E1] px-4 w-[140px] h-full rounded-none rounded-br-3xl text-[#104132] font-medium leading-none m-0 items-center
+      sm:py-4 sm:px-6 sm:w-[170px];
+
+      h6 {
+        @apply flex items-center gap-1;
+      }
+    }
+
+    .btn-left {
+      @apply bg-[#FEE6E5] px-4 w-[140px] h-full rounded-none rounded-bl-3xl text-[#BD2927] font-medium leading-none m-0 items-center
+      sm:py-4 sm:px-6 sm:w-[170px];
+
+      h6 {
+        @apply flex items-center gap-1;
+      }
+    }
+  }
+}
+
+.examples {
+  @apply w-full px-2 py-4 bg-white-200
+  sm:px-4;
+
+  .top {
+    @apply flex items-center justify-between mb-4;
+
+    > div {
+      @apply flex items-center gap-2;
+
+      h3 {
+        @apply m-0 text-base font-medium 
+        sm:text-lg;
+      }
+    }
+  }
+
+  .example-list {
+    @apply text-left w-full italic flex flex-col gap-4;
+
+    li {
+      @apply flex gap-2 items-baseline cursor-pointer w-full not-italic whitespace-normal text-left;
+    }
+  }
 }

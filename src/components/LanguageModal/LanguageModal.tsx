@@ -2,10 +2,13 @@
 
 import { useLocale, useTranslations } from 'next-intl'
 import { useRouter, usePathname } from 'next/navigation'
+import { twMerge } from 'tailwind-merge'
 
 import styles from './LanguageModal.module.scss'
 
 import { IoIosArrowDown } from 'react-icons/io'
+
+//TODO while hovering the text make hovering together with text (for now we have small delay arrow and text)
 
 export default function LanguageModal() {
   const router = useRouter()
@@ -23,15 +26,19 @@ export default function LanguageModal() {
 
   return (
     <>
-      <li className={`${styles['nav-item']} dark:text-grey-600`}>
+      <li className={twMerge(styles['nav-item'], 'dark:text-grey-600')}>
         {localActive === 'en' ? t('english') : t('ukrainian')}
         <IoIosArrowDown />
         <div className={styles.modal}>
-          <ul>
-            <li className={`${localActive === 'en' && styles.selected}`} onClick={() => changeLang('en')}>
+          <ul className='dark:bg-[#1D2D4D]'>
+            <li
+              className={twMerge('dark:text-grey-600', localActive === 'en' && styles.selected)}
+              onClick={() => changeLang('en')}>
               {t('english')}
             </li>
-            <li className={`${localActive === 'ua' && styles.selected}`} onClick={() => changeLang('ua')}>
+            <li
+              className={twMerge('dark:text-grey-600', localActive === 'ua' && styles.selected)}
+              onClick={() => changeLang('ua')}>
               {t('ukrainian')}
             </li>
           </ul>

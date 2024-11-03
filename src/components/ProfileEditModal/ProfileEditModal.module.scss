@@ -11,14 +11,6 @@
   }
 
   .form {
-    .user-photo {
-      @apply relative h-[80px] w-[80px] rounded-full bg-blue-225 shadow-md flex items-center justify-center text-blue-200;
-
-      .edit {
-        @apply flex items-center justify-center absolute right-[-25px] top-0;
-      }
-    }
-
     .subtitle {
       @apply text-xl font-bold my-3;
     }
@@ -34,5 +26,13 @@
 
   .error {
     @apply text-red text-sm mt-1;
+  }
+}
+
+.user-photo {
+  @apply relative h-[80px] w-[80px] rounded-full bg-blue-225 shadow-md flex items-center justify-center text-blue-200;
+
+  .edit {
+    @apply flex items-center justify-center absolute right-[-25px] top-0;
   }
 }

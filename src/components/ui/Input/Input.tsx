@@ -1,5 +1,6 @@
 import styles from './Input.module.scss'
 import { HTMLInputTypeAttribute, ReactNode } from 'react'
+import { twMerge } from 'tailwind-merge'
 
 interface IInput {
   type: HTMLInputTypeAttribute | undefined
@@ -12,17 +13,30 @@ interface IInput {
   value?: string
   checked?: boolean
   obj?: Object
+  labelStyles?: string
 }
 
-export function Input({ type, placeholder, name, id, children, required, obj, onChange, value, checked }: IInput) {
+export function Input({
+  type,
+  placeholder,
+  name,
+  id,
+  children,
+  required,
+  obj,
+  onChange,
+  value,
+  checked,
+  labelStyles
+}: IInput) {
   return (
     <>
-      <label className={`${styles.label} dark:text-grey-600`} htmlFor={id}>
+      <label className={twMerge(styles.label, labelStyles, 'dark:text-grey-600')} htmlFor={id}>
         {children}
       </label>
       <input
         required={required}
-        className={`${styles.input} dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600`}
+        className={twMerge(styles.input, 'dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600')}
         type={type}
         placeholder={placeholder}
         name={name}

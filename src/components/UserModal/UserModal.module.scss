@@ -3,10 +3,6 @@
   [&_div]:hover:visible [&_div]:hover:opacity-100
   lg:flex;
 
-  .user-avatar {
-    @apply rounded-full bg-blue-200 w-10 h-10 flex items-center justify-center;
-  }
-
   .icon {
     @apply fill-white-200;
   }
@@ -25,14 +21,18 @@
       a {
         @apply flex items-center transition-all ease-in-out duration-150;
       }
-
-      .icon {
-        @apply mr-1 transition-all ease-in-out duration-150 fill-blue-200;
-      }
     }
 
     li:not(.selected) {
       @apply hover:text-purple-100;
     }
   }
+}
+
+.user-avatar {
+  @apply rounded-full bg-blue-200 w-10 h-10 flex items-center justify-center;
+}
+
+.icon {
+  @apply transition-all ease-in-out duration-150 fill-blue-200;
 }

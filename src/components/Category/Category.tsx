@@ -6,13 +6,14 @@ import List from '@/components/List/List'
 import CategoryDescription from './components/CategoryDescription/CategoryDescription'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper/modules'
+import { twMerge } from 'tailwind-merge'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
 
 export function Category({ title, lists, description }: Omit<ICategory, '_id'>) {
   return (
-    <div className={styles.container}>
+    <div className={twMerge(styles.container, 'dark:bg-none dark:bg-blue-600')}>
       <div>
         <CategoryDescription title={title} description={description} />
         <div className={styles['list-group']}>

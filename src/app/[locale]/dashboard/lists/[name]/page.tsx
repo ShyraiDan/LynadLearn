@@ -7,6 +7,7 @@ import { useState, MouseEvent } from 'react'
 import { Button } from '@/components/ui/Button/Button'
 import PageHeading from '@/components/PageHeading/PageHeading'
 import { useTranslations } from 'next-intl'
+import { twMerge } from 'tailwind-merge'
 
 import { FaClock, FaBookmark, FaRegBookmark } from 'react-icons/fa6'
 import subcategoryUnselected from '@/assets/subcategory-unselected.svg'
@@ -57,21 +58,29 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
                     <div className={styles.number}>{i + 1 > 10 ? i + 1 : `0${i + 1}`}</div>
                   </div>
                   <div className={styles['accordion-wrapper']}>
-                    <div className={styles['accordion']}>
+                    <div className={twMerge(styles['accordion'])}>
                       <div
-                        className={`${styles['accordion-summary']} ${isSelected === i && styles.active}`}
+                        className={twMerge(
+                          styles['accordion-summary'],
+                          isSelected === i && styles.active,
+                          'dark:!bg-[#19274a]'
+                        )}
                         onClick={() => setIsSelected(i)}>
                         <div>
-                          <h3>Top 1 - 25 Verbs</h3>
+                          <h3 className='dark:text-grey-600'>Top 1 - 25 Verbs</h3>
                         </div>
                       </div>
 
                       {isSelected === i && (
                         <div className={styles['accordion-details']}>
-                          <div className={styles['accordion-details-container']}>
+                          <div className={twMerge(styles['accordion-details-container'], 'dark:!bg-[#1D2D4D]')}>
                             <div className={styles.btns}>
                               <Button className={styles['tip-btn']} onClick={(e) => handlePin(e)}>
-                                {isPinned ? <FaBookmark /> : <FaRegBookmark />}
+                                {isPinned ? (
+                                  <FaBookmark className='dark:text-grey-600 dark:hover:text-purple-100' />
+                                ) : (
+                                  <FaRegBookmark className='dark:text-grey-600 dark:hover:text-purple-100' />
+                                )}
                               </Button>
                               <NavigationLink href='/'>
                                 <BsGridFill />

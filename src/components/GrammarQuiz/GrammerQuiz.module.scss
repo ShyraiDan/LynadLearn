@@ -18,28 +18,14 @@
         @apply animate-[pulse_1s_linear_infinite_0.25s] text-red;
       }
     }
-
-    h2 {
-      @apply text-blue-200 font-bold mb-4;
-    }
   }
 
   .quiz {
     @apply flex flex-col justify-between h-full px-4 pb-4;
 
-    h1 {
-      @apply text-base font-bold text-blue-200 mb-2 
-      sm:text-3xl;
-    }
-
     .answers {
       .option {
         @apply cursor-pointer flex flex-row-reverse justify-end items-center gap-2 mb-4 text-blue-100 font-bold;
-
-        label {
-          @apply mb-0 text-blue-200 
-          sm:text-lg;
-        }
 
         input {
           @apply w-min;
@@ -68,4 +54,13 @@
 
 .wrong {
   @apply border border-red bg-red text-white-100;
+}
+
+.title {
+  @apply text-blue-200 font-bold mb-4;
+}
+
+.question-title {
+  @apply text-base font-bold text-blue-200 mb-2 
+  sm:text-3xl;
 }

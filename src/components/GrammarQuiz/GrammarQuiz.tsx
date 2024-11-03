@@ -9,9 +9,10 @@ import { useTranslations } from 'next-intl'
 import { Input } from '@/components/ui/Input/Input'
 
 import { FaArrowRight } from 'react-icons/fa'
+import { twMerge } from 'tailwind-merge'
 
 export default function GrammarQuiz({ quiz, setCorrect, setQuiz, setIsFinished, setFinishTime }: any) {
-  const [seconds, setSeconds] = useState(10)
+  const [seconds, setSeconds] = useState(60)
   const [question, setQuestion] = useState(0)
   const t = useTranslations('dashboard.quiz')
   const [selectedOption, setSelectedOption] = useState(false)
@@ -51,15 +52,19 @@ export default function GrammarQuiz({ quiz, setCorrect, setQuiz, setIsFinished, 
     <>
       <div className={styles.container}>
         <div className={styles.top}>
-          <h2>{quiz.title}</h2>
+          <h2 className={twMerge(styles.title, 'dark:text-grey-600')}>{quiz.title}</h2>
           <div>
-            <div className={styles.questions}>0/10</div>
-            <div className={`${seconds < 6 && styles.time}`}>00:{seconds < 10 ? `0${seconds}` : seconds}</div>
+            <div className={twMerge(styles.questions, 'dark:text-grey-600')}>0/10</div>
+            <div className={twMerge('dark:text-grey-600', seconds < 6 && styles.time)}>
+              00:{seconds < 10 ? `0${seconds}` : seconds}
+            </div>
           </div>
         </div>
         <div className={styles.quiz}>
           <div>
-            <h1>{quiz.questions[question].question}</h1>
+            <h1 className={twMerge(styles['question-title'], 'dark:text-grey-600')}>
+              {quiz.questions[question].question}
+            </h1>
             <div className={styles.answers}>
               {quiz.questions[question].options.map((item: any, i: number) => {
                 return (
@@ -70,7 +75,8 @@ export default function GrammarQuiz({ quiz, setCorrect, setQuiz, setIsFinished, 
                         name='option'
                         id={`option-${i}`}
                         onChange={() => setSelectedOption(item.correct)}
-                        value={item.option}>
+                        value={item.option}
+                        labelStyles='!mb-0 text-blue-200 sm:text-lg dark:text-grey-600'>
                         {item.option}
                       </Input>
                     </div>
