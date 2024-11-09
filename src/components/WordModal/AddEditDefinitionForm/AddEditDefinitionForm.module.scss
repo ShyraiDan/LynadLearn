@@ -28,6 +28,10 @@
 
           .add-translation {
             @apply m-0 ml-2 h-[38px];
+
+            svg {
+              @apply hover:text-white-100;
+            }
           }
         }
       }
@@ -48,13 +52,13 @@
           @apply p-0 text-left w-full italic flex flex-col gap-4;
 
           > li {
-            @apply flex items-center gap-2 cursor-pointer whitespace-normal text-left;
+            @apply flex items-center gap-2 whitespace-normal text-left;
 
             > div {
               @apply flex items-center gap-2 w-full;
 
               .dot {
-                @apply w-2 h-2 bg-orange rounded-full  flex-shrink-0;
+                @apply w-2 h-2 bg-orange rounded-full flex-shrink-0;
               }
 
               p {
@@ -64,7 +68,7 @@
             }
 
             .trash {
-              @apply transition-all duration-[.3s] ease-in-out cursor-pointer      
+              @apply cursor-pointer transition-all duration-[.3s] ease-in-out cursor-pointer      
               hover:text-red;
             }
           }

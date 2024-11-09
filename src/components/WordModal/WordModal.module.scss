@@ -92,11 +92,20 @@
 
           .add-translation {
             @apply m-0 ml-2 h-[38px];
+
+            svg {
+              @apply hover:text-white-100;
+            }
           }
         }
 
         .card {
-          @apply p-4 py-2 bg-blue-200 text-white-100 rounded-3xl font-bold;
+          @apply p-4 py-2 bg-blue-200 text-white-100 rounded font-bold flex items-center gap-2;
+
+          span {
+            @apply transition-all duration-[.3s] ease-in-out cursor-pointer      
+            hover:text-red;
+          }
         }
       }
 

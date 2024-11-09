@@ -22,6 +22,7 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
   const [exampleInput, setExampleInput] = useState('')
   const [definitionInput, setDefinitionInput] = useState(definition ? definition.definition : '')
   const [partOfSpeech, setPartOfSpeech] = useState(definition ? definition.part_of_speech : '')
+  const [emptyDefinition, setEmptyDefinition] = useState(false)
 
   const handleAddSynonym = () => {
     if (synonymsInput) {
@@ -38,6 +39,11 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
   }
 
   const handleAddDefinition = () => {
+    if (!partOfSpeech && !definitionInput && !examples.length && !synonyms.length) {
+      setEmptyDefinition(true)
+      return
+    }
+
     allowedAction({
       id: definition ? definition.id : nanoid(),
       definition: definitionInput,
@@ -130,9 +136,11 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
                   <li key={index}>
                     <div>
                       <span className={styles.dot}></span>
-                      <p>{item}</p>
+                      <p className='dark:text-grey-600'>{item}</p>
                     </div>
-                    <span className={styles.trash} onClick={() => handleDeleteExample(item)}>
+                    <span
+                      className={twMerge(styles.trash, 'dark:text-grey-600')}
+                      onClick={() => handleDeleteExample(item)}>
                       <FaTrash />
                     </span>
                   </li>
@@ -159,6 +167,7 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
               {t('cancel')}
             </Button>
           </div>
+          {emptyDefinition && <p className='text-red'>You can't submit empty definition</p>}
         </div>
       )}
       {!isDefinitionForm && !isEdit && (

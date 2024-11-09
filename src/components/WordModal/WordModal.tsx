@@ -38,7 +38,7 @@ export default function WordModal({ handleClose, word }: IWordModal) {
 
   const {
     register,
-    formState: { errors },
+    formState: { errors, isSubmitted },
     handleSubmit
   } = useForm<IWord>({
     mode: 'onSubmit',
@@ -53,6 +53,10 @@ export default function WordModal({ handleClose, word }: IWordModal) {
   })
 
   const onSubmit: SubmitHandler<IWord> = async (values) => {
+    if (translationsList.length === 0) {
+      return
+    }
+
     values.listId = id as string
 
     if (word) {
@@ -61,7 +65,6 @@ export default function WordModal({ handleClose, word }: IWordModal) {
       word.translation.ua = [...translationsList]
       word.results = [...results]
       word.listId = id as string
-
       await updateWordById(word)
     } else {
       await createWord({
@@ -70,7 +73,8 @@ export default function WordModal({ handleClose, word }: IWordModal) {
         translation: {
           ua: [...translationsList]
         },
-        results: [...results]
+        results: [...results],
+        listId: id as string
       })
     }
 
@@ -99,6 +103,9 @@ export default function WordModal({ handleClose, word }: IWordModal) {
     setResults((state) => state.filter((item) => item.id !== id))
   }
 
+  const handleDeleteTranslation = (item: string) => {
+    setTranslationsList((state) => state.filter((i) => i !== item))
+  }
   return (
     <div className={styles.modal}>
       <h2 className='dark:text-grey-600'>{word ? t('edit_word') : t('add_new_word')}</h2>
@@ -141,8 +148,14 @@ export default function WordModal({ handleClose, word }: IWordModal) {
                         <p className='dark:text-grey-600'>{item.definition}</p>
                       </div>
                       <div className={styles.icons}>
-                        <MdEdit className='dark:text-grey-600' onClick={() => setEdit(index)} />
-                        <FaTrash className='dark:text-grey-600' onClick={() => handleDeleteDefinition(item.id)} />
+                        <MdEdit
+                          className='transition-all duration-[.3s] cursor-pointer dark:text-grey-600 dark:hover:text-purple-100'
+                          onClick={() => setEdit(index)}
+                        />
+                        <FaTrash
+                          className='transition-all duration-[.3s] cursor-pointer dark:text-grey-600 dark:hover:text-red'
+                          onClick={() => handleDeleteDefinition(item.id)}
+                        />
                       </div>
                     </div>
                     <Badge className='w-min text-sm mt-2' part={item.part_of_speech} />
@@ -173,27 +186,39 @@ export default function WordModal({ handleClose, word }: IWordModal) {
           ))}
           <AddEditDefinitionForm allowedAction={handleAddDefinition} />
           <p className='dark:text-grey-600'>{t('translation')}</p>
-          <div className={styles.translations}>
-            {translationsList.map((item) => (
-              <div className={styles.card} key={item}>
-                {item}
+          <div className='mb-2'>
+            <div className={styles.translations}>
+              {translationsList.map((item) => (
+                <div className={styles.card} key={item}>
+                  {item}
+                  <span onClick={() => handleDeleteTranslation(item)}>
+                    <FaTrash />
+                  </span>
+                </div>
+              ))}
+              <div className={styles.controls}>
+                <Input
+                  type='text'
+                  name='example'
+                  id='example'
+                  placeholder={t('enter_example')}
+                  onChange={(e) => setTranslations(e.target.value)}
+                  value={translations}
+                />
+                <Button className={styles['add-translation']} type='button' onClick={() => handleAddTranslation()}>
+                  <FaPlus size={20} />
+                </Button>
               </div>
-            ))}
-            <div className={styles.controls}>
-              <Input
-                type='text'
-                name='example'
-                id='example'
-                placeholder={t('enter_example')}
-                onChange={(e) => setTranslations(e.target.value)}
-                value={translations}
-              />
-              <Button className={styles['add-translation']} type='button' onClick={() => handleAddTranslation()}>
-                <FaPlus size={20} />
-              </Button>
             </div>
+            {isSubmitted &&
+              translationsList.length === 0 &&
+              (translations ? (
+                <p className='dark:text-red !mt-1.5 !mb-2 text-[14px]'>Submit word translation</p>
+              ) : (
+                <p className='dark:text-red !mt-1.5 !mb-2 text-[14px]'>Add word translation</p>
+              ))}
           </div>
-          <Button type='submit'>{word ? t('edit_word') : t('add_word')}</Button>
+          <Button onClick={handleSubmit(onSubmit)}>{word ? t('edit_word') : t('add_word')}</Button>
         </div>
       </form>
     </div>

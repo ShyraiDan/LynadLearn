@@ -17,7 +17,7 @@ export interface IWord {
   _id?: string
   word: string
   results: Array<IDefinition>
-  pronunciation: string
+  pronunciation?: string
   translation: {
     ua: Array<string>
   }
@@ -34,15 +34,19 @@ const wordsSchema = new Schema(
       type: String,
       required: true
     },
-    definition: String,
-    example: String,
-    part_of_speech: {
-      type: String,
-      required: true
-    },
+    results: Array<{
+      definition: string
+      part_of_speech: string
+      examples: Array<string>
+      synonyms: Array<string>
+      category: Array<string>
+      level: string
+    }>,
     translation: {
-      type: String,
-      required: true
+      ua: {
+        type: Array<string>,
+        required: true
+      }
     },
     listId: {
       type: Schema.Types.ObjectId,

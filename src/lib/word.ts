@@ -9,9 +9,7 @@ export const createWord = async (userWord: IWord) => {
 
   const doc = new Word({
     word: userWord.word,
-    definition: userWord.definition,
-    example: userWord.example,
-    part_of_speech: userWord.part_of_speech,
+    results: userWord.results,
     translation: userWord.translation,
     pronunciation: userWord.pronunciation,
     listId: userWord.listId
@@ -39,11 +37,10 @@ export const updateWordById = async (word: IWord): Promise<void> => {
     { _id: word._id },
     {
       word: word.word,
-      definition: word.definition,
-      example: word.example,
-      part_of_speech: word.part_of_speech,
+      results: word.results,
       translation: word.translation,
-      pronunciation: word.pronunciation
+      pronunciation: word.pronunciation,
+      listId: word.listId
     }
   )
 

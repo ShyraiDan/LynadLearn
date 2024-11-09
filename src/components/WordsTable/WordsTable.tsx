@@ -34,8 +34,7 @@ async function WordsList({ listId, sorting }: { listId: string; sorting: string 
       break
   }
 
-  words = DWords
-  // words = []
+  words = [...words, ...DWords]
 
   if (!words?.length) {
     return <div className={twMerge(styles['no-words'], 'dark:text-grey-600')}>{t('no_words')}</div>
