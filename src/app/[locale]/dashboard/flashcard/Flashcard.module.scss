@@ -21,10 +21,10 @@
     }
 
     .items {
-      @apply grid gap-4 grid-cols-auto-fit-140;
+      @apply grid gap-4 grid-cols-auto-fill-140 items-start;
 
       .item {
-        @apply flex items-center justify-center;
+        @apply max-w-[140px] flex items-center justify-center;
       }
     }
   }

@@ -35,10 +35,8 @@ export function UserModal() {
                 {t('profile')}
               </NavigationLink>
             </li>
-            {/*  className='dark:text-grey-600 dark:hover:!text-purple-100' */}
             <li onClick={() => logout()}>
               <span className='flex flex-row items-center cursor-pointer [&_svg]:dark:!fill-grey-600 dark:text-grey-600 dark:hover:!text-purple-100 [&_svg]:dark:hover:!fill-purple-100'>
-                {/* dark:fill-grey-600  */}
                 <MdLogout className={twMerge(styles['link-icon'], 'mr-1')} /> {t('logout')}
               </span>
             </li>

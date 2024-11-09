@@ -13,7 +13,6 @@ import usFlag from '@/assets/icons/us.svg'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 import { TiTick } from 'react-icons/ti'
 import { RxCross2 } from 'react-icons/rx'
-// import example from '@/assets/icons/message-question.svg'
 import uaFlag from '@/assets/icons/uk.png'
 import { IoReturnUpForward } from 'react-icons/io5'
 import { MessageQuestion } from '@/components/ui/Icons/Icons'
@@ -36,6 +35,7 @@ export default function FlashCardWord({
   setWrongWords
 }: TFlashCardWord) {
   const [isRotate, setRotate] = useState(false)
+  const [isUpdated, setIsUpdated] = useState(false)
   const t = useTranslations('dashboard.flashcard')
   const swiper = useSwiper()
 
@@ -54,10 +54,16 @@ export default function FlashCardWord({
 
   const handleIncorrect = () => {
     setWrongWords((state) => [...state, word])
-
     setWords((state: IWord[]) => [...state, word])
-    swiper.slideNext()
+    setIsUpdated(true)
   }
+
+  useEffect(() => {
+    if (isUpdated) {
+      swiper.slideNext()
+      setIsUpdated(false)
+    }
+  }, [isUpdated])
 
   useEffect(() => {
     setRotate(false)
@@ -70,7 +76,9 @@ export default function FlashCardWord({
           <div className={styles['word-info']}>
             <div className={styles.info}>
               <h3 className={twMerge(styles.word, 'dark:text-grey-600')}>{word.word}</h3>
-              <h6 className={twMerge(styles['part-of-speech'], 'dark:text-grey-600')}>[{word.part_of_speech}]</h6>
+              <h6 className={twMerge(styles['part-of-speech'], 'dark:text-grey-600')}>
+                {word.results[0]?.part_of_speech}
+              </h6>
             </div>
             <div className={styles.pronunciation}>
               <Image src={usFlag} alt='flag' width={24} />
@@ -92,26 +100,27 @@ export default function FlashCardWord({
             <div>
               <div className={styles.translation}>
                 <Image src={uaFlag} alt='flag' width={24} />
-                <p className='dark:text-grey-600'>{word.translation}</p>
+                <p className='dark:text-grey-600'>{word.translation.ua.join(', ')}</p>
               </div>
-              <p className='dark:text-grey-600'>{word.definition}</p>
+              <p className='dark:text-grey-600'>{word.results[0]?.definition}</p>
             </div>
-            <div className={twMerge(styles.examples, 'dark:bg-[#1D2D4D]')}>
-              <div className={styles.top}>
-                <div>
-                  <MessageQuestion className='dark:fill-grey-600' />
-                  <h3 className='dark:text-grey-600'>{t('examples')}</h3>
+            {word.results[0]?.examples.length > 0 && (
+              <div className={twMerge(styles.examples, 'dark:bg-[#1D2D4D]')}>
+                <div className={styles.top}>
+                  <div>
+                    <MessageQuestion className='dark:fill-grey-600' />
+                    <h3 className='dark:text-grey-600'>{t('examples')}</h3>
+                  </div>
                 </div>
+                <ul className={styles['example-list']}>
+                  {word.results[0]?.examples.map((item: string) => (
+                    <li key={item} className='dark:text-grey-600'>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className={styles['example-list']}>
-                {/* Change this for different types of words (from default list, from custom list) */}
-
-                {/* {word.example.map((item: string) => (
-                  <li key={item}>{item}</li>
-                ))} */}
-                <li className='dark:text-grey-600'>{word.example}</li>
-              </ul>
-            </div>
+            )}
           </div>
           <div className={styles.footer}>
             <Button className={styles['btn-left']} onClick={() => handleIncorrect()}>

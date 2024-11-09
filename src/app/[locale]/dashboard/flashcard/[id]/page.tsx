@@ -158,7 +158,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
 
         {!loading && !list && words.length === 0 && (
           <div className={styles['no-lists']}>
-            <p>{t('no_lists')}</p>
+            <p className='dark:!text-grey-600'>{t('no_lists')}</p>
             <NavigationLink href={'/dashboard/flashcard'} className={styles.links}>
               <TbCardsFilled />
               {t('move_flashcards')}
@@ -168,11 +168,19 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
 
         {!loading && list && words.length === 0 && (
           <div className={styles['no-lists']}>
-            <p>{t('no_words')}</p>
-            <NavigationLink href={`/dashboard/vocabulary/${listId}?sort=newest`} className={styles.links}>
-              <TbVocabulary />
-              {t('move_list')}
-            </NavigationLink>
+            <p className='dark:!text-grey-600'>{t('no_words')}</p>
+            <div className='flex gap-4'>
+              <NavigationLink href={'/dashboard/flashcard'} className={styles.links}>
+                <TbCardsFilled />
+                {t('move_flashcards')}
+              </NavigationLink>
+              <NavigationLink
+                href={`/dashboard/vocabulary/${listId}?sort=newest`}
+                className={twMerge(styles.links, 'min-w-[188px]')}>
+                <TbVocabulary />
+                {t('move_list')}
+              </NavigationLink>
+            </div>
           </div>
         )}
 
@@ -180,22 +188,31 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
       </div>
 
       {isFinished && (
-        <Modal className={styles.finished} isOpen={isFinished} handleClose={() => showModal()}>
+        <Modal
+          className={twMerge(styles.finished, 'dark:bg-[#0B152E]')}
+          isOpen={isFinished}
+          handleClose={() => showModal()}>
           <div className={styles.modal}>
             <div>
               <div className={styles.top}>
-                <h3>{t('congrats')}</h3>
-                <p>
+                <h3 className='dark:!text-grey-600'>{t('congrats')}</h3>
+                <p className='dark:text-grey-600'>
                   {t('you_learned', {
                     words: initialWords
                   })}
                 </p>
               </div>
-              <div className={styles['new-words']}>
+              <div className={twMerge(styles['new-words'], 'dark:!bg-[#1D2D4D]')}>
                 <div className={styles.info}>
-                  <p>{wrongWords.length === 0 ? t('no_difficult_words') : t('add_difficult_words')}</p>
+                  <p className='dark:text-grey-600'>
+                    {wrongWords.length === 0 ? t('no_difficult_words') : t('add_difficult_words')}
+                  </p>
                   {wrongWords.length > 0 && (
-                    <Button className={styles.btn}>
+                    <Button
+                      className={twMerge(
+                        styles.btn,
+                        'dark:!bg-blue-200 dark:!text-grey-600 dark:hover:!bg-purple-100 '
+                      )}>
                       <FaPlus size={20} />
                     </Button>
                   )}
@@ -204,7 +221,9 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
                   {wrongWords
                     .filter((word, index, self) => self.indexOf(word) === index)
                     .map((word, i) => (
-                      <li key={i}>{word.word}</li>
+                      <li key={i} className='dark:!bg-[#16274A] dark:text-grey-600'>
+                        {word.word}
+                      </li>
                     ))}
                 </ul>
               </div>
