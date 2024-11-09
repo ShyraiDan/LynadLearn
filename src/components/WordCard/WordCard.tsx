@@ -16,7 +16,7 @@ export const WordCard = ({ word }: { word: IWord }) => {
         <div className={styles.title}>
           <div className={twMerge(styles.word, 'dark:text-grey-600')}>{word.word}</div>
           <div className={styles.btns}>
-            <ListsModal />
+            <ListsModal word={word} />
           </div>
         </div>
         <div className={styles.pronunciation}>

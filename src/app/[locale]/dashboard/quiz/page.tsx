@@ -56,7 +56,7 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
       return (
         <>
           <div className={styles['no-list']}>
-            <h2>{t('need_login')}</h2>
+            <h2 className='dark:text-grey-600'>{t('need_login')}</h2>
           </div>
         </>
       )
@@ -69,12 +69,12 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
         <div className={styles.level}>
           {!data.length && (
             <div className={styles['no-list']}>
-              <h2>{t('no_lists')}</h2>
+              <h2 className='dark:text-grey-600'>{t('no_lists')}</h2>
             </div>
           )}
           {data.length > 0 && (
             <>
-              <h2>{t('select_your_list')}</h2>
+              <h2 className='dark:text-grey-600'>{t('select_your_list')}</h2>
               <div className={styles.lists}>
                 {data.map((item) => (
                   <NavigationLink key={item._id} href={`/dashboard/quiz/${item._id}`}>

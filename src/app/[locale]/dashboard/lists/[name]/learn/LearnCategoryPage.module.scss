@@ -1,5 +1,8 @@
 .container {
-  @apply mb-20 relative;
+  @apply relative min-h-[calc(100vh-72px-352px)]
+  sm:min-h-[calc(100vh-72px-192px)]
+  md:min-h-[calc(100vh-72px-168px)]
+  lg:min-h-[calc(100vh-72px-96px)];
 
   .switcher {
     @apply flex gap-4 absolute right-0 top-[32px] w-[130px] h-[44px];

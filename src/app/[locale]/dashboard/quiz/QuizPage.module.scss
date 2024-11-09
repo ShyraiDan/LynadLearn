@@ -37,7 +37,7 @@
       }
 
       .lists {
-        @apply grid gap-4 grid-cols-auto-fit-140;
+        @apply grid gap-4 grid-cols-auto-fill-140;
       }
 
       .no-list {

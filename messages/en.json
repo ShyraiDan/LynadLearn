@@ -238,8 +238,10 @@
     "conjunction": "Conjunction",
     "interjection": "Interjection",
     "modal": {
-      "need_auth": "Вам потрібно увійти, щоб переглядати списки",
-      "choose_list": "Виберіть список, щоб додати слово"
+      "need_auth": "You need to log in to browse your lists",
+      "choose_list": "Choose list to add word",
+      "successfully_added": "Your word has been added to the list",
+      "error_added": "Error adding your word"
     }
   },
   "translator": {
