@@ -34,7 +34,7 @@ export function Modal({ children, isOpen, handleClose, className }: IModal) {
   return (
     <ReactPortal wrapperId='react-portal-modal-container'>
       <>
-        <div className={styles.layout} />
+        <div className={styles.layout} onClick={(e) => handleClose(e)} />
         <div className={twMerge(styles.modal, className)}>
           <button onClick={(e) => handleClose(e)}>
             <RxCross1 size={'24px'} className='dark:text-grey-600' />
