@@ -41,7 +41,7 @@ export default function WordModal({ handleClose, word }: IWordModal) {
     formState: { errors },
     handleSubmit
   } = useForm<IWord>({
-    mode: 'onBlur',
+    mode: 'onSubmit',
     defaultValues: {
       word: word?.word || '',
       pronunciation: word?.pronunciation || '',

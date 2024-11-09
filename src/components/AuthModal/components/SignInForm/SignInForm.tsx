@@ -7,16 +7,21 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
 import { ISignIn } from '../Auth.interface'
 import { login } from '@/lib/auth'
+import { useState } from 'react'
+
+import { FaEye } from 'react-icons/fa'
+import { FaEyeSlash } from 'react-icons/fa'
 
 export default function SignInForm({ handleClose }: { handleClose: () => void }) {
   const t = useTranslations('Forms')
+  const [showPassword, setShowPassword] = useState(false)
 
   const {
     register,
     formState: { errors, isValid },
     handleSubmit
   } = useForm<ISignIn>({
-    mode: 'onBlur'
+    mode: 'onSubmit'
   })
 
   const onSubmit: SubmitHandler<ISignIn> = async (values) => {
@@ -38,18 +43,32 @@ export default function SignInForm({ handleClose }: { handleClose: () => void })
         {t('email')}
       </Input>
       {errors?.email && <p className={styles.error}>{errors.email.message}</p>}
-      <Input
-        type='password'
-        name='password'
-        id='password'
-        placeholder={t('enter_password')}
-        obj={register('password', {
-          required: { value: true, message: t('password_required') },
-          minLength: { value: 8, message: t('password_minLength') },
-          maxLength: { value: 20, message: t('password_maxLength') }
-        })}>
-        {t('password')}
-      </Input>
+      <div className='relative flex flex-col !mt-1.5'>
+        <Input
+          type={showPassword ? 'text' : 'password'}
+          name='password'
+          id='password'
+          placeholder={t('enter_password')}
+          obj={register('password', {
+            required: { value: true, message: t('password_required') },
+            minLength: { value: 8, message: t('password_minLength') },
+            maxLength: { value: 20, message: t('password_maxLength') }
+          })}>
+          {t('password')}
+        </Input>
+        <span
+          onClick={() => setShowPassword((state) => !state)}
+          className='absolute top-[39px] right-2.5 cursor-pointer'>
+          {showPassword ? (
+            <FaEye size={16} className='dark:text-white-100 dark:hover:text-purple-100 transition-all duration-200' />
+          ) : (
+            <FaEyeSlash
+              size={16}
+              className='dark:text-white-100 dark:hover:text-purple-100 transition-all duration-200'
+            />
+          )}
+        </span>
+      </div>
       {errors?.password && <p className={styles.error}>{errors.password.message}</p>}
       <Button type='submit'>{t('sign_in')}</Button>
     </form>

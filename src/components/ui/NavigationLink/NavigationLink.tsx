@@ -28,8 +28,8 @@ export default function NavigationLink<Pathname extends AppPathnames>({
         pathname === href && isOtherLink && isHeader && styles['active-header'],
         isOtherLink && !isHeader && styles['link-burger'],
         pathname === href && isOtherLink && !isHeader && styles['active-burger'],
-        className,
-        ' dark:text-grey-600 dark:after:bg-grey-600 dark:hover:after:bg-grey-600'
+        ' dark:text-grey-600 dark:after:bg-grey-600 dark:hover:after:bg-grey-600',
+        className
       )}
       href={href}
       {...rest}

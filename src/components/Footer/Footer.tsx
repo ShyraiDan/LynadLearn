@@ -16,10 +16,6 @@ export function Footer() {
 
   const path = usePathname()
 
-  // TODO
-  // Add hover on footer icons
-  // Check icons styles on mobile
-
   return (
     <>
       <footer
@@ -63,18 +59,24 @@ export function Footer() {
                 <p className='dark:text-grey-600'>{t('follow_us')}</p>
                 <ul>
                   <li>
-                    <Link href={'https://www.instagram.com/'}>
-                      <FaInstagram className='dark:text-grey-600' />
+                    <Link
+                      href={'https://www.instagram.com/'}
+                      className='dark:text-grey-600 hover:text-purple-100 dark:hover:text-purple-100'>
+                      <FaInstagram />
                     </Link>
                   </li>
                   <li>
-                    <Link href={'https://twitter.com/'}>
-                      <FaXTwitter className='dark:text-grey-600' />
+                    <Link
+                      href={'https://twitter.com/'}
+                      className=' dark:text-grey-600 hover:text-purple-100 dark:hover:text-purple-100'>
+                      <FaXTwitter />
                     </Link>
                   </li>
                   <li>
-                    <Link href={'https://www.facebook.com/'}>
-                      <FaFacebook className='dark:text-grey-600' />
+                    <Link
+                      href={'https://www.facebook.com/'}
+                      className='dark:text-grey-600 hover:text-purple-100 dark:hover:text-purple-100'>
+                      <FaFacebook />
                     </Link>
                   </li>
                 </ul>

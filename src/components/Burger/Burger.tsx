@@ -9,6 +9,7 @@ import { AuthModal } from '@/components/AuthModal/AuthModal'
 import { removeScrollBar } from '@/constants/shared'
 import { logout } from '@/lib/auth'
 import { Button } from '@/components/ui/Button/Button'
+import { twMerge } from 'tailwind-merge'
 
 import { FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
@@ -25,10 +26,6 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
     setBurgerShow((state) => !state)
     removeScrollBar(isBurgerShow)
   }
-
-  // TODO
-  // fix hover on accordion
-  // add dictionary and translation links
 
   return (
     <>
@@ -67,6 +64,16 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
             <li>
               <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href={'/mobile-app'}>
                 {t('mobile_app')}
+              </NavigationLink>
+            </li>
+            <li>
+              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href={'/dictionary'}>
+                {t('dictionary')}
+              </NavigationLink>
+            </li>
+            <li>
+              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href={'/translator'}>
+                {t('translator')}
               </NavigationLink>
             </li>
             {/* <li>
@@ -108,7 +115,7 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
                 <IoIosArrowDown
                   size={20}
                   onClick={() => setLastOpen((state) => !state)}
-                  className={`${styles.arrow} ${isLastOpen && styles.rotated} dark:text-grey-600`}
+                  className={twMerge(styles.arrow, isLastOpen && styles.rotated, 'cursor-pointer dark:text-grey-600')}
                 />
               </div>
               <ul className={`${styles.dropdown}  ${isLastOpen && styles['dropdown-active']}`}>

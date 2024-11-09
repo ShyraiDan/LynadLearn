@@ -25,7 +25,7 @@ export default function ProfileEditModal({ session }: { session: ISession }) {
     formState: { errors },
     handleSubmit
   } = useForm<IUser>({
-    mode: 'onBlur',
+    mode: 'onSubmit',
     defaultValues: {
       userName: session.userName,
       description: session.description,

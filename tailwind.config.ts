@@ -101,7 +101,8 @@ const config: Config = {
       },
       gridTemplateColumns: {
         'auto-fit-140': 'repeat(auto-fit, minmax(140px, 1fr))'
-      }
+      },
+      shadow: {}
     }
   },
   plugins: []

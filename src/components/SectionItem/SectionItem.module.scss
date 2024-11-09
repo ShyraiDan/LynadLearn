@@ -2,8 +2,7 @@
   @apply shadow flex flex-col justify-between rounded-3xl p-4 h-[125px] 
   sm:p-6 sm:h-[135px]
   lg:h-auto 
-  hover:shadow-md 
-  [&_h3]:hover:text-purple-100;
+  hover:shadow-lg;
 
   div {
     @apply flex items-center;

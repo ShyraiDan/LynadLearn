@@ -23,8 +23,6 @@ import vocabulary from '@/assets/vocabulary.png'
 import gif from '@/assets/langeek-demo-min.gif'
 import pluses from '@/assets/pattern-3.svg'
 
-//TODO check hover on Advantages items
-
 export default function MobileApp() {
   const t = useTranslations('Mobile_app')
 
@@ -43,7 +41,7 @@ export default function MobileApp() {
           <p className='dark:text-grey-600'>{t('always_download')}</p>
           <div>
             <Link href='https://play.google.com/store/games/'>
-              <Button>
+              <Button className='hover:!bg-[#E0E0E0]'>
                 <FaGooglePlay size='24' />
                 <div>
                   <span>{t('get_it_on')}</span>
@@ -52,7 +50,7 @@ export default function MobileApp() {
               </Button>
             </Link>
             <Link href='https://www.apple.com/app-store/'>
-              <Button>
+              <Button className='hover:!bg-[#E0E0E0]'>
                 <FaApple size='28' />
                 <div>
                   <span>{t('get_it_on')}</span>

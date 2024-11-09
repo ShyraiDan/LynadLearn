@@ -39,7 +39,7 @@ export default function AddList() {
     formState: { errors },
     handleSubmit
   } = useForm<IList>({
-    mode: 'onBlur'
+    mode: 'onSubmit'
   })
 
   const onSubmit: SubmitHandler<IList> = async (values) => {

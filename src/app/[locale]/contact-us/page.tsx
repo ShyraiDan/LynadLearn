@@ -19,7 +19,7 @@ export default function ContactUsPage() {
     handleSubmit,
     reset
   } = useForm<IContactUS>({
-    mode: 'onBlur'
+    mode: 'onSubmit'
   })
 
   const onSubmit: SubmitHandler<IContactUS> = async (values) => {
@@ -47,7 +47,7 @@ export default function ContactUsPage() {
                   id='userName'
                   placeholder={t('Forms.enter_your_name')}
                   obj={register('userName', {
-                    required: { value: true, message: 'User name is required field' }
+                    required: { value: true, message: t('Forms.name_required') }
                   })}>
                   {t('Forms.user_name')}
                 </Input>
@@ -60,8 +60,8 @@ export default function ContactUsPage() {
                   id='email'
                   placeholder={t('Forms.enter_your_email')}
                   obj={register('email', {
-                    required: { value: true, message: 'Email is required field' },
-                    pattern: { value: /^\S+@\S+$/i, message: 'Email is not valid' }
+                    required: { value: true, message: t('Forms.email_required') },
+                    pattern: { value: /^\S+@\S+$/i, message: t('Forms.email_invalid') }
                   })}>
                   {t('Forms.email')}
                 </Input>
@@ -74,8 +74,8 @@ export default function ContactUsPage() {
                   id='subject'
                   placeholder={t('Forms.enter_subject')}
                   obj={register('subject', {
-                    required: { value: true, message: 'Subject is required field' },
-                    minLength: { value: 10, message: 'Subject must be at least 10 characters' }
+                    required: { value: true, message: t('Forms.subject_required') },
+                    minLength: { value: 10, message: t('Forms.subject_minLength') }
                   })}>
                   {t('Forms.subject')}
                 </Input>
@@ -90,8 +90,8 @@ export default function ContactUsPage() {
                   id='message'
                   placeholder={t('Forms.enter_message')}
                   {...register('message', {
-                    required: { value: true, message: 'Message is required field' },
-                    minLength: { value: 20, message: 'Message must be at least 20 characters' }
+                    required: { value: true, message: t('Forms.message_required') },
+                    minLength: { value: 20, message: t('Forms.message_minLength') }
                   })}
                 />
                 {errors?.message && <p className={styles.error}>{errors.message.message}</p>}

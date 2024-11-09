@@ -28,9 +28,6 @@ import user9 from '@/assets/6.png'
 export default function Home() {
   const t = useTranslations('Home')
 
-  //TODO
-  // Add hover on Premium buttons
-
   return (
     <>
       <div className={styles.container}>
@@ -112,7 +109,9 @@ export default function Home() {
                   <p>{t(`${item}`)}</p>
                 </div>
               ))}
-              <NavigationLink href='/pricing'>{t('premium')}</NavigationLink>
+              <NavigationLink className='hover:!bg-[#E0E0E0]' href='/pricing'>
+                {t('premium')}
+              </NavigationLink>
             </div>
             <div className={styles.image}>
               <Image src={premiumImage} alt='premium image' />

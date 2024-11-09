@@ -24,8 +24,6 @@ export function AuthModal() {
     removeScrollBar(isModalOpen)
   }
 
-  //TODO add opportunity to see the password
-
   return (
     <>
       <div className={styles.btn}>

@@ -1,11 +1,12 @@
 .nav-item {
-  @apply flex items-center font-bold cursor-pointer text-blue-200 transition-all ease-in-out duration-150
-  hover:text-purple-100 
-  [&_svg]:hover:text-purple-100 [&_svg]:hover:rotate-180
+  @apply flex items-center font-bold cursor-pointer text-blue-200 ease-in-out duration-150 
+  hover:text-purple-100
+  [&_svg]:hover:rotate-180
+  [&_svg]:transition-transform
   [&_div]:hover:visible [&_div]:hover:opacity-100;
 
   svg {
-    @apply ml-2 transition-all ease-in-out;
+    @apply ml-2;
   }
 }
 

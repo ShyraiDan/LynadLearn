@@ -8,8 +8,6 @@ import styles from './LanguageModal.module.scss'
 
 import { IoIosArrowDown } from 'react-icons/io'
 
-//TODO while hovering the text make hovering together with text (for now we have small delay arrow and text)
-
 export default function LanguageModal() {
   const router = useRouter()
   const pathname = usePathname()
