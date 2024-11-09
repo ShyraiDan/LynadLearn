@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import styles from './notFound.module.scss'
+import styles from '../notFound.module.scss'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { useTranslations } from 'next-intl'
 
@@ -15,14 +15,14 @@ export default function NotFoundPage() {
         <Image src={notFound} alt={t('page_not_found')} />
       </div>
       <div className={styles.message}>
-        <h1>{t('page_not_found')}</h1>
-        <h4>{t('sorry_the_page')}</h4>
+        <h1 className='dark:text-grey-600'>{t('page_not_found')}</h1>
+        <h4 className='dark:text-grey-600'>{t('sorry_the_page')}</h4>
 
         <NavigationLink href='/' className={styles.link}>
           <FaHome /> {t('back_home')}
         </NavigationLink>
 
-        <span>
+        <span className='dark:text-grey-600'>
           {t('if_page_broken')} <NavigationLink href='/contact-us'>{t('let_us_know')}</NavigationLink> .
         </span>
       </div>

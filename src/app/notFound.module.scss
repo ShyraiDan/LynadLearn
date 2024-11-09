@@ -1,0 +1,47 @@
+.container,
+.outside-container {
+  @apply flex flex-col justify-center items-center px-4 min-h-[calc(100vh-72px-352px)]
+  sm:min-h-[calc(100vh-72px-192px)]
+  md:min-h-[calc(100vh-72px-168px)]
+  lg:min-h-[calc(100vh-72px-96px)];
+
+  img {
+    @apply w-[300px] h-[133px] 
+    sm:w-[400px] sm:h-[182px];
+  }
+
+  .message {
+    @apply text-center my-12 flex flex-col items-center
+    lg:text-start lg:w-auto;
+
+    h1 {
+      @apply mb-4 font-bold text-[2rem];
+    }
+
+    h4 {
+      @apply mb-12;
+    }
+
+    .link {
+      @apply flex font-medium items-center justify-center bg-blue-200 text-white-100 px-3 py-1.5 rounded transition-all ease-in-out duration-300
+      hover:bg-purple-100;
+
+      svg {
+        @apply mr-2;
+      }
+    }
+
+    span {
+      @apply block text-center mt-8 block;
+
+      a {
+        @apply underline transition-all ease-in-out duration-150 
+        hover:text-purple-100;
+      }
+    }
+  }
+}
+
+.outside-container {
+  @apply min-h-[100vh];
+}

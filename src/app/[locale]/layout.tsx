@@ -5,6 +5,7 @@ import { SITE_NAME } from '@/constants/seo.constants'
 import { Header } from '@/components/Header/Header'
 import { Footer } from '@/components/Footer/Footer'
 import { NextIntlClientProvider, useMessages } from 'next-intl'
+import { redirect } from 'next/navigation'
 
 const font = Roboto({
   subsets: ['cyrillic', 'latin'],
@@ -25,12 +26,16 @@ export const metadata: Metadata = {
 interface RootLayoutProps {
   children: React.ReactNode
   params: {
-    locale: string
+    locale: 'ua' | 'en'
   }
 }
 
 export default function RootLayout({ children, params: { locale } }: Readonly<RootLayoutProps>) {
   const messages = useMessages()
+
+  if (locale !== 'en' && locale !== 'ua') {
+    redirect('/not-found')
+  }
 
   return (
     <html lang={locale}>
@@ -44,4 +49,3 @@ export default function RootLayout({ children, params: { locale } }: Readonly<Ro
     </html>
   )
 }
-
