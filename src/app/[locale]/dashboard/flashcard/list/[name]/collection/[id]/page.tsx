@@ -1,8 +1,8 @@
 'use client'
 
 import styles from './Flashcard.module.scss'
-import { getWordsByListId } from '@/lib/word'
-import { getListById } from '@/lib/lists'
+import { addMultipleWords, getWordsByListId } from '@/lib/word'
+import { getListById, getYourLists } from '@/lib/lists'
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
 import FlashCardWord from '@/components/FlashCardWord/FlashCardWord'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
@@ -12,10 +12,16 @@ import { IWord } from '@/interfaces/Word.interface'
 import { IList } from '@/interfaces/List.interface'
 import Loader from '@/components/Loader/Loader'
 import { Modal } from '@/components/ui/Modal/Modal'
+import { Button } from '@/components/ui/Button/Button'
 import { twMerge } from 'tailwind-merge'
 import 'swiper/css'
 
 import { TbCardsFilled, TbVocabulary } from 'react-icons/tb'
+import { FaPlus } from 'react-icons/fa'
+import SnackBar from '@/components/ui/SnackBar/SnackBar'
+import CustomList from '@/components/CustomList/CustomList'
+import { getSession, ISession } from '@/lib/auth'
+import { toast } from 'sonner'
 
 function shuffleArray(array: any) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -67,6 +73,9 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
   const [isFinished, setIsFinished] = useState(false)
   const [initialWords, setInitialWords] = useState(0)
   const [wrongWords, setWrongWords] = useState<IWord[]>([])
+  const [userLists, setUserLists] = useState<IList[]>([])
+  const [userListsModal, setUserListsModal] = useState(false)
+  const [session, setSession] = useState<ISession>()
   const { id: listId } = params
   const swiperRef = useRef<any>(null)
 
@@ -91,8 +100,53 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
     })
     getListById(listId).then((data) => setList(data))
 
+    getYourLists().then((lists) => {
+      setUserLists(lists)
+    })
+
+    getSession().then((data) => {
+      setSession(data)
+    })
+
     setLoading(false)
-  }, [])
+  }, [listId])
+
+  // TODO add end point to add multiple words to the list
+  // list of words -> wrongWords
+  const addWordsToList = async (listId: string) => {
+    console.log('addWordToList')
+
+    await addMultipleWords(wrongWords, listId).then((res) => {
+      if (res.success) {
+        toast.success(t('modal.successfully_added'), {
+          duration: 3000,
+          className: 'border text-white-100 border-green-100 bg-green-100'
+        })
+      } else {
+        toast.success(t('modal.error_added'), {
+          duration: 3000,
+          className: 'border text-white-100 border-red bg-red'
+        })
+      }
+    })
+  }
+
+  const showAddWordsModal = () => {
+    // console.log('click')
+
+    if (session && session.isLoggedIn) {
+      // console.log('auth')
+      setUserListsModal((state) => !state)
+      setIsFinished((state) => !state)
+      // removeScrollBar(open)
+    } else {
+      console.log('no auth')
+      toast.error(t('need_auth'), {
+        duration: 3000,
+        className: 'border text-white-100 border-red bg-red'
+      })
+    }
+  }
 
   return (
     <>
@@ -203,14 +257,24 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
               <div className={twMerge(styles['new-words'], 'dark:!bg-[#1D2D4D]')}>
                 <div className={styles.info}>
                   <p className='dark:text-grey-600'>
-                    {wrongWords.length === 0 ? t('no_difficult_words') : t('mistakes')}
+                    {wrongWords.length === 0 ? t('no_difficult_words') : t('add_difficult_words')}
                   </p>
+                  {wrongWords.length > 0 && (
+                    <Button
+                      className={twMerge(
+                        styles.btn,
+                        'dark:!bg-blue-200 dark:!text-grey-600 dark:hover:!bg-purple-100 '
+                      )}
+                      onClick={() => showAddWordsModal()}>
+                      <FaPlus size={20} />
+                    </Button>
+                  )}
                 </div>
                 <ul>
                   {wrongWords
                     .filter((word, index, self) => self.indexOf(word) === index)
                     .map((word, i) => (
-                      <li key={i} className='dark:!bg-[#16274A] dark:text-grey-600'>
+                      <li key={i} className='mb-2 dark:!bg-[#16274A] dark:text-grey-600'>
                         {word.word}
                       </li>
                     ))}
@@ -225,6 +289,30 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
           </div>
         </Modal>
       )}
+
+      {userListsModal && (
+        <Modal isOpen={userListsModal} className='dark:bg-[#0B152E]' handleClose={() => setUserListsModal(false)}>
+          <div className={styles['list-modal']}>
+            <div>
+              <h3 className={twMerge(styles.title, 'dark:text-grey-600')}>{t('modal.choose_list')}</h3>
+              <div className={styles.list}>
+                {userLists.map((list) => (
+                  <div key={list._id} onClick={() => addWordsToList(list._id)}>
+                    <CustomList title={list.title} image={list.image} />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className={styles.bottom}>
+              <NavigationLink className={styles.link} href={'/dashboard/flashcard'}>
+                {t('to_flashcards')}
+              </NavigationLink>
+            </div>
+          </div>
+        </Modal>
+      )}
+
+      <SnackBar />
     </>
   )
 }

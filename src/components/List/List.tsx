@@ -4,12 +4,16 @@ import Image from 'next/image'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { useTranslations } from 'next-intl'
 
-export default function List({ title, image }: Omit<IList, '_id'>) {
+interface TListProps extends Omit<IList, '_id'> {
+  href: string
+}
+
+export default function List({ title, image, href }: TListProps) {
   const t = useTranslations('dashboard.lists')
 
   return (
     <div className={styles.container}>
-      <NavigationLink href={`/dashboard/lists/1`}>
+      <NavigationLink href={href}>
         <div className={styles['image-cont']}>{image && <Image src={image} alt={title} />}</div>
         <span className={styles.title}>{t(title)}</span>
       </NavigationLink>

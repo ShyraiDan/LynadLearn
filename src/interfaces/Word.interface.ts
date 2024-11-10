@@ -34,14 +34,28 @@ const wordsSchema = new Schema(
       type: String,
       required: true
     },
-    results: Array<{
-      definition: string
-      part_of_speech: string
-      examples: Array<string>
-      synonyms: Array<string>
-      category: Array<string>
-      level: string
-    }>,
+    // results: Array<{
+    //   definition: string
+    //   part_of_speech: string
+    //   examples: Array<string>
+    //   synonyms: Array<string>
+    //   category: Array<string>
+    //   level: string
+    // }>,
+
+    results: [
+      new Schema(
+        {
+          definition: String,
+          part_of_speech: String,
+          examples: [String],
+          synonyms: [String],
+          category: [String],
+          level: String
+        },
+        { _id: false }
+      )
+    ],
     translation: {
       ua: {
         type: Array<string>,

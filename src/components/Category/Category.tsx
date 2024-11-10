@@ -60,7 +60,7 @@ export function Category({ title, lists, description }: Omit<ICategory, '_id'>) 
             }}>
             {lists.map((item) => (
               <SwiperSlide key={item._id}>
-                <List title={item.title} image={item.image} />
+                <List title={item.title} image={item.image} href='/dashboard/lists/1' />
               </SwiperSlide>
             ))}
           </Swiper>

@@ -15,13 +15,31 @@ export const createWord = async (userWord: IWord): Promise<{ success: boolean }>
       pronunciation: userWord.pronunciation,
       listId: userWord.listId
     })
-
+    // Maybe we need to return success as part of promise in then closure
     await doc.save()
 
     revalidatePath('[locale]/dashboard/vocabulary/[id]', 'page')
     return { success: true }
   } catch (error) {
     console.error('Error creating word:', error)
+    return { success: false }
+  }
+}
+
+export const addMultipleWords = async (userWords: IWord[], listId: string): Promise<{ success: boolean }> => {
+  try {
+    const data = userWords.map((word) => ({
+      word: word.word,
+      results: word.results,
+      translation: word.translation,
+      pronunciation: word.pronunciation,
+      listId
+    }))
+
+    await Word.insertMany(data)
+    return { success: true }
+  } catch (error) {
+    console.error('Error creating words:', error)
     return { success: false }
   }
 }

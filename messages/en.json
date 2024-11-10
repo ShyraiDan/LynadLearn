@@ -398,8 +398,15 @@
       "congrats": "Congrats!",
       "you_learned": "You successfully learned {words} new words",
       "no_difficult_words": "You have not met any difficult words!",
+      "mistakes": "You made mistakes in these words",
       "add_difficult_words": "Add difficult words to your list!",
-      "to_flashcards": "Go to Flashcards"
+      "to_flashcards": "Go to Flashcards",
+      "modal": {
+        "need_auth": "You need to log in to browse your lists",
+        "choose_list": "Choose list to add word",
+        "successfully_added": "Your word has been added to the list",
+        "error_added": "Error adding your word"
+      }
     },
     "collections": {
       "hours": "h",

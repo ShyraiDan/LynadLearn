@@ -35,7 +35,7 @@ async function YourLists() {
             <div className={styles.items}>
               {item.lists.map((list) => (
                 <div key={list._id} className={styles.item}>
-                  <List title={list.title} image={list.image} />
+                  <List title={list.title} image={list.image} href={`/dashboard/flashcard/list/${list._id}`} />
                 </div>
               ))}
             </div>
