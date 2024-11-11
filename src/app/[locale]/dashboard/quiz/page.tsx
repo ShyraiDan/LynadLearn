@@ -100,7 +100,7 @@ export default function QuizPage({ searchParams, params }: TQuizPage) {
       <div className={styles.container}>
         {!(type === 'grammar' || type === 'vocabulary') && (
           <div className={styles['no-page']}>
-            <h3>{t('no_page')}</h3>
+            <h3 className='dark:!text-grey-600'>{t('no_page')}</h3>
             <NavigationLink href='/dashboard/quiz?type=grammar'>{t('move_to_quizzes')}</NavigationLink>
           </div>
         )}

@@ -11,13 +11,16 @@ import { Input } from '@/components/ui/Input/Input'
 import { FaArrowRight } from 'react-icons/fa'
 import { twMerge } from 'tailwind-merge'
 
-export default function GrammarQuiz({ quiz, setCorrect, setQuiz, setIsFinished, setFinishTime }: any) {
+export default function GrammarQuiz({ quiz, setCorrect, setIsTimeExpired, setFinishTime, setIsFinished }: any) {
   const [seconds, setSeconds] = useState(60)
   const [question, setQuestion] = useState(0)
   const t = useTranslations('dashboard.quiz')
   const [selectedOption, setSelectedOption] = useState(false)
+  const [isTimer, setIsTimer] = useState(true)
 
   useEffect(() => {
+    if (!isTimer) return
+
     if (seconds > 0) {
       const timerId = setInterval(() => {
         setSeconds((prevSeconds) => prevSeconds - 1)
@@ -26,9 +29,9 @@ export default function GrammarQuiz({ quiz, setCorrect, setQuiz, setIsFinished, 
       return () => clearInterval(timerId)
     } else {
       setFinishTime(Date.now())
-      setIsFinished((state: boolean) => !state)
+      setIsTimeExpired((state: boolean) => !state)
     }
-  }, [seconds])
+  }, [isTimer, seconds, setFinishTime, setIsTimeExpired])
 
   const changeQuestion = (correct: boolean) => {
     if (correct) {
@@ -39,13 +42,14 @@ export default function GrammarQuiz({ quiz, setCorrect, setQuiz, setIsFinished, 
     }
     if (quiz.questions.length - 1 > question) {
       setQuestion(question + 1)
+      clearInterval(seconds)
+      setSeconds(60)
     }
     if (quiz.questions.length - 1 === question) {
-      setCorrect(0)
-      setQuiz((state: boolean) => !state)
+      setIsTimer(false)
+      setFinishTime(Date.now())
+      setIsFinished(true)
     }
-    clearInterval(seconds)
-    setSeconds(60)
   }
 
   return (

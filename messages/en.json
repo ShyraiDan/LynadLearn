@@ -372,7 +372,9 @@
       "go_to_quiz": "Go to Quiz",
       "no_page": "We don't have such quiz type",
       "move_to_quizzes": "Move to Quizzes",
-      "no_quiz": "No quiz found. Try to open another list."
+      "no_quiz": "No quiz found. Try to open another list.",
+      "finished_quiz": "You finished this quiz",
+      "result_quiz": "You answered {correct} out of {length} in {time} seconds and got {points} points"
     },
     "grammar": {
       "move_to_test": "Move to Grammar test",

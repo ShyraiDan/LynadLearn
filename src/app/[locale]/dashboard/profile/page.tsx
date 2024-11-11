@@ -10,13 +10,10 @@ import { twMerge } from 'tailwind-merge'
 
 import { FaUser } from 'react-icons/fa'
 
-// TODO: user gets 1 rate point for each correct answer in quiz and 5 points for completing quiz
-// TODO: user gets 1 rate point for each correct answer in flashcard
+// TODO output user point
 
 function calculateRate(session: ISession) {
   let score = 0
-
-  console.log('func', session)
 
   DAchievement.forEach((item) => {
     let amount: number | undefined = 0

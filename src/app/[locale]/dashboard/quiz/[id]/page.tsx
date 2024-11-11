@@ -14,7 +14,7 @@ import { useParams, useSearchParams } from 'next/navigation'
 import { getListById } from '@/lib/lists'
 import { getWordsByListId } from '@/lib/word'
 import { twMerge } from 'tailwind-merge'
-import { IList } from '@/interfaces/List.interface'
+import { ScoresEnum } from '@/lib/scores'
 
 // TODO
 // isFinished modal not working (after answering the last question)
@@ -22,11 +22,12 @@ import { IList } from '@/interfaces/List.interface'
 export default function SingleQuizPage() {
   const [isQuiz, setIsQuiz] = useState(false)
   const [timer, setTimer] = useState(0)
-  const [isFinished, setIsFinished] = useState(false)
+  const [isTimeExpired, setIsTimeExpired] = useState(false)
   const [correct, setCorrect] = useState(0)
   const [finishTime, setFinishTime] = useState(0)
   const [startTime, setStartTime] = useState(0)
   const [loading, isLoading] = useState(true)
+  const [isFinished, setIsFinished] = useState(false)
   const t = useTranslations('dashboard.quiz')
   const [grammarQuiz, setGrammarQuiz] = useState<IQuiz | null>(null)
   const [vocabularyQuiz, setVocabularyQuiz] = useState<any>(null)
@@ -35,15 +36,11 @@ export default function SingleQuizPage() {
 
   useEffect(() => {
     if (type === 'grammar') {
-      console.log('GRAMMAR')
-
       getSingleQuiz(id as string).then((quiz: IQuiz | null) => {
         setGrammarQuiz(quiz)
         isLoading(false)
       })
     } else if (type === 'vocabulary') {
-      console.log('VOCABULARY')
-
       Promise.all([getListById(id as string), getWordsByListId(id as string)]).then(([list, words]) =>
         setVocabularyQuiz({
           title: `Vocabulary quiz from the list: ${list?.title}`,
@@ -52,20 +49,18 @@ export default function SingleQuizPage() {
       )
       isLoading(false)
     } else {
-      console.log('ELSE')
       isLoading(false)
     }
-  }, [])
-
-  console.log('quiz', vocabularyQuiz)
+  }, [id, type])
 
   const showModal = () => {
-    setIsFinished((state) => !state)
+    setIsTimeExpired((state) => !state)
     setIsQuiz((state) => !state)
   }
 
   const returnToQuiz = () => {
     setIsQuiz(false)
+    setIsTimeExpired(false)
     setIsFinished(false)
   }
 
@@ -74,7 +69,10 @@ export default function SingleQuizPage() {
     setStartTime(Date.now())
   }
 
-  // console.log(correct)
+  //TODO here we need to add a point when user finish a quiz
+  if (isFinished) {
+    const userScore = ScoresEnum.FINISH_QUIZ + correct * ScoresEnum.ANSWER_QUIZ
+  }
 
   return (
     <>
@@ -97,6 +95,7 @@ export default function SingleQuizPage() {
           setQuiz={setIsQuiz}
           setTimer={setTimer}
           timer={timer}
+          setIsTimeExpired={setIsTimeExpired}
           setIsFinished={setIsFinished}
           setFinishTime={setFinishTime}
         />
@@ -104,31 +103,55 @@ export default function SingleQuizPage() {
 
       {type === 'vocabulary' && isQuiz && <div>Vocab quiz</div>}
 
-      {isFinished && (
-        <Modal
-          className={twMerge(styles['no-time-modal'], 'dark:bg-[#0B152E]')}
-          isOpen={isFinished}
-          handleClose={() => showModal()}>
-          <div className={styles.modal}>
-            <h3 className={twMerge(styles['modal-title'], 'dark:text-grey-600')}>
-              {t('no_time')}
-              <br /> {t('no_question')}
-              <br />
-              {t('you_got', {
-                correct: correct,
-                length: grammarQuiz?.questions.length,
-                time: Math.floor((finishTime - startTime) / 1000)
-              })}
-            </h3>
-            <div className={styles['nav-btns']}>
-              <Button onClick={() => returnToQuiz()}>{t('back')}</Button>
-              <NavigationLink className={styles.link} href={'/dashboard/quiz?type=grammar'}>
-                {t('go_to_quiz')}
-              </NavigationLink>
-            </div>
+      <Modal
+        className={twMerge(styles['no-time-modal'], 'dark:bg-[#0B152E]')}
+        isOpen={isTimeExpired}
+        handleClose={() => showModal()}>
+        <div className={styles.modal}>
+          <h3 className={twMerge(styles['modal-title'], 'dark:text-grey-600')}>
+            {t('no_time')}
+            <br /> {t('no_question')}
+            <br />
+            {t('you_got', {
+              correct: correct,
+              length: grammarQuiz?.questions.length,
+              time: Math.floor((finishTime - startTime) / 1000)
+            })}
+          </h3>
+          <div className={styles['nav-btns']}>
+            <Button onClick={() => returnToQuiz()}>{t('back')}</Button>
+            <NavigationLink className={styles.link} href={'/dashboard/quiz?type=grammar'}>
+              {t('go_to_quiz')}
+            </NavigationLink>
           </div>
-        </Modal>
-      )}
+        </div>
+      </Modal>
+
+      <Modal
+        className={twMerge(styles['no-time-modal'], 'dark:bg-[#0B152E]')}
+        isOpen={isFinished}
+        handleClose={() => setIsFinished(false)}>
+        <div className={styles.modal}>
+          <h3 className={twMerge(styles['modal-title'], 'dark:text-grey-600')}>{t('finished_quiz')}</h3>
+          <p className='dark:text-grey-600'>
+            {/* You answered {correct} out of {grammarQuiz?.questions.length} in{' '}
+            {Math.floor((finishTime - startTime) / 1000)} seconds and got{' '}
+            {ScoresEnum.FINISH_QUIZ + correct * ScoresEnum.ANSWER_QUIZ} points */}
+            {t('result_quiz', {
+              correct: correct,
+              length: grammarQuiz?.questions.length,
+              time: Math.floor((finishTime - startTime) / 1000),
+              points: ScoresEnum.FINISH_QUIZ + correct * ScoresEnum.ANSWER_QUIZ
+            })}
+          </p>
+          <div className={twMerge(styles['nav-btns'], 'mt-3')}>
+            <Button onClick={() => returnToQuiz()}>{t('back')}</Button>
+            <NavigationLink className={styles.link} href={'/dashboard/quiz?type=grammar'}>
+              {t('go_to_quiz')}
+            </NavigationLink>
+          </div>
+        </div>
+      </Modal>
 
       {loading && (
         <div className={styles.container}>
