@@ -1,0 +1,66 @@
+.container {
+  @apply h-auto flex flex-col min-h-[calc(100vh-397px-73px)]
+  sm:min-h-[calc(100vh-193px-81px)]
+  md:min-h-[calc(100vh-153px-81px)]
+  lg:min-h-[calc(100vh-97px-81px)];
+
+  .top {
+    @apply p-4 flex justify-between;
+
+    > div {
+      @apply flex text-blue-200;
+
+      .questions {
+        @apply mr-2;
+      }
+
+      .time {
+        @apply animate-[pulse_1s_linear_infinite_0.25s] text-red;
+      }
+    }
+  }
+
+  .quiz {
+    @apply flex flex-col justify-between h-full px-4 pb-4;
+
+    .answers {
+      .option {
+        @apply cursor-pointer flex flex-row-reverse justify-end items-center gap-2 mb-4 text-blue-100 font-bold;
+
+        input {
+          @apply w-min;
+        }
+      }
+    }
+
+    .button {
+      @apply flex justify-end;
+
+      .btn {
+        @apply text-center py-3 px-6 gap-2 pr-[14px] bg-blue-200 font-bold rounded-full text-white-100 transition-all ease-out duration-150 
+        hover:bg-purple-100 [&__svg]:hover:mr-0 hover:gap-[18px];
+
+        svg {
+          @apply mr-2.5 transition-all ease-out duration-150;
+        }
+      }
+    }
+  }
+}
+
+.correct {
+  @apply border border-green-100 bg-green-100 text-white-100;
+}
+
+.wrong {
+  @apply border border-red bg-red text-white-100;
+}
+
+.title {
+  @apply text-blue-200 font-bold mb-4;
+}
+
+.question-title {
+  @apply text-base font-bold text-blue-200 mb-2 
+  sm:text-3xl;
+}

@@ -1,6 +1,6 @@
 'use client'
 
-import styles from './GrammarQuiz.module.scss'
+import styles from './VocabularyQuiz.module.scss'
 import { Button } from '@/components/ui/Button/Button'
 import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { toast } from 'sonner'
@@ -10,9 +10,8 @@ import { Input } from '@/components/ui/Input/Input'
 import { FaArrowRight } from 'react-icons/fa'
 import { twMerge } from 'tailwind-merge'
 import { IQuiz } from '@/interfaces/Quiz.interface'
-import { nanoid } from 'nanoid'
 
-interface IGrammarQuizProps {
+interface IVocabularyQuizProps {
   quiz: IQuiz
   setCorrect: Dispatch<SetStateAction<number>>
   setIsTimeExpired: Dispatch<SetStateAction<boolean>>
@@ -21,18 +20,19 @@ interface IGrammarQuizProps {
 }
 
 interface IOption {
+  _id?: string
   option: string
   correct: boolean
 }
 
-export default function GrammarQuiz({
+export default function VocabularyQuiz({
   quiz,
   setCorrect,
   setIsTimeExpired,
   setFinishTime,
   setIsFinished
-}: IGrammarQuizProps) {
-  const [seconds, setSeconds] = useState(60)
+}: IVocabularyQuizProps) {
+  const [seconds, setSeconds] = useState(9999)
   const [question, setQuestion] = useState(0)
   const t = useTranslations('dashboard.quiz')
   const [selectedOption, setSelectedOption] = useState(false)
@@ -93,8 +93,7 @@ export default function GrammarQuiz({
               {quiz.questions[question].options.map((item: IOption, i: number) => {
                 return (
                   <>
-                    <div className={styles.option} key={`${item.option}-${i}`}>
-                      <p className='text-white-100'>{`${item.option}-${i}`}</p>
+                    <div className={styles.option} key={`${item._id}-${i}`}>
                       <Input
                         type='radio'
                         name='option'

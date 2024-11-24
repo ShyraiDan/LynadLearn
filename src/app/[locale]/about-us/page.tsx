@@ -19,7 +19,7 @@ export default function AboutUsPage() {
       </section>
       <div className={styles.main}>
         <section>
-          <h2 className='dark:text-[#009CF3]'>{t('how_can_AI_help')}</h2>
+          <h2>{t('how_can_AI_help')}</h2>
           <p className='dark:text-[#009CF3]'>{t('a_substantial_part_of_learning')}</p>
           <p className='dark:text-[#009CF3]'>{t('with_the_help_of_AI')}</p>
           <p className='dark:text-[#009CF3]'>{t('to_put_it_simply')}</p>

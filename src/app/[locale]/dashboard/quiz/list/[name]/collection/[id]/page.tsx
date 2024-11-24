@@ -1,38 +1,56 @@
 'use client'
 
-import styles from './SingleQuiz.module.scss'
-import { Button } from '@/components/ui/Button/Button'
-import GrammarQuiz from '@/components/GrammarQuiz/GrammarQuiz'
+import { useEffect, useState } from 'react'
+import styles from './VocabularyQuizPage.module.scss'
+import { getWordsByListId } from '@/lib/word'
+import { IWord } from '@/interfaces/Word.interface'
+import { DWords } from '@/mock/Words.mock'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
-import { useState, useEffect } from 'react'
-import { Modal } from '@/components/ui/Modal/Modal'
 import { useTranslations } from 'next-intl'
-import { getSingleQuiz } from '@/lib/quiz'
-import { IQuiz } from '@/interfaces/Quiz.interface'
 import Loader from '@/components/Loader/Loader'
-import { useParams } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
+import { Button } from '@/components/ui/Button/Button'
+import VocabularyQuiz from '@/components/VocabularyQuiz/VocabularyQuiz'
+import { getVocabularyQuiz } from '@/lib/quiz'
+import { IQuiz } from '@/interfaces/Quiz.interface'
+import { Modal } from '@/components/ui/Modal/Modal'
 import { ScoresEnum } from '@/lib/scores'
 
-export default function SingleQuizPage() {
+export default function VocabularyQuizPage({ params }: any) {
   const [isQuiz, setIsQuiz] = useState(false)
   const [timer, setTimer] = useState(0)
   const [isTimeExpired, setIsTimeExpired] = useState(false)
   const [correct, setCorrect] = useState(0)
   const [finishTime, setFinishTime] = useState(0)
   const [startTime, setStartTime] = useState(0)
-  const [loading, isLoading] = useState(true)
+  const [loading, isLoading] = useState(false)
   const [isFinished, setIsFinished] = useState(false)
   const t = useTranslations('dashboard.quiz')
-  const [grammarQuiz, setGrammarQuiz] = useState<IQuiz | null>(null)
-  const { id } = useParams()
+  const { id: listId } = params
+  const [words, setWords] = useState<IWord[]>([...DWords])
+  const [vocabularyQuiz, setVocabularyQuiz] = useState<IQuiz | null>(null)
+
+  // TODO: finish word api and uncomment this
+  // useEffect(() => {
+  //   getWordsByListId(listId).then((data) => {
+  //     setWords(data)
+  //     isLoading(false)
+  //   })
+  // }, [listId])
 
   useEffect(() => {
-    getSingleQuiz(id as string).then((quiz: IQuiz | null) => {
-      setGrammarQuiz(quiz)
-      isLoading(false)
-    })
-  }, [id])
+    // listId temporary not used
+    if (words) {
+      getVocabularyQuiz(words, listId).then((data) => {
+        setVocabularyQuiz(data)
+      })
+    }
+  }, [words])
+
+  const startQuiz = () => {
+    setIsQuiz(true)
+    setStartTime(Date.now())
+  }
 
   const showModal = () => {
     setIsTimeExpired((state) => !state)
@@ -45,11 +63,6 @@ export default function SingleQuizPage() {
     setIsFinished(false)
   }
 
-  const startQuiz = () => {
-    setIsQuiz(true)
-    setStartTime(Date.now())
-  }
-
   //TODO here we need to add a point when user finish a quiz
   if (isFinished) {
     const userScore = ScoresEnum.FINISH_QUIZ + correct * ScoresEnum.ANSWER_QUIZ
@@ -57,21 +70,29 @@ export default function SingleQuizPage() {
 
   return (
     <>
-      {grammarQuiz && !isQuiz && (
-        <div className={styles.container}>
-          <h1 className='dark:text-grey-600'>{grammarQuiz?.title}</h1>
-          <div>
-            <NavigationLink href={'/dashboard/quiz'}>{t('to_quiz')}</NavigationLink>
-            <Button className='dark:border-none' onClick={() => startQuiz()}>
-              {t('start_quiz')}
-            </Button>
+      {words && !isQuiz && (
+        <>
+          <div className={styles.container}>
+            <h1 className='dark:text-grey-600'>Vocabulary Quiz</h1>
+            <div>
+              <NavigationLink href={'/dashboard/quiz'}>{t('to_quiz')}</NavigationLink>
+              <Button className='dark:border-none' onClick={() => startQuiz()}>
+                {t('start_quiz')}
+              </Button>
+            </div>
           </div>
-        </div>
+        </>
       )}
 
-      {isQuiz && grammarQuiz && (
-        <GrammarQuiz
-          quiz={grammarQuiz}
+      {!vocabularyQuiz && (
+        <>
+          <div>Your list is empty</div>
+        </>
+      )}
+
+      {isQuiz && vocabularyQuiz && (
+        <VocabularyQuiz
+          quiz={vocabularyQuiz}
           setCorrect={setCorrect}
           // setQuiz={setIsQuiz}
           // setTimer={setTimer}
@@ -80,6 +101,23 @@ export default function SingleQuizPage() {
           setIsFinished={setIsFinished}
           setFinishTime={setFinishTime}
         />
+      )}
+
+      {loading && (
+        <div className={styles.container}>
+          <Loader dimensionClass={styles.loader} />
+        </div>
+      )}
+
+      {!loading && !words && (
+        <div className={styles.container}>
+          <div className={styles['no-quiz']}>
+            <h3 className={twMerge(styles.title, 'dark:!text-grey-600')}>{t('no_quiz')}</h3>
+            <NavigationLink className={styles.link} href='/dashboard/quiz?type=vocabulary'>
+              {t('move_to_quizzes')}
+            </NavigationLink>
+          </div>
+        </div>
       )}
 
       <Modal
@@ -93,13 +131,13 @@ export default function SingleQuizPage() {
             <br />
             {t('you_got', {
               correct: correct,
-              length: grammarQuiz?.questions.length,
+              length: vocabularyQuiz?.questions.length,
               time: Math.floor((finishTime - startTime) / 1000)
             })}
           </h3>
           <div className={styles['nav-btns']}>
             <Button onClick={() => returnToQuiz()}>{t('back')}</Button>
-            <NavigationLink className={styles.link} href={'/dashboard/quiz?type=grammar'}>
+            <NavigationLink className={styles.link} href={'/dashboard/quiz?type=vocabulary'}>
               {t('go_to_quiz')}
             </NavigationLink>
           </div>
@@ -115,7 +153,7 @@ export default function SingleQuizPage() {
           <p className='dark:text-grey-600'>
             {t('result_quiz', {
               correct: correct,
-              length: grammarQuiz?.questions.length,
+              length: vocabularyQuiz?.questions.length,
               time: Math.floor((finishTime - startTime) / 1000),
               points: ScoresEnum.FINISH_QUIZ + correct * ScoresEnum.ANSWER_QUIZ
             })}
@@ -128,19 +166,6 @@ export default function SingleQuizPage() {
           </div>
         </div>
       </Modal>
-
-      {loading && (
-        <div className={styles.container}>
-          <Loader dimensionClass={styles.loader} />
-        </div>
-      )}
-
-      {!loading && !grammarQuiz && (
-        <div className={styles.container}>
-          <h3 className='dark:text-grey-600'>{t('no_quiz')}</h3>
-          <NavigationLink href='/dashboard/quiz?type=grammar'>{t('move_to_quizzes')}</NavigationLink>
-        </div>
-      )}
     </>
   )
 }

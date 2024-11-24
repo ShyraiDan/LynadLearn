@@ -7,9 +7,10 @@ import { getYourLists } from '@/lib/lists'
 import { getSession } from '@/lib/auth'
 import Loader from '@/components/Loader/Loader'
 import { Suspense } from 'react'
-import CustomList from '@/components/CustomList/CustomList'
 import { getAllGrammar } from '@/lib/grammar'
 import { twMerge } from 'tailwind-merge'
+import { DCategories } from '@/mock/Categories.mock'
+import List from '@/components/List/List'
 
 type TQuizPage = {
   searchParams: {
@@ -72,18 +73,22 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
               <h2 className='dark:text-grey-600'>{t('no_lists')}</h2>
             </div>
           )}
-          {data.length > 0 && (
-            <>
-              <h2 className='dark:text-grey-600'>{t('select_your_list')}</h2>
-              <div className={styles.lists}>
-                {data.map((item) => (
-                  <NavigationLink key={item._id} href={`/dashboard/quiz/${item._id}`}>
-                    <CustomList title={item.title} image={item.image} />
-                  </NavigationLink>
-                ))}
-              </div>
-            </>
-          )}
+          <div className={styles['vocabulary-quiz']}>
+            {DCategories.map((item) => (
+              <>
+                <div className={styles.top}>
+                  <h4 className='dark:text-grey-600'>{item.title}</h4>
+                </div>
+                <div className={styles.items}>
+                  {item.lists.map((list) => (
+                    <div key={list._id} className={styles.item}>
+                      <List title={list.title} image={list.image} href={`/dashboard/quiz/list/${list._id}`} />
+                    </div>
+                  ))}
+                </div>
+              </>
+            ))}
+          </div>
         </div>
       </>
     )

@@ -2,12 +2,15 @@ import mongoose, { Schema } from 'mongoose'
 
 export interface IQuiz {
   title: string
-  questions: {
-    question: string
-    options: {
-      option: string
-      correct: boolean
-    }[]
+  questions: IQuestion[]
+}
+
+export interface IQuestion {
+  question: string
+  options: {
+    _id?: string
+    option: string
+    correct: boolean
   }[]
 }
 

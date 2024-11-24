@@ -258,5 +258,222 @@ export const DWords = [
       ua: ['активність', 'енергія']
     },
     common_noun: 368
+  },
+  {
+    word: 'address',
+    results: [
+      {
+        definition: 'put an address on (an envelope)',
+        part_of_speech: 'verb',
+        examples: [],
+        synonyms: ['direct'],
+        category: [],
+        level: 'A1'
+      },
+      {
+        definition: 'social skill',
+        part_of_speech: 'noun',
+        examples: [],
+        synonyms: ['savoir-faire'],
+        category: [],
+        level: 'A1'
+      },
+      {
+        definition: 'give a speech to',
+        part_of_speech: 'verb',
+        examples: ['The chairman addressed the board of trustees'],
+        synonyms: ['speak'],
+        category: [],
+        level: 'A1'
+      },
+      {
+        definition:
+          'written directions for finding some location; written on letters or packages that are to be delivered to that location',
+        part_of_speech: 'noun',
+        examples: [],
+        synonyms: ['destination', 'name and address'],
+        category: [],
+        level: 'A1'
+      },
+      {
+        definition: 'speak to someone',
+        part_of_speech: 'verb',
+        examples: [],
+        synonyms: ['accost', 'come up to'],
+        category: [],
+        level: 'A1'
+      },
+      {
+        definition: '(computer science) the code that identifies where a piece of information is stored',
+        part_of_speech: 'noun',
+        examples: [],
+        synonyms: ['computer address', 'reference'],
+        category: ['computing', 'computer science'],
+        level: 'A1'
+      },
+      {
+        definition: 'speak to',
+        part_of_speech: 'verb',
+        examples: ['He addressed the crowd outside the window'],
+        synonyms: ['turn to'],
+        category: [],
+        level: 'A1'
+      },
+      {
+        definition: 'the act of delivering a formal spoken communication to an audience',
+        part_of_speech: 'noun',
+        examples: ['he listened to an address on minor Roman poets'],
+        synonyms: ['speech'],
+        category: [],
+        level: 'A1'
+      },
+      {
+        definition: 'greet, as with a prescribed form, title, or name',
+        part_of_speech: 'verb',
+        examples: ["He always addresses me with `Sir'"],
+        synonyms: ['call'],
+        category: [],
+        level: 'A1'
+      },
+      {
+        definition: 'act on verbally or in some form of artistic expression',
+        part_of_speech: 'verb',
+        examples: [],
+        synonyms: ['cover', 'deal', 'handle', 'plow', 'treat'],
+        category: [],
+        level: 'A1'
+      },
+      {
+        definition: 'access or locate by address',
+        part_of_speech: 'verb',
+        examples: [],
+        synonyms: [],
+        category: ['computer science', 'computing'],
+        level: 'A1'
+      },
+      {
+        definition: "address or apply oneself to something, direct one's efforts towards something, such as a question",
+        part_of_speech: 'verb',
+        examples: [],
+        synonyms: [],
+        category: [],
+        level: 'A1'
+      },
+      {
+        definition: 'adjust and aim (a golf ball) at in preparation of hitting',
+        part_of_speech: 'verb',
+        examples: [],
+        synonyms: [],
+        category: ['golf game', 'golf'],
+        level: 'A1'
+      },
+      {
+        definition:
+          'a sign in front of a house or business carrying the conventional form by which its location is described',
+        part_of_speech: 'noun',
+        examples: [],
+        synonyms: [],
+        category: [],
+        level: 'A1'
+      },
+      {
+        definition: 'direct a question at someone',
+        part_of_speech: 'verb',
+        examples: [],
+        synonyms: [],
+        category: [],
+        level: 'A1'
+      },
+      {
+        definition: 'the manner of speaking to another individual',
+        part_of_speech: 'noun',
+        examples: ['he failed in his manner of address to the captain'],
+        synonyms: [],
+        category: [],
+        level: 'A1'
+      },
+      {
+        definition: 'the place where a person or organization can be found or communicated with',
+        part_of_speech: 'noun',
+        examples: [],
+        synonyms: [],
+        category: [],
+        level: 'A1'
+      },
+      {
+        definition: 'the stance assumed by a golfer in preparation for hitting a golf ball',
+        part_of_speech: 'noun',
+        examples: [],
+        synonyms: [],
+        category: ['golf', 'golf game'],
+        level: 'A1'
+      }
+    ],
+    pronunciation: "ə'drɛs",
+    translation: {
+      ua: ['адресувати', 'адреса']
+    },
+    common_verb: 500
+  },
+  {
+    word: 'another',
+    results: [
+      {
+        definition: 'any of various alternatives; some other',
+        part_of_speech: 'adjective',
+        examples: ['put it off to another (or some other) day'],
+        synonyms: ['some other'],
+        category: [],
+        level: 'A1'
+      }
+    ],
+    pronunciation: "ə'nəðər",
+    translation: {
+      ua: ['другий', 'інший', 'ще один']
+    }
+  },
+  {
+    word: 'along',
+    results: [
+      {
+        definition: 'with a forward motion',
+        part_of_speech: 'adverb',
+        examples: ['we drove along admiring the view', 'the horse trotted along at a steady pace', 'move along'],
+        synonyms: ['on'],
+        category: [],
+        level: 'A1'
+      }
+    ],
+    pronunciation: "ə'lɔŋ",
+    translation: {
+      ua: ['вздовж', 'по', 'вперед']
+    },
+    common_adverb: 201
+  },
+  {
+    word: 'animal',
+    results: [
+      {
+        definition: 'marked by the appetites and passions of the body',
+        part_of_speech: 'adjective',
+        examples: ['animal instincts'],
+        synonyms: ['carnal', 'fleshly', 'sensual'],
+        category: [],
+        level: 'A1'
+      },
+      {
+        definition: 'a living organism characterized by voluntary movement',
+        part_of_speech: 'noun',
+        examples: [],
+        synonyms: ['animate being', 'beast', 'brute', 'creature', 'fauna'],
+        category: [],
+        level: 'A1'
+      }
+    ],
+    pronunciation: "'ænəməl",
+    translation: {
+      ua: ['тварина']
+    },
+    common_noun: 100
   }
 ]
