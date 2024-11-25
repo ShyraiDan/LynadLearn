@@ -374,7 +374,9 @@
       "move_to_quizzes": "Перейти до Вікторин",
       "no_quiz": "Вікторину не знайдено. Спробуйте відкрити іншу.",
       "finished_quiz": "Ви завершили вікторину",
-      "result_quiz": "Ви відповіли {correct} із {length} за {time} секунд і отримали {points} балів"
+      "result_quiz": "Ви відповіли {correct} із {length} за {time} секунд і отримали {points} балів",
+      "vocabulary_quiz": "Лекична вікторина",
+      "list_empty": "Список слів пустий"
     },
     "grammar": {
       "move_to_test": "Перейти до тесту",

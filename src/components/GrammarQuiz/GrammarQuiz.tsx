@@ -10,7 +10,6 @@ import { Input } from '@/components/ui/Input/Input'
 import { FaArrowRight } from 'react-icons/fa'
 import { twMerge } from 'tailwind-merge'
 import { IQuiz } from '@/interfaces/Quiz.interface'
-import { nanoid } from 'nanoid'
 
 interface IGrammarQuizProps {
   quiz: IQuiz
@@ -72,6 +71,8 @@ export default function GrammarQuiz({
     }
   }
 
+  //TODO add in database id field for each option
+
   return (
     <>
       <div className={styles.container}>
@@ -94,7 +95,6 @@ export default function GrammarQuiz({
                 return (
                   <>
                     <div className={styles.option} key={`${item.option}-${i}`}>
-                      <p className='text-white-100'>{`${item.option}-${i}`}</p>
                       <Input
                         type='radio'
                         name='option'

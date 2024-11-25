@@ -374,7 +374,9 @@
       "move_to_quizzes": "Move to Quizzes",
       "no_quiz": "No quiz found. Try to open another list.",
       "finished_quiz": "You finished this quiz",
-      "result_quiz": "You answered {correct} out of {length} in {time} seconds and got {points} points"
+      "result_quiz": "You answered {correct} out of {length} in {time} seconds and got {points} points",
+      "vocabulary_quiz": "Vocabulary quiz",
+      "list_empty": "Your list is empty"
     },
     "grammar": {
       "move_to_test": "Move to Grammar test",

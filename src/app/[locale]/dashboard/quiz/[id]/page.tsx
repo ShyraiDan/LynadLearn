@@ -7,7 +7,7 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { useState, useEffect } from 'react'
 import { Modal } from '@/components/ui/Modal/Modal'
 import { useTranslations } from 'next-intl'
-import { getSingleQuiz } from '@/lib/quiz'
+import { getGrammarQuiz } from '@/lib/quiz'
 import { IQuiz } from '@/interfaces/Quiz.interface'
 import Loader from '@/components/Loader/Loader'
 import { useParams } from 'next/navigation'
@@ -28,7 +28,7 @@ export default function SingleQuizPage() {
   const { id } = useParams()
 
   useEffect(() => {
-    getSingleQuiz(id as string).then((quiz: IQuiz | null) => {
+    getGrammarQuiz(id as string).then((quiz: IQuiz | null) => {
       setGrammarQuiz(quiz)
       isLoading(false)
     })

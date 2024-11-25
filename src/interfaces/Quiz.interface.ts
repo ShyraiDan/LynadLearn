@@ -14,6 +14,23 @@ export interface IQuestion {
   }[]
 }
 
+export interface IVocabularyQuestion {
+  question: {
+    en: string
+    ua: string
+  }
+  options: {
+    _id?: string
+    option: string
+    correct: boolean
+  }[]
+}
+
+export interface IVocabularyQuiz {
+  title: string
+  questions: IVocabularyQuestion[]
+}
+
 const quizzesSchema = new Schema({
   title: {
     type: String,

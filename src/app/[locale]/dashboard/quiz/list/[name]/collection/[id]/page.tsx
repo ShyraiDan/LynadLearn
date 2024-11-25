@@ -12,7 +12,7 @@ import { twMerge } from 'tailwind-merge'
 import { Button } from '@/components/ui/Button/Button'
 import VocabularyQuiz from '@/components/VocabularyQuiz/VocabularyQuiz'
 import { getVocabularyQuiz } from '@/lib/quiz'
-import { IQuiz } from '@/interfaces/Quiz.interface'
+import { IVocabularyQuiz } from '@/interfaces/Quiz.interface'
 import { Modal } from '@/components/ui/Modal/Modal'
 import { ScoresEnum } from '@/lib/scores'
 
@@ -28,7 +28,7 @@ export default function VocabularyQuizPage({ params }: any) {
   const t = useTranslations('dashboard.quiz')
   const { id: listId } = params
   const [words, setWords] = useState<IWord[]>([...DWords])
-  const [vocabularyQuiz, setVocabularyQuiz] = useState<IQuiz | null>(null)
+  const [vocabularyQuiz, setVocabularyQuiz] = useState<IVocabularyQuiz | null>(null)
 
   // TODO: finish word api and uncomment this
   // useEffect(() => {
@@ -73,7 +73,7 @@ export default function VocabularyQuizPage({ params }: any) {
       {words && !isQuiz && (
         <>
           <div className={styles.container}>
-            <h1 className='dark:text-grey-600'>Vocabulary Quiz</h1>
+            <h1 className='dark:text-grey-600'>{t('vocabulary_quiz')}</h1>
             <div>
               <NavigationLink href={'/dashboard/quiz'}>{t('to_quiz')}</NavigationLink>
               <Button className='dark:border-none' onClick={() => startQuiz()}>
@@ -86,7 +86,7 @@ export default function VocabularyQuizPage({ params }: any) {
 
       {!vocabularyQuiz && (
         <>
-          <div>Your list is empty</div>
+          <div>{t('list_empty')}</div>
         </>
       )}
 
@@ -160,7 +160,7 @@ export default function VocabularyQuizPage({ params }: any) {
           </p>
           <div className={twMerge(styles['nav-btns'], 'mt-3')}>
             <Button onClick={() => returnToQuiz()}>{t('back')}</Button>
-            <NavigationLink className={styles.link} href={'/dashboard/quiz?type=grammar'}>
+            <NavigationLink className={styles.link} href={'/dashboard/quiz?type=vocabulary'}>
               {t('go_to_quiz')}
             </NavigationLink>
           </div>

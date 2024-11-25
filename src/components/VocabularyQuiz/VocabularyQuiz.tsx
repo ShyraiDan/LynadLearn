@@ -5,14 +5,14 @@ import { Button } from '@/components/ui/Button/Button'
 import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { toast } from 'sonner'
 import SnackBar from '@/components/ui/SnackBar/SnackBar'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { Input } from '@/components/ui/Input/Input'
 import { FaArrowRight } from 'react-icons/fa'
 import { twMerge } from 'tailwind-merge'
-import { IQuiz } from '@/interfaces/Quiz.interface'
+import { IVocabularyQuiz } from '@/interfaces/Quiz.interface'
 
 interface IVocabularyQuizProps {
-  quiz: IQuiz
+  quiz: IVocabularyQuiz
   setCorrect: Dispatch<SetStateAction<number>>
   setIsTimeExpired: Dispatch<SetStateAction<boolean>>
   setFinishTime: Dispatch<SetStateAction<number>>
@@ -37,6 +37,9 @@ export default function VocabularyQuiz({
   const t = useTranslations('dashboard.quiz')
   const [selectedOption, setSelectedOption] = useState(false)
   const [isTimer, setIsTimer] = useState(true)
+  const lang = useLocale()
+
+  console.log(lang)
 
   useEffect(() => {
     if (!isTimer) return
@@ -87,7 +90,7 @@ export default function VocabularyQuiz({
         <div className={styles.quiz}>
           <div>
             <h1 className={twMerge(styles['question-title'], 'dark:text-grey-600')}>
-              {quiz.questions[question].question}
+              {lang === 'en' ? quiz.questions[question].question.en : quiz.questions[question].question.ua}
             </h1>
             <div className={styles.answers}>
               {quiz.questions[question].options.map((item: IOption, i: number) => {

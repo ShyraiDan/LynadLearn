@@ -2,14 +2,14 @@
 
 import mongoose from 'mongoose'
 import connectMongoDB from './mongodb'
-import Quizzes, { IQuiz, IQuestion } from '@/interfaces/Quiz.interface'
+import Quizzes, { IQuiz, IVocabularyQuestion, IVocabularyQuiz } from '@/interfaces/Quiz.interface'
 import { IWord } from '@/interfaces/Word.interface'
 import { shuffleArray } from '@/utils/middlewares'
 import { getListById } from './lists'
 import { nanoid } from 'nanoid'
 
 // TODO rename to getGrammarQuiz
-export const getSingleQuiz = async (id: string): Promise<IQuiz | null> => {
+export const getGrammarQuiz = async (id: string): Promise<IQuiz | null> => {
   await connectMongoDB()
 
   if (mongoose.Types.ObjectId.isValid(id) === false) {
@@ -23,13 +23,37 @@ export const getSingleQuiz = async (id: string): Promise<IQuiz | null> => {
 }
 
 const defaultVocabularyQuizQuestions = [
-  { question: 'Choose correct translation for the word {eng_word}', option: '{word_translation}' },
-  { question: 'Choose word which means "{word_meaning}"', option: '{eng_word}' },
-  { question: 'This word is synonym to {word_synonym}', option: '{eng_word}' },
-  { question: 'Choose word which we can translate as {word_translation}', option: '{eng_word}' }
+  {
+    question: {
+      en: 'Choose correct translation for the word "{eng_word}"',
+      ua: 'Виберіть правильний переклад слова "{eng_word}"'
+    },
+    option: '{word_translation}'
+  },
+  {
+    question: {
+      en: 'Choose word which means "{word_meaning}"',
+      ua: 'Виберіть слово, яке означає "{word_meaning}"'
+    },
+    option: '{eng_word}'
+  },
+  {
+    question: {
+      en: 'This word is synonym to "{word_synonym}"',
+      ua: 'Це слово є синонімом до слова "{word_synonym}"'
+    },
+    option: '{eng_word}'
+  },
+  {
+    question: {
+      en: 'Choose word which we can translate as "{word_translation}"',
+      ua: 'Виберіть слово, яке можна перекласти "{word_translation}"'
+    },
+    option: '{eng_word}'
+  }
 ]
 
-export const getVocabularyQuiz = async (words: IWord[], listId: string): Promise<IQuiz | null> => {
+export const getVocabularyQuiz = async (words: IWord[], listId: string): Promise<IVocabularyQuiz | null> => {
   if (!words.length) {
     return null
   }
@@ -37,7 +61,7 @@ export const getVocabularyQuiz = async (words: IWord[], listId: string): Promise
   // const list = await getListById(listId)
 
   const shuffledWords: IWord[] = shuffleArray(words)
-  const questions: IQuestion[] = []
+  const questions: IVocabularyQuestion[] = []
 
   shuffledWords.forEach((word: IWord, i) => {
     // Generate question section
@@ -46,22 +70,34 @@ export const getVocabularyQuiz = async (words: IWord[], listId: string): Promise
 
     switch (rndQuestion) {
       case 0:
-        generateQuestion = generateQuestion.replace('{eng_word}', word.word)
+        generateQuestion = {
+          en: generateQuestion.en.replace('{eng_word}', word.word),
+          ua: generateQuestion.ua.replace('{eng_word}', word.word)
+        }
         break
       case 1: {
         const rndMeaning = Math.floor(Math.random() * word.results.length)
-        generateQuestion = generateQuestion.replace('{word_meaning}', word.results[rndMeaning].definition)
+        generateQuestion = {
+          en: generateQuestion.en.replace('{word_meaning}', word.results[rndMeaning].definition),
+          ua: generateQuestion.ua.replace('{word_meaning}', word.results[rndMeaning].definition)
+        }
         break
       }
       case 2: {
         const rndMeaning = Math.floor(Math.random() * word.results.length)
         const rndSynonym = Math.floor(Math.random() * word.results[rndMeaning].synonyms.length)
-        generateQuestion = generateQuestion.replace('{word_synonym}', word.results[rndMeaning].synonyms[rndSynonym])
+        generateQuestion = {
+          en: generateQuestion.en.replace('{word_synonym}', word.results[rndMeaning].synonyms[rndSynonym]),
+          ua: generateQuestion.ua.replace('{word_synonym}', word.results[rndMeaning].synonyms[rndSynonym])
+        }
         break
       }
       default: {
         const rndTranslation = Math.floor(Math.random() * word.translation.ua.length)
-        generateQuestion = generateQuestion.replace('{word_translation}', word.translation.ua[rndTranslation])
+        generateQuestion = {
+          en: generateQuestion.en.replace('{word_translation}', word.translation.ua[rndTranslation]),
+          ua: generateQuestion.ua.replace('{word_translation}', word.translation.ua[rndTranslation])
+        }
       }
     }
 
