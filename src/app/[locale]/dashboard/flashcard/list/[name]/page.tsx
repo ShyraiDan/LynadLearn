@@ -16,6 +16,7 @@ import { BsGridFill } from 'react-icons/bs'
 import note from '@/assets/icons/note-2-disable.svg'
 import { FaArrowRight } from 'react-icons/fa'
 import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 const lessons = [1, 2, 3, 4, 5, 6]
 

@@ -147,7 +147,7 @@ export default function VocabularyQuizPage({ params }: any) {
       <Modal
         className={twMerge(styles['no-time-modal'], 'dark:bg-[#0B152E]')}
         isOpen={isFinished}
-        handleClose={() => setIsFinished(false)}>
+        handleClose={() => returnToQuiz()}>
         <div className={styles.modal}>
           <h3 className={twMerge(styles['modal-title'], 'dark:text-grey-600')}>{t('finished_quiz')}</h3>
           <p className='dark:text-grey-600'>

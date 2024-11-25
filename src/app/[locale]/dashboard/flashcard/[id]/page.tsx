@@ -13,6 +13,7 @@ import { IList } from '@/interfaces/List.interface'
 import Loader from '@/components/Loader/Loader'
 import { Modal } from '@/components/ui/Modal/Modal'
 import { twMerge } from 'tailwind-merge'
+import { useRouter } from 'next/navigation'
 import 'swiper/css'
 
 import { TbCardsFilled, TbVocabulary } from 'react-icons/tb'
@@ -69,6 +70,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
   const [wrongWords, setWrongWords] = useState<IWord[]>([])
   const { id: listId } = params
   const swiperRef = useRef<any>(null)
+  const router = useRouter()
 
   const checkIfLastSlide = () => {
     if (!swiperRef.current) return false
@@ -82,6 +84,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
 
   const showModal = () => {
     setIsFinished((state) => !state)
+    router.back()
   }
 
   useEffect(() => {

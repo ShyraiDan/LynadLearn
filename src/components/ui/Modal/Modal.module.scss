@@ -1,5 +1,5 @@
 .layout {
-  @apply fixed top-0 left-0 w-screen h-screen z-30 bg-neutral-800 opacity-50;
+  @apply fixed top-0 left-0 w-screen h-screen z-30 bg-neutral-800 opacity-50 cursor-pointer;
 }
 .modal {
   @apply fixed max-w-[1040px] flex flex-col box-border min-w-fit overflow-hidden p-5 bg-white-100 inset-y-0 inset-x-0 z-40

@@ -14,6 +14,7 @@ import Loader from '@/components/Loader/Loader'
 import { Modal } from '@/components/ui/Modal/Modal'
 import { Button } from '@/components/ui/Button/Button'
 import { twMerge } from 'tailwind-merge'
+import { useRouter } from 'next/navigation'
 import 'swiper/css'
 
 import { TbCardsFilled, TbVocabulary } from 'react-icons/tb'
@@ -78,6 +79,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
   const [session, setSession] = useState<ISession>()
   const { id: listId } = params
   const swiperRef = useRef<any>(null)
+  const router = useRouter()
 
   const checkIfLastSlide = () => {
     if (!swiperRef.current) return false
@@ -91,6 +93,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
 
   const showModal = () => {
     setIsFinished((state) => !state)
+    router.back()
   }
 
   useEffect(() => {
