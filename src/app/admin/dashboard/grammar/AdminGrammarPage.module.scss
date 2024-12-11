@@ -1,0 +1,63 @@
+.item-1 {
+  @apply row-[span_8] 
+        sm:row-[span_8]
+        md:row-[span_10]
+        lg:row-[span_7]
+        xl:row-[span_8]
+        2xl:row-[span_7];
+}
+
+.item-2 {
+  @apply row-[span_6]
+        sm:row-[span_7]
+        2xl:row-[span_6];
+}
+
+.item-3 {
+  @apply row-[span_6]
+        sm:row-[span_6]
+        md:row-[span_7]
+        lg:row-[span_6]
+        2xl:row-[span_5];
+}
+
+.item-4 {
+  @apply row-[span_6] 
+        sm:row-[span_7]
+        lg:row-[span_5]
+        xl:row-[span_7]
+        2xl:row-[span_6];
+}
+
+.item-5 {
+  @apply row-[span_7] 
+        sm:row-[span_8]
+        lg:row-[span_6]
+        xl:row-[span_8]
+        2xl:row-[span_7];
+}
+
+.item-6 {
+  @apply row-[span_6] 
+        sm:row-[span_7]
+        lg:row-[span_6]
+        2xl:row-[span_6];
+}
+
+.item-7 {
+  @apply row-[span_9]
+        sm:row-[span_9]
+        md:row-[span_10]
+        lg:row-[span_8]
+        xl:row-[span_9]
+        2xl:row-[span_8];
+}
+
+.item-8 {
+  @apply row-[span_6]
+        sm:row-[span_7]
+        md:row-[span_8]
+        lg:row-[span_6]
+        xl:row-[span_7]
+        2xl:row-[span_6];
+}

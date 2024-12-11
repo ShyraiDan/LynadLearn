@@ -5,6 +5,7 @@ import Loader from '@/components/Loader/Loader'
 import { getAllGrammar } from '@/lib/grammar'
 import { twMerge } from 'tailwind-merge'
 
+// TODO: Fix any type
 async function ShowGrammar({ params }: any) {
   const grammarElementary = await getAllGrammar('A1-A2')
 

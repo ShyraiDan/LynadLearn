@@ -6,9 +6,8 @@ import Link from 'next/link'
 import { TbVocabulary, TbWriting } from 'react-icons/tb'
 import { BsQuestionSquareFill } from 'react-icons/bs'
 
-export default function AdminSideBar({ isAuth }: { isAuth: boolean }) {
+export default function AdminSideBar() {
   const path = usePathname()
-
   const page = path.split('/')[3]
 
   return (
