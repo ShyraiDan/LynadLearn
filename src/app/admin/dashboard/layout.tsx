@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
 import { getSession } from '@/lib/auth'
 import { AdminHeader } from '@/components/Admin/AdminHeader/AdminHeader'
+import { AdminFooter } from '@/components/Admin/AdminFooter/AdminFooter'
 
 interface IDashboard {
   children: ReactNode
@@ -24,7 +25,7 @@ export default function AdminDashboardLayout({ children }: IDashboard) {
   return (
     <>
       <AdminHeader />
-      <div className='lg:grid lg:grid-cols-[255px_calc(100%-255px)] max-w-[100vw]'>
+      <main className='lg:grid lg:grid-cols-[255px_calc(100%-255px)] max-w-[100vw]'>
         <Suspense
           fallback={
             <div className='w-[100vw] min-h-[calc(100vh-397px-81px)] sm:min-h-[calc(100vh-193px-81px)] md:min-h-[calc(100vh-153px-81px)] lg:min-h-[calc(100vh-97px-81px)];'>
@@ -33,7 +34,7 @@ export default function AdminDashboardLayout({ children }: IDashboard) {
           }>
           <Content>{children}</Content>
         </Suspense>
-      </div>
+      </main>
     </>
   )
 }
