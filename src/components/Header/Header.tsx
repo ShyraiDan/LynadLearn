@@ -6,7 +6,7 @@ import { UserModal } from '@/components/UserModal/UserModal'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { getSession } from '@/lib/auth'
 import { getTranslations } from 'next-intl/server'
-import { Themes } from '../Themes/Themes'
+import { Themes } from '@/components/Themes/Themes'
 import { twMerge } from 'tailwind-merge'
 
 export async function Header() {

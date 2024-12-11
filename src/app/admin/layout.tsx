@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import { SITE_NAME } from '@/constants/seo.constants'
+import '../globals.scss'
 
 const font = Roboto({
   subsets: ['cyrillic', 'latin'],
@@ -20,14 +21,11 @@ export const metadata: Metadata = {
 
 interface RootLayoutProps {
   children: React.ReactNode
-  params: {
-    locale: string
-  }
 }
 
-export default function RootLayout({ children, params: { locale } }: Readonly<RootLayoutProps>) {
+export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
-    <html lang={locale}>
+    <html lang='en'>
       <body className={font.className}>{children}</body>
     </html>
   )
