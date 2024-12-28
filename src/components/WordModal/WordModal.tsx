@@ -20,6 +20,8 @@ interface IWordModal {
   word?: IWord
 }
 
+// TODO: add hover on delete/edit buttons and small bottom scrolling for definition modal
+
 export default function WordModal({ handleClose, word }: IWordModal) {
   const t = useTranslations('dashboard.vocabulary.modal')
   const params = useParams()
