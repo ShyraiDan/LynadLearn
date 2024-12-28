@@ -5,10 +5,12 @@ import { getSingleGrammar } from '@/lib/grammar'
 import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
 import { twMerge } from 'tailwind-merge'
+import { IGrammarExample } from '@/interfaces/Grammar.interface'
 
 type TSingleGrammarPage = {
   params: {
-    id: any
+    id: string
+    locale: string
   }
 }
 
@@ -29,22 +31,28 @@ async function Grammar({ params }: TSingleGrammarPage) {
     <>
       {grammar && (
         <div className={styles.container}>
-          <h1 className='dark:text-grey-600'>{grammar.title}</h1>
-          {grammar.data.description.map((item, i) => (
+          <h1 className='dark:text-grey-600'> {params.locale === 'en' ? grammar.title : grammar.titleUa}</h1>
+          {(params.locale === 'en' ? grammar.data.description : grammar.data.descriptionUa).map((item, i) => (
             <p className='dark:text-grey-600' key={i}>
               {item}
             </p>
           ))}
 
           <div className={styles.examples}>
-            {grammar.data.example.map((item, i) => (
+            {grammar.data.example.map((item) => (
               <>
-                <h2 className={twMerge(styles['example-title'], 'dark:text-grey-600')}>{item.title}</h2>
-                <p className={twMerge(styles['example-description'], 'dark:text-grey-600')}>{item.description}</p>
+                <h2 className={twMerge(styles['example-title'], 'dark:text-grey-600')}>
+                  {params.locale === 'en' ? item.title : item.titleUa}
+                </h2>
+                <p className={twMerge(styles['example-description'], 'dark:text-grey-600')}>
+                  {params.locale === 'en' ? item.description : item.descriptionUa}
+                </p>
+
                 <ul className={twMerge(styles['example-list'], 'dark:bg-[#1D2D4D] dark:border-l-purple-100')}>
-                  {item.examples.map((item: any, i: number) => (
+                  {item.examples.map((item: IGrammarExample, i: number) => (
                     <li className='dark:text-grey-600' key={`example-${i}`}>
-                      {item}
+                      {item.exampleEn}
+                      {params.locale === 'ua' && <p className='text-purple-100 text-sm'>({item.exampleUa})</p>}
                     </li>
                   ))}
                 </ul>

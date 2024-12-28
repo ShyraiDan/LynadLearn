@@ -11,6 +11,7 @@ import { getAllGrammar } from '@/lib/grammar'
 import { twMerge } from 'tailwind-merge'
 import { DCategories } from '@/mock/Categories.mock'
 import List from '@/components/List/List'
+import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 
 type TQuizPage = {
   searchParams: {
@@ -37,7 +38,7 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
         <div className={styles.level}>
           <h2 className={twMerge(styles['level-title'], 'dark:text-grey-600')}>A1-A2 grammar</h2>
           <div className={styles.topics}>
-            {grammarElementary.map((item: any) => {
+            {grammarElementary.map((item: IGrammarTopic) => {
               return (
                 <div key={item._id}>
                   <QuizCard topic={item} lang={locale} />

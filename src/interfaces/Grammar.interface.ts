@@ -7,13 +7,21 @@ export interface IGrammarTopic {
   titleUa: string
   data: {
     description: Array<string>
+    descriptionUa: Array<string>
     example: Array<{
       title: string
+      titleUa: string
       description: string
-      examples: Array<string>
+      descriptionUa: string
+      examples: IGrammarExample[]
     }>
   }
   quizId: string
+}
+
+export interface IGrammarExample {
+  exampleEn: string
+  exampleUa: string
 }
 
 const grammarSchema = new Schema({
