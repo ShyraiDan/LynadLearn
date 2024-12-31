@@ -3,7 +3,7 @@
 import 'regenerator-runtime/runtime'
 import { useState, ChangeEvent } from 'react'
 import SpeechRecognitionComponent from '@/components/Translator/SpeechRecognition'
-import TextArea from '@/components/Translator/TextArea'
+import TextArea from '@/components/ui/TextArea/TextArea'
 import FileUpload from '@/components/Translator/FileUpload'
 import LinkPaste from '@/components/Translator/LinkPaste'
 import useTranslate from '@/hooks/useTranslate'
