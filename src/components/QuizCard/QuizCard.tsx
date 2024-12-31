@@ -37,7 +37,9 @@ export default function QuizCard({ topic, lang }: TQuizCard) {
           {isBookmarked ? <BookmarkDelete /> : <BookmarkAdd className='dark:stroke-white-100' />}
         </div>
       </div>
-      <p className='dark:text-grey-600'>{lang === 'en' ? topic.data.description[0] : topic.data.descriptionUa[0]}</p>
+      <p className='dark:text-grey-600'>
+        {lang === 'en' ? topic.data.description[0].en : topic.data.description[0].ua}
+      </p>
     </NavigationLink>
   )
 }

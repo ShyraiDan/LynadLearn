@@ -17,7 +17,7 @@ export default function AdminQuizCard({ topic, lang, type }: TAdminQuizCard) {
           {lang === 'en' ? topic.title : topic.titleUa}
         </h4>
       </div>
-      <p className='m-0 text-sm duration-150 dark:text-grey-600'>{topic.data.description[0]}</p>
+      <p className='m-0 text-sm duration-150 dark:text-grey-600'>{topic.data.description[0].en}</p>
     </Link>
   )
 }

@@ -6,8 +6,7 @@ export interface IGrammarTopic {
   title: string
   titleUa: string
   data: {
-    description: Array<string>
-    descriptionUa: Array<string>
+    description: { id: string; en: string; ua: string }[]
     example: Array<{
       title: string
       titleUa: string

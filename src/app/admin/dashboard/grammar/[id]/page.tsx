@@ -4,10 +4,12 @@ import Loader from '@/components/Loader/Loader'
 import Container from '@/components/ui/Container/Container'
 import Link from 'next/link'
 import { AdminGrammarEditModal } from '@/components/Admin/AdminGrammarEditModal/AdminGrammarEditModal'
+import { IGrammarExample } from '@/interfaces/Grammar.interface'
 
 type TSingleGrammarPage = {
   params: {
-    id: any
+    id: string
+    locale: string
   }
 }
 
@@ -34,7 +36,7 @@ async function Grammar({ params }: TSingleGrammarPage) {
           </div>
           {grammar.data.description.map((item, i) => (
             <p className='mt-5 text-blue-300 dark:text-grey-600' key={i}>
-              {item}
+              {item.en}
             </p>
           ))}
 
@@ -44,9 +46,9 @@ async function Grammar({ params }: TSingleGrammarPage) {
                 <h2 className='my-3 font-bold text-lg text-blue-200 md:text-2xl dark:text-grey-600'>{item.title}</h2>
                 <p className='text-blue-300 dark:text-grey-600'>{item.description}</p>
                 <ul className='flex flex-col w-fit bg-white-200 rounded p-3 mt-2 border-l-4 border-l-blue-200 text-blue-300 dark:bg-[#1D2D4D] dark:border-l-purple-100'>
-                  {item.examples.map((item: any, i: number) => (
+                  {item.examples.map((item: IGrammarExample, i: number) => (
                     <li className='dark:text-grey-600' key={`example-${i}`}>
-                      {item}
+                      {item.exampleEn}
                     </li>
                   ))}
                 </ul>
