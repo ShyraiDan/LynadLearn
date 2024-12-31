@@ -74,7 +74,7 @@ export const AdminGrammarEditModal = ({ data }: IAdminGrammarEditModal) => {
   })
 
   const onSubmit: SubmitHandler<IGrammarTopic> = (values) => {
-    const updatedGrammar = { ...data, ...values }
+    const updatedGrammar = { ...data, ...values, level }
 
     updateSingleGrammar(updatedGrammar).then((res) => {
       if (res.success) {
@@ -94,7 +94,6 @@ export const AdminGrammarEditModal = ({ data }: IAdminGrammarEditModal) => {
     })
   }
 
-  //TODO: Move cancel button to the separate component use it in AddEditDefinitionForm
   //TODO: Fix modal size for small screens
 
   return (
@@ -135,8 +134,9 @@ export const AdminGrammarEditModal = ({ data }: IAdminGrammarEditModal) => {
               {errors?.title && <p className='text-red'>{errors.title.message}</p>}
             </div>
 
-            {/* TODO: Add label for the select */}
-            <p className='font-semibold mb-2'>Grammar topic level</p>
+            <label htmlFor='level' className='font-semibold mb-2'>
+              Grammar topic level
+            </label>
             <select
               id='level'
               value={level}
