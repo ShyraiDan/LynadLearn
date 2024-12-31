@@ -17,12 +17,16 @@ type TSingleGrammarPage = {
 async function Grammar({ params }: TSingleGrammarPage) {
   const grammar = await getSingleGrammar(params.id)
 
-  //TODO: update styles for this page
   if (!grammar) {
     return (
       <div className='flex flex-col items-center justify-center h-[calc(100vh-397px-73px)] w-[calc(100vw-32px)] sm:h-[calc(100vh-193px-81px)] md:h-[calc(100vh-153px-81px)] lg:h-[calc(100vh-97px-81px-32px)] lg:w-[calc(100vw-254px-32px)]'>
-        <h3 className='dark:text-grey-600'>No grammar found. Try to open another list.</h3>
-        <Link href='admin/dashboard/grammar'>Move to Grammar</Link>
+        <h3 className='mb-4 font-bold text-[1.5rem] dark:text-grey-600'>No grammar found. Try to open another list.</h3>
+        <Link
+          className='flex font-medium items-center justify-center bg-blue-200 text-white-100 px-3 py-1.5 rounded transition-all ease-in-out duration-300
+      hover:bg-purple-100'
+          href='admin/dashboard/grammar'>
+          Move to Grammar
+        </Link>
       </div>
     )
   }

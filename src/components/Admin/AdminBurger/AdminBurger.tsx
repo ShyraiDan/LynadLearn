@@ -5,14 +5,17 @@ import { useState } from 'react'
 import { removeScrollBar } from '@/constants/shared'
 import { logout } from '@/lib/auth'
 import Button from '@/components/ui/Button/Button'
+import { usePathname } from 'next/navigation'
 
 import { FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { FaFacebook } from 'react-icons/fa'
 import { RxCross1 } from 'react-icons/rx'
+import { twMerge } from 'tailwind-merge'
 
 export default function AdminBurger() {
   const [isBurgerShow, setBurgerShow] = useState(false)
+  const pathname = usePathname()
 
   const showModal = () => {
     setBurgerShow((state) => !state)
@@ -39,10 +42,12 @@ export default function AdminBurger() {
             <RxCross1 className='cursor-pointer dark:text-grey-600' onClick={() => showModal()} size='24px' />
           </div>
           <ul className='py-4'>
-            {/* TODO: change links color when active */}
             <li className='flex items-center justify-between leading-5 my-1'>
               <Link
-                className='font-medium my-1 capitalize dark:text-grey-600 transition-all ease-in-out duration-150 hover:text-purple-100'
+                className={twMerge(
+                  'font-medium my-1 capitalize dark:text-grey-600 transition-all ease-in-out duration-150 hover:text-purple-100',
+                  pathname === '/admin/dashboard/vocabulary' && 'text-purple-100'
+                )}
                 onClick={() => showModal()}
                 href='/admin/dashboard/vocabulary'>
                 Vocabulary
@@ -50,7 +55,10 @@ export default function AdminBurger() {
             </li>
             <li className='flex items-center justify-between leading-5 my-1'>
               <Link
-                className='font-medium my-1 capitalize dark:text-grey-600 transition-all ease-in-out duration-150 hover:text-purple-100'
+                className={twMerge(
+                  'font-medium my-1 capitalize dark:text-grey-600 transition-all ease-in-out duration-150 hover:text-purple-100',
+                  pathname === '/admin/dashboard/quiz' && 'text-purple-100'
+                )}
                 onClick={() => showModal()}
                 href='/admin/dashboard/quiz'>
                 Quiz
@@ -58,7 +66,10 @@ export default function AdminBurger() {
             </li>
             <li className='flex items-center justify-between leading-5 my-1'>
               <Link
-                className='font-medium my-1 capitalize dark:text-grey-600 transition-all ease-in-out duration-150 hover:text-purple-100'
+                className={twMerge(
+                  'font-medium my-1 capitalize dark:text-grey-600 transition-all ease-in-out duration-150 hover:text-purple-100',
+                  pathname === '/admin/dashboard/grammar' && 'text-purple-100'
+                )}
                 onClick={() => showModal()}
                 href='/admin/dashboard/grammar'>
                 Grammar
