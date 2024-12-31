@@ -380,7 +380,6 @@
     },
     "grammar": {
       "move_to_test": "Move to Grammar test",
-      "TODO:": "mb change it to: 'No grammar found. Try to open another list.'",
       "no_grammar": "No grammar found. Try to open another list.",
       "move_to_grammar": "Move to Grammar"
     },

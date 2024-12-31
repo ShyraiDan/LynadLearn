@@ -10,7 +10,7 @@ import { BookmarkAdd, BookmarkDelete } from '@/components/ui/Icons/Icons'
 
 type TQuizCard = {
   topic: IGrammarTopic
-  lang: 'en' | 'ua'
+  lang: string
 }
 
 export default function QuizCard({ topic, lang }: TQuizCard) {
