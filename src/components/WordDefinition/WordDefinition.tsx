@@ -93,7 +93,7 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
                         size='16px'
                       />
                       <FaTrash
-                        className='cursor-pointer transition-all duration-300 hover:text-purple-100 dark:text-grey-600 dark:hover:text-purple-100'
+                        className='cursor-pointer transition-all duration-300 hover:text-red dark:text-grey-600 '
                         onClick={(e) => showDeleteModal(e)}
                       />
                     </div>

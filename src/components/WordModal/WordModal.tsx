@@ -20,8 +20,6 @@ interface IWordModal {
   word?: IWord
 }
 
-// TODO: add hover on delete/edit buttons and small bottom scrolling for definition modal
-
 export default function WordModal({ handleClose, word }: IWordModal) {
   const t = useTranslations('dashboard.vocabulary.modal')
   const params = useParams()
@@ -151,11 +149,11 @@ export default function WordModal({ handleClose, word }: IWordModal) {
                       </div>
                       <div className={styles.icons}>
                         <MdEdit
-                          className='transition-all duration-[.3s] cursor-pointer dark:text-grey-600 dark:hover:text-purple-100'
+                          className='transition-all duration-[.3s] cursor-pointer hover:text-purple-100 dark:text-grey-600'
                           onClick={() => setEdit(index)}
                         />
                         <FaTrash
-                          className='transition-all duration-[.3s] cursor-pointer dark:text-grey-600 dark:hover:text-red'
+                          className='transition-all duration-[.3s] cursor-pointer hover:text-red dark:text-grey-600 '
                           onClick={() => handleDeleteDefinition(item.id)}
                         />
                       </div>
