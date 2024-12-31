@@ -29,7 +29,7 @@ export function UserModal() {
               )}>
               <NavigationLink
                 hover={false}
-                href={'/dashboard/profile'}
+                href='/dashboard/profile'
                 className='dark:hover:!text-purple-100 [&_svg]:dark:hover:!fill-purple-100'>
                 <FaUser className={twMerge(styles['link-icon'], 'mr-1')} />
                 {t('profile')}

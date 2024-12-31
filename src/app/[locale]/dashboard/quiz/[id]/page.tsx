@@ -61,7 +61,7 @@ export default function SingleQuizPage() {
         <div className={styles.container}>
           <h1 className='dark:text-grey-600'>{grammarQuiz?.title}</h1>
           <div>
-            <NavigationLink href={'/dashboard/quiz'}>{t('to_quiz')}</NavigationLink>
+            <NavigationLink href='/dashboard/quiz'>{t('to_quiz')}</NavigationLink>
             <Button className='dark:border-none' onClick={() => startQuiz()}>
               {t('start_quiz')}
             </Button>
@@ -99,7 +99,7 @@ export default function SingleQuizPage() {
           </h3>
           <div className={styles['nav-btns']}>
             <Button onClick={() => returnToQuiz()}>{t('back')}</Button>
-            <NavigationLink className={styles.link} href={'/dashboard/quiz?type=grammar'}>
+            <NavigationLink className={styles.link} href='/dashboard/quiz?type=grammar'>
               {t('go_to_quiz')}
             </NavigationLink>
           </div>
@@ -122,7 +122,7 @@ export default function SingleQuizPage() {
           </p>
           <div className={twMerge(styles['nav-btns'], 'mt-3')}>
             <Button onClick={() => returnToQuiz()}>{t('back')}</Button>
-            <NavigationLink className={styles.link} href={'/dashboard/quiz?type=grammar'}>
+            <NavigationLink className={styles.link} href='/dashboard/quiz?type=grammar'>
               {t('go_to_quiz')}
             </NavigationLink>
           </div>

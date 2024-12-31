@@ -17,7 +17,7 @@ export async function Header() {
     <header className={twMerge(styles.header, 'dark:bg-blue-600 dark:border-[#1D2D4D]')}>
       <div className={`${styles['header-container']} ${styles.dashboard} dark:border-none`}>
         <div className={styles['header-left']}>
-          <NavigationLink href={'/'}>
+          <NavigationLink href='/'>
             Lynad<span>Learn</span>
           </NavigationLink>
           <nav>
@@ -33,17 +33,17 @@ export async function Header() {
                 </NavigationLink>
               </li>
               <li className={styles['nav-item']}>
-                <NavigationLink className={styles.link} hover isHeader href={'/contact-us'}>
+                <NavigationLink className={styles.link} hover isHeader href='/contact-us'>
                   {t('contact_us')}
                 </NavigationLink>
               </li>
               <li className={styles['nav-item']}>
-                <NavigationLink className={styles.link} hover isHeader href={'/mobile-app'}>
+                <NavigationLink className={styles.link} hover isHeader href='/mobile-app'>
                   {t('mobile_app')}
                 </NavigationLink>
               </li>
               <li className={styles['nav-item']}>
-                <NavigationLink className={styles.link} hover isHeader href={'/dashboard/lists'}>
+                <NavigationLink className={styles.link} hover isHeader href='/dashboard/lists'>
                   {t('dashboard')}
                 </NavigationLink>
               </li>

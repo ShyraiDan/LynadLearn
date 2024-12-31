@@ -36,7 +36,7 @@ export default function AdminBurger() {
             <h2 className='font-bold text-2xl text-blue-300'>
               Lynad<span className='text-purple-100'>Learn</span>
             </h2>
-            <RxCross1 className='cursor-pointer dark:text-grey-600' onClick={() => showModal()} size={'24px'} />
+            <RxCross1 className='cursor-pointer dark:text-grey-600' onClick={() => showModal()} size='24px' />
           </div>
           <ul className='py-4'>
             {/* TODO: change links color when active */}
@@ -77,17 +77,17 @@ export default function AdminBurger() {
               <li>
                 <Link
                   className='transition-all ease-in-out duration-150 hover:text-purple-100'
-                  href={'https://www.instagram.com/'}>
+                  href='https://www.instagram.com/'>
                   <FaInstagram className='dark:text-grey-600' />
                 </Link>
               </li>
               <li>
-                <Link href={'https://twitter.com/'}>
+                <Link href='https://twitter.com/'>
                   <FaXTwitter className='dark:text-grey-600 ' />
                 </Link>
               </li>
               <li>
-                <Link href={'https://www.facebook.com/'}>
+                <Link href='https://www.facebook.com/'>
                   <FaFacebook className='dark:text-grey-600' />
                 </Link>
               </li>

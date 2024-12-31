@@ -152,7 +152,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
         {!loading && !list && words.length === 0 && (
           <div className={styles['no-lists']}>
             <p className='dark:!text-grey-600'>{t('no_lists')}</p>
-            <NavigationLink href={'/dashboard/flashcard'} className={styles.links}>
+            <NavigationLink href='/dashboard/flashcard' className={styles.links}>
               <TbCardsFilled />
               {t('move_flashcards')}
             </NavigationLink>
@@ -163,7 +163,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
           <div className={styles['no-lists']}>
             <p className='dark:!text-grey-600'>{t('no_words')}</p>
             <div className='flex gap-4'>
-              <NavigationLink href={'/dashboard/flashcard'} className={styles.links}>
+              <NavigationLink href='/dashboard/flashcard' className={styles.links}>
                 <TbCardsFilled />
                 {t('move_flashcards')}
               </NavigationLink>
@@ -213,7 +213,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
               </div>
             </div>
             <div className={styles.bottom}>
-              <NavigationLink className={styles.link} href={'/dashboard/flashcard'}>
+              <NavigationLink className={styles.link} href='/dashboard/flashcard'>
                 {t('to_flashcards')}
               </NavigationLink>
             </div>

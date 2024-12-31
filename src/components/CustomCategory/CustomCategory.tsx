@@ -14,7 +14,7 @@ export default function CustomCategory({ lists }: Pick<ICategory, 'lists'>) {
   return (
     <div className={twMerge(styles.container, 'dark:bg-none dark:bg-blue-600')}>
       <div>
-        <CategoryDescription title={t('your_lists')} description={''} />
+        <CategoryDescription title={t('your_lists')} description='' />
         <div className={twMerge(styles['list-group'], 'dark:!bg-[#1D2D4D]')}>
           <AddList />
           {lists.map((item: IList) => (

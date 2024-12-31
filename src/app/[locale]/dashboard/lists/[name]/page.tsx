@@ -42,7 +42,7 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
 
   return (
     <div className={styles.container}>
-      <PageHeading name={name} id={'id'} title={'title'} description={'description'} />
+      <PageHeading name={name} id='id' title='title' description='description' />
       <div className={styles.lessons}>
         <div>
           {lessons.map((item, i) => (

@@ -47,11 +47,11 @@ export default function UserReview() {
                   <p className='dark:text-grey-600'>{review.text}</p>
                   <div className={styles.mark}>
                     <div className={styles.stars}>
-                      <IoStarSharp size={'20px'} />
-                      <IoStarSharp size={'20px'} />
-                      <IoStarSharp size={'20px'} />
-                      <IoStarSharp size={'20px'} />
-                      <IoStarSharp size={'20px'} />
+                      <IoStarSharp size='20px' />
+                      <IoStarSharp size='20px' />
+                      <IoStarSharp size='20px' />
+                      <IoStarSharp size='20px' />
+                      <IoStarSharp size='20px' />
                     </div>
                     <div className={styles.platform}>
                       <FaGooglePlay className='dark:text-grey-600' />

@@ -75,7 +75,7 @@ export default function VocabularyQuizPage({ params }: any) {
           <div className={styles.container}>
             <h1 className='dark:text-grey-600'>{t('vocabulary_quiz')}</h1>
             <div>
-              <NavigationLink href={'/dashboard/quiz'}>{t('to_quiz')}</NavigationLink>
+              <NavigationLink href='/dashboard/quiz'>{t('to_quiz')}</NavigationLink>
               <Button className='dark:border-none' onClick={() => startQuiz()}>
                 {t('start_quiz')}
               </Button>
@@ -137,7 +137,7 @@ export default function VocabularyQuizPage({ params }: any) {
           </h3>
           <div className={styles['nav-btns']}>
             <Button onClick={() => returnToQuiz()}>{t('back')}</Button>
-            <NavigationLink className={styles.link} href={'/dashboard/quiz?type=vocabulary'}>
+            <NavigationLink className={styles.link} href='/dashboard/quiz?type=vocabulary'>
               {t('go_to_quiz')}
             </NavigationLink>
           </div>
@@ -160,7 +160,7 @@ export default function VocabularyQuizPage({ params }: any) {
           </p>
           <div className={twMerge(styles['nav-btns'], 'mt-3')}>
             <Button onClick={() => returnToQuiz()}>{t('back')}</Button>
-            <NavigationLink className={styles.link} href={'/dashboard/quiz?type=vocabulary'}>
+            <NavigationLink className={styles.link} href='/dashboard/quiz?type=vocabulary'>
               {t('go_to_quiz')}
             </NavigationLink>
           </div>

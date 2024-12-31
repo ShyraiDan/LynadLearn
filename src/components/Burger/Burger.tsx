@@ -43,41 +43,41 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
                 Lynad<span>Learn</span>
               </NavigationLink>
             </h2>
-            <RxCross1 className='dark:text-grey-600' onClick={() => showModal()} size={'24px'} />
+            <RxCross1 className='dark:text-grey-600' onClick={() => showModal()} size='24px' />
           </div>
           <ul>
             <li>
-              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href={'/about-us'}>
+              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href='/about-us'>
                 {t('about_us')}
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href={'/pricing'}>
+              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href='/pricing'>
                 {t('pricing')}
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href={'/contact-us'}>
+              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href='/contact-us'>
                 {t('contact_us')}
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href={'/mobile-app'}>
+              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href='/mobile-app'>
                 {t('mobile_app')}
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href={'/dictionary'}>
+              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href='/dictionary'>
                 {t('dictionary')}
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href={'/translator'}>
+              <NavigationLink className='dark:text-grey-600' hover onClick={() => showModal()} href='/translator'>
                 {t('translator')}
               </NavigationLink>
             </li>
             {/* <li>
-              <NavigationLink hover onClick={() => showModal()} href={'/settings'}>
+              <NavigationLink hover onClick={() => showModal()} href='/settings'>
                 {t('settings')}
               </NavigationLink>
             </li> */}
@@ -87,7 +87,7 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
                   className='dark:text-grey-600'
                   hover
                   onClick={() => showModal()}
-                  href={'/dashboard/profile'}>
+                  href='/dashboard/profile'>
                   {t('profile')}
                 </NavigationLink>
               </li>
@@ -98,7 +98,7 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
                   className='dark:text-grey-600'
                   hover
                   onClick={() => showModal()}
-                  href={'/dashboard/bookmarks'}>
+                  href='/dashboard/bookmarks'>
                   {t('bookmarks')}
                 </NavigationLink>
               </li>
@@ -109,7 +109,7 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
                   className='dark:text-grey-600'
                   hover
                   onClick={() => showModal()}
-                  href={'/dashboard/lists'}>
+                  href='/dashboard/lists'>
                   {t('dashboard')}
                 </NavigationLink>
                 <IoIosArrowDown
@@ -124,7 +124,7 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
                     className='dark:text-grey-600'
                     hover
                     onClick={() => showModal()}
-                    href={'/dashboard/quiz?type=grammar'}>
+                    href='/dashboard/quiz?type=grammar'>
                     {t('quiz')}
                   </NavigationLink>
                 </li>
@@ -133,7 +133,7 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
                     className='dark:text-grey-600'
                     hover
                     onClick={() => showModal()}
-                    href={'/dashboard/grammar'}>
+                    href='/dashboard/grammar'>
                     {t('grammar')}
                   </NavigationLink>
                 </li>
@@ -142,7 +142,7 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
                     className='dark:text-grey-600'
                     hover
                     onClick={() => showModal()}
-                    href={'/dashboard/flashcard'}>
+                    href='/dashboard/flashcard'>
                     {t('flashcard')}
                   </NavigationLink>
                 </li>
@@ -164,17 +164,17 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
             <p className='dark:text-grey-600'>{t('follow_us')}</p>
             <ul>
               <li>
-                <Link href={'https://www.instagram.com/'}>
+                <Link href='https://www.instagram.com/'>
                   <FaInstagram className='dark:text-grey-600' />
                 </Link>
               </li>
               <li>
-                <Link href={'https://twitter.com/'}>
+                <Link href='https://twitter.com/'>
                   <FaXTwitter className='dark:text-grey-600 ' />
                 </Link>
               </li>
               <li>
-                <Link href={'https://www.facebook.com/'}>
+                <Link href='https://www.facebook.com/'>
                   <FaFacebook className='dark:text-grey-600' />
                 </Link>
               </li>

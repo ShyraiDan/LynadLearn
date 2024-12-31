@@ -40,7 +40,7 @@ export const Themes = () => {
       <Button
         className='dark:hover:bg-[#1D2D4D]'
         onClick={() => handleChangeTheme(theme === 'light' ? 'dark' : 'light')}>
-        {theme === 'dark' ? <FaRegSun className={'dark:fill-[#fff]'} /> : <FaRegMoon className={'dark:fill-[#fff]'} />}
+        {theme === 'dark' ? <FaRegSun className='dark:fill-[#fff]' /> : <FaRegMoon className='dark:fill-[#fff]' />}
       </Button>
     </div>
   )

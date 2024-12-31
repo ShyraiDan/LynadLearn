@@ -11,7 +11,7 @@ export default function NotFoundPage() {
       <body>
         <div className={styles['outside-container']}>
           <div>
-            <Image src={notFound} alt={'Page not found'} />
+            <Image src={notFound} alt='Page not found' />
           </div>
           <div className={styles.message}>
             <h1 className='dark:text-grey-600'>Page not found</h1>

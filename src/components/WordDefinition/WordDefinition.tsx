@@ -90,7 +90,7 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
                       <MdEdit
                         className='cursor-pointer transition-all duration-300 hover:text-purple-100 dark:text-grey-600 dark:hover:text-purple-100'
                         onClick={(e) => showEditModal(e)}
-                        size={'16px'}
+                        size='16px'
                       />
                       <FaTrash
                         className='cursor-pointer transition-all duration-300 hover:text-purple-100 dark:text-grey-600 dark:hover:text-purple-100'
@@ -128,7 +128,7 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
       )}
 
       {isEdit && word && (
-        <Modal className={'dark:bg-[#0B152E]'} isOpen={isEdit} handleClose={(e) => showEditModal(e)}>
+        <Modal className='dark:bg-[#0B152E]' isOpen={isEdit} handleClose={(e) => showEditModal(e)}>
           <WordModal handleClose={(e) => showEditModal(e)} word={word} />
         </Modal>
       )}

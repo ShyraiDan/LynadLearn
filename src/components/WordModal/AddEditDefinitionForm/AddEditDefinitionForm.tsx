@@ -92,7 +92,7 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
               id='partOfSpeech'
               value={partOfSpeech || undefined}
               onChange={(e) => setPartOfSpeech(e.target.value)}
-              className={'dark:bg-[#17294c] dark:ml-[1px] dark:!border-[#ffffff20] dark:!text-grey-600'}>
+              className='dark:bg-[#17294c] dark:ml-[1px] dark:!border-[#ffffff20] dark:!text-grey-600'>
               <option value='noun'>{t('noun')}</option>
               <option value='verb'>{t('verb')}</option>
               <option value='adjective'>{t('adjective')}</option>
