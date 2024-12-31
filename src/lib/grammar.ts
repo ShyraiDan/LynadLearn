@@ -13,6 +13,18 @@ export const getAllGrammar = async (level: string): Promise<IGrammarTopic[]> => 
   return data
 }
 
+export const getSingleGrammar = async (id: string): Promise<IGrammarTopic | null> => {
+  await connectMongoDB()
+
+  if (mongoose.Types.ObjectId.isValid(id) === false) {
+    return null
+  }
+
+  const grammar = await Grammar.findById(id)
+  const data = JSON.parse(JSON.stringify(grammar))
+  return data
+}
+
 export const updateSingleGrammar = async (grammar: IGrammarTopic): Promise<{ success: boolean }> => {
   try {
     await connectMongoDB()
@@ -32,14 +44,15 @@ export const updateSingleGrammar = async (grammar: IGrammarTopic): Promise<{ suc
   }
 }
 
-export const getSingleGrammar = async (id: string): Promise<IGrammarTopic | null> => {
-  await connectMongoDB()
+export const deleteSingleGrammar = async (id: string): Promise<{ success: boolean }> => {
+  try {
+    await connectMongoDB()
+    await Grammar.deleteOne({ _id: id })
 
-  if (mongoose.Types.ObjectId.isValid(id) === false) {
-    return null
+    revalidatePath('/admin/dashboard/grammar/[id]', 'page')
+    return { success: true }
+  } catch (error) {
+    console.error('Error creating word:', error)
+    return { success: false }
   }
-
-  const grammar = await Grammar.findById(id)
-  const data = JSON.parse(JSON.stringify(grammar))
-  return data
 }

@@ -95,6 +95,8 @@ export const AdminGrammarEditModal = ({ data }: IAdminGrammarEditModal) => {
   }
 
   //TODO: Move cancel button to the separate component use it in AddEditDefinitionForm
+  //TODO: Fix modal size for small screens
+
   return (
     <>
       <MdEdit
@@ -534,8 +536,7 @@ export const AdminGrammarEditModal = ({ data }: IAdminGrammarEditModal) => {
                   setEditDescription(null)
                   setEditRule(null)
                   setEditExample(null)
-                  reset()
-                  setOpen(false)
+                  showModal()
                 }}>
                 Cancel
               </Button>

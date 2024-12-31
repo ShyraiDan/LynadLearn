@@ -133,6 +133,7 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
         </Modal>
       )}
 
+      {/* TODO: Cancel button should have outline styles also change buttons so delete must be on the left side */}
       {isDelete && word && (
         <Modal
           className={twMerge(styles['delete-modal'], 'dark:bg-[#0B152E]')}

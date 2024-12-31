@@ -5,6 +5,7 @@ import Container from '@/components/ui/Container/Container'
 import Link from 'next/link'
 import { AdminGrammarEditModal } from '@/components/Admin/AdminGrammarEditModal/AdminGrammarEditModal'
 import { IGrammarExample } from '@/interfaces/Grammar.interface'
+import { AdminGrammarDeleteModal } from '@/components/Admin/AdminGrammarDeleteModal/AdminGrammarDeleteModal'
 
 type TSingleGrammarPage = {
   params: {
@@ -16,6 +17,7 @@ type TSingleGrammarPage = {
 async function Grammar({ params }: TSingleGrammarPage) {
   const grammar = await getSingleGrammar(params.id)
 
+  //TODO: update styles for this page
   if (!grammar) {
     return (
       <div className='flex flex-col items-center justify-center h-[calc(100vh-397px-73px)] w-[calc(100vw-32px)] sm:h-[calc(100vh-193px-81px)] md:h-[calc(100vh-153px-81px)] lg:h-[calc(100vh-97px-81px-32px)] lg:w-[calc(100vw-254px-32px)]'>
@@ -32,7 +34,7 @@ async function Grammar({ params }: TSingleGrammarPage) {
           <h1 className='text-blue-200 text-center font-bold text-lg dark:text-grey-600'>{grammar.title}</h1>
           <div className='flex items-center justify-center gap-2 absolute top-0 right-0 bg-white-200 rounded-lg px-2 py-2'>
             <AdminGrammarEditModal data={grammar} />
-            {/* <FaTrash size={14} className='cursor-pointer duration-150 transition-all ease-in hover:fill-purple-100' /> */}
+            <AdminGrammarDeleteModal id={grammar._id} />
           </div>
           {grammar.data.description.map((item, i) => (
             <p className='mt-5 text-blue-300 dark:text-grey-600' key={i}>
