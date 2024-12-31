@@ -135,6 +135,7 @@ export const AdminGrammarEditModal = ({ data }: IAdminGrammarEditModal) => {
               {errors?.title && <p className='text-red'>{errors.title.message}</p>}
             </div>
 
+            {/* TODO: Add label for the select */}
             <p className='font-semibold mb-2'>Grammar topic level</p>
             <select
               id='level'

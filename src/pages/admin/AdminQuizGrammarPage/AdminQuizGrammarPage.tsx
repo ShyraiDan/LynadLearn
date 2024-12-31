@@ -4,6 +4,7 @@ import { getAllGrammar } from '@/lib/grammar'
 import Container from '@/components/ui/Container/Container'
 import AdminQuizCard from '@/components/Admin/AdminQuizCard/AdminQuizCard'
 import styles from './AdminQuizGrammarPage.module.scss'
+import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 
 interface IAdminGrammarQuizPage {
   title: string
@@ -18,7 +19,7 @@ async function Page({ title, type }: IAdminGrammarQuizPage) {
       <div className='mb-6 last:mb-0'>
         <h2 className='text-center text-xl font-bold text-blue-200 my-4 sm:text-2xl dark:text-grey-600'>{title}</h2>
         <div className='grid auto-rows-[10px] gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3'>
-          {grammarElementary.map((item: any, i) => {
+          {grammarElementary.map((item: IGrammarTopic, i) => {
             return (
               <div
                 key={item._id}
