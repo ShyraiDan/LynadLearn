@@ -36,7 +36,7 @@ async function Grammar({ params }: TSingleGrammarPage) {
       {grammar && (
         <Container className='relative'>
           <h1 className='text-blue-200 text-center font-bold text-lg dark:text-grey-600'>{grammar.title}</h1>
-          <div className='flex items-center justify-center gap-2 absolute top-0 right-0 bg-white-200 rounded-lg px-2 py-2'>
+          <div className='flex items-center justify-center gap-2 absolute top-0 right-0 bg-white-200 rounded-lg px-2 py-2 dark:bg-[#1D2D4D]'>
             <AdminGrammarEditModal data={grammar} />
             <AdminGrammarDeleteModal id={grammar._id} />
           </div>

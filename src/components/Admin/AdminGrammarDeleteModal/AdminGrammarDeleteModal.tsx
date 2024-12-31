@@ -43,12 +43,12 @@ export const AdminGrammarDeleteModal = ({ id }: { id: string }) => {
       <FaTrash
         size={14}
         onClick={() => showModal()}
-        className='cursor-pointer duration-150 transition-all ease-in hover:fill-red'
+        className='cursor-pointer duration-150 transition-all ease-in dark:fill-white-100 hover:fill-red dark:hover:fill-red'
       />
 
       <Modal
         isOpen={isOpen}
-        className='sm:h-[200px] sm:w-[475px] sm:self-center sm:justify-self-center'
+        className='sm:h-[200px] sm:w-[475px] sm:self-center sm:justify-self-center dark:bg-[#0B152E]'
         handleClose={() => showModal()}>
         <div className='flex flex-col justify-center items-center'>
           <h6 className='text-xl text-center font-bold mb-5 dark:text-grey-600'>
