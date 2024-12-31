@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './ContactUsPage.module.scss'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 import { useTranslations } from 'next-intl'
 import { Input } from '@/components/ui/Input/Input'
 import { useForm, SubmitHandler } from 'react-hook-form'

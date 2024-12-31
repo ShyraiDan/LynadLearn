@@ -4,7 +4,7 @@ import Image from 'next/image'
 import styles from './Dictionary.module.scss'
 import { useTranslations } from 'next-intl'
 import { Input } from '@/components/ui/Input/Input'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 import { useState } from 'react'
 import DictionaryCard from '@/components/DictionaryCard/DictionaryCard'
 

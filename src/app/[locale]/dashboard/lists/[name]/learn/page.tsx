@@ -3,7 +3,7 @@
 import styles from './LearnCategoryPage.module.scss'
 import { WordCard } from '@/components/WordCard/WordCard'
 import { DWords } from '@/mock/Words.mock'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 import { useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 

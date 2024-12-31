@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './Themes.module.scss'
-import { Button } from '../ui/Button/Button'
+import Button from '../ui/Button/Button'
 import { useState, useEffect } from 'react'
 // import { changeTheme } from '@/lib/auth'
 

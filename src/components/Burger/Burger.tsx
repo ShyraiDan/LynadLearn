@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl'
 import { AuthModal } from '@/components/AuthModal/AuthModal'
 import { removeScrollBar } from '@/constants/shared'
 import { logout } from '@/lib/auth'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 import { twMerge } from 'tailwind-merge'
 
 import { FaInstagram } from 'react-icons/fa'

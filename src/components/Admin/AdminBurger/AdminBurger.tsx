@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { removeScrollBar } from '@/constants/shared'
 import { logout } from '@/lib/auth'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 
 import { FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'

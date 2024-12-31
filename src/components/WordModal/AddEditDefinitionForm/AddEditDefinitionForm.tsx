@@ -1,5 +1,5 @@
 import { Input } from '@/components/ui/Input/Input'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 import styles from './AddEditDefinitionForm.module.scss'
 import { IDefinitionWithId } from '@/interfaces/Word.interface'
 import { useTranslations } from 'next-intl'

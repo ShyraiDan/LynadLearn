@@ -6,7 +6,7 @@ import styles from './MainPage.module.scss'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Image from 'next/image'
 import UserReview from '@/components/UserRevies/UserReview'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 
 import { TiTickOutline } from 'react-icons/ti'
 import premiumImage from '@/assets/figure-01.png'

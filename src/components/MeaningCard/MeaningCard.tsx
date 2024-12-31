@@ -1,6 +1,6 @@
 import styles from './MeaningCard.module.scss'
 import { IWord } from '@/interfaces/Word.interface'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 import { WordExamples } from '@/components/WordExamples/WordExamples'
 import { groupByPartOfSpeech } from '@/utils/middlewares'
 import { useTranslations } from 'next-intl'

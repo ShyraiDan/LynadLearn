@@ -6,7 +6,7 @@ import { useState, MouseEvent } from 'react'
 import { Modal } from '@/components/ui/Modal/Modal'
 import { removeScrollBar } from '@/constants/shared'
 import Image from 'next/image'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 import { MeaningCard } from '@/components/MeaningCard/MeaningCard'
 import { twMerge } from 'tailwind-merge'
 import WordModal from '@/components/WordModal/WordModal'
@@ -42,7 +42,7 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
     removeScrollBar(isEdit)
   }
 
-  const showDeleteModal = (e: MouseEvent<SVGElement>) => {
+  const showDeleteModal = (e: MouseEvent) => {
     setOpen(false)
     setDelete((state) => !state)
     removeScrollBar(isDelete)

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 import styles from './ListsModal.module.scss'
 import { getYourLists } from '@/lib/lists'
 import { Modal } from '@/components/ui/Modal/Modal'

@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/Input/Input'
 
 import { FaEye } from 'react-icons/fa'
 import { FaEyeSlash } from 'react-icons/fa'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 
 export interface ISignIn {
   email: string

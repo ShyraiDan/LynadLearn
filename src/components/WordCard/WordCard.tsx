@@ -1,6 +1,6 @@
 import styles from './WordCard.module.scss'
 import Image from 'next/image'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 import { WordExamples } from '@/components/WordExamples/WordExamples'
 import { IWord } from '@/interfaces/Word.interface'
 import { Badge } from '@/components/Badge/Badge'

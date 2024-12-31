@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './SingleQuiz.module.scss'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 import GrammarQuiz from '@/components/GrammarQuiz/GrammarQuiz'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { useState, useEffect } from 'react'

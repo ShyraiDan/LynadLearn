@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './GrammarQuiz.module.scss'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { toast } from 'sonner'
 import SnackBar from '@/components/ui/SnackBar/SnackBar'

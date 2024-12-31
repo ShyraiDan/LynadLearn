@@ -4,7 +4,7 @@ import styles from './SingleList.module.scss'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Image from 'next/image'
 import { useState, MouseEvent } from 'react'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 import PageHeading from '@/components/PageHeading/PageHeading'
 import { useTranslations } from 'next-intl'
 import { twMerge } from 'tailwind-merge'
@@ -15,7 +15,6 @@ import subcategorySelected from '@/assets/subcategory-selected.svg'
 import { BsGridFill } from 'react-icons/bs'
 import note from '@/assets/icons/note-2-disable.svg'
 import { FaArrowRight } from 'react-icons/fa'
-import { useSearchParams } from 'next/navigation'
 
 const lessons = [1, 2, 3, 4, 5, 6]
 

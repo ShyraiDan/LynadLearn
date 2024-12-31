@@ -2,7 +2,7 @@
 
 import styles from './SignUpForm.module.scss'
 import { Input } from '@/components/ui/Input/Input'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 import { useTranslations } from 'next-intl'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { ISignUp } from '../Auth.interface'

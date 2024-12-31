@@ -5,7 +5,6 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { ICollections } from '@/interfaces/Collections.interface'
-import { Button } from '@/components/ui/Button/Button'
 import { useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 

@@ -1,7 +1,7 @@
 import { DWords } from '@/mock/Words.mock'
 import styles from './DictionaryWord.module.scss'
 import { WordExamples } from '@/components/WordExamples/WordExamples'
-import { Button } from '@/components/ui/Button/Button'
+import Button from '@/components/ui/Button/Button'
 import Image from 'next/image'
 import { MeaningCard } from '@/components/MeaningCard/MeaningCard'
 import { useTranslations } from 'next-intl'
