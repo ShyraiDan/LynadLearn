@@ -4,54 +4,38 @@ import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
 import { getTranslations } from 'next-intl/server'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
+import { DBookmarks } from '@/mock/Bookmarks.mock'
 
-import list from '@/assets/english-nouns.png'
-
-const bookmarks = [
-  {
-    id: 'collection-1',
-    image: list,
-    title: 'Basic Nouns',
-    titleUa: 'Основні Іменники',
-    description:
-      'Here you will find various lists of basic English nouns. They are sorted by different subjects or topics to help you find what you need.',
-    descriptionUa:
-      'Тут ви знайдете різні списки основних англійських іменників. Вони впорядковані за різними темами, щоб допомогти вам знайти те, що вам потрібно.',
-    lessons: 20,
-    words: 500
-  },
-  {
-    id: 'collection-2',
-    image: list,
-    title: 'Basic Nouns',
-    titleUa: 'Основні Іменники',
-    description:
-      'Here you will find various lists of basic English nouns. They are sorted by different subjects or topics to help you find what you need.',
-    descriptionUa:
-      'Тут ви знайдете різні списки основних англійських іменників. Вони впорядковані за різними темами, щоб допомогти вам знайти те, що вам потрібно.',
-    lessons: 20,
-    words: 500
+interface IBookmarksProps {
+  params: {
+    locale: string
   }
-]
+}
 
-async function Bookmarks({ params }: any) {
+interface IBookmarksPageProps {
+  params: {
+    locale: string
+  }
+}
+
+async function Bookmarks({ params }: IBookmarksProps) {
   const t = await getTranslations('dashboard.bookmarks')
   const { locale } = params
 
   return (
     <>
-      {bookmarks.length > 0 && (
+      {DBookmarks.length > 0 && (
         <>
           <h2 className='dark:text-grey-600'>{t('bookmarks')}</h2>
           <div className={styles.bookmarks}>
-            {bookmarks.map((item) => (
+            {DBookmarks.map((item) => (
               <BookmarkCard key={item.id} item={item} locale={locale} />
             ))}
           </div>
         </>
       )}
 
-      {!bookmarks.length && (
+      {!DBookmarks.length && (
         <div className={styles['no-bookmarks']}>
           <h3 className='dark:text-grey-600'>{t('no_bookmarks')}</h3>
           <p className='dark:text-grey-600'>{t('no_bookmarks_description')}</p>
@@ -65,7 +49,7 @@ async function Bookmarks({ params }: any) {
   )
 }
 
-export default function BookmarksPage({ params }: any) {
+export default function BookmarksPage({ params }: IBookmarksPageProps) {
   return (
     <div className={styles.container}>
       <Suspense fallback={<Loader dimensionClass={styles.loader} />}>

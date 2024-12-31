@@ -4,45 +4,21 @@ import { ICollections } from '@/interfaces/Collections.interface'
 import { CollectionCard } from '@/components/CollectionCard/CollectionCard'
 import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
+import { DCollectionGroup } from '@/mock/Collections.mock'
 
-import list from '@/assets/english-nouns.png'
-
-const collectionGroup = {
-  id: 'collection-group-1',
-  title: 'title',
-  titleUa: 'titleUa',
-  description: 'description',
-  descriptionUa: 'descriptionUa',
-  image: list,
-  collections: [
-    {
-      id: 'collection-1',
-      image: list,
-      title: 'Basic Nouns',
-      titleUa: 'Основні Іменники',
-      description:
-        'Here you will find various lists of basic English nouns. They are sorted by different subjects or topics to help you find what you need.',
-      descriptionUa:
-        'Тут ви знайдете різні списки основних англійських іменників. Вони впорядковані за різними темами, щоб допомогти вам знайти те, що вам потрібно.',
-      lessons: 20,
-      words: 500
-    },
-    {
-      id: 'collection-2',
-      image: list,
-      title: 'Basic Nouns',
-      titleUa: 'Основні Іменники',
-      description:
-        'Here you will find various lists of basic English nouns. They are sorted by different subjects or topics to help you find what you need.',
-      descriptionUa:
-        'Тут ви знайдете різні списки основних англійських іменників. Вони впорядковані за різними темами, щоб допомогти вам знайти те, що вам потрібно.',
-      lessons: 20,
-      words: 500
-    }
-  ]
+interface ICollectionsProps {
+  params: {
+    locale: string
+  }
 }
 
-async function Collections({ params }: any) {
+interface ICollectionsPageProps {
+  params: {
+    locale: string
+  }
+}
+
+async function Collections({ params }: ICollectionsProps) {
   const { locale } = params
 
   return (
@@ -50,12 +26,12 @@ async function Collections({ params }: any) {
       <PageHeading
         name='Collections1'
         id='collections'
-        title={locale === 'en' ? collectionGroup.title : collectionGroup.titleUa}
-        description={locale === 'en' ? collectionGroup.description : collectionGroup.descriptionUa}
+        title={locale === 'en' ? DCollectionGroup.title : DCollectionGroup.titleUa}
+        description={locale === 'en' ? DCollectionGroup.description : DCollectionGroup.descriptionUa}
         showStatistics={false}
       />
       <div className={styles.lists}>
-        {collectionGroup.collections.map((item: ICollections) => {
+        {DCollectionGroup.collections.map((item: ICollections) => {
           return <CollectionCard key={item.id} item={item} locale={locale} />
         })}
       </div>
@@ -63,7 +39,7 @@ async function Collections({ params }: any) {
   )
 }
 
-export default function CollectionsPage({ params }: any) {
+export default function CollectionsPage({ params }: ICollectionsPageProps) {
   return (
     <div className={styles.container}>
       <Suspense fallback={<Loader dimensionClass={styles.loader} />}>

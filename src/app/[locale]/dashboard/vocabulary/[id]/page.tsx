@@ -4,10 +4,10 @@ import styles from './VocabularyPage.module.scss'
 
 type TSingleListPage = {
   params: {
-    id: any
+    id: string
   }
   searchParams: {
-    sort: any
+    sort: string
   }
 }
 

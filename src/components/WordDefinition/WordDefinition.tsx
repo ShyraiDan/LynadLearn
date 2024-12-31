@@ -79,7 +79,7 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
       })}
 
       {open && word && (
-        <Modal className='dark:bg-[#0B152E]' isOpen={open} handleClose={(e) => showModal(e, null)}>
+        <Modal className='dark:bg-[#0B152E]' isOpen={open} handleClose={(e) => e && showModal(e, null)}>
           <div className={styles.modal}>
             <div className={styles['col-1']}>
               <div>

@@ -16,7 +16,13 @@ import { IVocabularyQuiz } from '@/interfaces/Quiz.interface'
 import { Modal } from '@/components/ui/Modal/Modal'
 import { ScoresEnum } from '@/lib/scores'
 
-export default function VocabularyQuizPage({ params }: any) {
+interface IVocabularyQuizPageProps {
+  params: {
+    id: string
+  }
+}
+
+export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps) {
   const [isQuiz, setIsQuiz] = useState(false)
   const [timer, setTimer] = useState(0)
   const [isTimeExpired, setIsTimeExpired] = useState(false)
