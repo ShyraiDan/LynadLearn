@@ -25,6 +25,24 @@ export const getSingleGrammar = async (id: string): Promise<IGrammarTopic | null
   return data
 }
 
+export const addSingleGrammar = async (grammar: IGrammarTopic): Promise<{ success: boolean }> => {
+  try {
+    await connectMongoDB()
+
+    const doc = new Grammar({
+      ...grammar
+    })
+    //TODO: Maybe we need to return success as part of promise in then closure
+    await doc.save()
+
+    revalidatePath('/admin/dashboard/grammar', 'page')
+    return { success: true }
+  } catch (error) {
+    console.error('Error creating grammar:', error)
+    return { success: false }
+  }
+}
+
 export const updateSingleGrammar = async (grammar: IGrammarTopic): Promise<{ success: boolean }> => {
   try {
     await connectMongoDB()

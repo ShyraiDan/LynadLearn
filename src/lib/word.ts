@@ -15,7 +15,7 @@ export const createWord = async (userWord: IWord): Promise<{ success: boolean }>
       pronunciation: userWord.pronunciation,
       listId: userWord.listId
     })
-    // Maybe we need to return success as part of promise in then closure
+    //TODO: Maybe we need to return success as part of promise in then closure
     await doc.save()
 
     revalidatePath('[locale]/dashboard/vocabulary/[id]', 'page')

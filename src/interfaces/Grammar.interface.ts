@@ -45,8 +45,7 @@ const grammarSchema = new Schema({
     }>
   },
   quizId: {
-    type: String,
-    required: true
+    type: String
   }
 })
 

@@ -3,9 +3,10 @@ import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
 import Container from '@/components/ui/Container/Container'
 import Link from 'next/link'
-import { AdminGrammarEditModal } from '@/components/Admin/AdminGrammarEditModal/AdminGrammarEditModal'
 import { IGrammarExample } from '@/interfaces/Grammar.interface'
 import { AdminGrammarDeleteModal } from '@/components/Admin/AdminGrammarDeleteModal/AdminGrammarDeleteModal'
+
+import { MdEdit } from 'react-icons/md'
 
 type TSingleGrammarPage = {
   params: {
@@ -37,7 +38,12 @@ async function Grammar({ params }: TSingleGrammarPage) {
         <Container className='relative'>
           <h1 className='text-blue-200 text-center font-bold text-lg dark:text-grey-600'>{grammar.title}</h1>
           <div className='flex items-center justify-center gap-2 absolute top-0 right-0 bg-white-200 rounded-lg px-2 py-2 dark:bg-[#1D2D4D]'>
-            <AdminGrammarEditModal data={grammar} />
+            <Link href={`/admin/dashboard/grammar/${grammar._id}/edit`}>
+              <MdEdit
+                size={16}
+                className='cursor-pointer duration-150 transition-all ease-in dark:fill-white-100 hover:fill-purple-100 dark:hover:fill-purple-100'
+              />
+            </Link>
             <AdminGrammarDeleteModal id={grammar._id} />
           </div>
           {grammar.data.description.map((item, i) => (
