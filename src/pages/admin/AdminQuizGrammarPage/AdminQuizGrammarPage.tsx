@@ -22,11 +22,19 @@ async function Page({ title, type }: IAdminGrammarQuizPage) {
       <div className='mb-6 last:mb-0'>
         <div className='relative'>
           <h2 className='text-center text-xl font-bold text-blue-200 my-4 sm:text-2xl dark:text-grey-600'>{title}</h2>
-          <Link
-            href='/admin/dashboard/grammar/add'
-            className='absolute top-[-4px] right-0 cursor-pointer text-white-100 bg-blue-200 flex items-center justify-center p-3 rounded-2xl transition-all ease-in-out duration-150 hover:bg-purple-100 hover:text-white-100 dark:bg-[#1D2D4D] dark:hover:bg-purple-100 dark:hover:text-white-100'>
-            <FaPlus size={16} />
-          </Link>
+          {type === 'grammar' ? (
+            <Link
+              href='/admin/dashboard/grammar/add'
+              className='absolute top-[-4px] right-0 cursor-pointer text-white-100 bg-blue-200 flex items-center justify-center p-3 rounded-2xl transition-all ease-in-out duration-150 hover:bg-purple-100 hover:text-white-100 dark:bg-[#1D2D4D] dark:hover:bg-purple-100 dark:hover:text-white-100'>
+              <FaPlus size={16} />
+            </Link>
+          ) : (
+            <Link
+              href='/admin/dashboard/quiz/add'
+              className='absolute top-[-4px] right-0 cursor-pointer text-white-100 bg-blue-200 flex items-center justify-center p-3 rounded-2xl transition-all ease-in-out duration-150 hover:bg-purple-100 hover:text-white-100 dark:bg-[#1D2D4D] dark:hover:bg-purple-100 dark:hover:text-white-100'>
+              <FaPlus size={16} />
+            </Link>
+          )}
         </div>
 
         <div className='grid auto-rows-[10px] gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3'>

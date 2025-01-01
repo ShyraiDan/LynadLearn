@@ -14,5 +14,7 @@ export default function AdminAddGrammarPage({ params }: { params: { id: string }
     })
   }, [params.id])
 
+  //TODO: Show some warning if there is no data
+
   return <div>{data && <AdminGrammarAddEditForm data={data} />}</div>
 }
