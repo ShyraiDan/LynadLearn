@@ -275,16 +275,6 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
             type='button'
             className='w-full !rounded mb-4'
             onClick={() => {
-              // const lastDescription = descriptionFields[descriptionFields.length - 1]
-
-              // if (lastDescription) {
-              //   if (lastDescription.en === '' && lastDescription.ua === '') return
-              //   handleAddParagraph()
-              //   return
-              // }
-
-              // handleAddParagraph()
-
               const lastDescription = descriptionFields.at(-1)
 
               if (!lastDescription || lastDescription.en !== '' || lastDescription.ua !== '') {
@@ -553,19 +543,6 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
             type='button'
             className='w-full !rounded my-4'
             onClick={() => {
-              // const lastItem = ruleFields[ruleFields.length - 1]
-
-              // if (
-              //   lastItem.title === '' &&
-              //   lastItem.titleUa === '' &&
-              //   lastItem.description === '' &&
-              //   lastItem.descriptionUa === ''
-              // )
-              //   return
-              // const item = { title: '', titleUa: '', description: '', descriptionUa: '', examples: [] }
-              // ruleAppend(item)
-              // setEditRule(ruleFields.length)
-
               const lastItem = ruleFields.at(-1)
 
               if (
