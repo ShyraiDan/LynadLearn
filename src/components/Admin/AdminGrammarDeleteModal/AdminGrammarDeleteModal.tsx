@@ -59,7 +59,7 @@ export const AdminGrammarDeleteModal = ({ id }: { id: string }) => {
               Delete
             </Button>
             <Button
-              className='!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red'
+              className='!bg-transparent border border-solid border-blue-200 !text-blue-200 !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red'
               onClick={() => showModal()}>
               Cancel
             </Button>
