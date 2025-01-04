@@ -32,9 +32,9 @@ async function Grammar({ params }: TSingleGrammarPage) {
       {grammar && (
         <div className={styles.container}>
           <h1 className='dark:text-grey-600'> {params.locale === 'en' ? grammar.title : grammar.titleUa}</h1>
-          {(params.locale === 'en' ? grammar.data.description : grammar.data.descriptionUa).map((item, i) => (
-            <p className='dark:text-grey-600' key={i}>
-              {item}
+          {grammar.data.description.map((item, i) => (
+            <p className='mt-5 text-blue-300 dark:text-grey-600' key={i}>
+              {params.locale === 'en' ? item.en : item.ua}
             </p>
           ))}
 
