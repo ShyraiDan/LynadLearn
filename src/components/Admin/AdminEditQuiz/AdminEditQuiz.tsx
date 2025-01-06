@@ -60,8 +60,6 @@ export const AdminEditQuiz = ({ quizId, handleClose, setQuizId }: IAdminEditQuiz
 
     const res = await updateGrammarQuiz(quiz)
 
-    console.log(res)
-
     if (res.id) {
       setQuizId(res.id)
       //TODO: add toast notification
