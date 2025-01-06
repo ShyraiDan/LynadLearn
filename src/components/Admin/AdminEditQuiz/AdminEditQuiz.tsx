@@ -90,7 +90,7 @@ export const AdminEditQuiz = ({ quizId, handleClose, setQuizId }: IAdminEditQuiz
               <div className='flex flex-col gap-2 mt-4'>
                 {question.options.map((option, k) => (
                   <label
-                    className='flex items-center gap-2 font-bold'
+                    className='flex items-center gap-2 font-bold dark:text-grey-600'
                     key={`${option.option}-${k}`}
                     htmlFor={`option-${k}`}>
                     <input
@@ -147,7 +147,7 @@ export const AdminEditQuiz = ({ quizId, handleClose, setQuizId }: IAdminEditQuiz
             </>
           ) : (
             <>
-              <h3 className='font-bold mb-3'>{question.question}</h3>
+              <h3 className='font-bold mb-3 dark:text-grey-600'>{question.question}</h3>
 
               {question.options.map((option, index) => (
                 <p
