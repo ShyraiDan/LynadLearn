@@ -96,10 +96,14 @@ export default function SingleQuizPage() {
             })}
           </h3>
           <div className={styles['nav-btns']}>
-            <Button onClick={() => returnToQuiz()}>{t('back')}</Button>
             <NavigationLink className={styles.link} href='/dashboard/quiz?type=grammar'>
               {t('go_to_quiz')}
             </NavigationLink>
+            <Button
+              className='!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red'
+              onClick={() => returnToQuiz()}>
+              {t('back')}
+            </Button>
           </div>
         </div>
       </Modal>
@@ -119,10 +123,14 @@ export default function SingleQuizPage() {
             })}
           </p>
           <div className={twMerge(styles['nav-btns'], 'mt-3')}>
-            <Button onClick={() => returnToQuiz()}>{t('back')}</Button>
             <NavigationLink className={styles.link} href='/dashboard/quiz?type=grammar'>
               {t('go_to_quiz')}
             </NavigationLink>
+            <Button
+              className='!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red'
+              onClick={() => returnToQuiz()}>
+              {t('back')}
+            </Button>
           </div>
         </div>
       </Modal>
