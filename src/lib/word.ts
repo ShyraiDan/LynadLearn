@@ -72,7 +72,7 @@ export const updateWordById = async (word: IWord): Promise<{ success: boolean }>
     revalidatePath('[locale]/dashboard/vocabulary/[id]', 'page')
     return { success: true }
   } catch (error) {
-    console.error('Error creating word:', error)
+    console.error('Error updating word:', error)
     return { success: false }
   }
 }

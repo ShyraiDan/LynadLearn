@@ -1,6 +1,7 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose, { Schema, ObjectId } from 'mongoose'
 
 export interface IQuiz {
+  _id: ObjectId
   title: string
   questions: IQuestion[]
 }

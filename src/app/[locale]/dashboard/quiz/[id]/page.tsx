@@ -28,10 +28,8 @@ export default function SingleQuizPage() {
   const { id } = useParams()
 
   useEffect(() => {
-    getGrammarQuiz(id as string).then((quiz: IQuiz | null) => {
-      setGrammarQuiz(quiz)
-      isLoading(false)
-    })
+    id && getGrammarQuiz(id).then((data) => data.success && setGrammarQuiz(data.data))
+    isLoading(false)
   }, [id])
 
   const showModal = () => {
