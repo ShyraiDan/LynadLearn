@@ -10,6 +10,7 @@ interface IDashboard {
   children: ReactNode
 }
 
+//TODO: Implement authentication for admin dashboard
 async function Content({ children }: IDashboard) {
   const session = await getSession()
 
