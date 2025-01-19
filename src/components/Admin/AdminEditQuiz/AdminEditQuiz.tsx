@@ -10,13 +10,13 @@ import { MdEdit } from 'react-icons/md'
 import { FaTrash } from 'react-icons/fa'
 import { Input } from '@/components/ui/Input/Input'
 import { IQuestion } from '@/interfaces/Quiz.interface'
-import { Toaster } from 'sonner'
-import { ObjectId } from 'mongoose'
+
+//Todo: This form need to work for new grammars without quizzes
 
 interface IAdminEditQuizProps {
-  quizId?: ObjectId
+  quizId?: string
   handleClose: () => void
-  setQuizId: Dispatch<SetStateAction<ObjectId | null>>
+  setQuizId: Dispatch<SetStateAction<string | null>>
 }
 
 export const AdminEditQuiz = ({ quizId, handleClose, setQuizId }: IAdminEditQuizProps) => {
@@ -41,7 +41,7 @@ export const AdminEditQuiz = ({ quizId, handleClose, setQuizId }: IAdminEditQuiz
     )
   }
 
-  if (!isLoading && !quiz) {
+  if (!isLoading && !quiz && quizId) {
     return (
       <div className='w-full h-[300px] flex flex-col items-center justify-center'>
         <h3 className='font-bold text-lg mb-3'>Quiz not found</h3>
@@ -61,7 +61,7 @@ export const AdminEditQuiz = ({ quizId, handleClose, setQuizId }: IAdminEditQuiz
     const res = await updateGrammarQuiz(quiz)
 
     if (res.id) {
-      setQuizId(res.id)
+      setQuizId(res.id.toString())
       //TODO: add toast notification
       handleClose()
     }

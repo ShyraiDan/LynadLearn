@@ -16,10 +16,9 @@ export default function LanguageModal() {
 
   const changeLang = (lang: string) => {
     const path = pathname
-    const newPath = path.split('/')
-    newPath.splice(0, 2)
+    const newPath = path?.split('/').splice(0, 2)
 
-    router.replace(`/${lang}/${newPath.join('/')}`)
+    router.replace(`/${lang}/${newPath?.join('/')}`)
   }
 
   return (

@@ -31,7 +31,7 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
   const [isEditRule, setEditRule] = useState<number | null>(null)
   const [isEditExample, setEditExample] = useState<{ rule: number; example: number } | null>(null)
   const [isQuizOpen, setQuizOpen] = useState(false)
-  const [quizId, setQuizId] = useState<ObjectId | null>(null)
+  const [quizId, setQuizId] = useState<string | null>(null)
 
   const {
     formState: { errors },
@@ -247,8 +247,6 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                         const { en, ua, id } = getValues(`data.description.${i}`)
 
                         if (!en || !ua) return
-
-                        console.log('hello')
 
                         descriptionUpdate(i, { id, en, ua })
                         setEditDescription(null)

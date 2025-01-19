@@ -16,7 +16,7 @@ export default function SideBar({ isAuth }: { isAuth: boolean }) {
   const t = useTranslations('Header')
   const path = usePathname()
 
-  const page = path.split('/')[3]
+  const page = path?.split('/')[3]
 
   return (
     <div className={twMerge(styles.container, 'dark:border-[#1D2D4D]')}>

@@ -25,7 +25,7 @@ export function UserModal() {
             <li
               className={twMerge(
                 '[&_svg]:dark:!fill-grey-600 dark:hover:!text-purple-100',
-                pathname.includes('/dashboard/profile') && styles.selected
+                pathname?.includes('/dashboard/profile') && styles.selected
               )}>
               <NavigationLink
                 hover={false}

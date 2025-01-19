@@ -41,7 +41,7 @@ async function Page({ title, type }: IAdminGrammarQuizPage) {
           {grammarElementary.map((item: IGrammarTopic, i) => {
             return (
               <div
-                key={item._id}
+                key={item._id.toString()}
                 className={`rounded-lg transition-transform duration-300  ${styles[`item-${(i % 8) + 1}`]}`}>
                 <AdminQuizCard topic={item} lang='en' type={type} />
               </div>

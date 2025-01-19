@@ -4,7 +4,6 @@ import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
 import { getSession } from '@/lib/auth'
 import { AdminHeader } from '@/components/Admin/AdminHeader/AdminHeader'
-import { AdminFooter } from '@/components/Admin/AdminFooter/AdminFooter'
 
 interface IDashboard {
   children: ReactNode

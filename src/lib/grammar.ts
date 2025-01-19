@@ -1,3 +1,4 @@
+// TODO: investigate why admin/dashboard/grammar/[id]/page.tsx is not working after removing this
 'use server'
 
 import mongoose from 'mongoose'
@@ -30,7 +31,8 @@ export const addSingleGrammar = async (grammar: IGrammarTopic): Promise<{ succes
     await connectMongoDB()
 
     const doc = new Grammar({
-      ...grammar
+      ...grammar,
+      quizId: new mongoose.Types.ObjectId(grammar.quizId)
     })
     //TODO: Maybe we need to return success as part of promise in then closure
     await doc.save()

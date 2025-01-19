@@ -22,8 +22,7 @@ interface IWordModal {
 
 export default function WordModal({ handleClose, word }: IWordModal) {
   const t = useTranslations('dashboard.vocabulary.modal')
-  const params = useParams()
-  const { id } = params
+  const { id } = useParams() as { id: string }
   const [translations, setTranslations] = useState('')
   const [translationsList, setTranslationsList] = useState<string[]>(word?.translation?.ua || [])
   const [results, setResults] = useState<IDefinitionWithId[]>(

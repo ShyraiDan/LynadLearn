@@ -25,7 +25,7 @@ export default function SingleQuizPage() {
   const [isFinished, setIsFinished] = useState(false)
   const t = useTranslations('dashboard.quiz')
   const [grammarQuiz, setGrammarQuiz] = useState<IQuiz | null>(null)
-  const { id } = useParams()
+  const { id } = useParams() as { id: string }
 
   useEffect(() => {
     id && getGrammarQuiz(id).then((data) => data.success && setGrammarQuiz(data.data))

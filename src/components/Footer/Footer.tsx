@@ -21,7 +21,7 @@ export function Footer() {
       <footer
         className={twMerge(
           styles.footer,
-          path.split('/')[2] === 'dashboard' && styles.dashboard,
+          path?.split('/')[2] === 'dashboard' && styles.dashboard,
           'dark:bg-blue-800 dark:border-[#1D2D4D]'
         )}>
         <div className={styles['footer-container']}>

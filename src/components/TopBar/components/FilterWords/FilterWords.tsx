@@ -12,7 +12,7 @@ export default function FilterWords() {
   const t = useTranslations('dashboard.vocabulary')
   const [isFilterOpen, setFilterOpen] = useState(false)
   const router = useRouter()
-  const sort = useSearchParams().get('sort')
+  const sort = useSearchParams()?.get('sort')
   const [selectedFilter, setFilter] = useState(
     t(sort === 'a-z' ? 'alphabeta-z' : sort === 'z-a' ? 'alphabetz-a' : 'newest')
   )

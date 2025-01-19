@@ -15,6 +15,7 @@ interface IDictionaryWordPage {
 }
 
 export default function DictionaryWordPage({ params }: IDictionaryWordPage) {
+  //TODO: remove unused variables
   const { id } = params
   const t = useTranslations('Dictionary')
 
@@ -38,7 +39,7 @@ export default function DictionaryWordPage({ params }: IDictionaryWordPage) {
             <div className={styles.heading}>
               <div className={styles['word-section']}>{word.word}</div>
               <div className={styles.btns}>
-                <ListsModal />
+                <ListsModal word={word} />
               </div>
             </div>
             <div className={styles.translation}>

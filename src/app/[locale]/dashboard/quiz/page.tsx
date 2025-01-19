@@ -40,7 +40,7 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
           <div className={styles.topics}>
             {grammarElementary.map((item: IGrammarTopic) => {
               return (
-                <div key={item._id}>
+                <div key={item._id.toString()}>
                   <QuizCard topic={item} lang={locale} />
                 </div>
               )

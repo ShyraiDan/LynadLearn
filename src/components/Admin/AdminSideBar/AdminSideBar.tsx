@@ -7,7 +7,11 @@ import { twMerge } from 'tailwind-merge'
 import { TbVocabulary, TbWriting } from 'react-icons/tb'
 import { BsQuestionSquareFill } from 'react-icons/bs'
 
-export default function AdminSideBar() {
+interface IAdminSideBarProps {
+  isAuth: boolean
+}
+
+export default function AdminSideBar({ isAuth }: IAdminSideBarProps) {
   const path = usePathname()
 
   return (

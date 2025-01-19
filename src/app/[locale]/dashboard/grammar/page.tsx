@@ -28,7 +28,7 @@ async function ShowGrammar({ params }: IShowGrammarProps) {
         <div className={styles.topics}>
           {grammarElementary.map((item: IGrammarTopic, i) => {
             return (
-              <div key={item._id} className={`${styles.item}  ${styles[`item-${(i % 8) + 1}`]}`}>
+              <div key={item._id.toString()} className={`${styles.item}  ${styles[`item-${(i % 8) + 1}`]}`}>
                 <QuizCard topic={item} lang={params.locale} />
               </div>
             )

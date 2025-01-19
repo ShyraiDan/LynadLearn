@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose'
 
 export interface IGrammarTopic {
-  _id: Schema.Types.ObjectId
+  _id: string
   level: string
   title: string
   titleUa: string
@@ -15,7 +15,7 @@ export interface IGrammarTopic {
       examples: IGrammarExample[]
     }>
   }
-  quizId: Schema.Types.ObjectId
+  quizId: string
 }
 
 export interface IGrammarExample {

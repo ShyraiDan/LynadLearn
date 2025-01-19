@@ -5,19 +5,17 @@ import connectMongoDB from './mongodb'
 import Quizzes, { IQuiz, IVocabularyQuestion, IVocabularyQuiz } from '@/interfaces/Quiz.interface'
 import { IWord } from '@/interfaces/Word.interface'
 import { shuffleArray } from '@/utils/middlewares'
-import { getListById } from './lists'
 import { nanoid } from 'nanoid'
-import { revalidatePath } from 'next/cache'
 
 export const getGrammarQuiz = async (
-  id: ObjectId
+  id: string
 ): Promise<{
   data: IQuiz | null
   success: boolean
 }> => {
   await connectMongoDB()
 
-  if (mongoose.Types.ObjectId.isValid(id.toString()) === false) {
+  if (mongoose.Types.ObjectId.isValid(id) === false) {
     return {
       data: null,
       success: false

@@ -167,7 +167,7 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
               {t('cancel')}
             </Button>
           </div>
-          {emptyDefinition && <p className='text-red'>You can't submit empty definition</p>}
+          {emptyDefinition && <p className='text-red'>You can&apos;t submit empty definition</p>}
         </div>
       )}
       {!isDefinitionForm && !isEdit && (
