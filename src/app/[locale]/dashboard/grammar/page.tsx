@@ -1,4 +1,4 @@
-import styles from './GrammarPage.module.scss'
+import styles from './GrammarPageRenamed.module.scss'
 import QuizCard from '@/components/QuizCard/QuizCard'
 import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'

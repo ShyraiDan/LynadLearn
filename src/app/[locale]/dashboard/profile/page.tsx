@@ -1,4 +1,4 @@
-import styles from './ProfilePage.module.scss'
+import styles from './ProfilePageRenamed.module.scss'
 import Achievements from '@/components/Achievements/Achievements'
 import { getTranslations } from 'next-intl/server'
 import ProfileEditModal from '@/components/ProfileEditModal/ProfileEditModal'

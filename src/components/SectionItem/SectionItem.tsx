@@ -1,4 +1,4 @@
-import styles from './Sectionitem.module.scss'
+import styles from './SectionItem.module.scss'
 import Image from 'next/image'
 import { ISections } from '@/interfaces/Sections.interface'
 import { useTranslations } from 'next-intl'
