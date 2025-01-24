@@ -80,7 +80,7 @@ async function Grammar({ params }: TSingleGrammarPage) {
   )
 }
 
-export default function SingleGrammarPage({ params }: TSingleGrammarPage) {
+export default async function SingleGrammarPage({ params }: TSingleGrammarPage) {
   return (
     <Container>
       <Suspense

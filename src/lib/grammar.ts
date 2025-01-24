@@ -1,4 +1,3 @@
-// TODO: investigate why admin/dashboard/grammar/[id]/page.tsx is not working after removing this
 'use server'
 
 import mongoose from 'mongoose'
