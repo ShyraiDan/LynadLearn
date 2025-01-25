@@ -375,7 +375,7 @@
       "no_quiz": "Вікторину не знайдено. Спробуйте відкрити іншу.",
       "finished_quiz": "Ви завершили вікторину",
       "result_quiz": "Ви відповіли {correct} із {length} за {time} секунд і отримали {points} балів",
-      "vocabulary_quiz": "Лекична вікторина",
+      "vocabulary_quiz": "Лекcична вікторина",
       "list_empty": "Список слів пустий"
     },
     "grammar": {
