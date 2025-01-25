@@ -28,14 +28,14 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
   }
 
   return (
-    <>
+    <div>
       <div onClick={() => showModal()} className={styles['burger-btn']}>
         <span className='dark:bg-grey-600'></span>
         <span className='dark:bg-grey-600'></span>
         <span className='dark:bg-grey-600'></span>
       </div>
-      <div className={`${isBurgerShow && styles.layout} `} />
-      <div className={`${styles.burger} ${isBurgerShow && styles.active} dark:bg-blue-600`}>
+      {isBurgerShow && <div className={styles.layout} />}
+      <div className={twMerge(styles.burger, isBurgerShow && styles.active, 'dark:bg-blue-600')}>
         <div className={styles.top}>
           <div>
             <h2>
@@ -182,6 +182,6 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

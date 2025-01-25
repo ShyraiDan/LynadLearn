@@ -1,5 +1,5 @@
 .burger-btn {
-  @apply ml-3 w-[30px] h-[20px] relative z-[1] cursor-pointer
+  @apply w-[30px] h-[20px] relative z-[1] ml-2 cursor-pointer
   lg:hidden;
 
   span {

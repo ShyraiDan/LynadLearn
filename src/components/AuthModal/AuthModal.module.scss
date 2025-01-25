@@ -1,4 +1,6 @@
 .btn {
+  @apply ml-2;
+
   button {
     @apply flex items-center justify-center w-full bg-blue-200;
 
