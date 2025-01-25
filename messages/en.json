@@ -186,7 +186,7 @@
     "how_download": "How can I download LynadLearn mobile app?",
     "how_download_answer": "You can download LynadLearn mobile app from the App Store or Google Play. The app is compatible with Android and iOS devices.",
     "can_use_premium": "Can I use the same LynadLearn premium account on web and mobile devices (Android, iOS)?",
-    "can_use_premium_answer": "Yes, you can. Your LynadLearn premium account is valid for both web and mobile platforms. You just need to log in with the same email on any device you want to use.",
+    "can_use_premium_answer": "Yes, you can. Your LynadLearn premium account is valid for both web and mobile platforms. You just need to sign in with the same email on any device you want to use.",
     "will_data_sync": "Will my learning data (Custom wordlists, Daily vocabulary, etc.) be synchronized across web and mobile app?",
     "will_data_sync_answer": "Yes, they will. Your learning data is stored on our cloud server and will be automatically synced across web and mobile app. You can access your custom wordlists, daily vocabulary, progress reports, and more on any device.",
     "is_difference": "Is there any difference in the learning content between the website and the mobile app?",
@@ -238,7 +238,7 @@
     "conjunction": "Conjunction",
     "interjection": "Interjection",
     "modal": {
-      "need_auth": "You need to log in to browse your lists",
+      "need_auth": "You need to sign in to add a word to your lists",
       "choose_list": "Choose list to add word",
       "successfully_added": "Your word has been added to the list",
       "error_added": "Error adding your word"
@@ -406,7 +406,7 @@
       "add_difficult_words": "Add difficult words to your list!",
       "to_flashcards": "Go to Flashcards",
       "modal": {
-        "need_auth": "You need to log in to browse your lists",
+        "need_auth": "You need to sign in to browse your lists",
         "choose_list": "Choose list to add word",
         "successfully_added": "Your word has been added to the list",
         "error_added": "Error adding your word"
