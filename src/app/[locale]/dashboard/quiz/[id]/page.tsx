@@ -59,10 +59,10 @@ export default function SingleQuizPage() {
         <div className={styles.container}>
           <h1 className='dark:text-grey-600'>{grammarQuiz?.title}</h1>
           <div>
-            <NavigationLink href='/dashboard/quiz'>{t('to_quiz')}</NavigationLink>
             <Button className='dark:border-none' onClick={() => startQuiz()}>
               {t('start_quiz')}
             </Button>
+            <NavigationLink href='/dashboard/quiz'>{t('to_quiz')}</NavigationLink>
           </div>
         </div>
       )}
