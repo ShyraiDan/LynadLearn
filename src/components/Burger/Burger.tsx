@@ -11,6 +11,7 @@ import { logout } from '@/lib/auth'
 import Button from '@/components/ui/Button/Button'
 import { twMerge } from 'tailwind-merge'
 
+import { FaUser } from 'react-icons/fa'
 import { FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { FaFacebook } from 'react-icons/fa'
@@ -19,6 +20,7 @@ import { IoIosArrowDown } from 'react-icons/io'
 
 export default function Burger({ isAuth }: { isAuth: boolean }) {
   const t = useTranslations('Header')
+  const tForms = useTranslations('Forms')
   const [isBurgerShow, setBurgerShow] = useState(false)
   const [isLastOpen, setLastOpen] = useState(false)
 
@@ -157,7 +159,9 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
                 {t('logout')}
               </Button>
             ) : (
-              <AuthModal />
+              <AuthModal className='flex items-center justify-center w-full bg-blue-200'>
+                <FaUser className='mr-2' /> {tForms('sign_in')}
+              </AuthModal>
             )}
           </div>
           <div className={styles.social}>

@@ -8,17 +8,6 @@
   before:content-[''] before:bg-purple-100 before:w-full before:h-3 before:rounded-2xl before:absolute before:bottom-0 before:left-0
   before:first:bg-grey-100;
 
-  a {
-    @apply flex justify-center items-center text-center py-2 px-6 items-center bg-blue-200 font-bold rounded-full text-white-100 transition-all ease-linear duration-150 w-full self-end py-3 px-10 
-    sm:w-[200px]
-    hover:bg-purple-100;
-  }
-
-  .outline {
-    @apply bg-transparent text-blue-200 border border-solid border-blue-200
-    hover:bg-transparent hover:border-purple-100 hover:text-purple-100;
-  }
-
   h6 {
     @apply font-medium text-lg 
     lg:text-2xl;

@@ -1,8 +1,9 @@
 import styles from './PricingCard.module.scss'
 import { IPricing } from '@/interfaces/Pricing.interface'
 import Image from 'next/image'
-import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { useTranslations, useLocale } from 'next-intl'
+import { AuthModal } from '../AuthModal/AuthModal'
+import { twMerge } from 'tailwind-merge'
 
 import { AiOutlineThunderbolt } from 'react-icons/ai'
 import { TbZoomMoney } from 'react-icons/tb'
@@ -40,10 +41,15 @@ export default function PricingCard({ data }: { data: IPricing }) {
           ))}
         </ul>
       </div>
-
-      <NavigationLink className={`${data.price === 'free' && styles.outline}`} href='/'>
+      <AuthModal
+        className={twMerge(
+          'flex justify-center text-center items-center bg-blue-200 font-bold rounded-full text-white-100 transition-all ease-linear duration-150 w-full self-end py-3 px-10 hover:bg-purple-100',
+          data.price === 'free' &&
+            '!bg-transparent !text-blue-200 !border !border-solid !border-blue-200 !hover:bg-transparent !hover:border-purple-100 !hover:text-purple-100'
+        )}
+        disabled={data.price === 'free'}>
         {data.price === 'free' ? t('current') : t('sign_in')}
-      </NavigationLink>
+      </AuthModal>
 
       {data.duration === 'year' && (
         <div className={styles.popular}>

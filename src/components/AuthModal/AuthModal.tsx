@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, ReactNode } from 'react'
 import { Modal } from '@/components/ui/Modal/Modal'
 import Button from '@/components/ui/Button/Button'
 import Image from 'next/image'
@@ -10,11 +10,17 @@ import { removeScrollBar } from '@/constants/shared'
 import SignInForm from './components/SignInForm/SignInForm'
 import SignUpForm from './components/SignUpForm/SignUpForm'
 
-import { FaUser } from 'react-icons/fa'
 import { FcGoogle } from 'react-icons/fc'
 import image from '@/assets/keep_your_learning_data.png'
 
-export function AuthModal() {
+interface IAuthModalProps {
+  children?: ReactNode
+  containerStyles?: string
+  className?: string
+  disabled?: boolean
+}
+
+export function AuthModal({ children, containerStyles, className, disabled }: IAuthModalProps) {
   const [isModalOpen, setModalOpen] = useState(false)
   const [isSignInModal, setSignInModal] = useState(false)
   const t = useTranslations('Forms')
@@ -26,9 +32,9 @@ export function AuthModal() {
 
   return (
     <>
-      <div className={styles.btn}>
-        <Button onClick={() => showModal()}>
-          <FaUser /> {t('sign_in')}
+      <div className={containerStyles}>
+        <Button onClick={() => showModal()} className={className} disabled={disabled}>
+          {children}
         </Button>
       </div>
       {isModalOpen && (

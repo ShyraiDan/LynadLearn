@@ -9,9 +9,12 @@ import { getTranslations } from 'next-intl/server'
 import { Themes } from '@/components/Themes/Themes'
 import { twMerge } from 'tailwind-merge'
 
+import { FaUser } from 'react-icons/fa'
+
 export async function Header() {
   const { isLoggedIn } = await getSession()
   const t = await getTranslations('Header')
+  const tForms = await getTranslations('Forms')
 
   return (
     <header className={twMerge(styles.header, 'dark:bg-blue-600 dark:border-[#1D2D4D]')}>
@@ -63,7 +66,13 @@ export async function Header() {
         </div>
         <div className={styles['header-right']}>
           <Themes />
-          {isLoggedIn ? <UserModal /> : <AuthModal />}
+          {isLoggedIn ? (
+            <UserModal />
+          ) : (
+            <AuthModal className='flex items-center justify-center w-full bg-blue-200' containerStyles='ml-2'>
+              <FaUser className='mr-2' /> {tForms('sign_in')}
+            </AuthModal>
+          )}
           <Burger isAuth={isLoggedIn} />
         </div>
       </div>
