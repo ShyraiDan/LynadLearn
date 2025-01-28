@@ -5,7 +5,7 @@ import { useState } from 'react'
 import styles from './Burger.module.scss'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { useTranslations } from 'next-intl'
-import { AuthModal } from '@/components/AuthModal/AuthModal'
+import { AuthModalButton } from '@/components/AuthModalButton/AuthModalButton'
 import { removeScrollBar } from '@/constants/shared'
 import { logout } from '@/lib/auth'
 import Button from '@/components/ui/Button/Button'
@@ -159,9 +159,9 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
                 {t('logout')}
               </Button>
             ) : (
-              <AuthModal className='flex items-center justify-center w-full bg-blue-200'>
+              <AuthModalButton className='flex items-center justify-center w-full bg-blue-200'>
                 <FaUser className='mr-2' /> {tForms('sign_in')}
-              </AuthModal>
+              </AuthModalButton>
             )}
           </div>
           <div className={styles.social}>

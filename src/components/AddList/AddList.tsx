@@ -14,11 +14,14 @@ import { getSession } from '@/lib/auth'
 import { toast } from 'sonner'
 import SnackBar from '@/components/ui/SnackBar/SnackBar'
 import { twMerge } from 'tailwind-merge'
+import { AuthModal } from '@/components/AuthModal/AuthModal'
 
 import { FaPlus } from 'react-icons/fa'
 
 export default function AddList() {
   const [isAdding, setAdding] = useState(false)
+  const [isAuthRequireModal, setAuthRequireModal] = useState(false)
+  const [isAuthModal, setAuthModal] = useState(false)
   const t = useTranslations('dashboard.lists')
 
   const openModal = async () => {
@@ -27,10 +30,8 @@ export default function AddList() {
       setAdding((state) => !state)
       removeScrollBar(isAdding)
     } else {
-      toast.error(t('need_login'), {
-        duration: 3000,
-        className: styles.wrong
-      })
+      setAuthRequireModal(true)
+      removeScrollBar(isAuthRequireModal)
     }
   }
 
@@ -50,6 +51,11 @@ export default function AddList() {
     openModal()
   }
 
+  const handleClose = () => {
+    setAuthRequireModal(false)
+    removeScrollBar(isAuthRequireModal)
+  }
+
   return (
     <>
       <div>
@@ -61,6 +67,29 @@ export default function AddList() {
         </div>
         <SnackBar />
       </div>
+      <Modal
+        isOpen={isAuthRequireModal}
+        className='sm:h-[200px] sm:w-[475px] sm:self-center sm:justify-self-center'
+        handleClose={handleClose}>
+        <div>
+          <p className='text-center font-bold'>In order to add list you must sign in to your account</p>
+          <div className='grid grid-cols-2 mt-6 gap-3 items-center'>
+            <Button
+              className='!rounded'
+              onClick={() => {
+                setAuthModal(true)
+                handleClose
+              }}>
+              Sign in
+            </Button>
+            <Button outline className='!rounded' onClick={handleClose}>
+              Cancel
+            </Button>
+          </div>
+        </div>
+      </Modal>
+
+      <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />
 
       {isAdding && (
         <Modal

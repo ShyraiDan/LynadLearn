@@ -2,8 +2,8 @@ import styles from './PricingCard.module.scss'
 import { IPricing } from '@/interfaces/Pricing.interface'
 import Image from 'next/image'
 import { useTranslations, useLocale } from 'next-intl'
-import { AuthModal } from '../AuthModal/AuthModal'
 import { twMerge } from 'tailwind-merge'
+import { AuthModalButton } from '@/components/AuthModalButton/AuthModalButton'
 
 import { AiOutlineThunderbolt } from 'react-icons/ai'
 import { TbZoomMoney } from 'react-icons/tb'
@@ -41,7 +41,7 @@ export default function PricingCard({ data }: { data: IPricing }) {
           ))}
         </ul>
       </div>
-      <AuthModal
+      <AuthModalButton
         className={twMerge(
           'flex justify-center text-center items-center bg-blue-200 font-bold rounded-full text-white-100 transition-all ease-linear duration-150 w-full self-end py-3 px-10 hover:bg-purple-100',
           data.price === 'free' &&
@@ -49,7 +49,7 @@ export default function PricingCard({ data }: { data: IPricing }) {
         )}
         disabled={data.price === 'free'}>
         {data.price === 'free' ? t('current') : t('sign_in')}
-      </AuthModal>
+      </AuthModalButton>
 
       {data.duration === 'year' && (
         <div className={styles.popular}>

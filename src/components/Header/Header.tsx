@@ -1,6 +1,6 @@
 import styles from './Header.module.scss'
 import LanguageModal from '@/components/LanguageModal/LanguageModal'
-import { AuthModal } from '@/components/AuthModal/AuthModal'
+import { AuthModalButton } from '@/components/AuthModalButton/AuthModalButton'
 import Burger from '@/components/Burger/Burger'
 import { UserModal } from '@/components/UserModal/UserModal'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
@@ -69,9 +69,9 @@ export async function Header() {
           {isLoggedIn ? (
             <UserModal />
           ) : (
-            <AuthModal className='flex items-center justify-center w-full bg-blue-200' containerStyles='ml-2'>
+            <AuthModalButton className='flex items-center justify-center w-full bg-blue-200' containerStyles='ml-2'>
               <FaUser className='mr-2' /> {tForms('sign_in')}
-            </AuthModal>
+            </AuthModalButton>
           )}
           <Burger isAuth={isLoggedIn} />
         </div>
