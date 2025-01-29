@@ -2,7 +2,7 @@ import { Pathnames } from 'next-intl/navigation'
 
 export const locales = ['en', 'ua'] as const
 
-let listId = ''
+const listId = ''
 
 export const pathnames = {
   '/': '/',

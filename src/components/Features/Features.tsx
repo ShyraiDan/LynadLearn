@@ -30,14 +30,15 @@ export default function Features() {
             centeredSlides={true}
             spaceBetween={20}
             slidesPerView={1}
-            modules={[Navigation, Pagination]}>
+            modules={[Navigation, Pagination]}
+          >
             {DFeatures.map((item) => {
               return (
                 <SwiperSlide key={item.id}>
                   <div className={styles.item}>
                     <div>
-                      <Image src={item.icon} alt='book' />
-                      <h6 className='dark:text-grey-600'>{t(item.title)}</h6>
+                      <Image src={item.icon} alt="book" />
+                      <h6 className="dark:text-grey-600">{t(item.title)}</h6>
                     </div>
                     <p className={`${styles['item-description']} dark:text-grey-600`}>{t(item.description)}</p>
                   </div>

@@ -21,22 +21,24 @@ export function UserModal() {
           <FaUser className={styles.icon} />
         </div>
         <div className={styles.modal}>
-          <ul className='dark:bg-[#1D2D4D]'>
+          <ul className="dark:bg-[#1D2D4D]">
             <li
               className={twMerge(
                 '[&_svg]:dark:!fill-grey-600 dark:hover:!text-purple-100',
                 pathname?.includes('/dashboard/profile') && styles.selected
-              )}>
+              )}
+            >
               <NavigationLink
                 hover={false}
-                href='/dashboard/profile'
-                className='dark:hover:!text-purple-100 [&_svg]:dark:hover:!fill-purple-100'>
+                href="/dashboard/profile"
+                className="dark:hover:!text-purple-100 [&_svg]:dark:hover:!fill-purple-100"
+              >
                 <FaUser className={twMerge(styles['link-icon'], 'mr-1')} />
                 {t('profile')}
               </NavigationLink>
             </li>
             <li onClick={() => logout()}>
-              <span className='flex flex-row items-center cursor-pointer [&_svg]:dark:!fill-grey-600 dark:text-grey-600 dark:hover:!text-purple-100 [&_svg]:dark:hover:!fill-purple-100'>
+              <span className="flex flex-row items-center cursor-pointer [&_svg]:dark:!fill-grey-600 dark:text-grey-600 dark:hover:!text-purple-100 [&_svg]:dark:hover:!fill-purple-100">
                 <MdLogout className={twMerge(styles['link-icon'], 'mr-1')} /> {t('logout')}
               </span>
             </li>

@@ -29,20 +29,22 @@ export default function QuizCard({ topic, lang, allowedAction }: TQuizCard) {
   return (
     <NavigationLink
       className={twMerge(styles.item, 'dark:bg-[#18223D] dark:hover:bg-[#1D2D4D] dark:[&_p]:hover:text-grey-600')}
-      href={`/dashboard/grammar/${topic._id}`}>
+      href={`/dashboard/grammar/${topic._id}`}
+    >
       <div className={styles.top}>
-        <h4 className='dark:text-grey-600'>{lang === 'en' ? topic.title : topic.titleUa}</h4>
+        <h4 className="dark:text-grey-600">{lang === 'en' ? topic.title : topic.titleUa}</h4>
         <div
           className={twMerge(
             styles['button-bookmark'],
             'dark:bg-[#1D2D4D]',
             isBookmarked && `${styles.active} dark:bg-blue-200`
           )}
-          onClick={(e) => handleAddBookmark(e)}>
-          {isBookmarked ? <BookmarkDelete /> : <BookmarkAdd className='dark:stroke-white-100' />}
+          onClick={(e) => handleAddBookmark(e)}
+        >
+          {isBookmarked ? <BookmarkDelete /> : <BookmarkAdd className="dark:stroke-white-100" />}
         </div>
       </div>
-      <p className='dark:text-grey-600'>
+      <p className="dark:text-grey-600">
         {lang === 'en' ? topic.data.description[0].en : topic.data.description[0].ua}
       </p>
     </NavigationLink>

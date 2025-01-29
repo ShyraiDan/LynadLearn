@@ -22,11 +22,11 @@ export const WordCard = ({ word }: { word: IWord }) => {
           </div>
         </div>
         <div className={styles.pronunciation}>
-          <Image src={usFlag} alt='flag' width={24} />
-          <h6 className='dark:text-grey-600'>/{word.pronunciation}/</h6>
+          <Image src={usFlag} alt="flag" width={24} />
+          <h6 className="dark:text-grey-600">/{word.pronunciation}/</h6>
         </div>
         <Badge part={word.results[0].part_of_speech} className={styles['part-of-speech']} />
-        <p className='dark:text-grey-600'>{word.results[0]?.definition}</p>
+        <p className="dark:text-grey-600">{word.results[0]?.definition}</p>
         <div className={styles.synonyms}>
           {word.results[0]?.synonyms.map((synonym) => (
             <Button key={synonym}>

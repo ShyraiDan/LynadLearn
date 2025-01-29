@@ -86,10 +86,11 @@ export const ListsModal = ({ word }: { word: IWord }) => {
           styles.btn,
           '!w-[44px] !h-[44px] !p-3 !rounded-2xl dark:!bg-[#1D2D4D] dark:text-grey-600 dark:hover:!bg-purple-100'
         )}
-        onClick={() => showModal()}>
+        onClick={() => showModal()}
+      >
         <FaPlus size={20} />
       </Button>
-      <Modal isOpen={open} className='dark:bg-[#0B152E]' handleClose={() => showModal()}>
+      <Modal isOpen={open} className="dark:bg-[#0B152E]" handleClose={() => showModal()}>
         <div className={styles.modal}>
           <h3 className={twMerge(styles.title, 'dark:text-grey-600')}>{t('choose_list')}</h3>
           <div className={styles.list}>
@@ -108,8 +109,9 @@ export const ListsModal = ({ word }: { word: IWord }) => {
         allowedAction={() => {
           setAuthModal(true)
           handleClose()
-        }}>
-        <p className='text-center font-bold'>In order to add to your bookmarks you must sign in to your account</p>
+        }}
+      >
+        <p className="text-center font-bold">In order to add to your bookmarks you must sign in to your account</p>
       </RequireAuthModal>
 
       <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />

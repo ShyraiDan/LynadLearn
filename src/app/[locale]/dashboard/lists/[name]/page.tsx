@@ -39,7 +39,7 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
   const [isAuthRequireModal, setAuthRequireModal] = useState(false)
   const [isAuthModal, setAuthModal] = useState(false)
   const [isPinned, setIsPinned] = useState(false)
-  let words = 25
+  const words = 25
 
   const handlePin = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation()
@@ -61,7 +61,7 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
   return (
     <>
       <div className={styles.container}>
-        <PageHeading name={name} id='id' title='title' description='description' />
+        <PageHeading name={name} id="id" title="title" description="description" />
         <div className={styles.lessons}>
           <div>
             {lessons.map((item, i) => (
@@ -71,7 +71,7 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
                     <div className={styles['icon-number']}>
                       <Image
                         src={isSelected === i ? subcategorySelected : subcategoryUnselected}
-                        alt=''
+                        alt=""
                         className={styles.icon}
                       />
                       <div className={styles.number}>{i + 1 > 10 ? i + 1 : `0${i + 1}`}</div>
@@ -84,9 +84,10 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
                             isSelected === i && styles.active,
                             'dark:!bg-[#19274a]'
                           )}
-                          onClick={() => setIsSelected(i)}>
+                          onClick={() => setIsSelected(i)}
+                        >
                           <div>
-                            <h3 className='dark:text-grey-600'>Top 1 - 25 Verbs</h3>
+                            <h3 className="dark:text-grey-600">Top 1 - 25 Verbs</h3>
                           </div>
                         </div>
 
@@ -96,19 +97,19 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
                               <div className={styles.btns}>
                                 <Button className={styles['tip-btn']} onClick={(e) => handlePin(e)}>
                                   {isPinned ? (
-                                    <FaBookmark className='dark:text-grey-600 dark:hover:text-purple-100' />
+                                    <FaBookmark className="dark:text-grey-600 dark:hover:text-purple-100" />
                                   ) : (
-                                    <FaRegBookmark className='dark:text-grey-600 dark:hover:text-purple-100' />
+                                    <FaRegBookmark className="dark:text-grey-600 dark:hover:text-purple-100" />
                                   )}
                                 </Button>
-                                <NavigationLink href='/'>
+                                <NavigationLink href="/">
                                   <BsGridFill />
                                 </NavigationLink>
                               </div>
                               <div className={styles.info}>
                                 <div>
                                   <div>
-                                    <Image src={note} alt='' />
+                                    <Image src={note} alt="" />
                                     {words} {t('words')}
                                   </div>
                                   <div>
@@ -145,8 +146,9 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
         allowedAction={() => {
           setAuthModal(true)
           handleClose()
-        }}>
-        <p className='text-center font-bold'>In order to add to your bookmarks you must sign in to your account</p>
+        }}
+      >
+        <p className="text-center font-bold">In order to add to your bookmarks you must sign in to your account</p>
       </RequireAuthModal>
 
       <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />

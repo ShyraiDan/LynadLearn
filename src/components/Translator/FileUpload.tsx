@@ -7,9 +7,9 @@ interface IFileUploadProps {
 }
 
 const FileUpload = ({ handleFileUpload }: IFileUploadProps) => (
-  <label htmlFor='file-upload' className='cursor-pointer'>
-    <FaPaperclip className='text-gray-400' size={21} />
-    <input type='file' id='file-upload' onChange={handleFileUpload} className='hidden' />
+  <label htmlFor="file-upload" className="cursor-pointer">
+    <FaPaperclip className="text-gray-400" size={21} />
+    <input type="file" id="file-upload" onChange={handleFileUpload} className="hidden" />
   </label>
 )
 

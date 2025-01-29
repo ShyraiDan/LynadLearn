@@ -39,55 +39,58 @@ export default function ContactUsPage() {
         </div>
         <div className={styles.form}>
           <div className={`${styles['form-container']} dark:bg-[#1C213F]`}>
-            <form action='' onSubmit={handleSubmit(onSubmit)}>
+            <form action="" onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <Input
-                  type='text'
-                  name='userName'
-                  id='userName'
+                  type="text"
+                  name="userName"
+                  id="userName"
                   placeholder={t('Forms.enter_your_name')}
                   obj={register('userName', {
                     required: { value: true, message: t('Forms.name_required') }
-                  })}>
+                  })}
+                >
                   {t('Forms.user_name')}
                 </Input>
                 {errors?.userName && <p className={styles.error}>{errors.userName.message}</p>}
               </div>
               <div>
                 <Input
-                  type='email'
-                  name='email'
-                  id='email'
+                  type="email"
+                  name="email"
+                  id="email"
                   placeholder={t('Forms.enter_your_email')}
                   obj={register('email', {
                     required: { value: true, message: t('Forms.email_required') },
                     pattern: { value: /^\S+@\S+$/i, message: t('Forms.email_invalid') }
-                  })}>
+                  })}
+                >
                   {t('Forms.email')}
                 </Input>
                 {errors?.email && <p className={styles.error}>{errors.email.message}</p>}
               </div>
               <div>
                 <Input
-                  type='text'
-                  name='subject'
-                  id='subject'
+                  type="text"
+                  name="subject"
+                  id="subject"
                   placeholder={t('Forms.enter_subject')}
                   obj={register('subject', {
                     required: { value: true, message: t('Forms.subject_required') },
                     minLength: { value: 10, message: t('Forms.subject_minLength') }
-                  })}>
+                  })}
+                >
                   {t('Forms.subject')}
                 </Input>
                 {errors?.subject && <p className={styles.error}>{errors.subject.message}</p>}
               </div>
               <div>
-                <label className='dark:text-grey-600' htmlFor='message'>
+                <label className="dark:text-grey-600" htmlFor="message">
                   {t('Forms.message')}
                 </label>
                 <textarea
-                  className='dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600'
-                  id='message'
+                  className="dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600"
+                  id="message"
                   placeholder={t('Forms.enter_message')}
                   {...register('message', {
                     required: { value: true, message: t('Forms.message_required') },
@@ -96,7 +99,7 @@ export default function ContactUsPage() {
                 />
                 {errors?.message && <p className={styles.error}>{errors.message.message}</p>}
               </div>
-              <Button type='submit'>{t('Forms.submit')}</Button>
+              <Button type="submit">{t('Forms.submit')}</Button>
             </form>
           </div>
         </div>

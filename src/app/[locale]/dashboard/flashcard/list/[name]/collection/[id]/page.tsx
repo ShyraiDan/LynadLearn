@@ -152,7 +152,8 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
               <h2 className={twMerge(styles.title, 'dark:text-grey-600')}>{t('words_from', { list: list?.title })} </h2>
               <NavigationLink
                 className={twMerge(styles.link, 'dark:text-grey-600')}
-                href={`/dashboard/vocabulary/${listId}`}>
+                href={`/dashboard/vocabulary/${listId}`}
+              >
                 {t('view_list')}
               </NavigationLink>
             </div>
@@ -183,7 +184,8 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
                   1700: {
                     slidesPerView: 4
                   }
-                }}>
+                }}
+              >
                 {words.map((word, i) => (
                   <SwiperSlide key={i}>
                     {({ isActive }) => (
@@ -205,8 +207,8 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
 
         {!loading && !list && words.length === 0 && (
           <div className={styles['no-lists']}>
-            <p className='dark:!text-grey-600'>{t('no_lists')}</p>
-            <NavigationLink href='/dashboard/flashcard' className={styles.links}>
+            <p className="dark:!text-grey-600">{t('no_lists')}</p>
+            <NavigationLink href="/dashboard/flashcard" className={styles.links}>
               <TbCardsFilled />
               {t('move_flashcards')}
             </NavigationLink>
@@ -215,15 +217,16 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
 
         {!loading && list && words.length === 0 && (
           <div className={styles['no-lists']}>
-            <p className='dark:!text-grey-600'>{t('no_words')}</p>
-            <div className='flex gap-4'>
-              <NavigationLink href='/dashboard/flashcard' className={styles.links}>
+            <p className="dark:!text-grey-600">{t('no_words')}</p>
+            <div className="flex gap-4">
+              <NavigationLink href="/dashboard/flashcard" className={styles.links}>
                 <TbCardsFilled />
                 {t('move_flashcards')}
               </NavigationLink>
               <NavigationLink
                 href={`/dashboard/vocabulary/${listId}?sort=newest`}
-                className={twMerge(styles.links, 'min-w-[188px]')}>
+                className={twMerge(styles.links, 'min-w-[188px]')}
+              >
                 <TbVocabulary />
                 {t('move_list')}
               </NavigationLink>
@@ -238,12 +241,13 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
         <Modal
           className={twMerge(styles.finished, 'dark:bg-[#0B152E]')}
           isOpen={isFinished}
-          handleClose={() => showModal()}>
+          handleClose={() => showModal()}
+        >
           <div className={styles.modal}>
             <div>
               <div className={styles.top}>
-                <h3 className='dark:!text-grey-600'>{t('congrats')}</h3>
-                <p className='dark:text-grey-600'>
+                <h3 className="dark:!text-grey-600">{t('congrats')}</h3>
+                <p className="dark:text-grey-600">
                   {t('you_learned', {
                     words: initialWords
                   })}
@@ -251,7 +255,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
               </div>
               <div className={twMerge(styles['new-words'], 'dark:!bg-[#1D2D4D]')}>
                 <div className={styles.info}>
-                  <p className='dark:text-grey-600'>
+                  <p className="dark:text-grey-600">
                     {wrongWords.length === 0 ? t('no_difficult_words') : t('add_difficult_words')}
                   </p>
                   {wrongWords.length > 0 && (
@@ -260,7 +264,8 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
                         styles.btn,
                         'dark:!bg-blue-200 dark:!text-grey-600 dark:hover:!bg-purple-100 '
                       )}
-                      onClick={() => showAddWordsModal()}>
+                      onClick={() => showAddWordsModal()}
+                    >
                       <FaPlus size={20} />
                     </Button>
                   )}
@@ -269,7 +274,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
                   {wrongWords
                     .filter((word, index, self) => self.indexOf(word) === index)
                     .map((word, i) => (
-                      <li key={i} className='mb-2 dark:!bg-[#16274A] dark:text-grey-600'>
+                      <li key={i} className="mb-2 dark:!bg-[#16274A] dark:text-grey-600">
                         {word.word}
                       </li>
                     ))}
@@ -277,7 +282,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
               </div>
             </div>
             <div className={styles.bottom}>
-              <NavigationLink className={styles.link} href='/dashboard/flashcard'>
+              <NavigationLink className={styles.link} href="/dashboard/flashcard">
                 {t('to_flashcards')}
               </NavigationLink>
             </div>
@@ -286,7 +291,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
       )}
 
       {userListsModal && (
-        <Modal isOpen={userListsModal} className='dark:bg-[#0B152E]' handleClose={() => setUserListsModal(false)}>
+        <Modal isOpen={userListsModal} className="dark:bg-[#0B152E]" handleClose={() => setUserListsModal(false)}>
           <div className={styles['list-modal']}>
             <div>
               <h3 className={twMerge(styles.title, 'dark:text-grey-600')}>{t('modal.choose_list')}</h3>
@@ -299,7 +304,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
               </div>
             </div>
             <div className={styles.bottom}>
-              <NavigationLink className={styles.link} href='/dashboard/flashcard'>
+              <NavigationLink className={styles.link} href="/dashboard/flashcard">
                 {t('to_flashcards')}
               </NavigationLink>
             </div>

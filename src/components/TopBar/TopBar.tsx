@@ -12,7 +12,7 @@ export default function TopBar() {
       <div className={styles.container}>
         <div className={styles.filters}>
           <FilterWords />
-          <Input type='text' name='search' id='search' placeholder={t('search')} />
+          <Input type="text" name="search" id="search" placeholder={t('search')} />
         </div>
         <AddingWordForm />
       </div>

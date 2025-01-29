@@ -30,9 +30,9 @@ export default function Dictionary() {
           <div className={styles['input-container']}>
             <Input
               onChange={(e) => setSearch(e.target.value)}
-              type='text'
-              name='search'
-              id='search'
+              type="text"
+              name="search"
+              id="search"
               placeholder={t('search_word')}
             />
             <Button>
@@ -47,7 +47,7 @@ export default function Dictionary() {
           {search.length > 0 &&
             DWords.map((item, i) => {
               return (
-                <NavigationLink href={`/dictionary/about`} key={i}>
+                <NavigationLink href={'/dictionary/about'} key={i}>
                   <DictionaryCard key={item.word} word={item} />
                 </NavigationLink>
               )
@@ -60,12 +60,13 @@ export default function Dictionary() {
                     key={item.title}
                     className={`${styles.card} ${
                       i % 2 !== 0 && styles.expanded
-                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}>
+                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}
+                  >
                     <div>
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2 className='dark:text-grey-600'>{t(`cards.${item.title}`)}</h2>
+                      <h2 className="dark:text-grey-600">{t(`cards.${item.title}`)}</h2>
                     </div>
                   </div>
                 ))}
@@ -76,12 +77,13 @@ export default function Dictionary() {
                     key={item.title}
                     className={`${styles.card} ${
                       i % 2 === 0 && styles.expanded
-                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}>
+                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}
+                  >
                     <div>
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2 className='dark:text-grey-600'>{t(`cards.${item.title}`)}</h2>
+                      <h2 className="dark:text-grey-600">{t(`cards.${item.title}`)}</h2>
                     </div>
                   </div>
                 ))}
@@ -92,12 +94,13 @@ export default function Dictionary() {
                     key={item.title}
                     className={`${styles.card} ${
                       i % 2 !== 0 && styles.expanded
-                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}>
+                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}
+                  >
                     <div>
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2 className='dark:text-grey-600'>{t(`cards.${item.title}`)}</h2>
+                      <h2 className="dark:text-grey-600">{t(`cards.${item.title}`)}</h2>
                     </div>
                   </div>
                 ))}
@@ -108,12 +111,13 @@ export default function Dictionary() {
                     key={item.title}
                     className={`${styles.card} ${
                       i % 2 === 0 && styles.expanded
-                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}>
+                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}
+                  >
                     <div>
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2 className='dark:text-grey-600'>{t(`cards.${item.title}`)}</h2>
+                      <h2 className="dark:text-grey-600">{t(`cards.${item.title}`)}</h2>
                     </div>
                   </div>
                 ))}

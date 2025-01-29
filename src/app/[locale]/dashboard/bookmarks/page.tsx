@@ -26,7 +26,7 @@ async function Bookmarks({ params }: IBookmarksProps) {
     <>
       {DBookmarks.length > 0 && (
         <>
-          <h2 className='dark:text-grey-600'>{t('bookmarks')}</h2>
+          <h2 className="dark:text-grey-600">{t('bookmarks')}</h2>
           <div className={styles.bookmarks}>
             {DBookmarks.map((item) => (
               <BookmarkCard key={item.id} item={item} locale={locale} />
@@ -37,11 +37,11 @@ async function Bookmarks({ params }: IBookmarksProps) {
 
       {!DBookmarks.length && (
         <div className={styles['no-bookmarks']}>
-          <h3 className='dark:text-grey-600'>{t('no_bookmarks')}</h3>
-          <p className='dark:text-grey-600'>{t('no_bookmarks_description')}</p>
+          <h3 className="dark:text-grey-600">{t('no_bookmarks')}</h3>
+          <p className="dark:text-grey-600">{t('no_bookmarks_description')}</p>
           <div className={styles.links}>
-            <NavigationLink href='/dashboard/grammar'>{t('grammar')}</NavigationLink>
-            <NavigationLink href='/dashboard/lists'>{t('vocabulary')}</NavigationLink>
+            <NavigationLink href="/dashboard/grammar">{t('grammar')}</NavigationLink>
+            <NavigationLink href="/dashboard/lists">{t('vocabulary')}</NavigationLink>
           </div>
         </div>
       )}

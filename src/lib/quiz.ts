@@ -167,7 +167,7 @@ export const getVocabularyQuiz = async (words: IWord[], listId: string): Promise
   })
 
   return {
-    title: `Quiz`,
+    title: 'Quiz',
     questions
   }
 }

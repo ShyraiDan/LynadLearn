@@ -43,7 +43,7 @@ export default function DictionaryWordPage({ params }: IDictionaryWordPage) {
               </div>
             </div>
             <div className={styles.translation}>
-              <Image src={us} alt='us' className={styles.flag} />/{word.pronunciation}/
+              <Image src={us} alt="us" className={styles.flag} />/{word.pronunciation}/
             </div>
           </div>
           <div className={styles['lang-parts']}>
@@ -62,7 +62,7 @@ export default function DictionaryWordPage({ params }: IDictionaryWordPage) {
         <div className={styles.examples}>
           <div className={styles['examples-header']}>
             <div className={styles.title}>
-              <Image src={example} alt='example' />
+              <Image src={example} alt="example" />
               <h3>{t('nearby_words')}</h3>
             </div>
           </div>

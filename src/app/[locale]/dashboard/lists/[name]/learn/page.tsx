@@ -22,12 +22,14 @@ export default function LearnCategoryPage() {
       <div className={styles.switcher}>
         <Button
           className={twMerge(styles.btn, 'dark:!bg-[#1D2D4D] dark:!text-grey-600 dark:hover:!bg-purple-100')}
-          onClick={() => setWord(word - 1 < 0 ? 0 : word - 1)}>
+          onClick={() => setWord(word - 1 < 0 ? 0 : word - 1)}
+        >
           <IoIosArrowBack size={20} />
         </Button>
         <Button
           className={twMerge(styles.btn, 'dark:!bg-[#1D2D4D] dark:!text-grey-600 dark:hover:!bg-purple-100')}
-          onClick={() => setWord(word + 1 >= DWords.length - 1 ? DWords.length - 1 : word + 1)}>
+          onClick={() => setWord(word + 1 >= DWords.length - 1 ? DWords.length - 1 : word + 1)}
+        >
           <IoIosArrowForward size={20} />
         </Button>
       </div>

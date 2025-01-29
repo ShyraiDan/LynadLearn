@@ -12,7 +12,7 @@ interface IInput {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   value?: string
   checked?: boolean
-  obj?: Object
+  obj?: object
   labelStyles?: string
 }
 

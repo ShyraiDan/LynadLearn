@@ -23,39 +23,39 @@ export default function SideBar({ isAuth }: { isAuth: boolean }) {
       <ul>
         {isAuth && (
           <li>
-            <NavigationLink href='/dashboard/profile' className={`${page === 'profile' && styles.selected}`}>
+            <NavigationLink href="/dashboard/profile" className={`${page === 'profile' && styles.selected}`}>
               <FaUser /> {t('profile')}
             </NavigationLink>
           </li>
         )}
         {isAuth && (
           <li>
-            <NavigationLink href='/dashboard/bookmarks' className={`${page === 'bookmarks' && styles.selected}`}>
+            <NavigationLink href="/dashboard/bookmarks" className={`${page === 'bookmarks' && styles.selected}`}>
               <FaBookmark />
               {t('bookmarks')}
             </NavigationLink>
           </li>
         )}
         <li>
-          <NavigationLink href='/dashboard/lists' className={`${page === 'lists' && styles.selected}`}>
+          <NavigationLink href="/dashboard/lists" className={`${page === 'lists' && styles.selected}`}>
             <TbVocabulary />
             {t('vocabulary')}
           </NavigationLink>
         </li>
         <li>
-          <NavigationLink href='/dashboard/quiz?type=grammar' className={`${page === 'quiz' && styles.selected}`}>
+          <NavigationLink href="/dashboard/quiz?type=grammar" className={`${page === 'quiz' && styles.selected}`}>
             <BsQuestionSquareFill />
             {t('quiz')}
           </NavigationLink>
         </li>
         <li>
-          <NavigationLink href='/dashboard/grammar' className={`${page === 'grammar' && styles.selected}`}>
+          <NavigationLink href="/dashboard/grammar" className={`${page === 'grammar' && styles.selected}`}>
             <TbWriting />
             {t('grammar')}
           </NavigationLink>
         </li>
         <li>
-          <NavigationLink href='/dashboard/flashcard' className={`${page === 'flashcards' && styles.selected}`}>
+          <NavigationLink href="/dashboard/flashcard" className={`${page === 'flashcards' && styles.selected}`}>
             <TbCardsFilled />
             {t('flashcard')}
           </NavigationLink>

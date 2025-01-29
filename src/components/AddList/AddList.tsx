@@ -74,8 +74,9 @@ export default function AddList() {
         allowedAction={() => {
           setAuthModal(true)
           handleClose()
-        }}>
-        <p className='text-center font-bold'>In order to add list you must sign in to your account</p>
+        }}
+      >
+        <p className="text-center font-bold">In order to add list you must sign in to your account</p>
       </RequireAuthModal>
 
       <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />
@@ -84,25 +85,27 @@ export default function AddList() {
         <Modal
           isOpen={isAdding}
           className={twMerge(styles['add-list'], 'dark:bg-[#0B152E]')}
-          handleClose={() => openModal()}>
+          handleClose={() => openModal()}
+        >
           <form className={styles['list-form']} onSubmit={handleSubmit(onSubmit)}>
             <div className={twMerge(styles.photo, styles['add-photo'], 'dark:bg-[#233869] dark:shadow-lg')}>
               <FaPlus />
             </div>
             <Input
-              type='text'
-              name='title'
-              id='title'
+              type="text"
+              name="title"
+              id="title"
               placeholder={t('enter_list_name')}
               obj={register('title', {
                 required: { value: true, message: t('list_name_required') },
                 minLength: { value: 3, message: t('list_name_minLength') },
                 maxLength: { value: 30, message: t('list_name_maxLength') }
-              })}>
+              })}
+            >
               {t('list_name')}
             </Input>
             {errors?.title && <p className={styles.error}>{errors.title.message}</p>}
-            <Button type='submit'>{t('create_list')}</Button>
+            <Button type="submit">{t('create_list')}</Button>
           </form>
         </Modal>
       )}

@@ -79,12 +79,12 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
       {words && !isQuiz && (
         <>
           <div className={styles.container}>
-            <h1 className='dark:text-grey-600'>{t('vocabulary_quiz')}</h1>
+            <h1 className="dark:text-grey-600">{t('vocabulary_quiz')}</h1>
             <div>
-              <Button className='dark:border-none' onClick={() => startQuiz()}>
+              <Button className="dark:border-none" onClick={() => startQuiz()}>
                 {t('start_quiz')}
               </Button>
-              <NavigationLink href='/dashboard/quiz'>{t('to_quiz')}</NavigationLink>
+              <NavigationLink href="/dashboard/quiz">{t('to_quiz')}</NavigationLink>
             </div>
           </div>
         </>
@@ -119,7 +119,7 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
         <div className={styles.container}>
           <div className={styles['no-quiz']}>
             <h3 className={twMerge(styles.title, 'dark:!text-grey-600')}>{t('no_quiz')}</h3>
-            <NavigationLink className={styles.link} href='/dashboard/quiz?type=vocabulary'>
+            <NavigationLink className={styles.link} href="/dashboard/quiz?type=vocabulary">
               {t('move_to_quizzes')}
             </NavigationLink>
           </div>
@@ -129,7 +129,8 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
       <Modal
         className={twMerge(styles['no-time-modal'], 'dark:bg-[#0B152E]')}
         isOpen={isTimeExpired}
-        handleClose={() => showModal()}>
+        handleClose={() => showModal()}
+      >
         <div className={styles.modal}>
           <h3 className={twMerge(styles['modal-title'], 'dark:text-grey-600')}>
             {t('no_time')}
@@ -142,12 +143,13 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
             })}
           </h3>
           <div className={styles['nav-btns']}>
-            <NavigationLink className={styles.link} href='/dashboard/quiz?type=vocabulary'>
+            <NavigationLink className={styles.link} href="/dashboard/quiz?type=vocabulary">
               {t('go_to_quiz')}
             </NavigationLink>
             <Button
-              className='!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red'
-              onClick={() => returnToQuiz()}>
+              className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
+              onClick={() => returnToQuiz()}
+            >
               {t('back')}
             </Button>
           </div>
@@ -157,10 +159,11 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
       <Modal
         className={twMerge(styles['no-time-modal'], 'dark:bg-[#0B152E]')}
         isOpen={isFinished}
-        handleClose={() => returnToQuiz()}>
+        handleClose={() => returnToQuiz()}
+      >
         <div className={styles.modal}>
           <h3 className={twMerge(styles['modal-title'], 'dark:text-grey-600')}>{t('finished_quiz')}</h3>
-          <p className='dark:text-grey-600'>
+          <p className="dark:text-grey-600">
             {t('result_quiz', {
               correct: correct,
               length: vocabularyQuiz?.questions.length,
@@ -169,12 +172,13 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
             })}
           </p>
           <div className={twMerge(styles['nav-btns'], 'mt-3')}>
-            <NavigationLink className={styles.link} href='/dashboard/quiz?type=vocabulary'>
+            <NavigationLink className={styles.link} href="/dashboard/quiz?type=vocabulary">
               {t('go_to_quiz')}
             </NavigationLink>
             <Button
-              className='!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red'
-              onClick={() => returnToQuiz()}>
+              className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
+              onClick={() => returnToQuiz()}
+            >
               {t('back')}
             </Button>
           </div>

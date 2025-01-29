@@ -96,12 +96,13 @@ export default function GrammarQuiz({
                   <>
                     <div className={styles.option} key={`${item.option}-${i}`}>
                       <Input
-                        type='radio'
-                        name='option'
+                        type="radio"
+                        name="option"
                         id={`option-${i}`}
                         onChange={() => setSelectedOption(item.correct)}
                         value={item.option}
-                        labelStyles='!mb-0 text-blue-200 sm:text-lg dark:text-grey-600'>
+                        labelStyles="!mb-0 text-blue-200 sm:text-lg dark:text-grey-600"
+                      >
                         {item.option}
                       </Input>
                     </div>

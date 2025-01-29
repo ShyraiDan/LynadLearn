@@ -135,68 +135,70 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
 
   return (
     <>
-      <div className='p-4 h-full overflow-y-auto'>
-        <h1 className='text-center text-xl font-bold'>{data ? 'Edit' : 'Add'} grammar topic</h1>
-        <form action='' onSubmit={handleSubmit(onSubmit)}>
-          <div className='mb-4'>
+      <div className="p-4 h-full overflow-y-auto">
+        <h1 className="text-center text-xl font-bold">{data ? 'Edit' : 'Add'} grammar topic</h1>
+        <form action="" onSubmit={handleSubmit(onSubmit)}>
+          <div className="mb-4">
             <Controller
-              name='title'
+              name="title"
               control={control}
               rules={{ required: { value: true, message: 'required' } }}
               render={({ field }) => (
-                <Input type='text' id='title' placeholder='Enter title' {...field}>
+                <Input type="text" id="title" placeholder="Enter title" {...field}>
                   Grammar topic title
                 </Input>
               )}
             />
 
-            {errors?.title && <p className='text-red'>{errors.title.message}</p>}
+            {errors?.title && <p className="text-red">{errors.title.message}</p>}
           </div>
-          <div className='mb-4'>
+          <div className="mb-4">
             <Controller
-              name='titleUa'
+              name="titleUa"
               control={control}
               rules={{ required: { value: true, message: 'required' } }}
               render={({ field }) => (
-                <Input type='text' id='titleUa' placeholder='Enter Ukrainian title' {...field}>
+                <Input type="text" id="titleUa" placeholder="Enter Ukrainian title" {...field}>
                   Ukrainian grammar topic title
                 </Input>
               )}
             />
-            {errors?.title && <p className='text-red'>{errors.title.message}</p>}
+            {errors?.title && <p className="text-red">{errors.title.message}</p>}
           </div>
 
-          <label htmlFor='level' className='block font-semibold mb-2 dark:text-grey-600'>
+          <label htmlFor="level" className="block font-semibold mb-2 dark:text-grey-600">
             Grammar topic level
           </label>
           <select
-            id='level'
+            id="level"
             value={level}
             onChange={(e) => setLevel(e.target.value)}
-            className='font-medium text-blue-350 opacity-90 px-3 py-1.5 rounded border border-grey-400 w-full mb-4 dark:bg-[#17294c] dark:ml-[1px] dark:!border-[#ffffff20] dark:!text-grey-600'>
-            <option value='A1-A2'>Pre-Intermediate</option>
-            <option value='B1'>Intermediate</option>
-            <option value='B2'>Upper-Intermediate</option>
-            <option value='C1'>Advanced</option>
-            <option value='C2'>Proficiency</option>
+            className="font-medium text-blue-350 opacity-90 px-3 py-1.5 rounded border border-grey-400 w-full mb-4 dark:bg-[#17294c] dark:ml-[1px] dark:!border-[#ffffff20] dark:!text-grey-600"
+          >
+            <option value="A1-A2">Pre-Intermediate</option>
+            <option value="B1">Intermediate</option>
+            <option value="B2">Upper-Intermediate</option>
+            <option value="C1">Advanced</option>
+            <option value="C2">Proficiency</option>
           </select>
 
-          <p className='font-semibold mb-2 dark:text-grey-600'>Enter description</p>
+          <p className="font-semibold mb-2 dark:text-grey-600">Enter description</p>
 
           {descriptionFields.map((item, i) => (
             <div
-              className='bg-[#F7F9FC] rounded-3xl shadow-md w-full px-2 py-4 mb-2 sm:px-4 md:px-8 md:py-6 dark:!bg-[#1D2D4D]'
-              key={'paragraph-' + i}>
-              <div className='flex justify-between mb-2'>
-                <p className='font-semibold dark:text-grey-600'>Paragraph {i + 1}</p>
+              className="bg-[#F7F9FC] rounded-3xl shadow-md w-full px-2 py-4 mb-2 sm:px-4 md:px-8 md:py-6 dark:!bg-[#1D2D4D]"
+              key={'paragraph-' + i}
+            >
+              <div className="flex justify-between mb-2">
+                <p className="font-semibold dark:text-grey-600">Paragraph {i + 1}</p>
                 {i !== isEditDescription && (
-                  <div className='flex gap-4 items-center'>
+                  <div className="flex gap-4 items-center">
                     <MdEdit
-                      className='cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-purple-100 dark:hover:fill-purple-100'
+                      className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-purple-100 dark:hover:fill-purple-100"
                       onClick={() => setEditDescription(i)}
                     />
                     <FaTrash
-                      className='cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-red dark:hover:fill-red'
+                      className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-red dark:hover:fill-red"
                       onClick={() => descriptionRemove(i)}
                     />
                   </div>
@@ -205,12 +207,12 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
 
               {i !== isEditDescription ? (
                 <>
-                  <p className='my-2 dark:text-grey-600'>{item.en}</p>
-                  <p className='my-2 dark:text-grey-600'>{item.ua}</p>
+                  <p className="my-2 dark:text-grey-600">{item.en}</p>
+                  <p className="my-2 dark:text-grey-600">{item.ua}</p>
                 </>
               ) : (
                 <>
-                  <label htmlFor='grammar-description' className='font-semibold my-2 dark:text-grey-600'>
+                  <label htmlFor="grammar-description" className="font-semibold my-2 dark:text-grey-600">
                     Enter description
                   </label>
                   <Controller
@@ -218,14 +220,14 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                     control={control}
                     render={({ field }) => (
                       <TextArea
-                        id='grammar-description'
-                        placeholder='Enter description'
-                        className='!border !border-solid !border-grey-400 my-2 font-medium text-blue-350 opacity-90 px-3 py-1.5 rounded w-full dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600'
+                        id="grammar-description"
+                        placeholder="Enter description"
+                        className="!border !border-solid !border-grey-400 my-2 font-medium text-blue-350 opacity-90 px-3 py-1.5 rounded w-full dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600"
                         {...field}
                       />
                     )}
                   />
-                  <label htmlFor='grammar-description-ua' className='font-semibold my-2 dark:text-grey-600'>
+                  <label htmlFor="grammar-description-ua" className="font-semibold my-2 dark:text-grey-600">
                     Enter ukrainian description
                   </label>
                   <Controller
@@ -233,16 +235,16 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                     control={control}
                     render={({ field }) => (
                       <TextArea
-                        id='grammar-description-ua'
-                        placeholder='Enter ukrainian description'
-                        className='!border !border-solid !border-grey-400 my-2 font-medium text-blue-350 opacity-90 px-3 py-1.5 rounded w-full dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600'
+                        id="grammar-description-ua"
+                        placeholder="Enter ukrainian description"
+                        className="!border !border-solid !border-grey-400 my-2 font-medium text-blue-350 opacity-90 px-3 py-1.5 rounded w-full dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600"
                         {...field}
                       />
                     )}
                   />
-                  <div className='flex gap-4'>
+                  <div className="flex gap-4">
                     <Button
-                      type='button'
+                      type="button"
                       onClick={() => {
                         const { en, ua, id } = getValues(`data.description.${i}`)
 
@@ -252,18 +254,20 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                         setEditDescription(null)
                         // TODO: Add a function for saving edited description add an error when the eng and ua value is empty
                       }}
-                      className='!rounded-md'>
+                      className="!rounded-md"
+                    >
                       Confirm
                     </Button>
                     <Button
-                      type='button'
-                      className='!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red'
+                      type="button"
+                      className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
                       onClick={() => {
                         if (!descriptionFields[i].en || !descriptionFields[i].ua) {
                           descriptionRemove(i)
                         }
                         setEditDescription(null)
-                      }}>
+                      }}
+                    >
                       Cancel
                     </Button>
                   </div>
@@ -273,32 +277,34 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
           ))}
 
           <Button
-            type='button'
-            className='w-full !rounded mb-4'
+            type="button"
+            className="w-full !rounded mb-4"
             onClick={() => {
               const lastDescription = descriptionFields.at(-1)
 
               if (!lastDescription || lastDescription.en !== '' || lastDescription.ua !== '') {
                 handleAddParagraph()
               }
-            }}>
+            }}
+          >
             Add paragraph
           </Button>
 
           {ruleFields.map((example, i) => (
             <div
-              className='bg-[#F7F9FC] rounded-3xl shadow-md w-full px-2 py-4 mb-2 sm:px-4 md:px-8 md:py-6 dark:!bg-[#1D2D4D]'
-              key={`rule-${i}`}>
-              <div className='flex justify-between mb-2'>
-                <p className='font-semibold dark:text-grey-600'>Rule {i + 1}</p>
+              className="bg-[#F7F9FC] rounded-3xl shadow-md w-full px-2 py-4 mb-2 sm:px-4 md:px-8 md:py-6 dark:!bg-[#1D2D4D]"
+              key={`rule-${i}`}
+            >
+              <div className="flex justify-between mb-2">
+                <p className="font-semibold dark:text-grey-600">Rule {i + 1}</p>
                 {isEditRule !== i && (
-                  <div className='flex gap-4 items-center'>
+                  <div className="flex gap-4 items-center">
                     <MdEdit
-                      className='cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-purple-100 dark:hover:fill-purple-100'
+                      className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-purple-100 dark:hover:fill-purple-100"
                       onClick={() => setEditRule(i)}
                     />
                     <FaTrash
-                      className='cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-red dark:hover:fill-red'
+                      className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-red dark:hover:fill-red"
                       onClick={() => ruleRemove(i)}
                     />
                   </div>
@@ -306,12 +312,12 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
               </div>
               {isEditRule !== i ? (
                 <>
-                  <p className='font-semibold my-2 dark:text-grey-600'>Title</p>
-                  <p className='my-2 dark:text-grey-600'>{example.title}</p>
-                  <p className='my-2 dark:text-grey-600'>{example.titleUa}</p>
-                  <p className='font-semibold my-2 dark:text-grey-600'>Description</p>
-                  <p className='my-2 dark:text-grey-600'>{example.description}</p>
-                  <p className='my-2 dark:text-grey-600'>{example.descriptionUa}</p>
+                  <p className="font-semibold my-2 dark:text-grey-600">Title</p>
+                  <p className="my-2 dark:text-grey-600">{example.title}</p>
+                  <p className="my-2 dark:text-grey-600">{example.titleUa}</p>
+                  <p className="font-semibold my-2 dark:text-grey-600">Description</p>
+                  <p className="my-2 dark:text-grey-600">{example.description}</p>
+                  <p className="my-2 dark:text-grey-600">{example.descriptionUa}</p>
                 </>
               ) : (
                 <>
@@ -319,24 +325,24 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                     name={`data.example.${i}.title`}
                     control={control}
                     render={({ field }) => (
-                      <Input type='text' id='rule-title' placeholder='Enter title' {...field}>
+                      <Input type="text" id="rule-title" placeholder="Enter title" {...field}>
                         Enter rule title
                       </Input>
                     )}
                   />
 
-                  <div className='mt-2 mb-4'>
+                  <div className="mt-2 mb-4">
                     <Controller
                       name={`data.example.${i}.titleUa`}
                       control={control}
                       render={({ field }) => (
-                        <Input type='text' id='rule-title-ua' placeholder='Enter ukrainian title' {...field}>
+                        <Input type="text" id="rule-title-ua" placeholder="Enter ukrainian title" {...field}>
                           Enter ukrainian rule title
                         </Input>
                       )}
                     />
                   </div>
-                  <label htmlFor='rule-description' className='font-semibold my-2 dark:text-grey-600'>
+                  <label htmlFor="rule-description" className="font-semibold my-2 dark:text-grey-600">
                     Enter description
                   </label>
                   <Controller
@@ -344,14 +350,14 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                     control={control}
                     render={({ field }) => (
                       <TextArea
-                        placeholder='Enter description'
-                        id='rule-description'
-                        className='!border !border-solid !border-grey-400 my-2 font-medium text-blue-350 opacity-90 px-3 py-1.5 rounded w-full dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600'
+                        placeholder="Enter description"
+                        id="rule-description"
+                        className="!border !border-solid !border-grey-400 my-2 font-medium text-blue-350 opacity-90 px-3 py-1.5 rounded w-full dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600"
                         {...field}
                       />
                     )}
                   />
-                  <label htmlFor='rule-description-ua' className='font-semibold my-2 dark:text-grey-600'>
+                  <label htmlFor="rule-description-ua" className="font-semibold my-2 dark:text-grey-600">
                     Enter ukrainian description
                   </label>
                   <Controller
@@ -359,17 +365,17 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                     control={control}
                     render={({ field }) => (
                       <TextArea
-                        placeholder='Enter ukrainian description'
-                        id='rule-description-ua'
-                        className='!border !border-solid !border-grey-400 my-2 font-medium text-blue-350 opacity-90 px-3 py-1.5 rounded w-full dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600'
+                        placeholder="Enter ukrainian description"
+                        id="rule-description-ua"
+                        className="!border !border-solid !border-grey-400 my-2 font-medium text-blue-350 opacity-90 px-3 py-1.5 rounded w-full dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600"
                         {...field}
                       />
                     )}
                   />
-                  <div className='flex gap-4 mb-4'>
+                  <div className="flex gap-4 mb-4">
                     <Button
-                      type='button'
-                      className='!rounded-md'
+                      type="button"
+                      className="!rounded-md"
                       onClick={() => {
                         const currentValues = getValues(`data.example.${i}`)
 
@@ -391,12 +397,13 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                         setEditRule(null)
 
                         // TODO: Add a function for saving edited example rule add an error when the eng and ua value is empty
-                      }}>
+                      }}
+                    >
                       Confirm
                     </Button>
                     <Button
-                      type='button'
-                      className='!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red'
+                      type="button"
+                      className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
                       onClick={() => {
                         if (
                           !ruleFields[i].title ||
@@ -407,7 +414,8 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                           ruleRemove(i)
                         }
                         setEditRule(null)
-                      }}>
+                      }}
+                    >
                       Cancel
                     </Button>
                   </div>
@@ -418,13 +426,13 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                 const isCurrentItem = isEditExample?.example === k && isEditExample?.rule === i
 
                 return (
-                  <div key={`rule-${i}-example-${k}`} className='bg-[#e4eefc] p-4 mb-4 rounded-md dark:!bg-[#16274A]'>
-                    <div className='flex justify-between mb-2'>
-                      <p className='font-semibold dark:text-grey-600'>Example {k + 1}</p>
+                  <div key={`rule-${i}-example-${k}`} className="bg-[#e4eefc] p-4 mb-4 rounded-md dark:!bg-[#16274A]">
+                    <div className="flex justify-between mb-2">
+                      <p className="font-semibold dark:text-grey-600">Example {k + 1}</p>
                       {!isCurrentItem && (
-                        <div className='flex gap-4 items-center'>
+                        <div className="flex gap-4 items-center">
                           <MdEdit
-                            className='cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-purple-100 dark:hover:fill-purple-100'
+                            className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-purple-100 dark:hover:fill-purple-100"
                             onClick={() => {
                               setEditExample({
                                 example: k,
@@ -433,7 +441,7 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                             }}
                           />
                           <FaTrash
-                            className='cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-red dark:hover:fill-red'
+                            className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-red dark:hover:fill-red"
                             onClick={() => {
                               const currentRule = getValues(`data.example.${i}`)
 
@@ -448,17 +456,17 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                     </div>
                     {!isCurrentItem ? (
                       <>
-                        <p className='my-2 dark:text-grey-600'>{item.exampleEn}</p>
-                        <p className='my-2 dark:text-grey-600'>{item.exampleUa}</p>
+                        <p className="my-2 dark:text-grey-600">{item.exampleEn}</p>
+                        <p className="my-2 dark:text-grey-600">{item.exampleUa}</p>
                       </>
                     ) : (
                       <>
-                        <div className='mb-2'>
+                        <div className="mb-2">
                           <Controller
                             name={`data.example.${i}.examples.${k}.exampleEn`}
                             control={control}
                             render={({ field }) => (
-                              <Input type='text' id='example-en' placeholder='Enter title' {...field}>
+                              <Input type="text" id="example-en" placeholder="Enter title" {...field}>
                                 Enter example
                               </Input>
                             )}
@@ -468,15 +476,15 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                           name={`data.example.${i}.examples.${k}.exampleUa`}
                           control={control}
                           render={({ field }) => (
-                            <Input type='text' id='example-ua' placeholder='Enter ukrainian title' {...field}>
+                            <Input type="text" id="example-ua" placeholder="Enter ukrainian title" {...field}>
                               Enter ukrainian example
                             </Input>
                           )}
                         />
-                        <div className='flex gap-4 mt-2'>
+                        <div className="flex gap-4 mt-2">
                           <Button
-                            type='button'
-                            className='!rounded-md'
+                            type="button"
+                            className="!rounded-md"
                             onClick={() => {
                               const currentRule = getValues(`data.example.${i}`)
                               const currentValues = getValues(`data.example.${i}.examples.${k}`)
@@ -492,12 +500,13 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                               })
                               setEditExample(null)
                               // TODO: Add a function for saving edited description add an error when the eng and ua value is empty
-                            }}>
+                            }}
+                          >
                             Confirm
                           </Button>
                           <Button
-                            type='button'
-                            className='!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red'
+                            type="button"
+                            className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
                             onClick={() => {
                               const currentRule = getValues(`data.example.${i}`)
                               const currentValues = getValues(`data.example.${i}.examples.${k}`)
@@ -508,7 +517,8 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                                 })
                               }
                               setEditExample(null)
-                            }}>
+                            }}
+                          >
                             Cancel
                           </Button>
                         </div>
@@ -518,8 +528,8 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                 )
               })}
               <Button
-                type='button'
-                className='w-full !rounded mb-4'
+                type="button"
+                className="w-full !rounded mb-4"
                 onClick={() => {
                   const currentRule = getValues(`data.example.${i}`)
                   if (
@@ -534,15 +544,16 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                     examples: [...currentRule.examples, item]
                   })
                   setEditExample({ example: currentRule.examples.length, rule: i })
-                }}>
+                }}
+              >
                 Add Example
               </Button>
             </div>
           ))}
 
           <Button
-            type='button'
-            className='w-full !rounded my-4'
+            type="button"
+            className="w-full !rounded my-4"
             onClick={() => {
               const lastItem = ruleFields.at(-1)
 
@@ -555,31 +566,33 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
               ) {
                 handleAddRule()
               }
-            }}>
+            }}
+          >
             Add Rule
           </Button>
 
           {!isQuizOpen ? (
-            <Button type='button' className='w-full !rounded my-4' onClick={() => setQuizOpen(true)}>
+            <Button type="button" className="w-full !rounded my-4" onClick={() => setQuizOpen(true)}>
               Show Quiz
             </Button>
           ) : (
             <AdminEditQuiz quizId={data?.quizId} setQuizId={setQuizId} handleClose={() => setQuizOpen(false)} />
           )}
 
-          <div className='flex gap-4'>
-            <Button className='!rounded' type='submit'>
+          <div className="flex gap-4">
+            <Button className="!rounded" type="submit">
               {data ? 'Update' : 'Create'}
             </Button>
             <Link
               href={data ? `/admin/dashboard/grammar/${data._id}` : '/admin/dashboard/grammar'}
-              className='font-bold transition-all ease-in duration-150 !bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red'
+              className="font-bold transition-all ease-in duration-150 !bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
               onClick={() => {
                 setEditDescription(null)
                 setEditRule(null)
                 setEditExample(null)
                 // showModal()
-              }}>
+              }}
+            >
               Cancel
             </Link>
           </div>

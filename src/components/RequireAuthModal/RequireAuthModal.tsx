@@ -13,15 +13,16 @@ export const RequireAuthModal = ({ isOpen, handleClose, allowedAction, children 
   return (
     <Modal
       isOpen={isOpen}
-      className='sm:h-[200px] sm:w-[475px] sm:self-center sm:justify-self-center'
-      handleClose={handleClose}>
+      className="sm:h-[200px] sm:w-[475px] sm:self-center sm:justify-self-center"
+      handleClose={handleClose}
+    >
       <div>
         {children}
-        <div className='grid grid-cols-2 mt-6 gap-3 items-center'>
-          <Button className='!rounded' onClick={allowedAction}>
+        <div className="grid grid-cols-2 mt-6 gap-3 items-center">
+          <Button className="!rounded" onClick={allowedAction}>
             Sign in
           </Button>
-          <Button outline className='!rounded' onClick={handleClose}>
+          <Button outline className="!rounded" onClick={handleClose}>
             Cancel
           </Button>
         </div>

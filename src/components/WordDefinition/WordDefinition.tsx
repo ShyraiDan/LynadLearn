@@ -61,25 +61,26 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
           <div key={word._id}>
             <div
               className={twMerge(styles.row, 'dark:bg-[#1D2D4D] dark:hover:bg-purple-100')}
-              onClick={(e) => showModal(e, word)}>
-              <div className='lowercase dark:text-grey-600'>{word.word}</div>
-              <div className='lowercase dark:text-grey-600'>
+              onClick={(e) => showModal(e, word)}
+            >
+              <div className="lowercase dark:text-grey-600">{word.word}</div>
+              <div className="lowercase dark:text-grey-600">
                 {[...new Set(word.results?.map((result) => result.part_of_speech))].join(', ')}
               </div>
-              <div className='lowercase dark:text-grey-600'>{word.results[0]?.definition}</div>
-              <div className='lowercase dark:text-grey-600'>
+              <div className="lowercase dark:text-grey-600">{word.results[0]?.definition}</div>
+              <div className="lowercase dark:text-grey-600">
                 {[...new Set([word.results?.map((result) => result.synonyms)].flat(2))].slice(0, 5).join(', ')}
               </div>
-              <div className='lowercase dark:text-grey-600'>{word.translation.ua.join(', ')}</div>
-              <div className='lowercase dark:text-grey-600'>{word.pronunciation}</div>
-              <div className='dark:text-grey-600'>{word.results[0]?.examples.join(', ')}</div>
+              <div className="lowercase dark:text-grey-600">{word.translation.ua.join(', ')}</div>
+              <div className="lowercase dark:text-grey-600">{word.pronunciation}</div>
+              <div className="dark:text-grey-600">{word.results[0]?.examples.join(', ')}</div>
             </div>
           </div>
         )
       })}
 
       {open && word && (
-        <Modal className='dark:bg-[#0B152E]' isOpen={open} handleClose={(e) => e && showModal(e, null)}>
+        <Modal className="dark:bg-[#0B152E]" isOpen={open} handleClose={(e) => e && showModal(e, null)}>
           <div className={styles.modal}>
             <div className={styles['col-1']}>
               <div>
@@ -88,19 +89,19 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
                     <div className={twMerge(styles['word-section'], 'dark:text-grey-600')}>{word.word}</div>
                     <div className={styles['word-modal']}>
                       <MdEdit
-                        className='cursor-pointer transition-all duration-300 hover:text-purple-100 dark:text-grey-600 dark:hover:text-purple-100'
+                        className="cursor-pointer transition-all duration-300 hover:text-purple-100 dark:text-grey-600 dark:hover:text-purple-100"
                         onClick={(e) => showEditModal(e)}
-                        size='16px'
+                        size="16px"
                       />
                       <FaTrash
-                        className='cursor-pointer transition-all duration-300 hover:text-red dark:text-grey-600 '
+                        className="cursor-pointer transition-all duration-300 hover:text-red dark:text-grey-600 "
                         onClick={(e) => showDeleteModal(e)}
                       />
                     </div>
                   </div>
                   {word.pronunciation && (
                     <div className={twMerge(styles.translation, 'dark:text-grey-600')}>
-                      <Image src={us} alt='us' className={styles.flag} />/{word.pronunciation}/
+                      <Image src={us} alt="us" className={styles.flag} />/{word.pronunciation}/
                     </div>
                   )}
                 </div>
@@ -128,7 +129,7 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
       )}
 
       {isEdit && word && (
-        <Modal className='dark:bg-[#0B152E]' isOpen={isEdit} handleClose={(e) => showEditModal(e)}>
+        <Modal className="dark:bg-[#0B152E]" isOpen={isEdit} handleClose={(e) => showEditModal(e)}>
           <WordModal handleClose={(e) => showEditModal(e)} word={word} />
         </Modal>
       )}
@@ -137,14 +138,16 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
         <Modal
           className={twMerge(styles['delete-modal'], 'dark:bg-[#0B152E]')}
           isOpen={isDelete}
-          handleClose={(e) => showDeleteModal(e)}>
+          handleClose={(e) => showDeleteModal(e)}
+        >
           <div className={styles.delete}>
-            <h6 className='dark:text-grey-600'>{t('really_delete')}</h6>
+            <h6 className="dark:text-grey-600">{t('really_delete')}</h6>
             <div className={styles.btns}>
               <Button onClick={() => deleteWord(word)}>{t('delete')}</Button>
               <Button
-                className='!bg-transparent border border-solid border-blue-200 !text-blue-200 !rounded-md hover:border-red hover:!text-red'
-                onClick={(e) => showDeleteModal(e)}>
+                className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !rounded-md hover:border-red hover:!text-red"
+                onClick={(e) => showDeleteModal(e)}
+              >
                 {t('cancel')}
               </Button>
             </div>

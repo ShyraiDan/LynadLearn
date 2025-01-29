@@ -19,16 +19,16 @@ export default function PricingCard({ data }: { data: IPricing }) {
   return (
     <div className={`${styles.card} dark:bg-[#111C38]`}>
       <div>
-        <h6 className='dark:text-grey-600'>{`${
+        <h6 className="dark:text-grey-600">{`${
           data.duration === 'years' ? '3 ' : data.duration === 'year' ? '1 ' : ''
         }${t(data.duration)}`}</h6>
         <div className={styles.title}>
-          <h3 className='dark:text-grey-600'>{data.price === 'free' ? t(data.price) : data.price}</h3>{' '}
+          <h3 className="dark:text-grey-600">{data.price === 'free' ? t(data.price) : data.price}</h3>{' '}
           {data.previousPrice && <span>{data.previousPrice}</span>}
         </div>
         <ul>
           {data.advantages.map((item) => (
-            <li key={item.text} className='dark:text-grey-600'>
+            <li key={item.text} className="dark:text-grey-600">
               {item.icon === 'return' ? (
                 <TbZoomMoney />
               ) : item.icon === 'percent' ? (
@@ -47,27 +47,28 @@ export default function PricingCard({ data }: { data: IPricing }) {
           data.price === 'free' &&
             '!bg-transparent !text-blue-200 !border !border-solid !border-blue-200 !hover:bg-transparent !hover:border-purple-100 !hover:text-purple-100'
         )}
-        disabled={data.price === 'free'}>
+        disabled={data.price === 'free'}
+      >
         {data.price === 'free' ? t('current') : t('sign_in')}
       </AuthModalButton>
 
       {data.duration === 'year' && (
         <div className={styles.popular}>
-          <Image src={MostPopular} alt='' />
+          <Image src={MostPopular} alt="" />
           <p>{t('most_popular')}</p>
         </div>
       )}
 
       {data.previousPrice && (
         <div className={styles.discount}>
-          <Image src={Discount} alt='' />
+          <Image src={Discount} alt="" />
           <p>30%</p>
         </div>
       )}
 
       {data.duration === 'years' && (
         <div className={styles.best}>
-          <Image src={BestOffer} alt='' />
+          <Image src={BestOffer} alt="" />
           <p className={`${localActive === 'ua' && styles.changed}`}>{t('best_offer')}</p>
         </div>
       )}

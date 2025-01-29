@@ -47,63 +47,67 @@ export default function ProfileEditModal({ session }: { session: ISession }) {
   return (
     <>
       <div className={twMerge(styles['edit-profile'], 'dark:bg-[#1D2D4D]')} onClick={() => openEditModal()}>
-        <MdModeEdit className='dark:fill-grey-600' />
+        <MdModeEdit className="dark:fill-grey-600" />
       </div>
 
       {showEditModal && (
         <Modal
           isOpen={showEditModal}
           className={twMerge(styles['edit-modal'], 'dark:bg-[#0B152E]')}
-          handleClose={() => openEditModal()}>
+          handleClose={() => openEditModal()}
+        >
           <h3 className={twMerge(styles.title, 'dark:text-grey-600')}>{t('edit_profile')}</h3>
-          <form action='' className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+          <form action="" className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.photo}>
               <div className={twMerge(styles['user-photo'], 'dark:bg-[#1D2D4D]')}>
-                <FaUser className='dark:fill-grey-600' />
+                <FaUser className="dark:fill-grey-600" />
                 <div className={styles.edit}>
-                  <MdModeEdit className='dark:fill-grey-600' />
+                  <MdModeEdit className="dark:fill-grey-600" />
                 </div>
               </div>
             </div>
             <h5 className={twMerge(styles.subtitle, 'dark:text-grey-600')}>{t('personal_info')}</h5>
             <div className={styles['input-container']}>
               <Input
-                type='text'
-                name='userName'
-                id='userName'
+                type="text"
+                name="userName"
+                id="userName"
                 placeholder={t('enter_your_name')}
                 obj={register('userName', {
                   required: { value: true, message: t('name_required') },
                   minLength: { value: 3, message: t('name_minLength') },
                   maxLength: { value: 20, message: t('name_maxLength') }
-                })}>
+                })}
+              >
                 {t('name')}
               </Input>
               {errors?.userName && <p className={styles.error}>{errors.userName.message}</p>}
             </div>
             <div className={styles['input-container']}>
               <Input
-                type='text'
-                name='description'
-                id='description'
+                type="text"
+                name="description"
+                id="description"
                 placeholder={t('enter_your_description')}
-                obj={register('description')}>
+                obj={register('description')}
+              >
                 {t('description')}
               </Input>
               {errors?.description && <p className={styles.error}>{errors.description.message}</p>}
             </div>
             <div className={styles['input-container']}>
               <Input
-                type='text'
-                name='location'
-                id='location'
+                type="text"
+                name="location"
+                id="location"
                 placeholder={t('enter_your_location')}
-                obj={register('location')}>
+                obj={register('location')}
+              >
                 {t('location')}
               </Input>
               {errors?.location && <p className={styles.error}>{errors.location.message}</p>}
             </div>
-            <Button type='submit'>{t('save')}</Button>
+            <Button type="submit">{t('save')}</Button>
           </form>
         </Modal>
       )}

@@ -15,7 +15,7 @@ const DictionaryCard = ({ word }: IDictionaryCard) => {
         <div className={styles.info}>
           <h5>{word.word}</h5>
           <div className={styles.translation}>
-            <Image src={ua} alt='ua' className={styles.flag} />
+            <Image src={ua} alt="ua" className={styles.flag} />
             <p>{word.translation.ua[0]}</p>
           </div>
           <p>{word.results[0].definition}</p>

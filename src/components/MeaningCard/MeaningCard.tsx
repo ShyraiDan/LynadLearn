@@ -29,7 +29,7 @@ export const MeaningCard = ({ word }: IMeaningCard) => {
                 <div className={styles.content}>
                   <div className={styles.meaning}>
                     <div className={styles.number}>{index + 1}</div>
-                    <p className='dark:text-grey-600'>{result.definition}</p>
+                    <p className="dark:text-grey-600">{result.definition}</p>
                   </div>
                   <div className={styles.synonyms}>
                     {result.synonyms.map((synonym, i) => (
