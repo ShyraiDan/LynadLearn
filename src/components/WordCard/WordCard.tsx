@@ -1,3 +1,5 @@
+'use client'
+
 import styles from './WordCard.module.scss'
 import Image from 'next/image'
 import Button from '@/components/ui/Button/Button'

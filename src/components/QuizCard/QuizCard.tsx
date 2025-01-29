@@ -11,14 +11,19 @@ import { BookmarkAdd, BookmarkDelete } from '@/components/ui/Icons/Icons'
 type TQuizCard = {
   topic: IGrammarTopic
   lang: string
+  allowedAction?: (id: string) => boolean
 }
 
-export default function QuizCard({ topic, lang }: TQuizCard) {
+export default function QuizCard({ topic, lang, allowedAction }: TQuizCard) {
   const [isBookmarked, setIsBookmarked] = useState(false)
 
   const handleAddBookmark = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
-    setIsBookmarked(!isBookmarked)
+    const isAuth = allowedAction ? allowedAction(topic._id) : false
+
+    if (isAuth) {
+      setIsBookmarked(!isBookmarked)
+    }
   }
 
   return (

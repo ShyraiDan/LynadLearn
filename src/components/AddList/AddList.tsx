@@ -15,6 +15,7 @@ import { toast } from 'sonner'
 import SnackBar from '@/components/ui/SnackBar/SnackBar'
 import { twMerge } from 'tailwind-merge'
 import { AuthModal } from '@/components/AuthModal/AuthModal'
+import { RequireAuthModal } from '@/components/RequireAuthModal/RequireAuthModal'
 
 import { FaPlus } from 'react-icons/fa'
 
@@ -67,27 +68,15 @@ export default function AddList() {
         </div>
         <SnackBar />
       </div>
-      <Modal
+      <RequireAuthModal
         isOpen={isAuthRequireModal}
-        className='sm:h-[200px] sm:w-[475px] sm:self-center sm:justify-self-center'
-        handleClose={handleClose}>
-        <div>
-          <p className='text-center font-bold'>In order to add list you must sign in to your account</p>
-          <div className='grid grid-cols-2 mt-6 gap-3 items-center'>
-            <Button
-              className='!rounded'
-              onClick={() => {
-                setAuthModal(true)
-                handleClose
-              }}>
-              Sign in
-            </Button>
-            <Button outline className='!rounded' onClick={handleClose}>
-              Cancel
-            </Button>
-          </div>
-        </div>
-      </Modal>
+        handleClose={handleClose}
+        allowedAction={() => {
+          setAuthModal(true)
+          handleClose()
+        }}>
+        <p className='text-center font-bold'>In order to add list you must sign in to your account</p>
+      </RequireAuthModal>
 
       <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />
 
