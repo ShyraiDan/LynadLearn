@@ -8,7 +8,6 @@ import { twMerge } from 'tailwind-merge'
 
 import { FaUser } from 'react-icons/fa'
 import { TbVocabulary, TbCardsFilled, TbWriting } from 'react-icons/tb'
-import { IoSettingsSharp } from 'react-icons/io5'
 import { BsQuestionSquareFill } from 'react-icons/bs'
 import { FaBookmark } from 'react-icons/fa6'
 
@@ -60,12 +59,6 @@ export default function SideBar({ isAuth }: { isAuth: boolean }) {
             {t('flashcard')}
           </NavigationLink>
         </li>
-        {/* <li>
-          <NavigationLink href='/settings' className={`${page === 'settings' && styles.selected}`}>
-            <IoSettingsSharp />
-            {t('settings')}
-          </NavigationLink>
-        </li> */}
       </ul>
     </div>
   )

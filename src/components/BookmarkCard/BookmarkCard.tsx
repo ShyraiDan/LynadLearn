@@ -3,7 +3,6 @@
 import styles from './BookmarkCard.module.scss'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
 import { ICollections } from '@/interfaces/Collections.interface'
 import { useState, MouseEvent } from 'react'
 import { twMerge } from 'tailwind-merge'
@@ -11,7 +10,6 @@ import { twMerge } from 'tailwind-merge'
 import { BookmarkAdd, BookmarkDelete } from '@/components/ui/Icons/Icons'
 
 export const BookmarkCard = ({ item, locale }: { item: ICollections; locale: string }) => {
-  const t = useTranslations('dashboard.collections')
   const [isBookmarked, setIsBookmarked] = useState(false)
 
   const handleAddBookmark = (e: MouseEvent<HTMLDivElement>) => {

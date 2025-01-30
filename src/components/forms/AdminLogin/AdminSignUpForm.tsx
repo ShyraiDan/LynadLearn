@@ -18,7 +18,7 @@ export default function AdminSignUpForm() {
 
   const {
     register,
-    formState: { errors, isValid },
+    formState: { errors },
     handleSubmit
   } = useForm<ISignIn>({
     mode: 'onSubmit'

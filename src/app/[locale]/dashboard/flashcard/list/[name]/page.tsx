@@ -15,7 +15,6 @@ import subcategorySelected from '@/assets/subcategory-selected.svg'
 import { BsGridFill } from 'react-icons/bs'
 import note from '@/assets/icons/note-2-disable.svg'
 import { FaArrowRight } from 'react-icons/fa'
-import { useSearchParams } from 'next/navigation'
 
 const lessons = [1, 2, 3, 4, 5, 6]
 
@@ -31,7 +30,7 @@ type TSingleDefaultList = {
 // add loader and message when no list found
 
 export default function SingleDefaultList({ params }: TSingleDefaultList) {
-  const { name, locale } = params
+  const { name } = params
   const t = useTranslations('dashboard.lists.learn')
   const [isSelected, setIsSelected] = useState(0)
   const [isPinned, setIsPinned] = useState(false)
@@ -47,7 +46,7 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
       <PageHeading name={name} id="id" title="title" description="description" />
       <div className={styles.lessons}>
         <div>
-          {lessons.map((item, i) => (
+          {lessons.map((_, i) => (
             <>
               <div className={styles['lesson-item']} key={i}>
                 <div className={`${isSelected === i && styles.opened}`}>

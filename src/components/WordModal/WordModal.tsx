@@ -170,7 +170,7 @@ export default function WordModal({ handleClose, word }: IWordModal) {
                   </div>
                   <div className={styles.exams}>
                     <ul className={styles.content}>
-                      {item.examples.map((item: string, index: number, i) => (
+                      {item.examples.map((item: string, index: number) => (
                         <li key={index}>
                           <span className={styles.dot}></span>
                           <p className="dark:text-grey-600">{item}</p>

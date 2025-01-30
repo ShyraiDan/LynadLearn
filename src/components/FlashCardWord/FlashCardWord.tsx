@@ -63,7 +63,7 @@ export default function FlashCardWord({
       swiper.slideNext()
       setIsUpdated(false)
     }
-  }, [isUpdated])
+  }, [isUpdated, swiper])
 
   useEffect(() => {
     setRotate(false)

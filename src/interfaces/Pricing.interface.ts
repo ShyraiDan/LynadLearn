@@ -1,5 +1,3 @@
-import { IconType } from 'react-icons'
-
 export interface IPricing {
   duration: string
   price: string

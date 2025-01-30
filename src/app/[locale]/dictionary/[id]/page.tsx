@@ -10,13 +10,8 @@ import { ListsModal } from '@/components/ListsModal/ListsModal'
 import us from '@/assets/icons/us.svg'
 import example from '@/assets/icons/message-question.svg'
 
-interface IDictionaryWordPage {
-  params: { id: string }
-}
-
-export default function DictionaryWordPage({ params }: IDictionaryWordPage) {
+export default function DictionaryWordPage() {
   //TODO: remove unused variables
-  const { id } = params
   const t = useTranslations('Dictionary')
 
   const word = DWords[0]
@@ -67,7 +62,7 @@ export default function DictionaryWordPage({ params }: IDictionaryWordPage) {
             </div>
           </div>
           <ul className={styles.synonyms}>
-            {Array.from(synonyms).map((item: string, index: number, i) => (
+            {Array.from(synonyms).map((item: string, index: number) => (
               <li key={index}>
                 <span className={styles.dot}></span>
                 {item}

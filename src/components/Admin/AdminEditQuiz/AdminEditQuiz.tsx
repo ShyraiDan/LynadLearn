@@ -29,7 +29,9 @@ export const AdminEditQuiz = ({ quizId, handleClose, setQuizId }: IAdminEditQuiz
   const [correctAnswer, setCorrectAnswer] = useState<number | null>(null)
 
   useEffect(() => {
-    quizId && getGrammarQuiz(quizId).then((data) => data.success && setQuiz(data.data))
+    if (quizId) {
+      getGrammarQuiz(quizId).then((data) => data.success && setQuiz(data.data))
+    }
     setLoading(false)
   }, [quizId])
 

@@ -5,7 +5,7 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { logout } from '@/lib/auth'
 import { useTranslations } from 'next-intl'
 import { twMerge } from 'tailwind-merge'
-import { useRouter, usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 import { FaUser } from 'react-icons/fa'
 import { MdLogout } from 'react-icons/md'

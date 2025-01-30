@@ -13,7 +13,6 @@ import SnackBar from '@/components/ui/SnackBar/SnackBar'
 import { addSingleGrammar, updateSingleGrammar } from '@/lib/grammar'
 import { useRouter } from 'next/navigation'
 import { AdminEditQuiz } from '@/components/Admin/AdminEditQuiz/AdminEditQuiz'
-import { ObjectId } from 'mongoose'
 
 import { MdEdit } from 'react-icons/md'
 import { FaTrash } from 'react-icons/fa'

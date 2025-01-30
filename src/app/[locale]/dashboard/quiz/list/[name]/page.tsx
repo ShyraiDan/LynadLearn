@@ -46,7 +46,7 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
       <PageHeading name={name} id="id" title="title" description="description" />
       <div className={styles.lessons}>
         <div>
-          {lessons.map((item, i) => (
+          {lessons.map((_, i) => (
             <>
               <div className={styles['lesson-item']} key={i}>
                 <div className={`${isSelected === i && styles.opened}`}>

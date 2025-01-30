@@ -87,7 +87,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
     getListById(listId).then((data) => setList(data))
 
     setLoading(false)
-  }, [])
+  }, [listId])
 
   return (
     <>

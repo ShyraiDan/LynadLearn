@@ -33,7 +33,7 @@ type TSingleDefaultList = {
 // add loader and message when no list found
 
 export default function SingleDefaultList({ params }: TSingleDefaultList) {
-  const { name, locale } = params
+  const { name } = params
   const t = useTranslations('dashboard.lists.learn')
   const [isSelected, setIsSelected] = useState(0)
   const [isAuthRequireModal, setAuthRequireModal] = useState(false)
@@ -64,7 +64,7 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
         <PageHeading name={name} id="id" title="title" description="description" />
         <div className={styles.lessons}>
           <div>
-            {lessons.map((item, i) => (
+            {lessons.map((_, i) => (
               <>
                 <div className={styles['lesson-item']} key={i}>
                   <div className={`${isSelected === i && styles.opened}`}>

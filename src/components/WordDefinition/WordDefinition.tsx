@@ -42,16 +42,19 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
     removeScrollBar(isEdit)
   }
 
-  const showDeleteModal = (e: MouseEvent) => {
+  const showDeleteModal = () => {
     setOpen(false)
     setDelete((state) => !state)
     removeScrollBar(isDelete)
   }
 
   const deleteWord = (word: IWord) => {
-    word._id && deleteWordById(word._id)
-    setDelete((state) => !state)
-    removeScrollBar(isDelete)
+    // TODO: add toast notification
+    if (word._id) {
+      deleteWordById(word._id)
+      setDelete((state) => !state)
+      removeScrollBar(isDelete)
+    }
   }
 
   return (
@@ -95,7 +98,7 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
                       />
                       <FaTrash
                         className="cursor-pointer transition-all duration-300 hover:text-red dark:text-grey-600 "
-                        onClick={(e) => showDeleteModal(e)}
+                        onClick={() => showDeleteModal()}
                       />
                     </div>
                   </div>
@@ -138,7 +141,7 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
         <Modal
           className={twMerge(styles['delete-modal'], 'dark:bg-[#0B152E]')}
           isOpen={isDelete}
-          handleClose={(e) => showDeleteModal(e)}
+          handleClose={() => showDeleteModal()}
         >
           <div className={styles.delete}>
             <h6 className="dark:text-grey-600">{t('really_delete')}</h6>
@@ -146,7 +149,7 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
               <Button onClick={() => deleteWord(word)}>{t('delete')}</Button>
               <Button
                 className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !rounded-md hover:border-red hover:!text-red"
-                onClick={(e) => showDeleteModal(e)}
+                onClick={() => showDeleteModal()}
               >
                 {t('cancel')}
               </Button>

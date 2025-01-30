@@ -11,7 +11,7 @@ interface IAdminSideBarProps {
   isAuth: boolean
 }
 
-export default function AdminSideBar({ isAuth }: IAdminSideBarProps) {
+export default function AdminSideBar({}: IAdminSideBarProps) {
   const path = usePathname()
 
   return (

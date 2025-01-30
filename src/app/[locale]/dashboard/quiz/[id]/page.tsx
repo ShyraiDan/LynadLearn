@@ -28,7 +28,15 @@ export default function SingleQuizPage() {
   const { id } = useParams() as { id: string }
 
   useEffect(() => {
-    id && getGrammarQuiz(id).then((data) => data.success && setGrammarQuiz(data.data))
+    if (id) {
+      getGrammarQuiz(id).then((data) => {
+        if (data.success) {
+          setGrammarQuiz(data.data)
+          isLoading(false)
+        }
+      })
+      return
+    }
     isLoading(false)
   }, [id])
 

@@ -54,7 +54,7 @@ async function Grammar({ params }: TSingleGrammarPage) {
           ))}
 
           <div>
-            {grammar.data.example.map((item, i) => (
+            {grammar.data.example.map((item) => (
               <>
                 <h2 className="my-3 font-bold text-lg text-blue-200 md:text-2xl dark:text-grey-600">{item.title}</h2>
                 <p className="text-blue-300 dark:text-grey-600">{item.description}</p>

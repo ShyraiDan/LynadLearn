@@ -30,10 +30,6 @@ type TCategoryQuizPage = {
 async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
   const t = await getTranslations('dashboard.quiz')
 
-  const handleBookmark = (id: string) => {
-    return false
-  }
-
   if (type === 'grammar') {
     const grammarElementary = await getAllGrammar('A1-A2')
 

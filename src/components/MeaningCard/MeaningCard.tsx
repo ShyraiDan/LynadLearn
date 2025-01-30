@@ -3,7 +3,6 @@ import { IWord } from '@/interfaces/Word.interface'
 import Button from '@/components/ui/Button/Button'
 import { WordExamples } from '@/components/WordExamples/WordExamples'
 import { groupByPartOfSpeech } from '@/utils/middlewares'
-import { useTranslations } from 'next-intl'
 import { Badge } from '@/components/Badge/Badge'
 import { twMerge } from 'tailwind-merge'
 
@@ -13,7 +12,6 @@ interface IMeaningCard {
 
 export const MeaningCard = ({ word }: IMeaningCard) => {
   const meanings = groupByPartOfSpeech(word)
-  const t = useTranslations('Dictionary')
 
   return (
     <>

@@ -1,7 +1,6 @@
 //Todo: Remove style files if it is not used
 import TopBar from '@/components/TopBar/TopBar'
 import WordsTable from '@/components/WordsTable/WordsTable'
-import styles from './VocabularyPage.module.scss'
 import Container from '@/components/ui/Container/Container'
 
 type TSingleListPage = {

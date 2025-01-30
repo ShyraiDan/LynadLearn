@@ -2,7 +2,8 @@ import { Pathnames } from 'next-intl/navigation'
 
 export const locales = ['en', 'ua'] as const
 
-const listId = ''
+// eslint-disable-next-line
+let listId = ''
 
 export const pathnames = {
   '/': '/',

@@ -134,7 +134,7 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
             <p className="dark:text-grey-600">{t('example')}</p>
             <div className={styles.exams}>
               <ul className={styles.content}>
-                {examples.map((item: string, index: number, i) => (
+                {examples.map((item: string, index: number) => (
                   <li key={index}>
                     <div>
                       <span className={styles.dot}></span>

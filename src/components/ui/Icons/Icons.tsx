@@ -1,4 +1,6 @@
-export const BookmarkAdd = ({ stroke, className }: any) => (
+import { SVGProps } from 'react'
+
+export const BookmarkAdd = ({ stroke, className }: SVGProps<SVGSVGElement>) => (
   <svg className={className} width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M14.5 11.0137H9.5"
@@ -26,7 +28,7 @@ export const BookmarkAdd = ({ stroke, className }: any) => (
   </svg>
 )
 
-export const BookmarkDelete = ({ fill, stroke }: any) => (
+export const BookmarkDelete = ({ fill, stroke }: SVGProps<SVGSVGElement>) => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M16.8203 2H7.18031C5.05031 2 3.32031 3.74 3.32031 5.86V19.95C3.32031 21.75 4.61031 22.51 6.19031 21.64L11.0703 18.93C11.5903 18.64 12.4303 18.64 12.9403 18.93L17.8203 21.64C19.4003 22.52 20.6903 21.76 20.6903 19.95V5.86C20.6803 3.74 18.9503 2 16.8203 2Z"
@@ -47,7 +49,7 @@ export const BookmarkDelete = ({ fill, stroke }: any) => (
   </svg>
 )
 
-export const MessageQuestion = ({ className }: any) => (
+export const MessageQuestion = ({ className }: SVGProps<SVGSVGElement>) => (
   <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M17 18.4297H13L8.54999 21.3897C7.88999 21.8297 7 21.3598 7 20.5598V18.4297C4 18.4297 2 16.4297 2 13.4297V7.42969C2 4.42969 4 2.42969 7 2.42969H17C20 2.42969 22 4.42969 22 7.42969V13.4297C22 16.4297 20 18.4297 17 18.4297Z"

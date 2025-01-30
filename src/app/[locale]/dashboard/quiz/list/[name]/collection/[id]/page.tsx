@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import styles from './VocabularyQuizPage.module.scss'
-import { getWordsByListId } from '@/lib/word'
+// import { getWordsByListId } from '@/lib/word'
 import { IWord } from '@/interfaces/Word.interface'
 import { DWords } from '@/mock/Words.mock'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
@@ -45,13 +45,13 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
   // }, [listId])
 
   useEffect(() => {
-    // listId temporary not used
+    //TODO: listId temporary not used
     if (words) {
-      getVocabularyQuiz(words, listId).then((data) => {
+      getVocabularyQuiz(words).then((data) => {
         setVocabularyQuiz(data)
       })
     }
-  }, [words])
+  }, [listId, words])
 
   const startQuiz = () => {
     setIsQuiz(true)

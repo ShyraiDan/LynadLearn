@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import styles from './WordExamples.module.scss'
 import { useTranslations } from 'next-intl'
 import { twMerge } from 'tailwind-merge'
@@ -23,7 +22,7 @@ export const WordExamples = ({ examples }: { examples: Array<string> }) => {
           </div>
         </div>
         <ul className={styles.content}>
-          {examples.map((item: string, index: number, i) => (
+          {examples.map((item: string, index: number) => (
             <li key={index}>
               <span className={styles.dot}></span>
               <p className="dark:text-grey-600">{item}</p>

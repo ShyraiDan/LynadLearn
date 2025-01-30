@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge'
 type TextAreaProps = React.HTMLAttributes<HTMLTextAreaElement> & { rows?: number; placeholder?: string; value?: string }
 
 const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
-  ({ children, className, rows = 5, placeholder, value, ...props }, ref) => {
+  ({ children, className, rows = 5, placeholder, value, ...props }) => {
     return (
       <textarea
         rows={rows}

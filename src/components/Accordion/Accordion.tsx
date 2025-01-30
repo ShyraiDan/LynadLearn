@@ -11,7 +11,7 @@ export default function Accordion() {
   const [open, setOpen] = useState(-1)
 
   const toggleAccordion = (id: number) => {
-    open === id ? setOpen(-1) : setOpen(id)
+    setOpen(open === id ? -1 : id)
   }
 
   return (
