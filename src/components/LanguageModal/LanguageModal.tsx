@@ -28,15 +28,17 @@ export default function LanguageModal() {
         {localActive === 'en' ? t('english') : t('ukrainian')}
         <IoIosArrowDown />
         <div className={styles.modal}>
-          <ul className='dark:bg-[#1D2D4D]'>
+          <ul className="dark:bg-[#1D2D4D]">
             <li
               className={twMerge('dark:text-grey-600', localActive === 'en' && styles.selected)}
-              onClick={() => changeLang('en')}>
+              onClick={() => changeLang('en')}
+            >
               {t('english')}
             </li>
             <li
               className={twMerge('dark:text-grey-600', localActive === 'ua' && styles.selected)}
-              onClick={() => changeLang('ua')}>
+              onClick={() => changeLang('ua')}
+            >
               {t('ukrainian')}
             </li>
           </ul>

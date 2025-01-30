@@ -23,7 +23,8 @@ export function Footer() {
           styles.footer,
           path?.split('/')[2] === 'dashboard' && styles.dashboard,
           'dark:bg-blue-800 dark:border-[#1D2D4D]'
-        )}>
+        )}
+      >
         <div className={styles['footer-container']}>
           <div className={styles['footer-main']}>
             <NavigationLink href={'/'}>
@@ -35,47 +36,50 @@ export function Footer() {
                 <nav>
                   <ul className={styles['nav-list']}>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/about-us'>{t('about_us')}</NavigationLink>
+                      <NavigationLink href="/about-us">{t('about_us')}</NavigationLink>
                     </li>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/pricing'>{t('pricing')}</NavigationLink>
+                      <NavigationLink href="/pricing">{t('pricing')}</NavigationLink>
                     </li>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/contact-us'>{t('contact_us')}</NavigationLink>
+                      <NavigationLink href="/contact-us">{t('contact_us')}</NavigationLink>
                     </li>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/mobile-app'>{t('mobile_app')}</NavigationLink>
+                      <NavigationLink href="/mobile-app">{t('mobile_app')}</NavigationLink>
                     </li>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/dictionary'>{t('dictionary')}</NavigationLink>
+                      <NavigationLink href="/dictionary">{t('dictionary')}</NavigationLink>
                     </li>
                     <li className={styles['nav-item']}>
-                      <NavigationLink href='/translator'>{t('translator')}</NavigationLink>
+                      <NavigationLink href="/translator">{t('translator')}</NavigationLink>
                     </li>
                   </ul>
                 </nav>
               </div>
               <div className={styles['footer-right']}>
-                <p className='dark:text-grey-600'>{t('follow_us')}</p>
+                <p className="dark:text-grey-600">{t('follow_us')}</p>
                 <ul>
                   <li>
                     <Link
                       href={'https://www.instagram.com/'}
-                      className='dark:text-grey-600 hover:text-purple-100 dark:hover:text-purple-100'>
+                      className="dark:text-grey-600 hover:text-purple-100 dark:hover:text-purple-100"
+                    >
                       <FaInstagram />
                     </Link>
                   </li>
                   <li>
                     <Link
                       href={'https://twitter.com/'}
-                      className=' dark:text-grey-600 hover:text-purple-100 dark:hover:text-purple-100'>
+                      className=" dark:text-grey-600 hover:text-purple-100 dark:hover:text-purple-100"
+                    >
                       <FaXTwitter />
                     </Link>
                   </li>
                   <li>
                     <Link
                       href={'https://www.facebook.com/'}
-                      className='dark:text-grey-600 hover:text-purple-100 dark:hover:text-purple-100'>
+                      className="dark:text-grey-600 hover:text-purple-100 dark:hover:text-purple-100"
+                    >
                       <FaFacebook />
                     </Link>
                   </li>

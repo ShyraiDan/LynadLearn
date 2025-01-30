@@ -38,9 +38,10 @@ export const Themes = () => {
   return (
     <div className={styles['theme-btn']}>
       <Button
-        className='dark:hover:bg-[#1D2D4D]'
-        onClick={() => handleChangeTheme(theme === 'light' ? 'dark' : 'light')}>
-        {theme === 'dark' ? <FaRegSun className='dark:fill-[#fff]' /> : <FaRegMoon className='dark:fill-[#fff]' />}
+        className="dark:hover:bg-[#1D2D4D]"
+        onClick={() => handleChangeTheme(theme === 'light' ? 'dark' : 'light')}
+      >
+        {theme === 'dark' ? <FaRegSun className="dark:fill-[#fff]" /> : <FaRegMoon className="dark:fill-[#fff]" />}
       </Button>
     </div>
   )

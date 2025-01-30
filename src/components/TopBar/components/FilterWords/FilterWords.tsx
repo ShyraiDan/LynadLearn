@@ -31,13 +31,13 @@ export default function FilterWords() {
       </div>
       {isFilterOpen && (
         <ul className={twMerge(styles.modal, 'dark:bg-[#1D2D4D]')}>
-          <li className='dark:text-grey-600' onClick={() => changeFilter(t('newest'), 'newest')}>
+          <li className="dark:text-grey-600" onClick={() => changeFilter(t('newest'), 'newest')}>
             {t('newest')}
           </li>
-          <li className='dark:text-grey-600' onClick={() => changeFilter(t('alphabeta-z'), 'a-z')}>
+          <li className="dark:text-grey-600" onClick={() => changeFilter(t('alphabeta-z'), 'a-z')}>
             {t('alphabeta-z')}
           </li>
-          <li className='dark:text-grey-600' onClick={() => changeFilter(t('alphabetz-a'), 'z-a')}>
+          <li className="dark:text-grey-600" onClick={() => changeFilter(t('alphabetz-a'), 'z-a')}>
             {t('alphabetz-a')}
           </li>
         </ul>

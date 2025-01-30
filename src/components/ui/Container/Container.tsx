@@ -13,7 +13,8 @@ const Container = forwardRef<HTMLDivElement, ContainerProps>(({ children, classN
         className
       )}
       ref={ref}
-      {...props}>
+      {...props}
+    >
       {children}
     </div>
   )

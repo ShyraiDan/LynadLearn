@@ -25,7 +25,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body className={font.className}>{children}</body>
     </html>
   )

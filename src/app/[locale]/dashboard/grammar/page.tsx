@@ -77,8 +77,9 @@ export default function GrammarPage({ params }: IGrammarPageProps) {
         allowedAction={() => {
           setAuthModal(true)
           handleClose()
-        }}>
-        <p className='text-center font-bold'>In order to add to your bookmarks you must sign in to your account</p>
+        }}
+      >
+        <p className="text-center font-bold">In order to add to your bookmarks you must sign in to your account</p>
       </RequireAuthModal>
 
       <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />

@@ -23,7 +23,7 @@ export const AddingWordForm = () => {
         <FaPlus size={16} />
       </div>
       {isAdding && (
-        <Modal className='dark:bg-[#0B152E]' isOpen={isAdding} handleClose={() => showModal()}>
+        <Modal className="dark:bg-[#0B152E]" isOpen={isAdding} handleClose={() => showModal()}>
           <WordModal handleClose={showModal} />
         </Modal>
       )}

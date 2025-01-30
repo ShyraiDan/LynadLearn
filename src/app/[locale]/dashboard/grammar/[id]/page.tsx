@@ -21,8 +21,8 @@ async function Grammar({ params }: TSingleGrammarPage) {
   if (!grammar) {
     return (
       <div className={styles['no-grammar']}>
-        <h3 className='dark:text-grey-600'>{t('no_grammar')}</h3>
-        <NavigationLink href='/dashboard/grammar'>{t('move_to_grammar')}</NavigationLink>
+        <h3 className="dark:text-grey-600">{t('no_grammar')}</h3>
+        <NavigationLink href="/dashboard/grammar">{t('move_to_grammar')}</NavigationLink>
       </div>
     )
   }
@@ -31,9 +31,9 @@ async function Grammar({ params }: TSingleGrammarPage) {
     <>
       {grammar && (
         <div className={styles.container}>
-          <h1 className='dark:text-grey-600'> {params.locale === 'en' ? grammar.title : grammar.titleUa}</h1>
+          <h1 className="dark:text-grey-600"> {params.locale === 'en' ? grammar.title : grammar.titleUa}</h1>
           {grammar.data.description.map((item, i) => (
-            <p className='mt-5 text-blue-300 dark:text-grey-600' key={i}>
+            <p className="mt-5 text-blue-300 dark:text-grey-600" key={i}>
               {params.locale === 'en' ? item.en : item.ua}
             </p>
           ))}
@@ -50,9 +50,9 @@ async function Grammar({ params }: TSingleGrammarPage) {
 
                 <ul className={twMerge(styles['example-list'], 'dark:bg-[#1D2D4D] dark:border-l-purple-100')}>
                   {item.examples.map((item: IGrammarExample, i: number) => (
-                    <li className='dark:text-grey-600' key={`example-${i}`}>
+                    <li className="dark:text-grey-600" key={`example-${i}`}>
                       {item.exampleEn}
-                      {params.locale === 'ua' && <p className='text-purple-100 text-sm'>({item.exampleUa})</p>}
+                      {params.locale === 'ua' && <p className="text-purple-100 text-sm">({item.exampleUa})</p>}
                     </li>
                   ))}
                 </ul>

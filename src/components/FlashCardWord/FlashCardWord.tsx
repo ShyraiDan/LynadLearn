@@ -63,7 +63,7 @@ export default function FlashCardWord({
       swiper.slideNext()
       setIsUpdated(false)
     }
-  }, [isUpdated])
+  }, [isUpdated, swiper])
 
   useEffect(() => {
     setRotate(false)
@@ -81,8 +81,8 @@ export default function FlashCardWord({
               </h6>
             </div>
             <div className={styles.pronunciation}>
-              <Image src={usFlag} alt='flag' width={24} />
-              <p className='dark:text-grey-600'>{word.pronunciation}</p>
+              <Image src={usFlag} alt="flag" width={24} />
+              <p className="dark:text-grey-600">{word.pronunciation}</p>
             </div>
           </div>
           <Button className={styles.footer} onClick={() => handleRotate()}>
@@ -99,22 +99,22 @@ export default function FlashCardWord({
           <div className={styles['word-info']}>
             <div>
               <div className={styles.translation}>
-                <Image src={uaFlag} alt='flag' width={24} />
-                <p className='dark:text-grey-600'>{word.translation.ua.join(', ')}</p>
+                <Image src={uaFlag} alt="flag" width={24} />
+                <p className="dark:text-grey-600">{word.translation.ua.join(', ')}</p>
               </div>
-              <p className='dark:text-grey-600'>{word.results[0]?.definition}</p>
+              <p className="dark:text-grey-600">{word.results[0]?.definition}</p>
             </div>
             {word.results[0]?.examples.length > 0 && (
               <div className={twMerge(styles.examples, 'dark:bg-[#1D2D4D]')}>
                 <div className={styles.top}>
                   <div>
-                    <MessageQuestion className='dark:fill-grey-600' />
-                    <h3 className='dark:text-grey-600'>{t('examples')}</h3>
+                    <MessageQuestion className="dark:fill-grey-600" />
+                    <h3 className="dark:text-grey-600">{t('examples')}</h3>
                   </div>
                 </div>
                 <ul className={styles['example-list']}>
                   {word.results[0]?.examples.map((item: string) => (
-                    <li key={item} className='dark:text-grey-600'>
+                    <li key={item} className="dark:text-grey-600">
                       {item}
                     </li>
                   ))}
@@ -125,13 +125,13 @@ export default function FlashCardWord({
           <div className={styles.footer}>
             <Button className={styles['btn-left']} onClick={() => handleIncorrect()}>
               <h6>
-                <RxCross2 fill='#CE302D' />
+                <RxCross2 fill="#CE302D" />
                 {t('incorrect')}
               </h6>
             </Button>
             <Button className={styles['btn-right']} onClick={() => handleCorrect()}>
               <h6>
-                <TiTick fill='#2ABFA5' />
+                <TiTick fill="#2ABFA5" />
                 {t('correct')}
               </h6>
             </Button>

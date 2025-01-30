@@ -87,7 +87,7 @@ const defaultVocabularyQuizQuestions = [
   }
 ]
 
-export const getVocabularyQuiz = async (words: IWord[], listId: string): Promise<IVocabularyQuiz | null> => {
+export const getVocabularyQuiz = async (words: IWord[]): Promise<IVocabularyQuiz | null> => {
   if (!words.length) {
     return null
   }
@@ -167,7 +167,7 @@ export const getVocabularyQuiz = async (words: IWord[], listId: string): Promise
   })
 
   return {
-    title: `Quiz`,
+    title: 'Quiz',
     questions
   }
 }

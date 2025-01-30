@@ -41,7 +41,7 @@ function calculateRate(session: ISession) {
 }
 
 async function YourProfile() {
-  let session = await getSession()
+  const session = await getSession()
   const t = await getTranslations('dashboard.profile')
 
   return (
@@ -49,27 +49,27 @@ async function YourProfile() {
       <div className={styles['user-info']}>
         <ProfileEditModal session={session} />
         <div className={twMerge(styles['user-photo'], 'dark:bg-[#1D2D4D]')}>
-          <FaUser className='dark:fill-grey-600' />
+          <FaUser className="dark:fill-grey-600" />
         </div>
         <div className={styles['user-details']}>
-          <h3 className='dark:text-grey-600'>{session.userName}</h3>
-          <p className='dark:text-grey-600'>{session.location}</p>
+          <h3 className="dark:text-grey-600">{session.userName}</h3>
+          <p className="dark:text-grey-600">{session.location}</p>
           <div className={twMerge(styles.rate, 'dark:text-grey-600 dark:bg-[#1D2D4D]')}>
             {t('rate')}: {(session.rating as number) + calculateRate(session)}
           </div>
-          <p className='dark:text-grey-600'>{session.description}</p>
+          <p className="dark:text-grey-600">{session.description}</p>
           <ul className={styles.achivements}>
-            <li className='dark:text-grey-600'>
+            <li className="dark:text-grey-600">
               {session.successfulQuizzes && session.totalQuizzes && session.successfulQuizzes / session.totalQuizzes} %{' '}
               <p>{t('success_quiz')}</p>
             </li>
-            <li className='dark:text-grey-600'>
+            <li className="dark:text-grey-600">
               {session.totalQuizzes} <p>{t('finished_quiz')}</p>
             </li>
-            <li className='dark:text-grey-600'>
+            <li className="dark:text-grey-600">
               {session.wordLists} <p>{t('list_created')}</p>
             </li>
-            <li className='dark:text-grey-600'>
+            <li className="dark:text-grey-600">
               {session.flashcardsLearned} <p>{t('words_learned')}</p>
             </li>
           </ul>
@@ -86,10 +86,10 @@ async function YourProfile() {
                 ((item.type === 'flashcards'
                   ? session.flashcardsLearned
                   : item.type === 'quiz'
-                  ? session.successfulQuizzes
-                  : item.type === 'lists'
-                  ? session.wordLists
-                  : session.words) as number) / item.target
+                    ? session.successfulQuizzes
+                    : item.type === 'lists'
+                      ? session.wordLists
+                      : session.words) as number) / item.target
               }
             />
           ))}

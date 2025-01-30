@@ -37,21 +37,21 @@ export default function MobileApp() {
             </span>
             {t('mobile_app')}
           </h1>
-          <Image src={line} alt='line' />
-          <p className='dark:text-grey-600'>{t('always_download')}</p>
+          <Image src={line} alt="line" />
+          <p className="dark:text-grey-600">{t('always_download')}</p>
           <div>
-            <Link href='https://play.google.com/store/games/'>
-              <Button className='hover:!bg-[#E0E0E0]'>
-                <FaGooglePlay size='24' />
+            <Link href="https://play.google.com/store/games/">
+              <Button className="hover:!bg-[#E0E0E0]">
+                <FaGooglePlay size="24" />
                 <div>
                   <span>{t('get_it_on')}</span>
                   <p>Google Play</p>
                 </div>
               </Button>
             </Link>
-            <Link href='https://www.apple.com/app-store/'>
-              <Button className='hover:!bg-[#E0E0E0]'>
-                <FaApple size='28' />
+            <Link href="https://www.apple.com/app-store/">
+              <Button className="hover:!bg-[#E0E0E0]">
+                <FaApple size="28" />
                 <div>
                   <span>{t('get_it_on')}</span>
                   <p>App Store</p>
@@ -64,8 +64,8 @@ export default function MobileApp() {
       </div>
       <div className={styles.app}>
         <div className={styles.learning}>
-          <h3 className='dark:text-grey-600'>{t('with_lynadlearn')}</h3>
-          <p className='dark:text-grey-600'>{t('with_lynadlearn')}</p>
+          <h3 className="dark:text-grey-600">{t('with_lynadlearn')}</h3>
+          <p className="dark:text-grey-600">{t('with_lynadlearn')}</p>
           <div>
             {DAdvantages.map((item) => (
               <AdvantageItem key={item.title} {...item} />
@@ -73,13 +73,13 @@ export default function MobileApp() {
           </div>
         </div>
         <div className={styles.image}>
-          <Image className={styles.back} src={pluses} alt='' />
+          <Image className={styles.back} src={pluses} alt="" />
           <div className={styles.rect} />
-          <Image className={styles.front} src={gif} alt='' />
+          <Image className={styles.front} src={gif} alt="" />
         </div>
       </div>
       <div className={styles.sections}>
-        <h3 className='dark:text-grey-600'>{t('main_sections')}</h3>
+        <h3 className="dark:text-grey-600">{t('main_sections')}</h3>
         <div className={styles.items}>
           <div className={styles.left}>
             {DSectionLeft.map((item) => (
@@ -89,7 +89,7 @@ export default function MobileApp() {
           <div className={styles.center}>
             <div>
               <div>
-                <Image src={phone} alt='phone' />
+                <Image src={phone} alt="phone" />
               </div>
             </div>
           </div>
@@ -105,27 +105,27 @@ export default function MobileApp() {
           <h3 className={`${styles['features-title']} dark:text-grey-600`}>{t('app_features')}</h3>
           <Features />
         </div>
-        <Image src={message} alt='arrow' />
+        <Image src={message} alt="arrow" />
         <div className={styles['features-image']}>
           <div className={styles['light-blue']}></div>
           <div className={styles['dark-blue']}></div>
           <div className={styles.image}>
-            <Image src={vocabulary} alt='vocabulary' />
+            <Image src={vocabulary} alt="vocabulary" />
           </div>
         </div>
       </div>
       <div className={`${styles.review} dark:bg-[#18223D]`}>
         <div>
-          <h3 className='dark:text-grey-600'>{t('reviews')}</h3>
+          <h3 className="dark:text-grey-600">{t('reviews')}</h3>
           <UserReview />
         </div>
       </div>
       <div className={styles.questions}>
         <div className={styles.items}>
-          <h3 className='dark:text-grey-600'>{t('faq')}</h3>
+          <h3 className="dark:text-grey-600">{t('faq')}</h3>
           <Accordion />
         </div>
-        <Image src={faq} alt='faq'></Image>
+        <Image src={faq} alt="faq"></Image>
       </div>
       <div className={styles.platform}>
         <div>
@@ -133,18 +133,18 @@ export default function MobileApp() {
             <h3>{t('no_platform')}</h3>
             <p>{t('have_lynadlearn')}</p>
             <div className={styles.buttons}>
-              <Link href='https://play.google.com/store/games/'>
+              <Link href="https://play.google.com/store/games/">
                 <Button>
-                  <FaGooglePlay size='24' />
+                  <FaGooglePlay size="24" />
                   <div>
                     <span>{t('get_it_on')}</span>
                     <p>Google Play</p>
                   </div>
                 </Button>
               </Link>
-              <Link href='https://www.apple.com/app-store/'>
+              <Link href="https://www.apple.com/app-store/">
                 <Button>
-                  <FaApple size='28' />
+                  <FaApple size="28" />
                   <div>
                     <span>{t('get_it_on')}</span>
                     <p>App Store</p>
@@ -153,9 +153,9 @@ export default function MobileApp() {
               </Link>
             </div>
           </div>
-          <Image src={installPc} className={styles.pc} alt='install' />
-          <Image src={installMd} className={styles.tablet} alt='install' />
-          <Image src={installSm} className={styles.mobile} alt='install' />
+          <Image src={installPc} className={styles.pc} alt="install" />
+          <Image src={installMd} className={styles.tablet} alt="install" />
+          <Image src={installSm} className={styles.mobile} alt="install" />
         </div>
       </div>
     </div>

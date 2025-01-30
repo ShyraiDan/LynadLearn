@@ -16,7 +16,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled}
         className={twMerge(styles.button, outline && styles.outline, className)}
         ref={ref}
-        {...props}>
+        {...props}
+      >
         {children}
       </button>
     )

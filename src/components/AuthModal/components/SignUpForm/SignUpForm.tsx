@@ -33,86 +33,92 @@ export default function SignUpForm({ handleClose }: { handleClose: () => void })
   }
 
   return (
-    <form action='' className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <form action="" className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <Input
-        type='email'
-        name='email'
-        id='email'
+        type="email"
+        name="email"
+        id="email"
         placeholder={t('enter_your_email')}
         obj={register('email', {
           required: { value: true, message: t('email_required') },
           pattern: { value: /^\S+@\S+$/i, message: t('email_invalid') }
-        })}>
+        })}
+      >
         {t('email')}
       </Input>
       {errors?.email && <p className={styles.error}>{errors.email.message}</p>}
       <Input
-        type='text'
-        name='userName'
-        id='userName'
+        type="text"
+        name="userName"
+        id="userName"
         placeholder={t('enter_your_name')}
         obj={register('userName', {
           required: { value: true, message: t('name_required') },
           minLength: { value: 3, message: t('name_minLength') },
           maxLength: { value: 20, message: t('name_maxLength') }
-        })}>
+        })}
+      >
         {t('user_name')}
       </Input>
       {errors?.userName && <p className={styles.error}>{errors.userName.message}</p>}
-      <div className='relative flex flex-col !mt-1.5'>
+      <div className="relative flex flex-col !mt-1.5">
         <Input
           type={showPassword ? 'text' : 'password'}
-          name='password'
-          id='password'
+          name="password"
+          id="password"
           placeholder={t('enter_password')}
           obj={register('password', {
             required: { value: true, message: t('password_required') },
             minLength: { value: 8, message: t('password_minLength') },
             maxLength: { value: 20, message: t('password_maxLength') }
-          })}>
+          })}
+        >
           {t('password')}
         </Input>
         <span
           onClick={() => setShowPassword((state) => !state)}
-          className='absolute top-[39px] right-2.5 cursor-pointer'>
+          className="absolute top-[39px] right-2.5 cursor-pointer"
+        >
           {showPassword ? (
-            <FaEye size={16} className='dark:text-white-100 dark:hover:text-purple-100 transition-all duration-200' />
+            <FaEye size={16} className="dark:text-white-100 dark:hover:text-purple-100 transition-all duration-200" />
           ) : (
             <FaEyeSlash
               size={16}
-              className='dark:text-white-100 dark:hover:text-purple-100 transition-all duration-200'
+              className="dark:text-white-100 dark:hover:text-purple-100 transition-all duration-200"
             />
           )}
         </span>
       </div>
       {errors?.password && <p className={styles.error}>{errors.password.message}</p>}
-      <div className='relative flex flex-col !mt-1.5'>
+      <div className="relative flex flex-col !mt-1.5">
         <Input
           type={showConfirmPassword ? 'text' : 'password'}
-          name='confirmPassword'
-          id='confirmPassword'
+          name="confirmPassword"
+          id="confirmPassword"
           placeholder={t('confirm_your_password')}
           obj={register('confirmPassword', {
             required: { value: true, message: t('confirm_password_required') },
             validate: (value) => value === watch('password') || t('confirm_password_mismatch')
-          })}>
+          })}
+        >
           {t('confirm_password')}
         </Input>
         <span
           onClick={() => setShowConfirmPassword((state) => !state)}
-          className='absolute top-[39px] right-2.5 cursor-pointer'>
+          className="absolute top-[39px] right-2.5 cursor-pointer"
+        >
           {showConfirmPassword ? (
-            <FaEye size={16} className='dark:text-white-100 dark:hover:text-purple-100 transition-all duration-200' />
+            <FaEye size={16} className="dark:text-white-100 dark:hover:text-purple-100 transition-all duration-200" />
           ) : (
             <FaEyeSlash
               size={16}
-              className='dark:text-white-100 dark:hover:text-purple-100 transition-all duration-200'
+              className="dark:text-white-100 dark:hover:text-purple-100 transition-all duration-200"
             />
           )}
         </span>
       </div>
       {errors?.confirmPassword && <p className={styles.error}>{errors.confirmPassword.message}</p>}
-      <Button type='submit'>{t('sign_up')}</Button>
+      <Button type="submit">{t('sign_up')}</Button>
     </form>
   )
 }

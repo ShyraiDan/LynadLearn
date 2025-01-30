@@ -29,8 +29,8 @@ export default function PageHeading({ name, id, title, description, showStatisti
   return (
     <div className={styles.heading}>
       <div className={styles['heading-left']}>
-        <h1 className='dark:text-grey-600'>{title}</h1>
-        <p className='dark:text-grey-600'>{description}</p>
+        <h1 className="dark:text-grey-600">{title}</h1>
+        <p className="dark:text-grey-600">{description}</p>
         <div className={styles.breadcrumbs}>
           <nav>
             <ul>
@@ -80,7 +80,7 @@ export default function PageHeading({ name, id, title, description, showStatisti
         )}
       </div>
       <div className={styles['heading-right']}>
-        <Image src={verbs} alt='' />
+        <Image src={verbs} alt="" />
       </div>
     </div>
   )

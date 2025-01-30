@@ -45,7 +45,7 @@ async function WordsList({ listId, sorting }: { listId: string; sorting: string 
       {words && words.length && (
         <div className={twMerge(styles['table-data'])}>
           <div className={twMerge(styles.row, styles.header, 'rounded-t-lg dark:bg-[#1D2D4D]')}>
-            <div className='rounded-tl-sm'>
+            <div className="rounded-tl-sm">
               <TbVocabulary className={styles.icon} size={16} />
               {t('word')}
             </div>

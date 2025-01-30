@@ -29,31 +29,31 @@ export function AuthModal({ isModalOpen, showModal }: IAuthModalProps) {
 
   return (
     <>
-      <Modal className='dark:bg-[#0B152E]' isOpen={isModalOpen} handleClose={handleShowModal}>
+      <Modal className="dark:bg-[#0B152E]" isOpen={isModalOpen} handleClose={handleShowModal}>
         <div className={styles.modal}>
           <div className={styles.image}>
-            <Image alt='Keep learning' src={image} />
+            <Image alt="Keep learning" src={image} />
           </div>
           {isSignInModal ? (
             <div className={styles['form-container']}>
-              <h2 className='dark:text-grey-600'>{t('hello')}</h2>
-              <p className='dark:text-grey-600'>{t('enter_details_sign_up')}</p>
+              <h2 className="dark:text-grey-600">{t('hello')}</h2>
+              <p className="dark:text-grey-600">{t('enter_details_sign_up')}</p>
               <SignUpForm handleClose={handleShowModal} />
-              <span className='dark:text-grey-600'>{t('or')}</span>
+              <span className="dark:text-grey-600">{t('or')}</span>
               <Button>
                 <FcGoogle /> {t('sign_up_google')}
               </Button>
-              <div className='dark:text-grey-600'>
+              <div className="dark:text-grey-600">
                 {t('have_account')}
                 <span onClick={() => setSignInModal((state) => !state)}>{t('sign_in')}</span>
               </div>
             </div>
           ) : (
             <div className={styles['form-container']}>
-              <h2 className='dark:text-grey-600'>{t('welcome')}</h2>
-              <p className='dark:text-grey-600'>{t('enter_details_sign_in')}</p>
+              <h2 className="dark:text-grey-600">{t('welcome')}</h2>
+              <p className="dark:text-grey-600">{t('enter_details_sign_in')}</p>
               <SignInForm handleClose={showModal} />
-              <div className='dark:text-grey-600'>
+              <div className="dark:text-grey-600">
                 {t('not_have_account')}
                 <span onClick={() => setSignInModal((state) => !state)}>{t('sign_up')}</span>
               </div>

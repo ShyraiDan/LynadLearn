@@ -43,24 +43,26 @@ export const AdminGrammarDeleteModal = ({ id }: { id: string }) => {
       <FaTrash
         size={14}
         onClick={() => showModal()}
-        className='cursor-pointer duration-150 transition-all ease-in dark:fill-white-100 hover:fill-red dark:hover:fill-red'
+        className="cursor-pointer duration-150 transition-all ease-in dark:fill-white-100 hover:fill-red dark:hover:fill-red"
       />
 
       <Modal
         isOpen={isOpen}
-        className='sm:h-[200px] sm:w-[475px] sm:self-center sm:justify-self-center dark:bg-[#0B152E]'
-        handleClose={() => showModal()}>
-        <div className='flex flex-col justify-center items-center'>
-          <h6 className='text-xl text-center font-bold mb-5 dark:text-grey-600'>
+        className="sm:h-[200px] sm:w-[475px] sm:self-center sm:justify-self-center dark:bg-[#0B152E]"
+        handleClose={() => showModal()}
+      >
+        <div className="flex flex-col justify-center items-center">
+          <h6 className="text-xl text-center font-bold mb-5 dark:text-grey-600">
             Are you sure you want to delete this grammar topic?
           </h6>
-          <div className='grid grid-cols-2 gap-4 w-full'>
-            <Button className='!rounded' type='button' onClick={() => handleDeleteGrammar(id)}>
+          <div className="grid grid-cols-2 gap-4 w-full">
+            <Button className="!rounded" type="button" onClick={() => handleDeleteGrammar(id)}>
               Delete
             </Button>
             <Button
-              className='!bg-transparent border border-solid border-blue-200 !text-blue-200 !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red'
-              onClick={() => showModal()}>
+              className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
+              onClick={() => showModal()}
+            >
               Cancel
             </Button>
           </div>

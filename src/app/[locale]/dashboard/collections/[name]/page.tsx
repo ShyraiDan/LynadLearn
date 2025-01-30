@@ -24,8 +24,8 @@ async function Collections({ params }: ICollectionsProps) {
   return (
     <>
       <PageHeading
-        name='Collections1'
-        id='collections'
+        name="Collections1"
+        id="collections"
         title={locale === 'en' ? DCollectionGroup.title : DCollectionGroup.titleUa}
         description={locale === 'en' ? DCollectionGroup.description : DCollectionGroup.descriptionUa}
         showStatistics={false}

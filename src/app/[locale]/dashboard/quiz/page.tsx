@@ -30,10 +30,6 @@ type TCategoryQuizPage = {
 async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
   const t = await getTranslations('dashboard.quiz')
 
-  const handleBookmark = (id: string) => {
-    return false
-  }
-
   if (type === 'grammar') {
     const grammarElementary = await getAllGrammar('A1-A2')
 
@@ -62,7 +58,7 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
       return (
         <>
           <div className={styles['no-list']}>
-            <h2 className='dark:text-grey-600'>{t('need_login')}</h2>
+            <h2 className="dark:text-grey-600">{t('need_login')}</h2>
           </div>
         </>
       )
@@ -75,14 +71,14 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
         <div className={styles.level}>
           {!data.length && (
             <div className={styles['no-list']}>
-              <h2 className='dark:text-grey-600'>{t('no_lists')}</h2>
+              <h2 className="dark:text-grey-600">{t('no_lists')}</h2>
             </div>
           )}
           <div className={styles['vocabulary-quiz']}>
             {DCategories.map((item) => (
               <>
                 <div className={styles.top}>
-                  <h4 className='dark:text-grey-600'>{item.title}</h4>
+                  <h4 className="dark:text-grey-600">{item.title}</h4>
                 </div>
                 <div className={styles.items}>
                   {item.lists.map((list) => (
@@ -110,37 +106,39 @@ export default function QuizPage({ searchParams, params }: TQuizPage) {
       <div className={styles.container}>
         {!(type === 'grammar' || type === 'vocabulary') && (
           <div className={styles['no-page']}>
-            <h3 className='dark:!text-grey-600'>{t('no_page')}</h3>
-            <NavigationLink href='/dashboard/quiz?type=grammar'>{t('move_to_quizzes')}</NavigationLink>
+            <h3 className="dark:!text-grey-600">{t('no_page')}</h3>
+            <NavigationLink href="/dashboard/quiz?type=grammar">{t('move_to_quizzes')}</NavigationLink>
           </div>
         )}
 
         {(type === 'grammar' || type === 'vocabulary') && (
           <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
-            <h2 className='dark:text-grey-600'>{t('quiz_page')}</h2>
+            <h2 className="dark:text-grey-600">{t('quiz_page')}</h2>
             <div className={styles.sections}>
               <div className={styles.top}>
-                <h4 className='dark:text-grey-600'>{t('filter')}</h4>
+                <h4 className="dark:text-grey-600">{t('filter')}</h4>
                 <div className={styles.tags}>
-                  <NavigationLink href='/dashboard/quiz?type=grammar'>
+                  <NavigationLink href="/dashboard/quiz?type=grammar">
                     <span
                       className={twMerge(
                         styles.badge,
                         'dark:bg-[#1D2D4D] dark:border-[#1D2D4D]',
                         type === 'grammar' &&
                           `${styles.active} dark:border-purple-100 dark:bg-purple-100 dark:hover:bg-purple-100 dark:hover:border-purple-100`
-                      )}>
+                      )}
+                    >
                       {t('grammar')}
                     </span>
                   </NavigationLink>
-                  <NavigationLink href='/dashboard/quiz?type=vocabulary'>
+                  <NavigationLink href="/dashboard/quiz?type=vocabulary">
                     <span
                       className={twMerge(
                         styles.badge,
                         'dark:bg-[#1D2D4D] dark:border-[#1D2D4D]',
                         type === 'vocabulary' &&
                           `${styles.active} dark:border-purple-100 dark:bg-purple-100 dark:hover:bg-purple-100 dark:hover:border-purple-100`
-                      )}>
+                      )}
+                    >
                       {t('vocabulary')}
                     </span>
                   </NavigationLink>

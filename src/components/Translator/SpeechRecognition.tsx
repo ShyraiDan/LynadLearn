@@ -24,7 +24,7 @@ const SpeechRecognitionComponent = ({ setSourceText }: ISpeechRecognitionProps) 
 
   return (
     <div>
-      <FaMicrophone size={22} className='text-gray-400' onClick={handleVoiceRecording} />
+      <FaMicrophone size={22} className="text-gray-400" onClick={handleVoiceRecording} />
     </div>
   )
 }

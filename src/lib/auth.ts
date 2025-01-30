@@ -1,7 +1,7 @@
 'use server'
 
 import connectMongoDB from './mongodb'
-import User from '@/interfaces/User.interface'
+import User, { IUser } from '@/interfaces/User.interface'
 import bcrypt from 'bcrypt'
 import { getIronSession, SessionOptions } from 'iron-session'
 import { cookies } from 'next/headers'
@@ -134,7 +134,7 @@ export const logout = async () => {
   redirect(`/${locale?.value}`)
 }
 
-export const updateUser = async (user: any) => {
+export const updateUser = async (user: IUser) => {
   const session = await getSession()
 
   await connectMongoDB()

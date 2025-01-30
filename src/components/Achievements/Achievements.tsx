@@ -10,12 +10,12 @@ export default function Achievements({ item, percent }: { item: IAchievement; pe
 
   return (
     <div className={twMerge(styles.achievement, percent >= 1 && styles.reached, 'dark:bg-[#1D2D4D]')}>
-      <div className={styles.icon}>{<item.icon className='dark:fill-grey-600' />}</div>
-      <h6 className='dark:text-grey-600'>{t(item.title)}</h6>
+      <div className={styles.icon}>{<item.icon className="dark:fill-grey-600" />}</div>
+      <h6 className="dark:text-grey-600">{t(item.title)}</h6>
       <div className={styles.progress}>
         <div style={{ width: `${percent * 100 > 100 ? 100 : percent * 100}%` }}></div>
       </div>
-      <p className='dark:text-grey-600'>{t(item.description)}</p>
+      <p className="dark:text-grey-600">{t(item.description)}</p>
     </div>
   )
 }

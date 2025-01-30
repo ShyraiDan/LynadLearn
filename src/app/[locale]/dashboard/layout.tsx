@@ -29,7 +29,8 @@ export default function DashboardPage({ children }: IDashboard) {
           <div className={styles['loader-wrapper']}>
             <Loader dimensionClass={styles.loader} />
           </div>
-        }>
+        }
+      >
         <Content>{children}</Content>
       </Suspense>
     </div>

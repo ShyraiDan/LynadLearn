@@ -37,11 +37,11 @@ const grammarSchema = new Schema({
     required: true
   },
   data: {
-    description: Array<String>,
+    description: Array<string>,
     example: Array<{
-      title: String
-      description: String
-      examples: Array<String>
+      title: string
+      description: string
+      examples: Array<string>
     }>
   },
   quizId: {

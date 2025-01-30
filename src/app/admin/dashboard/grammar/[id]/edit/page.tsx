@@ -10,7 +10,9 @@ export default function AdminAddGrammarPage({ params }: { params: { id: string }
 
   useEffect(() => {
     getSingleGrammar(params.id).then((res) => {
-      res && setData(res)
+      if (res) {
+        setData(res)
+      }
     })
   }, [params.id])
 

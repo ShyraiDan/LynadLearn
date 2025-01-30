@@ -3,7 +3,6 @@
 import styles from './BookmarkCard.module.scss'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
 import { ICollections } from '@/interfaces/Collections.interface'
 import { useState, MouseEvent } from 'react'
 import { twMerge } from 'tailwind-merge'
@@ -11,7 +10,6 @@ import { twMerge } from 'tailwind-merge'
 import { BookmarkAdd, BookmarkDelete } from '@/components/ui/Icons/Icons'
 
 export const BookmarkCard = ({ item, locale }: { item: ICollections; locale: string }) => {
-  const t = useTranslations('dashboard.collections')
   const [isBookmarked, setIsBookmarked] = useState(false)
 
   const handleAddBookmark = (e: MouseEvent<HTMLDivElement>) => {
@@ -20,15 +18,15 @@ export const BookmarkCard = ({ item, locale }: { item: ICollections; locale: str
   }
 
   return (
-    <NavigationLink href='/'>
+    <NavigationLink href="/">
       <div className={twMerge(styles['lists-item'], 'dark:bg-[#18223D]')}>
         <div className={styles.info}>
           <div className={styles.image}>
-            <Image src={item.image} alt='' />
+            <Image src={item.image} alt="" />
           </div>
           <div className={styles['info-text']}>
             <div className={styles.header}>
-              <h3 className='dark:text-grey-600'>
+              <h3 className="dark:text-grey-600">
                 {locale === 'en' ? item.title : item.titleUa}
                 {locale === 'ua' && (
                   <span className={twMerge(styles.subtitle, 'dark:text-grey-600')}>{item.title}</span>
@@ -40,8 +38,9 @@ export const BookmarkCard = ({ item, locale }: { item: ICollections; locale: str
                   'dark:bg-[#1D2D4D]',
                   isBookmarked && `${styles.active} dark:bg-blue-200`
                 )}
-                onClick={(e) => handleAddBookmark(e)}>
-                {isBookmarked ? <BookmarkDelete /> : <BookmarkAdd className='dark:stroke-white-100' />}
+                onClick={(e) => handleAddBookmark(e)}
+              >
+                {isBookmarked ? <BookmarkDelete /> : <BookmarkAdd className="dark:stroke-white-100" />}
               </div>
             </div>
             <p className={twMerge(styles.description, 'dark:text-grey-600')}>
