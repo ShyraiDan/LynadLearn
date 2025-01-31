@@ -5,6 +5,7 @@ import Loader from '@/components/Loader/Loader'
 import { getTranslations } from 'next-intl/server'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { DBookmarks } from '@/mock/Bookmarks.mock'
+import { H2, H3, P } from '@/components/ui/Typography/Typography'
 
 interface IBookmarksProps {
   params: {
@@ -26,7 +27,7 @@ async function Bookmarks({ params }: IBookmarksProps) {
     <>
       {DBookmarks.length > 0 && (
         <>
-          <h2 className="dark:text-grey-600">{t('bookmarks')}</h2>
+          <H2 className="text-center text-xl font-bold text-blue-200 my-4 sm:text-2xl">{t('bookmarks')}</H2>
           <div className={styles.bookmarks}>
             {DBookmarks.map((item) => (
               <BookmarkCard key={item.id} item={item} locale={locale} />
@@ -37,8 +38,8 @@ async function Bookmarks({ params }: IBookmarksProps) {
 
       {!DBookmarks.length && (
         <div className={styles['no-bookmarks']}>
-          <h3 className="dark:text-grey-600">{t('no_bookmarks')}</h3>
-          <p className="dark:text-grey-600">{t('no_bookmarks_description')}</p>
+          <H3 className="text-center text-2xl font-bold text-blue-200">{t('no_bookmarks')}</H3>
+          <P className="mt-2 text-center text-lg font-bold text-blue-200">{t('no_bookmarks_description')}</P>
           <div className={styles.links}>
             <NavigationLink href="/dashboard/grammar">{t('grammar')}</NavigationLink>
             <NavigationLink href="/dashboard/lists">{t('vocabulary')}</NavigationLink>

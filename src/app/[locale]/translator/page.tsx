@@ -10,6 +10,7 @@ import useTranslate from '@/hooks/useTranslate'
 import { rtfToText } from '@/utils/rtfToText'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
+import { H1, P } from '@/components/ui/Typography/Typography'
 
 import { FaVolumeHigh } from 'react-icons/fa6'
 import { MdContentCopy } from 'react-icons/md'
@@ -71,10 +72,10 @@ export default function TranslatorPage() {
         <div className="overflow-hidden h-screen">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-24 max-w-[1320px]">
             <div className="text-center">
-              <h1 className="text-4xl sm:text-6xl font-bold dark:text-grey-600">
+              <H1 className="text-4xl sm:text-6xl font-bold dark:text-grey-600">
                 Lynad<span className="text-[#7c68ee]">Translate</span>
-              </h1>
-              <p className="mt-3 dark:text-grey-600">{t('slogan')}</p>
+              </H1>
+              <P className="text-[1rem] mt-3 dark:text-grey-600">{t('slogan')}</P>
               <div className="mt-7 sm:mt-12 mx-auto">
                 <div className="grid gap-4 md:grid-cols-2 grid-cols-1">
                   <div className="z-10 flex flex-col p-3 border rounded-lg shadow-lg dark:border-[#ffffff20]">

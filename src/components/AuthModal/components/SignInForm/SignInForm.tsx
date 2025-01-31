@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl'
 import { ISignIn } from '../Auth.interface'
 import { login } from '@/lib/auth'
 import { useState } from 'react'
+import { P } from '@/components/ui/Typography/Typography'
 
 import { FaEye } from 'react-icons/fa'
 import { FaEyeSlash } from 'react-icons/fa'
@@ -43,7 +44,7 @@ export default function SignInForm({ handleClose }: { handleClose: () => void })
       >
         {t('email')}
       </Input>
-      {errors?.email && <p className={styles.error}>{errors.email.message}</p>}
+      {errors?.email && <P className="text-red text-sm mb-1">{errors.email.message}</P>}
       <div className="relative flex flex-col !mt-1.5">
         <Input
           type={showPassword ? 'text' : 'password'}
@@ -72,7 +73,7 @@ export default function SignInForm({ handleClose }: { handleClose: () => void })
           )}
         </span>
       </div>
-      {errors?.password && <p className={styles.error}>{errors.password.message}</p>}
+      {errors?.password && <P className="text-red text-sm mb-1">{errors.password.message}</P>}
       <Button type="submit">{t('sign_in')}</Button>
     </form>
   )

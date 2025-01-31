@@ -5,6 +5,7 @@ import styles from './UserReview.module.scss'
 import { DReview } from '@/mock/Review.mock'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
+import { P } from '@/components/ui/Typography/Typography'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -43,9 +44,9 @@ export default function UserReview() {
                 <div key={review.id} className={`${styles.item} dark:bg-[#050e26]`}>
                   <div className={styles.user}>
                     <Image src={review.avatar} alt="user-icon"></Image>
-                    <p className="dark:text-grey-600">{review.name}</p>
+                    <P className="font-bold">{review.name}</P>
                   </div>
-                  <p className="dark:text-grey-600">{review.text}</p>
+                  <P className="text-sm mb-2 font-medium">{review.text}</P>
                   <div className={styles.mark}>
                     <div className={styles.stars}>
                       <IoStarSharp size="20px" />
@@ -56,7 +57,7 @@ export default function UserReview() {
                     </div>
                     <div className={styles.platform}>
                       <FaGooglePlay className="dark:text-grey-600" />
-                      <p>Google Play</p>
+                      <P className="font-medium text-[#949494]">Google Play</P>
                     </div>
                   </div>
                 </div>

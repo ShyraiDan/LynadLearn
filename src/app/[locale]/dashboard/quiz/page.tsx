@@ -12,6 +12,7 @@ import { twMerge } from 'tailwind-merge'
 import { DCategories } from '@/mock/Categories.mock'
 import List from '@/components/List/List'
 import { IGrammarTopic } from '@/interfaces/Grammar.interface'
+import { H2, H3, H4 } from '@/components/ui/Typography/Typography'
 
 type TQuizPage = {
   searchParams: {
@@ -36,7 +37,7 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
     return (
       <>
         <div className={styles.level}>
-          <h2 className={twMerge(styles['level-title'], 'dark:text-grey-600')}>A1-A2 grammar</h2>
+          <H2 className="text-center text-xl font-bold text-blue-200 my-4 sm:text-2xl">A1-A2 grammar</H2>
           <div className={styles.topics}>
             {grammarElementary.map((item: IGrammarTopic) => {
               return (
@@ -58,7 +59,7 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
       return (
         <>
           <div className={styles['no-list']}>
-            <h2 className="dark:text-grey-600">{t('need_login')}</h2>
+            <H2>{t('need_login')}</H2>
           </div>
         </>
       )
@@ -71,14 +72,14 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
         <div className={styles.level}>
           {!data.length && (
             <div className={styles['no-list']}>
-              <h2 className="dark:text-grey-600">{t('no_lists')}</h2>
+              <H2>{t('no_lists')}</H2>
             </div>
           )}
           <div className={styles['vocabulary-quiz']}>
             {DCategories.map((item) => (
               <>
                 <div className={styles.top}>
-                  <h4 className="dark:text-grey-600">{item.title}</h4>
+                  <H4 className="text-lg font-bold mb-0">{item.title}</H4>
                 </div>
                 <div className={styles.items}>
                   {item.lists.map((list) => (
@@ -106,17 +107,17 @@ export default function QuizPage({ searchParams, params }: TQuizPage) {
       <div className={styles.container}>
         {!(type === 'grammar' || type === 'vocabulary') && (
           <div className={styles['no-page']}>
-            <h3 className="dark:!text-grey-600">{t('no_page')}</h3>
+            <H3 className="text-2xl font-bold text-blue-200 mb-4">{t('no_page')}</H3>
             <NavigationLink href="/dashboard/quiz?type=grammar">{t('move_to_quizzes')}</NavigationLink>
           </div>
         )}
 
         {(type === 'grammar' || type === 'vocabulary') && (
           <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
-            <h2 className="dark:text-grey-600">{t('quiz_page')}</h2>
+            <H2 className="text-center text-xl font-bold text-blue-200 my-4 sm:text-2xl">{t('quiz_page')}</H2>
             <div className={styles.sections}>
               <div className={styles.top}>
-                <h4 className="dark:text-grey-600">{t('filter')}</h4>
+                <H4 className="text-lg font-bold mb-0">{t('filter')}</H4>
                 <div className={styles.tags}>
                   <NavigationLink href="/dashboard/quiz?type=grammar">
                     <span

@@ -10,6 +10,7 @@ import { MdEdit } from 'react-icons/md'
 import { FaTrash } from 'react-icons/fa'
 import { Input } from '@/components/ui/Input/Input'
 import { IQuestion } from '@/interfaces/Quiz.interface'
+import { H3, P } from '@/components/ui/Typography/Typography'
 
 //Todo: This form need to work for new grammars without quizzes
 
@@ -46,7 +47,7 @@ export const AdminEditQuiz = ({ quizId, handleClose, setQuizId }: IAdminEditQuiz
   if (!isLoading && !quiz && quizId) {
     return (
       <div className="w-full h-[300px] flex flex-col items-center justify-center">
-        <h3 className="font-bold text-lg mb-3">Quiz not found</h3>
+        <H3 className="font-bold text-lg mb-3">Quiz not found</H3>
         <Button
           type="button"
           className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
@@ -72,7 +73,7 @@ export const AdminEditQuiz = ({ quizId, handleClose, setQuizId }: IAdminEditQuiz
 
   return (
     <div>
-      <h3 className="font-semibold mb-2 dark:text-grey-600">Grammar Quiz</h3>
+      <H3 className="font-semibold mb-2 dark:text-grey-600">Grammar Quiz</H3>
       {quiz?.questions.map((question, index) => (
         <div
           key={`${question.question}-${index}`}
@@ -155,15 +156,15 @@ export const AdminEditQuiz = ({ quizId, handleClose, setQuizId }: IAdminEditQuiz
             </>
           ) : (
             <>
-              <h3 className="font-bold mb-3 dark:text-grey-600">{question.question}</h3>
+              <H3 className="font-bold mb-3 dark:text-grey-600">{question.question}</H3>
 
               {question.options.map((option, index) => (
-                <p
+                <P
                   key={`${question.question}-${index}`}
                   className={twMerge('font-bold', option.correct ? 'text-green-100' : 'text-red')}
                 >
                   {option.option}
-                </p>
+                </P>
               ))}
 
               <div className="flex items-center justify-center gap-2 absolute top-2 right-2 rounded-lg px-2 py-2">

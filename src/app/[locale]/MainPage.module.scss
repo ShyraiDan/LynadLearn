@@ -4,23 +4,12 @@
     sm:mt-12
     lg:max-w-[1320px] lg:mx-auto;
 
-    h2 {
-      @apply font-semibold text-lg mb-4 font-bold 
-      sm:text-4xl 
-      md:text-[40px];
-
-      .title {
-        @apply text-blue-300;
-      }
-
-      span {
-        @apply text-purple-100;
-      }
+    .title {
+      @apply text-blue-300;
     }
 
-    p {
-      @apply font-semibold text-sm text-center 
-      md:text-lg;
+    span {
+      @apply text-purple-100;
     }
   }
 
@@ -137,17 +126,6 @@
       @apply mb-12 w-full 
       lg:w-1/2;
 
-      h3 {
-        @apply font-bold text-left mb-4
-        sm:text-lg 
-        md:text-lg 
-        lg:text-2xl;
-      }
-
-      > p {
-        @apply mb-4;
-      }
-
       .advantages {
         @apply mt-7 flex justify-between;
       }
@@ -163,11 +141,6 @@
     .description {
       @apply w-full relative mb-4 
       lg:w-[42%] lg:mb-0;
-
-      p {
-        @apply text-sm mb-2             
-        lg:text-base;
-      }
 
       button {
         @apply px-14;
@@ -213,21 +186,11 @@
         @apply flex flex-col font-bold text-white-100 m-4 
         md:ml-14 md:my-auto;
 
-        h3 {
-          @apply mb-4 font-bold
-          sm:text-lg 
-          md:text-2xl;
-        }
-
         .item {
           @apply flex items-center mb-4;
 
           svg {
             @apply mr-2;
-          }
-
-          p {
-            @apply mb-0 text-sm font-medium;
           }
         }
 
@@ -256,19 +219,9 @@
     .info {
       @apply flex flex-col;
 
-      h3 {
-        @apply font-bold  
-        sm:text-lg 
-        lg:text-2xl;
-      }
-
       img {
         @apply hidden 
         lg:block;
-      }
-
-      p {
-        @apply text-sm my-4 font-medium;
       }
 
       a {
@@ -286,12 +239,6 @@
   }
 }
 
-.help-description-title {
-  @apply font-bold mt-10 mb-4 text-black  
-  sm:text-lg 
-  lg:text-2xl;
-}
-
 .review {
   @apply pb-8 bg-white-200 pt-8 my-14 px-4;
 
@@ -299,9 +246,5 @@
     @apply flex leading-6 flex-col items-center 
     sm:mx-[-15px] 
     lg:mx-0 lg:max-w-[1320px] lg:mx-auto;
-
-    h3 {
-      @apply text-center text-2xl font-bold mb-4;
-    }
   }
 }

@@ -3,17 +3,7 @@
   xs:pl-3
   [&_h6]:hover:text-purple-100;
 
-  h6 {
-    @apply text-blue-200 font-bold duration-150 mb-2
-    sm:text-2xl;
-  }
-
   div {
     @apply flex items-center;
-
-    p {
-      @apply mb-0 ml-1 text-xs font-medium 
-      sm:text-base;
-    }
   }
 }

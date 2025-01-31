@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useTranslations, useLocale } from 'next-intl'
 import { twMerge } from 'tailwind-merge'
 import { AuthModalButton } from '@/components/AuthModalButton/AuthModalButton'
+import { H3, H6, P } from '@/components/ui/Typography/Typography'
 
 import { AiOutlineThunderbolt } from 'react-icons/ai'
 import { TbZoomMoney } from 'react-icons/tb'
@@ -19,11 +20,11 @@ export default function PricingCard({ data }: { data: IPricing }) {
   return (
     <div className={`${styles.card} dark:bg-[#111C38]`}>
       <div>
-        <h6 className="dark:text-grey-600">{`${
-          data.duration === 'years' ? '3 ' : data.duration === 'year' ? '1 ' : ''
-        }${t(data.duration)}`}</h6>
+        <H6 className="font-medium text-lg lg:text-2xl mb-0">{`${data.duration === 'years' ? '3 ' : data.duration === 'year' ? '1 ' : ''}${t(data.duration)}`}</H6>
         <div className={styles.title}>
-          <h3 className="dark:text-grey-600">{data.price === 'free' ? t(data.price) : data.price}</h3>{' '}
+          <H3 className="text-2xl font-bold mb-3 mr-3 lg:text-4xl">
+            {data.price === 'free' ? t(data.price) : data.price}
+          </H3>{' '}
           {data.previousPrice && <span>{data.previousPrice}</span>}
         </div>
         <ul>
@@ -55,21 +56,25 @@ export default function PricingCard({ data }: { data: IPricing }) {
       {data.duration === 'year' && (
         <div className={styles.popular}>
           <Image src={MostPopular} alt="" />
-          <p>{t('most_popular')}</p>
+          <P className="text-xs font-medium absolute top-[11px] left-[15px] text-white-100">{t('most_popular')}</P>
         </div>
       )}
 
       {data.previousPrice && (
         <div className={styles.discount}>
           <Image src={Discount} alt="" />
-          <p>30%</p>
+          <P className="text-xs font-medium absolute top-[9px] left-[20px] text-white-100">30%</P>
         </div>
       )}
 
       {data.duration === 'years' && (
         <div className={styles.best}>
           <Image src={BestOffer} alt="" />
-          <p className={`${localActive === 'ua' && styles.changed}`}>{t('best_offer')}</p>
+          <P
+            className={`${localActive === 'ua' && 'text-xs font-medium absolute top-[11px] left-[15px] text-white-100'}`}
+          >
+            {t('best_offer')}
+          </P>
         </div>
       )}
     </div>

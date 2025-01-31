@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
+import { P } from '@/components/ui/Typography/Typography'
 
 import { FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
@@ -57,7 +58,7 @@ export function Footer() {
                 </nav>
               </div>
               <div className={styles['footer-right']}>
-                <p className="dark:text-grey-600">{t('follow_us')}</p>
+                <P>{t('follow_us')}</P>
                 <ul>
                   <li>
                     <Link

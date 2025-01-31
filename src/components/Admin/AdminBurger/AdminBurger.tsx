@@ -6,6 +6,7 @@ import { removeScrollBar } from '@/constants/shared'
 import { logout } from '@/lib/auth'
 import Button from '@/components/ui/Button/Button'
 import { usePathname } from 'next/navigation'
+import { H2 } from '@/components/ui/Typography/Typography'
 
 import { FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
@@ -37,9 +38,9 @@ export default function AdminBurger() {
       >
         <div>
           <div className="py-4 flex justify-between items-center border-b border-[#0000001a]">
-            <h2 className="font-bold text-2xl text-blue-300">
+            <H2 className="font-bold text-2xl text-blue-300 mb-0">
               Lynad<span className="text-purple-100">Learn</span>
-            </h2>
+            </H2>
             <RxCross1 className="cursor-pointer dark:text-grey-600" onClick={() => showModal()} size="24px" />
           </div>
           <ul className="py-4">

@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import { DFeatures } from '@/mock/Features.mock'
 import { useTranslations } from 'next-intl'
+import { H6, P } from '@/components/ui/Typography/Typography'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -38,9 +39,9 @@ export default function Features() {
                   <div className={styles.item}>
                     <div>
                       <Image src={item.icon} alt="book" />
-                      <h6 className="dark:text-grey-600">{t(item.title)}</h6>
+                      <H6 className="dark:text-grey-600">{t(item.title)}</H6>
                     </div>
-                    <p className={`${styles['item-description']} dark:text-grey-600`}>{t(item.description)}</p>
+                    <P className="text-sm text-black mb-0 mt-5 font-medium lg:text-base">{t(item.description)}</P>
                   </div>
                 </SwiperSlide>
               )

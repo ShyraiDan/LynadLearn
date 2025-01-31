@@ -27,11 +27,6 @@
     md:h-[calc(100vh-153px-81px)] 
     lg:h-[calc(100vh-97px-81px-32px)] lg:w-[calc(100vw-254px-32px)];
 
-    p {
-      @apply text-center text-lg font-bold text-blue-200 mb-2
-      sm:text-[2rem] sm:mb-4;
-    }
-
     .links {
       @apply flex font-medium items-center justify-center bg-blue-200 text-white-100 px-3 py-1.5 rounded transition-all ease-in-out duration-300
       hover:bg-purple-100;
@@ -53,18 +48,6 @@
 
     .top {
       @apply flex flex-col gap-4;
-
-      h3 {
-        @apply text-lg text-blue-200 font-bold text-center 
-        sm:text-2xl sm:text-start 
-        md:text-3xl;
-      }
-
-      p {
-        @apply text-base text-center font-medium 
-        sm:text-start
-        md:text-lg;
-      }
     }
 
     .new-words {
@@ -72,11 +55,6 @@
 
       .info {
         @apply flex justify-between items-center;
-
-        p {
-          @apply text-lg font-bold 
-          md:text-2xl;
-        }
 
         .btn {
           @apply bg-transparent text-black flex items-center justify-center p-3 rounded-2xl bg-[#F0F0F0]
@@ -102,10 +80,6 @@
       hover:bg-purple-100;
     }
   }
-}
-
-.title {
-  @apply text-blue-200 font-bold mb-0;
 }
 
 .link {

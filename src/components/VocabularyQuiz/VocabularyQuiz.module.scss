@@ -55,12 +55,3 @@
 .wrong {
   @apply border border-red bg-red text-white-100;
 }
-
-.title {
-  @apply text-blue-200 font-bold mb-4;
-}
-
-.question-title {
-  @apply text-base font-bold text-blue-200 mb-2 
-  sm:text-3xl;
-}

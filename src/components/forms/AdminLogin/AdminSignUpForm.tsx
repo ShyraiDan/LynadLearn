@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Input } from '@/components/ui/Input/Input'
+import { P } from '@/components/ui/Typography/Typography'
 
 import { FaEye } from 'react-icons/fa'
 import { FaEyeSlash } from 'react-icons/fa'
@@ -71,7 +72,7 @@ export default function AdminSignUpForm() {
           )}
         </span>
       </div>
-      {errors?.password && <p className="text-red">{errors.password.message}</p>}
+      {errors?.password && <P className="text-red">{errors.password.message}</P>}
       <Button className="!rounded mt-4 w-full" type="submit">
         Sign in
       </Button>

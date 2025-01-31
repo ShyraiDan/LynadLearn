@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/Input/Input'
 import Button from '@/components/ui/Button/Button'
 import { useState } from 'react'
 import DictionaryCard from '@/components/DictionaryCard/DictionaryCard'
+import { H1, H2, P } from '@/components/ui/Typography/Typography'
 
 import { FaSearch } from 'react-icons/fa'
 import { mocks } from '@/mock/Dictionary.mock'
@@ -26,7 +27,9 @@ export default function Dictionary() {
     <div className={styles.container}>
       <div className={`${styles.heading} dark:bg-[#18223D]`}>
         <div className={styles['sub-container']}>
-          <h1 className={`${styles.title} dark:text-grey-600`}>{t('perfect_dictionary')}</h1>
+          <H1 className="text-center font-bold mt-4 mb-3 text-lg sm:text-2xl md:mb-6 lg:text-[40px] dark:text-grey-600">
+            {t('perfect_dictionary')}
+          </H1>
           <div className={styles['input-container']}>
             <Input
               onChange={(e) => setSearch(e.target.value)}
@@ -39,7 +42,9 @@ export default function Dictionary() {
               <FaSearch />
             </Button>
           </div>
-          <p className={`${styles.desc} dark:text-grey-600`}>{t('online_dictionary')}</p>
+          <P className="mt-4 leading-5 text-justify text-sm sm:text-base md:mt-6 md:px-8 md:text-center md:w-[770px] md:mx-auto lg:px-0 lg:w-full lg:text-center lg:text-lg dark:text-grey-600">
+            {t('online_dictionary')}
+          </P>
         </div>
       </div>
       <div className={styles['sub-container']}>
@@ -66,7 +71,7 @@ export default function Dictionary() {
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2 className="dark:text-grey-600">{t(`cards.${item.title}`)}</h2>
+                      <H2 className="dark:text-grey-600 mb-0">{t(`cards.${item.title}`)}</H2>
                     </div>
                   </div>
                 ))}
@@ -83,7 +88,7 @@ export default function Dictionary() {
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2 className="dark:text-grey-600">{t(`cards.${item.title}`)}</h2>
+                      <H2 className="dark:text-grey-600 mb-0">{t(`cards.${item.title}`)}</H2>
                     </div>
                   </div>
                 ))}
@@ -100,7 +105,7 @@ export default function Dictionary() {
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2 className="dark:text-grey-600">{t(`cards.${item.title}`)}</h2>
+                      <H2 className="dark:text-grey-600 mb-0">{t(`cards.${item.title}`)}</H2>
                     </div>
                   </div>
                 ))}
@@ -117,7 +122,7 @@ export default function Dictionary() {
                       <div className={styles.photos}>
                         <Image src={item.image} alt={item.title} />
                       </div>
-                      <h2 className="dark:text-grey-600">{t(`cards.${item.title}`)}</h2>
+                      <H2 className="dark:text-grey-600 mb-0">{t(`cards.${item.title}`)}</H2>
                     </div>
                   </div>
                 ))}

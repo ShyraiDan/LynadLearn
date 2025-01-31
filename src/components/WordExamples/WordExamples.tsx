@@ -1,6 +1,7 @@
 import styles from './WordExamples.module.scss'
 import { useTranslations } from 'next-intl'
 import { twMerge } from 'tailwind-merge'
+import { H3, P } from '@/components/ui/Typography/Typography'
 
 import { MessageQuestion } from '../ui/Icons/Icons'
 import { Spring } from '@/components/ui/Spring/Spring'
@@ -18,14 +19,14 @@ export const WordExamples = ({ examples }: { examples: Array<string> }) => {
         <div className={styles['examples-header']}>
           <div className={styles.title}>
             <MessageQuestion className="dark:fill-grey-600" />
-            <h3 className="dark:text-grey-600">{t('example')}</h3>
+            <H3 className="m-0 text-base sm:text-lg">{t('example')}</H3>
           </div>
         </div>
         <ul className={styles.content}>
           {examples.map((item: string, index: number) => (
             <li key={index}>
               <span className={styles.dot}></span>
-              <p className="dark:text-grey-600">{item}</p>
+              <P className="first-letter:uppercase">{item}</P>
             </li>
           ))}
         </ul>

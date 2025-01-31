@@ -7,6 +7,7 @@ import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
 import { DAchievement } from '@/mock/Achievments.mock'
 import { twMerge } from 'tailwind-merge'
+import { H3, P } from '@/components/ui/Typography/Typography'
 
 import { FaUser } from 'react-icons/fa'
 
@@ -52,25 +53,25 @@ async function YourProfile() {
           <FaUser className="dark:fill-grey-600" />
         </div>
         <div className={styles['user-details']}>
-          <h3 className="dark:text-grey-600">{session.userName}</h3>
-          <p className="dark:text-grey-600">{session.location}</p>
+          <H3 className="font-bold text-lg mt-4 mb-2">{session.userName}</H3>
+          <P>{session.location}</P>
           <div className={twMerge(styles.rate, 'dark:text-grey-600 dark:bg-[#1D2D4D]')}>
             {t('rate')}: {(session.rating as number) + calculateRate(session)}
           </div>
-          <p className="dark:text-grey-600">{session.description}</p>
+          <P className="mt-2 dark:text-grey-600">{session.description}</P>
           <ul className={styles.achivements}>
             <li className="dark:text-grey-600">
               {session.successfulQuizzes && session.totalQuizzes && session.successfulQuizzes / session.totalQuizzes} %{' '}
-              <p>{t('success_quiz')}</p>
+              <P className="text-[12px]">{t('success_quiz')}</P>
             </li>
             <li className="dark:text-grey-600">
-              {session.totalQuizzes} <p>{t('finished_quiz')}</p>
+              {session.totalQuizzes} <P className="text-[12px]">{t('finished_quiz')}</P>
             </li>
             <li className="dark:text-grey-600">
-              {session.wordLists} <p>{t('list_created')}</p>
+              {session.wordLists} <P className="text-[12px]">{t('list_created')}</P>
             </li>
             <li className="dark:text-grey-600">
-              {session.flashcardsLearned} <p>{t('words_learned')}</p>
+              {session.flashcardsLearned} <P className="text-[12px]">{t('words_learned')}</P>
             </li>
           </ul>
         </div>

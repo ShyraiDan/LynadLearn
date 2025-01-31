@@ -15,6 +15,7 @@ import { getVocabularyQuiz } from '@/lib/quiz'
 import { IVocabularyQuiz } from '@/interfaces/Quiz.interface'
 import { Modal } from '@/components/ui/Modal/Modal'
 import { ScoresEnum } from '@/lib/scores'
+import { H1, H3, P } from '@/components/ui/Typography/Typography'
 
 interface IVocabularyQuizPageProps {
   params: {
@@ -79,7 +80,7 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
       {words && !isQuiz && (
         <>
           <div className={styles.container}>
-            <h1 className="dark:text-grey-600">{t('vocabulary_quiz')}</h1>
+            <H1 className="text-2xl text-blue-200 font-bold mb-4">{t('vocabulary_quiz')}</H1>
             <div>
               <Button className="dark:border-none" onClick={() => startQuiz()}>
                 {t('start_quiz')}
@@ -118,7 +119,7 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
       {!loading && !words && (
         <div className={styles.container}>
           <div className={styles['no-quiz']}>
-            <h3 className={twMerge(styles.title, 'dark:!text-grey-600')}>{t('no_quiz')}</h3>
+            <H3 className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">{t('no_quiz')}</H3>
             <NavigationLink className={styles.link} href="/dashboard/quiz?type=vocabulary">
               {t('move_to_quizzes')}
             </NavigationLink>
@@ -132,7 +133,7 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
         handleClose={() => showModal()}
       >
         <div className={styles.modal}>
-          <h3 className={twMerge(styles['modal-title'], 'dark:text-grey-600')}>
+          <H3 className="text-xl text-center font-bold text-blue-200 mb-3">
             {t('no_time')}
             <br /> {t('no_question')}
             <br />
@@ -141,7 +142,7 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
               length: vocabularyQuiz?.questions.length,
               time: Math.floor((finishTime - startTime) / 1000)
             })}
-          </h3>
+          </H3>
           <div className={styles['nav-btns']}>
             <NavigationLink className={styles.link} href="/dashboard/quiz?type=vocabulary">
               {t('go_to_quiz')}
@@ -162,15 +163,15 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
         handleClose={() => returnToQuiz()}
       >
         <div className={styles.modal}>
-          <h3 className={twMerge(styles['modal-title'], 'dark:text-grey-600')}>{t('finished_quiz')}</h3>
-          <p className="dark:text-grey-600">
+          <H3 className="text-xl text-center font-bold text-blue-200 mb-3">{t('finished_quiz')}</H3>
+          <P>
             {t('result_quiz', {
               correct: correct,
               length: vocabularyQuiz?.questions.length,
               time: Math.floor((finishTime - startTime) / 1000),
               points: ScoresEnum.FINISH_QUIZ + correct * ScoresEnum.ANSWER_QUIZ
             })}
-          </p>
+          </P>
           <div className={twMerge(styles['nav-btns'], 'mt-3')}>
             <NavigationLink className={styles.link} href="/dashboard/quiz?type=vocabulary">
               {t('go_to_quiz')}

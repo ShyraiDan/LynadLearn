@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import styles from './Accordion.module.scss'
 import { DFAQ } from '@/mock/FAQ.mock'
+import { H6, P } from '@/components/ui/Typography/Typography'
+import { twMerge } from 'tailwind-merge'
 
 import { IoIosArrowDown } from 'react-icons/io'
 
@@ -26,11 +28,18 @@ export default function Accordion() {
             onClick={() => toggleAccordion(i)}
           >
             <div>
-              <h6 className={`${open === i && 'text-purple-100'}`}>{t(item.question)}</h6>
+              <H6
+                className={twMerge(
+                  'text-base font-medium mb-0 max-w-[calc(100%-20px)]',
+                  `${open === i && 'text-purple-100'}`
+                )}
+              >
+                {t(item.question)}
+              </H6>
               <IoIosArrowDown size={20} />
             </div>
 
-            {i === open && <p className="dark:text-grey-600">{t(item.answer)}</p>}
+            {i === open && <P className="text-sm text-grey-500 mt-4">{t(item.answer)}</P>}
           </div>
         )
       })}

@@ -19,6 +19,7 @@ import note from '@/assets/icons/note-2-disable.svg'
 import { FaArrowRight } from 'react-icons/fa'
 import { removeScrollBar } from '@/constants/shared'
 import { AuthModal } from '@/components/AuthModal/AuthModal'
+import { H3, H6 } from '@/components/ui/Typography/Typography'
 
 const lessons = [1, 2, 3, 4, 5, 6]
 
@@ -87,7 +88,7 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
                           onClick={() => setIsSelected(i)}
                         >
                           <div>
-                            <h3 className="dark:text-grey-600">Top 1 - 25 Verbs</h3>
+                            <H3 className="dark:text-grey-600">Top 1 - 25 Verbs</H3>
                           </div>
                         </div>
 
@@ -148,7 +149,7 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
           handleClose()
         }}
       >
-        <p className="text-center font-bold">In order to add to your bookmarks you must sign in to your account</p>
+        <H6 className="text-center font-bold">In order to add to your bookmarks you must sign in to your account</H6>
       </RequireAuthModal>
 
       <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />

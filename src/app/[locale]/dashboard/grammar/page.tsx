@@ -11,6 +11,7 @@ import { RequireAuthModal } from '@/components/RequireAuthModal/RequireAuthModal
 import { removeScrollBar } from '@/constants/shared'
 import { AuthModal } from '@/components/AuthModal/AuthModal'
 import { getCookies } from '@/utils/cookies'
+import { H2, P } from '@/components/ui/Typography/Typography'
 
 interface IGrammarPageProps {
   params: {
@@ -59,7 +60,7 @@ export default function GrammarPage({ params }: IGrammarPageProps) {
   return (
     <div className={styles.container}>
       <div className={styles.level}>
-        <h2 className={twMerge(styles.title, 'dark:text-grey-600')}>A1-A2 grammar</h2>
+        <H2 className="text-center text-xl font-bold text-blue-200 my-4 sm:text-2xl">A1-A2 grammar</H2>
         <div className={styles.topics}>
           {grammarElementary.map((item: IGrammarTopic, i) => {
             return (
@@ -79,7 +80,7 @@ export default function GrammarPage({ params }: IGrammarPageProps) {
           handleClose()
         }}
       >
-        <p className="text-center font-bold">In order to add to your bookmarks you must sign in to your account</p>
+        <P className="text-center font-bold">In order to add to your bookmarks you must sign in to your account</P>
       </RequireAuthModal>
 
       <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />

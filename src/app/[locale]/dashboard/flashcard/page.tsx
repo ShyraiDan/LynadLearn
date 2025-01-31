@@ -7,16 +7,19 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { DCategories } from '@/mock/Categories.mock'
 import { getTranslations } from 'next-intl/server'
 import List from '@/components/List/List'
+import { H2, H4 } from '@/components/ui/Typography/Typography'
 
 async function YourLists() {
   const lists = await getYourLists()
   const t = await getTranslations()
   return (
     <>
-      <h2 className="dark:text-grey-600">{t('dashboard.flashcard.flashcard_page')}</h2>
+      <H2 className="text-center text-xl font-bold text-blue-200 my-4 sm:text-2xl">
+        {t('dashboard.flashcard.flashcard_page')}
+      </H2>
       <div className={styles.sections}>
         <div className={styles.top}>
-          <h4 className="dark:text-grey-600">{t('dashboard.flashcard.choose_word_list')}</h4>
+          <H4 className="font-bold text-[1rem] mb-0">{t('dashboard.flashcard.choose_word_list')}</H4>
         </div>
         <div className={styles.items}>
           {lists.map((item) => (
@@ -30,7 +33,7 @@ async function YourLists() {
         {DCategories.map((item) => (
           <>
             <div className={styles.top}>
-              <h4 className="dark:text-grey-600">{t(`dashboard.lists.${item.title}`)}</h4>
+              <H4 className="font-bold text-[1rem] mb-0">{t(`dashboard.lists.${item.title}`)}</H4>
             </div>
             <div className={styles.items}>
               {item.lists.map((list) => (

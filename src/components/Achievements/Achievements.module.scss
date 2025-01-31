@@ -5,14 +5,6 @@
     @apply h-[60px] w-[60px] rounded-full bg-blue-225 shadow-md flex items-center justify-center text-blue-200 text-3xl;
   }
 
-  h6 {
-    @apply text-[16px];
-  }
-
-  p {
-    @apply text-[12px] text-center leading-6;
-  }
-
   .progress {
     @apply w-[150px] rounded h-[3px] bg-[#cbd4e1] relative;
 

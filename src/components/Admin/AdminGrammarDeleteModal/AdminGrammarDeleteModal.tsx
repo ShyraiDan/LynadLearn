@@ -9,6 +9,7 @@ import { deleteSingleGrammar } from '@/lib/grammar'
 import { toast } from 'sonner'
 import SnackBar from '@/components/ui/SnackBar/SnackBar'
 import { useRouter } from 'next/navigation'
+import { H6 } from '@/components/ui/Typography/Typography'
 
 export const AdminGrammarDeleteModal = ({ id }: { id: string }) => {
   const [isOpen, setOpen] = useState(false)
@@ -52,9 +53,9 @@ export const AdminGrammarDeleteModal = ({ id }: { id: string }) => {
         handleClose={() => showModal()}
       >
         <div className="flex flex-col justify-center items-center">
-          <h6 className="text-xl text-center font-bold mb-5 dark:text-grey-600">
+          <H6 className="text-xl text-center font-bold mb-5 dark:text-grey-600">
             Are you sure you want to delete this grammar topic?
-          </h6>
+          </H6>
           <div className="grid grid-cols-2 gap-4 w-full">
             <Button className="!rounded" type="button" onClick={() => handleDeleteGrammar(id)}>
               Delete

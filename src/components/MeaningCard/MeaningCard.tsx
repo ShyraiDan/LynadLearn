@@ -5,6 +5,7 @@ import { WordExamples } from '@/components/WordExamples/WordExamples'
 import { groupByPartOfSpeech } from '@/utils/middlewares'
 import { Badge } from '@/components/Badge/Badge'
 import { twMerge } from 'tailwind-merge'
+import { H6, P } from '@/components/ui/Typography/Typography'
 
 interface IMeaningCard {
   word: IWord
@@ -18,7 +19,7 @@ export const MeaningCard = ({ word }: IMeaningCard) => {
       {Object.entries(meanings).map(([partOfSpeech, results]) => (
         <div className={twMerge(styles.meanings, 'dark:!bg-[#16274A]')} key={partOfSpeech}>
           <div className={twMerge(styles['meaning-header'], 'dark:!bg-[#1D2D4D]')}>
-            <h6 className={twMerge(styles.title, 'dark:text-grey-600')}>{word.word}</h6>
+            <H6 className="font-medium text-lg md:text-2xl">{word.word}</H6>
             <Badge part={partOfSpeech} />
           </div>
           {results.map((result, index) => (
@@ -27,7 +28,7 @@ export const MeaningCard = ({ word }: IMeaningCard) => {
                 <div className={styles.content}>
                   <div className={styles.meaning}>
                     <div className={styles.number}>{index + 1}</div>
-                    <p className="dark:text-grey-600">{result.definition}</p>
+                    <P className="ml-3 font-medium text-lg">{result.definition}</P>
                   </div>
                   <div className={styles.synonyms}>
                     {result.synonyms.map((synonym, i) => (

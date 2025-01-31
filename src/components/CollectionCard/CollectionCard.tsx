@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl'
 import { ICollections } from '@/interfaces/Collections.interface'
 import { useState } from 'react'
 import { twMerge } from 'tailwind-merge'
+import { H3, P } from '../ui/Typography/Typography'
 
 import { FaBookOpen, FaClock, FaArrowRight } from 'react-icons/fa6'
 import { MdPlayLesson } from 'react-icons/md'
@@ -28,10 +29,10 @@ export const CollectionCard = ({ item, locale }: { item: ICollections; locale: s
         </div>
         <div className={styles['info-text']}>
           <div className={styles.header}>
-            <h3 className="dark:text-grey-600">
+            <H3 className="font-bold mb-2 text-lg">
               {locale === 'en' ? item.title : item.titleUa}
               {locale === 'ua' && <span className="dark:!text-grey-600">{item.title}</span>}
-            </h3>
+            </H3>
             <div
               className={twMerge(
                 styles['button-bookmark'],
@@ -43,30 +44,32 @@ export const CollectionCard = ({ item, locale }: { item: ICollections; locale: s
               {isBookmarked ? <BookmarkDelete /> : <BookmarkAdd className="dark:stroke-white-100" />}
             </div>
           </div>
-          <p className="dark:!text-grey-600">{locale === 'en' ? item.description : item.descriptionUa}</p>
+          <P className="text-[#666666] mb-0 mt-[-9px] overflow-hidden text-sm font-normal">
+            {locale === 'en' ? item.description : item.descriptionUa}
+          </P>
         </div>
       </div>
       <div className={styles['lists-info']}>
         <div className={styles['lists-stats']}>
           <div className={styles['lists-stats-item']}>
             <FaBookOpen className="dark:text-grey-600" />
-            <p className="dark:text-grey-600">
+            <P>
               <span>{item.lessons}</span> {t('lessons')}
-            </p>
+            </P>
           </div>
           <div className={styles['lists-stats-item']}>
             <MdPlayLesson className="dark:text-grey-600" />
-            <p className="dark:text-grey-600">
+            <P>
               <span>{item.words}</span> {t('words')}
-            </p>
+            </P>
           </div>
           <div className={styles['lists-stats-item']}>
             <FaClock className="dark:text-grey-600" />
-            <p className="dark:text-grey-600">
+            <P>
               <span>
                 {Math.floor(item.words / 120)} {t('hours')} {Math.ceil((item.words % 60) / 2)} {t('minutes')}
               </span>
-            </p>
+            </P>
           </div>
         </div>
         <NavigationLink href="/">

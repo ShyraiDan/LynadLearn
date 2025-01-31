@@ -8,6 +8,7 @@ import { IWord } from '@/interfaces/Word.interface'
 import { Badge } from '@/components/Badge/Badge'
 import { ListsModal } from '@/components/ListsModal/ListsModal'
 import { twMerge } from 'tailwind-merge'
+import { H6 } from '@/components/ui/Typography/Typography'
 
 import usFlag from '@/assets/icons/us.svg'
 
@@ -23,10 +24,12 @@ export const WordCard = ({ word }: { word: IWord }) => {
         </div>
         <div className={styles.pronunciation}>
           <Image src={usFlag} alt="flag" width={24} />
-          <h6 className="dark:text-grey-600">/{word.pronunciation}/</h6>
+          <H6 className="font-medium text-sm sm:text-base dark:text-grey-600">/{word.pronunciation}/</H6>
         </div>
         <Badge part={word.results[0].part_of_speech} className={styles['part-of-speech']} />
-        <p className="dark:text-grey-600">{word.results[0]?.definition}</p>
+        <H6 className="mb-2 text-justify w-full overflow-hidden font-medium text-base sm:text-lg xl:w-2/3 dark:text-grey-600">
+          {word.results[0]?.definition}
+        </H6>
         <div className={styles.synonyms}>
           {word.results[0]?.synonyms.map((synonym) => (
             <Button key={synonym}>

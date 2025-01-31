@@ -16,6 +16,7 @@ import SnackBar from '@/components/ui/SnackBar/SnackBar'
 import { twMerge } from 'tailwind-merge'
 import { AuthModal } from '@/components/AuthModal/AuthModal'
 import { RequireAuthModal } from '@/components/RequireAuthModal/RequireAuthModal'
+import { P } from '@/components/ui/Typography/Typography'
 
 import { FaPlus } from 'react-icons/fa'
 
@@ -64,7 +65,7 @@ export default function AddList() {
           <div className={twMerge(styles.photo, 'dark:bg-[#233869] dark:shadow-lg')}>
             <FaPlus />
           </div>
-          <p>{t('add_list')}</p>
+          <P className="w-[100px] text-[1rem] text-center cursor-pointer sm:w-[135px]">{t('add_list')}</P>
         </div>
         <SnackBar />
       </div>
@@ -76,7 +77,7 @@ export default function AddList() {
           handleClose()
         }}
       >
-        <p className="text-center font-bold">In order to add list you must sign in to your account</p>
+        <P className="text-[1rem] text-center font-bold">In order to add list you must sign in to your account</P>
       </RequireAuthModal>
 
       <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />
@@ -104,7 +105,7 @@ export default function AddList() {
             >
               {t('list_name')}
             </Input>
-            {errors?.title && <p className={styles.error}>{errors.title.message}</p>}
+            {errors?.title && <P className="text-red mt-1.5 text-sm">{errors.title.message}</P>}
             <Button type="submit">{t('create_list')}</Button>
           </form>
         </Modal>

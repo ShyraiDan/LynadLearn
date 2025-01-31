@@ -16,6 +16,7 @@ import Button from '@/components/ui/Button/Button'
 import { twMerge } from 'tailwind-merge'
 import { useRouter } from 'next/navigation'
 import 'swiper/css'
+import { H2, P, H3 } from '@/components/ui/Typography/Typography'
 
 import { TbCardsFilled, TbVocabulary } from 'react-icons/tb'
 import { FaPlus } from 'react-icons/fa'
@@ -149,7 +150,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
         {!loading && list && words.length !== 0 && (
           <>
             <div className={styles.top}>
-              <h2 className={twMerge(styles.title, 'dark:text-grey-600')}>{t('words_from', { list: list?.title })} </h2>
+              <H2 className="text-blue-200 font-bold mb-0">{t('words_from', { list: list?.title })} </H2>
               <NavigationLink
                 className={twMerge(styles.link, 'dark:text-grey-600')}
                 href={`/dashboard/vocabulary/${listId}`}
@@ -207,7 +208,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
 
         {!loading && !list && words.length === 0 && (
           <div className={styles['no-lists']}>
-            <p className="dark:!text-grey-600">{t('no_lists')}</p>
+            <P className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">{t('no_lists')}</P>
             <NavigationLink href="/dashboard/flashcard" className={styles.links}>
               <TbCardsFilled />
               {t('move_flashcards')}
@@ -217,7 +218,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
 
         {!loading && list && words.length === 0 && (
           <div className={styles['no-lists']}>
-            <p className="dark:!text-grey-600">{t('no_words')}</p>
+            <P className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">{t('no_words')}</P>
             <div className="flex gap-4">
               <NavigationLink href="/dashboard/flashcard" className={styles.links}>
                 <TbCardsFilled />
@@ -246,18 +247,20 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
           <div className={styles.modal}>
             <div>
               <div className={styles.top}>
-                <h3 className="dark:!text-grey-600">{t('congrats')}</h3>
-                <p className="dark:text-grey-600">
+                <H3 className="text-lg text-blue-200 font-bold text-center sm:text-2xl sm:text-start md:text-3xl">
+                  {t('congrats')}
+                </H3>
+                <P className="text-base text-center font-medium sm:text-start md:text-lg">
                   {t('you_learned', {
                     words: initialWords
                   })}
-                </p>
+                </P>
               </div>
               <div className={twMerge(styles['new-words'], 'dark:!bg-[#1D2D4D]')}>
                 <div className={styles.info}>
-                  <p className="dark:text-grey-600">
+                  <P className="text-lg font-bold md:text-2xl">
                     {wrongWords.length === 0 ? t('no_difficult_words') : t('add_difficult_words')}
-                  </p>
+                  </P>
                   {wrongWords.length > 0 && (
                     <Button
                       className={twMerge(
@@ -294,7 +297,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
         <Modal isOpen={userListsModal} className="dark:bg-[#0B152E]" handleClose={() => setUserListsModal(false)}>
           <div className={styles['list-modal']}>
             <div>
-              <h3 className={twMerge(styles.title, 'dark:text-grey-600')}>{t('modal.choose_list')}</h3>
+              <H3 className="text-2xl font-bold mb-5">{t('modal.choose_list')}</H3>
               <div className={styles.list}>
                 {userLists.map((list) => (
                   <div key={list._id} onClick={() => addWordsToList(list._id)}>

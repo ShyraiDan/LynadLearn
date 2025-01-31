@@ -37,14 +37,6 @@
     img {
       @apply w-[44px] mr-3 rounded-full border border-solid border-white-200;
     }
-
-    p {
-      @apply font-bold;
-    }
-  }
-
-  > p {
-    @apply text-sm mb-2 font-medium;
   }
 
   .mark {
@@ -63,10 +55,6 @@
 
       svg {
         @apply mr-2;
-      }
-
-      p {
-        @apply font-medium text-[#949494];
       }
     }
   }

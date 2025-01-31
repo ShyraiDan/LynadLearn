@@ -11,6 +11,7 @@ import { Badge } from '@/components/Badge/Badge'
 import { AddEditDefinitionForm } from './AddEditDefinitionForm/AddEditDefinitionForm'
 import { nanoid } from 'nanoid'
 import { twMerge } from 'tailwind-merge'
+import { H2, H6, P } from '@/components/ui/Typography/Typography'
 
 import { FaPlus, FaTrash } from 'react-icons/fa'
 import { MdEdit } from 'react-icons/md'
@@ -107,8 +108,8 @@ export default function WordModal({ handleClose, word }: IWordModal) {
   }
   return (
     <div className={styles.modal}>
-      <h2 className="dark:text-grey-600">{word ? t('edit_word') : t('add_new_word')}</h2>
-      <p className="dark:text-grey-600">{word ? t('change_details') : t('enter_word_details')}</p>
+      <H2 className="mb-2 text-3xl font-bold dark:text-grey-600">{word ? t('edit_word') : t('add_new_word')}</H2>
+      <H6 className="mb-7 dark:text-grey-600">{word ? t('change_details') : t('enter_word_details')}</H6>
       <form action="" className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div>
           <Input
@@ -123,7 +124,9 @@ export default function WordModal({ handleClose, word }: IWordModal) {
           >
             {t('your_word')}
           </Input>
-          {errors?.word && <p className={styles.error}>{errors.word.message}</p>}
+          {errors?.word && (
+            <P className="font-semibold mb-2 first:mt-0 text-[1rem] text-red mt-1.5 text-sm">{errors.word.message}</P>
+          )}
           <Input
             type="text"
             name="pronunciation"
@@ -135,9 +138,13 @@ export default function WordModal({ handleClose, word }: IWordModal) {
           >
             {t('pronunciation')}
           </Input>
-          {errors?.pronunciation && <p className={styles.error}>{errors.pronunciation.message}</p>}
+          {errors?.pronunciation && (
+            <P className="font-semibold mb-2 first:mt-0 text-[1rem] text-red mt-1.5 text-sm">
+              {errors.pronunciation.message}
+            </P>
+          )}
 
-          <p className="dark:text-grey-600">{t('definition')}</p>
+          <P className="mt-4 block text-[1rem] font-semibold mb-2 first:mt-0 dark:text-grey-600">{t('definition')}</P>
           {results.map((item, index) => (
             <>
               <div className={twMerge(styles.definition, 'dark:!bg-[#1D2D4D]')} key={item.definition}>
@@ -146,7 +153,7 @@ export default function WordModal({ handleClose, word }: IWordModal) {
                     <div className={styles.meaning}>
                       <div className={styles.title}>
                         <div className={styles.number}>{index + 1}</div>
-                        <p className="dark:text-grey-600">{item.definition}</p>
+                        <P className="m-0 ml-3 font-medium text-lg dark:text-grey-600">{item.definition}</P>
                       </div>
                       <div className={styles.icons}>
                         <MdEdit
@@ -173,7 +180,7 @@ export default function WordModal({ handleClose, word }: IWordModal) {
                       {item.examples.map((item: string, index: number) => (
                         <li key={index}>
                           <span className={styles.dot}></span>
-                          <p className="dark:text-grey-600">{item}</p>
+                          <P className="m-0 text-lg font-semibold first-letter:uppercase dark:text-grey-600">{item}</P>
                         </li>
                       ))}
                     </ul>
@@ -186,7 +193,7 @@ export default function WordModal({ handleClose, word }: IWordModal) {
             </>
           ))}
           <AddEditDefinitionForm allowedAction={handleAddDefinition} />
-          <p className="dark:text-grey-600">{t('translation')}</p>
+          <P className="mt-4 text-[1rem] block font-semibold mb-2 first:mt-0 dark:text-grey-600">{t('translation')}</P>
           <div className="mb-2">
             <div className={styles.translations}>
               {translationsList.map((item) => (
@@ -214,9 +221,13 @@ export default function WordModal({ handleClose, word }: IWordModal) {
             {isSubmitted &&
               translationsList.length === 0 &&
               (translations ? (
-                <p className="dark:text-red !mt-1.5 !mb-2 text-[14px]">Submit word translation</p>
+                <P className="block font-semibold first:mt-0 dark:text-red mt-1.5 mb-2 text-[14px]">
+                  Submit word translation
+                </P>
               ) : (
-                <p className="dark:text-red !mt-1.5 !mb-2 text-[14px]">Add word translation</p>
+                <P className="block font-semibold first:mt-0 dark:text-red mt-1.5 mb-2 text-[14px]">
+                  Add word translation
+                </P>
               ))}
           </div>
           <Button onClick={handleSubmit(onSubmit)}>{word ? t('edit_word') : t('add_word')}</Button>

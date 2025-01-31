@@ -12,6 +12,7 @@ import { twMerge } from 'tailwind-merge'
 import WordModal from '@/components/WordModal/WordModal'
 import { useTranslations } from 'next-intl'
 import { deleteWordById } from '@/lib/word'
+import { H6 } from '@/components/ui/Typography/Typography'
 
 import { MdEdit } from 'react-icons/md'
 import { FaTrash } from 'react-icons/fa'
@@ -144,7 +145,7 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
           handleClose={() => showDeleteModal()}
         >
           <div className={styles.delete}>
-            <h6 className="dark:text-grey-600">{t('really_delete')}</h6>
+            <H6 className="text-xl text-center font-bold mb-5 mt-[-35px]">{t('really_delete')}</H6>
             <div className={styles.btns}>
               <Button onClick={() => deleteWord(word)}>{t('delete')}</Button>
               <Button

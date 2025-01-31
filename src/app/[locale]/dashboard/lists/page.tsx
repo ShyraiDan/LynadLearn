@@ -7,7 +7,7 @@ import CustomCategory from '@/components/CustomCategory/CustomCategory'
 import Loader from '@/components/Loader/Loader'
 import CategoryItem from '@/components/CategoryItem/CategoryItem'
 import { getTranslations } from 'next-intl/server'
-import { twMerge } from 'tailwind-merge'
+import { H6 } from '@/components/ui/Typography/Typography'
 
 const categories = [
   {
@@ -49,7 +49,7 @@ async function YourCategories() {
       ))}
       <div className={styles.category}>
         <div className={styles.top}>
-          <h6 className={twMerge(styles.title, 'dark:!text-grey-600')}>{t('categorized_wordlist')}</h6>
+          <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600 ">{t('categorized_wordlist')}</H6>
         </div>
         <div className={styles.categories}>
           {categories.map((item) => (

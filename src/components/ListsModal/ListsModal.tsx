@@ -16,6 +16,7 @@ import { useTranslations } from 'next-intl'
 import { twMerge } from 'tailwind-merge'
 import { IWord } from '@/interfaces/Word.interface'
 import { createWord } from '@/lib/word'
+import { H3, P } from '@/components/ui/Typography/Typography'
 
 import { FaPlus } from 'react-icons/fa'
 import { RequireAuthModal } from '../RequireAuthModal/RequireAuthModal'
@@ -92,7 +93,7 @@ export const ListsModal = ({ word }: { word: IWord }) => {
       </Button>
       <Modal isOpen={open} className="dark:bg-[#0B152E]" handleClose={() => showModal()}>
         <div className={styles.modal}>
-          <h3 className={twMerge(styles.title, 'dark:text-grey-600')}>{t('choose_list')}</h3>
+          <H3 className="text-2xl font-bold mb-5 dark:text-grey-600">{t('choose_list')}</H3>
           <div className={styles.list}>
             {lists.map((list) => (
               <div key={list._id} onClick={() => addWordToList(list._id)}>
@@ -111,7 +112,7 @@ export const ListsModal = ({ word }: { word: IWord }) => {
           handleClose()
         }}
       >
-        <p className="text-center font-bold">In order to add to your bookmarks you must sign in to your account</p>
+        <P className="text-center font-bold">In order to add to your bookmarks you must sign in to your account</P>
       </RequireAuthModal>
 
       <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />

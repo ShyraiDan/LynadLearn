@@ -2,11 +2,6 @@
   @apply mb-3 flex flex-col items-center text-[#bcc1c6] transition-all ease-linear duration-150
   [&_div]:transition-all [&_div]:ease-linear [&_div]:duration-150
   hover:text-purple-100 [&_div]:hover:text-purple-100 [&_div]:hover:border-purple-100;
-
-  > p {
-    @apply w-[100px] text-center cursor-pointer 
-    sm:w-[135px];
-  }
 }
 
 .photo {
@@ -23,10 +18,6 @@
       @apply w-full mb-5;
     }
 
-    .error {
-      @apply text-red mt-1.5 text-sm;
-    }
-
     button {
       @apply rounded-lg w-full mt-3;
     }
@@ -35,8 +26,4 @@
 
 .correct {
   @apply border border-green-100 bg-green-100 text-white-100;
-}
-
-.wrong {
-  @apply border border-red bg-red text-white-100;
 }

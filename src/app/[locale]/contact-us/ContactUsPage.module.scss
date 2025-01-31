@@ -20,14 +20,6 @@
   @apply border border-green-100 bg-green-100 text-white-100;
 }
 
-.title {
-  @apply text-3xl text-blue-200 px-6 font-bold mb-4;
-}
-
-.subtitle {
-  @apply px-6 mb-2 pt-2 text-justify text-blue-125 text-base font-medium;
-}
-
 .form-container {
   @apply bg-[#ffffffda] shadow-[0_.5rem_1rem_rgba(0,0,0,.15)] border-0 rounded-[20px] xl:p-24 sm:p-12 p-6 lg:m-0 overflow-hidden;
 
@@ -47,10 +39,6 @@
 
     button {
       @apply px-3 rounded;
-    }
-
-    .error {
-      @apply text-red mt-1.5 text-sm;
     }
   }
 }

@@ -5,6 +5,7 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 import { useState, MouseEvent } from 'react'
 import { twMerge } from 'tailwind-merge'
+import { H4, P } from '@/components/ui/Typography/Typography'
 
 import { BookmarkAdd, BookmarkDelete } from '@/components/ui/Icons/Icons'
 
@@ -32,7 +33,9 @@ export default function QuizCard({ topic, lang, allowedAction }: TQuizCard) {
       href={`/dashboard/grammar/${topic._id}`}
     >
       <div className={styles.top}>
-        <h4 className="dark:text-grey-600">{lang === 'en' ? topic.title : topic.titleUa}</h4>
+        <H4 className="m-0 font-bold text-base duration-150 mb-2 md:text-lg lg:text-xl">
+          {lang === 'en' ? topic.title : topic.titleUa}
+        </H4>
         <div
           className={twMerge(
             styles['button-bookmark'],
@@ -44,9 +47,9 @@ export default function QuizCard({ topic, lang, allowedAction }: TQuizCard) {
           {isBookmarked ? <BookmarkDelete /> : <BookmarkAdd className="dark:stroke-white-100" />}
         </div>
       </div>
-      <p className="dark:text-grey-600">
+      <P className="m-0 text-sm duration-150 dark:text-grey-600">
         {lang === 'en' ? topic.data.description[0].en : topic.data.description[0].ua}
-      </p>
+      </P>
     </NavigationLink>
   )
 }

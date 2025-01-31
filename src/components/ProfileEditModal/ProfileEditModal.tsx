@@ -12,6 +12,7 @@ import { removeScrollBar } from '@/constants/shared'
 import { updateUser } from '@/lib/auth'
 import { ISession } from '@/lib/auth'
 import { twMerge } from 'tailwind-merge'
+import { H3, H5, P } from '@/components/ui/Typography/Typography'
 
 import { MdModeEdit } from 'react-icons/md'
 import { FaUser } from 'react-icons/fa'
@@ -56,7 +57,7 @@ export default function ProfileEditModal({ session }: { session: ISession }) {
           className={twMerge(styles['edit-modal'], 'dark:bg-[#0B152E]')}
           handleClose={() => openEditModal()}
         >
-          <h3 className={twMerge(styles.title, 'dark:text-grey-600')}>{t('edit_profile')}</h3>
+          <H3 className="text-2xl font-bold mb-5">{t('edit_profile')}</H3>
           <form action="" className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.photo}>
               <div className={twMerge(styles['user-photo'], 'dark:bg-[#1D2D4D]')}>
@@ -66,7 +67,7 @@ export default function ProfileEditModal({ session }: { session: ISession }) {
                 </div>
               </div>
             </div>
-            <h5 className={twMerge(styles.subtitle, 'dark:text-grey-600')}>{t('personal_info')}</h5>
+            <H5 className="text-xl font-bold my-3 dark:text-grey-600">{t('personal_info')}</H5>
             <div className={styles['input-container']}>
               <Input
                 type="text"
@@ -81,7 +82,7 @@ export default function ProfileEditModal({ session }: { session: ISession }) {
               >
                 {t('name')}
               </Input>
-              {errors?.userName && <p className={styles.error}>{errors.userName.message}</p>}
+              {errors?.userName && <P className="text-red text-sm mt-1">{errors.userName.message}</P>}
             </div>
             <div className={styles['input-container']}>
               <Input
@@ -93,7 +94,7 @@ export default function ProfileEditModal({ session }: { session: ISession }) {
               >
                 {t('description')}
               </Input>
-              {errors?.description && <p className={styles.error}>{errors.description.message}</p>}
+              {errors?.description && <P className="text-red text-sm mt-1">{errors.description.message}</P>}
             </div>
             <div className={styles['input-container']}>
               <Input
@@ -105,7 +106,7 @@ export default function ProfileEditModal({ session }: { session: ISession }) {
               >
                 {t('location')}
               </Input>
-              {errors?.location && <p className={styles.error}>{errors.location.message}</p>}
+              {errors?.location && <P className="text-red text-sm mt-1">{errors.location.message}</P>}
             </div>
             <Button type="submit">{t('save')}</Button>
           </form>

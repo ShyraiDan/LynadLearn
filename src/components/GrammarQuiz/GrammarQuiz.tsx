@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/Input/Input'
 import { FaArrowRight } from 'react-icons/fa'
 import { twMerge } from 'tailwind-merge'
 import { IQuiz } from '@/interfaces/Quiz.interface'
+import { H1, H2 } from '../ui/Typography/Typography'
 
 interface IGrammarQuizProps {
   quiz: IQuiz
@@ -77,7 +78,7 @@ export default function GrammarQuiz({
     <>
       <div className={styles.container}>
         <div className={styles.top}>
-          <h2 className={twMerge(styles.title, 'dark:text-grey-600')}>{quiz.title}</h2>
+          <H2 className="text-blue-200 font-bold mb-4">{quiz.title}</H2>
           <div>
             <div className={twMerge(styles.questions, 'dark:text-grey-600')}>0/10</div>
             <div className={twMerge('dark:text-grey-600', seconds < 6 && styles.time)}>
@@ -87,9 +88,7 @@ export default function GrammarQuiz({
         </div>
         <div className={styles.quiz}>
           <div>
-            <h1 className={twMerge(styles['question-title'], 'dark:text-grey-600')}>
-              {quiz.questions[question].question}
-            </h1>
+            <H1 className="text-base font-bold text-blue-200 mb-2 sm:text-3xl">{quiz.questions[question].question}</H1>
             <div className={styles.answers}>
               {quiz.questions[question].options.map((item: IOption, i: number) => {
                 return (

@@ -9,10 +9,6 @@
   lg:h-[calc(100vh-305px)] 
   xl:h-[calc(100vh-275px)];
 
-  .title {
-    @apply text-2xl font-bold mb-5;
-  }
-
   .list {
     @apply grid grid-cols-auto-fill-140;
   }

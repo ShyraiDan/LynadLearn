@@ -9,6 +9,7 @@ import { useTranslations } from 'next-intl'
 import { removeScrollBar } from '@/constants/shared'
 import SignInForm from './components/SignInForm/SignInForm'
 import SignUpForm from './components/SignUpForm/SignUpForm'
+import { H2, H6 } from '@/components/ui/Typography/Typography'
 
 import { FcGoogle } from 'react-icons/fc'
 import image from '@/assets/keep_your_learning_data.png'
@@ -36,8 +37,8 @@ export function AuthModal({ isModalOpen, showModal }: IAuthModalProps) {
           </div>
           {isSignInModal ? (
             <div className={styles['form-container']}>
-              <h2 className="dark:text-grey-600">{t('hello')}</h2>
-              <p className="dark:text-grey-600">{t('enter_details_sign_up')}</p>
+              <H2 className="mb-2 text-3xl font-bold dark:text-grey-600">{t('hello')}</H2>
+              <H6 className="mb-5 dark:text-grey-600">{t('enter_details_sign_up')}</H6>
               <SignUpForm handleClose={handleShowModal} />
               <span className="dark:text-grey-600">{t('or')}</span>
               <Button>
@@ -50,8 +51,8 @@ export function AuthModal({ isModalOpen, showModal }: IAuthModalProps) {
             </div>
           ) : (
             <div className={styles['form-container']}>
-              <h2 className="dark:text-grey-600">{t('welcome')}</h2>
-              <p className="dark:text-grey-600">{t('enter_details_sign_in')}</p>
+              <H2 className="mb-2 text-3xl font-bold dark:text-grey-600">{t('welcome')}</H2>
+              <H6 className="mb-5 dark:text-grey-600">{t('enter_details_sign_in')}</H6>
               <SignInForm handleClose={showModal} />
               <div className="dark:text-grey-600">
                 {t('not_have_account')}

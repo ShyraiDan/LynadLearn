@@ -29,16 +29,6 @@
 
     .info {
       @apply flex flex-col gap-6;
-
-      .word {
-        @apply text-lg font-bold
-        sm:text-2xl;
-      }
-
-      .part-of-speech {
-        @apply text-base
-        sm:text-lg font-medium;
-      }
     }
 
     .pronunciation {
@@ -49,10 +39,6 @@
   .footer {
     @apply flex items-center justify-center w-full h-14 overflow-hidden bg-transparent z-[1] bg-blue-200 rounded-t-none rounded-b-3xl transition-all ease-in-out duration-150
     hover:bg-purple-100;
-
-    h6 {
-      @apply text-white-100 font-medium leading-none m-0 flex items-center gap-2;
-    }
   }
 }
 
@@ -71,17 +57,6 @@
     > div {
       .translation {
         @apply px-4 pt-12 mb-1.5 flex items-center gap-2 mt-4 mt-0;
-
-        > p {
-          @apply font-medium leading-6 line-clamp-2 cursor-vertical-text text-ellipsis overflow-hidden break-words m-0 text-base 
-          sm:text-lg sm:leading-7  
-          lg:text-xl lg:leading-8;
-        }
-      }
-
-      > p {
-        @apply px-4 font-medium text-left text-sm 
-        sm:text-base;
       }
     }
   }
@@ -101,10 +76,6 @@
     .btn-left {
       @apply bg-[#FEE6E5] px-4 w-[140px] h-full rounded-none rounded-bl-3xl text-[#BD2927] font-medium leading-none m-0 items-center
       sm:py-4 sm:px-6 sm:w-[170px];
-
-      h6 {
-        @apply flex items-center gap-1;
-      }
     }
   }
 }
@@ -118,11 +89,6 @@
 
     > div {
       @apply flex items-center gap-2;
-
-      h3 {
-        @apply m-0 text-base font-medium 
-        sm:text-lg;
-      }
     }
   }
 

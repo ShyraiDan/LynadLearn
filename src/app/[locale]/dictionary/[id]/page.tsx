@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { MeaningCard } from '@/components/MeaningCard/MeaningCard'
 import { useTranslations } from 'next-intl'
 import { ListsModal } from '@/components/ListsModal/ListsModal'
+import { H3 } from '@/components/ui/Typography/Typography'
 
 import us from '@/assets/icons/us.svg'
 import example from '@/assets/icons/message-question.svg'
@@ -58,7 +59,7 @@ export default function DictionaryWordPage() {
           <div className={styles['examples-header']}>
             <div className={styles.title}>
               <Image src={example} alt="example" />
-              <h3>{t('nearby_words')}</h3>
+              <H3 className="m-0 text-base sm:text-lg font-normal">{t('nearby_words')}</H3>
             </div>
           </div>
           <ul className={styles.synonyms}>

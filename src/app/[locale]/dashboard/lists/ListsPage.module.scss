@@ -10,11 +10,6 @@
 
     .top {
       @apply mb-6 flex justify-between;
-
-      h6 {
-        @apply font-bold mb-2 text-blue-150 
-      md:mb-0;
-      }
     }
 
     .categories {

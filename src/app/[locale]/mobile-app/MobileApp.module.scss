@@ -41,10 +41,6 @@
               span {
                 @apply text-black text-[10px];
               }
-
-              p {
-                @apply text-black text-sm font-bold mb-0 mt-[-5px];
-              }
             }
           }
         }
@@ -65,16 +61,6 @@
     .learning {
       @apply my-12 w-full 
       lg:w-[40%];
-
-      h3 {
-        @apply font-bold text-base 
-        sm:text-lg 
-        md:text-2xl;
-      }
-
-      p {
-        @apply text-sm;
-      }
 
       > div {
         @apply mt-14 flex justify-between;
@@ -213,15 +199,6 @@
         sm:ml-8 sm:my-8 
         md:my-auto md:ml-16;
 
-        h3 {
-          @apply font-bold mb-2 
-          sm:text-lg;
-        }
-
-        p {
-          @apply text-sm font-medium mb-4;
-        }
-
         .buttons {
           @apply flex mt-6 mb-6 w-full justify-start
           sm:mb-auto sm:mt-12 
@@ -245,10 +222,6 @@
 
                 span {
                   @apply text-black text-[10px];
-                }
-
-                p {
-                  @apply text-black text-sm font-bold mb-0 mt-[-5px];
                 }
               }
             }
@@ -276,31 +249,6 @@
   }
 }
 
-.title {
-  @apply text-lg mt-1 pb-4 text-black font-semibold mb-0   
-  xs:text-2xl
-  md:pb-0 
-  lg:text-[40px];
-
-  span {
-    @apply text-blue-100;
-
-    span {
-      @apply text-purple-100;
-    }
-  }
-}
-
-.subtitle {
-  @apply text-lg font-medium text-black;
-}
-
-.features-title {
-  @apply text-black text-base font-bold mb-0 
-  sm:text-lg 
-  lg:text-2xl;
-}
-
 .review {
   @apply pb-8 bg-white-200 pt-8 my-14 px-4;
 
@@ -308,9 +256,5 @@
     @apply flex leading-6 flex-col items-center 
     sm:mx-[-15px] 
     lg:mx-0 lg:max-w-[1320px] lg:mx-auto;
-
-    h3 {
-      @apply text-center text-2xl font-bold mb-4;
-    }
   }
 }

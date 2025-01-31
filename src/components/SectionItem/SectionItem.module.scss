@@ -11,15 +11,5 @@
       @apply w-6 h-6 
       sm:w-auto sm:h-auto;
     }
-
-    h3 {
-      @apply font-semibold text-sm mb-0 ml-2 
-      sm:text-lg;
-    }
-  }
-
-  p {
-    @apply text-xs mt-4 mb-0 
-    sm:text-sm;
   }
 }

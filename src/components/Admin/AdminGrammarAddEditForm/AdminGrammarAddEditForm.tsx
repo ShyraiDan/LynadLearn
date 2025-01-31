@@ -13,6 +13,7 @@ import SnackBar from '@/components/ui/SnackBar/SnackBar'
 import { addSingleGrammar, updateSingleGrammar } from '@/lib/grammar'
 import { useRouter } from 'next/navigation'
 import { AdminEditQuiz } from '@/components/Admin/AdminEditQuiz/AdminEditQuiz'
+import { H1, P } from '@/components/ui/Typography/Typography'
 
 import { MdEdit } from 'react-icons/md'
 import { FaTrash } from 'react-icons/fa'
@@ -135,7 +136,7 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
   return (
     <>
       <div className="p-4 h-full overflow-y-auto">
-        <h1 className="text-center text-xl font-bold">{data ? 'Edit' : 'Add'} grammar topic</h1>
+        <H1 className="text-center text-xl font-bold">{data ? 'Edit' : 'Add'} grammar topic</H1>
         <form action="" onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">
             <Controller
@@ -149,7 +150,7 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
               )}
             />
 
-            {errors?.title && <p className="text-red">{errors.title.message}</p>}
+            {errors?.title && <P className="text-red">{errors.title.message}</P>}
           </div>
           <div className="mb-4">
             <Controller
@@ -162,7 +163,7 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                 </Input>
               )}
             />
-            {errors?.title && <p className="text-red">{errors.title.message}</p>}
+            {errors?.title && <P className="text-red">{errors.title.message}</P>}
           </div>
 
           <label htmlFor="level" className="block font-semibold mb-2 dark:text-grey-600">
@@ -181,7 +182,7 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
             <option value="C2">Proficiency</option>
           </select>
 
-          <p className="font-semibold mb-2 dark:text-grey-600">Enter description</p>
+          <P className="font-semibold mb-2 dark:text-grey-600">Enter description</P>
 
           {descriptionFields.map((item, i) => (
             <div
@@ -189,7 +190,7 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
               key={'paragraph-' + i}
             >
               <div className="flex justify-between mb-2">
-                <p className="font-semibold dark:text-grey-600">Paragraph {i + 1}</p>
+                <P className="font-semibold dark:text-grey-600">Paragraph {i + 1}</P>
                 {i !== isEditDescription && (
                   <div className="flex gap-4 items-center">
                     <MdEdit
@@ -206,8 +207,8 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
 
               {i !== isEditDescription ? (
                 <>
-                  <p className="my-2 dark:text-grey-600">{item.en}</p>
-                  <p className="my-2 dark:text-grey-600">{item.ua}</p>
+                  <P className="my-2 dark:text-grey-600">{item.en}</P>
+                  <P className="my-2 dark:text-grey-600">{item.ua}</P>
                 </>
               ) : (
                 <>
@@ -295,7 +296,7 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
               key={`rule-${i}`}
             >
               <div className="flex justify-between mb-2">
-                <p className="font-semibold dark:text-grey-600">Rule {i + 1}</p>
+                <P className="font-semibold dark:text-grey-600">Rule {i + 1}</P>
                 {isEditRule !== i && (
                   <div className="flex gap-4 items-center">
                     <MdEdit
@@ -311,12 +312,12 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
               </div>
               {isEditRule !== i ? (
                 <>
-                  <p className="font-semibold my-2 dark:text-grey-600">Title</p>
-                  <p className="my-2 dark:text-grey-600">{example.title}</p>
-                  <p className="my-2 dark:text-grey-600">{example.titleUa}</p>
-                  <p className="font-semibold my-2 dark:text-grey-600">Description</p>
-                  <p className="my-2 dark:text-grey-600">{example.description}</p>
-                  <p className="my-2 dark:text-grey-600">{example.descriptionUa}</p>
+                  <P className="font-semibold my-2 dark:text-grey-600">Title</P>
+                  <P className="my-2 dark:text-grey-600">{example.title}</P>
+                  <P className="my-2 dark:text-grey-600">{example.titleUa}</P>
+                  <P className="font-semibold my-2 dark:text-grey-600">Description</P>
+                  <P className="my-2 dark:text-grey-600">{example.description}</P>
+                  <P className="my-2 dark:text-grey-600">{example.descriptionUa}</P>
                 </>
               ) : (
                 <>
@@ -427,7 +428,7 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                 return (
                   <div key={`rule-${i}-example-${k}`} className="bg-[#e4eefc] p-4 mb-4 rounded-md dark:!bg-[#16274A]">
                     <div className="flex justify-between mb-2">
-                      <p className="font-semibold dark:text-grey-600">Example {k + 1}</p>
+                      <P className="font-semibold dark:text-grey-600">Example {k + 1}</P>
                       {!isCurrentItem && (
                         <div className="flex gap-4 items-center">
                           <MdEdit
@@ -455,8 +456,8 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                     </div>
                     {!isCurrentItem ? (
                       <>
-                        <p className="my-2 dark:text-grey-600">{item.exampleEn}</p>
-                        <p className="my-2 dark:text-grey-600">{item.exampleUa}</p>
+                        <P className="my-2 dark:text-grey-600">{item.exampleEn}</P>
+                        <P className="my-2 dark:text-grey-600">{item.exampleUa}</P>
                       </>
                     ) : (
                       <>

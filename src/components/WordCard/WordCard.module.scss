@@ -27,21 +27,10 @@
 
     .pronunciation {
       @apply flex gap-2;
-
-      h6 {
-        @apply font-medium text-sm 
-        sm:text-base;
-      }
     }
 
     .part-of-speech {
       @apply inline-block text-sm self-start font-bold text-[#fff] px-2 py-1 rounded-lg capitalize;
-    }
-
-    p {
-      @apply mb-2 text-justify w-full overflow-hidden font-medium text-base
-      sm:text-lg
-      xl:w-2/3;
     }
 
     .synonyms {

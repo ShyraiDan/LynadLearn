@@ -7,6 +7,7 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Image from 'next/image'
 import UserReview from '@/components/UserRevies/UserReview'
 import Button from '@/components/ui/Button/Button'
+import { H2, P, H3 } from '@/components/ui/Typography/Typography'
 
 import { TiTickOutline } from 'react-icons/ti'
 import premiumImage from '@/assets/figure-01.png'
@@ -32,12 +33,12 @@ export default function Home() {
     <>
       <div className={styles.container}>
         <div className={styles.hero}>
-          <h2 className="dark:text-grey-600">
+          <H2 className="text-lg mb-4 font-bold sm:text-4xl md:text-[40px]">
             {t('learn_with')}
             <span className={styles.title}> Lynad</span>
             <span>Learn</span>
-          </h2>
-          <p className="dark:text-grey-600">{t('lynadLearn_is_learning')}</p>
+          </H2>
+          <P className="font-semibold text-sm text-center md:text-lg">{t('lynadLearn_is_learning')}</P>
         </div>
 
         <div className={styles.info}>
@@ -76,8 +77,8 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.users}>
-            <h3 className="dark:text-grey-600">{t('join_thousands')}</h3>
-            <p className="dark:text-grey-600">{t('lynadLearn_is_learning')}</p>
+            <H3 className="font-bold text-left mb-4 sm:text-lg md:text-lg lg:text-2xl">{t('join_thousands')}</H3>
+            <P className="mt-4">{t('lynadLearn_is_learning')}</P>
             <div className={styles.advantages}>
               {DAdvantages.map((item) => (
                 <AdvantageItem key={item.title} {...item} />
@@ -87,9 +88,9 @@ export default function Home() {
         </div>
 
         <div className={styles.help}>
-          <div className={styles['description']}>
-            <h3 className={`${styles['help-description-title']} dark:text-grey-600`}>{t('how_can_AI_help')}</h3>
-            <p className="dark:text-grey-600">{t('by_processing_the_structure')}</p>
+          <div className={styles.description}>
+            <H3 className="mb-4 font-bold sm:text-lg md:text-2xl mt-10">{t('how_can_AI_help')}</H3>
+            <P className="text-sm mb-2 lg:text-base">{t('by_processing_the_structure')}</P>
             <Button> {t('try_it')}</Button>
           </div>
           <div className={styles.image}>
@@ -102,11 +103,13 @@ export default function Home() {
         <div className={styles.premium}>
           <div>
             <div className={styles.description}>
-              <h3>{t('premium_learning_experience')}</h3>
+              <H3 className="mb-4 font-bold sm:text-lg md:text-2xl dark:!text-white-100">
+                {t('premium_learning_experience')}
+              </H3>
               {DPremAdvantages.map((item) => (
                 <div className={styles.item} key={item}>
                   <TiTickOutline />
-                  <p>{t(`${item}`)}</p>
+                  <P className="mb-0 text-sm font-medium dark:!text-white-100">{t(`${item}`)}</P>
                 </div>
               ))}
               <NavigationLink className="hover:!bg-[#E0E0E0]" href="/pricing">
@@ -121,16 +124,16 @@ export default function Home() {
 
         <div className={`${styles.review} dark:bg-[#18223D]`}>
           <div>
-            <h3 className="dark:text-grey-600">{t('user_reviews')}</h3>
+            <H3 className="text-center text-2xl font-bold mb-4">{t('user_reviews')}</H3>
             <UserReview />
           </div>
         </div>
 
         <div className={styles.download}>
           <div className={styles.info}>
-            <h3 className="dark:text-grey-600">{t('download_mobile_app')}</h3>
+            <H3 className="font-bold sm:text-lg lg:text-2xl">{t('download_mobile_app')}</H3>
             <Image src={line} alt="line" />
-            <p className="dark:text-grey-600">{t('install_app')}</p>
+            <P className="text-sm my-4 font-medium">{t('install_app')}</P>
             <NavigationLink href="/mobile-app">{t('download')}</NavigationLink>
           </div>
           <Image src={app} alt="App" className={styles.image} />

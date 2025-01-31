@@ -10,24 +10,12 @@
     .user-details {
       @apply flex flex-col;
 
-      h3 {
-        @apply font-bold text-lg mt-4;
-      }
-
-      p {
-        @apply mt-2;
-      }
-
       .achivements {
         @apply grid grid-cols-2 gap-3 mt-3 max-w-[500px]
         sm:grid-cols-4;
 
         li {
           @apply flex-col text-[32px];
-
-          p {
-            @apply text-[12px];
-          }
         }
       }
     }

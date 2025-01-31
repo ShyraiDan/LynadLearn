@@ -1,14 +1,6 @@
 .modal {
   @apply overflow-y-auto h-[calc(100vh-305px)];
 
-  h2 {
-    @apply mb-2 text-3xl font-bold;
-  }
-
-  > p {
-    @apply mb-7;
-  }
-
   .form {
     > div {
       @apply pr-2 h-full;
@@ -32,10 +24,6 @@
 
                 .number {
                   @apply text-purple-100 rounded-lg bg-purple-300 font-bold px-2 h-fit py-1 text-sm;
-                }
-
-                p {
-                  @apply m-0 ml-3 font-medium text-lg;
                 }
               }
 
@@ -69,11 +57,6 @@
 
               span {
                 @apply w-2 h-2 bg-orange rounded-full flex-shrink-0;
-              }
-
-              p {
-                @apply m-0 text-lg font-semibold
-                first-letter:uppercase;
               }
             }
           }
@@ -112,15 +95,6 @@
       label {
         @apply mt-4 
         first:mt-0;
-      }
-
-      p {
-        @apply mt-4 block font-semibold mb-2
-        first:mt-0;
-      }
-
-      .error {
-        @apply text-red mt-1.5 text-sm;
       }
 
       button {

@@ -14,8 +14,6 @@
         @apply flex items-start justify-between;
 
         h3 {
-          @apply font-bold mb-2 text-lg;
-
           span {
             @apply line-clamp-2 cursor-vertical-text text-ellipsis overflow-hidden break-words text-[#666666] m-0 text-sm leading-5
             sm:text-base sm:leading-6  
@@ -27,10 +25,6 @@
           @apply bg-blue-200 text-white-100 stroke-white-100 fill-white-100;
         }
       }
-    }
-
-    p {
-      @apply text-[#666666] mb-0 mt-[-9px] overflow-hidden font-medium text-sm font-normal;
     }
 
     .image {

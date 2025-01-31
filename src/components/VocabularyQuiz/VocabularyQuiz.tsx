@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/Input/Input'
 import { FaArrowRight } from 'react-icons/fa'
 import { twMerge } from 'tailwind-merge'
 import { IVocabularyQuiz } from '@/interfaces/Quiz.interface'
+import { H1, H2 } from '../ui/Typography/Typography'
 
 interface IVocabularyQuizProps {
   quiz: IVocabularyQuiz
@@ -38,8 +39,6 @@ export default function VocabularyQuiz({
   const [selectedOption, setSelectedOption] = useState(false)
   const [isTimer, setIsTimer] = useState(true)
   const lang = useLocale()
-
-  console.log(lang)
 
   useEffect(() => {
     if (!isTimer) return
@@ -79,7 +78,7 @@ export default function VocabularyQuiz({
     <>
       <div className={styles.container}>
         <div className={styles.top}>
-          <h2 className={twMerge(styles.title, 'dark:text-grey-600')}>{quiz.title}</h2>
+          <H2 className="text-blue-200 font-bold mb-4">{quiz.title}</H2>
           <div>
             <div className={twMerge(styles.questions, 'dark:text-grey-600')}>0/10</div>
             <div className={twMerge('dark:text-grey-600', seconds < 6 && styles.time)}>
@@ -89,9 +88,9 @@ export default function VocabularyQuiz({
         </div>
         <div className={styles.quiz}>
           <div>
-            <h1 className={twMerge(styles['question-title'], 'dark:text-grey-600')}>
+            <H1 className="text-base font-bold text-blue-200 mb-2 sm:text-3xl">
               {lang === 'en' ? quiz.questions[question].question.en : quiz.questions[question].question.ua}
-            </h1>
+            </H1>
             <div className={styles.answers}>
               {quiz.questions[question].options.map((item: IOption, i: number) => {
                 return (

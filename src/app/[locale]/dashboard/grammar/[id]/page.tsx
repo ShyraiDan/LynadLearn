@@ -6,6 +6,7 @@ import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
 import { twMerge } from 'tailwind-merge'
 import { IGrammarExample } from '@/interfaces/Grammar.interface'
+import { H1, H2, H3, P } from '@/components/ui/Typography/Typography'
 
 type TSingleGrammarPage = {
   params: {
@@ -20,8 +21,8 @@ async function Grammar({ params }: TSingleGrammarPage) {
 
   if (!grammar) {
     return (
-      <div className={styles['no-grammar']}>
-        <h3 className="dark:text-grey-600">{t('no_grammar')}</h3>
+      <div className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">
+        <H3 className="dark:text-grey-600">{t('no_grammar')}</H3>
         <NavigationLink href="/dashboard/grammar">{t('move_to_grammar')}</NavigationLink>
       </div>
     )
@@ -31,28 +32,28 @@ async function Grammar({ params }: TSingleGrammarPage) {
     <>
       {grammar && (
         <div className={styles.container}>
-          <h1 className="dark:text-grey-600"> {params.locale === 'en' ? grammar.title : grammar.titleUa}</h1>
+          <H1 className="text-blue-200 text-center font-bold text-lg md:text-2xl">
+            {params.locale === 'en' ? grammar.title : grammar.titleUa}
+          </H1>
           {grammar.data.description.map((item, i) => (
-            <p className="mt-5 text-blue-300 dark:text-grey-600" key={i}>
+            <P className="mt-5 text-blue-300 dark:text-grey-600" key={i}>
               {params.locale === 'en' ? item.en : item.ua}
-            </p>
+            </P>
           ))}
 
           <div className={styles.examples}>
             {grammar.data.example.map((item) => (
               <>
-                <h2 className={twMerge(styles['example-title'], 'dark:text-grey-600')}>
+                <H2 className="my-3 font-bold text-lg text-blue-200 md:text-2xl">
                   {params.locale === 'en' ? item.title : item.titleUa}
-                </h2>
-                <p className={twMerge(styles['example-description'], 'dark:text-grey-600')}>
-                  {params.locale === 'en' ? item.description : item.descriptionUa}
-                </p>
+                </H2>
+                <P className="text-blue-300">{params.locale === 'en' ? item.description : item.descriptionUa}</P>
 
                 <ul className={twMerge(styles['example-list'], 'dark:bg-[#1D2D4D] dark:border-l-purple-100')}>
                   {item.examples.map((item: IGrammarExample, i: number) => (
                     <li className="dark:text-grey-600" key={`example-${i}`}>
                       {item.exampleEn}
-                      {params.locale === 'ua' && <p className="text-purple-100 text-sm">({item.exampleUa})</p>}
+                      {params.locale === 'ua' && <P className="text-purple-100 text-sm">({item.exampleUa})</P>}
                     </li>
                   ))}
                 </ul>

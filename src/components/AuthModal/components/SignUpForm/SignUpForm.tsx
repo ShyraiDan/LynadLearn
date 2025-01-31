@@ -8,6 +8,7 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { ISignUp } from '../Auth.interface'
 import { registerUser } from '@/lib/auth'
 import { useState } from 'react'
+import { P } from '@/components/ui/Typography/Typography'
 
 import { FaEye } from 'react-icons/fa'
 import { FaEyeSlash } from 'react-icons/fa'
@@ -46,7 +47,7 @@ export default function SignUpForm({ handleClose }: { handleClose: () => void })
       >
         {t('email')}
       </Input>
-      {errors?.email && <p className={styles.error}>{errors.email.message}</p>}
+      {errors?.email && <P className="text-red text-sm mb-1">{errors.email.message}</P>}
       <Input
         type="text"
         name="userName"
@@ -60,7 +61,7 @@ export default function SignUpForm({ handleClose }: { handleClose: () => void })
       >
         {t('user_name')}
       </Input>
-      {errors?.userName && <p className={styles.error}>{errors.userName.message}</p>}
+      {errors?.userName && <P className="text-red text-sm mb-1">{errors.userName.message}</P>}
       <div className="relative flex flex-col !mt-1.5">
         <Input
           type={showPassword ? 'text' : 'password'}
@@ -89,7 +90,7 @@ export default function SignUpForm({ handleClose }: { handleClose: () => void })
           )}
         </span>
       </div>
-      {errors?.password && <p className={styles.error}>{errors.password.message}</p>}
+      {errors?.password && <P className="text-red text-sm mb-1">{errors.password.message}</P>}
       <div className="relative flex flex-col !mt-1.5">
         <Input
           type={showConfirmPassword ? 'text' : 'password'}
@@ -117,7 +118,7 @@ export default function SignUpForm({ handleClose }: { handleClose: () => void })
           )}
         </span>
       </div>
-      {errors?.confirmPassword && <p className={styles.error}>{errors.confirmPassword.message}</p>}
+      {errors?.confirmPassword && <P className="text-red text-sm mb-1">{errors.confirmPassword.message}</P>}
       <Button type="submit">{t('sign_up')}</Button>
     </form>
   )

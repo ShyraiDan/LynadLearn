@@ -6,6 +6,7 @@ import AdminQuizCard from '@/components/Admin/AdminQuizCard/AdminQuizCard'
 import styles from './AdminQuizGrammarPage.module.scss'
 import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 import Link from 'next/link'
+import { H2 } from '@/components/ui/Typography/Typography'
 
 import { FaPlus } from 'react-icons/fa'
 
@@ -21,7 +22,7 @@ async function Page({ title, type }: IAdminGrammarQuizPage) {
     <>
       <div className="mb-6 last:mb-0">
         <div className="relative">
-          <h2 className="text-center text-xl font-bold text-blue-200 my-4 sm:text-2xl dark:text-grey-600">{title}</h2>
+          <H2 className="text-center text-xl font-bold text-blue-200 my-4 sm:text-2xl dark:text-grey-600">{title}</H2>
           {type === 'grammar' ? (
             <Link
               href="/admin/dashboard/grammar/add"

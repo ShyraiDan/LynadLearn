@@ -43,13 +43,6 @@
     lg:max-w-[962px]
     xl:max-w-[1170px];
 
-    .title {
-      @apply text-center font-bold mt-4 mb-3 text-lg 
-      sm:text-2xl
-      md:mb-6
-      lg:text-[40px];
-    }
-
     .input-container {
       @apply flex;
 
@@ -61,13 +54,6 @@
         @apply rounded-none rounded-r-3xl px-4
         md:px-8;
       }
-    }
-
-    .desc {
-      @apply mt-4 leading-5 text-justify text-sm
-      sm:text-base
-      md:mt-6 md:px-8 md:text-center md:w-[770px] md:mx-auto  
-      lg:px-0 lg:w-full lg:text-center lg:text-lg;
     }
   }
 }

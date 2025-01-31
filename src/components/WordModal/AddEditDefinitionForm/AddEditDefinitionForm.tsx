@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { nanoid } from 'nanoid'
 import { twMerge } from 'tailwind-merge'
 import { FaPlus, FaTrash } from 'react-icons/fa'
+import { P } from '@/components/ui/Typography/Typography'
 
 interface IAddEditDefinitionForm {
   allowedAction: (odj: IDefinitionWithId) => void
@@ -104,7 +105,7 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
               <option value="conjunction">{t('conjunction')}</option>
               <option value="preposition">{t('preposition')}</option>
             </select>
-            <p className="dark:text-grey-600">{t('synonym')}</p>
+            <P className="m-0 text-[1rem] mt-4 mb-2 font-semibold first-letter:uppercase">{t('synonym')}</P>
             <div className={styles.translation}>
               {synonyms.map((item) => (
                 <div className={styles.card} key={item}>
@@ -131,14 +132,14 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
               </div>
             </div>
 
-            <p className="dark:text-grey-600">{t('example')}</p>
+            <P className="m-0 text-[1rem] mt-4 mb-2 font-semibold first-letter:uppercase">{t('example')}</P>
             <div className={styles.exams}>
               <ul className={styles.content}>
                 {examples.map((item: string, index: number) => (
                   <li key={index}>
                     <div>
                       <span className={styles.dot}></span>
-                      <p className="dark:text-grey-600">{item}</p>
+                      <P className="m-0 text-lg font-semibold first-letter:uppercase">{item}</P>
                     </div>
                     <span
                       className={twMerge(styles.trash, 'dark:text-grey-600')}
@@ -170,7 +171,11 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
               {t('cancel')}
             </Button>
           </div>
-          {emptyDefinition && <p className="text-red">You can&apos;t submit empty definition</p>}
+          {emptyDefinition && (
+            <P className="font-semibold mb-2 first:mt-0 text-[1rem] text-red mt-1.5 text-sm">
+              You can&apos;t submit empty definition
+            </P>
+          )}
         </div>
       )}
       {!isDefinitionForm && !isEdit && (

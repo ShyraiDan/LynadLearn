@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { useSwiper } from 'swiper/react'
 import { twMerge } from 'tailwind-merge'
+import { H3, H6, P } from '@/components/ui/Typography/Typography'
 
 import usFlag from '@/assets/icons/us.svg'
 import { RiArrowGoBackFill } from 'react-icons/ri'
@@ -75,21 +76,19 @@ export default function FlashCardWord({
         <div className={twMerge(styles.front, 'dark:bg-[#18223D]')}>
           <div className={styles['word-info']}>
             <div className={styles.info}>
-              <h3 className={twMerge(styles.word, 'dark:text-grey-600')}>{word.word}</h3>
-              <h6 className={twMerge(styles['part-of-speech'], 'dark:text-grey-600')}>
-                {word.results[0]?.part_of_speech}
-              </h6>
+              <H3 className="text-lg font-bold mb-0 sm:text-2xl">{word.word}</H3>
+              <H6 className="text-base mb-0 sm:text-lg font-medium">{word.results[0]?.part_of_speech}</H6>
             </div>
             <div className={styles.pronunciation}>
               <Image src={usFlag} alt="flag" width={24} />
-              <p className="dark:text-grey-600">{word.pronunciation}</p>
+              <P>{word.pronunciation}</P>
             </div>
           </div>
           <Button className={styles.footer} onClick={() => handleRotate()}>
-            <h6>
+            <H6 className="text-white-100 font-medium leading-none m-0 flex items-center gap-2">
               <RiArrowGoBackFill />
               {t('show_definition')}
-            </h6>
+            </H6>
           </Button>
         </div>
         <div className={twMerge(styles.back, 'dark:bg-[#18223D]')}>
@@ -100,16 +99,18 @@ export default function FlashCardWord({
             <div>
               <div className={styles.translation}>
                 <Image src={uaFlag} alt="flag" width={24} />
-                <p className="dark:text-grey-600">{word.translation.ua.join(', ')}</p>
+                <P className="font-medium leading-6 line-clamp-2 cursor-vertical-text text-ellipsis overflow-hidden break-words m-0 text-base sm:text-lg sm:leading-7 lg:text-xl lg:leading-8">
+                  {word.translation.ua.join(', ')}
+                </P>
               </div>
-              <p className="dark:text-grey-600">{word.results[0]?.definition}</p>
+              <P className="px-4 font-medium text-left text-sm sm:text-base">{word.results[0]?.definition}</P>
             </div>
             {word.results[0]?.examples.length > 0 && (
               <div className={twMerge(styles.examples, 'dark:bg-[#1D2D4D]')}>
                 <div className={styles.top}>
                   <div>
                     <MessageQuestion className="dark:fill-grey-600" />
-                    <h3 className="dark:text-grey-600">{t('examples')}</h3>
+                    <H3 className="m-0 text-base font-medium sm:text-lg">{t('examples')}</H3>
                   </div>
                 </div>
                 <ul className={styles['example-list']}>
@@ -124,16 +125,16 @@ export default function FlashCardWord({
           </div>
           <div className={styles.footer}>
             <Button className={styles['btn-left']} onClick={() => handleIncorrect()}>
-              <h6>
+              <H6 className="flex items-center gap-1 mb-0 !text-[#BD2927] dark!text-[#BD2927]">
                 <RxCross2 fill="#CE302D" />
                 {t('incorrect')}
-              </h6>
+              </H6>
             </Button>
             <Button className={styles['btn-right']} onClick={() => handleCorrect()}>
-              <h6>
+              <H6 className="flex items-center gap-1 mb-0 !text-[#104132] dark!text-[#104132]">
                 <TiTick fill="#2ABFA5" />
                 {t('correct')}
-              </h6>
+              </H6>
             </Button>
           </div>
         </div>

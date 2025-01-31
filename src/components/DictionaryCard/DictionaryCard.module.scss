@@ -4,15 +4,10 @@
   hover:bg-gray-50;
 
   .container {
-    @apply flex flex-col gap-3 gap-2 flex-wrap h-full justify-between;
+    @apply flex flex-col gap-2 flex-wrap h-full justify-between;
 
     .info {
       @apply flex flex-col gap-2;
-
-      h5 {
-        @apply text-sm font-bold capitalize m-0 font-bold 
-        md:flex md:text-base;
-      }
 
       .translation {
         @apply flex items-center gap-2 mt-1.5 my-2 
@@ -22,19 +17,7 @@
           @apply w-5 h-5 
           md:w-6 md:h-6;
         }
-
-        p {
-          @apply leading-5 cursor-text text-ellipsis overflow-hidden break-words m-0 text-sm 
-          sm:text-base sm:leading-6 
-          lg:text-lg lg:leading-7;
-        }
       }
-    }
-
-    h6 {
-      @apply font-bold text-xs capitalize 
-      max-[320px]:text-[10px] max-[320px]:min-w-[65px]
-      md:flex md:text-sm;
     }
   }
 }

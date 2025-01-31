@@ -10,6 +10,7 @@ import { removeScrollBar } from '@/constants/shared'
 import { logout } from '@/lib/auth'
 import Button from '@/components/ui/Button/Button'
 import { twMerge } from 'tailwind-merge'
+import { H2, P } from '@/components/ui/Typography/Typography'
 
 import { FaUser } from 'react-icons/fa'
 import { FaInstagram } from 'react-icons/fa'
@@ -40,11 +41,11 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
       <div className={twMerge(styles.burger, isBurgerShow && styles.active, 'dark:bg-blue-600')}>
         <div className={styles.top}>
           <div>
-            <h2>
+            <H2 className="font-bold text-2xl mb-0">
               <NavigationLink href="/" onClick={() => showModal()}>
                 Lynad<span>Learn</span>
               </NavigationLink>
-            </h2>
+            </H2>
             <RxCross1 className="dark:text-grey-600" onClick={() => showModal()} size="24px" />
           </div>
           <ul>
@@ -171,7 +172,7 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
             )}
           </div>
           <div className={styles.social}>
-            <p className="dark:text-grey-600">{t('follow_us')}</p>
+            <P>{t('follow_us')}</P>
             <ul>
               <li>
                 <Link href="https://www.instagram.com/">

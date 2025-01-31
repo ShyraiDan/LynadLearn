@@ -1,5 +1,6 @@
 import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 import Link from 'next/link'
+import { H4, P } from '@/components/ui/Typography/Typography'
 
 type TAdminQuizCard = {
   topic: IGrammarTopic
@@ -14,11 +15,11 @@ export default function AdminQuizCard({ topic, lang, type }: TAdminQuizCard) {
       href={`/admin/dashboard/${type}/${topic._id}`}
     >
       <div className="flex justify-between items-start text-blue-200">
-        <h4 className="m-0 font-bold text-base duration-150 mb-2 md:text-lg lg:text-xl dark:text-grey-600">
+        <H4 className="m-0 font-bold text-base duration-150 mb-2 md:text-lg lg:text-xl dark:text-grey-600">
           {lang === 'en' ? topic.title : topic.titleUa}
-        </h4>
+        </H4>
       </div>
-      <p className="m-0 text-sm duration-150 dark:text-grey-600">{topic.data.description[0].en}</p>
+      <P className="m-0 text-sm duration-150 dark:text-grey-600">{topic.data.description[0].en}</P>
     </Link>
   )
 }

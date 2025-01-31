@@ -2,11 +2,6 @@
   @apply mb-6 flex justify-between 
   sm:hidden
   lg:flex;
-
-  h6 {
-    @apply font-bold mb-2 text-blue-150 
-    md:mb-0;
-  }
 }
 
 .description {
@@ -14,18 +9,8 @@
   sm:flex sm:rounded-2xl sm:border sm:border-[#849adba1] sm:flex-col sm:px-2 
   md:basis-5/12 md:justify-between md:min-w-[300px]
   lg:hidden;
-
-  h3 {
-    @apply text-blue-150 text-2xl font-bold
-    sm:mb-3  
-    md:text-3xl;
-  }
 }
 
 .info {
   @apply sm:m-4 sm:py-5 sm:px-2 md:mx-6;
-}
-
-.desc {
-  @apply py-2 text-blue-350 font-medium;
 }
