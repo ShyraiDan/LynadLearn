@@ -21,6 +21,7 @@ interface IGrammarQuizProps {
 }
 
 interface IOption {
+  _id?: string
   option: string
   correct: boolean
 }
@@ -72,8 +73,6 @@ export default function GrammarQuiz({
     }
   }
 
-  //TODO add in database id field for each option
-
   return (
     <>
       <div className={styles.container}>
@@ -93,7 +92,7 @@ export default function GrammarQuiz({
               {quiz.questions[question].options.map((item: IOption, i: number) => {
                 return (
                   <>
-                    <div className={styles.option} key={`${item.option}-${i}`}>
+                    <div className={styles.option} key={`${item._id}-${i}`}>
                       <Input
                         type="radio"
                         name="option"

@@ -51,6 +51,7 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
               <div className={styles['lesson-item']} key={i}>
                 <div className={`${isSelected === i && styles.opened}`}>
                   <div className={styles['icon-number']}>
+                    {/* Todo: Describe alt prop */}
                     <Image
                       src={isSelected === i ? subcategorySelected : subcategoryUnselected}
                       alt=""

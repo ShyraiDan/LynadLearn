@@ -13,6 +13,8 @@ import { DCategories } from '@/mock/Categories.mock'
 import List from '@/components/List/List'
 import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 import { H2, H3, H4 } from '@/components/ui/Typography/Typography'
+// import { IList } from '@/interfaces/List.interface'
+// import CustomList from '@/components/CustomList/CustomList'
 
 type TQuizPage = {
   searchParams: {
@@ -75,6 +77,16 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
               <H2>{t('no_lists')}</H2>
             </div>
           )}
+          {/* {data.length > 0 && (
+            <div className="grid gap-4 grid-cols-auto-fill-140">
+              {data.map((item: IList) => (
+                <NavigationLink key={item._id} href={`/no-page`}>
+                  <CustomList title={item.title} image={item.image} />
+                </NavigationLink>
+              ))}
+            </div>
+          )} */}
+
           <div className={styles['vocabulary-quiz']}>
             {DCategories.map((item) => (
               <>
