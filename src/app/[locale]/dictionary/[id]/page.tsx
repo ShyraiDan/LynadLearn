@@ -7,9 +7,10 @@ import { MeaningCard } from '@/components/MeaningCard/MeaningCard'
 import { useTranslations } from 'next-intl'
 import { ListsModal } from '@/components/ListsModal/ListsModal'
 import { H3 } from '@/components/ui/Typography/Typography'
+import { twMerge } from 'tailwind-merge'
 
 import us from '@/assets/icons/us.svg'
-import example from '@/assets/icons/message-question.svg'
+import { MessageQuestion } from '@/components/ui/Icons/Icons'
 
 export default function DictionaryWordPage() {
   //TODO: remove unused variables
@@ -31,20 +32,20 @@ export default function DictionaryWordPage() {
     <div className={styles.container}>
       <div className={styles['col-1']}>
         <div>
-          <div className={styles.word}>
+          <div className={twMerge(styles.word, 'dark:!bg-[#16274A]')}>
             <div className={styles.heading}>
-              <div className={styles['word-section']}>{word.word}</div>
+              <div className={twMerge(styles['word-section'], 'dark:text-grey-600')}>{word.word}</div>
               <div className={styles.btns}>
                 <ListsModal word={word} />
               </div>
             </div>
-            <div className={styles.translation}>
+            <div className={twMerge(styles.translation, 'dark:text-grey-600')}>
               <Image src={us} alt="us" className={styles.flag} />/{word.pronunciation}/
             </div>
           </div>
-          <div className={styles['lang-parts']}>
+          <div className={twMerge(styles['lang-parts'], 'dark:!bg-[#1D2D4D]')}>
             {Object.entries(partsOfSpeech).map(([partOfSpeech, count]) => (
-              <Button key={partOfSpeech}>
+              <Button key={partOfSpeech} className="!cursor-default hover:!bg-blue-200">
                 {partOfSpeech.charAt(0).toUpperCase() + partOfSpeech.slice(1)} ({count})
               </Button>
             ))}
@@ -55,17 +56,16 @@ export default function DictionaryWordPage() {
       </div>
       <div className={styles['col-2']}>
         <WordExamples examples={word.results[0].examples} />
-        <div className={styles.examples}>
+        <div className={twMerge(styles.examples, 'dark:!bg-[#1D2D4D]')}>
           <div className={styles['examples-header']}>
             <div className={styles.title}>
-              <Image src={example} alt="example" />
-              <H3 className="m-0 text-base sm:text-lg font-normal">{t('nearby_words')}</H3>
+              <MessageQuestion className="dark:fill-grey-600" />
+              <H3 className="m-0 text-base sm:text-lg font-bold">{t('nearby_words')}</H3>
             </div>
           </div>
           <ul className={styles.synonyms}>
             {Array.from(synonyms).map((item: string, index: number) => (
-              <li key={index}>
-                <span className={styles.dot}></span>
+              <li key={index} className="dark:text-grey-600">
                 {item}
               </li>
             ))}

@@ -41,7 +41,7 @@ export function AuthModal({ isModalOpen, showModal }: IAuthModalProps) {
               <H6 className="mb-5 dark:text-grey-600">{t('enter_details_sign_up')}</H6>
               <SignUpForm handleClose={handleShowModal} />
               <span className="dark:text-grey-600">{t('or')}</span>
-              <Button>
+              <Button className="ring-2 ring-[#b7b7b73d] dark:!text-white-100">
                 <FcGoogle /> {t('sign_up_google')}
               </Button>
               <div className="dark:text-grey-600">

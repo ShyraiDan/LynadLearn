@@ -82,7 +82,7 @@ export default function ProfileEditModal({ session }: { session: ISession }) {
               >
                 {t('name')}
               </Input>
-              {errors?.userName && <P className="text-red text-sm mt-1">{errors.userName.message}</P>}
+              {errors?.userName && <P className="text-red text-sm mt-1 dark:!text-red">{errors.userName.message}</P>}
             </div>
             <div className={styles['input-container']}>
               <Input
@@ -94,7 +94,9 @@ export default function ProfileEditModal({ session }: { session: ISession }) {
               >
                 {t('description')}
               </Input>
-              {errors?.description && <P className="text-red text-sm mt-1">{errors.description.message}</P>}
+              {errors?.description && (
+                <P className="text-red text-sm mt-1 dark:!text-red">{errors.description.message}</P>
+              )}
             </div>
             <div className={styles['input-container']}>
               <Input
@@ -106,7 +108,7 @@ export default function ProfileEditModal({ session }: { session: ISession }) {
               >
                 {t('location')}
               </Input>
-              {errors?.location && <P className="text-red text-sm mt-1">{errors.location.message}</P>}
+              {errors?.location && <P className="text-red text-sm mt-1 dark:!text-red">{errors.location.message}</P>}
             </div>
             <Button type="submit">{t('save')}</Button>
           </form>

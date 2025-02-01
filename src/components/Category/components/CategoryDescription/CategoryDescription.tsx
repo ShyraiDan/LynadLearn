@@ -1,7 +1,6 @@
 import styles from './CategoryDescription.module.scss'
 import { ICategory } from '@/interfaces/Category.interface'
 import { useTranslations } from 'next-intl'
-import { twMerge } from 'tailwind-merge'
 import { H3, H6, P } from '@/components/ui/Typography/Typography'
 
 //TODO: remove description walking

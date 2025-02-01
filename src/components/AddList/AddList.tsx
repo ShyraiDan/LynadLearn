@@ -105,7 +105,7 @@ export default function AddList() {
             >
               {t('list_name')}
             </Input>
-            {errors?.title && <P className="text-red mt-1.5 text-sm">{errors.title.message}</P>}
+            {errors?.title && <P className="text-red mt-1.5 text-sm dark:!text-red">{errors.title.message}</P>}
             <Button type="submit">{t('create_list')}</Button>
           </form>
         </Modal>

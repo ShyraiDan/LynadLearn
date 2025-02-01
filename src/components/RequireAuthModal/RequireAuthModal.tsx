@@ -13,7 +13,7 @@ export const RequireAuthModal = ({ isOpen, handleClose, allowedAction, children 
   return (
     <Modal
       isOpen={isOpen}
-      className="sm:h-[200px] sm:w-[475px] sm:self-center sm:justify-self-center"
+      className="sm:h-[200px] sm:w-[475px] sm:self-center sm:justify-self-center dark:!bg-[#0B152E]"
       handleClose={handleClose}
     >
       <div>
@@ -22,7 +22,11 @@ export const RequireAuthModal = ({ isOpen, handleClose, allowedAction, children 
           <Button className="!rounded" onClick={allowedAction}>
             Sign in
           </Button>
-          <Button outline className="!rounded" onClick={handleClose}>
+          <Button
+            outline
+            className="!rounded dark:!border-white-100 dark:!text-white-100 dark:hover:!border-purple-100 dark:hover:!text-purple-100"
+            onClick={handleClose}
+          >
             Cancel
           </Button>
         </div>

@@ -22,9 +22,9 @@
     }
 
     button {
-      @apply mt-2 text-black shadow-md bg-transparent mb-2 w-full rounded
-      last:mt-6 last:bg-blue-200 last:text-white-100 last:shadow-none
-      hover:bg-grey-100 last:hover:bg-purple-100;
+      @apply mt-2 text-black bg-transparent mb-2 w-full rounded
+      last:mt-6 last:bg-blue-200 last:text-white-100
+      hover:bg-[#b7b7b73d] last:hover:bg-purple-100;
 
       svg {
         @apply mr-2;

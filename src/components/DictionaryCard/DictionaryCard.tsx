@@ -2,6 +2,7 @@ import styles from './DictionaryCard.module.scss'
 import Image from 'next/image'
 import { IWord } from '@/interfaces/Word.interface'
 import { H5, P, H6 } from '@/components/ui/Typography/Typography'
+import { twMerge } from 'tailwind-merge'
 
 import ua from '@/assets/icons/uk.png'
 
@@ -11,7 +12,7 @@ interface IDictionaryCard {
 
 const DictionaryCard = ({ word }: IDictionaryCard) => {
   return (
-    <div className={styles.card}>
+    <div className={twMerge(styles.card, 'dark:bg-[#18223D] dark:hover:bg-[#222e4b]')}>
       <div className={styles.container}>
         <div className={styles.info}>
           <H5 className="text-sm capitalize m-0 font-bold md:flex md:text-base">{word.word}</H5>

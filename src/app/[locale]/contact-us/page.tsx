@@ -59,7 +59,9 @@ export default function ContactUsPage() {
                 >
                   {t('Forms.user_name')}
                 </Input>
-                {errors?.userName && <P className="text-[1rem] text-red mt-1.5 text-sm">{errors.userName.message}</P>}
+                {errors?.userName && (
+                  <P className="text-[1rem] text-red mt-1.5 text-sm dark:!text-red">{errors.userName.message}</P>
+                )}
               </div>
               <div>
                 <Input
@@ -74,7 +76,9 @@ export default function ContactUsPage() {
                 >
                   {t('Forms.email')}
                 </Input>
-                {errors?.email && <P className="text-[1rem] text-red mt-1.5 text-sm">{errors.email.message}</P>}
+                {errors?.email && (
+                  <P className="text-[1rem] text-red mt-1.5 text-sm dark:!text-red">{errors.email.message}</P>
+                )}
               </div>
               <div>
                 <Input
@@ -89,7 +93,9 @@ export default function ContactUsPage() {
                 >
                   {t('Forms.subject')}
                 </Input>
-                {errors?.subject && <P className="text-[1rem] text-red mt-1.5 text-sm">{errors.subject.message}</P>}
+                {errors?.subject && (
+                  <P className="text-[1rem] text-red mt-1.5 text-sm dark:!text-red">{errors.subject.message}</P>
+                )}
               </div>
               <div>
                 <label className="dark:text-grey-600" htmlFor="message">
@@ -104,7 +110,9 @@ export default function ContactUsPage() {
                     minLength: { value: 20, message: t('Forms.message_minLength') }
                   })}
                 />
-                {errors?.message && <P className="text-[1rem] text-red mt-1.5 text-sm">{errors.message.message}</P>}
+                {errors?.message && (
+                  <P className="text-[1rem] text-red mt-1.5 text-sm dark:!text-red">{errors.message.message}</P>
+                )}
               </div>
               <Button type="submit">{t('Forms.submit')}</Button>
             </form>

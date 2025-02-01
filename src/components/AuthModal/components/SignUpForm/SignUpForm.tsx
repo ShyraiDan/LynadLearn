@@ -47,7 +47,7 @@ export default function SignUpForm({ handleClose }: { handleClose: () => void })
       >
         {t('email')}
       </Input>
-      {errors?.email && <P className="text-red text-sm mb-1">{errors.email.message}</P>}
+      {errors?.email && <P className="text-red text-sm mb-1 dark:!text-red">{errors.email.message}</P>}
       <Input
         type="text"
         name="userName"
@@ -61,7 +61,7 @@ export default function SignUpForm({ handleClose }: { handleClose: () => void })
       >
         {t('user_name')}
       </Input>
-      {errors?.userName && <P className="text-red text-sm mb-1">{errors.userName.message}</P>}
+      {errors?.userName && <P className="text-red text-sm mb-1 dark:!text-red">{errors.userName.message}</P>}
       <div className="relative flex flex-col !mt-1.5">
         <Input
           type={showPassword ? 'text' : 'password'}
@@ -90,7 +90,7 @@ export default function SignUpForm({ handleClose }: { handleClose: () => void })
           )}
         </span>
       </div>
-      {errors?.password && <P className="text-red text-sm mb-1">{errors.password.message}</P>}
+      {errors?.password && <P className="text-red text-sm mb-1 dark:!text-red">{errors.password.message}</P>}
       <div className="relative flex flex-col !mt-1.5">
         <Input
           type={showConfirmPassword ? 'text' : 'password'}
@@ -118,7 +118,9 @@ export default function SignUpForm({ handleClose }: { handleClose: () => void })
           )}
         </span>
       </div>
-      {errors?.confirmPassword && <P className="text-red text-sm mb-1">{errors.confirmPassword.message}</P>}
+      {errors?.confirmPassword && (
+        <P className="text-red text-sm mb-1 dark:!text-red">{errors.confirmPassword.message}</P>
+      )}
       <Button type="submit">{t('sign_up')}</Button>
     </form>
   )

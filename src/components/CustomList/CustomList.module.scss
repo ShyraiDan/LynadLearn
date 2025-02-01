@@ -13,21 +13,3 @@
     @apply rounded-xl;
   }
 }
-
-.add-list {
-  @apply sm:h-[410px] sm:w-[300px] sm:self-center sm:justify-self-center;
-
-  .list-form {
-    .add-photo {
-      @apply w-full mb-5;
-    }
-
-    .error {
-      @apply text-red mt-1.5 text-sm;
-    }
-
-    button {
-      @apply rounded-lg w-full mt-3;
-    }
-  }
-}

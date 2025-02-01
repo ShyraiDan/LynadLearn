@@ -125,7 +125,9 @@ export default function WordModal({ handleClose, word }: IWordModal) {
             {t('your_word')}
           </Input>
           {errors?.word && (
-            <P className="font-semibold mb-2 first:mt-0 text-[1rem] text-red mt-1.5 text-sm">{errors.word.message}</P>
+            <P className="font-semibold mb-2 first:mt-0 text-[1rem] text-red mt-1.5 text-sm dark:!text-red">
+              {errors.word.message}
+            </P>
           )}
           <Input
             type="text"
@@ -139,7 +141,7 @@ export default function WordModal({ handleClose, word }: IWordModal) {
             {t('pronunciation')}
           </Input>
           {errors?.pronunciation && (
-            <P className="font-semibold mb-2 first:mt-0 text-[1rem] text-red mt-1.5 text-sm">
+            <P className="font-semibold mb-2 first:mt-0 text-[1rem] text-red mt-1.5 text-sm dark:!text-red">
               {errors.pronunciation.message}
             </P>
           )}

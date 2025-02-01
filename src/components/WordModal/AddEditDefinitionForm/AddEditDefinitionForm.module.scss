@@ -88,7 +88,7 @@
 
       .submit,
       .reset {
-        @apply m-0 bg-blue-200 text-white-100 font-bold h-[38px] rounded-lg transition-all duration-[.3s] ease-in-out
+        @apply m-0 bg-blue-200 text-white-100 font-bold h-[38px] rounded transition-all duration-[.3s] ease-in-out
         hover:bg-purple-100;
       }
 

@@ -96,7 +96,7 @@ export default function TranslatorPage() {
                         <FileUpload handleFileUpload={handleFileUpload} />
                         <LinkPaste handleLinkPaste={handleLinkPaste} />
                       </span>
-                      <span className="text-sm pr-4 dark:text-grey-600">{sourceText.length} / 2000</span>
+                      <span className="text-sm dark:text-grey-600">{sourceText.length} / 2000</span>
                     </div>
                   </div>
                   <div className="z-10 flex flex-col p-3 border rounded-lg shadow-lg dark:border-[#ffffff20]">
@@ -114,7 +114,7 @@ export default function TranslatorPage() {
                           onClick={() => handleAudioPlayback(targetText || '')}
                         />
                       </span>
-                      <div className="flex flex-row items-center  pr-4 cursor-pointer">
+                      <div className="flex flex-row items-center cursor-pointer">
                         <MdContentCopy className="text-gray-400" size={22} onClick={handleCopyToClipboard} />
                       </div>
                     </div>

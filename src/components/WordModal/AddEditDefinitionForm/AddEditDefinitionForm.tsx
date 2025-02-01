@@ -167,7 +167,14 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
             <Button className={styles.submit} type="button" onClick={() => handleAddDefinition()}>
               {t('add_definition')}
             </Button>
-            <Button className={styles.reset} type="reset" onClick={() => setDefinitionForm((state) => !state)}>
+            <Button
+              className={twMerge(
+                styles.reset,
+                'dark:!border-white-100 dark:!text-white-100 dark:hover:!border-red dark:hover:!text-red'
+              )}
+              type="reset"
+              onClick={() => setDefinitionForm((state) => !state)}
+            >
               {t('cancel')}
             </Button>
           </div>
