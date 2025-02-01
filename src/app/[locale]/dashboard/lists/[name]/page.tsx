@@ -149,7 +149,7 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
           handleClose()
         }}
       >
-        <H6 className="text-center font-bold">In order to add to your bookmarks you must sign in to your account</H6>
+        <H6 className="text-center font-bold">{t('need_auth')}</H6>
       </RequireAuthModal>
 
       <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />

@@ -238,7 +238,7 @@
     "conjunction": "Conjunction",
     "interjection": "Interjection",
     "modal": {
-      "need_auth": "You need to sign in to add a word to your lists",
+      "need_auth": "In order to add to your bookmarks you must sign in to your account",
       "choose_list": "Choose list to add word",
       "successfully_added": "Your word has been added to the list",
       "error_added": "Error adding your word"
@@ -280,13 +280,15 @@
       "b2_list": "B2 Level Wordlist",
       "c1_list": "C1 Level Wordlist",
       "c2_list": "C2 Level Wordlist",
+      "need_auth": "In order to add list you must sign in to your account",
       "learn": {
         "example": "Example",
         "words": "Words",
         "start": "Start",
         "hours": "h",
         "minutes": "m",
-        "lessons": "Lessons"
+        "lessons": "Lessons",
+        "need_auth": "In order to add to your bookmarks you must sign in to your account"
       }
     },
     "vocabulary": {
@@ -381,7 +383,8 @@
     "grammar": {
       "move_to_test": "Move to Grammar test",
       "no_grammar": "No grammar found. Try to open another list.",
-      "move_to_grammar": "Move to Grammar"
+      "move_to_grammar": "Move to Grammar",
+      "need_auth": "In order to add to your bookmarks you must sign in to your account"
     },
     "flashcard": {
       "flashcard_page": "Flashcard page",
@@ -459,5 +462,9 @@
     "vocabulary_master_desc": "Add 200 words to lists",
     "vocabulary_archivist": "Vocabulary Archivist",
     "vocabulary_archivist_desc": "Add 500 words to lists"
+  },
+  "general": {
+    "cancel": "Cancel",
+    "sign_in": "Sign in"
   }
 }

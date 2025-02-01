@@ -77,7 +77,7 @@ export default function AddList() {
           handleClose()
         }}
       >
-        <P className="text-[1rem] text-center font-bold">In order to add list you must sign in to your account</P>
+        <P className="text-[1rem] text-center font-bold">{t('need_auth')}</P>
       </RequireAuthModal>
 
       <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />

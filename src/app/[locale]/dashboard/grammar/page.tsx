@@ -11,6 +11,7 @@ import { removeScrollBar } from '@/constants/shared'
 import { AuthModal } from '@/components/AuthModal/AuthModal'
 import { getCookies } from '@/utils/cookies'
 import { H2, P } from '@/components/ui/Typography/Typography'
+import { useTranslations } from 'next-intl'
 
 interface IGrammarPageProps {
   params: {
@@ -23,6 +24,7 @@ export default function GrammarPage({ params }: IGrammarPageProps) {
   const [isAuthRequireModal, setAuthRequireModal] = useState(false)
   const [isAuthModal, setAuthModal] = useState(false)
   const [isLoading, setLoading] = useState(true)
+  const t = useTranslations('dashboard.grammar')
 
   useEffect(() => {
     getAllGrammar('A1-A2').then((res) => {
@@ -79,7 +81,7 @@ export default function GrammarPage({ params }: IGrammarPageProps) {
           handleClose()
         }}
       >
-        <P className="text-center font-bold">In order to add to your bookmarks you must sign in to your account</P>
+        <P className="text-center font-bold">{t('need_auth')}</P>
       </RequireAuthModal>
 
       <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />

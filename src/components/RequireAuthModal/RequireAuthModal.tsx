@@ -1,6 +1,7 @@
 import { Modal } from '@/components/ui/Modal/Modal'
 import Button from '@/components/ui/Button/Button'
 import { ReactNode } from 'react'
+import { useTranslations } from 'next-intl'
 
 interface IRequireAuthModalProps {
   isOpen: boolean
@@ -10,6 +11,7 @@ interface IRequireAuthModalProps {
 }
 
 export const RequireAuthModal = ({ isOpen, handleClose, allowedAction, children }: IRequireAuthModalProps) => {
+  const t = useTranslations('general')
   return (
     <Modal
       isOpen={isOpen}
@@ -20,14 +22,14 @@ export const RequireAuthModal = ({ isOpen, handleClose, allowedAction, children 
         {children}
         <div className="grid grid-cols-2 mt-6 gap-3 items-center">
           <Button className="!rounded" onClick={allowedAction}>
-            Sign in
+            {t('sign_in')}
           </Button>
           <Button
             outline
             className="!rounded dark:!border-white-100 dark:!text-white-100 dark:hover:!border-purple-100 dark:hover:!text-purple-100"
             onClick={handleClose}
           >
-            Cancel
+            {t('cancel')}
           </Button>
         </div>
       </div>

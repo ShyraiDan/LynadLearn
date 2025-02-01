@@ -112,7 +112,7 @@ export const ListsModal = ({ word }: { word: IWord }) => {
           handleClose()
         }}
       >
-        <P className="text-center font-bold">In order to add to your bookmarks you must sign in to your account</P>
+        <P className="text-center font-bold">{t('need_auth')}</P>
       </RequireAuthModal>
 
       <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />
