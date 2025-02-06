@@ -18,13 +18,12 @@
       }
 
       > div {
-        @apply flex mt-6 mb-6 w-full justify-center 
+        @apply flex mt-6 mb-6 w-full justify-center gap-4 
         sm:mb-auto sm:mt-12  
         md:pb-0 md:justify-start;
 
         a {
-          @apply hidden p-0 w-[188px] 
-          sm:flex sm:mr-4  
+          @apply flex p-0 w-[188px]  
           hover:no-underline;
 
           button {
