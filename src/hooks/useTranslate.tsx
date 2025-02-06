@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { OpenAI } from 'openai'
 
 const openai = new OpenAI({
-  // apiKey: process.env.NEXT_PUBLIC_GPT_KEY,
-  apiKey: 'sk-xxx',
+  apiKey: process.env.NEXT_PUBLIC_GPT_KEY,
+  // apiKey: 'sk-xxx',
   dangerouslyAllowBrowser: true
 })
 
