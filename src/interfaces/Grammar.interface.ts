@@ -1,4 +1,5 @@
 import mongoose, { Schema } from 'mongoose'
+import { IQuestion } from './Quiz.interface'
 
 export interface IGrammarTopic {
   _id: string
@@ -15,7 +16,7 @@ export interface IGrammarTopic {
       examples: IGrammarExample[]
     }>
   }
-  quizId: string
+  questions: IQuestion[]
 }
 
 export interface IGrammarExample {
@@ -44,9 +45,30 @@ const grammarSchema = new Schema({
       examples: Array<string>
     }>
   },
-  quizId: {
-    type: Schema.Types.ObjectId
-  }
+  questions: [
+    {
+      question: {
+        type: String,
+        required: true
+      },
+      options: [
+        {
+          _id: {
+            type: String,
+            required: true
+          },
+          option: {
+            type: String,
+            required: true
+          },
+          correct: {
+            type: Boolean,
+            required: true
+          }
+        }
+      ]
+    }
+  ]
 })
 
 const Grammar = mongoose.models.Grammars || mongoose.model('Grammars', grammarSchema)

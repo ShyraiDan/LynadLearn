@@ -7,8 +7,8 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { useState, useEffect } from 'react'
 import { Modal } from '@/components/ui/Modal/Modal'
 import { useTranslations } from 'next-intl'
-import { getGrammarQuiz } from '@/lib/quiz'
-import { IQuiz } from '@/interfaces/Quiz.interface'
+import { getSingleGrammar } from '@/lib/grammar'
+import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 import Loader from '@/components/Loader/Loader'
 import { useParams } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
@@ -25,12 +25,12 @@ export default function SingleQuizPage() {
   const [loading, isLoading] = useState(true)
   const [isFinished, setIsFinished] = useState(false)
   const t = useTranslations('dashboard.quiz')
-  const [grammarQuiz, setGrammarQuiz] = useState<IQuiz | null>(null)
+  const [grammarQuiz, setGrammarQuiz] = useState<IGrammarTopic | null>(null)
   const { id } = useParams() as { id: string }
 
   useEffect(() => {
     if (id) {
-      getGrammarQuiz(id).then((data) => {
+      getSingleGrammar(id).then((data) => {
         if (data.success) {
           setGrammarQuiz(data.data)
           isLoading(false)

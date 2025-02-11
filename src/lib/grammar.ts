@@ -13,16 +13,27 @@ export const getAllGrammar = async (level: string): Promise<IGrammarTopic[]> => 
   return data
 }
 
-export const getSingleGrammar = async (id: string): Promise<IGrammarTopic | null> => {
+export const getSingleGrammar = async (
+  id: string
+): Promise<{
+  data: IGrammarTopic | null
+  success: boolean
+}> => {
   await connectMongoDB()
 
   if (mongoose.Types.ObjectId.isValid(id) === false) {
-    return null
+    return {
+      data: null,
+      success: false
+    }
   }
 
   const grammar = await Grammar.findById(id)
   const data = JSON.parse(JSON.stringify(grammar))
-  return data
+  return {
+    data,
+    success: true
+  }
 }
 
 export const addSingleGrammar = async (grammar: IGrammarTopic): Promise<{ success: boolean }> => {
@@ -30,8 +41,7 @@ export const addSingleGrammar = async (grammar: IGrammarTopic): Promise<{ succes
     await connectMongoDB()
 
     const doc = new Grammar({
-      ...grammar,
-      quizId: new mongoose.Types.ObjectId(grammar.quizId)
+      ...grammar
     })
     //TODO: Maybe we need to return success as part of promise in then closure
     await doc.save()

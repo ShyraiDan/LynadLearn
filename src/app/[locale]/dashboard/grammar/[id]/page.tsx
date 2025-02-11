@@ -16,7 +16,7 @@ type TSingleGrammarPage = {
 }
 
 async function Grammar({ params }: TSingleGrammarPage) {
-  const grammar = await getSingleGrammar(params.id)
+  const { data: grammar } = await getSingleGrammar(params.id)
   const t = await getTranslations('dashboard.grammar')
 
   if (!grammar) {
@@ -61,7 +61,7 @@ async function Grammar({ params }: TSingleGrammarPage) {
             ))}
           </div>
           <div className={styles.test}>
-            <NavigationLink href={`/dashboard/quiz/${grammar.quizId}`}>{t('move_to_test')}</NavigationLink>
+            <NavigationLink href={`/dashboard/quiz/${grammar._id}`}>{t('move_to_test')}</NavigationLink>
           </div>
         </div>
       )}
