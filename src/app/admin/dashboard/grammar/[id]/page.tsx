@@ -17,7 +17,7 @@ type TSingleGrammarPage = {
 }
 
 async function Grammar({ params }: TSingleGrammarPage) {
-  const grammar = await getSingleGrammar(params.id)
+  const { data: grammar } = await getSingleGrammar(params.id)
 
   if (!grammar) {
     return (
@@ -72,7 +72,7 @@ async function Grammar({ params }: TSingleGrammarPage) {
           <div className="mt-7">
             <Link
               className="rounded bg-blue-200 py-2 px-4 font-bold text-white-100 transition-all ease-in-out duration-300 hover:bg-purple-100"
-              href={`admin/dashboard/quiz/${grammar.quizId}`}
+              href={`admin/dashboard/quiz/${grammar._id}`}
             >
               Open Quiz
             </Link>

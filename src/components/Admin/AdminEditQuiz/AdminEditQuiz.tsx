@@ -1,10 +1,7 @@
 'use client'
 
 import Button from '@/components/ui/Button/Button'
-import { Dispatch, SetStateAction, useEffect, useState } from 'react'
-import { getGrammarQuiz, updateGrammarQuiz } from '@/lib/quiz'
-import { IQuiz } from '@/interfaces/Quiz.interface'
-import Loader from '@/components/Loader/Loader'
+import { useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { MdEdit } from 'react-icons/md'
 import { FaTrash } from 'react-icons/fa'
@@ -15,66 +12,27 @@ import { H3, P } from '@/components/ui/Typography/Typography'
 //Todo: This form need to work for new grammars without quizzes
 
 interface IAdminEditQuizProps {
-  quizId?: string
+  questions?: IQuestion[]
   handleClose: () => void
-  setQuizId: Dispatch<SetStateAction<string | null>>
+  allowedAction: (quiz: IQuestion[]) => void
 }
 
-export const AdminEditQuiz = ({ quizId, handleClose, setQuizId }: IAdminEditQuizProps) => {
-  const [quiz, setQuiz] = useState<IQuiz | null>(null)
-  const [isLoading, setLoading] = useState(true)
+export const AdminEditQuiz = ({ questions, handleClose, allowedAction }: IAdminEditQuizProps) => {
+  const [quiz, setQuiz] = useState<IQuestion[] | undefined>(questions)
   const [editQuestion, setEditQuestion] = useState<{
     index: number
     question: IQuestion
   } | null>(null)
   const [correctAnswer, setCorrectAnswer] = useState<number | null>(null)
 
-  useEffect(() => {
-    if (quizId) {
-      getGrammarQuiz(quizId).then((data) => data.success && setQuiz(data.data))
-    }
-    setLoading(false)
-  }, [quizId])
-
-  if (isLoading && quizId) {
-    return (
-      <div className="w-full h-[300px] flex items-center justify-center">
-        <Loader dimensionClass="!relative top-0 left-0" />
-      </div>
-    )
-  }
-
-  if (!isLoading && !quiz && quizId) {
-    return (
-      <div className="w-full h-[300px] flex flex-col items-center justify-center">
-        <H3 className="font-bold text-lg mb-3">Quiz not found</H3>
-        <Button
-          type="button"
-          className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
-          onClick={handleClose}
-        >
-          Close Quiz
-        </Button>
-      </div>
-    )
-  }
-
   const handleSaveQuiz = async () => {
-    if (!quiz) return
-
-    const res = await updateGrammarQuiz(quiz)
-
-    if (res.id) {
-      setQuizId(res.id.toString())
-      //TODO: add toast notification
-      handleClose()
-    }
+    allowedAction(quiz ?? [])
   }
 
   return (
     <div>
       <H3 className="font-semibold mb-2 dark:text-grey-600">Grammar Quiz</H3>
-      {quiz?.questions.map((question, index) => (
+      {quiz?.map((question, index) => (
         <div
           key={`${question.question}-${index}`}
           className="relative bg-[#F7F9FC] rounded-3xl shadow-md w-full px-2 py-4 mb-2 sm:px-4 md:px-8 md:py-6 dark:!bg-[#1D2D4D]"
@@ -111,7 +69,23 @@ export const AdminEditQuiz = ({ quizId, handleClose, setQuizId }: IAdminEditQuiz
                         }
                       }}
                     />
-                    {option.option}
+                    <Input
+                      type="text"
+                      name={`question-${index}-option-${k}`}
+                      value={editQuestion.question.options[k].option}
+                      onChange={(e) => {
+                        setEditQuestion({
+                          ...editQuestion,
+                          question: {
+                            ...editQuestion.question,
+                            options: editQuestion.question.options.map((option, indx) => ({
+                              ...option,
+                              option: k === indx ? e.target.value : option.option
+                            }))
+                          }
+                        })
+                      }}
+                    />
                   </label>
                 ))}
               </div>
@@ -120,23 +94,15 @@ export const AdminEditQuiz = ({ quizId, handleClose, setQuizId }: IAdminEditQuiz
                   className="!rounded-md"
                   type="button"
                   onClick={() => {
-                    setQuiz(
-                      (prev) =>
-                        prev && {
-                          ...prev,
-                          questions: [
-                            ...prev.questions.slice(0, index),
-                            {
-                              ...editQuestion.question,
-                              options: editQuestion.question.options.map((option, k) => ({
-                                ...option,
-                                correct: k === correctAnswer
-                              }))
-                            },
-                            ...prev.questions.slice(index + 1)
-                          ]
+                    setQuiz((state) =>
+                      state?.map((question, i) => {
+                        if (i === index) {
+                          return editQuestion.question
                         }
+                        return question
+                      })
                     )
+
                     setEditQuestion(null)
                     setCorrectAnswer(null)
                   }}
@@ -177,9 +143,7 @@ export const AdminEditQuiz = ({ quizId, handleClose, setQuizId }: IAdminEditQuiz
                 />
                 <FaTrash
                   className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-red dark:hover:fill-red"
-                  onClick={() =>
-                    setQuiz((prev) => prev && { ...prev, questions: prev.questions.filter((_, i) => i !== index) })
-                  }
+                  onClick={() => setQuiz((prev) => prev && { ...prev, questions: prev.filter((_, i) => i !== index) })}
                 />
               </div>
             </>

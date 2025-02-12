@@ -18,6 +18,7 @@ import { H1, P } from '@/components/ui/Typography/Typography'
 import { MdEdit } from 'react-icons/md'
 import { FaTrash } from 'react-icons/fa'
 import Link from 'next/link'
+import { IQuestion } from '@/interfaces/Quiz.interface'
 
 interface IAdminGrammarEditModal {
   data?: IGrammarTopic
@@ -31,13 +32,13 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
   const [isEditRule, setEditRule] = useState<number | null>(null)
   const [isEditExample, setEditExample] = useState<{ rule: number; example: number } | null>(null)
   const [isQuizOpen, setQuizOpen] = useState(false)
-  const [quizId, setQuizId] = useState<string | null>(null)
 
   const {
     formState: { errors },
     handleSubmit,
     control,
     getValues,
+    setValue,
     reset
   } = useForm<IGrammarTopic>({
     mode: 'onSubmit',
@@ -48,7 +49,8 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
       data: {
         description: data ? data.data.description : [],
         example: data ? data.data.example : []
-      }
+      },
+      questions: data ? data.questions : []
     }
   })
 
@@ -76,26 +78,29 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
   // TODO: Add field to connect grammar topic with quiz
   // TODO: Add error handling for this form
 
+  const handleUpdateQuiz = (quiz: IQuestion[]) => {
+    setValue('questions', quiz)
+    setQuizOpen(false)
+  }
+
   const onSubmit: SubmitHandler<IGrammarTopic> = (values) => {
     if (!data) {
-      if (quizId !== null) {
-        addSingleGrammar({ ...values, level, quizId: quizId }).then((res) => {
-          if (res.success) {
-            toast.success('Grammar topic created', {
-              duration: 3000,
-              className: 'border text-white-100 border-green-100 bg-green-100'
-            })
+      addSingleGrammar({ ...values, level }).then((res) => {
+        if (res.success) {
+          toast.success('Grammar topic created', {
+            duration: 3000,
+            className: 'border text-white-100 border-green-100 bg-green-100'
+          })
 
-            reset()
-          } else {
-            toast.success('Error updating grammar topic', {
-              duration: 3000,
-              className: 'border text-white-100 border-red bg-red'
-            })
-          }
-        })
-        router.push('/admin/dashboard/grammar')
-      }
+          reset()
+        } else {
+          toast.success('Error updating grammar topic', {
+            duration: 3000,
+            className: 'border text-white-100 border-red bg-red'
+          })
+        }
+      })
+      router.push('/admin/dashboard/grammar')
     } else {
       const updatedGrammar = { ...data, ...values, level }
 
@@ -576,7 +581,11 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
               Show Quiz
             </Button>
           ) : (
-            <AdminEditQuiz quizId={data?.quizId} setQuizId={setQuizId} handleClose={() => setQuizOpen(false)} />
+            <AdminEditQuiz
+              questions={getValues('questions')}
+              allowedAction={handleUpdateQuiz}
+              handleClose={() => setQuizOpen(false)}
+            />
           )}
 
           <div className="flex gap-4">

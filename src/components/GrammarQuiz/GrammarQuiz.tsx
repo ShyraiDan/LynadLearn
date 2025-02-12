@@ -9,11 +9,11 @@ import { useTranslations } from 'next-intl'
 import { Input } from '@/components/ui/Input/Input'
 import { FaArrowRight } from 'react-icons/fa'
 import { twMerge } from 'tailwind-merge'
-import { IQuiz } from '@/interfaces/Quiz.interface'
+import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 import { H1, H2 } from '../ui/Typography/Typography'
 
 interface IGrammarQuizProps {
-  quiz: IQuiz
+  quiz: IGrammarTopic
   setCorrect: Dispatch<SetStateAction<number>>
   setIsTimeExpired: Dispatch<SetStateAction<boolean>>
   setFinishTime: Dispatch<SetStateAction<number>>
