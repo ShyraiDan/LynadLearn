@@ -5,7 +5,8 @@ import Button from '../ui/Button/Button'
 import { useState, useEffect } from 'react'
 // import { changeTheme } from '@/lib/auth'
 
-import { FaRegMoon, FaRegSun } from 'react-icons/fa'
+import { FaRegMoon } from 'react-icons/fa'
+import { GoSun } from 'react-icons/go'
 
 export const Themes = () => {
   const [theme, setTheme] = useState<string>('light')
@@ -41,7 +42,11 @@ export const Themes = () => {
         className="dark:hover:bg-[#1D2D4D]"
         onClick={() => handleChangeTheme(theme === 'light' ? 'dark' : 'light')}
       >
-        {theme === 'dark' ? <FaRegSun className="dark:fill-[#fff]" /> : <FaRegMoon className="dark:fill-[#fff]" />}
+        {theme === 'dark' ? (
+          <GoSun className="w-6 h-6 dark:fill-[#fff]" />
+        ) : (
+          <FaRegMoon className="w-5 h-5 dark:fill-[#fff]" />
+        )}
       </Button>
     </div>
   )
