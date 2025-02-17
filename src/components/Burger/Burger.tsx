@@ -34,7 +34,9 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
     <div>
       <Button
         onClick={() => showModal()}
-        className="m-0 !bg-transparent border-none relative !rounded-2xl !p-0 w-10 h-10 text-[#000] ml-2 hover:!bg-[#E6EAF0] dark:hover:!bg-[#1D2D4D]"
+        className="m-0 !bg-transparent border-none relative !rounded-2xl !p-0 w-10 h-10 text-[#000] ml-2
+        lg:!hidden 
+        hover:!bg-[#E6EAF0] dark:hover:!bg-[#1D2D4D]"
       >
         <span className="absolute left-2 h-[2px] w-6 top-[12px] bg-blue-200 dark:bg-grey-600"></span>
         <span className="absolute left-2 h-[2px] w-6 top-[19px] bg-blue-200 dark:bg-grey-600"></span>
