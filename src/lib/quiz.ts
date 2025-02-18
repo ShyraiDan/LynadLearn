@@ -1,61 +1,9 @@
 'use server'
 
-// import mongoose, { ObjectId } from 'mongoose'
-// import connectMongoDB from './mongodb'
 import { IVocabularyQuestion, IVocabularyQuiz } from '@/interfaces/Quiz.interface'
-// import Grammar, { IGrammarTopic } from '@/interfaces/Grammar.interface'
 import { IWord } from '@/interfaces/Word.interface'
 import { shuffleArray } from '@/utils/middlewares'
 import { nanoid } from 'nanoid'
-
-// export const getGrammarQuiz = async (
-//   id: string
-// ): Promise<{
-//   data: IGrammarTopic | null
-//   success: boolean
-// }> => {
-//   await connectMongoDB()
-
-//   if (mongoose.Types.ObjectId.isValid(id) === false) {
-//     return {
-//       data: null,
-//       success: false
-//     }
-//   }
-
-//   const grammar = await Grammar.findById(id)
-
-//   if (grammar) {
-//     const data = JSON.parse(JSON.stringify(grammar))
-//     return {
-//       data,
-//       success: true
-//     }
-//   } else {
-//     return {
-//       data: null,
-//       success: false
-//     }
-//   }
-// }
-
-// export const updateGrammarQuiz = async (grammar: IGrammarTopic): Promise<{ id?: ObjectId; success: boolean }> => {
-//   try {
-//     await connectMongoDB()
-
-//     await Quizzes.updateOne(
-//       { _id: grammar._id },
-//       {
-//         ...grammar
-//       }
-//     )
-
-//     return { id: quiz._id, success: true }
-//   } catch (error) {
-//     console.error('Error updating quiz:', error)
-//     return { success: false }
-//   }
-// }
 
 const defaultVocabularyQuizQuestions = [
   {
