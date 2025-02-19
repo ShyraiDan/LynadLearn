@@ -8,10 +8,21 @@ import Loader from '@/components/Loader/Loader'
 import { DAchievement } from '@/mock/Achievments.mock'
 import { twMerge } from 'tailwind-merge'
 import { H3, P } from '@/components/ui/Typography/Typography'
+import { getAllAchievements } from '@/lib/achievements'
 
 import { FaUser } from 'react-icons/fa'
 
 // TODO output user point
+
+interface IProfilePageProps {
+  params: {
+    locale: string
+  }
+}
+
+interface IYourProfileProps {
+  locale: string
+}
 
 function calculateRate(session: ISession) {
   let score = 0
@@ -41,8 +52,9 @@ function calculateRate(session: ISession) {
   return score
 }
 
-async function YourProfile() {
+async function YourProfile({ locale }: IYourProfileProps) {
   const session = await getSession()
+  const achievements = await getAllAchievements()
   const t = await getTranslations('dashboard.profile')
 
   return (
@@ -79,9 +91,10 @@ async function YourProfile() {
       <div className={twMerge(styles['achievements-section'], 'dark:text-grey-600')}>
         {t('achievements')}
         <div className={styles.achievements}>
-          {DAchievement.map((item, i) => (
+          {achievements.map((item, i) => (
             <Achievements
               item={item}
+              locale={locale}
               key={i}
               percent={
                 ((item.type === 'flashcards'
@@ -100,12 +113,12 @@ async function YourProfile() {
   )
 }
 
-export default function ProfilePage() {
+export default function ProfilePage({ params }: IProfilePageProps) {
   return (
     <>
       <div className={styles.container}>
         <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
-          <YourProfile />
+          <YourProfile locale={params.locale} />
         </Suspense>
       </div>
     </>

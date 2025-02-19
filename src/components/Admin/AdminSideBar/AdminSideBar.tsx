@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 
 import { TbVocabulary, TbWriting } from 'react-icons/tb'
-import { BsQuestionSquareFill } from 'react-icons/bs'
+import { FaTrophy } from 'react-icons/fa'
 
 interface IAdminSideBarProps {
   isAuth: boolean
@@ -37,8 +37,8 @@ export default function AdminSideBar({}: IAdminSideBarProps) {
               path === '/admin/dashboard/quiz' && 'bg-blue-225'
             )}
           >
-            <BsQuestionSquareFill className="mr-2" />
-            Quiz
+            <FaTrophy className="mr-2" />
+            Achievements
           </Link>
         </li>
         <li>

@@ -1,10 +1,48 @@
-import { IconType } from 'react-icons'
+import mongoose, { Schema } from 'mongoose'
+
+export type IAchievementsType = 'words-lists' | 'lists' | 'flashcards' | 'quiz'
 
 export interface IAchievement {
-  id: string
+  _id: string
   title: string
+  titleUa: string
   description: string
-  icon: IconType
+  descriptionUa: string
   target: number
-  type: string
+  type: IAchievementsType
+  base64Icon: string
 }
+
+const achievementsSchema = new Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  titleUa: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  descriptionUa: {
+    type: String,
+    required: true
+  },
+  target: {
+    type: Number,
+    required: true
+  },
+  type: {
+    type: String,
+    required: true
+  },
+  base64Icon: {
+    type: String,
+    required: true
+  }
+})
+
+const Achievements = mongoose.models.Achievements || mongoose.model('Achievements', achievementsSchema)
+export default Achievements
