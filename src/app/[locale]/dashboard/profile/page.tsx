@@ -5,7 +5,6 @@ import ProfileEditModal from '@/components/ProfileEditModal/ProfileEditModal'
 import { getSession, ISession } from '@/lib/auth'
 import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
-import { DAchievement } from '@/mock/Achievments.mock'
 import { twMerge } from 'tailwind-merge'
 import { H3, P } from '@/components/ui/Typography/Typography'
 import { getAllAchievements } from '@/lib/achievements'
@@ -27,27 +26,27 @@ interface IYourProfileProps {
 function calculateRate(session: ISession) {
   let score = 0
 
-  DAchievement.forEach((item) => {
-    let amount: number | undefined = 0
-    switch (item.type) {
-      case 'flashcards':
-        amount = session.flashcardsLearned
-        break
-      case 'quiz':
-        amount = session.successfulQuizzes
-        break
-      case 'lists':
-        amount = session.wordLists
-        break
-      default:
-        amount = session.words
-        break
-    }
+  // DAchievement.forEach((item) => {
+  //   let amount: number | undefined = 0
+  //   switch (item.type) {
+  //     case 'flashcards':
+  //       amount = session.flashcardsLearned
+  //       break
+  //     case 'quiz':
+  //       amount = session.successfulQuizzes
+  //       break
+  //     case 'lists':
+  //       amount = session.wordLists
+  //       break
+  //     default:
+  //       amount = session.words
+  //       break
+  //   }
 
-    if (amount && amount >= item.target) {
-      score += 25
-    }
-  })
+  //   if (amount && amount >= item.target) {
+  //     score += 25
+  //   }
+  // })
 
   return score
 }

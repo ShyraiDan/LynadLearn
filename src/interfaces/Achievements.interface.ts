@@ -10,7 +10,7 @@ export interface IAchievement {
   descriptionUa: string
   target: number
   type: IAchievementsType
-  base64Icon: string
+  image: string
 }
 
 const achievementsSchema = new Schema({
@@ -38,7 +38,7 @@ const achievementsSchema = new Schema({
     type: String,
     required: true
   },
-  base64Icon: {
+  image: {
     type: String,
     required: true
   }
