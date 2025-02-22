@@ -14,11 +14,11 @@ import { addSingleGrammar, updateSingleGrammar } from '@/lib/grammar'
 import { useRouter } from 'next/navigation'
 import { AdminEditQuiz } from '@/components/Admin/AdminEditQuiz/AdminEditQuiz'
 import { H1, P } from '@/components/ui/Typography/Typography'
+import Link from 'next/link'
+import { IQuestion } from '@/interfaces/Quiz.interface'
 
 import { MdEdit } from 'react-icons/md'
 import { FaTrash } from 'react-icons/fa'
-import Link from 'next/link'
-import { IQuestion } from '@/interfaces/Quiz.interface'
 
 interface IAdminGrammarEditModal {
   data?: IGrammarTopic

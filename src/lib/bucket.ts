@@ -10,10 +10,10 @@ const s3Client = new S3Client({
 
 export const saveFileToBucket = async (file: Buffer, fileName: string) => {
   const fileBuffer = file
-
+  const bucketFileName = `${Date.now()}-${fileName}`
   const params = {
     Bucket: process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME as string,
-    Key: `${Date.now()}-${fileName}`,
+    Key: bucketFileName,
     Body: fileBuffer,
     ContentType: 'image/svg+xml'
   }
@@ -21,5 +21,5 @@ export const saveFileToBucket = async (file: Buffer, fileName: string) => {
   const command = new PutObjectCommand(params)
   await s3Client.send(command)
 
-  return fileName
+  return bucketFileName
 }

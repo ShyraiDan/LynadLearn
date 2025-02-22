@@ -31,10 +31,10 @@ export default function AdminSideBar({}: IAdminSideBarProps) {
         </li>
         <li>
           <Link
-            href="/admin/dashboard/quiz"
+            href="/admin/dashboard/achievements"
             className={twMerge(
               'flex w-full items-center text-blue-200 mb-1 py-2 px-3 rounded-lg font-bold transition-all ease-linear duration-150 hover:bg-blue-225 dark:text-grey-600',
-              path === '/admin/dashboard/quiz' && 'bg-blue-225'
+              path === '/admin/dashboard/achievements' && 'bg-blue-225'
             )}
           >
             <FaTrophy className="mr-2" />

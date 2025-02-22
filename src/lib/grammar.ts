@@ -21,7 +21,7 @@ export const getSingleGrammar = async (
 }> => {
   await connectMongoDB()
 
-  if (mongoose.Types.ObjectId.isValid(id) === false) {
+  if (!mongoose.Types.ObjectId.isValid(id)) {
     return {
       data: null,
       success: false
