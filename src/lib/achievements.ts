@@ -32,6 +32,24 @@ export const getSingleAchievements = async (
   }
 }
 
+export const createSingleAchievements = async (achievement: IAchievement): Promise<{ success: boolean }> => {
+  try {
+    await connectMongoDB()
+
+    const doc = new Achievements({
+      ...achievement
+    })
+    //TODO: Maybe we need to return success as part of promise in then closure
+    await doc.save()
+
+    revalidatePath('/admin/dashboard/achievements', 'page')
+    return { success: true }
+  } catch (error) {
+    console.error('Error creating grammar:', error)
+    return { success: false }
+  }
+}
+
 export const updateSingleAchievements = async (
   achievement: IAchievement
 ): Promise<{

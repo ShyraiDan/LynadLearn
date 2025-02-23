@@ -121,10 +121,7 @@ export default function ProfileEditModal({ session }: { session: ISession }) {
                     accept="image/*"
                     className="hidden"
                     onChange={async (e) => {
-                      const fileName = await saveFileToBucket(
-                        e.target.files![0] as unknown as Buffer,
-                        e.target.files![0]?.name
-                      )
+                      const fileName = await saveFileToBucket(e.target.files![0], e.target.files![0]?.name)
                       setFileName(fileName)
                     }}
                   />

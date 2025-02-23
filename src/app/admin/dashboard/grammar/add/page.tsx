@@ -1,5 +1,3 @@
-'use client'
-
 import { AdminGrammarAddEditForm } from '@/components/Admin/AdminGrammarAddEditForm/AdminGrammarAddEditForm'
 
 export default function AdminAddGrammarPage() {

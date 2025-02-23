@@ -10,13 +10,16 @@ import { useState } from 'react'
 import Button from '@/components/ui/Button/Button'
 import Link from 'next/link'
 import { saveFileToBucket } from '@/lib/bucket'
-import { updateSingleAchievements } from '@/lib/achievements'
+import { updateSingleAchievements, createSingleAchievements } from '@/lib/achievements'
+import { useRouter } from 'next/navigation'
 
 interface IAchievementsEditFormProps {
-  data: IAchievement
+  data?: IAchievement
 }
 
 export const AchievementsEditForm = ({ data }: IAchievementsEditFormProps) => {
+  const router = useRouter()
+
   const [type, setType] = useState(data ? data.type : 'flashcards')
   const [file, setFile] = useState<File | null>(null)
 
@@ -28,13 +31,13 @@ export const AchievementsEditForm = ({ data }: IAchievementsEditFormProps) => {
   } = useForm<IAchievement>({
     mode: 'onSubmit',
     defaultValues: {
-      title: data.title,
-      titleUa: data.titleUa,
-      description: data.description,
-      descriptionUa: data.descriptionUa,
-      target: data.target,
-      type: data.type,
-      image: data.image
+      title: data?.title || '',
+      titleUa: data?.titleUa || '',
+      description: data?.description || '',
+      descriptionUa: data?.descriptionUa || '',
+      target: data?.target || 0,
+      type: data?.type || 'flashcards',
+      image: data?.image || ''
     }
   })
 
@@ -43,12 +46,21 @@ export const AchievementsEditForm = ({ data }: IAchievementsEditFormProps) => {
   const onSubmit: SubmitHandler<IAchievement> = async (values) => {
     if (!file) return
 
-    const fileName = await saveFileToBucket(file as unknown as Buffer, file?.name)
-    const { success } = await updateSingleAchievements({ ...values, _id: data._id, type, image: fileName })
+    const fileName = await saveFileToBucket(file, file?.name)
+    let res = {
+      success: false
+    }
 
-    if (success) {
+    if (data?._id) {
+      res = await updateSingleAchievements({ ...values, _id: data._id, type, image: fileName })
+    } else {
+      res = await createSingleAchievements({ ...values, type, image: fileName })
+    }
+
+    if (res.success) {
       toast.success('Achievement updated', { duration: 3000 })
       reset()
+      router.push('/admin/dashboard/achievements')
     }
   }
 
