@@ -6,6 +6,8 @@ import { Modal } from '@/components/ui/Modal/Modal'
 import { H6 } from '@/components/ui/Typography/Typography'
 import Button from '@/components/ui/Button/Button'
 import { removeScrollBar } from '@/constants/shared'
+import { deleteSingleAchievements } from '@/lib/achievements'
+import { toast } from 'sonner'
 
 interface AdminAchievementsDeleteProps {
   id: string
@@ -19,7 +21,23 @@ export const AdminAchievementsDelete = ({ id }: AdminAchievementsDeleteProps) =>
     removeScrollBar(isOpen)
   }
 
-  const handleDeleteAchievement = (id: string) => {}
+  const handleDeleteAchievement = (id: string) => {
+    deleteSingleAchievements(id).then((res) => {
+      if (res.success) {
+        toast.success('Grammar topic removed', {
+          duration: 3000,
+          className: 'border text-white-100 border-green-100 bg-green-100'
+        })
+
+        showModal()
+      } else {
+        toast.success('Error removing grammar topic', {
+          duration: 3000,
+          className: 'border text-white-100 border-red bg-red'
+        })
+      }
+    })
+  }
 
   return (
     <>

@@ -59,3 +59,16 @@ export const updateSingleAchievements = async (
     return { success: false }
   }
 }
+
+export const deleteSingleAchievements = async (id: string): Promise<{ success: boolean }> => {
+  try {
+    await connectMongoDB()
+    await Achievements.deleteOne({ _id: id })
+
+    revalidatePath('/admin/dashboard/achievements', 'page')
+    return { success: true }
+  } catch (error) {
+    console.error('Error creating word:', error)
+    return { success: false }
+  }
+}
