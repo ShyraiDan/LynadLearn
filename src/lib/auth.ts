@@ -143,13 +143,15 @@ export const updateUser = async (user: IUser) => {
     {
       userName: user.userName,
       description: user.description,
-      location: user.location
+      location: user.location,
+      avatarUrl: user.avatarUrl
     }
   )
 
   session.userName = user.userName
   session.description = user.description
   session.location = user.location
+  session.avatarUrl = user.avatarUrl
 
   await session.save()
 

@@ -8,6 +8,7 @@ import Loader from '@/components/Loader/Loader'
 import { twMerge } from 'tailwind-merge'
 import { H3, P } from '@/components/ui/Typography/Typography'
 import { getAllAchievements } from '@/lib/achievements'
+import Image from 'next/image'
 
 import { FaUser } from 'react-icons/fa'
 
@@ -61,7 +62,18 @@ async function YourProfile({ locale }: IYourProfileProps) {
       <div className={styles['user-info']}>
         <ProfileEditModal session={session} />
         <div className={twMerge(styles['user-photo'], 'dark:bg-[#1D2D4D]')}>
-          <FaUser className="dark:fill-grey-600" />
+          {session.avatarUrl ? (
+            <Image
+              alt=""
+              width={80}
+              height={80}
+              className="w-full h-full rounded-full"
+              unoptimized
+              src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/${session.avatarUrl}`}
+            />
+          ) : (
+            <FaUser className="dark:fill-grey-600" />
+          )}
         </div>
         <div className={styles['user-details']}>
           <H3 className="font-bold text-lg mt-4 mb-2">{session.userName}</H3>

@@ -6,11 +6,16 @@ import { logout } from '@/lib/auth'
 import { useTranslations } from 'next-intl'
 import { twMerge } from 'tailwind-merge'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 import { FaUser } from 'react-icons/fa'
 import { MdLogout } from 'react-icons/md'
 
-export function UserModal() {
+interface IUserModalProps {
+  avatarUrl?: string
+}
+
+export function UserModal({ avatarUrl }: IUserModalProps) {
   const t = useTranslations('dashboard.profile')
   const pathname = usePathname()
 
@@ -18,7 +23,18 @@ export function UserModal() {
     <>
       <div className={styles.user}>
         <div className={twMerge(styles['user-avatar'], 'dark:bg-[#1D2D4D]')}>
-          <FaUser className={styles.icon} />
+          {avatarUrl ? (
+            <Image
+              alt=""
+              width={80}
+              height={80}
+              className="w-full h-full rounded-full"
+              unoptimized
+              src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/${avatarUrl}`}
+            />
+          ) : (
+            <FaUser className={styles.icon} />
+          )}
         </div>
         <div className={styles.modal}>
           <ul className="dark:bg-[#1D2D4D]">

@@ -12,7 +12,7 @@ import { twMerge } from 'tailwind-merge'
 import { FaUser } from 'react-icons/fa'
 
 export async function Header() {
-  const { isLoggedIn } = await getSession()
+  const { isLoggedIn, avatarUrl } = await getSession()
   const t = await getTranslations('Header')
   const tForms = await getTranslations('Forms')
 
@@ -67,7 +67,7 @@ export async function Header() {
         <div className={styles['header-right']}>
           <Themes />
           {isLoggedIn ? (
-            <UserModal />
+            <UserModal avatarUrl={avatarUrl} />
           ) : (
             <AuthModalButton className="flex items-center justify-center w-full bg-blue-200" containerStyles="ml-2">
               <FaUser className="mr-2" /> {tForms('sign_in')}
