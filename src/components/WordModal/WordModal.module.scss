@@ -77,7 +77,7 @@
             @apply m-0 ml-2 h-[38px];
 
             svg {
-              @apply hover:text-white-100;
+              @apply lg:hover:text-white-100;
             }
           }
         }
@@ -87,7 +87,7 @@
 
           span {
             @apply transition-all duration-[.3s] ease-in-out cursor-pointer      
-            hover:text-red;
+            lg:hover:text-red;
           }
         }
       }
@@ -99,7 +99,7 @@
 
       button {
         @apply px-6 mt-2 bg-blue-200 text-white-100 shadow-md mb-2 rounded
-        hover:bg-purple-100;
+        lg:hover:bg-purple-100;
       }
     }
   }

@@ -12,7 +12,7 @@ interface IDictionaryCard {
 
 const DictionaryCard = ({ word }: IDictionaryCard) => {
   return (
-    <div className={twMerge(styles.card, 'dark:bg-[#18223D] dark:hover:bg-[#222e4b]')}>
+    <div className={twMerge(styles.card, 'dark:bg-[#18223D] dark:lg:hover:bg-[#222e4b]')}>
       <div className={styles.container}>
         <div className={styles.info}>
           <H5 className="text-sm capitalize m-0 font-bold md:flex md:text-base">{word.word}</H5>

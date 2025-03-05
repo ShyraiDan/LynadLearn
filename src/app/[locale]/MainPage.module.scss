@@ -226,7 +226,7 @@
 
       a {
         @apply px-6 py-3 bg-blue-200 w-full text-center font-medium ease-in-out rounded-3xl border-0 text-white-100 text-center transition-[background] duration-[.3s]  
-        hover:bg-purple-100
+        lg:hover:bg-purple-100
         xs:max-w-[172px];
       }
     }

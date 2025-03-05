@@ -12,7 +12,7 @@
 
     svg {
       @apply transition-all ease-linear duration-150
-      hover:text-purple-100;
+      lg:hover:text-purple-100;
     }
   }
 

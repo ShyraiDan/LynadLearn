@@ -112,7 +112,7 @@ export default function Home() {
                   <P className="mb-0 text-sm font-medium dark:!text-white-100">{t(`${item}`)}</P>
                 </div>
               ))}
-              <NavigationLink className="hover:!bg-[#E0E0E0]" href="/pricing">
+              <NavigationLink className="lg:hover:!bg-[#E0E0E0]" href="/pricing">
                 {t('premium')}
               </NavigationLink>
             </div>

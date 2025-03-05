@@ -44,9 +44,9 @@ export default function PricingCard({ data }: { data: IPricing }) {
       </div>
       <AuthModalButton
         className={twMerge(
-          'flex justify-center text-center items-center bg-blue-200 font-bold rounded-full text-white-100 transition-all ease-linear duration-150 w-full self-end py-3 px-10 hover:bg-purple-100',
+          'flex justify-center text-center items-center bg-blue-200 font-bold rounded-full text-white-100 transition-all ease-linear duration-150 w-full self-end py-3 px-10 lg:hover:bg-purple-100',
           data.price === 'free' &&
-            '!bg-transparent !text-blue-200 !border !border-solid !border-blue-200 !hover:bg-transparent !hover:border-purple-100 !hover:text-purple-100 dark:!border-white-100 dark:!text-white-100 dark:hover:!border-white-100 dark:hover:!text-white-100'
+            '!bg-transparent !text-blue-200 !border !border-solid !border-blue-200 !lg:hover:bg-transparent !lg:hover:border-purple-100 !lg:hover:text-purple-100 dark:!border-white-100 dark:!text-white-100 dark:lg:hover:!border-white-100 dark:lg:hover:!text-white-100'
         )}
         disabled={data.price === 'free'}
       >

@@ -26,7 +26,7 @@ export const RequireAuthModal = ({ isOpen, handleClose, allowedAction, children 
           </Button>
           <Button
             outline
-            className="!rounded dark:!border-white-100 dark:!text-white-100 dark:hover:!border-purple-100 dark:hover:!text-purple-100"
+            className="!rounded dark:!border-white-100 dark:!text-white-100 dark:lg:hover:!border-purple-100 dark:lg:hover:!text-purple-100"
             onClick={handleClose}
           >
             {t('cancel')}

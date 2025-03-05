@@ -98,9 +98,9 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
                               <div className={styles.btns}>
                                 <Button className={styles['tip-btn']} onClick={(e) => handlePin(e)}>
                                   {isPinned ? (
-                                    <FaBookmark className="dark:text-grey-600 dark:hover:text-purple-100" />
+                                    <FaBookmark className="dark:text-grey-600 dark:lg:hover:text-purple-100" />
                                   ) : (
-                                    <FaRegBookmark className="dark:text-grey-600 dark:hover:text-purple-100" />
+                                    <FaRegBookmark className="dark:text-grey-600 dark:lg:hover:text-purple-100" />
                                   )}
                                 </Button>
                                 <NavigationLink href="/">

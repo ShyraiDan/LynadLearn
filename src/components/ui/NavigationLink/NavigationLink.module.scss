@@ -1,12 +1,12 @@
 .link-burger {
   @apply transition-all ease-in-out duration-150
-  hover:text-purple-100;
+  lg:hover:text-purple-100;
 }
 
 .link-header {
   @apply relative
   after:flex after:content-[''] after:w-0 after:mx-auto after:transition-all after:ease-in-out after:duration-150 after:h-[2px] after:absolute after:left-[15%] after:bottom-[3px]
-  hover:after:w-[70%] hover:after:bg-blue-200;
+  lg:hover:after:w-[70%] lg:hover:after:bg-blue-200;
 }
 
 .active-burger {

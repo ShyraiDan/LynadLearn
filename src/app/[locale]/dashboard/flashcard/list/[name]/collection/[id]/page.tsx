@@ -265,7 +265,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
                     <Button
                       className={twMerge(
                         styles.btn,
-                        'dark:!bg-blue-200 dark:!text-grey-600 dark:hover:!bg-purple-100 '
+                        'dark:!bg-blue-200 dark:!text-grey-600 dark:lg:hover:!bg-purple-100 '
                       )}
                       onClick={() => showAddWordsModal()}
                     >

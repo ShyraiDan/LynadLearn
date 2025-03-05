@@ -159,11 +159,11 @@ export default function WordModal({ handleClose, word }: IWordModal) {
                       </div>
                       <div className={styles.icons}>
                         <MdEdit
-                          className="transition-all duration-[.3s] cursor-pointer hover:text-purple-100 dark:text-grey-600"
+                          className="transition-all duration-[.3s] cursor-pointer lg:hover:text-purple-100 dark:text-grey-600"
                           onClick={() => setEdit(index)}
                         />
                         <FaTrash
-                          className="transition-all duration-[.3s] cursor-pointer hover:text-red dark:text-grey-600 "
+                          className="transition-all duration-[.3s] cursor-pointer lg:hover:text-red dark:text-grey-600 "
                           onClick={() => handleDeleteDefinition(item.id)}
                         />
                       </div>

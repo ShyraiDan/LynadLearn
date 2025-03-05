@@ -85,7 +85,7 @@ export const ListsModal = ({ word }: { word: IWord }) => {
       <Button
         className={twMerge(
           styles.btn,
-          '!w-[44px] !h-[44px] !p-3 !rounded-2xl dark:!bg-[#1D2D4D] dark:text-grey-600 dark:hover:!bg-purple-100'
+          '!w-[44px] !h-[44px] !p-3 !rounded-2xl dark:!bg-[#1D2D4D] dark:text-grey-600 dark:lg:hover:!bg-purple-100'
         )}
         onClick={() => showModal()}
       >

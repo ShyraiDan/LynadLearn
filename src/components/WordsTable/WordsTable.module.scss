@@ -16,7 +16,7 @@
       .row {
         @apply cursor-pointer relative grid grid-cols-[minmax(100px,_10fr)_minmax(140px,_14fr)_minmax(180px,_18fr)_minmax(100px,_10fr)_minmax(115px,_11.5fr)_minmax(135px,_13.5fr)_minmax(120px,_12fr)] w-full transition-all duration-[.3s] ease-in-out
         even:bg-white-200
-        [&_.word-modal]:hover:visible;
+        [&_.word-modal]:lg:hover:visible;
 
         > div {
           @apply border-l border-t p-1;

@@ -137,7 +137,7 @@ export default function QuizPage({ searchParams, params }: TQuizPage) {
                         styles.badge,
                         'dark:bg-[#1D2D4D] dark:border-[#1D2D4D]',
                         type === 'grammar' &&
-                          `${styles.active} dark:border-purple-100 dark:bg-purple-100 dark:hover:bg-purple-100 dark:hover:border-purple-100`
+                          `${styles.active} dark:border-purple-100 dark:bg-purple-100 dark:lg:hover:bg-purple-100 dark:lg:hover:border-purple-100`
                       )}
                     >
                       {t('grammar')}
@@ -149,7 +149,7 @@ export default function QuizPage({ searchParams, params }: TQuizPage) {
                         styles.badge,
                         'dark:bg-[#1D2D4D] dark:border-[#1D2D4D]',
                         type === 'vocabulary' &&
-                          `${styles.active} dark:border-purple-100 dark:bg-purple-100 dark:hover:bg-purple-100 dark:hover:border-purple-100`
+                          `${styles.active} dark:border-purple-100 dark:bg-purple-100 dark:lg:hover:bg-purple-100 dark:lg:hover:border-purple-100`
                       )}
                     >
                       {t('vocabulary')}

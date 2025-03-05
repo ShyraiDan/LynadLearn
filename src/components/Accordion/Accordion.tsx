@@ -22,7 +22,7 @@ export default function Accordion() {
         return (
           <div
             key={item.id}
-            className={`${styles.accordion} dark:text-grey-600 dark:bg-[#111C38] dark:hover:bg-[#111C38]  ${
+            className={`${styles.accordion} dark:text-grey-600 dark:bg-[#111C38] dark:lg:hover:bg-[#111C38]  ${
               open === i && `${styles.active}`
             } `}
             onClick={() => toggleAccordion(i)}

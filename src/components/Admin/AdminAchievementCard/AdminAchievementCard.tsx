@@ -16,7 +16,7 @@ export const AdminAchievementCard = ({ item }: IAdminAchievementCardProps) => {
       className="flex flex-col items-center p-4 rounded-3xl bg-grey-250 shadow-md relative 
     dark:bg-[#1D2D4D] 
       [&_div]:transition-all [&_div]:ease-linear [&_div]:duration-250 
-      [&_div]:hover:opacity-100"
+      [&_div]:lg:hover:opacity-100"
     >
       <div className="h-[60px] w-[60px] rounded-full bg-blue-225 shadow-md flex items-center justify-center text-blue-200 text-3xl">
         <Image
@@ -34,7 +34,7 @@ export const AdminAchievementCard = ({ item }: IAdminAchievementCardProps) => {
         <Link href={`/admin/dashboard/achievements/${item._id}/edit`}>
           <MdEdit
             size={16}
-            className="cursor-pointer duration-150 transition-all ease-in dark:fill-white-100 hover:fill-purple-100 dark:hover:fill-purple-100"
+            className="cursor-pointer duration-150 transition-all ease-in dark:fill-white-100 lg:hover:fill-purple-100 dark:lg:hover:fill-purple-100"
           />
         </Link>
         <AdminAchievementsDelete id={item._id} />

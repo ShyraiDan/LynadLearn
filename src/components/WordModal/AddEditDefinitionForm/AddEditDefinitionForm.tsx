@@ -170,7 +170,7 @@ export const AddEditDefinitionForm = ({ allowedAction, isEdit, definition }: IAd
             <Button
               className={twMerge(
                 styles.reset,
-                'dark:!border-white-100 dark:!text-white-100 dark:hover:!border-red dark:hover:!text-red'
+                'dark:!border-white-100 dark:!text-white-100 dark:lg:hover:!border-red dark:lg:hover:!text-red'
               )}
               type="reset"
               onClick={() => setDefinitionForm((state) => !state)}

@@ -64,7 +64,7 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
         return (
           <div key={word._id}>
             <div
-              className={twMerge(styles.row, 'dark:bg-[#1D2D4D] dark:hover:bg-purple-100')}
+              className={twMerge(styles.row, 'dark:bg-[#1D2D4D] dark:lg:hover:bg-purple-100')}
               onClick={(e) => showModal(e, word)}
             >
               <div className="lowercase dark:text-grey-600">{word.word}</div>
@@ -93,12 +93,12 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
                     <div className={twMerge(styles['word-section'], 'dark:text-grey-600')}>{word.word}</div>
                     <div className={styles['word-modal']}>
                       <MdEdit
-                        className="cursor-pointer transition-all duration-300 hover:text-purple-100 dark:text-grey-600 dark:hover:text-purple-100"
+                        className="cursor-pointer transition-all duration-300 lg:hover:text-purple-100 dark:text-grey-600 dark:lg:hover:text-purple-100"
                         onClick={(e) => showEditModal(e)}
                         size="16px"
                       />
                       <FaTrash
-                        className="cursor-pointer transition-all duration-300 hover:text-red dark:text-grey-600 "
+                        className="cursor-pointer transition-all duration-300 lg:hover:text-red dark:text-grey-600 "
                         onClick={() => showDeleteModal()}
                       />
                     </div>
@@ -149,7 +149,7 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
             <div className={styles.btns}>
               <Button onClick={() => deleteWord(word)}>{t('delete')}</Button>
               <Button
-                className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !rounded-md hover:border-red hover:!text-red"
+                className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !rounded-md lg:hover:border-red lg:hover:!text-red"
                 onClick={() => showDeleteModal()}
               >
                 {t('cancel')}

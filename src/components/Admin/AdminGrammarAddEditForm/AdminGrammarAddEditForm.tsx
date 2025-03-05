@@ -199,11 +199,11 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                 {i !== isEditDescription && (
                   <div className="flex gap-4 items-center">
                     <MdEdit
-                      className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-purple-100 dark:hover:fill-purple-100"
+                      className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 lg:hover:fill-purple-100 dark:lg:hover:fill-purple-100"
                       onClick={() => setEditDescription(i)}
                     />
                     <FaTrash
-                      className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-red dark:hover:fill-red"
+                      className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 lg:hover:fill-red dark:lg:hover:fill-red"
                       onClick={() => descriptionRemove(i)}
                     />
                   </div>
@@ -265,7 +265,7 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                     </Button>
                     <Button
                       type="button"
-                      className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
+                      className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 lg:hover:border-red lg:hover:!text-red dark:lg:hover:!border-red dark:lg:hover:!text-red"
                       onClick={() => {
                         if (!descriptionFields[i].en || !descriptionFields[i].ua) {
                           descriptionRemove(i)
@@ -305,11 +305,11 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                 {isEditRule !== i && (
                   <div className="flex gap-4 items-center">
                     <MdEdit
-                      className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-purple-100 dark:hover:fill-purple-100"
+                      className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 lg:hover:fill-purple-100 dark:lg:hover:fill-purple-100"
                       onClick={() => setEditRule(i)}
                     />
                     <FaTrash
-                      className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-red dark:hover:fill-red"
+                      className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 lg:hover:fill-red dark:lg:hover:fill-red"
                       onClick={() => ruleRemove(i)}
                     />
                   </div>
@@ -408,7 +408,7 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                     </Button>
                     <Button
                       type="button"
-                      className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
+                      className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 lg:hover:border-red lg:hover:!text-red dark:lg:hover:!border-red dark:lg:hover:!text-red"
                       onClick={() => {
                         if (
                           !ruleFields[i].title ||
@@ -437,7 +437,7 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                       {!isCurrentItem && (
                         <div className="flex gap-4 items-center">
                           <MdEdit
-                            className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-purple-100 dark:hover:fill-purple-100"
+                            className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 lg:hover:fill-purple-100 dark:lg:hover:fill-purple-100"
                             onClick={() => {
                               setEditExample({
                                 example: k,
@@ -446,7 +446,7 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                             }}
                           />
                           <FaTrash
-                            className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-red dark:hover:fill-red"
+                            className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 lg:hover:fill-red dark:lg:hover:fill-red"
                             onClick={() => {
                               const currentRule = getValues(`data.example.${i}`)
 
@@ -511,7 +511,7 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
                           </Button>
                           <Button
                             type="button"
-                            className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
+                            className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 lg:hover:border-red lg:hover:!text-red dark:lg:hover:!border-red dark:lg:hover:!text-red"
                             onClick={() => {
                               const currentRule = getValues(`data.example.${i}`)
                               const currentValues = getValues(`data.example.${i}.examples.${k}`)
@@ -594,7 +594,7 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
             </Button>
             <Link
               href={data ? `/admin/dashboard/grammar/${data._id}` : '/admin/dashboard/grammar'}
-              className="font-bold transition-all ease-in duration-150 !bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
+              className="font-bold transition-all ease-in duration-150 !bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 lg:hover:border-red lg:hover:!text-red dark:lg:hover:!border-red dark:lg:hover:!text-red"
               onClick={() => {
                 setEditDescription(null)
                 setEditRule(null)

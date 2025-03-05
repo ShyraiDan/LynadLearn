@@ -21,7 +21,7 @@ export default function AdminSideBar({}: IAdminSideBarProps) {
           <Link
             href="/admin/dashboard/vocabulary"
             className={twMerge(
-              'flex w-full items-center text-blue-200 mb-1 py-2 px-3 rounded-lg font-bold transition-all ease-linear duration-150 hover:bg-blue-225 dark:text-grey-600',
+              'flex w-full items-center text-blue-200 mb-1 py-2 px-3 rounded-lg font-bold transition-all ease-linear duration-150 lg:hover:bg-blue-225 dark:text-grey-600',
               path === '/admin/dashboard/vocabulary' && 'bg-blue-225'
             )}
           >
@@ -33,7 +33,7 @@ export default function AdminSideBar({}: IAdminSideBarProps) {
           <Link
             href="/admin/dashboard/achievements"
             className={twMerge(
-              'flex w-full items-center text-blue-200 mb-1 py-2 px-3 rounded-lg font-bold transition-all ease-linear duration-150 hover:bg-blue-225 dark:text-grey-600',
+              'flex w-full items-center text-blue-200 mb-1 py-2 px-3 rounded-lg font-bold transition-all ease-linear duration-150 lg:hover:bg-blue-225 dark:text-grey-600',
               path === '/admin/dashboard/achievements' && 'bg-blue-225'
             )}
           >
@@ -45,7 +45,7 @@ export default function AdminSideBar({}: IAdminSideBarProps) {
           <Link
             href="/admin/dashboard/grammar"
             className={twMerge(
-              'flex w-full items-center text-blue-200 mb-1 py-2 px-3 rounded-lg font-bold transition-all ease-linear duration-150 hover:bg-blue-225 dark:text-grey-600',
+              'flex w-full items-center text-blue-200 mb-1 py-2 px-3 rounded-lg font-bold transition-all ease-linear duration-150 lg:hover:bg-blue-225 dark:text-grey-600',
               path === '/admin/dashboard/grammar' && 'bg-blue-225'
             )}
           >

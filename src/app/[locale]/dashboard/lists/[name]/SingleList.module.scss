@@ -72,12 +72,12 @@
 
                   .tip-btn {
                     @apply bg-transparent text-black p-0 m-0 text-xl transition-all ease-out duration-150
-                    hover:text-purple-100;
+                    lg:hover:text-purple-100;
                   }
 
                   a {
                     @apply text-xl transition-all ease-out duration-150
-                    hover:text-purple-100;
+                    lg:hover:text-purple-100;
                   }
                 }
 
@@ -98,7 +98,7 @@
 
                   a {
                     @apply flex justify-center items-center text-center py-2 px-6 pr-[14px] bg-blue-200 font-bold rounded-full text-white-100 transition-all ease-out duration-150 
-                    hover:bg-purple-100 [&__svg]:hover:mr-0 [&__svg]:hover:ml-5;
+                    lg:hover:bg-purple-100 [&__svg]:lg:hover:mr-0 [&__svg]:lg:hover:ml-5;
 
                     svg {
                       @apply mx-2.5 transition-all ease-out duration-150;

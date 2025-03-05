@@ -9,7 +9,7 @@
 
     .btn {
       @apply bg-transparent text-black flex items-center justify-center p-3 rounded-2xl bg-[#F0F0F0]
-      hover:bg-blue-200 hover:text-white-100;
+      lg:hover:bg-blue-200 lg:hover:text-white-100;
     }
   }
 }

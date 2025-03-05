@@ -2,7 +2,7 @@
   @apply shadow flex flex-col justify-between rounded-3xl p-4 h-[125px] 
   sm:p-6 sm:h-[135px]
   lg:h-auto 
-  hover:shadow-lg;
+  lg:hover:shadow-lg;
 
   div {
     @apply flex items-center;

@@ -45,7 +45,7 @@ export default function DictionaryWordPage() {
           </div>
           <div className={twMerge(styles['lang-parts'], 'dark:!bg-[#1D2D4D]')}>
             {Object.entries(partsOfSpeech).map(([partOfSpeech, count]) => (
-              <Button key={partOfSpeech} className="!cursor-default hover:!bg-blue-200">
+              <Button key={partOfSpeech} className="!cursor-default lg:hover:!bg-blue-200">
                 {partOfSpeech.charAt(0).toUpperCase() + partOfSpeech.slice(1)} ({count})
               </Button>
             ))}

@@ -25,7 +25,7 @@ async function Grammar({ params }: TSingleGrammarPage) {
         <H3 className="mb-4 font-bold text-[1.5rem] dark:text-grey-600">No grammar found. Try to open another list.</H3>
         <Link
           className="flex font-medium items-center justify-center bg-blue-200 text-white-100 px-3 py-1.5 rounded transition-all ease-in-out duration-300
-      hover:bg-purple-100"
+      lg:hover:bg-purple-100"
           href="admin/dashboard/grammar"
         >
           Move to Grammar
@@ -43,7 +43,7 @@ async function Grammar({ params }: TSingleGrammarPage) {
             <Link href={`/admin/dashboard/grammar/${grammar._id}/edit`}>
               <MdEdit
                 size={16}
-                className="cursor-pointer duration-150 transition-all ease-in dark:fill-white-100 hover:fill-purple-100 dark:hover:fill-purple-100"
+                className="cursor-pointer duration-150 transition-all ease-in dark:fill-white-100 lg:hover:fill-purple-100 dark:lg:hover:fill-purple-100"
               />
             </Link>
             <AdminGrammarDeleteModal id={grammar._id} />
@@ -71,7 +71,7 @@ async function Grammar({ params }: TSingleGrammarPage) {
           </div>
           <div className="mt-7">
             <Link
-              className="rounded bg-blue-200 py-2 px-4 font-bold text-white-100 transition-all ease-in-out duration-300 hover:bg-purple-100"
+              className="rounded bg-blue-200 py-2 px-4 font-bold text-white-100 transition-all ease-in-out duration-300 lg:hover:bg-purple-100"
               href={`admin/dashboard/quiz/${grammar._id}`}
             >
               Open Quiz

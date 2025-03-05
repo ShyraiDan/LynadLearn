@@ -187,7 +187,7 @@ export const AchievementsEditForm = ({ data }: IAchievementsEditFormProps) => {
             href="/admin/dashboard/achievements"
             // TODO: Fix href url after creating single achievement page
             // href={data ? `/admin/dashboard/achievements/${data._id}` : '/admin/dashboard/achievements'}
-            className="font-bold transition-all ease-in duration-150 !bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
+            className="font-bold transition-all ease-in duration-150 !bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 lg:hover:border-red lg:hover:!text-red dark:lg:hover:!border-red dark:lg:hover:!text-red"
             onClick={() => setType('flashcards')}
           >
             Cancel

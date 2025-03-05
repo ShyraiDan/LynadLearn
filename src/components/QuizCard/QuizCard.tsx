@@ -29,7 +29,7 @@ export default function QuizCard({ topic, lang, allowedAction }: TQuizCard) {
 
   return (
     <NavigationLink
-      className={twMerge(styles.item, 'dark:bg-[#18223D] dark:hover:bg-[#1D2D4D] dark:[&_p]:hover:text-grey-600')}
+      className={twMerge(styles.item, 'dark:bg-[#18223D] dark:lg:hover:bg-[#1D2D4D] dark:[&_p]:lg:hover:text-grey-600')}
       href={`/dashboard/grammar/${topic._id}`}
     >
       <div className={styles.top}>

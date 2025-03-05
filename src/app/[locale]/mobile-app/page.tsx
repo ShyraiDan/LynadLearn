@@ -42,7 +42,7 @@ export default function MobileApp() {
           <P className="!text-[1rem] dark:text-grey-600">{t('always_download')}</P>
           <div>
             <Link href="https://play.google.com/store/games/">
-              <Button className="hover:!bg-[#E0E0E0]">
+              <Button className="lg:hover:!bg-[#E0E0E0]">
                 <FaGooglePlay size="24" />
                 <div>
                   <span>{t('get_it_on')}</span>
@@ -51,7 +51,7 @@ export default function MobileApp() {
               </Button>
             </Link>
             <Link href="https://www.apple.com/app-store/">
-              <Button className="hover:!bg-[#E0E0E0]">
+              <Button className="lg:hover:!bg-[#E0E0E0]">
                 <FaApple size="28" />
                 <div>
                   <span>{t('get_it_on')}</span>

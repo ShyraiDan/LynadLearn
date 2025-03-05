@@ -30,7 +30,7 @@
             @apply m-0 ml-2 h-[38px];
 
             svg {
-              @apply hover:text-white-100;
+              @apply lg:hover:text-white-100;
             }
           }
         }
@@ -41,7 +41,7 @@
 
         span {
           @apply transition-all duration-[.3s] ease-in-out cursor-pointer      
-          hover:text-red;
+          lg:hover:text-red;
         }
       }
 
@@ -64,7 +64,7 @@
 
             .trash {
               @apply cursor-pointer transition-all duration-[.3s] ease-in-out cursor-pointer      
-              hover:text-red;
+              lg:hover:text-red;
             }
           }
         }
@@ -89,17 +89,17 @@
       .submit,
       .reset {
         @apply m-0 bg-blue-200 text-white-100 font-bold h-[38px] rounded transition-all duration-[.3s] ease-in-out
-        hover:bg-purple-100;
+        lg:hover:bg-purple-100;
       }
 
       .reset {
-        @apply bg-transparent border border-solid border-blue-200 text-blue-200 hover:border-red hover:text-red hover:bg-transparent;
+        @apply bg-transparent border border-solid border-blue-200 text-blue-200 lg:hover:border-red lg:hover:text-red lg:hover:bg-transparent;
       }
     }
   }
 
   .add-definition {
     @apply p-4 mt-0 bg-blue-200 w-full text-center text-white-100 rounded font-bold transition-all duration-[.3s] ease-in-out
-    hover:bg-purple-100;
+    lg:hover:bg-purple-100;
   }
 }

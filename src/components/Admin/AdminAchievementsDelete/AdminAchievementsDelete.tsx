@@ -42,7 +42,7 @@ export const AdminAchievementsDelete = ({ id }: AdminAchievementsDeleteProps) =>
   return (
     <>
       <FaTrash
-        className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-red dark:hover:fill-red"
+        className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 lg:hover:fill-red dark:lg:hover:fill-red"
         onClick={showModal}
       />
       <Modal
@@ -59,7 +59,7 @@ export const AdminAchievementsDelete = ({ id }: AdminAchievementsDeleteProps) =>
               Delete
             </Button>
             <Button
-              className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
+              className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !rounded-md dark:border-white-100 dark:!text-white-100 lg:hover:border-red lg:hover:!text-red dark:lg:hover:!border-red dark:lg:hover:!text-red"
               onClick={() => showModal()}
             >
               Cancel

@@ -29,7 +29,7 @@
 
     .links {
       @apply flex font-medium items-center justify-center bg-blue-200 text-white-100 px-3 py-1.5 rounded transition-all ease-in-out duration-300
-      hover:bg-purple-100;
+      lg:hover:bg-purple-100;
 
       svg {
         @apply mr-2;
@@ -58,8 +58,8 @@
 
         .btn {
           @apply bg-transparent text-black flex items-center justify-center p-3 rounded-2xl bg-[#F0F0F0]
-          hover:bg-blue-200 hover:text-white-100 
-          [&_svg]:hover:text-white-100;
+          lg:hover:bg-blue-200 lg:hover:text-white-100 
+          [&_svg]:lg:hover:text-white-100;
         }
       }
 
@@ -77,11 +77,11 @@
 
     .link {
       @apply mt-2 text-center rounded px-5 py-2 self-center bg-blue-200 text-white-100 font-bold transition-all ease-linear duration-150
-      hover:bg-purple-100;
+      lg:hover:bg-purple-100;
     }
   }
 }
 
 .link {
-  @apply text-blue-200 font-medium transition-all ease-in-out duration-150 hover:text-purple-100 mb-0;
+  @apply text-blue-200 font-medium transition-all ease-in-out duration-150 lg:hover:text-purple-100 mb-0;
 }

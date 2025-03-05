@@ -1,6 +1,6 @@
 .user {
   @apply hidden items-center relative ml-2
-  [&_div]:hover:visible [&_div]:hover:opacity-100
+  [&_div]:lg:hover:visible [&_div]:lg:hover:opacity-100
   lg:flex;
 
   .icon {
@@ -26,7 +26,7 @@
     li:not(.selected) {
       a,
       span {
-        @apply [&_svg]:hover:fill-purple-100 hover:text-purple-100;
+        @apply [&_svg]:lg:hover:fill-purple-100 lg:hover:text-purple-100;
       }
     }
 

@@ -44,7 +44,7 @@ export const AdminGrammarDeleteModal = ({ id }: { id: string }) => {
       <FaTrash
         size={14}
         onClick={() => showModal()}
-        className="cursor-pointer duration-150 transition-all ease-in dark:fill-white-100 hover:fill-red dark:hover:fill-red"
+        className="cursor-pointer duration-150 transition-all ease-in dark:fill-white-100 lg:hover:fill-red dark:lg:hover:fill-red"
       />
 
       <Modal
@@ -61,7 +61,7 @@ export const AdminGrammarDeleteModal = ({ id }: { id: string }) => {
               Delete
             </Button>
             <Button
-              className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
+              className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !rounded-md dark:border-white-100 dark:!text-white-100 lg:hover:border-red lg:hover:!text-red dark:lg:hover:!border-red dark:lg:hover:!text-red"
               onClick={() => showModal()}
             >
               Cancel

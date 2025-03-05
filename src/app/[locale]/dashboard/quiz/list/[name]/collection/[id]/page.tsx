@@ -148,7 +148,7 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
               {t('go_to_quiz')}
             </NavigationLink>
             <Button
-              className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
+              className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 lg:hover:border-red lg:hover:!text-red dark:lg:hover:!border-red dark:lg:hover:!text-red"
               onClick={() => returnToQuiz()}
             >
               {t('back')}
@@ -177,7 +177,7 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
               {t('go_to_quiz')}
             </NavigationLink>
             <Button
-              className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
+              className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 lg:hover:border-red lg:hover:!text-red dark:lg:hover:!border-red dark:lg:hover:!text-red"
               onClick={() => returnToQuiz()}
             >
               {t('back')}

@@ -1,6 +1,6 @@
 .filters {
   @apply flex gap-[8px] items-center font-bold cursor-pointer text-blue-200 transition-all ease-in-out duration-150
-  hover:text-purple-100 [&_svg]:hover:text-purple-100;
+  lg:hover:text-purple-100 [&_svg]:lg:hover:text-purple-100;
 
   svg {
     @apply transition-all ease-in-out;
@@ -19,7 +19,7 @@
   }
 
   li:not(.selected) {
-    @apply hover:text-purple-100;
+    @apply lg:hover:text-purple-100;
   }
 
   .selected {

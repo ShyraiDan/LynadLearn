@@ -24,7 +24,7 @@
     button {
       @apply mt-2 text-black bg-transparent mb-2 w-full rounded
       last:mt-6 last:bg-blue-200 last:text-white-100
-      hover:bg-[#b7b7b73d] last:hover:bg-purple-100;
+      lg:hover:bg-[#b7b7b73d] last:lg:hover:bg-purple-100;
 
       svg {
         @apply mr-2;
@@ -40,7 +40,7 @@
 
       span {
         @apply my-0 text-base cursor-pointer block underline transition-all ease-in-out duration-150
-        hover:text-purple-100;
+        lg:hover:text-purple-100;
       }
     }
   }

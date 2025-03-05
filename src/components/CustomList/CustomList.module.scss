@@ -1,13 +1,13 @@
 .container {
   @apply flex flex-col items-center text-[#bcc1c6] transition-all ease-linear duration-150
   [&_div]:transition-all [&_div]:ease-linear [&_div]:duration-150
-  hover:text-purple-100 [&_div]:hover:text-purple-100 [&_div]:hover:border-purple-100;
+  lg:hover:text-purple-100 [&_div]:lg:hover:text-purple-100 [&_div]:lg:hover:border-purple-100;
 }
 
 .photo {
   @apply border border-[#00000020] cursor-pointer text-[#bcc1c6] border-dashed my-2 w-[100px] h-[100px] rounded-xl flex items-center justify-center font-bold transition-all ease-linear duration-150 
   sm:w-[135px] sm:h-[135px]
-  hover:text-purple-100 hover:border-purple-100;
+  lg:hover:text-purple-100 lg:hover:border-purple-100;
 
   img {
     @apply rounded-xl;

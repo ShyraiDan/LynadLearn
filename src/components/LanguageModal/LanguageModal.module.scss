@@ -1,9 +1,9 @@
 .nav-item {
   @apply flex items-center font-bold cursor-pointer text-blue-200 ease-in-out duration-150 
-  hover:text-purple-100
-  [&_svg]:hover:rotate-180
+  lg:hover:text-purple-100
+  [&_svg]:lg:hover:rotate-180
   [&_svg]:transition-transform
-  [&_div]:hover:visible [&_div]:hover:opacity-100;
+  [&_div]:lg:hover:visible [&_div]:lg:hover:opacity-100;
 
   svg {
     @apply ml-2;
@@ -25,7 +25,7 @@
     }
 
     li:not(.selected) {
-      @apply hover:text-purple-100;
+      @apply lg:hover:text-purple-100;
     }
 
     .selected {

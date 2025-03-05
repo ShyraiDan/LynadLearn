@@ -110,7 +110,7 @@ export const AdminEditQuiz = ({ questions, handleClose, allowedAction }: IAdminE
                   Save
                 </Button>
                 <Button
-                  className="font-bold transition-all ease-in duration-150 !bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
+                  className="font-bold transition-all ease-in duration-150 !bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 lg:hover:border-red lg:hover:!text-red dark:lg:hover:!border-red dark:lg:hover:!text-red"
                   onClick={() => {
                     setEditQuestion(null)
                     setCorrectAnswer(null)
@@ -135,14 +135,14 @@ export const AdminEditQuiz = ({ questions, handleClose, allowedAction }: IAdminE
 
               <div className="flex items-center justify-center gap-2 absolute top-2 right-2 rounded-lg px-2 py-2">
                 <MdEdit
-                  className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-purple-100 dark:hover:fill-purple-100"
+                  className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 lg:hover:fill-purple-100 dark:lg:hover:fill-purple-100"
                   onClick={() => {
                     setEditQuestion({ index, question })
                     setCorrectAnswer(question.options.findIndex((option) => option.correct))
                   }}
                 />
                 <FaTrash
-                  className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 hover:fill-red dark:hover:fill-red"
+                  className="cursor-pointer transition-all ease-in-out duration-150 dark:fill-grey-600 lg:hover:fill-red dark:lg:hover:fill-red"
                   onClick={() => setQuiz((prev) => prev && { ...prev, questions: prev.filter((_, i) => i !== index) })}
                 />
               </div>
@@ -156,7 +156,7 @@ export const AdminEditQuiz = ({ questions, handleClose, allowedAction }: IAdminE
         </Button>
         <Button
           type="button"
-          className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 hover:border-red hover:!text-red dark:hover:!border-red dark:hover:!text-red"
+          className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !p-[7px] !rounded-md dark:border-white-100 dark:!text-white-100 lg:hover:border-red lg:hover:!text-red dark:lg:hover:!border-red dark:lg:hover:!text-red"
           onClick={handleClose}
         >
           Close Quiz

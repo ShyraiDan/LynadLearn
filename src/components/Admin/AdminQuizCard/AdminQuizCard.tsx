@@ -11,7 +11,7 @@ type TAdminQuizCard = {
 export default function AdminQuizCard({ topic, lang, type }: TAdminQuizCard) {
   return (
     <Link
-      className="flex h-full flex-col cursor-pointer text-lg bg-grey-250 p-2 rounded-lg shadow-md transition-all ease-in-out hover:text-purple-100 hover:bg-grey-200 [&_div]:hover:text-purple-100 [&_p]:hover:text-purple-100 dark:bg-[#18223D] dark:hover:bg-[#1D2D4D] dark:[&_p]:hover:text-grey-600"
+      className="flex h-full flex-col cursor-pointer text-lg bg-grey-250 p-2 rounded-lg shadow-md transition-all ease-in-out lg:hover:text-purple-100 lg:hover:bg-grey-200 [&_div]:lg:hover:text-purple-100 [&_p]:lg:hover:text-purple-100 dark:bg-[#18223D] dark:lg:hover:bg-[#1D2D4D] dark:[&_p]:lg:hover:text-grey-600"
       href={`/admin/dashboard/${type}/${topic._id}`}
     >
       <div className="flex justify-between items-start text-blue-200">

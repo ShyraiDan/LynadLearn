@@ -47,7 +47,7 @@ export default function AdminBurger() {
             <li className="flex items-center justify-between leading-5 my-1">
               <Link
                 className={twMerge(
-                  'font-medium my-1 capitalize dark:text-grey-600 transition-all ease-in-out duration-150 hover:text-purple-100',
+                  'font-medium my-1 capitalize dark:text-grey-600 transition-all ease-in-out duration-150 lg:hover:text-purple-100',
                   pathname === '/admin/dashboard/vocabulary' && 'text-purple-100'
                 )}
                 onClick={() => showModal()}
@@ -59,7 +59,7 @@ export default function AdminBurger() {
             <li className="flex items-center justify-between leading-5 my-1">
               <Link
                 className={twMerge(
-                  'font-medium my-1 capitalize dark:text-grey-600 transition-all ease-in-out duration-150 hover:text-purple-100',
+                  'font-medium my-1 capitalize dark:text-grey-600 transition-all ease-in-out duration-150 lg:hover:text-purple-100',
                   pathname === '/admin/dashboard/quiz' && 'text-purple-100'
                 )}
                 onClick={() => showModal()}
@@ -71,7 +71,7 @@ export default function AdminBurger() {
             <li className="flex items-center justify-between leading-5 my-1">
               <Link
                 className={twMerge(
-                  'font-medium my-1 capitalize dark:text-grey-600 transition-all ease-in-out duration-150 hover:text-purple-100',
+                  'font-medium my-1 capitalize dark:text-grey-600 transition-all ease-in-out duration-150 lg:hover:text-purple-100',
                   pathname === '/admin/dashboard/grammar' && 'text-purple-100'
                 )}
                 onClick={() => showModal()}
@@ -92,7 +92,7 @@ export default function AdminBurger() {
             <ul className="flex gap-3 items-center ml-2">
               <li>
                 <Link
-                  className="transition-all ease-in-out duration-150 hover:text-purple-100"
+                  className="transition-all ease-in-out duration-150 lg:hover:text-purple-100"
                   href="https://www.instagram.com/"
                 >
                   <FaInstagram className="dark:text-grey-600" />

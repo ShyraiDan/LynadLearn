@@ -1,6 +1,6 @@
 .theme-btn {
   button {
     @apply m-0 bg-transparent border-none rounded-2xl p-2 w-10 h-10 text-[#000] 
-    hover:bg-[#E6EAF0];
+    lg:hover:bg-[#E6EAF0];
   }
 }

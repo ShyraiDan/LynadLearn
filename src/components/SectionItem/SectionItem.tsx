@@ -12,7 +12,7 @@ export const SectionItem = ({ title, icon, text }: ISections) => {
     <div
       className={twMerge(
         styles.item,
-        'dark:bg-[#050E26] dark:shadow-[0_4px_16px_0_rgba(255,255,255,0.08)] dark:hover:shadow-[0_4px_16px_1px_rgba(255,255,255,0.15)]'
+        'dark:bg-[#050E26] dark:shadow-[0_4px_16px_0_rgba(255,255,255,0.08)] dark:lg:hover:shadow-[0_4px_16px_1px_rgba(255,255,255,0.15)]'
       )}
     >
       <div>

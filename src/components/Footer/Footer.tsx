@@ -63,7 +63,7 @@ export function Footer() {
                   <li>
                     <Link
                       href={'https://www.instagram.com/'}
-                      className="dark:text-grey-600 hover:text-purple-100 dark:hover:text-purple-100"
+                      className="dark:text-grey-600 lg:hover:text-purple-100 dark:lg:hover:text-purple-100"
                     >
                       <FaInstagram />
                     </Link>
@@ -71,7 +71,7 @@ export function Footer() {
                   <li>
                     <Link
                       href={'https://twitter.com/'}
-                      className=" dark:text-grey-600 hover:text-purple-100 dark:hover:text-purple-100"
+                      className=" dark:text-grey-600 lg:hover:text-purple-100 dark:lg:hover:text-purple-100"
                     >
                       <FaXTwitter />
                     </Link>
@@ -79,7 +79,7 @@ export function Footer() {
                   <li>
                     <Link
                       href={'https://www.facebook.com/'}
-                      className="dark:text-grey-600 hover:text-purple-100 dark:hover:text-purple-100"
+                      className="dark:text-grey-600 lg:hover:text-purple-100 dark:lg:hover:text-purple-100"
                     >
                       <FaFacebook />
                     </Link>

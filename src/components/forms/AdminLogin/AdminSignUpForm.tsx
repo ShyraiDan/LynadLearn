@@ -63,11 +63,14 @@ export default function AdminSignUpForm() {
           className="absolute top-[41px] right-2.5 cursor-pointer"
         >
           {showPassword ? (
-            <FaEye size={16} className="dark:text-white-100 dark:hover:text-purple-100 transition-all duration-200" />
+            <FaEye
+              size={16}
+              className="dark:text-white-100 dark:lg:hover:text-purple-100 transition-all duration-200"
+            />
           ) : (
             <FaEyeSlash
               size={16}
-              className="dark:text-white-100 dark:hover:text-purple-100 transition-all duration-200"
+              className="dark:text-white-100 dark:lg:hover:text-purple-100 transition-all duration-200"
             />
           )}
         </span>

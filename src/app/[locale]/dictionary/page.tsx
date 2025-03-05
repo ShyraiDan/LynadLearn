@@ -65,7 +65,7 @@ export default function Dictionary() {
                     key={item.title}
                     className={`${styles.card} ${
                       i % 2 !== 0 && styles.expanded
-                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}
+                    } dark:bg-[#18223D] dark:lg:hover:bg-[#222e4b]`}
                   >
                     <div>
                       <div className={styles.photos}>
@@ -82,7 +82,7 @@ export default function Dictionary() {
                     key={item.title}
                     className={`${styles.card} ${
                       i % 2 === 0 && styles.expanded
-                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}
+                    } dark:bg-[#18223D] dark:lg:hover:bg-[#222e4b]`}
                   >
                     <div>
                       <div className={styles.photos}>
@@ -99,7 +99,7 @@ export default function Dictionary() {
                     key={item.title}
                     className={`${styles.card} ${
                       i % 2 !== 0 && styles.expanded
-                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}
+                    } dark:bg-[#18223D] dark:lg:hover:bg-[#222e4b]`}
                   >
                     <div>
                       <div className={styles.photos}>
@@ -116,7 +116,7 @@ export default function Dictionary() {
                     key={item.title}
                     className={`${styles.card} ${
                       i % 2 === 0 && styles.expanded
-                    } dark:bg-[#18223D] dark:hover:bg-[#222e4b]`}
+                    } dark:bg-[#18223D] dark:lg:hover:bg-[#222e4b]`}
                   >
                     <div>
                       <div className={styles.photos}>

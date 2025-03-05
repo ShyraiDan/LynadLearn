@@ -40,7 +40,7 @@
 
   a {
     @apply block font-bold p-2 text-blue-200 transition-all ease-in-out duration-150
-    hover:text-purple-100;
+    lg:hover:text-purple-100;
   }
 
   ul {
@@ -61,7 +61,7 @@
 
     a {
       @apply transition-all ease-in-out duration-150
-      hover:text-purple-100;
+      lg:hover:text-purple-100;
     }
   }
 }

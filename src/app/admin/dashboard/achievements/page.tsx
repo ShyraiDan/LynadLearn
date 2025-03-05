@@ -18,7 +18,7 @@ async function Achievements() {
         </H2>
         <Link
           href="/admin/dashboard/achievements/add"
-          className="absolute top-[12px] right-0 cursor-pointer text-white-100 bg-blue-200 flex items-center justify-center p-3 rounded-2xl transition-all ease-in-out duration-150 hover:bg-purple-100 hover:text-white-100 dark:bg-[#1D2D4D] dark:hover:bg-purple-100 dark:hover:text-white-100"
+          className="absolute top-[12px] right-0 cursor-pointer text-white-100 bg-blue-200 flex items-center justify-center p-3 rounded-2xl transition-all ease-in-out duration-150 lg:hover:bg-purple-100 lg:hover:text-white-100 dark:bg-[#1D2D4D] dark:lg:hover:bg-purple-100 dark:lg:hover:text-white-100"
         >
           <FaPlus size={16} />
         </Link>

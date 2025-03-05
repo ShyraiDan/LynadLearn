@@ -1,7 +1,7 @@
 .card {
   @apply bg-[#e6eaf0] rounded-3xl cursor-pointer gap-3 bg-opacity-50 p-4 h-[100%]
   md:flex md:flex-col md:gap-4
-  hover:bg-gray-50;
+  lg:hover:bg-gray-50;
 
   .container {
     @apply flex flex-col gap-2 flex-wrap h-full justify-between;

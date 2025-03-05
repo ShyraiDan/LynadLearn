@@ -27,7 +27,7 @@
 
 .button-bookmark {
   @apply stroke-black  text-black flex items-center justify-center rounded-2xl bg-[#F0F0F0] transition-all ease-in-out duration-150 w-10 p-2
-  hover:bg-purple-100 hover:text-white-100 hover:stroke-white-100 hover:fill-white-100;
+  lg:hover:bg-purple-100 lg:hover:text-white-100 lg:hover:stroke-white-100 lg:hover:fill-white-100;
 }
 
 .active {
