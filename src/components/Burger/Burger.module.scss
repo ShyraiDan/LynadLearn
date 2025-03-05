@@ -34,39 +34,6 @@
         a {
           @apply font-medium my-1 capitalize;
         }
-
-        ul {
-          @apply py-0 pl-3;
-        }
-
-        .active {
-          @apply after:content-none after:bg-slate-300;
-        }
-
-        .arrow {
-          @apply transition-all ease-in-out duration-150
-          hover:text-purple-100;
-        }
-
-        .rotated {
-          @apply rotate-180;
-        }
-
-        .dropdown {
-          @apply self-start hidden;
-        }
-
-        .dropdown-active {
-          @apply block;
-        }
-
-        .dropdown-btn {
-          @apply flex items-center justify-between w-full;
-        }
-
-        &:last-of-type {
-          @apply flex-col;
-        }
       }
     }
   }

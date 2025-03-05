@@ -1,29 +1,25 @@
 'use client'
 
-import Link from 'next/link'
-import { useState } from 'react'
-import styles from './Burger.module.scss'
-import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
-import { useTranslations } from 'next-intl'
 import { AuthModalButton } from '@/components/AuthModalButton/AuthModalButton'
+import Button from '@/components/ui/Button/Button'
+import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
+import { H2, P } from '@/components/ui/Typography/Typography'
 import { removeScrollBar } from '@/constants/shared'
 import { logout } from '@/lib/auth'
-import Button from '@/components/ui/Button/Button'
+import { useTranslations } from 'next-intl'
+import Link from 'next/link'
+import { useState } from 'react'
 import { twMerge } from 'tailwind-merge'
-import { H2, P } from '@/components/ui/Typography/Typography'
+import styles from './Burger.module.scss'
 
-import { FaUser } from 'react-icons/fa'
-import { FaInstagram } from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaUser } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
-import { FaFacebook } from 'react-icons/fa'
 import { RxCross1 } from 'react-icons/rx'
-import { IoIosArrowDown } from 'react-icons/io'
 
 export default function Burger({ isAuth }: { isAuth: boolean }) {
   const t = useTranslations('Header')
   const tForms = useTranslations('Forms')
   const [isBurgerShow, setBurgerShow] = useState(false)
-  const [isLastOpen, setLastOpen] = useState(false)
 
   const showModal = () => {
     setBurgerShow((state) => !state)
@@ -55,8 +51,53 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
           </div>
           <ul>
             <li>
-              <NavigationLink className="dark:text-grey-600" hover onClick={() => showModal()} href="/about-us">
-                {t('about_us')}
+              <NavigationLink className="dark:text-grey-600" hover onClick={() => showModal()} href="/translator">
+                {t('translator')}
+              </NavigationLink>
+            </li>
+            <li>
+              <NavigationLink className="dark:text-grey-600" hover onClick={() => showModal()} href="/dictionary">
+                {t('dictionary')}
+              </NavigationLink>
+            </li>
+            <li>
+              <NavigationLink className="dark:text-grey-600" hover onClick={() => showModal()} href="/dashboard/lists">
+                {t('vocabulary')}
+              </NavigationLink>
+            </li>
+            <li>
+              <NavigationLink
+                className="dark:text-grey-600"
+                hover
+                onClick={() => showModal()}
+                href="/dashboard/quiz?type=grammar"
+              >
+                {t('quiz')}
+              </NavigationLink>
+            </li>
+            <li>
+              <NavigationLink
+                className="dark:text-grey-600"
+                hover
+                onClick={() => showModal()}
+                href="/dashboard/grammar"
+              >
+                {t('grammar')}
+              </NavigationLink>
+            </li>
+            <li>
+              <NavigationLink
+                className="dark:text-grey-600"
+                hover
+                onClick={() => showModal()}
+                href="/dashboard/flashcard"
+              >
+                {t('flashcard')}
+              </NavigationLink>
+            </li>
+            <li>
+              <NavigationLink className="dark:text-grey-600" hover onClick={() => showModal()} href="/mobile-app">
+                {t('mobile_app')}
               </NavigationLink>
             </li>
             <li>
@@ -70,25 +111,10 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
               </NavigationLink>
             </li>
             <li>
-              <NavigationLink className="dark:text-grey-600" hover onClick={() => showModal()} href="/mobile-app">
-                {t('mobile_app')}
+              <NavigationLink className="dark:text-grey-600" hover onClick={() => showModal()} href="/about-us">
+                {t('about_us')}
               </NavigationLink>
             </li>
-            <li>
-              <NavigationLink className="dark:text-grey-600" hover onClick={() => showModal()} href="/dictionary">
-                {t('dictionary')}
-              </NavigationLink>
-            </li>
-            <li>
-              <NavigationLink className="dark:text-grey-600" hover onClick={() => showModal()} href="/translator">
-                {t('translator')}
-              </NavigationLink>
-            </li>
-            {/* <li>
-              <NavigationLink hover onClick={() => showModal()} href='/settings'>
-                {t('settings')}
-              </NavigationLink>
-            </li> */}
             {isAuth && (
               <li>
                 <NavigationLink
@@ -113,55 +139,6 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
                 </NavigationLink>
               </li>
             )}
-            <li>
-              <div className={styles['dropdown-btn']}>
-                <NavigationLink
-                  className="dark:text-grey-600"
-                  hover
-                  onClick={() => showModal()}
-                  href="/dashboard/lists"
-                >
-                  {t('dashboard')}
-                </NavigationLink>
-                <IoIosArrowDown
-                  size={20}
-                  onClick={() => setLastOpen((state) => !state)}
-                  className={twMerge(styles.arrow, isLastOpen && styles.rotated, 'cursor-pointer dark:text-grey-600')}
-                />
-              </div>
-              <ul className={`${styles.dropdown}  ${isLastOpen && styles['dropdown-active']}`}>
-                <li>
-                  <NavigationLink
-                    className="dark:text-grey-600"
-                    hover
-                    onClick={() => showModal()}
-                    href="/dashboard/quiz?type=grammar"
-                  >
-                    {t('quiz')}
-                  </NavigationLink>
-                </li>
-                <li>
-                  <NavigationLink
-                    className="dark:text-grey-600"
-                    hover
-                    onClick={() => showModal()}
-                    href="/dashboard/grammar"
-                  >
-                    {t('grammar')}
-                  </NavigationLink>
-                </li>
-                <li>
-                  <NavigationLink
-                    className="dark:text-grey-600"
-                    hover
-                    onClick={() => showModal()}
-                    href="/dashboard/flashcard"
-                  >
-                    {t('flashcard')}
-                  </NavigationLink>
-                </li>
-              </ul>
-            </li>
           </ul>
         </div>
         <div className={styles.bottom}>
