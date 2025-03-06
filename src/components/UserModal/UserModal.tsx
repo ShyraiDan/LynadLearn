@@ -30,7 +30,7 @@ export function UserModal({ avatarUrl }: IUserModalProps) {
               height={80}
               className="w-full h-full rounded-full"
               unoptimized
-              src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/${avatarUrl}`}
+              src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/custom/${avatarUrl}`}
             />
           ) : (
             <FaUser className={styles.icon} />

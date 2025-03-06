@@ -1,8 +1,8 @@
-import styles from './Achievements.module.scss'
-import { IAchievement } from '@/interfaces/Achievements.interface'
-import { twMerge } from 'tailwind-merge'
 import { H6, P } from '@/components/ui/Typography/Typography'
+import { IAchievement } from '@/interfaces/Achievements.interface'
 import Image from 'next/image'
+import { twMerge } from 'tailwind-merge'
+import styles from './Achievements.module.scss'
 
 //TODO: check background for reached achievements
 
@@ -17,7 +17,7 @@ export default function Achievements({ item, percent, locale }: IAchievementsPro
     <div className={twMerge(styles.achievement, percent >= 1 && styles.reached, 'dark:bg-[#1D2D4D]')}>
       <div className={styles.icon}>
         <Image
-          src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/${item.image}`}
+          src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/core/achievements/${item.image}`}
           alt={item.title}
           width={20}
           height={20}

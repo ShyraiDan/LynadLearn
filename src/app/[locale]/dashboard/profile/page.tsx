@@ -1,14 +1,14 @@
-import styles from './ProfilePageRenamed.module.scss'
 import Achievements from '@/components/Achievements/Achievements'
-import { getTranslations } from 'next-intl/server'
-import ProfileEditModal from '@/components/ProfileEditModal/ProfileEditModal'
-import { getSession, ISession } from '@/lib/auth'
-import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
-import { twMerge } from 'tailwind-merge'
+import ProfileEditModal from '@/components/ProfileEditModal/ProfileEditModal'
 import { H3, P } from '@/components/ui/Typography/Typography'
 import { getAllAchievements } from '@/lib/achievements'
+import { getSession, ISession } from '@/lib/auth'
+import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
+import { Suspense } from 'react'
+import { twMerge } from 'tailwind-merge'
+import styles from './ProfilePageRenamed.module.scss'
 
 import { FaUser } from 'react-icons/fa'
 
@@ -25,7 +25,7 @@ interface IYourProfileProps {
 }
 
 function calculateRate(session: ISession) {
-  let score = 0
+  const score = 0
 
   // DAchievement.forEach((item) => {
   //   let amount: number | undefined = 0
@@ -69,7 +69,7 @@ async function YourProfile({ locale }: IYourProfileProps) {
               height={80}
               className="w-full h-full rounded-full"
               unoptimized
-              src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/${session.avatarUrl}`}
+              src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/custom/${session.avatarUrl}`}
             />
           ) : (
             <FaUser className="dark:fill-grey-600" />
