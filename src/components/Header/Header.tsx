@@ -60,17 +60,24 @@ export async function Header() {
                   {t('translator')}
                 </NavigationLink>
               </li>
-              <LanguageModal />
             </ul>
           </nav>
         </div>
         <div className={styles['header-right']}>
-          <Themes />
+          <div className="hidden lg:block">
+            <Themes />
+          </div>
+          <div className="ml-2">
+            <LanguageModal />
+          </div>
           {isLoggedIn ? (
             <UserModal avatarUrl={avatarUrl} />
           ) : (
             <AuthModalButton className="flex items-center justify-center w-full bg-blue-200" containerStyles="ml-2">
-              <FaUser className="mr-2" /> {tForms('sign_in')}
+              <div className="hidden md:block md:mr-2">
+                <FaUser />
+              </div>
+              {tForms('sign_in')}
             </AuthModalButton>
           )}
           <Burger isAuth={isLoggedIn} />

@@ -11,6 +11,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 import styles from './Burger.module.scss'
+import { Themes } from '@/components/Themes/Themes'
 
 import { FaFacebook, FaInstagram, FaUser } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
@@ -47,7 +48,10 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
                 Lynad<span>Learn</span>
               </NavigationLink>
             </H2>
-            <RxCross1 className="dark:text-grey-600" onClick={() => showModal()} size="24px" />
+            <div className="flex items-center gap-3">
+              <Themes />
+              <RxCross1 className="dark:text-grey-600" onClick={() => showModal()} size="24px" />
+            </div>
           </div>
           <ul>
             <li>

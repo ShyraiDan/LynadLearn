@@ -3,7 +3,7 @@
 }
 
 .burger {
-  @apply bg-slate-300 fixed top-0 left-[-100%] h-[100vh] w-[290px] px-2.5 z-[20] flex justify-between flex-col transition-all ease-in-out duration-300
+  @apply bg-slate-300 fixed top-0 left-[-100%] h-[100dvh] w-[290px] px-2.5 z-[20] flex justify-between flex-col transition-all ease-in-out duration-300
   lg:hidden;
 
   .top {
@@ -39,6 +39,8 @@
   }
 
   .bottom {
+    @apply mb-4;
+
     .auth {
       @apply flex flex-col pb-4;
 
