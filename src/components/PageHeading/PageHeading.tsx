@@ -82,7 +82,7 @@ export default function PageHeading({ name, id, title, description, showStatisti
       </div>
       <div className={styles['heading-right']}>
         {/* Todo: Fill alt attribute */}
-        <Image src={verbs} alt="" />
+        {/* <Image src={verbs} alt="" /> */}
       </div>
     </div>
   )

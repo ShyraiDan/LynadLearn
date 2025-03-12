@@ -9,7 +9,7 @@ export const getCollectionsGroup = async (type: string): Promise<ICollectionsGro
   console.log('type', type)
   await connectMongoDB()
 
-  const collectionGroups = await CollectionGroups.findOne({ type: 'adverbs' }).populate(
+  const collectionGroups = await CollectionGroups.findOne({ type }).populate(
     'collections',
     'image title titleUa description descriptionUa lessons words'
   )

@@ -27,8 +27,8 @@ const categories = [
   },
   {
     title: 'other',
-    class: 'others',
-    href: '/dashboard/collections/others'
+    class: 'other',
+    href: '/dashboard/collections/other'
   }
 ]
 
