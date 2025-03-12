@@ -25,7 +25,13 @@ export const CollectionCard = ({ item, locale }: { item: ICollections; locale: s
     <div className={twMerge(styles['lists-item'], 'dark:bg-[#18223D]')}>
       <div className={styles.info}>
         <div className={styles.image}>
-          <Image src={item.image} alt="" />
+          <Image
+            src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/core/collections/${item.image}`}
+            alt={item.image}
+            unoptimized
+            width={110}
+            height={165}
+          />
         </div>
         <div className={styles['info-text']}>
           <div className={styles.header}>
@@ -67,7 +73,7 @@ export const CollectionCard = ({ item, locale }: { item: ICollections; locale: s
             <FaClock className="dark:text-grey-600" />
             <P>
               <span>
-                {Math.floor(item.words / 120)} {t('hours')} {Math.ceil((item.words % 60) / 2)} {t('minutes')}
+                {Math.floor(item.words / 60)} {t('hours')} {Math.ceil((item.words % 60) / 2)} {t('minutes')}
               </span>
             </P>
           </div>

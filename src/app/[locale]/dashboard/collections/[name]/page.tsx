@@ -4,35 +4,39 @@ import { ICollections } from '@/interfaces/Collections.interface'
 import { CollectionCard } from '@/components/CollectionCard/CollectionCard'
 import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
-import { DCollectionGroup } from '@/mock/Collections.mock'
+import { getCollectionsGroup } from '@/lib/collectionGroup'
 
 interface ICollectionsProps {
   params: {
     locale: string
+    name: string
   }
 }
 
 interface ICollectionsPageProps {
   params: {
     locale: string
+    name: string
   }
 }
 
 async function Collections({ params }: ICollectionsProps) {
-  const { locale } = params
+  const { locale, name } = params
+
+  const collectionGroup = await getCollectionsGroup(name)
 
   return (
     <>
       <PageHeading
         name="Collections1"
         id="collections"
-        title={locale === 'en' ? DCollectionGroup.title : DCollectionGroup.titleUa}
-        description={locale === 'en' ? DCollectionGroup.description : DCollectionGroup.descriptionUa}
+        title={locale === 'en' ? collectionGroup.title : collectionGroup.titleUa}
+        description={locale === 'en' ? collectionGroup.description : collectionGroup.descriptionUa}
         showStatistics={false}
       />
       <div className={styles.lists}>
-        {DCollectionGroup.collections.map((item: ICollections) => {
-          return <CollectionCard key={item.id} item={item} locale={locale} />
+        {collectionGroup.collections.map((item: ICollections) => {
+          return <CollectionCard key={item._id} item={item} locale={locale} />
         })}
       </div>
     </>
