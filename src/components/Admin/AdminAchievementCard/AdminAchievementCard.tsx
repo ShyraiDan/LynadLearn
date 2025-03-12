@@ -20,7 +20,7 @@ export const AdminAchievementCard = ({ item }: IAdminAchievementCardProps) => {
     >
       <div className="h-[60px] w-[60px] rounded-full bg-blue-225 shadow-md flex items-center justify-center text-blue-200 text-3xl">
         <Image
-          src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/${item.image}`}
+          src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/core/achievements/${item.image}`}
           alt={item.title}
           width={20}
           height={20}
