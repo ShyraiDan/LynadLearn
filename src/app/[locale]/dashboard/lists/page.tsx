@@ -1,13 +1,13 @@
-import styles from './ListsPage.module.scss'
 import { Category } from '@/components/Category/Category'
-import { DCategories } from '@/mock/Categories.mock'
-import { getYourLists } from '@/lib/lists'
-import { Suspense } from 'react'
+import CategoryItem from '@/components/CategoryItem/CategoryItem'
 import CustomCategory from '@/components/CustomCategory/CustomCategory'
 import Loader from '@/components/Loader/Loader'
-import CategoryItem from '@/components/CategoryItem/CategoryItem'
-import { getTranslations } from 'next-intl/server'
 import { H6 } from '@/components/ui/Typography/Typography'
+import { getYourLists } from '@/lib/lists'
+import { DCategories } from '@/mock/Categories.mock'
+import { getTranslations } from 'next-intl/server'
+import { Suspense } from 'react'
+import styles from './ListsPage.module.scss'
 
 const categories = [
   {

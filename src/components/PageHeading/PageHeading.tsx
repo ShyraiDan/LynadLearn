@@ -3,10 +3,10 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { H1, P } from '@/components/ui/Typography/Typography'
+import { twMerge } from 'tailwind-merge'
 
 import { FaBookOpen, FaClock } from 'react-icons/fa6'
 import { MdPlayLesson } from 'react-icons/md'
-import verbs from '@/assets/500_verbs.png'
 
 interface IPageHeading {
   name: string
@@ -14,9 +14,10 @@ interface IPageHeading {
   title: string
   description: string
   showStatistics?: boolean
+  image?: string
 }
 
-export default function PageHeading({ name, id, title, description, showStatistics }: IPageHeading) {
+export default function PageHeading({ name, id, title, description, showStatistics, image }: IPageHeading) {
   const t = useTranslations('dashboard')
   const lessons = 20
   const words = 500
@@ -28,7 +29,7 @@ export default function PageHeading({ name, id, title, description, showStatisti
   ]
 
   return (
-    <div className={styles.heading}>
+    <div className={twMerge(styles.heading, !image && 'mt-12')}>
       <div className={styles['heading-left']}>
         <H1 className="text-center my-0 text-lg font-bold mb-4 sm:text-2xl lg:text-4xl">{title}</H1>
         <P className="text-sm self-start mb-4 sm:text-base">{description}</P>
@@ -81,8 +82,15 @@ export default function PageHeading({ name, id, title, description, showStatisti
         )}
       </div>
       <div className={styles['heading-right']}>
-        {/* Todo: Fill alt attribute */}
-        {/* <Image src={verbs} alt="" /> */}
+        {image && (
+          <Image
+            src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/core/collections/${image}`}
+            alt={title}
+            unoptimized
+            width={110}
+            height={165}
+          />
+        )}
       </div>
     </div>
   )

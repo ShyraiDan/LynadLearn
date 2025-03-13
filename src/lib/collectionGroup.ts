@@ -1,13 +1,12 @@
 'use server'
 
-import { getSession } from './auth'
 import connectMongoDB from './mongodb'
-import mongoose from 'mongoose'
-import CollectionGroups, { ICollectionsGroup } from '@/interfaces/CollectionGroups'
+import CollectionGroups, { ICollectionsGroup } from '@/interfaces/CollectionGroups.interface'
+import Collections from '@/interfaces/Collections.interface'
 
 export const getCollectionsGroup = async (type: string): Promise<ICollectionsGroup> => {
-  console.log('type', type)
   await connectMongoDB()
+  await Collections
 
   const collectionGroups = await CollectionGroups.findOne({ type }).populate(
     'collections',

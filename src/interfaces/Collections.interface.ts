@@ -1,10 +1,5 @@
 import mongoose, { Schema } from 'mongoose'
-
-interface ISection {
-  sectionTitle: string
-  sectionTitleUa: string
-  words: Array<string>
-}
+import { ISection } from './Section.interface'
 
 export interface ICollections {
   _id: string
@@ -18,22 +13,6 @@ export interface ICollections {
   words: number
   sections: Array<ISection>
 }
-
-const sectionSchema = new Schema({
-  sectionTitle: {
-    type: String,
-    required: true
-  },
-  sectionTitleUa: {
-    type: String,
-    required: true
-  },
-  words: Array<{
-    type: Schema.Types.ObjectId
-    ref: 'Words'
-    required: true
-  }>
-})
 
 export const collectionsSchema = new Schema({
   type: {
@@ -68,10 +47,13 @@ export const collectionsSchema = new Schema({
     type: Number,
     required: true
   },
-  sections: {
-    type: Array<typeof sectionSchema>,
-    required: true
-  }
+  sections: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Sections',
+      required: true
+    }
+  ]
 })
 
 const Collections = mongoose.models.Collections || mongoose.model('Collections', collectionsSchema)

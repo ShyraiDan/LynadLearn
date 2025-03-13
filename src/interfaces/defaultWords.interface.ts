@@ -1,19 +1,7 @@
 import mongoose, { Schema } from 'mongoose'
+import { IDefinition } from './Word.interface'
 
-export interface IDefinition {
-  definition: string
-  part_of_speech: string
-  examples: Array<string>
-  synonyms: Array<string>
-  category: Array<string>
-  level: string
-}
-
-export interface IDefinitionWithId extends IDefinition {
-  id: string
-}
-
-export interface IWord {
+export interface IDefaultWord {
   _id?: string
   word: string
   results: Array<IDefinition>
@@ -22,14 +10,19 @@ export interface IWord {
     ua: Array<string>
   }
   listId?: string
+  common_adverb?: number
+  common_noun?: number
+  common_verb?: number
+  common_adjective?: number
+  common_phrase?: number
 }
-const wordsSchema = new Schema(
+
+const defaultWordsSchema = new Schema(
   {
     word: {
       type: String,
       required: true
     },
-
     results: [
       new Schema(
         {
@@ -49,17 +42,17 @@ const wordsSchema = new Schema(
         required: true
       }
     },
-    listId: {
-      type: Schema.Types.ObjectId,
-      ref: 'List',
-      required: true
-    },
-    pronunciation: String
+    pronunciation: String,
+    common_adverb: Number,
+    common_noun: Number,
+    common_verb: Number,
+    common_adjective: Number,
+    common_phrase: Number
   },
   {
     timestamps: true
   }
 )
 
-const Word = mongoose.models.Words || mongoose.model('Words', wordsSchema)
-export default Word
+const DefaultWords = mongoose.models.DefaultWords || mongoose.model('DefaultWords', defaultWordsSchema)
+export default DefaultWords

@@ -1,10 +1,10 @@
-import styles from './CollectionsPage.module.scss'
+import { CollectionCard } from '@/components/CollectionCard/CollectionCard'
+import Loader from '@/components/Loader/Loader'
 import PageHeading from '@/components/PageHeading/PageHeading'
 import { ICollections } from '@/interfaces/Collections.interface'
-import { CollectionCard } from '@/components/CollectionCard/CollectionCard'
-import { Suspense } from 'react'
-import Loader from '@/components/Loader/Loader'
 import { getCollectionsGroup } from '@/lib/collectionGroup'
+import { Suspense } from 'react'
+import styles from './CollectionsPage.module.scss'
 
 interface ICollectionsProps {
   params: {
@@ -36,7 +36,9 @@ async function Collections({ params }: ICollectionsProps) {
       />
       <div className={styles.lists}>
         {collectionGroup.collections.map((item: ICollections) => {
-          return <CollectionCard key={item._id} item={item} locale={locale} />
+          return (
+            <CollectionCard key={item._id} item={item} locale={locale} redirectLink={`/dashboard/lists/${item._id}`} />
+          )
         })}
       </div>
     </>

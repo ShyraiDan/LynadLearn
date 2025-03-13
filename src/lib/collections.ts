@@ -1,12 +1,11 @@
 'use server'
 
-import { getSession } from './auth'
-import connectMongoDB from './mongodb'
-import mongoose from 'mongoose'
 import Collections, { ICollections } from '@/interfaces/Collections.interface'
+import Sections from '@/interfaces/Section.interface'
 
-export const getCollectionById = async (id: string): Promise<[]> => {
-  const collections = await Collections.findById(id)
+export const getCollectionById = async (id: string): Promise<ICollections> => {
+  await Sections
+  const collections = await Collections.findById(id).populate('sections', 'sectionTitle sectionTitleUa words')
   const data = JSON.parse(JSON.stringify(collections))
 
   return data

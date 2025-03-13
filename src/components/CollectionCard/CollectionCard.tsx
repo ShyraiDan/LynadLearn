@@ -13,7 +13,13 @@ import { FaBookOpen, FaClock, FaArrowRight } from 'react-icons/fa6'
 import { MdPlayLesson } from 'react-icons/md'
 import { BookmarkAdd, BookmarkDelete } from '@/components/ui/Icons/Icons'
 
-export const CollectionCard = ({ item, locale }: { item: ICollections; locale: string }) => {
+interface CollectionCardProps {
+  item: ICollections
+  locale: string
+  redirectLink: string
+}
+
+export const CollectionCard = ({ item, locale, redirectLink }: CollectionCardProps) => {
   const t = useTranslations('dashboard.collections')
   const [isBookmarked, setIsBookmarked] = useState(false)
 
@@ -78,7 +84,7 @@ export const CollectionCard = ({ item, locale }: { item: ICollections; locale: s
             </P>
           </div>
         </div>
-        <NavigationLink href="/">
+        <NavigationLink href={redirectLink}>
           <FaArrowRight />
         </NavigationLink>
       </div>
