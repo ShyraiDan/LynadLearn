@@ -9,7 +9,7 @@ import Loader from '@/components/Loader/Loader'
 import { Suspense } from 'react'
 import { getAllGrammar } from '@/lib/grammar'
 import { twMerge } from 'tailwind-merge'
-import { DCategories } from '@/mock/Categories.mock'
+import { DCEFRCollectionGroup } from '@/mock/DefaultCollectionGroups.mock'
 import List from '@/components/List/List'
 import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 import { H2, H3, H4 } from '@/components/ui/Typography/Typography'
@@ -88,20 +88,20 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
           )} */}
 
           <div className={styles['vocabulary-quiz']}>
-            {DCategories.map((item) => (
-              <>
-                <div className={styles.top}>
-                  <H4 className="text-lg font-bold mb-0">{item.title}</H4>
+            <div className={styles.top}>
+              <H4 className="text-lg font-bold mb-0">{DCEFRCollectionGroup.title}</H4>
+            </div>
+            <div className={styles.items}>
+              {DCEFRCollectionGroup.collections.map((collection) => (
+                <div key={collection.id} className={styles.item}>
+                  <List
+                    title={collection.title}
+                    image={collection.image}
+                    href={`/dashboard/quiz/list/${collection.id}`}
+                  />
                 </div>
-                <div className={styles.items}>
-                  {item.lists.map((list) => (
-                    <div key={list._id} className={styles.item}>
-                      <List title={list.title} image={list.image} href={`/dashboard/quiz/list/${list._id}`} />
-                    </div>
-                  ))}
-                </div>
-              </>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </>

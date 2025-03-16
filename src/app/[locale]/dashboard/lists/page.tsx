@@ -4,7 +4,7 @@ import CustomCategory from '@/components/CustomCategory/CustomCategory'
 import Loader from '@/components/Loader/Loader'
 import { H6 } from '@/components/ui/Typography/Typography'
 import { getYourLists } from '@/lib/lists'
-import { DCategories } from '@/mock/Categories.mock'
+import { DCEFRCollectionGroup, DCommonWords } from '@/mock/DefaultCollectionGroups.mock'
 import { getTranslations } from 'next-intl/server'
 import { Suspense } from 'react'
 import styles from './ListsPage.module.scss'
@@ -42,11 +42,10 @@ async function YourCategories() {
         <CustomCategory lists={yourCategory} />
       </div>
 
-      {DCategories.map((item) => (
-        <div key={item._id} className={styles.list}>
-          <Category title={item.title} lists={item.lists} description={item.description} />
-        </div>
-      ))}
+      <div className={styles.list}>
+        <Category collection={DCEFRCollectionGroup} />
+      </div>
+
       <div className={styles.category}>
         <div className={styles.top}>
           <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600 ">{t('categorized_wordlist')}</H6>
@@ -56,6 +55,10 @@ async function YourCategories() {
             <CategoryItem key={item.title} title={t(item.title)} cssClass={item.class} href={item.href} />
           ))}
         </div>
+      </div>
+
+      <div className={styles.list}>
+        <Category collection={DCommonWords} />
       </div>
     </>
   )

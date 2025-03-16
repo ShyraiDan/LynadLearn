@@ -14,7 +14,17 @@ export default function List({ title, image, href }: TListProps) {
   return (
     <div className={styles.container}>
       <NavigationLink href={href}>
-        <div className={styles['image-cont']}>{image && <Image src={image} alt={title} />}</div>
+        <div className={styles['image-cont']}>
+          {image && (
+            <Image
+              src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/core/collections/${image}`}
+              alt={title}
+              unoptimized
+              width={135}
+              height={205}
+            />
+          )}
+        </div>
         <span className={styles.title}>{t(title)}</span>
       </NavigationLink>
     </div>

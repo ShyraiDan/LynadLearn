@@ -1,14 +1,17 @@
 import styles from './CustomCategory.module.scss'
-import { ICategory } from '@/interfaces/Category.interface'
+import { IList } from '@/interfaces/List.interface'
 import { useTranslations } from 'next-intl'
 import CategoryDescription from '@/components/Category/components/CategoryDescription/CategoryDescription'
 import AddList from '@/components/AddList/AddList'
 import CustomList from '@/components/CustomList/CustomList'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
-import { IList } from '@/interfaces/List.interface'
 import { twMerge } from 'tailwind-merge'
 
-export default function CustomCategory({ lists }: Pick<ICategory, 'lists'>) {
+interface CustomCategoryProps {
+  lists: IList[]
+}
+
+export default function CustomCategory({ lists }: CustomCategoryProps) {
   const t = useTranslations()
 
   return (

@@ -1,11 +1,15 @@
 import styles from './CategoryDescription.module.scss'
-import { ICategory } from '@/interfaces/Category.interface'
 import { useTranslations } from 'next-intl'
 import { H3, H6, P } from '@/components/ui/Typography/Typography'
 
 //TODO: remove description walking
 
-export default function CategoryDescription({ title, description }: Omit<ICategory, 'lists' | '_id'>) {
+interface CategoryDescriptionProps {
+  title: string
+  description: string
+}
+
+export default function CategoryDescription({ title, description }: CategoryDescriptionProps) {
   const t = useTranslations('dashboard.lists')
 
   return (

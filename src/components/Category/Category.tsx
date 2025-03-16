@@ -1,6 +1,6 @@
 'use client'
 
-import { ICategory } from '@/interfaces/Category.interface'
+import { IDefaultCollectionGroup } from '@/interfaces/DefaultCollectionGroup.interface'
 import styles from './Category.module.scss'
 import List from '@/components/List/List'
 import CategoryDescription from './components/CategoryDescription/CategoryDescription'
@@ -11,11 +11,15 @@ import { twMerge } from 'tailwind-merge'
 import 'swiper/css'
 import 'swiper/css/pagination'
 
-export function Category({ title, lists, description }: Omit<ICategory, '_id'>) {
+interface CategoryProps {
+  collection: IDefaultCollectionGroup
+}
+
+export function Category({ collection }: CategoryProps) {
   return (
     <div className={twMerge(styles.container, 'dark:bg-none dark:bg-blue-600')}>
       <div>
-        <CategoryDescription title={title} description={description} />
+        <CategoryDescription title={collection.title} description="" />
         <div className={styles['list-group']}>
           <Swiper
             pagination={true}
@@ -59,9 +63,9 @@ export function Category({ title, lists, description }: Omit<ICategory, '_id'>) 
               }
             }}
           >
-            {lists.map((item) => (
-              <SwiperSlide key={item._id}>
-                <List title={item.title} image={item.image} href="/dashboard/lists/1" />
+            {collection.collections.map((item) => (
+              <SwiperSlide key={item.id}>
+                <List title={item.title} image={item.image} href={`/dashboard/lists/${item.id}`} />
               </SwiperSlide>
             ))}
           </Swiper>
