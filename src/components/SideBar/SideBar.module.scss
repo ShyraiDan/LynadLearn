@@ -1,5 +1,5 @@
 .container {
-  @apply hidden px-4 py-6 h-full border-r border-grey-275
+  @apply hidden px-4 py-6 h-full border-r border-grey-275 mt-20
   lg:flex lg:flex-col;
 
   > ul {
