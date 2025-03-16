@@ -53,7 +53,7 @@ export function AuthModal({ isModalOpen, showModal }: IAuthModalProps) {
             <div className={styles['form-container']}>
               <H2 className="mb-2 text-3xl font-bold dark:text-grey-600">{t('welcome')}</H2>
               <H6 className="mb-5 dark:text-grey-600">{t('enter_details_sign_in')}</H6>
-              <SignInForm handleClose={showModal} />
+              <SignInForm handleClose={handleShowModal} />
               <div className="dark:text-grey-600">
                 {t('not_have_account')}
                 <span onClick={() => setSignInModal((state) => !state)}>{t('sign_up')}</span>

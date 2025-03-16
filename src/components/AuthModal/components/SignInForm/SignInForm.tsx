@@ -13,7 +13,11 @@ import { P } from '@/components/ui/Typography/Typography'
 import { FaEye } from 'react-icons/fa'
 import { FaEyeSlash } from 'react-icons/fa'
 
-export default function SignInForm({ handleClose }: { handleClose: () => void }) {
+interface SignInFormProps {
+  handleClose: () => void
+}
+
+export default function SignInForm({ handleClose }: SignInFormProps) {
   const t = useTranslations('Forms')
   const [showPassword, setShowPassword] = useState(false)
 

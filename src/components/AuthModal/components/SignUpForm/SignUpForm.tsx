@@ -13,7 +13,11 @@ import { P } from '@/components/ui/Typography/Typography'
 import { FaEye } from 'react-icons/fa'
 import { FaEyeSlash } from 'react-icons/fa'
 
-export default function SignUpForm({ handleClose }: { handleClose: () => void }) {
+interface SignUpFormProps {
+  handleClose: () => void
+}
+
+export default function SignUpForm({ handleClose }: SignUpFormProps) {
   const t = useTranslations('Forms')
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
@@ -28,7 +32,6 @@ export default function SignUpForm({ handleClose }: { handleClose: () => void })
   })
 
   const onSubmit: SubmitHandler<ISignUp> = async (values) => {
-    console.log(values)
     await registerUser(values)
     handleClose()
   }
