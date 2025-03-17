@@ -13,7 +13,6 @@ import Container from '@/components/ui/Container/Container'
 import { FaClock, FaBookmark, FaRegBookmark } from 'react-icons/fa6'
 import subcategoryUnselected from '@/assets/subcategory-unselected.svg'
 import subcategorySelected from '@/assets/subcategory-selected.svg'
-import { BsGridFill } from 'react-icons/bs'
 import note from '@/assets/icons/note-2-disable.svg'
 import { FaArrowRight } from 'react-icons/fa'
 
@@ -85,9 +84,6 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
                                   <FaRegBookmark className="dark:text-grey-600 dark:lg:hover:text-purple-100" />
                                 )}
                               </Button>
-                              <NavigationLink href="/">
-                                <BsGridFill />
-                              </NavigationLink>
                             </div>
                             <div className={styles.info}>
                               <div>

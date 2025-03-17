@@ -21,17 +21,17 @@
           }
 
           .icon-number {
-            @apply grid grid-cols-1 relative grid-rows-1 w-12 h-12 
-            sm:w-16 sm:h-16;
+            @apply grid grid-cols-1 relative grid-rows-1 w-16 h-12 
+            sm:w-20 sm:h-16;
 
             .icon {
-              @apply w-12 h-12 col-span-1 row-span-1
-              sm:w-16 sm:h-16;
+              @apply w-[49px] h-[58px] object-cover col-span-1 row-span-1 max-w-[49px]
+              sm:w-[64px] sm:h-[75px] sm:max-w-[65px];
             }
 
             .number {
-              @apply text-white-100 font-bold text-base col-span-1 row-span-1 z-[3] w-12 h-12 flex items-center justify-center
-              sm:w-16 sm:h-16;
+              @apply text-white-100 font-bold text-base col-span-1 row-span-1 z-[3] w-[54px] h-[58px] flex items-center justify-center
+              sm:w-[70px] sm:h-[75px];
             }
           }
 
@@ -82,10 +82,11 @@
                 }
 
                 .info {
-                  @apply flex items-center gap-6;
+                  @apply flex items-center gap-3 sm:gap-6;
 
                   > div {
-                    @apply flex items-center gap-4;
+                    @apply hidden items-center gap-2 
+                    sm:flex sm:gap-4;
 
                     > div {
                       @apply flex items-center text-[#949494] gap-[6px] text-sm;
@@ -97,11 +98,13 @@
                   }
 
                   a {
-                    @apply flex justify-center items-center text-center py-2 px-6 pr-[14px] bg-blue-200 font-bold rounded-full text-white-100 transition-all ease-out duration-150 
+                    @apply flex justify-center items-center text-center py-2 px-[14px] bg-blue-200 font-bold rounded-full text-white-100 transition-all ease-out duration-150
+                    sm:px-6
                     lg:hover:bg-purple-100 [&__svg]:lg:hover:mr-0 [&__svg]:lg:hover:ml-5;
 
                     svg {
-                      @apply mx-2.5 transition-all ease-out duration-150;
+                      @apply ml-1.5 transition-all ease-out duration-150
+                      sm:mx-2.5;
                     }
                   }
                 }
