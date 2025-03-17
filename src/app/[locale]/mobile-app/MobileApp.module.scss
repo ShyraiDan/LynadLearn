@@ -1,13 +1,12 @@
 .container {
   .download {
-    @apply flex leading-6 pb-6 min-h-[65vh] pt-2 flex-col justify-between mx-4
+    @apply flex leading-6 pb-6 pt-2 flex-col justify-between mx-4
     sm:pt-12  
     md:flex-row md:items-start
-    lg:max-w-[1320px] lg:px-4 lg:mx-auto;
+    lg:max-w-[1320px] lg:px-4 lg:mx-auto lg:min-h-[65vh];
 
     .top {
       @apply float-left z-10 pr-0 text-center flex-col items-center inline-flex content-evenly pt-6 pl-0 
-      sm:pl-20 sm:pr-12  
       md:pr-6 md:text-left md:items-start;
 
       img {
@@ -35,10 +34,12 @@
             }
 
             div {
-              @apply text-start flex flex-col justify-center;
+              @apply text-center flex flex-col justify-center
+              sm:text-start sm:mt-[-5px];
 
               span {
-                @apply text-black text-[10px];
+                @apply text-black text-[10px] hidden 
+                sm:block;
               }
             }
           }

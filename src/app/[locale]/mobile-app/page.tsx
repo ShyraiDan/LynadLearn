@@ -47,7 +47,7 @@ export default function MobileApp() {
                 <FaGooglePlay size="24" />
                 <div>
                   <span>{t('get_it_on')}</span>
-                  <P className="mt-[-5px] text-black dark:!text-black">Google Play</P>
+                  <P className="text-black text-sm dark:!text-black sm:text-[16px] sm:mt-[-5px]">Google Play</P>
                 </div>
               </Button>
             </Link>
@@ -56,7 +56,7 @@ export default function MobileApp() {
                 <FaApple size="28" />
                 <div>
                   <span>{t('get_it_on')}</span>
-                  <P className="mt-[-5px] text-black dark:!text-black">App Store</P>
+                  <P className="text-black text-sm dark:!text-black sm:text-[16px] sm:mt-[-5px]">App Store</P>
                 </div>
               </Button>
             </Link>
@@ -164,6 +164,6 @@ export default function MobileApp() {
           <Image src={installSm} className={styles.mobile} alt="install" />
         </div>
       </div>
-    </div>
+    </Container>
   )
 }

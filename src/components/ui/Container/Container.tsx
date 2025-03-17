@@ -1,5 +1,3 @@
-// TODO check throw the hole app scss files where I can use it
-
 import React, { forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
