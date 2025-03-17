@@ -32,8 +32,8 @@
 }
 
 .footer-left {
-  @apply flex flex-col items-center mb-14 
-  sm:items-start sm:mb-4 
+  @apply hidden flex-col items-center mb-14 
+  sm:items-start sm:mb-4 sm:flex
   md:mb-0
   lg:justify-center 
   2xl:ml-2.5;
@@ -50,14 +50,14 @@
 }
 
 .footer-right {
-  @apply flex flex-col items-center text-blue-200 
+  @apply flex flex-col items-center text-blue-200
   sm:items-center sm:flex-row sm:pl-2 
   md:items-center 
   2xl:mr-2.5;
 
   ul {
-    @apply flex gap-3 items-center mt-4 
-    sm:mt-0 sm:ml-3;
+    @apply flex gap-3 items-center my-4 
+    sm:my-0 sm:ml-3;
 
     a {
       @apply transition-all ease-in-out duration-150
@@ -76,6 +76,6 @@
 }
 
 .footer-bottom {
-  @apply text-center text-xs mt-2 text-blue-200
+  @apply text-center text-xs mt-2 text-blue-200 mb-4
   sm:text-left sm:pl-2;
 }
