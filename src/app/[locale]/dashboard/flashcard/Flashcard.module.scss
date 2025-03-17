@@ -15,7 +15,7 @@
       @apply grid gap-4 grid-cols-auto-fill-140 items-start;
 
       .item {
-        @apply max-w-[140px] flex items-center justify-center;
+        @apply flex items-center justify-center;
       }
     }
   }
