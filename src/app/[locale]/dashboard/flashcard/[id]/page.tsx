@@ -16,6 +16,7 @@ import { twMerge } from 'tailwind-merge'
 import { useRouter } from 'next/navigation'
 import 'swiper/css'
 import { H2, H3, P } from '@/components/ui/Typography/Typography'
+import Container from '@/components/ui/Container/Container'
 
 import { TbCardsFilled, TbVocabulary } from 'react-icons/tb'
 
@@ -92,7 +93,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
 
   return (
     <>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         {!loading && list && words.length !== 0 && (
           <>
             <div className={styles.top}>
@@ -183,7 +184,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
         )}
 
         {loading && <Loader dimensionClass={styles.loader} />}
-      </div>
+      </Container>
 
       {isFinished && (
         <Modal

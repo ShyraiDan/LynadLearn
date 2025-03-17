@@ -8,6 +8,7 @@ import Button from '@/components/ui/Button/Button'
 import { useState } from 'react'
 import DictionaryCard from '@/components/DictionaryCard/DictionaryCard'
 import { H1, H2, P } from '@/components/ui/Typography/Typography'
+import Container from '@/components/ui/Container/Container'
 
 import { FaSearch } from 'react-icons/fa'
 import { mocks } from '@/mock/Dictionary.mock'
@@ -24,7 +25,7 @@ export default function Dictionary() {
   const forthCol = mocks.filter((_, i) => i % 4 === 3)
 
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       <div className={`${styles.heading} dark:bg-[#18223D]`}>
         <div className={styles['sub-container']}>
           <H1 className="text-center font-bold mt-4 mb-3 text-lg sm:text-2xl md:mb-6 lg:text-[40px] dark:text-grey-600">
@@ -131,6 +132,6 @@ export default function Dictionary() {
           )}
         </div>
       </div>
-    </div>
+    </Container>
   )
 }

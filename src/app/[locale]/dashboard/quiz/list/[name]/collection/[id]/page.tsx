@@ -16,6 +16,7 @@ import { IVocabularyQuiz } from '@/interfaces/Quiz.interface'
 import { Modal } from '@/components/ui/Modal/Modal'
 import { ScoresEnum } from '@/lib/scores'
 import { H1, H3, P } from '@/components/ui/Typography/Typography'
+import Container from '@/components/ui/Container/Container'
 
 interface IVocabularyQuizPageProps {
   params: {
@@ -79,7 +80,7 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
     <>
       {words && !isQuiz && (
         <>
-          <div className={styles.container}>
+          <Container className={styles.container}>
             <H1 className="text-2xl text-blue-200 font-bold mb-4">{t('vocabulary_quiz')}</H1>
             <div>
               <Button className="dark:border-none" onClick={() => startQuiz()}>
@@ -87,7 +88,7 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
               </Button>
               <NavigationLink href="/dashboard/quiz">{t('to_quiz')}</NavigationLink>
             </div>
-          </div>
+          </Container>
         </>
       )}
 
@@ -111,20 +112,20 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
       )}
 
       {loading && (
-        <div className={styles.container}>
+        <Container className={styles.container}>
           <Loader dimensionClass={styles.loader} />
-        </div>
+        </Container>
       )}
 
       {!loading && !words && (
-        <div className={styles.container}>
+        <Container className={styles.container}>
           <div className={styles['no-quiz']}>
             <H3 className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">{t('no_quiz')}</H3>
             <NavigationLink className={styles.link} href="/dashboard/quiz?type=vocabulary">
               {t('move_to_quizzes')}
             </NavigationLink>
           </div>
-        </div>
+        </Container>
       )}
 
       <Modal

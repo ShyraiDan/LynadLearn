@@ -5,7 +5,7 @@
   lg:min-h-[calc(100vh-72px-96px)];
 
   .switcher {
-    @apply flex gap-4 absolute right-0 top-[32px] w-[130px] h-[44px];
+    @apply flex gap-4 absolute right-[5px] top-[48px] w-[130px] h-[44px];
 
     .btn {
       @apply bg-transparent text-black flex items-center justify-center p-3 rounded-2xl bg-[#F0F0F0]

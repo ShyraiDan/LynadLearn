@@ -5,6 +5,7 @@ import { ICollections } from '@/interfaces/Collections.interface'
 import { getCollectionsGroup } from '@/lib/collectionGroup'
 import { Suspense } from 'react'
 import styles from './CollectionsPage.module.scss'
+import Container from '@/components/ui/Container/Container'
 
 interface ICollectionsProps {
   params: {
@@ -47,10 +48,10 @@ async function Collections({ params }: ICollectionsProps) {
 
 export default function CollectionsPage({ params }: ICollectionsPageProps) {
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
         <Collections params={params} />
       </Suspense>
-    </div>
+    </Container>
   )
 }

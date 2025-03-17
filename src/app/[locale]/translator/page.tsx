@@ -11,6 +11,7 @@ import { rtfToText } from '@/utils/rtfToText'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 import { H1, P } from '@/components/ui/Typography/Typography'
+import Container from '@/components/ui/Container/Container'
 
 import { FaVolumeHigh } from 'react-icons/fa6'
 import { MdContentCopy } from 'react-icons/md'
@@ -68,7 +69,7 @@ export default function TranslatorPage() {
 
   return (
     <>
-      <div className="w-full">
+      <Container className="w-full">
         <div className="overflow-hidden h-screen">
           <div className="mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-24 max-w-[1320px]">
             <div className="text-center">
@@ -124,7 +125,7 @@ export default function TranslatorPage() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
       <SnackBar />
     </>
   )

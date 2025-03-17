@@ -12,6 +12,7 @@ import { AuthModal } from '@/components/AuthModal/AuthModal'
 import { getCookies } from '@/utils/cookies'
 import { H2, P } from '@/components/ui/Typography/Typography'
 import { useTranslations } from 'next-intl'
+import Container from '@/components/ui/Container/Container'
 
 interface IGrammarPageProps {
   params: {
@@ -59,7 +60,7 @@ export default function GrammarPage({ params }: IGrammarPageProps) {
     )
 
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       <div className={styles.level}>
         <H2 className="text-center text-xl font-bold text-blue-200 my-4 sm:text-2xl">A1-A2 grammar</H2>
         <div className={styles.topics}>
@@ -85,6 +86,6 @@ export default function GrammarPage({ params }: IGrammarPageProps) {
       </RequireAuthModal>
 
       <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />
-    </div>
+    </Container>
   )
 }

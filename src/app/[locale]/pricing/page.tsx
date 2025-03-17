@@ -3,6 +3,7 @@ import PricingCard from '@/components/PricingCard/PricingCard'
 import { DPricing } from '@/mock/Pricing.mock'
 import { useTranslations } from 'next-intl'
 import { H1, H2, P } from '@/components/ui/Typography/Typography'
+import Container from '@/components/ui/Container/Container'
 
 import { TiTick } from 'react-icons/ti'
 
@@ -10,7 +11,7 @@ export default function PricingPage() {
   const t = useTranslations('Pricing')
 
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       <div className={styles.top}>
         <H1 className="text-lg font-bold mb-10 sm:text-2xl sm:mb-12 lg:text-[40px] lg:mb-14 dark:text-grey-600">
           {t('pricing')}
@@ -93,6 +94,6 @@ export default function PricingPage() {
           </tbody>
         </table>
       </div>
-    </div>
+    </Container>
   )
 }

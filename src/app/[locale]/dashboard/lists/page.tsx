@@ -8,6 +8,7 @@ import { DCEFRCollectionGroup, DCommonWords } from '@/mock/DefaultCollectionGrou
 import { getTranslations } from 'next-intl/server'
 import { Suspense } from 'react'
 import styles from './ListsPage.module.scss'
+import Container from '@/components/ui/Container/Container'
 
 const categories = [
   {
@@ -66,10 +67,10 @@ async function YourCategories() {
 
 export default function ListsPage() {
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
         <YourCategories />
       </Suspense>
-    </div>
+    </Container>
   )
 }

@@ -12,6 +12,7 @@ import { getCookies } from '@/utils/cookies'
 import { RequireAuthModal } from '@/components/RequireAuthModal/RequireAuthModal'
 import { getCollectionById } from '@/lib/collections'
 import { ICollections } from '@/interfaces/Collections.interface'
+import Container from '@/components/ui/Container/Container'
 
 import { FaClock, FaBookmark, FaRegBookmark } from 'react-icons/fa6'
 import subcategoryUnselected from '@/assets/subcategory-unselected.svg'
@@ -65,7 +66,7 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
   }
 
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       {!collection && <div>Collection not found</div>}
 
       {collection && (
@@ -170,6 +171,6 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
       </RequireAuthModal>
 
       <AuthModal isModalOpen={isAuthModal} showModal={() => setAuthModal((state) => !state)} />
-    </div>
+    </Container>
   )
 }

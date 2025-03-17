@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { getSectionById } from '@/lib/sections'
 import { ISection } from '@/interfaces/Section.interface'
+import Container from '@/components/ui/Container/Container'
 
 import { IoIosArrowBack } from 'react-icons/io'
 import { IoIosArrowForward } from 'react-icons/io'
@@ -31,7 +32,7 @@ export default function LearnCategoryPage({ params }: LearnCategoryPageProps) {
   }, [sectionId])
 
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       {section && (
         <>
           <div className={styles.switcher}>
@@ -52,6 +53,6 @@ export default function LearnCategoryPage({ params }: LearnCategoryPageProps) {
           <WordCard word={section?.words[word]} />
         </>
       )}
-    </div>
+    </Container>
   )
 }

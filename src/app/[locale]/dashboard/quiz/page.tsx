@@ -13,6 +13,7 @@ import { DCEFRCollectionGroup } from '@/mock/DefaultCollectionGroups.mock'
 import List from '@/components/List/List'
 import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 import { H2, H3, H4 } from '@/components/ui/Typography/Typography'
+import Container from '@/components/ui/Container/Container'
 // import { IList } from '@/interfaces/List.interface'
 // import CustomList from '@/components/CustomList/CustomList'
 
@@ -116,7 +117,7 @@ export default function QuizPage({ searchParams, params }: TQuizPage) {
 
   return (
     <>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         {!(type === 'grammar' || type === 'vocabulary') && (
           <div className={styles['no-page']}>
             <H3 className="text-2xl font-bold text-blue-200 mb-4">{t('no_page')}</H3>
@@ -163,7 +164,7 @@ export default function QuizPage({ searchParams, params }: TQuizPage) {
             </div>
           </Suspense>
         )}
-      </div>
+      </Container>
     </>
   )
 }

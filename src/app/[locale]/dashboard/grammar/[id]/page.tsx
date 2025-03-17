@@ -7,6 +7,7 @@ import Loader from '@/components/Loader/Loader'
 import { twMerge } from 'tailwind-merge'
 import { IGrammarExample } from '@/interfaces/Grammar.interface'
 import { H1, H2, H3, P } from '@/components/ui/Typography/Typography'
+import Container from '@/components/ui/Container/Container'
 
 type TSingleGrammarPage = {
   params: {
@@ -31,7 +32,7 @@ async function Grammar({ params }: TSingleGrammarPage) {
   return (
     <>
       {grammar && (
-        <div className={styles.container}>
+        <Container className={styles.container}>
           <H1 className="text-blue-200 text-center font-bold text-lg md:text-2xl">
             {params.locale === 'en' ? grammar.title : grammar.titleUa}
           </H1>
@@ -63,7 +64,7 @@ async function Grammar({ params }: TSingleGrammarPage) {
           <div className={styles.test}>
             <NavigationLink href={`/dashboard/quiz/${grammar._id}`}>{t('move_to_test')}</NavigationLink>
           </div>
-        </div>
+        </Container>
       )}
     </>
   )

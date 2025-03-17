@@ -14,6 +14,7 @@ import { useParams } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
 import { ScoresEnum } from '@/lib/scores'
 import { H1, H3, P } from '@/components/ui/Typography/Typography'
+import Container from '@/components/ui/Container/Container'
 
 export default function SingleQuizPage() {
   const [isQuiz, setIsQuiz] = useState(false)
@@ -65,7 +66,7 @@ export default function SingleQuizPage() {
   return (
     <>
       {grammarQuiz && !isQuiz && (
-        <div className={styles.container}>
+        <Container className={styles.container}>
           <H1 className="text-2xl text-blue-200 font-bold mb-4">{grammarQuiz?.title}</H1>
           <div>
             <Button className="dark:border-none" onClick={() => startQuiz()}>
@@ -73,7 +74,7 @@ export default function SingleQuizPage() {
             </Button>
             <NavigationLink href="/dashboard/quiz">{t('to_quiz')}</NavigationLink>
           </div>
-        </div>
+        </Container>
       )}
 
       {isQuiz && grammarQuiz && (
@@ -149,16 +150,16 @@ export default function SingleQuizPage() {
       </Modal>
 
       {loading && (
-        <div className={styles.container}>
+        <Container className={styles.container}>
           <Loader dimensionClass={styles.loader} />
-        </div>
+        </Container>
       )}
 
       {!loading && !grammarQuiz && (
-        <div className={styles.container}>
+        <Container className={styles.container}>
           <H3 className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">{t('no_quiz')}</H3>
           <NavigationLink href="/dashboard/quiz?type=grammar">{t('move_to_quizzes')}</NavigationLink>
-        </div>
+        </Container>
       )}
     </>
   )

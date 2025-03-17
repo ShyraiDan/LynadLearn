@@ -6,6 +6,7 @@ import { getTranslations } from 'next-intl/server'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { DBookmarks } from '@/mock/Bookmarks.mock'
 import { H2, H3, P } from '@/components/ui/Typography/Typography'
+import Container from '@/components/ui/Container/Container'
 
 interface IBookmarksProps {
   params: {
@@ -52,10 +53,10 @@ async function Bookmarks({ params }: IBookmarksProps) {
 
 export default function BookmarksPage({ params }: IBookmarksPageProps) {
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
         <Bookmarks params={params} />
       </Suspense>
-    </div>
+    </Container>
   )
 }

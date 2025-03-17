@@ -8,6 +8,7 @@ import { DCEFRCollectionGroup } from '@/mock/DefaultCollectionGroups.mock'
 import { getTranslations } from 'next-intl/server'
 import List from '@/components/List/List'
 import { H2, H4 } from '@/components/ui/Typography/Typography'
+import Container from '@/components/ui/Container/Container'
 
 async function YourLists() {
   const lists = await getYourLists()
@@ -51,10 +52,10 @@ async function YourLists() {
 
 export default function FlashcardPage() {
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
         <YourLists />
       </Suspense>
-    </div>
+    </Container>
   )
 }

@@ -8,6 +8,7 @@ import Image from 'next/image'
 import UserReview from '@/components/UserRevies/UserReview'
 import Button from '@/components/ui/Button/Button'
 import { H2, P, H3 } from '@/components/ui/Typography/Typography'
+import Container from '@/components/ui/Container/Container'
 
 import { TiTickOutline } from 'react-icons/ti'
 import premiumImage from '@/assets/figure-01.png'
@@ -31,7 +32,7 @@ export default function Home() {
 
   return (
     <>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.hero}>
           <H2 className="text-lg mb-4 font-bold sm:text-4xl md:text-[40px]">
             {t('learn_with')}
@@ -138,7 +139,8 @@ export default function Home() {
           </div>
           <Image src={app} alt="App" className={styles.image} />
         </div>
-      </div>
+      </Container>
+      {/* </div> */}
     </>
   )
 }

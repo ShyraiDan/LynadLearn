@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl'
 import { ListsModal } from '@/components/ListsModal/ListsModal'
 import { H3 } from '@/components/ui/Typography/Typography'
 import { twMerge } from 'tailwind-merge'
+import Container from '@/components/ui/Container/Container'
 
 import us from '@/assets/icons/us.svg'
 import { MessageQuestion } from '@/components/ui/Icons/Icons'
@@ -29,7 +30,7 @@ export default function DictionaryWordPage() {
   const synonyms = new Set(word.results.flatMap(({ synonyms }) => synonyms))
 
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       <div className={styles['col-1']}>
         <div>
           <div className={twMerge(styles.word, 'dark:!bg-[#16274A]')}>
@@ -72,6 +73,6 @@ export default function DictionaryWordPage() {
           </ul>
         </div>
       </div>
-    </div>
+    </Container>
   )
 }

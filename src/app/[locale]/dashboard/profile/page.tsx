@@ -9,6 +9,7 @@ import Image from 'next/image'
 import { Suspense } from 'react'
 import { twMerge } from 'tailwind-merge'
 import styles from './ProfilePageRenamed.module.scss'
+import Container from '@/components/ui/Container/Container'
 
 import { FaUser } from 'react-icons/fa'
 
@@ -127,11 +128,11 @@ async function YourProfile({ locale }: IYourProfileProps) {
 export default function ProfilePage({ params }: IProfilePageProps) {
   return (
     <>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
           <YourProfile locale={params.locale} />
         </Suspense>
-      </div>
+      </Container>
     </>
   )
 }

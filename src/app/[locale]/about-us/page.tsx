@@ -3,6 +3,7 @@ import styles from './AboutUsPage.module.scss'
 import { useTranslations } from 'next-intl'
 import { H6, H2, H1, P } from '@/components/ui/Typography/Typography'
 import { ReactNode } from 'react'
+import Container from '@/components/ui/Container/Container'
 
 import image from '@/assets/about-us.png'
 import { twMerge } from 'tailwind-merge'
@@ -42,7 +43,7 @@ export default function AboutUsPage() {
   const t = useTranslations('About_us')
 
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       <section className={styles.top}>
         <H6 className="uppercase text-blue-400 text-sm mb-2 font-semibold text-center">{t('our_goal')}</H6>
         <H1 className="text-center text-blue-150 mb-2 px-1 pt-6 text-[1.5rem] font-extrabold sm:text-2xl sm:w-3/4 md:text-[1.9rem] md:px-8 xl:text-[2rem] 2xl:text-[2.5rem] dark:text-[#009CF3]">
@@ -74,6 +75,6 @@ export default function AboutUsPage() {
         <SectionTitle className="md:text-center">{t('who_are_we')}</SectionTitle>
         <SectionText>{t('we_are_team')}</SectionText>
       </section>
-    </div>
+    </Container>
   )
 }

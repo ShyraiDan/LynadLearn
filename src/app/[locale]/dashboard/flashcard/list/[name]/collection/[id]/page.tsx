@@ -17,6 +17,7 @@ import { twMerge } from 'tailwind-merge'
 import { useRouter } from 'next/navigation'
 import 'swiper/css'
 import { H2, P, H3 } from '@/components/ui/Typography/Typography'
+import Container from '@/components/ui/Container/Container'
 
 import { TbCardsFilled, TbVocabulary } from 'react-icons/tb'
 import { FaPlus } from 'react-icons/fa'
@@ -110,8 +111,6 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
   // TODO add end point to add multiple words to the list
   // list of words -> wrongWords
   const addWordsToList = async (listId: string) => {
-    console.log('addWordToList')
-
     await addMultipleWords(wrongWords, listId).then((res) => {
       if (res.success) {
         toast.success(t('modal.successfully_added'), {
@@ -146,7 +145,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
 
   return (
     <>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         {!loading && list && words.length !== 0 && (
           <>
             <div className={styles.top}>
@@ -236,7 +235,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
         )}
 
         {loading && <Loader dimensionClass={styles.loader} />}
-      </div>
+      </Container>
 
       {isFinished && (
         <Modal

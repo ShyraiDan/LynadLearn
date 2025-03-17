@@ -8,6 +8,7 @@ import Button from '@/components/ui/Button/Button'
 import PageHeading from '@/components/PageHeading/PageHeading'
 import { useTranslations } from 'next-intl'
 import { twMerge } from 'tailwind-merge'
+import Container from '@/components/ui/Container/Container'
 
 import { FaClock, FaBookmark, FaRegBookmark } from 'react-icons/fa6'
 import subcategoryUnselected from '@/assets/subcategory-unselected.svg'
@@ -42,7 +43,7 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
   }
 
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       <PageHeading name={name} id="id" title="title" description="description" />
       <div className={styles.lessons}>
         <div>
@@ -122,6 +123,6 @@ export default function SingleDefaultList({ params }: TSingleDefaultList) {
           ))}
         </div>
       </div>
-    </div>
+    </Container>
   )
 }

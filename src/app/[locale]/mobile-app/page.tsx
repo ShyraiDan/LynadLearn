@@ -11,6 +11,7 @@ import Accordion from '@/components/Accordion/Accordion'
 import UserReview from '@/components/UserRevies/UserReview'
 import Features from '@/components/Features/Features'
 import { H1, P, H3 } from '@/components/ui/Typography/Typography'
+import Container from '@/components/ui/Container/Container'
 
 import { FaGooglePlay, FaApple } from 'react-icons/fa6'
 import line from '@/assets/line.svg'
@@ -28,7 +29,7 @@ export default function MobileApp() {
   const t = useTranslations('Mobile_app')
 
   return (
-    <div className={styles.container}>
+    <Container className={styles.container}>
       <div className={styles.download}>
         <div className={styles.top}>
           <H1 className="text-lg mt-1 pb-4 text-black font-semibold mb-0 xs:text-2xl md:pb-0 lg:text-[40px] dark:text-grey-600">

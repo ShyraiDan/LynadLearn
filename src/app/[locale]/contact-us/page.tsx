@@ -10,6 +10,7 @@ import { sendContacts } from '@/lib/contact'
 import SnackBar from '@/components/ui/SnackBar/SnackBar'
 import { toast } from 'sonner'
 import { H1, P } from '@/components/ui/Typography/Typography'
+import Container from '@/components/ui/Container/Container'
 
 export default function ContactUsPage() {
   const t = useTranslations()
@@ -32,7 +33,7 @@ export default function ContactUsPage() {
 
   return (
     <>
-      <div className={styles.container}>
+      <Container className={styles.container}>
         <div className={styles.left}>
           <H1 className="text-3xl text-blue-200 px-6 font-bold mb-4 dark:text-grey-600">
             {t('Contact_Us.contact_us')}
@@ -118,7 +119,7 @@ export default function ContactUsPage() {
             </form>
           </div>
         </div>
-      </div>
+      </Container>
       <SnackBar styleClass={styles.correct} />
     </>
   )
