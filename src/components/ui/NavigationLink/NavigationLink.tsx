@@ -1,10 +1,10 @@
 'use client'
 
-import { useSelectedLayoutSegment } from 'next/navigation'
 import { ComponentProps } from 'react'
 import { AppPathnames } from '@/config'
 import { Link } from '@/navigation'
 import { twMerge } from 'tailwind-merge'
+import { usePathname } from '@/navigation'
 
 import styles from './NavigationLink.module.scss'
 
@@ -15,9 +15,8 @@ export default function NavigationLink<Pathname extends AppPathnames>({
   className,
   ...rest
 }: ComponentProps<typeof Link<Pathname>> & { hover?: boolean; isHeader?: boolean }) {
-  const selectedLayoutSegment = useSelectedLayoutSegment()
-  const pathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : '/'
-  const isActive = pathname === href
+  const path = usePathname()
+  const isActive = path === href
 
   const isOtherLink = href !== '/' && hover
   return (
@@ -25,9 +24,9 @@ export default function NavigationLink<Pathname extends AppPathnames>({
       aria-current={isActive ? 'page' : undefined}
       className={twMerge(
         isOtherLink && isHeader && styles['link-header'],
-        pathname === href && isOtherLink && isHeader && styles['active-header'],
+        isActive && isOtherLink && isHeader && styles['active-header'],
         isOtherLink && !isHeader && styles['link-burger'],
-        pathname === href && isOtherLink && !isHeader && styles['active-burger'],
+        isActive && isOtherLink && !isHeader && styles['active-burger'],
         ' dark:text-grey-600 dark:after:bg-grey-600 dark:lg:hover:after:bg-grey-600',
         className
       )}
