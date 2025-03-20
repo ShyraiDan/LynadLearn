@@ -1,23 +1,32 @@
-import { DWords } from '@/mock/Words.mock'
+import { Suspense } from 'react'
 import styles from './DictionaryWord.module.scss'
 import { WordExamples } from '@/components/WordExamples/WordExamples'
 import Button from '@/components/ui/Button/Button'
 import Image from 'next/image'
 import { MeaningCard } from '@/components/MeaningCard/MeaningCard'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { ListsModal } from '@/components/ListsModal/ListsModal'
 import { H3 } from '@/components/ui/Typography/Typography'
 import { twMerge } from 'tailwind-merge'
 import Container from '@/components/ui/Container/Container'
+import { getDefaultWordsById } from '@/lib/defaultWords'
 
 import us from '@/assets/icons/us.svg'
 import { MessageQuestion } from '@/components/ui/Icons/Icons'
 
-export default function DictionaryWordPage() {
-  //TODO: remove unused variables
-  const t = useTranslations('Dictionary')
+interface DictionaryWordPageWrapperProps {
+  params: {
+    id: string
+  }
+}
 
-  const word = DWords[0]
+interface DictionaryWordPageProps {
+  id: string
+}
+
+async function DictionaryWordPage({ id }: DictionaryWordPageProps) {
+  const t = await getTranslations('Dictionary')
+  const word = await getDefaultWordsById(id)
 
   const partsOfSpeech = word.results.reduce(
     (acc: { [key: string]: number }, { part_of_speech }) => ({
@@ -30,7 +39,7 @@ export default function DictionaryWordPage() {
   const synonyms = new Set(word.results.flatMap(({ synonyms }) => synonyms))
 
   return (
-    <Container className={styles.container}>
+    <>
       <div className={styles['col-1']}>
         <div>
           <div className={twMerge(styles.word, 'dark:!bg-[#16274A]')}>
@@ -73,6 +82,16 @@ export default function DictionaryWordPage() {
           </ul>
         </div>
       </div>
+    </>
+  )
+}
+
+export default function DictionaryWordPageWrapper({ params }: DictionaryWordPageWrapperProps) {
+  return (
+    <Container className={styles.container}>
+      <Suspense>
+        <DictionaryWordPage id={params.id} />
+      </Suspense>
     </Container>
   )
 }

@@ -5,19 +5,27 @@ import styles from './Dictionary.module.scss'
 import { useTranslations } from 'next-intl'
 import { Input } from '@/components/ui/Input/Input'
 import Button from '@/components/ui/Button/Button'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import DictionaryCard from '@/components/DictionaryCard/DictionaryCard'
 import { H1, H2, P } from '@/components/ui/Typography/Typography'
 import Container from '@/components/ui/Container/Container'
+import { useDebounce } from '@/hooks/useDebounce'
+import { IWord } from '@/interfaces/Word.interface'
+import { getSearchDefaultWords } from '@/lib/defaultWords'
 
 import { FaSearch } from 'react-icons/fa'
 import { mocks } from '@/mock/Dictionary.mock'
-import { DWords } from '@/mock/Words.mock'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 
 export default function Dictionary() {
   const t = useTranslations('Dictionary')
   const [search, setSearch] = useState('')
+  const debouncedQuery = useDebounce(search, 500)
+  const [searchOptions, setSearchOptions] = useState<IWord[]>([])
+
+  useEffect(() => {
+    getSearchDefaultWords(debouncedQuery).then((data) => setSearchOptions(data))
+  }, [debouncedQuery])
 
   const firstCol = mocks.filter((_, i) => i % 4 === 0)
   const secondCol = mocks.filter((_, i) => i % 4 === 1)
@@ -50,15 +58,15 @@ export default function Dictionary() {
       </div>
       <div className={styles['sub-container']}>
         <div className={styles.words}>
-          {search.length > 0 &&
-            DWords.map((item, i) => {
+          {searchOptions.length > 0 &&
+            searchOptions.map((item) => {
               return (
-                <NavigationLink href={'/dictionary/about'} key={i}>
-                  <DictionaryCard key={item.word} word={item} />
+                <NavigationLink href={`/dictionary/${item._id}`} key={item._id}>
+                  <DictionaryCard word={item} />
                 </NavigationLink>
               )
             })}
-          {search.length === 0 && (
+          {searchOptions.length === 0 && (
             <>
               <div className={styles.column}>
                 {firstCol.map((item, i) => (
