@@ -6,32 +6,32 @@ export const DCEFRCollectionGroup: IDefaultCollectionGroup = {
   description: 'cefr_wordlist_detail',
   collections: [
     {
-      id: '1',
+      id: '67dbe62947b1e296ff356e45',
       title: 'a1_list',
       image: 'A1.png'
     },
     {
-      id: '2',
+      id: '67dbe62947b1e296ff356e46',
       title: 'a2_list',
       image: 'A2.png'
     },
     {
-      id: '3',
+      id: '67dbe62947b1e296ff356e47',
       title: 'b1_list',
       image: 'B1.png'
     },
     {
-      id: '4',
+      id: '67dbe62947b1e296ff356e48',
       title: 'b2_list',
       image: 'B2.png'
     },
     {
-      id: '5',
+      id: '67dbe62947b1e296ff356e49',
       title: 'c1_list',
       image: 'C1.png'
     },
     {
-      id: '6',
+      id: '67dbe62947b1e296ff356e4a',
       title: 'c2_list',
       image: 'C2.png'
     }
