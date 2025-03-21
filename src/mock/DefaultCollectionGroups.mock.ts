@@ -70,3 +70,26 @@ export const DCommonWords: IDefaultCollectionGroup = {
     }
   ]
 }
+
+export const DCategoriesWords = [
+  {
+    title: 'adverbs',
+    class: 'adverbs',
+    href: '/dashboard/collections/adverbs'
+  },
+  {
+    title: 'verbs',
+    class: 'verbs',
+    href: '/dashboard/collections/verbs'
+  },
+  {
+    title: 'adjectives',
+    class: 'adjectives',
+    href: '/dashboard/collections/adjectives'
+  },
+  {
+    title: 'other',
+    class: 'other',
+    href: '/dashboard/collections/other'
+  }
+]

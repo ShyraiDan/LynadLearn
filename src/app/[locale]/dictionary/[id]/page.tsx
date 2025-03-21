@@ -24,6 +24,8 @@ interface DictionaryWordPageProps {
   id: string
 }
 
+// TODO:Create an error if no word found
+
 async function DictionaryWordPage({ id }: DictionaryWordPageProps) {
   const t = await getTranslations('Dictionary')
   const word = await getDefaultWordsById(id)

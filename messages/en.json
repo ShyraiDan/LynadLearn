@@ -385,7 +385,16 @@
       "finished_quiz": "You finished this quiz",
       "result_quiz": "You answered {correct} out of {length} in {time} seconds and got {points} points",
       "vocabulary_quiz": "Vocabulary quiz",
-      "list_empty": "Your list is empty"
+      "list_empty": "Your list is empty",
+      "cefr_wordlist": "CEFR Wordlist",
+      "cefr_wordlist_detail": "Here you will find different wordlists categorized by level according to CEFR.",
+      "common_wordlist": "Most common words",
+      "common_wordlist_detail": "Here you will find lists of English vocabulary based on how common they are used in the English language.",
+      "categorized_wordlist": "Categorized Wordlist",
+      "adverbs": "Adverbs",
+      "verbs": "Verbs",
+      "adjectives": "Adjectives",
+      "other": "Other"
     },
     "grammar": {
       "move_to_test": "Move to Grammar test",
@@ -415,6 +424,15 @@
       "mistakes": "You made mistakes in these words",
       "add_difficult_words": "Add difficult words to your list!",
       "to_flashcards": "Go to Flashcards",
+      "cefr_wordlist": "CEFR Wordlist",
+      "cefr_wordlist_detail": "Here you will find different wordlists categorized by level according to CEFR.",
+      "common_wordlist": "Most common words",
+      "common_wordlist_detail": "Here you will find lists of English vocabulary based on how common they are used in the English language.",
+      "categorized_wordlist": "Categorized Wordlist",
+      "adverbs": "Adverbs",
+      "verbs": "Verbs",
+      "adjectives": "Adjectives",
+      "other": "Other",
       "modal": {
         "need_auth": "You need to sign in to browse your lists",
         "choose_list": "Choose list to add word",

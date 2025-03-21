@@ -1,19 +1,20 @@
-import styles from './QuizPage.module.scss'
+import List from '@/components/List/List'
+import Loader from '@/components/Loader/Loader'
 import QuizCard from '@/components/QuizCard/QuizCard'
+import Container from '@/components/ui/Container/Container'
+import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
+import { H2, H3, H4, H6 } from '@/components/ui/Typography/Typography'
+import { IGrammarTopic } from '@/interfaces/Grammar.interface'
+import { getSession } from '@/lib/auth'
+import { getAllGrammar } from '@/lib/grammar'
+import { getYourLists } from '@/lib/lists'
+import { DCEFRCollectionGroup, DCommonWords, DCategoriesWords } from '@/mock/DefaultCollectionGroups.mock'
 import { useTranslations } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
-import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
-import { getYourLists } from '@/lib/lists'
-import { getSession } from '@/lib/auth'
-import Loader from '@/components/Loader/Loader'
 import { Suspense } from 'react'
-import { getAllGrammar } from '@/lib/grammar'
 import { twMerge } from 'tailwind-merge'
-import { DCEFRCollectionGroup } from '@/mock/DefaultCollectionGroups.mock'
-import List from '@/components/List/List'
-import { IGrammarTopic } from '@/interfaces/Grammar.interface'
-import { H2, H3, H4 } from '@/components/ui/Typography/Typography'
-import Container from '@/components/ui/Container/Container'
+import styles from './QuizPage.module.scss'
+import CategoryItem from '@/components/CategoryItem/CategoryItem'
 // import { IList } from '@/interfaces/List.interface'
 // import CustomList from '@/components/CustomList/CustomList'
 
@@ -90,10 +91,38 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
 
           <div className={styles['vocabulary-quiz']}>
             <div className={styles.top}>
-              <H4 className="text-lg font-bold mb-0">{DCEFRCollectionGroup.title}</H4>
+              <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600 ">
+                {t(DCEFRCollectionGroup.title)}
+              </H6>
             </div>
             <div className={styles.items}>
               {DCEFRCollectionGroup.collections.map((collection) => (
+                <div key={collection.id} className={styles.item}>
+                  <List
+                    title={collection.title}
+                    image={collection.image}
+                    href={`/dashboard/quiz/list/${collection.id}`}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="py-6">
+            <div className="mb-6 flex justify-between">
+              <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600 ">{t('categorized_wordlist')}</H6>
+            </div>
+            <div className="grid gap-4 grid-cols-2 sm:grid-cols-4">
+              {DCategoriesWords.map((item) => (
+                <CategoryItem key={item.title} title={t(item.title)} cssClass={item.class} href={item.href} />
+              ))}
+            </div>
+          </div>
+          <div className={styles['vocabulary-quiz']}>
+            <div className={styles.top}>
+              <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600 ">{t(DCommonWords.title)}</H6>
+            </div>
+            <div className={styles.items}>
+              {DCommonWords.collections.map((collection) => (
                 <div key={collection.id} className={styles.item}>
                   <List
                     title={collection.title}
