@@ -54,7 +54,7 @@ export default function SideBar({ isAuth }: { isAuth: boolean }) {
           </NavigationLink>
         </li>
         <li>
-          <NavigationLink href="/dashboard/flashcard" className={`${page === 'flashcards' && styles.selected}`}>
+          <NavigationLink href="/dashboard/flashcard" className={`${page === 'flashcard' && styles.selected}`}>
             <TbCardsFilled />
             {t('flashcard')}
           </NavigationLink>
