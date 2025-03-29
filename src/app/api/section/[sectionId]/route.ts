@@ -4,6 +4,7 @@ import Sections from '@/interfaces/Section.interface'
 import DefaultWords from '@/interfaces/defaultWords.interface'
 import { NextResponse } from 'next/server'
 
+// equals to getSectionById lib function
 export async function GET(req: Request) {
   const url = new URL(req.url)
   const sectionId = url.pathname.split('/').pop()

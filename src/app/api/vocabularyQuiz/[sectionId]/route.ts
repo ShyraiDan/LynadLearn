@@ -1,13 +1,12 @@
 'use server'
 
-import Sections, { ISection } from '@/interfaces/Section.interface'
+import Sections from '@/interfaces/Section.interface'
 import DefaultWords from '@/interfaces/defaultWords.interface'
 import { NextResponse } from 'next/server'
-import { IVocabularyQuestion, IVocabularyQuiz } from '@/interfaces/Quiz.interface'
+import { IVocabularyQuestion } from '@/interfaces/Quiz.interface'
 import { IWord } from '@/interfaces/Word.interface'
 import { shuffleArray } from '@/utils/middlewares'
 import { nanoid } from 'nanoid'
-import { title } from 'process'
 
 const defaultVocabularyQuizQuestions = [
   {
