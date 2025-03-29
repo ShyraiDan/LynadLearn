@@ -63,7 +63,12 @@ async function YourLists() {
           </div>
           <div className="grid gap-4 grid-cols-2 sm:grid-cols-4">
             {DCategoriesWords.map((item) => (
-              <CategoryItem key={item.title} title={t(item.title)} cssClass={item.class} href={item.href} />
+              <CategoryItem
+                key={item.title}
+                title={t(item.title)}
+                cssClass={item.class}
+                href={`/dashboard/flashcard/collections/${item.title}`}
+              />
             ))}
           </div>
         </div>
