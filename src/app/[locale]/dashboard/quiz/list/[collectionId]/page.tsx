@@ -121,7 +121,7 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
                                     </div>
                                   </div>
 
-                                  <NavigationLink href={`/dashboard/quiz/list/${collectionId}/collection/1`}>
+                                  <NavigationLink href={`/dashboard/quiz/list/${collectionId}/section/${section._id}`}>
                                     {t('start')} <FaArrowRight />
                                   </NavigationLink>
                                 </div>

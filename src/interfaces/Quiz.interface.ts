@@ -29,6 +29,7 @@ export interface IVocabularyQuestion {
 
 export interface IVocabularyQuiz {
   title: string
+  titleUa: string
   questions: IVocabularyQuestion[]
 }
 
