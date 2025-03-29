@@ -3,13 +3,13 @@
 import styles from './SingleList.module.scss'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Image from 'next/image'
-import { useState, MouseEvent, useEffect } from 'react'
+import { useState, MouseEvent } from 'react'
 import Button from '@/components/ui/Button/Button'
 import PageHeading from '@/components/PageHeading/PageHeading'
 import { useTranslations } from 'next-intl'
 import { twMerge } from 'tailwind-merge'
 import Container from '@/components/ui/Container/Container'
-import { getCollectionById } from '@/lib/collections'
+import useSWR from 'swr'
 
 import { FaClock, FaBookmark, FaRegBookmark } from 'react-icons/fa6'
 import subcategoryUnselected from '@/assets/subcategory-unselected.svg'
@@ -19,6 +19,8 @@ import note from '@/assets/icons/note-2-disable.svg'
 import { FaArrowRight } from 'react-icons/fa'
 import { ICollections } from '@/interfaces/Collections.interface'
 import { H3 } from '@/components/ui/Typography/Typography'
+import { fetcher } from '@/utils/fetcher'
+import Loader from '@/components/Loader/Loader'
 
 interface SingleDefaultListProps {
   params: {
@@ -27,16 +29,20 @@ interface SingleDefaultListProps {
   }
 }
 
-//TODO:
-// add loader and message when no list found
-
 export default function SingleDefaultList({ params }: SingleDefaultListProps) {
   const { locale, collectionId } = params
-  const [collection, setCollection] = useState<ICollections | null>(null)
 
-  useEffect(() => {
-    getCollectionById(collectionId).then((data) => setCollection(data))
-  }, [collectionId])
+  const {
+    data: collection,
+    isLoading,
+    error
+  } = useSWR<ICollections>(`/api/collection/${collectionId}`, fetcher, {
+    shouldRetryOnError: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    refreshWhenHidden: false,
+    refreshWhenOffline: false
+  })
 
   const t = useTranslations('dashboard.lists.learn')
   const [isSelected, setIsSelected] = useState(0)
@@ -49,6 +55,18 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
 
   return (
     <Container className={styles.container}>
+      {isLoading && <Loader dimensionClass="!static lg:!relative" />}
+      {(error || collection?.sections.length === 0) && (
+        <div className="flex items-center justify-center flex-col h-[calc(100vh-201px-73px-32px)] sm:min-h-[calc(100vh-193px-81px-32px)] md:min-h-[calc(100vh-153px-81px-32px)] lg:h-full">
+          <H3 className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">No data found.</H3>
+          <NavigationLink
+            className="flex font-medium items-center justify-center bg-blue-200 text-white-100 px-3 py-1.5 rounded transition-all ease-in-out duration-300 lg:hover:bg-purple-100"
+            href="/dashboard/quiz?type=vocabulary"
+          >
+            {t('move_to_quizzes')}
+          </NavigationLink>
+        </div>
+      )}
       {collection && (
         <>
           <PageHeading
