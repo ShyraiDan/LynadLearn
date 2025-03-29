@@ -35,10 +35,14 @@
       }
 
       .vocabulary-quiz {
-        @apply flex flex-col gap-4;
+        @apply py-6 flex flex-col gap-4;
 
         .items {
           @apply grid gap-4 grid-cols-auto-fill-140;
+
+          .item {
+            @apply flex items-center justify-center;
+          }
         }
       }
     }

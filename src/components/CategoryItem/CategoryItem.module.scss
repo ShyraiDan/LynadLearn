@@ -1,5 +1,5 @@
 .category-item {
-  @apply flex items-center justify-center bg-red w-full h-[140px] bg-cover rounded-3xl text-2xl font-bold;
+  @apply flex items-center justify-center bg-red w-full h-[140px] bg-cover rounded-3xl text-2xl font-bold capitalize;
 }
 
 .adverbs {

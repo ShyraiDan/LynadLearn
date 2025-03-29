@@ -91,7 +91,7 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
 
           <div className={styles['vocabulary-quiz']}>
             <div className={styles.top}>
-              <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600 ">
+              <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">
                 {t(DCEFRCollectionGroup.title)}
               </H6>
             </div>
@@ -107,9 +107,9 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
               ))}
             </div>
           </div>
-          <div className="py-6">
-            <div className="mb-6 flex justify-between">
-              <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600 ">{t('categorized_wordlist')}</H6>
+          <div className="py-6 flex flex-col gap-4">
+            <div className={styles.top}>
+              <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">{t('categorized_wordlist')}</H6>
             </div>
             <div className="grid gap-4 grid-cols-2 sm:grid-cols-4">
               {DCategoriesWords.map((item) => (
@@ -119,7 +119,7 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
           </div>
           <div className={styles['vocabulary-quiz']}>
             <div className={styles.top}>
-              <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600 ">{t(DCommonWords.title)}</H6>
+              <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">{t(DCommonWords.title)}</H6>
             </div>
             <div className={styles.items}>
               {DCommonWords.collections.map((collection) => (

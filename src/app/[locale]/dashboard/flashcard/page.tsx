@@ -7,8 +7,10 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { DCEFRCollectionGroup } from '@/mock/DefaultCollectionGroups.mock'
 import { getTranslations } from 'next-intl/server'
 import List from '@/components/List/List'
-import { H2, H4 } from '@/components/ui/Typography/Typography'
+import { H2, H6 } from '@/components/ui/Typography/Typography'
 import Container from '@/components/ui/Container/Container'
+import { DCategoriesWords, DCommonWords } from '@/mock/DefaultCollectionGroups.mock'
+import CategoryItem from '@/components/CategoryItem/CategoryItem'
 
 async function YourLists() {
   const lists = await getYourLists()
@@ -19,31 +21,69 @@ async function YourLists() {
         {t('dashboard.flashcard.flashcard_page')}
       </H2>
       <div className={styles.sections}>
-        <div className={styles.top}>
-          <H4 className="font-bold text-[1rem] mb-0">{t('dashboard.flashcard.choose_word_list')}</H4>
+        <div className="py-6 flex flex-col gap-4">
+          <div className={styles.top}>
+            <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">
+              {t('dashboard.flashcard.choose_word_list')}
+            </H6>
+          </div>
+          <div className={styles.items}>
+            {lists.map((item) => (
+              <div key={item._id} className={styles.item}>
+                <NavigationLink href={`/dashboard/flashcard/${item._id}`}>
+                  <CustomList title={item.title} image={item.image} />
+                </NavigationLink>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className={styles.items}>
-          {lists.map((item) => (
-            <div key={item._id} className={styles.item}>
-              <NavigationLink href={`/dashboard/flashcard/${item._id}`}>
-                <CustomList title={item.title} image={item.image} />
-              </NavigationLink>
-            </div>
-          ))}
+        <div className="py-6 flex flex-col gap-4">
+          <div className={styles.top}>
+            <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">
+              {t(`dashboard.flashcard.${DCEFRCollectionGroup.title}`)}
+            </H6>
+          </div>
+          <div className={styles.items}>
+            {DCEFRCollectionGroup.collections.map((collection) => (
+              <div key={collection.id} className={styles.item}>
+                <List
+                  title={collection.title}
+                  image={collection.image}
+                  href={`/dashboard/flashcard/list/${collection.id}`}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className={styles.top}>
-          <H4 className="font-bold text-[1rem] mb-0">{t(`dashboard.lists.${DCEFRCollectionGroup.title}`)}</H4>
+        <div className="py-6 flex flex-col gap-4">
+          <div className={styles.top}>
+            <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">
+              {t('dashboard.flashcard.categorized_wordlist')}
+            </H6>
+          </div>
+          <div className="grid gap-4 grid-cols-2 sm:grid-cols-4">
+            {DCategoriesWords.map((item) => (
+              <CategoryItem key={item.title} title={t(item.title)} cssClass={item.class} href={item.href} />
+            ))}
+          </div>
         </div>
-        <div className={styles.items}>
-          {DCEFRCollectionGroup.collections.map((collection) => (
-            <div key={collection.id} className={styles.item}>
-              <List
-                title={collection.title}
-                image={collection.image}
-                href={`/dashboard/flashcard/list/${collection.id}`}
-              />
-            </div>
-          ))}
+        <div className="py-6 flex flex-col gap-4">
+          <div className={styles.top}>
+            <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">
+              {t(`dashboard.flashcard.${DCommonWords.title}`)}
+            </H6>
+          </div>
+          <div className={styles.items}>
+            {DCommonWords.collections.map((collection) => (
+              <div key={collection.id} className={styles.item}>
+                <List
+                  title={collection.title}
+                  image={collection.image}
+                  href={`/dashboard/quiz/list/${collection.id}`}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>
