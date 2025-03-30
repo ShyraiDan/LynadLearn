@@ -40,7 +40,7 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
 
     return (
       <>
-        <div className={styles.level}>
+        <div className={twMerge(styles.level, 'px-4 pb-4')}>
           <H2 className="text-center text-xl font-bold text-blue-200 my-4 sm:text-2xl">A1-A2 grammar</H2>
           <div className={styles.topics}>
             {grammarElementary.map((item: IGrammarTopic) => {
@@ -69,12 +69,12 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
       )
     }
 
-    const data = await getYourLists()
+    const userLists = await getYourLists()
 
     return (
       <>
         <div className={styles.level}>
-          {!data.length && (
+          {!userLists.length && (
             <div className={styles['no-list']}>
               <H2>{t('no_lists')}</H2>
             </div>
@@ -107,7 +107,8 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
               ))}
             </div>
           </div>
-          <div className="py-6 flex flex-col gap-4">
+
+          <div className="py-6 flex flex-col gap-4 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4">
             <div className={styles.top}>
               <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">{t('categorized_wordlist')}</H6>
             </div>
@@ -122,6 +123,7 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
               ))}
             </div>
           </div>
+
           <div className={styles['vocabulary-quiz']}>
             <div className={styles.top}>
               <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">{t(DCommonWords.title)}</H6>
@@ -151,7 +153,7 @@ export default function QuizPage({ searchParams, params }: TQuizPage) {
 
   return (
     <>
-      <Container className={styles.container}>
+      <Container className={twMerge(styles.container, 'p-0')}>
         {!(type === 'grammar' || type === 'vocabulary') && (
           <div className={styles['no-page']}>
             <H3 className="text-2xl font-bold text-blue-200 mb-4">{t('no_page')}</H3>
@@ -163,7 +165,7 @@ export default function QuizPage({ searchParams, params }: TQuizPage) {
           <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
             <H2 className="text-center text-xl font-bold text-blue-200 my-4 sm:text-2xl">{t('quiz_page')}</H2>
             <div className={styles.sections}>
-              <div className={styles.top}>
+              <div className={twMerge(styles.top, 'px-4')}>
                 <H4 className="text-lg font-bold mb-0">{t('filter')}</H4>
                 <div className={styles.tags}>
                   <NavigationLink href="/dashboard/quiz?type=grammar">

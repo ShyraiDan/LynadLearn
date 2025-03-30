@@ -9,6 +9,7 @@ import { getTranslations } from 'next-intl/server'
 import { Suspense } from 'react'
 import styles from './ListsPage.module.scss'
 import Container from '@/components/ui/Container/Container'
+import { twMerge } from 'tailwind-merge'
 
 async function YourCategories() {
   const yourCategory = await getYourLists()
@@ -44,7 +45,7 @@ async function YourCategories() {
 
 export default function ListsPage() {
   return (
-    <Container className={styles.container}>
+    <Container className={twMerge(styles.container, 'p-0')}>
       <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
         <YourCategories />
       </Suspense>

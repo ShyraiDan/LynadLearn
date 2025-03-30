@@ -1,5 +1,5 @@
 .container {
-  @apply flex flex-col items-center p-4 min-h-[calc(100vh-201px-73px)]
+  @apply flex flex-col items-center min-h-[calc(100vh-201px-73px)]
   sm:min-h-[calc(100vh-193px-81px)]
   md:min-h-[calc(100vh-153px-81px)]
   lg:min-h-[calc(100vh-97px-81px)];
@@ -35,7 +35,7 @@
       }
 
       .vocabulary-quiz {
-        @apply py-6 flex flex-col gap-4;
+        @apply py-6 flex flex-col gap-4 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4;
 
         .items {
           @apply grid gap-4 grid-cols-auto-fill-140;

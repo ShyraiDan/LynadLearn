@@ -6,7 +6,8 @@
   lg:min-h-[calc(100vh-97px-81px)] lg:mx-0;
 
   .category {
-    @apply px-4 py-6;
+    @apply px-4 py-6 bg-gradient-to-b from-white-100 to-[#f4f6f8] 
+    sm:px-4 sm:mx-0;
 
     .top {
       @apply mb-6 flex justify-between;
