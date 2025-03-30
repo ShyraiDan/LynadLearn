@@ -28,9 +28,6 @@ interface SingleDefaultListProps {
   }
 }
 
-//TODO:
-// add loader and message when no list found
-
 export default function SingleDefaultList({ params }: SingleDefaultListProps) {
   const { locale, collectionId } = params
 

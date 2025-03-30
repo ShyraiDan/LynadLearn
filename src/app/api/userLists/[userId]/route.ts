@@ -3,6 +3,7 @@
 import List from '@/interfaces/List.interface'
 import { NextResponse } from 'next/server'
 
+// equals to getUserLists lib function
 export async function GET(req: Request) {
   const url = new URL(req.url)
   const userId = url.pathname.split('/').pop()
