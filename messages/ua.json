@@ -363,6 +363,7 @@
     },
     "quiz": {
       "quiz_page": "Вікторини",
+      "choose_word_list": "Обери список для вивчення:",
       "filter": "Фільтри",
       "grammar": "Граматика",
       "vocabulary": "Лексика",

@@ -363,6 +363,7 @@
     },
     "quiz": {
       "quiz_page": "Quiz page",
+      "choose_word_list": "Choose a word list to learn:",
       "filter": "Filter",
       "grammar": "Grammar",
       "vocabulary": "Vocabulary",

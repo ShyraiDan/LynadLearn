@@ -15,8 +15,7 @@ import { Suspense } from 'react'
 import { twMerge } from 'tailwind-merge'
 import styles from './QuizPage.module.scss'
 import CategoryItem from '@/components/CategoryItem/CategoryItem'
-// import { IList } from '@/interfaces/List.interface'
-// import CustomList from '@/components/CustomList/CustomList'
+import CustomList from '@/components/CustomList/CustomList'
 
 type TQuizPage = {
   searchParams: {
@@ -79,15 +78,25 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
               <H2>{t('no_lists')}</H2>
             </div>
           )}
-          {/* {data.length > 0 && (
-            <div className="grid gap-4 grid-cols-auto-fill-140">
-              {data.map((item: IList) => (
-                <NavigationLink key={item._id} href={`/no-page`}>
-                  <CustomList title={item.title} image={item.image} />
-                </NavigationLink>
-              ))}
+
+          {userLists && (
+            <div className="py-6 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4">
+              <div className={styles.top}>
+                <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">{t('choose_word_list')}</H6>
+              </div>
+              <div>
+                <div className="flex gap-3 overflow-x-auto sm:bg-[#deede671] sm:px-4 sm:my-6 sm:pt-10 sm:pb-5 sm:rounded-2xl sm:shadow-sm sm:shadow-[#00000013] md:rounded-l-none md:basis-7/12 md:max-w-[calc(100%-300px)] lg:max-w-[calc(100vw-292px)] lg:rounded-2xl">
+                  {userLists.map((item) => (
+                    <div key={item._id} className={styles.item}>
+                      <NavigationLink href={`/dashboard/quiz/${item._id}`}>
+                        <CustomList title={item.title} image={item.image} />
+                      </NavigationLink>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          )} */}
+          )}
 
           <div className={styles['vocabulary-quiz']}>
             <div className={styles.top}>
