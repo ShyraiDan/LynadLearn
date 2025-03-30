@@ -1,15 +1,13 @@
 'use client'
 
 import styles from './Flashcard.module.scss'
-import { addMultipleWords, getWordsByListId } from '@/lib/word'
-import { getListById, getYourLists } from '@/lib/lists'
+import { addMultipleWords } from '@/lib/word'
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
 import FlashCardWord from '@/components/FlashCardWord/FlashCardWord'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useTranslations } from 'next-intl'
 import { IWord } from '@/interfaces/Word.interface'
-import { IList } from '@/interfaces/List.interface'
 import Loader from '@/components/Loader/Loader'
 import { Modal } from '@/components/ui/Modal/Modal'
 import Button from '@/components/ui/Button/Button'
@@ -19,16 +17,21 @@ import 'swiper/css'
 import { H2, P, H3 } from '@/components/ui/Typography/Typography'
 import Container from '@/components/ui/Container/Container'
 
-import { TbCardsFilled, TbVocabulary } from 'react-icons/tb'
+import { TbCardsFilled } from 'react-icons/tb'
 import { FaPlus } from 'react-icons/fa'
 import SnackBar from '@/components/ui/SnackBar/SnackBar'
 import CustomList from '@/components/CustomList/CustomList'
 import { getSession, ISession } from '@/lib/auth'
 import { toast } from 'sonner'
+import { fetcher } from '@/utils/fetcher'
+import useSWR from 'swr'
+import { ISection } from '@/interfaces/Section.interface'
+import { IList } from '@/interfaces/List.interface'
 
 type TSingleFlashcardPage = {
   params: {
-    id: string
+    sectionId: string
+    collectionId: string
     locale: string
   }
 }
@@ -62,18 +65,16 @@ const SlideContent = ({ isActive, word, isLast, setWords, setIsFinished, setWron
 export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
   const t = useTranslations('dashboard.flashcard')
   const [words, setWords] = useState<IWord[]>([])
-  const [list, setList] = useState<IList | null>(null)
-  const [loading, setLoading] = useState(true)
   const [isLast, setIsLast] = useState(false)
   const [isFinished, setIsFinished] = useState(false)
   const [initialWords, setInitialWords] = useState(0)
   const [wrongWords, setWrongWords] = useState<IWord[]>([])
-  const [userLists, setUserLists] = useState<IList[]>([])
   const [userListsModal, setUserListsModal] = useState(false)
   const [session, setSession] = useState<ISession>()
-  const { id: listId } = params
+  const { sectionId, collectionId, locale } = params
   const swiperRef = useRef<any>(null)
   const router = useRouter()
+  const [isSessionLoading, setSessionLoading] = useState(true)
 
   const checkIfLastSlide = () => {
     if (!swiperRef.current) return false
@@ -90,26 +91,45 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
     router.back()
   }
 
+  const {
+    data: wordSection,
+    isLoading: isLoadingWordSection,
+    error: errorWordSection
+  } = useSWR<ISection>(`/api/section/${sectionId}`, fetcher, {
+    shouldRetryOnError: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    refreshWhenHidden: false,
+    refreshWhenOffline: false
+  })
+
+  const { data: userLists, isLoading: isLoadingUserLists } = useSWR<IList[]>(
+    session?.userId ? `/api/userLists/${session.userId}` : null,
+    fetcher,
+    {
+      shouldRetryOnError: false,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      refreshWhenHidden: false,
+      refreshWhenOffline: false
+    }
+  )
+
   useEffect(() => {
-    getWordsByListId(listId).then((data) => {
-      setWords(data)
-      setInitialWords(data.length)
-    })
-    getListById(listId).then((data) => setList(data))
+    if (wordSection) {
+      setWords(wordSection.words)
+      setInitialWords(wordSection.words.length)
+    }
+  }, [wordSection])
 
-    getYourLists().then((lists) => {
-      setUserLists(lists)
-    })
-
+  useEffect(() => {
     getSession().then((data) => {
       setSession(data)
     })
 
-    setLoading(false)
-  }, [listId])
+    setSessionLoading(false)
+  }, [])
 
-  // TODO add end point to add multiple words to the list
-  // list of words -> wrongWords
   const addWordsToList = async (listId: string) => {
     await addMultipleWords(wrongWords, listId).then((res) => {
       if (res.success) {
@@ -127,13 +147,9 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
   }
 
   const showAddWordsModal = () => {
-    // console.log('click')
-
     if (session && session.isLoggedIn) {
-      // console.log('auth')
       setUserListsModal((state) => !state)
       setIsFinished((state) => !state)
-      // removeScrollBar(open)
     } else {
       console.log('no auth')
       toast.error(t('need_auth'), {
@@ -143,16 +159,20 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
     }
   }
 
+  const isLoading = isLoadingWordSection || isLoadingUserLists || isSessionLoading
+
   return (
     <>
       <Container className={styles.container}>
-        {!loading && list && words.length !== 0 && (
+        {!isLoading && words.length !== 0 && (
           <>
             <div className={styles.top}>
-              <H2 className="text-blue-200 font-bold mb-0">{t('words_from', { list: list?.title })} </H2>
+              <H2 className="text-blue-200 font-bold mb-0">
+                {t('words_from', { list: locale === 'en' ? wordSection?.sectionTitle : wordSection?.sectionTitleUa })}{' '}
+              </H2>
               <NavigationLink
                 className={twMerge(styles.link, 'dark:text-grey-600')}
-                href={`/dashboard/vocabulary/${listId}`}
+                href={`/dashboard/lists/${collectionId}/learn/${sectionId}`}
               >
                 {t('view_list')}
               </NavigationLink>
@@ -205,7 +225,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
           </>
         )}
 
-        {!loading && !list && words.length === 0 && (
+        {((!isLoading && words.length === 0) || errorWordSection) && (
           <div className={styles['no-lists']}>
             <P className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">{t('no_lists')}</P>
             <NavigationLink href="/dashboard/flashcard" className={styles.links}>
@@ -215,26 +235,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
           </div>
         )}
 
-        {!loading && list && words.length === 0 && (
-          <div className={styles['no-lists']}>
-            <P className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">{t('no_words')}</P>
-            <div className="flex gap-4">
-              <NavigationLink href="/dashboard/flashcard" className={styles.links}>
-                <TbCardsFilled />
-                {t('move_flashcards')}
-              </NavigationLink>
-              <NavigationLink
-                href={`/dashboard/vocabulary/${listId}?sort=newest`}
-                className={twMerge(styles.links, 'min-w-[188px]')}
-              >
-                <TbVocabulary />
-                {t('move_list')}
-              </NavigationLink>
-            </div>
-          </div>
-        )}
-
-        {loading && <Loader dimensionClass={styles.loader} />}
+        {isLoading && <Loader dimensionClass={styles.loader} />}
       </Container>
 
       {isFinished && (
@@ -298,7 +299,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
             <div>
               <H3 className="text-2xl font-bold mb-5">{t('modal.choose_list')}</H3>
               <div className={styles.list}>
-                {userLists.map((list) => (
+                {userLists?.map((list) => (
                   <div key={list._id} onClick={() => addWordsToList(list._id)}>
                     <CustomList title={list.title} image={list.image} />
                   </div>

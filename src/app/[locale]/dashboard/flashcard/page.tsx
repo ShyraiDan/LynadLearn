@@ -84,7 +84,7 @@ async function YourLists() {
                 <List
                   title={collection.title}
                   image={collection.image}
-                  href={`/dashboard/quiz/list/${collection.id}`}
+                  href={`/dashboard/flashcard/list/${collection.id}`}
                 />
               </div>
             ))}
