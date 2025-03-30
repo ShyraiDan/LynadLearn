@@ -37,7 +37,6 @@ export default function SingleQuizPage() {
           isLoading(false)
         }
       })
-      return
     }
     isLoading(false)
   }, [id])
