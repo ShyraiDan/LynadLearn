@@ -25,9 +25,9 @@ async function YourCategories() {
         <Category collection={DCEFRCollectionGroup} />
       </div>
 
-      <div className={styles.category}>
+      <div className={twMerge(styles.category, 'dark:!bg-none dark:!bg-blue-600')}>
         <div className={styles.top}>
-          <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600 ">{t('categorized_wordlist')}</H6>
+          <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">{t('categorized_wordlist')}</H6>
         </div>
         <div className={styles.categories}>
           {DCategoriesWords.map((item) => (

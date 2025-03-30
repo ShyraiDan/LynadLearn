@@ -101,7 +101,7 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
             </div>
           )} */}
 
-          <div className={styles['vocabulary-quiz']}>
+          <div className={twMerge(styles['vocabulary-quiz'], 'dark:!bg-none dark:!bg-blue-600')}>
             <div className={styles.top}>
               <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">
                 {t(DCEFRCollectionGroup.title)}
@@ -120,7 +120,7 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
             </div>
           </div>
 
-          <div className="py-6 flex flex-col gap-4 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4">
+          <div className="py-6 flex flex-col gap-4 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4 dark:bg-none dark:bg-blue-600">
             <div className={styles.top}>
               <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">{t('categorized_wordlist')}</H6>
             </div>
@@ -136,7 +136,7 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
             </div>
           </div>
 
-          <div className={styles['vocabulary-quiz']}>
+          <div className={twMerge(styles['vocabulary-quiz'], 'dark:!bg-none dark:!bg-blue-600')}>
             <div className={styles.top}>
               <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">{t(DCommonWords.title)}</H6>
             </div>
