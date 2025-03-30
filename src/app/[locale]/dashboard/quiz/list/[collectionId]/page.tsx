@@ -70,8 +70,6 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
       {collection && (
         <>
           <PageHeading
-            name="name"
-            id="id"
             title={locale === 'en' ? collection.title : collection.titleUa}
             description={locale === 'en' ? collection.description : collection.descriptionUa}
             image={collection.image}

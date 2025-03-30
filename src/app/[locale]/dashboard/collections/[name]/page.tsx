@@ -29,8 +29,6 @@ async function Collections({ params }: ICollectionsProps) {
   return (
     <>
       <PageHeading
-        name="Collections1"
-        id="collections"
         title={locale === 'en' ? collectionGroup.title : collectionGroup.titleUa}
         description={locale === 'en' ? collectionGroup.description : collectionGroup.descriptionUa}
         showStatistics={false}

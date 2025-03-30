@@ -7,20 +7,6 @@
     @apply flex flex-col gap-4 items-center 
     lg:w-[60%] lg:items-start lg:gap-6;
 
-    .breadcrumbs {
-      @apply text-[0.8rem] mb-2 font-medium text-[#6a778db9] tracking-[0.15px] z-[2] w-full
-      sm:text-[0.95rem] 
-      lg:block md:flex hidden;
-
-      ul {
-        @apply flex flex-wrap list-none m-0 p-0 capitalize;
-
-        li {
-          @apply [&:not(:last-child)]:after:content-['/'] [&:not(:last-child)]:after:px-1 [&:not(:last-child)]:after:opacity-70 text-blue-100;
-        }
-      }
-    }
-
     .stats {
       @apply flex gap-4 items-center;
 
