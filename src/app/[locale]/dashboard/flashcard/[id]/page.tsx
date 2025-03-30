@@ -1,8 +1,6 @@
 'use client'
 
 import styles from './Flashcard.module.scss'
-import { getWordsByListId } from '@/lib/word'
-import { getListById } from '@/lib/lists'
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react'
 import FlashCardWord from '@/components/FlashCardWord/FlashCardWord'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
@@ -17,6 +15,8 @@ import { useRouter } from 'next/navigation'
 import 'swiper/css'
 import { H2, H3, P } from '@/components/ui/Typography/Typography'
 import Container from '@/components/ui/Container/Container'
+import useSWR from 'swr'
+import { fetcher } from '@/utils/fetcher'
 
 import { TbCardsFilled, TbVocabulary } from 'react-icons/tb'
 
@@ -56,8 +56,6 @@ const SlideContent = ({ isActive, word, isLast, setWords, setIsFinished, setWron
 export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
   const t = useTranslations('dashboard.flashcard')
   const [words, setWords] = useState<IWord[]>([])
-  const [list, setList] = useState<IList | null>(null)
-  const [loading, setLoading] = useState(true)
   const [isLast, setIsLast] = useState(false)
   const [isFinished, setIsFinished] = useState(false)
   const [initialWords, setInitialWords] = useState(0)
@@ -81,20 +79,44 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
     router.back()
   }
 
+  const {
+    data: wordsData,
+    isLoading: isWordsDataLoading,
+    error: wordsDataError
+  } = useSWR<IWord[]>(`/api/words/${listId}`, fetcher, {
+    shouldRetryOnError: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    refreshWhenHidden: false,
+    refreshWhenOffline: false
+  })
+
+  const {
+    data: list,
+    isLoading: isListDataLoading,
+    error: listDataError
+  } = useSWR<IList>(`/api/list/${listId}`, fetcher, {
+    shouldRetryOnError: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    refreshWhenHidden: false,
+    refreshWhenOffline: false
+  })
+
   useEffect(() => {
-    getWordsByListId(listId).then((data) => {
-      setWords(data)
-      setInitialWords(data.length)
-    })
-    getListById(listId).then((data) => setList(data))
+    if (wordsData) {
+      setWords(wordsData)
+      setInitialWords(wordsData.length)
+    }
+  }, [wordsData])
 
-    setLoading(false)
-  }, [listId])
+  const isLoading = isWordsDataLoading || isListDataLoading
 
+  // TODO: Add error handling
   return (
     <>
       <Container className={styles.container}>
-        {!loading && list && words.length !== 0 && (
+        {!isLoading && list && words.length !== 0 && (
           <>
             <div className={styles.top}>
               <H2 className="text-blue-200 font-bold mb-0">{t('words_from', { list: list?.title })} </H2>
@@ -154,7 +176,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
           </>
         )}
 
-        {!loading && !list && words.length === 0 && (
+        {!isLoading && !list && words.length === 0 && (
           <div className={styles['no-lists']}>
             <P className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">{t('no_lists')}</P>
             <NavigationLink href="/dashboard/flashcard" className={styles.links}>
@@ -164,7 +186,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
           </div>
         )}
 
-        {!loading && list && words.length === 0 && (
+        {!isLoading && list && words.length === 0 && (
           <div className={styles['no-lists']}>
             <P className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">{t('no_words')}</P>
             <div className="flex gap-4">
@@ -183,7 +205,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
           </div>
         )}
 
-        {loading && <Loader dimensionClass={styles.loader} />}
+        {isLoading && <Loader dimensionClass={styles.loader} />}
       </Container>
 
       {isFinished && (
