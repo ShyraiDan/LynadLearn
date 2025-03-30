@@ -7,7 +7,7 @@ import { H2, H3, H4, H6 } from '@/components/ui/Typography/Typography'
 import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 import { getSession } from '@/lib/auth'
 import { getAllGrammar } from '@/lib/grammar'
-import { getYourLists } from '@/lib/lists'
+// import { getYourLists } from '@/lib/lists'
 import { DCEFRCollectionGroup, DCommonWords, DCategoriesWords } from '@/mock/DefaultCollectionGroups.mock'
 import { useTranslations } from 'next-intl'
 import { getTranslations } from 'next-intl/server'
@@ -15,7 +15,7 @@ import { Suspense } from 'react'
 import { twMerge } from 'tailwind-merge'
 import styles from './QuizPage.module.scss'
 import CategoryItem from '@/components/CategoryItem/CategoryItem'
-import CustomList from '@/components/CustomList/CustomList'
+// import CustomList from '@/components/CustomList/CustomList'
 
 type TQuizPage = {
   searchParams: {
@@ -68,17 +68,20 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
       )
     }
 
-    const userLists = await getYourLists()
+    //  TODO: User vocabulary quiz
+    // const userLists = await getYourLists()
 
     return (
       <>
         <div className={styles.level}>
+          {/* TODO: User vocabulary quiz */}
+          {/* 
           {!userLists.length && (
-            <div className={styles['no-list']}>
-              <H2>{t('no_lists')}</H2>
-            </div>
+              <div className={styles['no-list']}>
+                <H2>{t('no_lists')}</H2>
+              </div>
           )}
-
+          
           {userLists && (
             <div className="py-6 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4">
               <div className={styles.top}>
@@ -96,7 +99,7 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
                 </div>
               </div>
             </div>
-          )}
+          )} */}
 
           <div className={styles['vocabulary-quiz']}>
             <div className={styles.top}>

@@ -22,7 +22,6 @@ interface IVocabularyQuizPageProps {
 
 export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps) {
   const [isQuiz, setIsQuiz] = useState(false)
-  const [timer, setTimer] = useState(0)
   const [isTimeExpired, setIsTimeExpired] = useState(false)
   const [correct, setCorrect] = useState(0)
   const [finishTime, setFinishTime] = useState(0)
@@ -30,7 +29,6 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
   const [isFinished, setIsFinished] = useState(false)
   const t = useTranslations('dashboard.quiz')
   const { sectionId } = params
-  // const [vocabularyQuiz, setVocabularyQuiz] = useState<IVocabularyQuiz | null>(null)
 
   const {
     data: vocabularyQuiz,
