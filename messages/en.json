@@ -288,6 +288,10 @@
       "common_adverbs": "500 Most Common English Adverbs",
       "common_phrase": "250 Most Common English Phrases",
       "need_auth": "In order to add list you must sign in to your account",
+      "congrats": "Congratulations!",
+      "you_learned": "You successfully learned {words} new words from {list}. To improve learning and review vocabulary, start practicing.",
+      "to_flashcards": "Flashcards",
+      "leave": "Leave",
       "learn": {
         "example": "Example",
         "words": "Words",
