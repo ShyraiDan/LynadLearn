@@ -3,15 +3,15 @@
 }
 
 .loader-wrapper {
-  @apply w-[100vw] min-h-[calc(100vh-397px-81px)]
-  sm:min-h-[calc(100vh-193px-81px)] 
-  md:min-h-[calc(100vh-153px-81px)] 
-  lg:min-h-[calc(100vh-97px-81px)];
+  @apply w-[100vw] min-h-[calc(100vh-120px-81px)]
+  sm:min-h-[calc(100vh-130px-81px)] 
+  md:min-h-[calc(100vh-88px-81px)] 
+  lg:min-h-[calc(100vh-32px-81px)];
 }
 
 .loader {
-  @apply h-[calc(100vh-397px-81px)]
-  sm:h-[calc(100vh-193px-81px)] 
-  md:h-[calc(100vh-153px-81px)] 
-  lg:h-[calc(100vh-97px-81px)];
+  @apply h-[calc(100vh-120px-81px)]
+  sm:h-[calc(100vh-130px-81px)] 
+  md:h-[calc(100vh-88px-81px)] 
+  lg:h-[calc(100vh-32px-81px)];
 }

@@ -140,7 +140,6 @@ export default function Home() {
           <Image src={app} alt="App" className={styles.image} />
         </div>
       </Container>
-      {/* </div> */}
     </>
   )
 }
