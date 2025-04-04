@@ -22,14 +22,14 @@ async function YourLists() {
         {t('dashboard.flashcard.flashcard_page')}
       </H2>
       <div className={styles.sections}>
-        <div className="py-6 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4 dark:bg-none dark:bg-blue-600">
+        <div className="py-6 px-4 bg-gradient-to-b from-white-100 to-[#f4f6f8] dark:bg-none dark:bg-blue-600">
           <div className={styles.top}>
             <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">
               {t('dashboard.flashcard.choose_word_list')}
             </H6>
           </div>
           <div>
-            <div className="flex gap-3 overflow-x-auto sm:bg-[#deede671] sm:px-4 sm:my-6 sm:pt-10 sm:pb-5 sm:rounded-2xl sm:shadow-sm sm:shadow-[#00000013] md:rounded-l-none md:basis-7/12 md:max-w-[calc(100%-300px)] lg:max-w-[calc(100vw-292px)] lg:rounded-2xl dark:!bg-[#1D2D4D]">
+            <div className="flex gap-3 rounded-2xl px-4 pt-4 pb-2 overflow-x-auto sm:bg-[#deede671] sm:px-4 sm:my-6 sm:pt-10 sm:pb-5 sm:shadow-sm sm:shadow-[#00000013] md:rounded-l-none md:basis-7/12 md:max-w-[calc(100%-300px)] lg:max-w-[calc(100vw-292px)] lg:rounded-2xl dark:!bg-[#1D2D4D]">
               {lists.map((item) => (
                 <div key={item._id} className={styles.item}>
                   <NavigationLink href={`/dashboard/flashcard/${item._id}`}>
@@ -41,7 +41,7 @@ async function YourLists() {
           </div>
         </div>
 
-        <div className="py-6 flex flex-col gap-4 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4 dark:bg-none dark:bg-blue-600">
+        <div className="py-6 px-4 flex flex-col gap-4 bg-gradient-to-b from-white-100 to-[#f4f6f8] dark:bg-none dark:bg-blue-600">
           <div className={styles.top}>
             <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">
               {t(`dashboard.flashcard.${DCEFRCollectionGroup.title}`)}
@@ -60,7 +60,7 @@ async function YourLists() {
           </div>
         </div>
 
-        <div className="py-6 flex flex-col gap-4 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4 dark:bg-none dark:bg-blue-600">
+        <div className="py-6 px-4 flex flex-col gap-4 bg-gradient-to-b from-white-100 to-[#f4f6f8] dark:bg-none dark:bg-blue-600">
           <div className={styles.top}>
             <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">
               {t('dashboard.flashcard.categorized_wordlist')}
@@ -78,7 +78,7 @@ async function YourLists() {
           </div>
         </div>
 
-        <div className="py-6 flex flex-col gap-4 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4 dark:bg-none dark:bg-blue-600">
+        <div className="py-6 px-4 flex flex-col gap-4 bg-gradient-to-b from-white-100 to-[#f4f6f8] dark:bg-none dark:bg-blue-600">
           <div className={styles.top}>
             <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">
               {t(`dashboard.flashcard.${DCommonWords.title}`)}

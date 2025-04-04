@@ -17,11 +17,11 @@ async function YourCategories() {
 
   return (
     <>
-      <div className={styles.list}>
+      <div>
         <CustomCategory lists={yourCategory} />
       </div>
 
-      <div className={styles.list}>
+      <div>
         <Category collection={DCEFRCollectionGroup} />
       </div>
 
@@ -36,7 +36,7 @@ async function YourCategories() {
         </div>
       </div>
 
-      <div className={styles.list}>
+      <div>
         <Category collection={DCommonWords} />
       </div>
     </>
