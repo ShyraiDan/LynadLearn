@@ -1,4 +1,13 @@
 .container {
   @apply mx-4 py-6 bg-gradient-to-b from-white-100 to-[#f4f6f8]
   sm:px-4 sm:mx-0;
+
+  .top {
+    @apply mb-4
+    md:hidden;
+  }
+
+  .list-group {
+    @apply flex w-full h-full rounded-2xl px-4 pt-4 pb-2;
+  }
 }

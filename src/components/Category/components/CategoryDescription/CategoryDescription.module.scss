@@ -1,14 +1,12 @@
 .top {
   @apply mb-6 flex justify-between 
-  sm:hidden
-  lg:flex;
+  sm:hidden;
 }
 
 .description {
   @apply hidden my-2
   sm:flex sm:rounded-2xl sm:border sm:border-[#849adba1] sm:flex-col sm:px-2 
-  md:basis-5/12 md:justify-between md:min-w-[300px]
-  lg:hidden;
+  md:basis-5/12 md:justify-between md:min-w-[300px] md:max-w-[350px];
 }
 
 .info {

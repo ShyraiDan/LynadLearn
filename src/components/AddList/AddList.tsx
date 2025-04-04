@@ -62,7 +62,7 @@ export default function AddList() {
     <>
       <div>
         <div className={styles.container} onClick={() => openModal()}>
-          <div className={twMerge(styles.photo, 'dark:bg-[#233869] dark:shadow-lg')}>
+          <div className={twMerge(styles.photo, 'dark:bg-[#1D2D4D] dark:shadow-lg')}>
             <FaPlus />
           </div>
           <P className="w-[100px] text-[1rem] text-center cursor-pointer sm:w-[135px]">{t('add_list')}</P>

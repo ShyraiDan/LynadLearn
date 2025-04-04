@@ -3,10 +3,9 @@
 import { IDefaultCollectionGroup } from '@/interfaces/DefaultCollectionGroup.interface'
 import styles from './Category.module.scss'
 import List from '@/components/List/List'
-import CategoryDescription from './components/CategoryDescription/CategoryDescription'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper/modules'
+import { H3, P } from '../ui/Typography/Typography'
 import { twMerge } from 'tailwind-merge'
+import { useTranslations } from 'next-intl'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -16,59 +15,23 @@ interface CategoryProps {
 }
 
 export function Category({ collection }: CategoryProps) {
+  const t = useTranslations('dashboard.lists')
   return (
     <div className={twMerge(styles.container, 'dark:bg-none dark:bg-blue-600')}>
       <div>
-        <CategoryDescription title={collection.title} description="" />
-        <div className={styles['list-group']}>
-          <Swiper
-            pagination={true}
-            modules={[Pagination]}
-            // className={styles.slider}
-            spaceBetween={10}
-            loop={true}
-            breakpoints={{
-              320: {
-                slidesPerView: 2
-              },
-              400: {
-                slidesPerView: 3
-              },
-              510: {
-                slidesPerView: 4
-              },
-              576: {
-                slidesPerView: 3
-              },
-              700: {
-                slidesPerView: 4
-              },
-              840: {
-                slidesPerView: 5
-              },
-              992: {
-                slidesPerView: 4
-              },
-              1150: {
-                slidesPerView: 5
-              },
-              1300: {
-                slidesPerView: 6
-              },
-              1450: {
-                slidesPerView: 7
-              },
-              1600: {
-                slidesPerView: 8
-              }
-            }}
-          >
+        <div className={styles.top}>
+          <H3 className="font-bold text-[16px] text-blue-150 md:mb-0">{t(collection.title)}</H3>
+        </div>
+        <div className={twMerge(styles['list-group'], 'dark:!bg-[#18223D]')}>
+          <div className="hidden md:block mt-2 max-w-[350px] pr-4 md:pr-8">
+            <H3 className="text-blue-150 text-2xl font-bold sm:mb-3 md:text-3xl">{t(collection.title)}</H3>
+            <P className="py-2 text-blue-350 font-medium">{t(collection.description)}</P>
+          </div>
+          <div className="flex flex-nowrap overflow-x-auto gap-4">
             {collection.collections.map((item) => (
-              <SwiperSlide key={item.id}>
-                <List title={item.title} image={item.image} href={`/dashboard/lists/${item.id}`} />
-              </SwiperSlide>
+              <List key={item.id} title={item.title} image={item.image} href={`/dashboard/lists/${item.id}`} />
             ))}
-          </Swiper>
+          </div>
         </div>
       </div>
     </div>

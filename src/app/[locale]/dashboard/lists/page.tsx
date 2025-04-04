@@ -2,7 +2,7 @@ import { Category } from '@/components/Category/Category'
 import CategoryItem from '@/components/CategoryItem/CategoryItem'
 import CustomCategory from '@/components/CustomCategory/CustomCategory'
 import Loader from '@/components/Loader/Loader'
-import { H6 } from '@/components/ui/Typography/Typography'
+import { H3 } from '@/components/ui/Typography/Typography'
 import { getYourLists } from '@/lib/lists'
 import { DCEFRCollectionGroup, DCommonWords, DCategoriesWords } from '@/mock/DefaultCollectionGroups.mock'
 import { getTranslations } from 'next-intl/server'
@@ -27,7 +27,9 @@ async function YourCategories() {
 
       <div className={twMerge(styles.category, 'dark:!bg-none dark:!bg-blue-600')}>
         <div className={styles.top}>
-          <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">{t('categorized_wordlist')}</H6>
+          <H3 className="font-bold text-blue-150 mb-0 text-[16px] md:text-[30px] dark:!text-grey-600">
+            {t('categorized_wordlist')}
+          </H3>
         </div>
         <div className={styles.categories}>
           {DCategoriesWords.map((item) => (
