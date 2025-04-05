@@ -3,7 +3,7 @@ import Loader from '@/components/Loader/Loader'
 import QuizCard from '@/components/QuizCard/QuizCard'
 import Container from '@/components/ui/Container/Container'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
-import { H2, H3, H4, H6 } from '@/components/ui/Typography/Typography'
+import { H2, H3, H4, P } from '@/components/ui/Typography/Typography'
 import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 import { getSession } from '@/lib/auth'
 import { getAllGrammar } from '@/lib/grammar'
@@ -101,28 +101,37 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
             </div>
           )} */}
 
-          <div className={twMerge(styles['vocabulary-quiz'], 'dark:!bg-none dark:!bg-blue-600')}>
-            <div className={styles.top}>
-              <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">
-                {t(DCEFRCollectionGroup.title)}
-              </H6>
-            </div>
-            <div className={styles.items}>
-              {DCEFRCollectionGroup.collections.map((collection) => (
-                <div key={collection.id} className={styles.item}>
-                  <List
-                    title={collection.title}
-                    image={collection.image}
-                    href={`/dashboard/quiz/list/${collection.id}`}
-                  />
+          <div className="mx-4 py-6 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4 sm:mx-0 dark:bg-none dark:bg-blue-600">
+            <div>
+              <div className="mb-4 md:hidden">
+                <H3 className="font-bold text-[16px] text-blue-150 md:mb-0">{t(DCEFRCollectionGroup.title)}</H3>
+              </div>
+              <div className="flex w-full h-full rounded-2xl px-4 pt-4 pb-2 dark:!bg-[#18223D]">
+                <div className="hidden md:block mt-2 max-w-[350px] pr-4 md:pr-8">
+                  <H3 className="text-blue-150 text-2xl font-bold sm:mb-3 md:text-3xl">
+                    {t(DCEFRCollectionGroup.title)}
+                  </H3>
+                  <P className="py-2 text-blue-350 font-medium">{t(DCEFRCollectionGroup.description)}</P>
                 </div>
-              ))}
+                <div className="flex flex-nowrap overflow-x-auto gap-4">
+                  {DCEFRCollectionGroup.collections.map((item) => (
+                    <List
+                      key={item.id}
+                      title={item.title}
+                      image={item.image}
+                      href={`/dashboard/quiz/list/${item.id}`}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="py-6 px-4 flex flex-col gap-4 bg-gradient-to-b from-white-100 to-[#f4f6f8] dark:bg-none dark:bg-blue-600">
+          <div className="py-6 px-4 flex flex-col gap-4 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4 sm:mx-0 dark:bg-none dark:bg-blue-600">
             <div className={styles.top}>
-              <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">{t('categorized_wordlist')}</H6>
+              <H3 className="font-bold text-blue-150 mb-0 text-[16px] md:text-[30px] dark:!text-grey-600">
+                {t('categorized_wordlist')}
+              </H3>
             </div>
             <div className="grid gap-4 grid-cols-2 sm:grid-cols-4">
               {DCategoriesWords.map((item) => (
@@ -136,20 +145,27 @@ async function CategoryQuizPage({ locale, type }: TCategoryQuizPage) {
             </div>
           </div>
 
-          <div className={twMerge(styles['vocabulary-quiz'], 'dark:!bg-none dark:!bg-blue-600')}>
-            <div className={styles.top}>
-              <H6 className="font-bold mb-2 text-blue-150 md:mb-0 dark:!text-grey-600">{t(DCommonWords.title)}</H6>
-            </div>
-            <div className={styles.items}>
-              {DCommonWords.collections.map((collection) => (
-                <div key={collection.id} className={styles.item}>
-                  <List
-                    title={collection.title}
-                    image={collection.image}
-                    href={`/dashboard/quiz/list/${collection.id}`}
-                  />
+          <div className="mx-4 py-6 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4 sm:mx-0 dark:bg-none dark:bg-blue-600">
+            <div>
+              <div className="mb-4 md:hidden">
+                <H3 className="font-bold text-[16px] text-blue-150 md:mb-0">{t(DCommonWords.title)}</H3>
+              </div>
+              <div className="flex w-full h-full rounded-2xl px-4 pt-4 pb-2 dark:!bg-[#18223D]">
+                <div className="hidden md:block mt-2 max-w-[350px] pr-4 md:pr-8">
+                  <H3 className="text-blue-150 text-2xl font-bold sm:mb-3 md:text-3xl">{t(DCommonWords.title)}</H3>
+                  <P className="py-2 text-blue-350 font-medium">{t(DCommonWords.description)}</P>
                 </div>
-              ))}
+                <div className="flex flex-nowrap overflow-x-auto gap-4">
+                  {DCommonWords.collections.map((item) => (
+                    <List
+                      key={item.id}
+                      title={item.title}
+                      image={item.image}
+                      href={`/dashboard/quiz/list/${item.id}`}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -5,7 +5,6 @@ import AddList from '@/components/AddList/AddList'
 import CustomList from '@/components/CustomList/CustomList'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { twMerge } from 'tailwind-merge'
-import { H3 } from '../ui/Typography/Typography'
 import CategoryDescription from '../Category/components/CategoryDescription/CategoryDescription'
 
 interface CustomCategoryProps {
