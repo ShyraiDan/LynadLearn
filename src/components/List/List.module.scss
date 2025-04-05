@@ -1,9 +1,10 @@
 .container {
-  @apply my-2 mb-8 flex items-center flex-col xl:max-w-[135px];
+  @apply my-2 mb-8 flex items-center flex-col xl:max-w-[135px] mx-2
+  lg:mt-4;
 }
 
 .image-cont {
-  @apply w-[100px] h-[150px] object-contain 
+  @apply w-[100px] h-[150px] object-contain transition-all ease-in duration-200
   sm:w-[135px] sm:h-[205px];
 }
 

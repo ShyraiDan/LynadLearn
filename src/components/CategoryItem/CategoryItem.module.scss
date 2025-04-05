@@ -1,5 +1,5 @@
 .category-item {
-  @apply flex items-center justify-center bg-red w-full h-[140px] bg-cover rounded-3xl text-2xl font-bold capitalize;
+  @apply flex items-center justify-center bg-red w-full h-[140px] bg-cover rounded-3xl;
 }
 
 .adverbs {
@@ -7,13 +7,29 @@
 }
 
 .verbs {
-  @apply text-[#363884] bg-[url('../../../src/assets/verbs.png')] bg-[#dfefe7];
+  @apply text-[#44504a] bg-[url('../../../src/assets/verbs.png')] bg-[#dfefe7];
 }
 
 .adjectives {
-  @apply text-[#363884] bg-[url('../../../src/assets/adjectives.png')] bg-[#d6eef8];
+  @apply text-[#167385] bg-[url('../../../src/assets/adjectives.png')] bg-[#d6eef8];
 }
 
 .other {
-  @apply text-[#363884] bg-[url('../../../src/assets/others.png')] bg-[#f7d7ed];
+  @apply text-[#784b6a] bg-[url('../../../src/assets/others.png')] bg-[#f7d7ed];
+}
+
+.adverbs-text {
+  @apply text-[#363884];
+}
+
+.verbs-text {
+  @apply text-[#44504a];
+}
+
+.adjectives-text {
+  @apply text-[#167385];
+}
+
+.other-text {
+  @apply text-[#784b6a];
 }
