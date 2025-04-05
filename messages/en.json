@@ -401,7 +401,8 @@
       "adverbs": "Adverbs",
       "verbs": "Verbs",
       "adjectives": "Adjectives",
-      "other": "Other"
+      "other": "Other",
+      "no_data": "No data found"
     },
     "grammar": {
       "move_to_test": "Move to Grammar test",
