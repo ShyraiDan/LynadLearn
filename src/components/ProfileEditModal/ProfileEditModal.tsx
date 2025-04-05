@@ -77,7 +77,7 @@ export default function ProfileEditModal({ session }: { session: ISession }) {
                     height={80}
                     className="w-full h-full rounded-full"
                     unoptimized
-                    src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/${fileName}`}
+                    src={`https://${process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME}.s3.amazonaws.com/custom/${fileName}`}
                   />
                 ) : (
                   <FaUser className="dark:fill-grey-600" />
