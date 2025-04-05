@@ -43,7 +43,7 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
     refreshWhenOffline: false
   })
 
-  const t = useTranslations('dashboard.lists.learn')
+  const t = useTranslations('dashboard.flashcard')
   const [isSelected, setIsSelected] = useState(0)
   const [isPinned, setIsPinned] = useState(false)
 

@@ -402,7 +402,15 @@
       "verbs": "Verbs",
       "adjectives": "Adjectives",
       "other": "Other",
-      "no_data": "No data found"
+      "no_data": "No data found",
+      "example": "Example",
+      "words": "Words",
+      "start": "Start",
+      "hours": "h",
+      "minutes": "m",
+      "lessons": "Lessons",
+      "need_auth": "In order to add to your bookmarks you must sign in to your account",
+      "back_to_lists": "Back to Lists"
     },
     "grammar": {
       "move_to_test": "Move to Grammar test",
@@ -441,6 +449,15 @@
       "verbs": "Verbs",
       "adjectives": "Adjectives",
       "other": "Other",
+      "example": "Example",
+      "words": "Words",
+      "start": "Start",
+      "hours": "h",
+      "minutes": "m",
+      "lessons": "Lessons",
+      "need_auth": "In order to add to your bookmarks you must sign in to your account",
+      "no_data": "No data found",
+      "back_to_lists": "Back to Lists",
       "modal": {
         "need_auth": "You need to sign in to browse your lists",
         "choose_list": "Choose list to add word",
