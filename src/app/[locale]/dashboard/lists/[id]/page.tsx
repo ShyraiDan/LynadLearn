@@ -3,16 +3,17 @@
 import styles from './SingleList.module.scss'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Image from 'next/image'
-import { useState, MouseEvent, useEffect } from 'react'
+import { useState, MouseEvent } from 'react'
 import Button from '@/components/ui/Button/Button'
 import PageHeading from '@/components/PageHeading/PageHeading'
 import { useTranslations } from 'next-intl'
 import { twMerge } from 'tailwind-merge'
 import { getCookies } from '@/utils/cookies'
 import { RequireAuthModal } from '@/components/RequireAuthModal/RequireAuthModal'
-import { getCollectionById } from '@/lib/collections'
 import { ICollections } from '@/interfaces/Collections.interface'
 import Container from '@/components/ui/Container/Container'
+import useSWR from 'swr'
+import { fetcher } from '@/utils/fetcher'
 
 import { FaClock, FaBookmark, FaRegBookmark } from 'react-icons/fa6'
 import subcategoryUnselected from '@/assets/subcategory-unselected.svg'
@@ -23,6 +24,7 @@ import { FaArrowRight } from 'react-icons/fa'
 import { removeScrollBar } from '@/constants/shared'
 import { AuthModal } from '@/components/AuthModal/AuthModal'
 import { H3, H6 } from '@/components/ui/Typography/Typography'
+import Loader from '@/components/Loader/Loader'
 
 interface SingleDefaultListProps {
   params: {
@@ -31,16 +33,20 @@ interface SingleDefaultListProps {
   }
 }
 
-//TODO:
-// add loader and message when no list found
-
 export default function SingleDefaultList({ params }: SingleDefaultListProps) {
   const { locale, id } = params
-  const [collection, setCollection] = useState<ICollections | null>(null)
 
-  useEffect(() => {
-    getCollectionById(id).then((data) => setCollection(data))
-  }, [id])
+  const {
+    data: collection,
+    isLoading,
+    error
+  } = useSWR<ICollections>(`/api/collection/${id}`, fetcher, {
+    shouldRetryOnError: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    refreshWhenHidden: false,
+    refreshWhenOffline: false
+  })
 
   const t = useTranslations('dashboard.lists.learn')
   const [isSelected, setIsSelected] = useState(0)
@@ -67,7 +73,19 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
 
   return (
     <Container className={styles.container}>
-      {!collection && <div>Collection not found</div>}
+      {isLoading && <Loader dimensionClass="!static lg:!relative" />}
+
+      {error && (
+        <div className="flex items-center justify-center flex-col h-[calc(100vh-201px-73px-32px)] sm:min-h-[calc(100vh-193px-81px-32px)] md:min-h-[calc(100vh-153px-81px-32px)] lg:h-full">
+          <H3 className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">{t('no_data')}</H3>
+          <NavigationLink
+            className="flex font-medium items-center justify-center bg-blue-200 text-white-100 px-3 py-1.5 rounded transition-all ease-in-out duration-300 lg:hover:bg-purple-100"
+            href="/dashboard/lists"
+          >
+            {t('back_to_lists')}
+          </NavigationLink>
+        </div>
+      )}
 
       {collection && (
         <>

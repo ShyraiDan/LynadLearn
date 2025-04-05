@@ -299,7 +299,9 @@
         "hours": "h",
         "minutes": "m",
         "lessons": "Lessons",
-        "need_auth": "In order to add to your bookmarks you must sign in to your account"
+        "need_auth": "In order to add to your bookmarks you must sign in to your account",
+        "no_data": "No data found",
+        "back_to_lists": "Back to Lists"
       }
     },
     "vocabulary": {

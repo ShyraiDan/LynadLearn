@@ -80,7 +80,7 @@ export default function LearnCategoryPage({ params }: LearnCategoryPageProps) {
             />
 
             <Modal isOpen={isModalOpen} handleClose={() => setIsModalOpen(false)} className="dark:bg-[#0B152E]">
-              <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 h-full">
+              <div className="flex flex-col-reverse h-full lg:grid lg:grid-cols-2">
                 <div className="flex flex-col h-full w-full justify-between mb-10">
                   <div>
                     <div className="flex flex-col gap-4">
