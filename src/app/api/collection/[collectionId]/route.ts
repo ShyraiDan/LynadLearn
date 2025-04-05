@@ -3,6 +3,7 @@
 import Collections from '@/interfaces/Collections.interface'
 import Sections from '@/interfaces/Section.interface'
 import { NextResponse } from 'next/server'
+import connectMongoDB from '@/lib/mongodb'
 
 // equals to getCollectionById lib function
 export async function GET(req: Request) {
@@ -10,6 +11,7 @@ export async function GET(req: Request) {
   const collectionId = url.pathname.split('/').pop()
 
   try {
+    await connectMongoDB()
     await Sections
     const collection = await Collections.findById(collectionId).populate(
       'sections',
