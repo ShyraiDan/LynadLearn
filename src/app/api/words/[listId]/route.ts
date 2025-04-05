@@ -2,6 +2,7 @@
 
 import Word from '@/interfaces/Word.interface'
 import { NextResponse } from 'next/server'
+import connectMongoDB from '@/lib/mongodb'
 
 // equals to getWordsByListId lib function
 export async function GET(req: Request) {
@@ -9,6 +10,7 @@ export async function GET(req: Request) {
   const listId = url.pathname.split('/').pop()
 
   try {
+    await connectMongoDB()
     const words = await Word.find({ listId }).sort({
       updatedAt: -1
     })

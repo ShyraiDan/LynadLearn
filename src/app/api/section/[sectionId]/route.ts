@@ -3,6 +3,7 @@
 import Sections from '@/interfaces/Section.interface'
 import DefaultWords from '@/interfaces/defaultWords.interface'
 import { NextResponse } from 'next/server'
+import connectMongoDB from '@/lib/mongodb'
 
 // equals to getSectionById lib function
 export async function GET(req: Request) {
@@ -10,6 +11,7 @@ export async function GET(req: Request) {
   const sectionId = url.pathname.split('/').pop()
 
   try {
+    await connectMongoDB()
     await DefaultWords
     const section = await Sections.findById(sectionId).populate(
       'words',

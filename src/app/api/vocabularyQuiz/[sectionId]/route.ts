@@ -7,6 +7,7 @@ import { IVocabularyQuestion } from '@/interfaces/Quiz.interface'
 import { IWord } from '@/interfaces/Word.interface'
 import { shuffleArray } from '@/utils/middlewares'
 import { nanoid } from 'nanoid'
+import connectMongoDB from '@/lib/mongodb'
 
 const defaultVocabularyQuizQuestions = [
   {
@@ -44,6 +45,7 @@ export async function GET(req: Request) {
   const sectionId = url.pathname.split('/').pop()
 
   try {
+    await connectMongoDB()
     await DefaultWords
     const section = await Sections.findById(sectionId).populate(
       'words',

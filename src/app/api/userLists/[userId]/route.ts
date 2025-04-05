@@ -2,6 +2,7 @@
 
 import List from '@/interfaces/List.interface'
 import { NextResponse } from 'next/server'
+import connectMongoDB from '@/lib/mongodb'
 
 // equals to getUserLists lib function
 export async function GET(req: Request) {
@@ -9,6 +10,7 @@ export async function GET(req: Request) {
   const userId = url.pathname.split('/').pop()
 
   try {
+    await connectMongoDB()
     const lists = await List.find({ userId })
 
     return NextResponse.json(lists ?? [])

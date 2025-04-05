@@ -2,6 +2,7 @@
 
 import List from '@/interfaces/List.interface'
 import { NextResponse } from 'next/server'
+import connectMongoDB from '@/lib/mongodb'
 
 // equals to getListById lib function
 export async function GET(req: Request) {
@@ -9,6 +10,7 @@ export async function GET(req: Request) {
   const listId = url.pathname.split('/').pop()
 
   try {
+    await connectMongoDB()
     const list = await List.findById(listId)
 
     if (!list) {
