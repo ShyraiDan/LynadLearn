@@ -20,3 +20,23 @@
     @apply box-border;
   }
 }
+
+.success-modal {
+  @apply fixed z-40 flex flex-col box-border overflow-hidden p-4 bg-white-100 rounded top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%]
+  sm:p-5 sm:w-[510px]
+  md:w-[550px]
+  lg:w-[600px];
+
+  button {
+    @apply py-2 px-2 self-end font-bold z-[2];
+
+    svg {
+      @apply transition-all ease-linear duration-150 
+      lg:hover:text-purple-100;
+    }
+  }
+
+  > div {
+    @apply box-border;
+  }
+}

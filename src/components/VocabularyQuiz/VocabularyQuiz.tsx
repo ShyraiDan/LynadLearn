@@ -33,8 +33,8 @@ export default function VocabularyQuiz({
   setFinishTime,
   setIsFinished
 }: IVocabularyQuizProps) {
-  const [seconds, setSeconds] = useState(60)
-  const [question, setQuestion] = useState(0)
+  const [seconds, setSeconds] = useState(1)
+  const [question, setQuestion] = useState(19)
   const t = useTranslations('dashboard.quiz')
   const [selectedOption, setSelectedOption] = useState(false)
   const [isTimer, setIsTimer] = useState(true)
@@ -80,7 +80,9 @@ export default function VocabularyQuiz({
         <div className={styles.top}>
           <H2 className="text-blue-200 font-bold mb-4">{quiz.title}</H2>
           <div>
-            <div className={twMerge(styles.questions, 'dark:text-grey-600')}>0/10</div>
+            <div className={twMerge(styles.questions, 'dark:text-grey-600')}>
+              {question + 1}/{quiz.questions.length}
+            </div>
             <div className={twMerge('dark:text-grey-600', seconds < 6 && styles.time)}>
               00:{seconds < 10 ? `0${seconds}` : seconds}
             </div>

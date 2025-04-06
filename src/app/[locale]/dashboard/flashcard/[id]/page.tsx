@@ -19,6 +19,7 @@ import useSWR from 'swr'
 import { fetcher } from '@/utils/fetcher'
 
 import { TbCardsFilled, TbVocabulary } from 'react-icons/tb'
+import { ConfettiContainer } from '@/HOC/ConfettiContainer'
 
 type TSingleFlashcardPage = {
   params: {
@@ -115,6 +116,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
   // TODO: Add error handling
   return (
     <>
+      <ConfettiContainer isVisible={isFinished} />
       <Container className={styles.container}>
         {!isLoading && list && words.length !== 0 && (
           <>
@@ -213,6 +215,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
           className={twMerge(styles.finished, 'dark:bg-[#0B152E]')}
           isOpen={isFinished}
           handleClose={() => showModal()}
+          successModal
         >
           <div className={styles.modal}>
             <div>

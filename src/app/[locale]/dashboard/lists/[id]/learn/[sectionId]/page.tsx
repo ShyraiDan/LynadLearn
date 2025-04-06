@@ -98,8 +98,13 @@ export default function LearnCategoryPage({ params }: LearnCategoryPageProps) {
               word={word > section.words.length - 1 ? section?.words[section.words.length - 1] : section?.words[word]}
             />
 
-            <Modal isOpen={isModalOpen} handleClose={() => setIsModalOpen(false)} className="dark:bg-[#0B152E]">
-              <div className="flex flex-col-reverse h-full lg:grid lg:grid-cols-2">
+            <Modal
+              isOpen={isModalOpen}
+              handleClose={() => setIsModalOpen(false)}
+              className="dark:bg-[#0B152E]"
+              successModal
+            >
+              <div className="flex flex-col-reverse h-full">
                 <div className="flex flex-col h-full w-full justify-between mb-10">
                   <div>
                     <div className="flex flex-col gap-4">
@@ -116,16 +121,16 @@ export default function LearnCategoryPage({ params }: LearnCategoryPageProps) {
                   </div>
                   <div className="flex gap-4 mt-8">
                     <NavigationLink
-                      className="rounded bg-blue-200 px-5 py-2 font-bold text-center w-[140px] transition-all ease-out duration-150 hover:bg-purple-100"
+                      className="rounded bg-blue-200 px-5 py-2 font-bold text-center w-[140px] transition-all ease-out duration-150 text-white-200 hover:bg-purple-100"
                       href={`/dashboard/flashcard/list/${id}/section/${sectionId}`}
                     >
-                      To flashcards
+                      {t('to_flashcards')}
                     </NavigationLink>
                     <NavigationLink
                       className="rounded border border-white border-solid bg-transparent text-center px-5 py-2 font-bold w-[140px] transition-all ease-out duration-150 hover:bg-purple-100 hover:border-purple-100"
                       href="/dashboard/lists"
                     >
-                      Leave
+                      {t('leave')}
                     </NavigationLink>
                   </div>
                 </div>

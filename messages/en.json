@@ -410,13 +410,16 @@
       "minutes": "m",
       "lessons": "Lessons",
       "need_auth": "In order to add to your bookmarks you must sign in to your account",
-      "back_to_lists": "Back to Lists"
+      "leave": "Leave from grammar",
+      "back_to_lists": "Back to Lists",
+      "to_grammar": "Move to Grammar"
     },
     "grammar": {
       "move_to_test": "Move to Grammar test",
       "no_grammar": "No grammar found. Try to open another list.",
       "move_to_grammar": "Move to Grammar",
-      "need_auth": "In order to add to your bookmarks you must sign in to your account"
+      "need_auth": "In order to add to your bookmarks you must sign in to your account",
+      "to_lists": "Move to Lists"
     },
     "flashcard": {
       "flashcard_page": "Flashcard page",

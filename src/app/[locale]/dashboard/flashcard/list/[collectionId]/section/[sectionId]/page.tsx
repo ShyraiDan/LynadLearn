@@ -27,6 +27,7 @@ import { fetcher } from '@/utils/fetcher'
 import useSWR from 'swr'
 import { ISection } from '@/interfaces/Section.interface'
 import { IList } from '@/interfaces/List.interface'
+import { ConfettiContainer } from '@/HOC/ConfettiContainer'
 
 type TSingleFlashcardPage = {
   params: {
@@ -163,6 +164,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
 
   return (
     <>
+      <ConfettiContainer isVisible={isFinished} />
       <Container className={styles.container}>
         {!isLoading && words.length !== 0 && (
           <>
@@ -243,6 +245,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
           className={twMerge(styles.finished, 'dark:bg-[#0B152E]')}
           isOpen={isFinished}
           handleClose={() => showModal()}
+          successModal
         >
           <div className={styles.modal}>
             <div>
