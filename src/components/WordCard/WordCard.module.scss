@@ -34,10 +34,10 @@
     }
 
     .synonyms {
-      @apply flex gap-3;
+      @apply flex gap-3 overflow-x-auto;
 
       button {
-        @apply text-black text-sm py-3 px-3 flex items-center rounded-2xl bg-[#C9F8E1] font-medium;
+        @apply text-black text-sm py-3 px-3 flex items-center rounded-2xl bg-[#C9F8E1] font-medium mb-2;
 
         > span {
           @apply mt-[2px] h-[18px];
