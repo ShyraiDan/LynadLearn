@@ -1,11 +1,12 @@
 'use client'
 
+import useSWR from 'swr'
+import { fetcher } from '@/utils/fetcher'
 import styles from './LearnCategoryPage.module.scss'
 import { WordCard } from '@/components/WordCard/WordCard'
 import Button from '@/components/ui/Button/Button'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { twMerge } from 'tailwind-merge'
-import { getSectionById } from '@/lib/sections'
 import { ISection } from '@/interfaces/Section.interface'
 import Container from '@/components/ui/Container/Container'
 import { Modal } from '@/components/ui/Modal/Modal'
@@ -14,13 +15,11 @@ import { H3, P } from '@/components/ui/Typography/Typography'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Image from 'next/image'
 import { ConfettiContainer } from '@/HOC/ConfettiContainer'
+import Loader from '@/components/Loader/Loader'
 
 import { IoIosArrowBack } from 'react-icons/io'
 import { IoIosArrowForward } from 'react-icons/io'
 import finishImage from '@/assets/finish.png'
-
-//TODO:
-// add loader and message when no list found
 
 interface LearnCategoryPageProps {
   params: {
@@ -33,13 +32,20 @@ interface LearnCategoryPageProps {
 export default function LearnCategoryPage({ params }: LearnCategoryPageProps) {
   const { sectionId, id, locale } = params
   const [word, setWord] = useState(0)
-  const [section, setSection] = useState<ISection | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const t = useTranslations('dashboard.lists')
 
-  useEffect(() => {
-    getSectionById(sectionId).then((data) => setSection(data))
-  }, [sectionId])
+  const {
+    data: section,
+    isLoading,
+    error
+  } = useSWR<ISection>(`/api/section/${sectionId}`, fetcher, {
+    shouldRetryOnError: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    refreshWhenHidden: false,
+    refreshWhenOffline: false
+  })
 
   const handleOpenPreviousWord = () => {
     setWord(word - 1 < 0 ? 0 : word - 1)
@@ -58,6 +64,19 @@ export default function LearnCategoryPage({ params }: LearnCategoryPageProps) {
     <>
       <ConfettiContainer isVisible={isModalOpen} />
       <Container className={styles.container}>
+        {isLoading && <Loader dimensionClass="!static lg:!relative" />}
+
+        {error && (
+          <div className="flex items-center justify-center flex-col h-[calc(100vh-201px-73px-32px)] sm:min-h-[calc(100vh-193px-81px-32px)] md:min-h-[calc(100vh-153px-81px-32px)] lg:h-full">
+            <H3 className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">{t('no_data')}</H3>
+            <NavigationLink
+              className="flex font-medium items-center justify-center bg-blue-200 text-white-100 px-3 py-1.5 rounded transition-all ease-in-out duration-300 lg:hover:bg-purple-100"
+              href={`/dashboard/lists/${id}`}
+            >
+              {t('back_to_lists')}
+            </NavigationLink>
+          </div>
+        )}
         {section && (
           <>
             <div className={styles.switcher}>
