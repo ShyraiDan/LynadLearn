@@ -12,7 +12,7 @@
     md:justify-start;
 
     > div {
-      @apply flex flex-wrap flex-row justify-between w-[100%] relative;
+      @apply flex flex-col justify-between w-[100%] relative;
 
       .content {
         @apply font-medium text-xl leading-7 p-4
@@ -27,10 +27,10 @@
         }
 
         .synonyms {
-          @apply mt-7 flex gap-2 flex-wrap;
+          @apply mt-7 flex gap-2 overflow-x-auto;
 
           button {
-            @apply text-black mt-2 text-sm py-3 px-3 flex items-center rounded-2xl bg-[#C9F8E1] font-medium;
+            @apply text-black mt-2 text-sm py-3 px-3 flex items-center rounded-2xl bg-[#C9F8E1] font-medium mb-2 w-max;
 
             > span {
               @apply mt-[2px] h-[18px];
