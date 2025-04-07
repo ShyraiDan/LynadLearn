@@ -24,7 +24,9 @@ export default function Dictionary() {
   const [searchOptions, setSearchOptions] = useState<IWord[]>([])
 
   useEffect(() => {
-    getSearchDefaultWords(debouncedQuery).then((data) => setSearchOptions(data))
+    if (debouncedQuery.length > 0) {
+      getSearchDefaultWords(debouncedQuery).then((data) => setSearchOptions(data))
+    }
   }, [debouncedQuery])
 
   const firstCol = mocks.filter((_, i) => i % 4 === 0)
