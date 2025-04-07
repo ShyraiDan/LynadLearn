@@ -1,8 +1,8 @@
 .container {
-  @apply p-4 min-h-[calc(100vh-397px-81px)]
-  sm:min-h-[calc(100vh-193px-81px)] 
-  md:min-h-[calc(100vh-153px-81px)] 
-  lg:min-h-[calc(100vh-97px-81px)];
+  @apply px-2 py-4 min-h-[calc(100vh-120px-81px)]
+  sm:min-h-[calc(100vh-128px-81px)] 
+  md:min-h-[calc(100vh-88px-81px)] 
+  lg:min-h-[calc(100vh-32px-81px)];
 
   .test {
     @apply mt-7;
@@ -14,10 +14,10 @@
   }
 
   .loader {
-    @apply h-[calc(100vh-397px-73px)] w-[calc(100vw-32px)]
-    sm:h-[calc(100vh-193px-81px)] 
-    md:h-[calc(100vh-153px-81px)] 
-    lg:h-[calc(100vh-97px-81px-32px)] lg:w-[calc(100vw-254px-32px)];
+    @apply h-[calc(100vh-120px-81px)] w-[calc(100vw-32px)]
+    sm:h-[calc(100vh-128px-81px)] 
+    md:h-[calc(100vh-88px-81px)] 
+    lg:h-[calc(100vh-32px-81px)] lg:w-[calc(100vw-254px-32px)];
   }
 }
 

@@ -30,9 +30,9 @@ async function Grammar({ params }: TSingleGrammarPage) {
   }
 
   return (
-    <>
+    <Container className={styles.container}>
       {grammar && (
-        <Container className={styles.container}>
+        <>
           <H1 className="text-blue-200 text-center font-bold text-lg md:text-2xl">
             {params.locale === 'en' ? grammar.title : grammar.titleUa}
           </H1>
@@ -64,9 +64,9 @@ async function Grammar({ params }: TSingleGrammarPage) {
           <div className={styles.test}>
             <NavigationLink href={`/dashboard/quiz/${grammar._id}`}>{t('move_to_test')}</NavigationLink>
           </div>
-        </Container>
+        </>
       )}
-    </>
+    </Container>
   )
 }
 

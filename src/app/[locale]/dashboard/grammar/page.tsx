@@ -57,15 +57,10 @@ export default function GrammarPage({ params }: IGrammarPageProps) {
     return false
   }
 
-  if (isLoading)
-    return (
-      <div className={styles.container}>
-        <Loader dimensionClass={styles.loader} />
-      </div>
-    )
-
   return (
     <Container className={styles.container}>
+      {isLoading && <Loader dimensionClass={styles.loader} />}
+
       {error && (
         <div className="flex items-center justify-center flex-col h-[calc(100vh-201px-73px-32px)] sm:min-h-[calc(100vh-193px-81px-32px)] md:min-h-[calc(100vh-153px-81px-32px)] lg:h-full">
           <H3 className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">{t('no_data')}</H3>
