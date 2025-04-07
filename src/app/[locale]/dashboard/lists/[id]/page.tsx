@@ -136,9 +136,6 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
                                       <FaRegBookmark className="dark:text-grey-600 dark:lg:hover:text-purple-100" />
                                     )}
                                   </Button>
-                                  <NavigationLink href="/">
-                                    <BsGridFill />
-                                  </NavigationLink>
                                 </div>
                                 <div className={styles.info}>
                                   <div>
