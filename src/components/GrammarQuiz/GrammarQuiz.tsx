@@ -79,7 +79,9 @@ export default function GrammarQuiz({
         <div className={styles.top}>
           <H2 className="text-blue-200 font-bold mb-4">{quiz.title}</H2>
           <div>
-            <div className={twMerge(styles.questions, 'dark:text-grey-600')}>0/10</div>
+            <div className={twMerge(styles.questions, 'dark:text-grey-600')}>
+              {question + 1}/{quiz.questions.length}
+            </div>
             <div className={twMerge('dark:text-grey-600', seconds < 6 && styles.time)}>
               00:{seconds < 10 ? `0${seconds}` : seconds}
             </div>

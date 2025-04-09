@@ -33,8 +33,8 @@ export default function VocabularyQuiz({
   setFinishTime,
   setIsFinished
 }: IVocabularyQuizProps) {
-  const [seconds, setSeconds] = useState(1)
-  const [question, setQuestion] = useState(19)
+  const [seconds, setSeconds] = useState(60)
+  const [question, setQuestion] = useState(0)
   const t = useTranslations('dashboard.quiz')
   const [selectedOption, setSelectedOption] = useState(false)
   const [isTimer, setIsTimer] = useState(true)

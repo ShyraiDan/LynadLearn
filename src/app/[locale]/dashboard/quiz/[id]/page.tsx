@@ -1,6 +1,5 @@
 'use client'
 
-import styles from './SingleQuiz.module.scss'
 import Button from '@/components/ui/Button/Button'
 import GrammarQuiz from '@/components/GrammarQuiz/GrammarQuiz'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
@@ -10,7 +9,6 @@ import { useTranslations } from 'next-intl'
 import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 import Loader from '@/components/Loader/Loader'
 import { useParams } from 'next/navigation'
-import { twMerge } from 'tailwind-merge'
 import { ScoresEnum } from '@/lib/scores'
 import { H1, H3, P } from '@/components/ui/Typography/Typography'
 import Container from '@/components/ui/Container/Container'
@@ -64,8 +62,8 @@ export default function SingleQuizPage() {
 
   return (
     <>
-      <Container className={styles.container}>
-        {isLoading && <Loader dimensionClass={styles.loader} />}
+      <Container className="p-4 min-h-[calc(100vh-201px-73px)] sm:min-h-[calc(100vh-193px-81px)] md:min-h-[calc(100vh-153px-81px)] lg:min-h-[calc(100vh-97px-81px)]">
+        {isLoading && <Loader dimensionClass="!static lg:!relative" />}
 
         {error && (
           <div className="flex items-center justify-center flex-col h-[calc(100vh-201px-73px-32px)] sm:min-h-[calc(100vh-193px-81px-32px)] md:min-h-[calc(100vh-153px-81px-32px)] lg:h-full">
@@ -80,15 +78,20 @@ export default function SingleQuizPage() {
         )}
 
         {grammarQuiz && !isQuiz && (
-          <>
+          <div className="flex items-center justify-center flex-col h-[calc(100vh-201px-73px-32px)] sm:min-h-[calc(100vh-193px-81px-32px)] md:min-h-[calc(100vh-153px-81px-32px)] lg:h-full">
             <H1 className="text-2xl text-blue-200 font-bold mb-4">{grammarQuiz?.title}</H1>
-            <div>
-              <Button className="dark:border-none" onClick={() => startQuiz()}>
+            <div className="grid grid-cols-2 gap-4">
+              <Button className="!border !rounded dark:border-none" onClick={() => startQuiz()}>
                 {t('start_quiz')}
               </Button>
-              <NavigationLink href="/dashboard/quiz">{t('to_quiz')}</NavigationLink>
+              <NavigationLink
+                className="border border-blue-200 rounded text-blue-200 font-bold py-2 px-6 transition-all ease-linear duration-150 lg:hover:border-purple-100 lg:hover:bg-purple-100 lg:hover:text-white-100"
+                href="/dashboard/quiz"
+              >
+                {t('to_quiz')}
+              </NavigationLink>
             </div>
-          </>
+          </div>
         )}
 
         {isQuiz && grammarQuiz && (
@@ -105,13 +108,13 @@ export default function SingleQuizPage() {
         )}
 
         <Modal
-          className={twMerge(styles['no-time-modal'], 'dark:bg-[#0B152E]')}
+          className="sm:h-[410px] sm:w-[350px] sm:self-center sm:justify-self-center dark:bg-[#0B152E]"
           isOpen={isTimeExpired}
           handleClose={() => showModal()}
           timeoutModal
         >
-          <div className={styles.modal}>
-            <H3>
+          <div className="flex justify-center items-center flex-col">
+            <H3 className="text-xl text-center font-bold text-blue-200 mb-3">
               {t('no_time')}
               <br /> {t('no_question')}
               <br />
@@ -121,8 +124,11 @@ export default function SingleQuizPage() {
                 time: Math.floor((finishTime - startTime) / 1000)
               })}
             </H3>
-            <div className={styles['nav-btns']}>
-              <NavigationLink className={styles.link} href="/dashboard/quiz?type=grammar">
+            <div className="flex gap-4">
+              <NavigationLink
+                className="w-[135px] mt-2 text-center rounded px-5 py-2 self-center bg-blue-200 text-white-100 font-bold transition-all ease-linear duration-150 lg:hover:bg-purple-100"
+                href="/dashboard/quiz?type=grammar"
+              >
                 {t('go_to_quiz')}
               </NavigationLink>
               <Button
@@ -136,12 +142,12 @@ export default function SingleQuizPage() {
         </Modal>
 
         <Modal
-          className={twMerge(styles['no-time-modal'], 'dark:bg-[#0B152E]')}
+          className="sm:h-[410px] sm:w-[350px] sm:self-center sm:justify-self-center dark:bg-[#0B152E]"
           isOpen={isFinished}
           handleClose={() => returnToQuiz()}
           successModal
         >
-          <div className={styles.modal}>
+          <div className="flex justify-center items-center flex-col">
             <H3 className="text-xl text-center font-bold text-blue-200 mb-3">{t('finished_quiz')}</H3>
             <P>
               {t('result_quiz', {
@@ -151,8 +157,11 @@ export default function SingleQuizPage() {
                 points: ScoresEnum.FINISH_QUIZ + correct * ScoresEnum.ANSWER_QUIZ
               })}
             </P>
-            <div className={twMerge(styles['nav-btns'], 'mt-3')}>
-              <NavigationLink className={styles.link} href="/dashboard/quiz?type=grammar">
+            <div className="flex gap-4 mt-3">
+              <NavigationLink
+                className="w-[135px] mt-2 text-center rounded px-5 py-2 self-center bg-blue-200 text-white-100 font-bold transition-all ease-linear duration-150 lg:hover:bg-purple-100"
+                href="/dashboard/quiz?type=grammar"
+              >
                 {t('go_to_quiz')}
               </NavigationLink>
               <Button
