@@ -61,6 +61,8 @@ export default function GrammarQuiz({
     } else {
       toast.error(t('incorrect'), { duration: 1500, className: styles.wrong })
     }
+    setSelectedOption(false)
+
     if (quiz.questions.length - 1 > question) {
       setQuestion(question + 1)
       clearInterval(seconds)
