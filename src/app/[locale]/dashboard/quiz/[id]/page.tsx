@@ -14,6 +14,7 @@ import { H1, H3, P } from '@/components/ui/Typography/Typography'
 import Container from '@/components/ui/Container/Container'
 import { fetcher } from '@/utils/fetcher'
 import useSWR from 'swr'
+import { ConfettiContainer } from '@/HOC/ConfettiContainer'
 
 export default function SingleQuizPage() {
   const [isQuiz, setIsQuiz] = useState(false)
@@ -62,6 +63,7 @@ export default function SingleQuizPage() {
 
   return (
     <>
+      <ConfettiContainer isVisible={isFinished} />
       <Container className="p-4 min-h-[calc(100vh-201px-73px)] sm:min-h-[calc(100vh-193px-81px)] md:min-h-[calc(100vh-153px-81px)] lg:min-h-[calc(100vh-97px-81px)]">
         {isLoading && <Loader dimensionClass="!static lg:!relative" />}
 
@@ -86,7 +88,7 @@ export default function SingleQuizPage() {
               </Button>
               <NavigationLink
                 className="border border-blue-200 rounded text-blue-200 font-bold py-2 px-6 transition-all ease-linear duration-150 lg:hover:border-purple-100 lg:hover:bg-purple-100 lg:hover:text-white-100"
-                href="/dashboard/quiz"
+                href="/dashboard/quiz?type=grammar"
               >
                 {t('to_quiz')}
               </NavigationLink>
