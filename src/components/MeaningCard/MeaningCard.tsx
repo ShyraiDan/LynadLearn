@@ -38,9 +38,11 @@ export const MeaningCard = ({ word }: IMeaningCard) => {
                     ))}
                   </div>
                 </div>
-                <div className={styles.exams}>
-                  <WordExamples examples={result.examples} />
-                </div>
+                {result.examples.length > 0 && (
+                  <div className={styles.exams}>
+                    <WordExamples examples={result.examples} />
+                  </div>
+                )}
               </div>
             </div>
           ))}
