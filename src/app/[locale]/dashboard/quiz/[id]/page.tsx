@@ -15,6 +15,7 @@ import Container from '@/components/ui/Container/Container'
 import { fetcher } from '@/utils/fetcher'
 import useSWR from 'swr'
 import { ConfettiContainer } from '@/HOC/ConfettiContainer'
+import { removeScrollBar } from '@/constants/shared'
 
 export default function SingleQuizPage() {
   const [isQuiz, setIsQuiz] = useState(false)
@@ -88,7 +89,7 @@ export default function SingleQuizPage() {
               </Button>
               <NavigationLink
                 className="border border-blue-200 rounded text-blue-200 font-bold py-2 px-6 transition-all ease-linear duration-150 lg:hover:border-purple-100 lg:hover:bg-purple-100 lg:hover:text-white-100"
-                href="/dashboard/quiz?type=grammar"
+                href="/dashboard/quiz/grammar"
               >
                 {t('to_quiz')}
               </NavigationLink>
@@ -129,7 +130,7 @@ export default function SingleQuizPage() {
             <div className="flex gap-4">
               <NavigationLink
                 className="w-[135px] mt-2 text-center rounded px-5 py-2 self-center bg-blue-200 text-white-100 font-bold transition-all ease-linear duration-150 lg:hover:bg-purple-100"
-                href="/dashboard/quiz?type=grammar"
+                href="/dashboard/quiz/grammar"
               >
                 {t('go_to_quiz')}
               </NavigationLink>
@@ -162,7 +163,7 @@ export default function SingleQuizPage() {
             <div className="flex gap-4 mt-3">
               <NavigationLink
                 className="w-[135px] mt-2 text-center rounded px-5 py-2 self-center bg-blue-200 text-white-100 font-bold transition-all ease-linear duration-150 lg:hover:bg-purple-100"
-                href="/dashboard/quiz?type=grammar"
+                href="/dashboard/quiz/grammar"
               >
                 {t('go_to_quiz')}
               </NavigationLink>
@@ -179,7 +180,7 @@ export default function SingleQuizPage() {
         {!isLoading && !grammarQuiz && (
           <>
             <H3 className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">{t('no_quiz')}</H3>
-            <NavigationLink href="/dashboard/quiz?type=grammar">{t('move_to_quizzes')}</NavigationLink>
+            <NavigationLink href="/dashboard/quiz/grammar">{t('move_to_quizzes')}</NavigationLink>
           </>
         )}
       </Container>

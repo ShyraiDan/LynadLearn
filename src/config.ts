@@ -63,9 +63,13 @@ export const pathnames = {
     en: `/dashboard/vocabulary/${listId}`,
     ua: `/dashboard/vocabulary/${listId}`
   },
-  '/dashboard/quiz': {
-    en: '/dashboard/quiz',
-    ua: '/dashboard/quiz'
+  '/dashboard/quiz/vocabulary': {
+    en: '/dashboard/quiz/vocabulary',
+    ua: '/dashboard/quiz/vocabulary'
+  },
+  '/dashboard/quiz/grammar': {
+    en: '/dashboard/quiz/grammar',
+    ua: '/dashboard/quiz/grammar'
   },
   '/dashboard/grammar': {
     en: '/dashboard/grammar',

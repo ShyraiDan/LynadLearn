@@ -74,7 +74,7 @@ export default function Burger({ isAuth }: { isAuth: boolean }) {
                 className="dark:text-grey-600"
                 hover
                 onClick={() => showModal()}
-                href="/dashboard/quiz?type=grammar"
+                href="/dashboard/quiz/grammar"
               >
                 {t('quiz')}
               </NavigationLink>

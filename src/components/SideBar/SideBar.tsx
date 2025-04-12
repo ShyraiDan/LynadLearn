@@ -42,7 +42,7 @@ export default function SideBar({ isAuth }: { isAuth: boolean }) {
           </NavigationLink>
         </li>
         <li>
-          <NavigationLink href="/dashboard/quiz?type=grammar" className={`${page === 'quiz' && styles.selected}`}>
+          <NavigationLink href="/dashboard/quiz/grammar" className={`${page === 'quiz' && styles.selected}`}>
             <BsQuestionSquareFill />
             {t('quiz')}
           </NavigationLink>

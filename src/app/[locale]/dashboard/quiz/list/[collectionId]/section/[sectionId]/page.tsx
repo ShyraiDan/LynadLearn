@@ -102,7 +102,7 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
             </H3>
             <NavigationLink
               className="flex font-medium items-center justify-center bg-blue-200 text-white-100 px-3 py-1.5 rounded transition-all ease-in-out duration-300 lg:hover:bg-purple-100"
-              href="/dashboard/quiz?type=vocabulary"
+              href="/dashboard/quiz/vocabulary"
             >
               {t('move_to_quizzes')}
             </NavigationLink>
@@ -129,7 +129,7 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
             <div className="flex gap-4">
               <NavigationLink
                 className="w-[135px] mt-2 text-center rounded px-5 py-2 self-center bg-blue-200 text-white-100 font-bold transition-all ease-linear duration-150 lg:hover:bg-purple-100"
-                href="/dashboard/quiz?type=vocabulary"
+                href="/dashboard/quiz/vocabulary"
               >
                 {t('go_to_quiz')}
               </NavigationLink>
@@ -162,7 +162,7 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
             <div className="flex gap-4 mt-3">
               <NavigationLink
                 className="w-[135px] mt-2 text-center rounded px-5 py-2 self-center bg-blue-200 text-white-100 font-bold transition-all ease-linear duration-150 lg:hover:bg-purple-100"
-                href="/dashboard/quiz?type=vocabulary"
+                href="/dashboard/quiz/vocabulary"
               >
                 {t('go_to_quiz')}
               </NavigationLink>
