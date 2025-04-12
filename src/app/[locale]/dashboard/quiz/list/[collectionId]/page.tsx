@@ -14,7 +14,6 @@ import useSWR from 'swr'
 import { FaClock, FaBookmark, FaRegBookmark } from 'react-icons/fa6'
 import subcategoryUnselected from '@/assets/subcategory-unselected.svg'
 import subcategorySelected from '@/assets/subcategory-selected.svg'
-import { BsGridFill } from 'react-icons/bs'
 import note from '@/assets/icons/note-2-disable.svg'
 import { FaArrowRight } from 'react-icons/fa'
 import { ICollections } from '@/interfaces/Collections.interface'
@@ -116,9 +115,6 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
                                       <FaRegBookmark className="dark:text-grey-600 dark:lg:hover:text-purple-100" />
                                     )}
                                   </Button>
-                                  <NavigationLink href="/">
-                                    <BsGridFill />
-                                  </NavigationLink>
                                 </div>
                                 <div className={styles.info}>
                                   <div>
