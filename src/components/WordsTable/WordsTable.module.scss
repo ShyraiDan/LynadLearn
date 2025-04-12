@@ -5,9 +5,8 @@
     @apply origin-center -rotate-180;
 
     .table-data {
-      // h-[calc(100vh-150px)] lg:h-[calc(100vh-245px)]
-      @apply w-full min-w-[calc(100vw-30px)]   
-       lg:min-w-[calc(100vw-290px)];
+      @apply w-full min-w-[calc(100vw-38px)]   
+       lg:min-w-[calc(100vw-292px)];
 
       .header {
         @apply bg-blue-200 text-white-100 text-base;
@@ -49,7 +48,7 @@
 }
 
 .no-words {
-  @apply flex items-center text-blue-200 justify-center h-[calc(100vh-150px)] w-[calc(100vw-30px)] 
+  @apply flex items-center text-blue-200 justify-center h-[calc(100vh-150px)] w-[calc(100vw-38px)] 
   text-2xl font-bold text-center
-  lg:w-[calc(100vw-290px)] lg:h-[calc(100vh-245px)];
+  lg:w-[calc(100vw-292px)] lg:h-[calc(100vh-245px)];
 }

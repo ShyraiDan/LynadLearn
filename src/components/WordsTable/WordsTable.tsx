@@ -4,7 +4,6 @@ import { getWordsByListId, getWordsByListIdSortedByName } from '@/lib/word'
 import { Suspense } from 'react'
 import Loader from '@/components/Loader/Loader'
 import { IWord } from '@/interfaces/Word.interface'
-import { DWords } from '@/mock/Words.mock'
 import { WordDefinition } from '@/components/WordDefinition/WordDefinition'
 import { twMerge } from 'tailwind-merge'
 
@@ -33,8 +32,6 @@ async function WordsList({ listId, sorting }: { listId: string; sorting: string 
       await getWordsByListId(listId).then((data) => (words = data))
       break
   }
-
-  words = [...words, ...DWords]
 
   if (!words?.length) {
     return <div className={twMerge(styles['no-words'], 'dark:text-grey-600')}>{t('no_words')}</div>
