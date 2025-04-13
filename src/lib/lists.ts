@@ -45,3 +45,35 @@ export const getListById = async (id: string): Promise<IList> => {
   const data = JSON.parse(JSON.stringify(list))
   return data
 }
+
+export const updateListById = async (id: string, list: IList) => {
+  try {
+    await connectMongoDB()
+
+    await List.updateOne(
+      { _id: id },
+      {
+        title: list.title,
+        avatarUrl: list.image
+      }
+    )
+
+    revalidatePath('[locale]/dashboard/vocabulary/[id]', 'page')
+    return { success: true }
+  } catch (error) {
+    console.error('Error updating word:', error)
+    return { success: false }
+  }
+}
+
+export const deleteListById = async (id: string) => {
+  try {
+    await connectMongoDB()
+    await List.deleteOne({ _id: id })
+
+    return { success: true }
+  } catch (error) {
+    console.log('Error deleting list:', error)
+    return { success: false }
+  }
+}

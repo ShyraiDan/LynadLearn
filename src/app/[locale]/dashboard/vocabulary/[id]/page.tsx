@@ -15,7 +15,7 @@ type TSingleListPage = {
 export default function SingleListPage({ params, searchParams }: TSingleListPage) {
   return (
     <Container>
-      <TopBar />
+      <TopBar listId={params.id} />
       <WordsTable listId={params.id} sorting={searchParams.sort} />
     </Container>
   )
