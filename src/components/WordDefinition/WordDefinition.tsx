@@ -149,7 +149,7 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
             <div className={styles.btns}>
               <Button onClick={() => deleteWord(word)}>{t('delete')}</Button>
               <Button
-                className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !rounded-md lg:hover:border-red lg:hover:!text-red"
+                className="!bg-transparent border border-solid border-blue-200 !text-blue-200 !rounded-md lg:hover:border-red lg:hover:!text-red dark:border-white-100 dark:!text-white-100"
                 onClick={() => showDeleteModal()}
               >
                 {t('cancel')}
