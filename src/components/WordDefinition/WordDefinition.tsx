@@ -13,6 +13,7 @@ import WordModal from '@/components/WordModal/WordModal'
 import { useTranslations } from 'next-intl'
 import { deleteWordById } from '@/lib/word'
 import { H6 } from '@/components/ui/Typography/Typography'
+import { toast } from 'sonner'
 
 import { MdEdit } from 'react-icons/md'
 import { FaTrash } from 'react-icons/fa'
@@ -37,7 +38,8 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
   }
 
   const showEditModal = (e: MouseEvent<SVGElement>) => {
-    e.stopPropagation()
+    //  Commented recently
+    // e.stopPropagation()
     setOpen(false)
     setEdit((state) => !state)
     removeScrollBar(isEdit)
@@ -49,13 +51,27 @@ export const WordDefinition = ({ words }: IWordDefinition) => {
     removeScrollBar(isDelete)
   }
 
-  const deleteWord = (word: IWord) => {
-    // TODO: add toast notification
-    if (word._id) {
-      deleteWordById(word._id)
-      setDelete((state) => !state)
-      removeScrollBar(isDelete)
+  const deleteWord = async (word: IWord) => {
+    if (!word._id) {
+      return
     }
+
+    const res = await deleteWordById(word._id)
+
+    if (res.success) {
+      toast.success(t('successfully_word_delete'), {
+        duration: 3000,
+        className: 'border border-green-100 bg-green-100 text-white-100'
+      })
+    } else {
+      toast.error(t('error_word_delete'), {
+        duration: 3000,
+        className: 'border text-white-100 border-red bg-red'
+      })
+    }
+
+    setDelete((state) => !state)
+    removeScrollBar(isDelete)
   }
 
   return (

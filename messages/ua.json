@@ -353,7 +353,13 @@
         "really_delete": "Ви впевнені, що хочете видалити це слово?",
         "cancel": "Скасувати",
         "delete": "Видалити",
-        "change_details": "Редагувати деталі слова"
+        "change_details": "Редагувати деталі слова",
+        "successfully_word_delete": "Слово успішно видалено",
+        "error_word_delete": "Помилка видалення слова",
+        "successfully_word_update": "Слово успішно оновлено",
+        "error_word_update": "Помилка оновлення слова",
+        "successfully_word_create": "Слово успішно створено",
+        "error_word_create": "Помилка створення слова"
       },
       "no_words": "На жаль, у вас немає слів",
       "word": "Слово",

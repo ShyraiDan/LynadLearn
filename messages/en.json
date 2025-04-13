@@ -352,7 +352,13 @@
         "really_delete": "Do you really want to delete the word?",
         "cancel": "Cancel",
         "delete": "Delete",
-        "change_details": "Change word details"
+        "change_details": "Change word details",
+        "successfully_word_delete": "Word successfully deleted",
+        "error_word_delete": "Error deleting word",
+        "successfully_word_update": "Word successfully updated",
+        "error_word_update": "Error updating word",
+        "successfully_word_create": "Word successfully created",
+        "error_word_create": "Error creating word"
       },
       "no_words": "Unfortunately you don't have any words yet",
       "word": "Word",
