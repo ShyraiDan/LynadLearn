@@ -215,7 +215,6 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
           className={twMerge(styles.finished, 'dark:bg-[#0B152E]')}
           isOpen={isFinished}
           handleClose={() => showModal()}
-          successModal
         >
           <div className={styles.modal}>
             <div>

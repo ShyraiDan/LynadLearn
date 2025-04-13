@@ -13,12 +13,12 @@ import { H6, P } from '@/components/ui/Typography/Typography'
 import { useParams } from 'next/navigation'
 import { updateListById, deleteListById } from '@/lib/lists'
 import { useRouter } from '@/navigation'
-
-import { MdMoreVert } from 'react-icons/md'
-import { FaPlus } from 'react-icons/fa'
 import { twMerge } from 'tailwind-merge'
 import useSWR from 'swr'
 import { fetcher } from '@/utils/fetcher'
+
+import { MdMoreVert } from 'react-icons/md'
+import { FaPlus } from 'react-icons/fa'
 
 interface ManageListModalProps {
   listId: string
