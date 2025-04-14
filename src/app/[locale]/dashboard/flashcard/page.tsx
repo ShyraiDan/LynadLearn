@@ -14,9 +14,12 @@ import CategoryItem from '@/components/CategoryItem/CategoryItem'
 import { twMerge } from 'tailwind-merge'
 import { IList } from '@/interfaces/List.interface'
 import CategoryDescription from '@/components/Category/components/CategoryDescription/CategoryDescription'
+import { getSession } from '@/lib/auth'
 
-async function YourLists() {
+async function FlashcardLists() {
   const lists = await getYourLists()
+  const { isLoggedIn } = await getSession()
+
   const t = await getTranslations()
   return (
     <>
@@ -24,18 +27,20 @@ async function YourLists() {
         {t('dashboard.flashcard.flashcard_page')}
       </H2>
       <div className={styles.sections}>
-        <div className="py-6 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4 dark:bg-none dark:bg-blue-600">
-          <div className="mx-4 sm:mx-0 md:flex">
-            <CategoryDescription title={t('your_lists')} />
-            <div className="flex gap-3 overflow-x-auto rounded-2xl px-4 pt-4 pb-2 sm:bg-[#deede671] sm:px-4 sm:my-6 sm:pt-10 sm:pb-5 sm:shadow-sm sm:shadow-[#00000013] sm:gap-6 md:rounded-l-none md:w-full md:max-w-[calc(100%-300px)] lg:max-w-[calc(100%-292px)] lg:rounded-2xl lg:rounded-l-none dark:!bg-[#18223D]">
-              {lists.map((item: IList) => (
-                <NavigationLink key={item._id} href={`/dashboard/flashcard/${item._id}`}>
-                  <CustomList title={item.title} image={item.image} />
-                </NavigationLink>
-              ))}
+        {isLoggedIn && (
+          <div className="py-6 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4 dark:bg-none dark:bg-blue-600">
+            <div className="mx-4 sm:mx-0 md:flex">
+              <CategoryDescription title={t('your_lists')} />
+              <div className="flex gap-3 overflow-x-auto rounded-2xl px-4 pt-4 pb-2 sm:bg-[#deede671] sm:px-4 sm:my-6 sm:pt-10 sm:pb-5 sm:shadow-sm sm:shadow-[#00000013] sm:gap-6 md:rounded-l-none md:w-full md:max-w-[calc(100%-300px)] lg:max-w-[calc(100%-292px)] lg:rounded-2xl lg:rounded-l-none dark:!bg-[#18223D]">
+                {lists.map((item: IList) => (
+                  <NavigationLink key={item._id} href={`/dashboard/flashcard/${item._id}`}>
+                    <CustomList title={item.title} image={item.image} />
+                  </NavigationLink>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         <div className="mx-4 py-6 bg-gradient-to-b from-white-100 to-[#f4f6f8] sm:px-4 sm:mx-0 dark:bg-none dark:bg-blue-600">
           <div>
@@ -121,7 +126,7 @@ export default function FlashcardPage() {
   return (
     <Container className={twMerge(styles.container, 'p-0')}>
       <Suspense fallback={<Loader dimensionClass={styles.loader} />}>
-        <YourLists />
+        <FlashcardLists />
       </Suspense>
     </Container>
   )
