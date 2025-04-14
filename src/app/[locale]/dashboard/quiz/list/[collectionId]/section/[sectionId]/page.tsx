@@ -97,9 +97,7 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
         )}
         {(error || vocabularyQuiz?.questions?.length === 0) && (
           <div className="flex items-center justify-center flex-col h-[calc(100vh-201px-73px-32px)] sm:min-h-[calc(100vh-193px-81px-32px)] md:min-h-[calc(100vh-153px-81px-32px)] lg:h-full">
-            <H3 className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">
-              No quiz found. Try to open another section.
-            </H3>
+            <H3 className="text-center text-lg font-bold text-blue-200 mb-2 sm:text-[2rem] sm:mb-4">{t('no_quiz')}</H3>
             <NavigationLink
               className="flex font-medium items-center justify-center bg-blue-200 text-white-100 px-3 py-1.5 rounded transition-all ease-in-out duration-300 lg:hover:bg-purple-100"
               href="/dashboard/quiz/vocabulary"
