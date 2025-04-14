@@ -68,7 +68,7 @@ export default function GrammarPage({ params }: IGrammarPageProps) {
             className="flex font-medium items-center justify-center bg-blue-200 text-white-100 px-3 py-1.5 rounded transition-all ease-in-out duration-300 lg:hover:bg-purple-100"
             href="/dashboard/lists"
           >
-            Move to Dashboard
+            {t('to_lists')}
           </NavigationLink>
         </div>
       )}
