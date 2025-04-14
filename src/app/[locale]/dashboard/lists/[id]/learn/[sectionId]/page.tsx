@@ -16,6 +16,7 @@ import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Image from 'next/image'
 import { ConfettiContainer } from '@/HOC/ConfettiContainer'
 import Loader from '@/components/Loader/Loader'
+import { useRouter } from '@/navigation'
 
 import { IoIosArrowBack } from 'react-icons/io'
 import { IoIosArrowForward } from 'react-icons/io'
@@ -34,6 +35,7 @@ export default function LearnCategoryPage({ params }: LearnCategoryPageProps) {
   const [word, setWord] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const t = useTranslations('dashboard.lists')
+  const router = useRouter()
 
   const {
     data: section,
@@ -58,6 +60,11 @@ export default function LearnCategoryPage({ params }: LearnCategoryPageProps) {
     if (word + 1 >= section?.words.length) {
       setIsModalOpen(true)
     }
+  }
+
+  const handleCloseSuccessModal = () => {
+    router.push('/dashboard/lists')
+    setIsModalOpen(false)
   }
 
   return (
@@ -100,7 +107,7 @@ export default function LearnCategoryPage({ params }: LearnCategoryPageProps) {
 
             <Modal
               isOpen={isModalOpen}
-              handleClose={() => setIsModalOpen(false)}
+              handleClose={handleCloseSuccessModal}
               className="dark:bg-[#0B152E]"
               successModal
             >

@@ -173,7 +173,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
                 {t('words_from', { list: locale === 'en' ? wordSection?.sectionTitle : wordSection?.sectionTitleUa })}{' '}
               </H2>
               <NavigationLink
-                className={twMerge(styles.link, 'dark:text-grey-600')}
+                className={twMerge(styles.link, 'block whitespace-nowrap mt-1.5 dark:text-grey-600')}
                 href={`/dashboard/lists/${collectionId}/learn/${sectionId}`}
               >
                 {t('view_list')}

@@ -127,7 +127,7 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
             <div className={styles.top}>
               <H2 className="text-blue-200 font-bold mb-0">{t('words_from', { list: list?.title })} </H2>
               <NavigationLink
-                className={twMerge(styles.link, 'dark:text-grey-600')}
+                className={twMerge(styles.link, 'block whitespace-nowrap mt-1.5 dark:text-grey-600')}
                 href={`/dashboard/vocabulary/${listId}`}
               >
                 {t('view_list')}
