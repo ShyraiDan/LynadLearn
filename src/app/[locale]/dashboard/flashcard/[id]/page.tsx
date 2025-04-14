@@ -108,6 +108,10 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
     if (wordsData) {
       setWords(wordsData)
       setInitialWords(wordsData.length)
+
+      if (wordsData.length === 1) {
+        setIsLast(true)
+      }
     }
   }, [wordsData])
 
