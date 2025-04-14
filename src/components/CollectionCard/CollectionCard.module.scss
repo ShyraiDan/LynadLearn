@@ -40,10 +40,12 @@
     @apply flex justify-between;
 
     .lists-stats {
-      @apply flex gap-3 items-center;
+      @apply flex gap-2 items-center mr-2
+      sm:gap-3 sm:mr-3;
 
       .lists-stats-item {
-        @apply flex items-center gap-1 text-[#353738];
+        @apply flex items-center gap-1 text-[#353738] text-[12px]
+        sm:text-[16px];
       }
     }
 
