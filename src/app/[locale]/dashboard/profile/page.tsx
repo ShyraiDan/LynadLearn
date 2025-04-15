@@ -85,8 +85,10 @@ async function YourProfile({ locale }: IYourProfileProps) {
           <P className="mt-2 dark:text-grey-600">{session.description}</P>
           <ul className={styles.achivements}>
             <li className="dark:text-grey-600">
-              {session.successfulQuizzes && session.totalQuizzes && session.successfulQuizzes / session.totalQuizzes} %{' '}
-              <P className="text-[12px]">{t('success_quiz')}</P>
+              {session.successfulQuizzes &&
+                session.totalQuizzes &&
+                (session.successfulQuizzes / session.totalQuizzes) * 100}{' '}
+              % <P className="text-[12px]">{t('success_quiz')}</P>
             </li>
             <li className="dark:text-grey-600">
               {session.totalQuizzes} <P className="text-[12px]">{t('finished_quiz')}</P>

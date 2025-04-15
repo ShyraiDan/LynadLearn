@@ -8,6 +8,11 @@ export interface IUser {
   avatarUrl?: string
   password: string
   rating: number
+  wordLists: number
+  totalQuizzes: number
+  successfulQuizzes: number
+  flashcardsLearned: number
+  words: number
 }
 
 const userSchema = new Schema(

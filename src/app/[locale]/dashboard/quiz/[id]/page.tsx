@@ -3,7 +3,7 @@
 import Button from '@/components/ui/Button/Button'
 import GrammarQuiz from '@/components/GrammarQuiz/GrammarQuiz'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Modal } from '@/components/ui/Modal/Modal'
 import { useTranslations } from 'next-intl'
 import { IGrammarTopic } from '@/interfaces/Grammar.interface'
@@ -16,6 +16,10 @@ import { fetcher } from '@/utils/fetcher'
 import useSWR from 'swr'
 import { ConfettiContainer } from '@/HOC/ConfettiContainer'
 import { removeScrollBar } from '@/constants/shared'
+import { calculateUserScores } from '@/utils/calucalateUserScores'
+import { updateUserByUserId } from '@/lib/user'
+import { toast } from 'sonner'
+import { getSession } from '@/lib/auth'
 
 export default function SingleQuizPage() {
   const [isQuiz, setIsQuiz] = useState(false)
@@ -57,10 +61,39 @@ export default function SingleQuizPage() {
     setStartTime(Date.now())
   }
 
-  //TODO here we need to add a point when user finish a quiz
-  if (isFinished) {
-    const userScore = ScoresEnum.FINISH_QUIZ + correct * ScoresEnum.ANSWER_QUIZ
+  const updateUserScores = async () => {
+    const session = await getSession()
+
+    if (!session.userId || !grammarQuiz || !grammarQuiz.questions || grammarQuiz.questions.length <= 0) {
+      return
+    }
+
+    const isSuccessfullyCompletedQuiz = correct / grammarQuiz?.questions.length >= 0.7 ? true : false
+    const earnedScores = calculateUserScores(correct, 'quiz', isSuccessfullyCompletedQuiz)
+
+    const result = await updateUserByUserId(session.userId, {
+      rating: earnedScores,
+      wordLists: 0,
+      totalQuizzes: 1,
+      successfulQuizzes: Number(isSuccessfullyCompletedQuiz),
+      flashcardsLearned: 0,
+      words: 0
+    })
+
+    if (!result.success) {
+      toast.error('Error updating scores', {
+        duration: 3000,
+        className: 'border text-white-100 border-red bg-red'
+      })
+    }
   }
+
+  useEffect(() => {
+    if (isFinished) {
+      updateUserScores()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFinished])
 
   return (
     <>
