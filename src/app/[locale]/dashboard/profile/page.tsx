@@ -87,7 +87,7 @@ async function YourProfile({ locale }: IYourProfileProps) {
             <li className="dark:text-grey-600">
               {session.successfulQuizzes &&
                 session.totalQuizzes &&
-                (session.successfulQuizzes / session.totalQuizzes) * 100}{' '}
+                (Number(session.successfulQuizzes / session.totalQuizzes) * 100).toFixed(2)}{' '}
               % <P className="text-[12px]">{t('success_quiz')}</P>
             </li>
             <li className="dark:text-grey-600">

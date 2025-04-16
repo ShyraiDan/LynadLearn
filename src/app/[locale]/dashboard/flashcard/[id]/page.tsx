@@ -20,6 +20,10 @@ import { fetcher } from '@/utils/fetcher'
 
 import { TbCardsFilled, TbVocabulary } from 'react-icons/tb'
 import { ConfettiContainer } from '@/HOC/ConfettiContainer'
+import { getSession } from '@/lib/auth'
+import { updateUserByUserId } from '@/lib/user'
+import { calculateUserScores } from '@/utils/calucalateUserScores'
+import { toast } from 'sonner'
 
 type TSingleFlashcardPage = {
   params: {
@@ -116,6 +120,41 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
   }, [wordsData])
 
   const isLoading = isWordsDataLoading || isListDataLoading
+
+  const updateUserScores = async () => {
+    const session = await getSession()
+
+    if (!session.userId) {
+      return
+    }
+
+    const correct = initialWords - (words.length - initialWords)
+    const isSuccessfullyCompletedFlashcards = correct / initialWords >= 0.7 ? true : false
+    const earnedScores = calculateUserScores(correct, 'flashcard', isSuccessfullyCompletedFlashcards)
+
+    const result = await updateUserByUserId(session.userId, {
+      rating: earnedScores,
+      wordLists: 0,
+      totalQuizzes: 0,
+      successfulQuizzes: 0,
+      flashcardsLearned: initialWords,
+      words: 0
+    })
+
+    if (!result.success) {
+      toast.error('Error updating scores', {
+        duration: 3000,
+        className: 'border text-white-100 border-red bg-red'
+      })
+    }
+  }
+
+  useEffect(() => {
+    if (isFinished) {
+      updateUserScores()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFinished])
 
   // TODO: Add error handling
   return (

@@ -1,7 +1,7 @@
 'use client'
 
 import useSWR from 'swr'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import { useTranslations } from 'next-intl'
 import Loader from '@/components/Loader/Loader'
@@ -14,6 +14,10 @@ import { H1, H3, P } from '@/components/ui/Typography/Typography'
 import Container from '@/components/ui/Container/Container'
 import { fetcher } from '@/utils/fetcher'
 import { ConfettiContainer } from '@/HOC/ConfettiContainer'
+import { getSession } from '@/lib/auth'
+import { calculateUserScores } from '@/utils/calucalateUserScores'
+import { updateUserByUserId } from '@/lib/user'
+import { toast } from 'sonner'
 
 interface IVocabularyQuizPageProps {
   params: {
@@ -59,10 +63,39 @@ export default function VocabularyQuizPage({ params }: IVocabularyQuizPageProps)
     setIsFinished(false)
   }
 
-  //TODO here we need to add a point when user finish a quiz
-  if (isFinished) {
-    const userScore = ScoresEnum.FINISH_QUIZ + correct * ScoresEnum.ANSWER_QUIZ
+  const updateUserScores = async () => {
+    const session = await getSession()
+
+    if (!session.userId || !vocabularyQuiz || !vocabularyQuiz.questions || vocabularyQuiz.questions.length <= 0) {
+      return
+    }
+
+    const isSuccessfullyCompletedQuiz = correct / vocabularyQuiz?.questions.length >= 0.7 ? true : false
+    const earnedScores = calculateUserScores(correct, 'quiz', isSuccessfullyCompletedQuiz)
+
+    const result = await updateUserByUserId(session.userId, {
+      rating: earnedScores,
+      wordLists: 0,
+      totalQuizzes: 1,
+      successfulQuizzes: Number(isSuccessfullyCompletedQuiz),
+      flashcardsLearned: 0,
+      words: 0
+    })
+
+    if (!result.success) {
+      toast.error('Error updating scores', {
+        duration: 3000,
+        className: 'border text-white-100 border-red bg-red'
+      })
+    }
   }
+
+  useEffect(() => {
+    if (isFinished) {
+      updateUserScores()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFinished])
 
   return (
     <>

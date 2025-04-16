@@ -28,6 +28,8 @@ import useSWR from 'swr'
 import { ISection } from '@/interfaces/Section.interface'
 import { IList } from '@/interfaces/List.interface'
 import { ConfettiContainer } from '@/HOC/ConfettiContainer'
+import { updateUserByUserId } from '@/lib/user'
+import { calculateUserScores } from '@/utils/calucalateUserScores'
 
 type TSingleFlashcardPage = {
   params: {
@@ -132,19 +134,34 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
   }, [])
 
   const addWordsToList = async (listId: string) => {
-    await addMultipleWords(wrongWords, listId).then((res) => {
-      if (res.success) {
-        toast.success(t('modal.successfully_added'), {
-          duration: 3000,
-          className: 'border text-white-100 border-green-100 bg-green-100'
-        })
-      } else {
-        toast.success(t('modal.error_added'), {
-          duration: 3000,
-          className: 'border text-white-100 border-red bg-red'
-        })
-      }
+    const res = await addMultipleWords(wrongWords, listId)
+    const session = await getSession()
+
+    if (!session.userId) {
+      return
+    }
+    const scores = calculateUserScores(wrongWords.length, 'word', false)
+
+    const scoreResult = await updateUserByUserId(session.userId, {
+      rating: scores,
+      wordLists: 0,
+      totalQuizzes: 0,
+      successfulQuizzes: 0,
+      flashcardsLearned: 0,
+      words: wrongWords.length
     })
+
+    if (res.success && scoreResult.success) {
+      toast.success(t('modal.successfully_added'), {
+        duration: 3000,
+        className: 'border text-white-100 border-green-100 bg-green-100'
+      })
+    } else {
+      toast.success(t('modal.error_added'), {
+        duration: 3000,
+        className: 'border text-white-100 border-red bg-red'
+      })
+    }
   }
 
   const showAddWordsModal = () => {
@@ -159,6 +176,41 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
       })
     }
   }
+
+  const updateUserScores = async () => {
+    const session = await getSession()
+
+    if (!session.userId) {
+      return
+    }
+
+    const correct = initialWords - (words.length - initialWords)
+    const isSuccessfullyCompletedFlashcards = correct / initialWords >= 0.7 ? true : false
+    const earnedScores = calculateUserScores(correct, 'flashcard', isSuccessfullyCompletedFlashcards)
+
+    const result = await updateUserByUserId(session.userId, {
+      rating: earnedScores,
+      wordLists: 0,
+      totalQuizzes: 0,
+      successfulQuizzes: 0,
+      flashcardsLearned: initialWords,
+      words: 0
+    })
+
+    if (!result.success) {
+      toast.error('Error updating scores', {
+        duration: 3000,
+        className: 'border text-white-100 border-red bg-red'
+      })
+    }
+  }
+
+  useEffect(() => {
+    if (isFinished) {
+      updateUserScores()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFinished])
 
   const isLoading = isLoadingWordSection || isLoadingUserLists || isSessionLoading
 

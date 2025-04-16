@@ -17,6 +17,9 @@ import SnackBar from '@/components/ui/SnackBar/SnackBar'
 
 import { FaPlus, FaTrash } from 'react-icons/fa'
 import { MdEdit } from 'react-icons/md'
+import { getSession } from '@/lib/auth'
+import { updateUserByUserId } from '@/lib/user'
+import { calculateUserScores } from '@/utils/calucalateUserScores'
 
 interface IWordModal {
   handleClose: (e?: any) => void
@@ -83,6 +86,12 @@ export default function WordModal({ handleClose, word }: IWordModal) {
         })
       }
     } else {
+      const session = await getSession()
+
+      if (!session.userId) {
+        return
+      }
+
       const res = await createWord({
         word: values.word,
         pronunciation: values.pronunciation,
@@ -93,7 +102,16 @@ export default function WordModal({ handleClose, word }: IWordModal) {
         listId: id as string
       })
 
-      if (res.success) {
+      const scoreResult = await updateUserByUserId(session.userId, {
+        rating: calculateUserScores(1, 'word', false),
+        wordLists: 0,
+        totalQuizzes: 0,
+        successfulQuizzes: 0,
+        flashcardsLearned: 0,
+        words: 1
+      })
+
+      if (res.success && scoreResult.success) {
         toast.success(t('successfully_word_create'), {
           duration: 3000,
           className: 'border border-green-100 bg-green-100 text-white-100'

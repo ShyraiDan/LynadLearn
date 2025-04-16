@@ -19,6 +19,8 @@ import { RequireAuthModal } from '@/components/RequireAuthModal/RequireAuthModal
 import { P } from '@/components/ui/Typography/Typography'
 
 import { FaPlus } from 'react-icons/fa'
+import { calculateUserScores } from '@/utils/calucalateUserScores'
+import { updateUserByUserId } from '@/lib/user'
 
 export default function AddList() {
   const [isAdding, setAdding] = useState(false)
@@ -47,10 +49,34 @@ export default function AddList() {
 
   const onSubmit: SubmitHandler<IList> = async (values) => {
     console.log(values)
-    await createList(values)
-    toast.success(t('list_created'), { duration: 3000, className: styles.correct })
+    try {
+      const session = await getSession()
 
-    openModal()
+      if (!session.userId) {
+        return
+      }
+
+      await createList(values)
+      await updateUserByUserId(session.userId, {
+        rating: calculateUserScores(1, 'list', false),
+        wordLists: 1,
+        totalQuizzes: 0,
+        successfulQuizzes: 0,
+        flashcardsLearned: 0,
+        words: 0
+      })
+
+      toast.success(t('list_created'), { duration: 3000, className: styles.correct })
+    } catch (error) {
+      toast.error('Error updating scores', {
+        duration: 3000,
+        className: 'border text-white-100 border-red bg-red'
+      })
+
+      console.error('Error creating list', error)
+    } finally {
+      openModal()
+    }
   }
 
   const handleClose = () => {

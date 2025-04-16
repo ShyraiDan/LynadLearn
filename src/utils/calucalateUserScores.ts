@@ -9,7 +9,7 @@ export const calculateUserScores = (
     case 'quiz':
       return amount * ScoresEnum.ANSWER_QUIZ + (extra ? ScoresEnum.FINISH_QUIZ : 0)
     case 'flashcard':
-      return amount * ScoresEnum.FLASHCARD
+      return amount * ScoresEnum.FLASHCARD + (extra ? ScoresEnum.FINISH_FLASHCARD : 0)
     case 'word':
       return amount * ScoresEnum.ADD_WORD
     case 'list':
