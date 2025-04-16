@@ -1,4 +1,4 @@
-import { ScoresEnum } from '@/lib/scores'
+import { ScoresEnum } from '@/interfaces/Scores.interface'
 
 export const calculateUserScores = (
   amount: number,
