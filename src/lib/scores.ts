@@ -5,6 +5,5 @@ export enum ScoresEnum {
   FLASHCARD = 1,
   FINISH_FLASHCARD = 5,
   CREATE_LIST = 1,
-  ADD_WORD = 3,
-  ACHIEVEMENT = 10
+  ADD_WORD = 3
 }

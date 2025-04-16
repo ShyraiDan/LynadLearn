@@ -25,34 +25,6 @@ interface IYourProfileProps {
   locale: string
 }
 
-function calculateRate(session: ISession) {
-  const score = 0
-
-  // DAchievement.forEach((item) => {
-  //   let amount: number | undefined = 0
-  //   switch (item.type) {
-  //     case 'flashcards':
-  //       amount = session.flashcardsLearned
-  //       break
-  //     case 'quiz':
-  //       amount = session.successfulQuizzes
-  //       break
-  //     case 'lists':
-  //       amount = session.wordLists
-  //       break
-  //     default:
-  //       amount = session.words
-  //       break
-  //   }
-
-  //   if (amount && amount >= item.target) {
-  //     score += 25
-  //   }
-  // })
-
-  return score
-}
-
 async function YourProfile({ locale }: IYourProfileProps) {
   const session = await getSession()
   const achievements = await getAllAchievements()
@@ -80,7 +52,7 @@ async function YourProfile({ locale }: IYourProfileProps) {
           <H3 className="font-bold text-lg mt-4 mb-2">{session.userName}</H3>
           <P>{session.location}</P>
           <div className={twMerge(styles.rate, 'dark:text-grey-600 dark:bg-[#1D2D4D]')}>
-            {t('rate')}: {(session.rating as number) + calculateRate(session)}
+            {t('rate')}: {session.rating as number}
           </div>
           <P className="mt-2 dark:text-grey-600">{session.description}</P>
           <ul className={styles.achivements}>
