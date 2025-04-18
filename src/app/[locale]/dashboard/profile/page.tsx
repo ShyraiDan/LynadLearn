@@ -10,6 +10,7 @@ import { Suspense } from 'react'
 import { twMerge } from 'tailwind-merge'
 import styles from './ProfilePageRenamed.module.scss'
 import Container from '@/components/ui/Container/Container'
+import ScoredInfoModal from '@/components/ScoresInfoModal/ScoredInfoModal'
 
 import { FaUser } from 'react-icons/fa'
 
@@ -51,9 +52,10 @@ async function YourProfile({ locale }: IYourProfileProps) {
         <div className={styles['user-details']}>
           <H3 className="font-bold text-lg mt-4 mb-2">{session.userName}</H3>
           <P>{session.location}</P>
-          <div className={twMerge(styles.rate, 'dark:text-grey-600 dark:bg-[#1D2D4D]')}>
-            {t('rate')}: {session.rating as number}
+          <div className="flex items-start gap-3">
+            <ScoredInfoModal rating={session.rating as number} />
           </div>
+
           <P className="mt-2 dark:text-grey-600">{session.description}</P>
           <ul className={styles.achivements}>
             <li className="dark:text-grey-600">

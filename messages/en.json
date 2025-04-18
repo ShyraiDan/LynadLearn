@@ -381,7 +381,26 @@
       "list_created": "List(s) created",
       "words_learned": "Word(s) learned",
       "profile": "Profile",
-      "logout": "Logout"
+      "logout": "Logout",
+      "points": {
+        "rulesTitle": "Point Accumulation Rules",
+        "quiz": {
+          "title": "Quiz",
+          "rules_completing": "For completing a quiz: 5 points",
+          "rules_answer": "For each answer in the quiz: 1 point",
+          "rules_additionally": "Additionally: The percentage of correct answers in the session is multiplied by the number of words in the list. Example: if the list has 10 words and you answered 70% correctly, you’ll earn 10 × 0.7 = 7 points"
+        },
+        "flashcards": {
+          "title": "Flashcard",
+          "rules_completing": "For each answer in flashcards: 1 point",
+          "rules_additionally": "Additionally: The percentage of correct answers in the session is multiplied by the number of words in the list. Example: if the list has 10 words and you answered 70% correctly, you’ll earn 10 × 0.7 = 7 points"
+        },
+        "wordlist": {
+          "title": "Word List",
+          "rules_word": "For creating a new word: 3 points",
+          "rules_list": "For creating a new list: 1 point"
+        }
+      }
     },
     "quiz": {
       "quiz_page": "Quiz page",
