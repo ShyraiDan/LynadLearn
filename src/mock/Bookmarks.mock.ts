@@ -1,28 +1,25 @@
-import list from '@/assets/english-nouns.png'
+import { IBookmarks } from '@/interfaces/Bookmarks.interface'
 
-export const DBookmarks = [
+export const DBookmarks: IBookmarks[] = [
+  // /dashboard/lists/67d28bbb5c7098241c2f139f
   {
     id: 'collection-1',
-    image: list,
-    title: 'Basic Nouns',
-    titleUa: 'Основні Іменники',
-    description:
-      'Here you will find various lists of basic English nouns. They are sorted by different subjects or topics to help you find what you need.',
-    descriptionUa:
-      'Тут ви знайдете різні списки основних англійських іменників. Вони впорядковані за різними темами, щоб допомогти вам знайти те, що вам потрібно.',
-    lessons: 20,
-    words: 500
+    titleEn: 'Adverbs of Degree',
+    titleUa: 'Прислівники Ступеня',
+    url: '/dashboard/lists/67d28bbb5c7098241c2f139f',
+    image: 'adverbs-degree.jpg',
+    descriptionEn:
+      'In this section, you will be familiarized with adverbs that add information to sentences regarding time, frequency, sequence, place, and direction.',
+    descriptionUa: 'Ці класи прислівників додають інформацію до речень щодо кількості, міри та ступеня дій чи подій.'
   },
+  // /dashboard/lists/67d28bbb5c7098241c2f139f/learn/67d282c35c7098241c2f12dd
   {
     id: 'collection-2',
-    image: list,
-    title: 'Basic Nouns',
-    titleUa: 'Основні Іменники',
-    description:
-      'Here you will find various lists of basic English nouns. They are sorted by different subjects or topics to help you find what you need.',
-    descriptionUa:
-      'Тут ви знайдете різні списки основних англійських іменників. Вони впорядковані за різними темами, щоб допомогти вам знайти те, що вам потрібно.',
-    lessons: 20,
-    words: 500
+    titleEn: 'Adverbs of Large Amount',
+    titleUa: 'Прислівники великої кількості',
+    url: '/dashboard/lists/67d28bbb5c7098241c2f139f/learn/67d282c35c7098241c2f12dd',
+    image: '',
+    descriptionEn: '',
+    descriptionUa: ''
   }
 ]

@@ -30,9 +30,9 @@ async function Bookmarks({ params }: IBookmarksProps) {
         <>
           <H2 className="text-center text-xl font-bold text-blue-200 my-4 sm:text-2xl">{t('bookmarks')}</H2>
           <div className={styles.bookmarks}>
-            {/* {DBookmarks.map((item) => (
+            {DBookmarks.map((item) => (
               <BookmarkCard key={item.id} item={item} locale={locale} />
-            ))} */}
+            ))}
           </div>
         </>
       )}
