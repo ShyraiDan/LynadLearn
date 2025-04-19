@@ -6,6 +6,7 @@ import { getCollectionsGroup } from '@/lib/collectionGroup'
 import { Suspense } from 'react'
 import styles from './CollectionsPage.module.scss'
 import Container from '@/components/ui/Container/Container'
+import SnackBar from '@/components/ui/SnackBar/SnackBar'
 
 interface ICollectionsProps {
   params: {
@@ -40,6 +41,8 @@ async function Collections({ params }: ICollectionsProps) {
           )
         })}
       </div>
+
+      <SnackBar />
     </>
   )
 }

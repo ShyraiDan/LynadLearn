@@ -1,7 +1,17 @@
 import mongoose, { Schema } from 'mongoose'
 
 export interface IBookmarks {
-  id: string
+  _id: string
+  titleEn: string
+  titleUa: string
+  url: string
+  userId: string
+  image?: string
+  descriptionEn?: string
+  descriptionUa?: string
+}
+
+export interface IAddBookmark {
   titleEn: string
   titleUa: string
   url: string
@@ -23,6 +33,10 @@ const bookmarksSchema = new Schema({
     type: String,
     required: true
   },
+  userId: {
+    type: String,
+    required: true
+  },
   image: {
     type: String
   },
@@ -34,5 +48,5 @@ const bookmarksSchema = new Schema({
   }
 })
 
-const Bookmarks = mongoose.models.Achievements || mongoose.model('Bookmarks', bookmarksSchema)
+const Bookmarks = mongoose.models.Bookmarks || mongoose.model('Bookmarks', bookmarksSchema)
 export default Bookmarks
