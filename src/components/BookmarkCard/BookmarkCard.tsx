@@ -7,16 +7,42 @@ import { IBookmarks } from '@/interfaces/Bookmarks.interface'
 import { useState, MouseEvent } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { H3, P } from '@/components/ui/Typography/Typography'
+import { removeBookmark } from '@/lib/bookmark'
+import { useTranslations } from 'next-intl'
+import { toast } from 'sonner'
+import { KeyedMutator } from 'swr'
 
 import { BookmarkAdd, BookmarkDelete } from '@/components/ui/Icons/Icons'
 import noImage from '@/assets/no-image.jpg'
 
-export const BookmarkCard = ({ item, locale }: { item: IBookmarks; locale: string }) => {
-  const [isBookmarked, setIsBookmarked] = useState(true)
+interface BookmarkCardProps {
+  item: IBookmarks
+  locale: string
+  onRefresh: KeyedMutator<IBookmarks[]>
+}
 
-  const handleAddBookmark = (e: MouseEvent<HTMLDivElement>) => {
+export const BookmarkCard = ({ item, locale, onRefresh }: BookmarkCardProps) => {
+  const [isBookmarked, setIsBookmarked] = useState(true)
+  const t = useTranslations('dashboard.bookmarks')
+
+  const handleRemoveBookmark = async (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault()
-    setIsBookmarked(!isBookmarked)
+    const result = await removeBookmark(item._id)
+
+    if (result.success) {
+      toast.success(t('successfully_remove_bookmark'), {
+        duration: 3000,
+        className: 'border border-green-100 bg-green-100 text-white-100'
+      })
+
+      setIsBookmarked(!isBookmarked)
+      onRefresh()
+    } else {
+      toast.error(t('error_remove_bookmark'), {
+        duration: 3000,
+        className: 'border text-white-100 border-red bg-red'
+      })
+    }
   }
 
   return (
@@ -51,7 +77,7 @@ export const BookmarkCard = ({ item, locale }: { item: IBookmarks; locale: strin
                   'dark:bg-[#1D2D4D]',
                   isBookmarked && `${styles.active} dark:bg-blue-200`
                 )}
-                onClick={(e) => handleAddBookmark(e)}
+                onClick={(e) => handleRemoveBookmark(e)}
               >
                 {isBookmarked ? <BookmarkDelete /> : <BookmarkAdd className="dark:stroke-white-100" />}
               </div>

@@ -22,3 +22,38 @@ export const addBookmark = async (userId: string, bookmark: IAddBookmark) => {
     return { success: false }
   }
 }
+
+export const getBookmarksByUserId = async (userId: string) => {
+  try {
+    await connectMongoDB()
+    const bookmarks = await Bookmarks.find({ userId: userId })
+    return bookmarks
+  } catch (error) {
+    console.error('Error getting bookmarks:', error)
+    return []
+  }
+}
+
+export const getBookmarksByUserIdAndType = async (userId: string, type: string) => {
+  try {
+    await connectMongoDB()
+    const bookmarks = await Bookmarks.find({ userId: userId, itemType: type })
+    return bookmarks
+  } catch (error) {
+    console.error('Error getting bookmarks:', error)
+    return []
+  }
+}
+
+export const removeBookmark = async (id: string) => {
+  try {
+    await connectMongoDB()
+    await Bookmarks.deleteOne({ _id: id })
+
+    revalidatePath('[locale]/dashboard/bookmarks', 'page')
+    return { success: true }
+  } catch (error) {
+    console.error('Error creating word:', error)
+    return { success: false }
+  }
+}

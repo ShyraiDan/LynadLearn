@@ -12,6 +12,8 @@ export interface ICollections {
   lessons: number
   words: number
   sections: Array<ISection>
+  isBookmarked?: boolean
+  bookmarkId?: string
 }
 
 export const collectionsSchema = new Schema({

@@ -8,60 +8,101 @@ import { ICollections } from '@/interfaces/Collections.interface'
 import { useEffect, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { H3, P } from '../ui/Typography/Typography'
-import { addBookmark } from '@/lib/bookmark'
+import { addBookmark, removeBookmark } from '@/lib/bookmark'
 import { toast } from 'sonner'
 
 import { FaBookOpen, FaClock, FaArrowRight } from 'react-icons/fa6'
 import { MdPlayLesson } from 'react-icons/md'
 import { BookmarkAdd, BookmarkDelete } from '@/components/ui/Icons/Icons'
-import { getSession, ISession } from '@/lib/auth'
+import { ISession } from '@/lib/auth'
 
 interface CollectionCardProps {
   item: ICollections
   locale: string
   redirectLink: string
+  session: ISession
 }
 
-export const CollectionCard = ({ item, locale, redirectLink }: CollectionCardProps) => {
-  const [session, setSession] = useState<ISession>()
+const findBookmarkType = (itemType: string) => {
+  switch (itemType) {
+    case 'lists':
+      return 'collection'
+    case 'quiz':
+      return 'quiz'
+    case 'vocabulary':
+      return 'vocabulary'
+    default:
+      return ''
+  }
+}
 
-  useEffect(() => {
-    getSession().then((session) => {
-      setSession(session)
-    })
-  }, [])
-
+export const CollectionCard = ({ item, locale, redirectLink, session }: CollectionCardProps) => {
   const t = useTranslations('dashboard.collections')
   const [isBookmarked, setIsBookmarked] = useState(false)
+
+  useEffect(() => {
+    setIsBookmarked(!!item?.isBookmarked)
+  }, [item])
 
   const handleAddBookmark = async () => {
     if (!session?.userId) {
       return
     }
 
-    const bookmarkItem = {
-      titleEn: item.title,
-      titleUa: item.titleUa,
-      url: redirectLink,
-      image: item.image,
-      descriptionEn: item.description,
-      descriptionUa: item.descriptionUa
-    }
+    if (!isBookmarked) {
+      const itemType = findBookmarkType(redirectLink.split('/')[2])
 
-    const result = await addBookmark(session?.userId, bookmarkItem)
+      const bookmarkItem = {
+        titleEn: item.title,
+        titleUa: item.titleUa,
+        url: redirectLink,
+        image: item.image,
+        itemId: item._id,
+        itemType: itemType,
+        descriptionEn: item.description,
+        descriptionUa: item.descriptionUa
+      }
 
-    if (result.success) {
-      toast.success('Item added to bookmarks', {
-        duration: 3000,
-        className: 'border border-green-100 bg-green-100 text-white-100'
-      })
+      const result = await addBookmark(session?.userId, bookmarkItem)
 
-      setIsBookmarked(!isBookmarked)
+      if (result.success) {
+        toast.success('Item added to bookmarks', {
+          duration: 3000,
+          className: 'border border-green-100 bg-green-100 text-white-100'
+        })
+
+        setIsBookmarked(!isBookmarked)
+      } else {
+        toast.error('Error adding to bookmarks', {
+          duration: 3000,
+          className: 'border text-white-100 border-red bg-red'
+        })
+      }
     } else {
-      toast.error('Error adding to bookmarks', {
-        duration: 3000,
-        className: 'border text-white-100 border-red bg-red'
-      })
+      if (!item.bookmarkId) {
+        toast.error(t('error_remove_bookmark'), {
+          duration: 3000,
+          className: 'border text-white-100 border-red bg-red'
+        })
+
+        return
+      }
+
+      const result = await removeBookmark(item.bookmarkId)
+
+      if (result.success) {
+        toast.success(t('successfully_remove_bookmark'), {
+          duration: 3000,
+          className: 'border border-green-100 bg-green-100 text-white-100'
+        })
+
+        setIsBookmarked(!isBookmarked)
+      } else {
+        toast.error(t('error_remove_bookmark'), {
+          duration: 3000,
+          className: 'border text-white-100 border-red bg-red'
+        })
+      }
     }
   }
 

@@ -514,7 +514,9 @@
       "no_bookmarks": "There are no bookmarks",
       "no_bookmarks_description": "You need to add list or grammar topic",
       "grammar": "Grammar",
-      "vocabulary": "Vocabulary"
+      "vocabulary": "Vocabulary",
+      "successfully_remove_bookmark": "Successfully removed bookmark",
+      "error_remove_bookmark": "Error removing bookmark"
     }
   },
   "general": {
