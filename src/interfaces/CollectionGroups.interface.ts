@@ -1,6 +1,5 @@
 import { ICollections } from './Collections.interface'
 import mongoose, { Schema } from 'mongoose'
-import { collectionsSchema } from './Collections.interface'
 
 export interface ICollectionsGroup {
   _id: string

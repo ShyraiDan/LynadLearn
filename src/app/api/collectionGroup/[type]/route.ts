@@ -24,7 +24,7 @@ export async function GET(req: Request) {
     )
 
     const session = await getSession()
-    const bookmarks = await getBookmarksByUserIdAndType(session.userId as string, 'collection')
+    const bookmarks = await getBookmarksByUserIdAndType(session.userId as string, activityType || '')
 
     const parsedData = JSON.parse(JSON.stringify(collectionGroups))
 
@@ -42,7 +42,7 @@ export async function GET(req: Request) {
 
     return NextResponse.json({
       ...parsedData,
-      collections: dataWithBookmarks
+      collections: [...dataWithBookmarks]
     })
   } catch (error) {
     return NextResponse.json({ message: `Internal Server Error 21: ${error}` }, { status: 500 })
