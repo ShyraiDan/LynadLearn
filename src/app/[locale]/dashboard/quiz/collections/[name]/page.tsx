@@ -6,6 +6,7 @@ import { getCollectionsGroup } from '@/lib/collectionGroup'
 import { Suspense } from 'react'
 import styles from './CollectionsPage.module.scss'
 import Container from '@/components/ui/Container/Container'
+import { getSession } from '@/lib/auth'
 
 interface ICollectionsProps {
   params: {
@@ -24,6 +25,7 @@ interface ICollectionsPageProps {
 async function QuizCollectionsPage({ params }: ICollectionsProps) {
   const { locale, name } = params
 
+  const session = await getSession()
   const collectionGroup = await getCollectionsGroup(name)
 
   return (
@@ -41,6 +43,7 @@ async function QuizCollectionsPage({ params }: ICollectionsProps) {
               item={item}
               locale={locale}
               redirectLink={`/dashboard/quiz/list/${item._id}`}
+              session={session}
             />
           )
         })}
