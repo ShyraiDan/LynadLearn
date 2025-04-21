@@ -12,6 +12,7 @@ import { IBookmarks } from '@/interfaces/Bookmarks.interface'
 export async function GET(req: Request) {
   const url = new URL(req.url)
   const type = url.pathname.split('/').pop()
+  const activityType = url.searchParams.get('activityType')
 
   try {
     await connectMongoDB()
@@ -29,7 +30,7 @@ export async function GET(req: Request) {
 
     const dataWithBookmarks = parsedData.collections.map((collection: ICollections) => {
       const item = bookmarks.find((bookmark: IBookmarks) => {
-        return bookmark.itemId.toString() === collection._id.toString()
+        return bookmark.itemId.toString() === collection._id.toString() && activityType === bookmark.itemType
       })
 
       return {

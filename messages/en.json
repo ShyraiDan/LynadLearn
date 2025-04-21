@@ -507,7 +507,11 @@
       "hours": "h",
       "minutes": "m",
       "lessons": "Lessons",
-      "words": "Words"
+      "words": "Words",
+      "error_remove_bookmark": "Error removing bookmark",
+      "successfully_remove_bookmark": "Successfully removed bookmark",
+      "error_add_bookmark": "Error adding bookmark",
+      "successfully_add_bookmark": "Successfully added bookmark"
     },
     "bookmarks": {
       "bookmarks": "Bookmarks",

@@ -57,6 +57,6 @@
 }
 
 .button-bookmark {
-  @apply stroke-black text-black flex items-center justify-center p-2 rounded-2xl bg-[#F0F0F0] transition-all ease-in-out duration-150
+  @apply stroke-black text-black flex items-center justify-center p-2 rounded-2xl bg-[#F0F0F0] transition-all ease-in-out duration-150 cursor-pointer
   lg:hover:bg-purple-100 lg:hover:text-white-100 lg:hover:stroke-white-100 lg:hover:fill-white-100;
 }

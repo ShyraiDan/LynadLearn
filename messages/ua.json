@@ -507,14 +507,20 @@
       "hours": "год",
       "minutes": "хв",
       "lessons": "Уроків",
-      "words": "Слів"
+      "words": "Слів",
+      "error_remove_bookmark": "Помилка видалення закладки",
+      "successfully_remove_bookmark": "Закладка успішно видалена",
+      "error_add_bookmark": "Помилка додавання закладки",
+      "successfully_add_bookmark": "Закладка успішно додана"
     },
     "bookmarks": {
       "bookmarks": "Закладки",
       "no_bookmarks": "На жаль, у вас немає закладок",
       "no_bookmarks_description": "Вам слід додати список або граматичну тему",
       "grammar": "Граматика",
-      "vocabulary": "Словник"
+      "vocabulary": "Словник",
+      "successfully_remove_bookmark": "Закладка успішно видалена",
+      "error_remove_bookmark": "Помилка видалення закладки"
     }
   },
   "general": {

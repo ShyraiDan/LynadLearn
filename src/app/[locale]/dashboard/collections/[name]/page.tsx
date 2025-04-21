@@ -34,7 +34,7 @@ export default function CollectionsPage({ params }: ICollectionsPageProps) {
   }, [])
 
   const { data: collectionGroup, isLoading: isCollectionGroupLoading } = useSWR<ICollectionsGroup>(
-    `/api/collectionGroup/${name}`,
+    `/api/collectionGroup/${name}?activityType=collection`,
     fetcher,
     {
       shouldRetryOnError: false,
@@ -46,8 +46,6 @@ export default function CollectionsPage({ params }: ICollectionsPageProps) {
   )
 
   const isLoading = isSessionLoading || isCollectionGroupLoading
-
-  console.log('collectionGroup', collectionGroup)
 
   const sessionData = useMemo(() => {
     return {

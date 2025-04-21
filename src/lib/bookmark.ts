@@ -16,7 +16,7 @@ export const addBookmark = async (userId: string, bookmark: IAddBookmark) => {
     await doc.save()
 
     // revalidatePath('[locale]/dashboard/vocabulary/[id]', 'page')
-    return { success: true }
+    return { success: true, id: doc._id.toString() }
   } catch (error) {
     console.error('Error adding bookmark:', error)
     return { success: false }

@@ -31,6 +31,8 @@ const findBookmarkType = (itemType: string) => {
       return 'quiz'
     case 'vocabulary':
       return 'vocabulary'
+    case 'flashcard':
+      return 'flashcard'
     default:
       return ''
   }
@@ -39,6 +41,7 @@ const findBookmarkType = (itemType: string) => {
 export const CollectionCard = ({ item, locale, redirectLink, session }: CollectionCardProps) => {
   const t = useTranslations('dashboard.collections')
   const [isBookmarked, setIsBookmarked] = useState(false)
+  const [bookmarkId, setBookmarkId] = useState(item?.bookmarkId)
 
   useEffect(() => {
     setIsBookmarked(!!item?.isBookmarked)
@@ -66,20 +69,20 @@ export const CollectionCard = ({ item, locale, redirectLink, session }: Collecti
       const result = await addBookmark(session?.userId, bookmarkItem)
 
       if (result.success) {
-        toast.success('Item added to bookmarks', {
+        toast.success(t('successfully_add_bookmark'), {
           duration: 3000,
           className: 'border border-green-100 bg-green-100 text-white-100'
         })
-
+        setBookmarkId(result.id)
         setIsBookmarked(!isBookmarked)
       } else {
-        toast.error('Error adding to bookmarks', {
+        toast.error(t('error_add_bookmark'), {
           duration: 3000,
           className: 'border text-white-100 border-red bg-red'
         })
       }
     } else {
-      if (!item.bookmarkId) {
+      if (!bookmarkId) {
         toast.error(t('error_remove_bookmark'), {
           duration: 3000,
           className: 'border text-white-100 border-red bg-red'
@@ -88,7 +91,7 @@ export const CollectionCard = ({ item, locale, redirectLink, session }: Collecti
         return
       }
 
-      const result = await removeBookmark(item.bookmarkId)
+      const result = await removeBookmark(bookmarkId)
 
       if (result.success) {
         toast.success(t('successfully_remove_bookmark'), {
