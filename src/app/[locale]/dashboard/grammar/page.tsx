@@ -1,20 +1,20 @@
 'use client'
 
-import styles from './GrammarPageRenamed.module.scss'
+import styles from './GrammarPage.module.scss'
 import QuizCard from '@/components/QuizCard/QuizCard'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Loader from '@/components/Loader/Loader'
 import { IGrammarTopic } from '@/interfaces/Grammar.interface'
 import { RequireAuthModal } from '@/components/RequireAuthModal/RequireAuthModal'
 import { removeScrollBar } from '@/constants/shared'
 import { AuthModal } from '@/components/AuthModal/AuthModal'
-import { getCookies } from '@/utils/cookies'
 import { H2, H3, P } from '@/components/ui/Typography/Typography'
 import { useTranslations } from 'next-intl'
 import Container from '@/components/ui/Container/Container'
 import useSWR from 'swr'
 import { fetcher } from '@/utils/fetcher'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
+import { getSession, ISession } from '@/lib/auth'
 
 interface IGrammarPageProps {
   params: {
@@ -26,6 +26,7 @@ export default function GrammarPage({ params }: IGrammarPageProps) {
   const [isAuthRequireModal, setAuthRequireModal] = useState(false)
   const [isAuthModal, setAuthModal] = useState(false)
   const t = useTranslations('dashboard.grammar')
+  const [session, setSession] = useState<ISession>()
 
   const {
     data: grammarElementary,
@@ -44,18 +45,11 @@ export default function GrammarPage({ params }: IGrammarPageProps) {
     removeScrollBar(isAuthRequireModal)
   }
 
-  const handleBookmark = (id: string) => {
-    const cookies = getCookies()
-
-    if (cookies['lama-session']) {
-      return true
-    } else {
-      setAuthRequireModal(true)
-      removeScrollBar(isAuthRequireModal)
-    }
-
-    return false
-  }
+  useEffect(() => {
+    getSession().then((data) => {
+      setSession(data)
+    })
+  }, [])
 
   return (
     <Container className={styles.container}>
@@ -80,7 +74,7 @@ export default function GrammarPage({ params }: IGrammarPageProps) {
               {grammarElementary?.map((item: IGrammarTopic, i: number) => {
                 return (
                   <div key={item._id.toString()} className={`${styles.item}  ${styles[`item-${(i % 8) + 1}`]}`}>
-                    <QuizCard topic={item} lang={params.locale} allowedAction={handleBookmark} />
+                    <QuizCard topic={item} lang={params.locale} session={session} type="grammar" />
                   </div>
                 )
               })}

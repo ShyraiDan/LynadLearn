@@ -10,6 +10,7 @@ import { twMerge } from 'tailwind-merge'
 import { H3, P } from '../ui/Typography/Typography'
 import { addBookmark, removeBookmark } from '@/lib/bookmark'
 import { toast } from 'sonner'
+import { findBookmarkType } from '@/utils/findBookmarkType'
 
 import { FaBookOpen, FaClock, FaArrowRight } from 'react-icons/fa6'
 import { MdPlayLesson } from 'react-icons/md'
@@ -21,21 +22,6 @@ interface CollectionCardProps {
   locale: string
   redirectLink: string
   session: ISession
-}
-
-const findBookmarkType = (itemType: string) => {
-  switch (itemType) {
-    case 'lists':
-      return 'collection'
-    case 'quiz':
-      return 'quiz'
-    case 'vocabulary':
-      return 'vocabulary'
-    case 'flashcard':
-      return 'flashcard'
-    default:
-      return ''
-  }
 }
 
 export const CollectionCard = ({ item, locale, redirectLink, session }: CollectionCardProps) => {

@@ -3,23 +3,28 @@
 import styles from './SingleList.module.scss'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Image from 'next/image'
-import { useState, MouseEvent } from 'react'
+import { useState, MouseEvent, useEffect } from 'react'
 import Button from '@/components/ui/Button/Button'
 import PageHeading from '@/components/PageHeading/PageHeading'
 import { useTranslations } from 'next-intl'
 import { twMerge } from 'tailwind-merge'
 import Container from '@/components/ui/Container/Container'
-import useSWR from 'swr'
+import useSWR, { mutate } from 'swr'
+import { ICollections } from '@/interfaces/Collections.interface'
+import { H3 } from '@/components/ui/Typography/Typography'
+import { fetcher } from '@/utils/fetcher'
+import Loader from '@/components/Loader/Loader'
+import { addBookmark, removeBookmark } from '@/lib/bookmark'
+import { toast } from 'sonner'
+import { getSession, ISession } from '@/lib/auth'
+import { ISection } from '@/interfaces/Section.interface'
+import { findBookmarkType } from '@/utils/findBookmarkType'
 
 import { FaClock, FaBookmark, FaRegBookmark } from 'react-icons/fa6'
 import subcategoryUnselected from '@/assets/subcategory-unselected.svg'
 import subcategorySelected from '@/assets/subcategory-selected.svg'
 import note from '@/assets/icons/note-2-disable.svg'
 import { FaArrowRight } from 'react-icons/fa'
-import { ICollections } from '@/interfaces/Collections.interface'
-import { H3 } from '@/components/ui/Typography/Typography'
-import { fetcher } from '@/utils/fetcher'
-import Loader from '@/components/Loader/Loader'
 
 interface SingleDefaultListProps {
   params: {
@@ -30,12 +35,16 @@ interface SingleDefaultListProps {
 
 export default function SingleDefaultList({ params }: SingleDefaultListProps) {
   const { locale, collectionId } = params
+  const [session, setSession] = useState<ISession>()
+  const t = useTranslations('dashboard.quiz')
+  const [isSelected, setIsSelected] = useState(0)
+  const [bookmarkedItems, setBookmarkedItems] = useState<string[]>([])
 
   const {
     data: collection,
     isLoading,
     error
-  } = useSWR<ICollections>(`/api/collection/${collectionId}`, fetcher, {
+  } = useSWR<ICollections>(`/api/collection/${collectionId}?activityType=quiz`, fetcher, {
     shouldRetryOnError: false,
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
@@ -43,13 +52,82 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
     refreshWhenOffline: false
   })
 
-  const t = useTranslations('dashboard.quiz')
-  const [isSelected, setIsSelected] = useState(0)
-  const [isPinned, setIsPinned] = useState(false)
+  useEffect(() => {
+    getSession().then((data) => {
+      setSession(data)
+    })
+  }, [])
 
-  const handlePin = (e: MouseEvent<HTMLButtonElement>) => {
+  useEffect(() => {
+    setBookmarkedItems(
+      collection?.sections.filter((item: ISection) => item.isBookmarked).map((item: ISection) => item._id) || []
+    )
+  }, [collection])
+
+  const handlePin = async (item: ISection, e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation()
-    setIsPinned(!isPinned)
+
+    if (session?.userId) {
+      if (!bookmarkedItems.includes(item._id)) {
+        const redirectLink = `/dashboard/quiz/lists/${collectionId}/section/${item._id}`
+
+        const itemType = findBookmarkType(redirectLink.split('/')[2])
+
+        const bookmarkItem = {
+          titleEn: item.sectionTitle,
+          titleUa: item.sectionTitleUa,
+          url: redirectLink,
+          image: '',
+          itemId: item._id,
+          itemType: itemType,
+          descriptionEn: '',
+          descriptionUa: ''
+        }
+
+        const result = await addBookmark(session?.userId, bookmarkItem)
+
+        if (result.success) {
+          toast.success(t('successfully_add_bookmark'), {
+            duration: 3000,
+            className: 'border border-green-100 bg-green-100 text-white-100'
+          })
+
+          mutate(`/api/collection/${collectionId}?activityType=quiz`)
+        } else {
+          toast.error(t('error_add_bookmark'), {
+            duration: 3000,
+            className: 'border text-white-100 border-red bg-red'
+          })
+        }
+      } else {
+        if (!item.bookmarkId) {
+          toast.error(t('error_remove_bookmark'), {
+            duration: 3000,
+            className: 'border text-white-100 border-red bg-red'
+          })
+
+          return
+        }
+
+        const result = await removeBookmark(item.bookmarkId)
+
+        if (result.success) {
+          toast.success(t('successfully_remove_bookmark'), {
+            duration: 3000,
+            className: 'border border-green-100 bg-green-100 text-white-100'
+          })
+
+          // setBookmarkedItems((state) => state.filter((id) => id !== item._id))
+
+          mutate(`/api/collection/${collectionId}?activityType=quiz`)
+        } else {
+          toast.error(t('error_remove_bookmark'), {
+            duration: 3000,
+            className: 'border text-white-100 border-red bg-red'
+          })
+        }
+      }
+    }
   }
 
   return (
@@ -85,7 +163,7 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
                           alt="Subcategory icon"
                           className={styles.icon}
                         />
-                        <div className={styles.number}>{i + 1 > 10 ? i + 1 : `0${i + 1}`}</div>
+                        <div className={styles.number}>{i + 1 > 9 ? i + 1 : `0${i + 1}`}</div>
                       </div>
                       <div className={styles['accordion-wrapper']}>
                         <div className={twMerge(styles['accordion'])}>
@@ -108,8 +186,8 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
                             <div className={styles['accordion-details']}>
                               <div className={twMerge(styles['accordion-details-container'], 'dark:!bg-[#1D2D4D]')}>
                                 <div className={styles.btns}>
-                                  <Button className={styles['tip-btn']} onClick={(e) => handlePin(e)}>
-                                    {isPinned ? (
+                                  <Button className={styles['tip-btn']} onClick={(e) => handlePin(section, e)}>
+                                    {bookmarkedItems.includes(section._id) ? (
                                       <FaBookmark className="dark:text-grey-600 dark:lg:hover:text-purple-100" />
                                     ) : (
                                       <FaRegBookmark className="dark:text-grey-600 dark:lg:hover:text-purple-100" />

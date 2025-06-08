@@ -6,6 +6,8 @@ export interface ISection {
   sectionTitle: string
   sectionTitleUa: string
   words: Array<IWord>
+  isBookmarked?: boolean
+  bookmarkId?: string
 }
 
 export const sectionSchema = new Schema({

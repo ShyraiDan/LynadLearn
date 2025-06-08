@@ -312,7 +312,11 @@
         "lessons": "Уроків",
         "need_auth": "Щоб додати до своїх закладок, ви повинні увійти у свій обліковий запис",
         "leave": "Вийти з уроку",
-        "no_data": "Дані не знайдено"
+        "no_data": "Дані не знайдено",
+        "error_remove_bookmark": "Помилка видалення закладки",
+        "successfully_remove_bookmark": "Закладка успішно видалена",
+        "error_add_bookmark": "Помилка додавання закладки",
+        "successfully_add_bookmark": "Закладка успішно додана"
       }
     },
     "vocabulary": {
@@ -447,7 +451,11 @@
       "need_auth": "Щоб додати до своїх закладок, ви повинні увійти у свій обліковий запис",
       "leave": "Вийти з уроку",
       "no_data": "Дані не знайдено",
-      "to_grammar": "До Граматики"
+      "to_grammar": "До Граматики",
+      "error_remove_bookmark": "Помилка видалення закладки",
+      "successfully_remove_bookmark": "Закладка успішно видалена",
+      "error_add_bookmark": "Помилка додавання закладки",
+      "successfully_add_bookmark": "Закладка успішно додана"
     },
     "grammar": {
       "move_to_test": "Перейти до тесту",
@@ -501,7 +509,11 @@
         "choose_list": "Виберіть список, щоб додати слово",
         "successfully_added": "Ваше слово додано до списку",
         "error_added": "Помилка додавання вашого слова"
-      }
+      },
+      "error_remove_bookmark": "Помилка видалення закладки",
+      "successfully_remove_bookmark": "Закладка успішно видалена",
+      "error_add_bookmark": "Помилка додавання закладки",
+      "successfully_add_bookmark": "Закладка успішно додана"
     },
     "collections": {
       "hours": "год",

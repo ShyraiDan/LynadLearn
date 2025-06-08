@@ -8,6 +8,17 @@ export const addBookmark = async (userId: string, bookmark: IAddBookmark) => {
   try {
     await connectMongoDB()
 
+    const existingItem = await Bookmarks.findOne({
+      userId: userId,
+      itemType: bookmark.itemType,
+      itemId: bookmark.itemId
+    })
+
+    if (existingItem) {
+      console.error('Error adding bookmark: Item already exists.')
+      return { success: false }
+    }
+
     const doc = new Bookmarks({
       ...bookmark,
       userId: userId

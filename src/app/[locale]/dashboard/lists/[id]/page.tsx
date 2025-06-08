@@ -3,27 +3,32 @@
 import styles from './SingleList.module.scss'
 import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 import Image from 'next/image'
-import { useState, MouseEvent } from 'react'
+import { useState, MouseEvent, useEffect } from 'react'
 import Button from '@/components/ui/Button/Button'
 import PageHeading from '@/components/PageHeading/PageHeading'
 import { useTranslations } from 'next-intl'
 import { twMerge } from 'tailwind-merge'
-import { getCookies } from '@/utils/cookies'
 import { RequireAuthModal } from '@/components/RequireAuthModal/RequireAuthModal'
 import { ICollections } from '@/interfaces/Collections.interface'
 import Container from '@/components/ui/Container/Container'
-import useSWR from 'swr'
+import useSWR, { mutate } from 'swr'
 import { fetcher } from '@/utils/fetcher'
+import { removeScrollBar } from '@/constants/shared'
+import { AuthModal } from '@/components/AuthModal/AuthModal'
+import { H3, H6 } from '@/components/ui/Typography/Typography'
+import Loader from '@/components/Loader/Loader'
+import { getSession, ISession } from '@/lib/auth'
+import { toast } from 'sonner'
+import SnackBar from '@/components/ui/SnackBar/SnackBar'
+import { findBookmarkType } from '@/utils/findBookmarkType'
+import { addBookmark, removeBookmark } from '@/lib/bookmark'
+import { ISection } from '@/interfaces/Section.interface'
 
 import { FaClock, FaBookmark, FaRegBookmark } from 'react-icons/fa6'
 import subcategoryUnselected from '@/assets/subcategory-unselected.svg'
 import subcategorySelected from '@/assets/subcategory-selected.svg'
 import note from '@/assets/icons/note-2-disable.svg'
 import { FaArrowRight } from 'react-icons/fa'
-import { removeScrollBar } from '@/constants/shared'
-import { AuthModal } from '@/components/AuthModal/AuthModal'
-import { H3, H6 } from '@/components/ui/Typography/Typography'
-import Loader from '@/components/Loader/Loader'
 
 interface SingleDefaultListProps {
   params: {
@@ -34,14 +39,24 @@ interface SingleDefaultListProps {
 
 export default function SingleDefaultList({ params }: SingleDefaultListProps) {
   const { locale, id } = params
+  const [session, setSession] = useState<ISession>()
+  const [isSessionLoading, setSessionLoading] = useState(true)
+
+  useEffect(() => {
+    getSession().then((data) => {
+      setSession(data)
+    })
+
+    setSessionLoading(false)
+  }, [])
 
   const {
     data: collection,
-    isLoading,
+    isLoading: isLoadingCollection,
     error
-  } = useSWR<ICollections>(`/api/collection/${id}`, fetcher, {
+  } = useSWR<ICollections>(`/api/collection/${id}?activityType=collection`, fetcher, {
     shouldRetryOnError: false,
-    revalidateOnFocus: false,
+    revalidateOnFocus: true,
     revalidateOnReconnect: false,
     refreshWhenHidden: false,
     refreshWhenOffline: false
@@ -51,14 +66,77 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
   const [isSelected, setIsSelected] = useState(0)
   const [isAuthRequireModal, setAuthRequireModal] = useState(false)
   const [isAuthModal, setAuthModal] = useState(false)
-  const [isPinned, setIsPinned] = useState(false)
+  const [bookmarkedItems, setBookmarkedItems] = useState<string[]>([])
 
-  const handlePin = (e: MouseEvent<HTMLButtonElement>) => {
+  useEffect(() => {
+    setBookmarkedItems(
+      collection?.sections.filter((item: ISection) => item.isBookmarked).map((item: ISection) => item._id) || []
+    )
+  }, [collection])
+
+  const handlePin = async (item: ISection, e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation()
-    const cookies = getCookies()
 
-    if (cookies['lama-session']) {
-      setIsPinned(!isPinned)
+    if (session?.userId) {
+      if (!bookmarkedItems.includes(item._id)) {
+        const redirectLink = `/dashboard/lists/${id}/learn/${item._id}`
+
+        const itemType = findBookmarkType(redirectLink.split('/')[2])
+
+        const bookmarkItem = {
+          titleEn: item.sectionTitle,
+          titleUa: item.sectionTitleUa,
+          url: redirectLink,
+          image: '',
+          itemId: item._id,
+          itemType: itemType,
+          descriptionEn: '',
+          descriptionUa: ''
+        }
+
+        const result = await addBookmark(session?.userId, bookmarkItem)
+
+        if (result.success) {
+          toast.success(t('successfully_add_bookmark'), {
+            duration: 3000,
+            className: 'border border-green-100 bg-green-100 text-white-100'
+          })
+
+          mutate(`/api/collection/${id}?activityType=collection`)
+        } else {
+          toast.error(t('error_add_bookmark'), {
+            duration: 3000,
+            className: 'border text-white-100 border-red bg-red'
+          })
+        }
+      } else {
+        if (!item.bookmarkId) {
+          toast.error(t('error_remove_bookmark'), {
+            duration: 3000,
+            className: 'border text-white-100 border-red bg-red'
+          })
+
+          return
+        }
+
+        const result = await removeBookmark(item.bookmarkId)
+
+        if (result.success) {
+          toast.success(t('successfully_remove_bookmark'), {
+            duration: 3000,
+            className: 'border border-green-100 bg-green-100 text-white-100'
+          })
+
+          // setBookmarkedItems((state) => state.filter((id) => id !== item._id))
+
+          mutate(`/api/collection/${id}?activityType=collection`)
+        } else {
+          toast.error(t('error_remove_bookmark'), {
+            duration: 3000,
+            className: 'border text-white-100 border-red bg-red'
+          })
+        }
+      }
     } else {
       setAuthRequireModal(true)
       removeScrollBar(isAuthRequireModal)
@@ -69,6 +147,8 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
     setAuthRequireModal(false)
     removeScrollBar(isAuthRequireModal)
   }
+
+  const isLoading = isSessionLoading || isLoadingCollection
 
   return (
     <Container className={styles.container}>
@@ -97,7 +177,7 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
             <div>
               {collection.sections.map((section, i) => (
                 <>
-                  <div className={styles['lesson-item']} key={i}>
+                  <div className={styles['lesson-item']} key={section._id}>
                     <div className={`${isSelected === i && styles.opened}`}>
                       <div className={styles['icon-number']}>
                         <Image
@@ -105,7 +185,7 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
                           alt=""
                           className={styles.icon}
                         />
-                        <div className={styles.number}>{i + 1 > 10 ? i + 1 : `0${i + 1}`}</div>
+                        <div className={styles.number}>{i + 1 > 9 ? i + 1 : `0${i + 1}`}</div>
                       </div>
                       <div className={styles['accordion-wrapper']}>
                         <div className={styles.accordion}>
@@ -128,8 +208,8 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
                             <div className={styles['accordion-details']}>
                               <div className={twMerge(styles['accordion-details-container'], 'dark:!bg-[#1D2D4D]')}>
                                 <div className={styles.btns}>
-                                  <Button className={styles['tip-btn']} onClick={(e) => handlePin(e)}>
-                                    {isPinned ? (
+                                  <Button className={styles['tip-btn']} onClick={(e) => handlePin(section, e)}>
+                                    {bookmarkedItems.includes(section._id) ? (
                                       <FaBookmark className="dark:text-grey-600 dark:lg:hover:text-purple-100" />
                                     ) : (
                                       <FaRegBookmark className="dark:text-grey-600 dark:lg:hover:text-purple-100" />
@@ -168,6 +248,8 @@ export default function SingleDefaultList({ params }: SingleDefaultListProps) {
               ))}
             </div>
           </div>
+
+          <SnackBar />
         </>
       )}
 

@@ -17,6 +17,8 @@ export interface IGrammarTopic {
     }>
   }
   questions: IQuestion[]
+  isBookmarked?: boolean
+  bookmarkId?: string
 }
 
 export interface IGrammarExample {

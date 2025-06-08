@@ -311,7 +311,11 @@
         "lessons": "Lessons",
         "need_auth": "In order to add to your bookmarks you must sign in to your account",
         "no_data": "No data found",
-        "back_to_lists": "Back to Lists"
+        "back_to_lists": "Back to Lists",
+        "error_remove_bookmark": "Error removing bookmark",
+        "successfully_remove_bookmark": "Successfully removed bookmark",
+        "error_add_bookmark": "Error adding bookmark",
+        "successfully_add_bookmark": "Successfully added bookmark"
       }
     },
     "vocabulary": {
@@ -447,7 +451,11 @@
       "need_auth": "In order to add to your bookmarks you must sign in to your account",
       "leave": "Leave from grammar",
       "back_to_lists": "Back to Lists",
-      "to_grammar": "Move to Grammar"
+      "to_grammar": "Move to Grammar",
+      "error_remove_bookmark": "Error removing bookmark",
+      "successfully_remove_bookmark": "Successfully removed bookmark",
+      "error_add_bookmark": "Error adding bookmark",
+      "successfully_add_bookmark": "Successfully added bookmark"
     },
     "grammar": {
       "move_to_test": "Move to Grammar test",
@@ -501,7 +509,11 @@
         "choose_list": "Choose list to add word",
         "successfully_added": "Your word has been added to the list",
         "error_added": "Error adding your word"
-      }
+      },
+      "error_remove_bookmark": "Error removing bookmark",
+      "successfully_remove_bookmark": "Successfully removed bookmark",
+      "error_add_bookmark": "Error adding bookmark",
+      "successfully_add_bookmark": "Successfully added bookmark"
     },
     "collections": {
       "hours": "h",
