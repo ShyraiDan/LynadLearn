@@ -86,6 +86,8 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
   const onSubmit: SubmitHandler<IGrammarTopic> = (values) => {
     if (!data) {
       addSingleGrammar({ ...values, level }).then((res) => {
+        console.log('data', { ...values, level })
+
         if (res.success) {
           toast.success('Grammar topic created', {
             duration: 3000,
@@ -93,6 +95,8 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
           })
 
           reset()
+
+          router.push('/admin/dashboard/grammar')
         } else {
           toast.success('Error updating grammar topic', {
             duration: 3000,
@@ -100,7 +104,6 @@ export const AdminGrammarAddEditForm = ({ data }: IAdminGrammarEditModal) => {
           })
         }
       })
-      router.push('/admin/dashboard/grammar')
     } else {
       const updatedGrammar = { ...data, ...values, level }
 

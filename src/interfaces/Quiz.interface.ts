@@ -8,11 +8,7 @@
 
 export interface IQuestion {
   question: string
-  options: {
-    _id?: string
-    option: string
-    correct: boolean
-  }[]
+  options: IQuizOption[]
 }
 
 export interface IVocabularyQuestion {
@@ -20,11 +16,7 @@ export interface IVocabularyQuestion {
     en: string
     ua: string
   }
-  options: {
-    _id?: string
-    option: string
-    correct: boolean
-  }[]
+  options: IQuizOption[]
 }
 
 export interface IVocabularyQuiz {
@@ -33,36 +25,8 @@ export interface IVocabularyQuiz {
   questions: IVocabularyQuestion[]
 }
 
-// const quizzesSchema = new Schema({
-//   title: {
-//     type: String,
-//     required: true
-//   },
-//   questions: [
-//     {
-//       question: {
-//         type: String,
-//         required: true
-//       },
-//       options: [
-//         {
-//           _id: {
-//             type: String,
-//             required: true
-//           },
-//           option: {
-//             type: String,
-//             required: true
-//           },
-//           correct: {
-//             type: Boolean,
-//             required: true
-//           }
-//         }
-//       ]
-//     }
-//   ]
-// })
-
-// const Quizzes = mongoose.models.Quizzes || mongoose.model('Quizzes', quizzesSchema)
-// export default Quizzes
+export type IQuizOption = {
+  _id?: string
+  option: string
+  correct: boolean
+}
