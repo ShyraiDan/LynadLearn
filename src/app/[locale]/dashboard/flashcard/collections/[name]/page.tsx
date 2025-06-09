@@ -60,7 +60,8 @@ export default function QuizCollectionsWrapperPage({ params }: ICollectionsPageP
       userId: session?.userId ?? '',
       userName: session?.userName ?? '',
       wordLists: session?.wordLists ?? 0,
-      words: session?.words ?? 0
+      words: session?.words ?? 0,
+      role: session?.role ?? 'guest'
     }
   }, [session])
 

@@ -13,8 +13,6 @@ interface IDashboard {
 async function Content({ children }: IDashboard) {
   const session = await getSession()
 
-  console.log('session', session)
-
   return (
     <>
       <AdminSideBar isAuth={session.isLoggedIn} />
