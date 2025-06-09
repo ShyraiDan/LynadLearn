@@ -8,12 +8,12 @@ const s3Client = new S3Client({
   }
 })
 
-export const saveFileToBucket = async (file: File, fileName: string) => {
+export const saveFileToBucket = async (file: File, fileName: string, path: string) => {
   const fileBuffer = file
   const bucketFileName = `${Date.now()}-${fileName}`
   const params = {
     Bucket: process.env.NEXT_PUBLIC_AWS_S3_BUCKET_NAME as string,
-    Key: bucketFileName,
+    Key: `${path}/${bucketFileName}`,
     Body: fileBuffer,
     ContentType: file?.type.includes('svg') ? 'image/svg+xml' : 'image/*'
   }

@@ -1,5 +1,4 @@
-import AdminSignUpForm from '@/components/forms/AdminLogin/AdminSignUpForm'
-import { H1 } from '@/components/ui/Typography/Typography'
+import AdminAuth from '@/components/AdminAuth/AdminAuth'
 
 export default function Home() {
   return (
@@ -10,10 +9,7 @@ export default function Home() {
         lg:p-8
         xl:mx-auto"
       >
-        <div className="w-full bg-white-100 p-4 box-border rounded-lg max-w-[576px]">
-          <H1 className="text-center text-2xl font-bold">Sign up</H1>
-          <AdminSignUpForm />
-        </div>
+        <AdminAuth />
       </div>
     </>
   )

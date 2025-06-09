@@ -4,18 +4,21 @@ import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Input } from '@/components/ui/Input/Input'
 import { P } from '@/components/ui/Typography/Typography'
+import Button from '@/components/ui/Button/Button'
+import { loginAdmin } from '@/lib/auth'
+import { useRouter } from 'next/navigation'
 
 import { FaEye } from 'react-icons/fa'
 import { FaEyeSlash } from 'react-icons/fa'
-import Button from '@/components/ui/Button/Button'
 
 export interface ISignIn {
   email: string
   password: string
 }
 
-export default function AdminSignUpForm() {
+export default function AdminSignInForm() {
   const [showPassword, setShowPassword] = useState(false)
+  const router = useRouter()
 
   const {
     register,
@@ -25,25 +28,32 @@ export default function AdminSignUpForm() {
     mode: 'onSubmit'
   })
 
-  //If success redirect to dashboard
   const onSubmit: SubmitHandler<ISignIn> = async (values) => {
-    console.log('values', values)
+    const result = await loginAdmin(values)
+
+    if (result) {
+      router.push('/admin/dashboard/achievements')
+    }
   }
 
   return (
     <form action="" className="" onSubmit={handleSubmit(onSubmit)}>
-      <Input
-        type="email"
-        name="email"
-        id="email"
-        placeholder="Enter your email"
-        obj={register('email', {
-          required: { value: true, message: 'Email is required' },
-          pattern: { value: /^\S+@\S+$/i, message: 'Email is invalid' }
-        })}
-      >
-        Email
-      </Input>
+      <div className="mb-2">
+        <Input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter your email"
+          obj={register('email', {
+            required: { value: true, message: 'Email is required' },
+            pattern: { value: /^\S+@\S+$/i, message: 'Email is invalid' }
+          })}
+        >
+          Email
+        </Input>
+        {errors?.email && <P className="text-red text-sm mb-1 dark:!text-red">{errors.email.message}</P>}
+      </div>
+
       <div className="relative flex flex-col !mt-1.5">
         <Input
           type={showPassword ? 'text' : 'password'}
@@ -60,7 +70,7 @@ export default function AdminSignUpForm() {
         </Input>
         <span
           onClick={() => setShowPassword((state) => !state)}
-          className="absolute top-[41px] right-2.5 cursor-pointer"
+          className="absolute top-[43px] right-2.5 cursor-pointer"
         >
           {showPassword ? (
             <FaEye

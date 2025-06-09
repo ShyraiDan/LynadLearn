@@ -46,7 +46,7 @@ export const AchievementsEditForm = ({ data }: IAchievementsEditFormProps) => {
   const onSubmit: SubmitHandler<IAchievement> = async (values) => {
     if (!file) return
 
-    const fileName = await saveFileToBucket(file, file?.name)
+    const fileName = await saveFileToBucket(file, file?.name, 'core/achievements')
     let res = {
       success: false
     }
