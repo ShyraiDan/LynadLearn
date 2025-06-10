@@ -1,0 +1,106 @@
+.modal {
+  @apply overflow-y-auto h-[calc(100vh-305px)];
+
+  .form {
+    > div {
+      @apply pr-2 h-full;
+
+      .definition {
+        @apply rounded-lg shadow-md bg-white-100 p-2 mb-2 flex flex-wrap flex-col rounded-3xl justify-center w-[100%] 
+        md:justify-start;
+
+        > div {
+          @apply flex flex-wrap flex-row justify-between w-[100%] relative;
+
+          .content {
+            @apply font-medium text-xl leading-7 p-4 w-full
+            md:p-4;
+
+            .meaning {
+              @apply flex justify-between w-full;
+
+              .title {
+                @apply flex;
+
+                .number {
+                  @apply text-purple-100 rounded-lg bg-purple-300 font-bold px-2 h-fit py-1 text-sm;
+                }
+              }
+
+              .icons {
+                @apply flex items-center gap-2;
+              }
+            }
+
+            .synonyms {
+              @apply mt-3 flex gap-2 flex-wrap;
+
+              button {
+                @apply text-black mt-2 text-sm py-3 px-3 flex items-center rounded-2xl bg-[#C9F8E1] font-medium;
+
+                > span {
+                  @apply mt-[2px] h-[18px];
+                }
+              }
+            }
+          }
+        }
+
+        .exams {
+          @apply p-4 w-full;
+
+          .content {
+            @apply p-0 text-left w-full italic flex flex-col gap-4;
+
+            > li {
+              @apply flex gap-2 items-baseline cursor-pointer w-full whitespace-normal text-left;
+
+              span {
+                @apply w-2 h-2 bg-orange rounded-full flex-shrink-0;
+              }
+            }
+          }
+        }
+      }
+
+      .translations {
+        @apply flex items-center flex-wrap gap-2;
+
+        .controls {
+          @apply flex items-center;
+
+          input {
+            @apply w-[160px];
+          }
+
+          .add-translation {
+            @apply m-0 ml-2 h-[38px];
+
+            svg {
+              @apply lg:hover:text-white-100;
+            }
+          }
+        }
+
+        .card {
+          @apply p-4 py-2 bg-blue-200 text-white-100 rounded font-bold flex items-center gap-2;
+
+          span {
+            @apply transition-all duration-[.3s] ease-in-out cursor-pointer      
+            lg:hover:text-red;
+          }
+        }
+      }
+
+      label {
+        @apply mt-4 
+        first:mt-0;
+      }
+
+      button {
+        @apply px-6 mt-2 bg-blue-200 text-white-100 shadow-md mb-2 rounded
+        lg:hover:bg-purple-100;
+      }
+    }
+  }
+}

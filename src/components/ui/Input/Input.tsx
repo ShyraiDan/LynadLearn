@@ -14,10 +14,11 @@ interface IInput {
   checked?: boolean
   obj?: object
   labelStyles?: string
+  className?: string
 }
 
 export const Input = forwardRef<HTMLInputElement, IInput>(
-  ({ type, placeholder, name, id, children, required, obj, onChange, value, checked, labelStyles }, ref) => {
+  ({ type, placeholder, name, id, children, required, obj, onChange, value, checked, labelStyles, className }, ref) => {
     return (
       <>
         <label className={twMerge(styles.label, labelStyles, 'dark:text-grey-600')} htmlFor={id}>
@@ -27,7 +28,8 @@ export const Input = forwardRef<HTMLInputElement, IInput>(
           required={required}
           className={twMerge(
             styles.input,
-            'dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600'
+            'dark:bg-[#17294c] dark:ml-[1px] dark:border-[#ffffff20] dark:text-grey-600',
+            className
           )}
           type={type}
           placeholder={placeholder}

@@ -1,0 +1,29 @@
+.examples-container {
+  @apply bg-[#F7F9FC] relative rounded-3xl shadow-md;
+
+  .examples {
+    @apply w-full px-2 py-4 pt-6 
+    sm:px-4 sm:py-4
+    md:px-8 md:py-6;
+
+    .examples-header {
+      @apply flex items-center justify-between mb-4;
+
+      .title {
+        @apply flex items-center gap-2;
+      }
+    }
+
+    .content {
+      @apply text-left w-full italic flex flex-col gap-4;
+
+      > li {
+        @apply flex gap-2 items-baseline cursor-pointer w-full whitespace-normal text-left;
+
+        span {
+          @apply w-2 h-2 bg-orange rounded-full flex-shrink-0;
+        }
+      }
+    }
+  }
+}

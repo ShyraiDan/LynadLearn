@@ -12,10 +12,10 @@ import Container from '@/components/ui/Container/Container'
 import { useDebounce } from '@/hooks/useDebounce'
 import { IWord } from '@/interfaces/Word.interface'
 import { getSearchDefaultWords } from '@/lib/defaultWords'
+import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 
 import { FaSearch } from 'react-icons/fa'
 import { mocks } from '@/mock/Dictionary.mock'
-import NavigationLink from '@/components/ui/NavigationLink/NavigationLink'
 
 export default function Dictionary() {
   const t = useTranslations('Dictionary')

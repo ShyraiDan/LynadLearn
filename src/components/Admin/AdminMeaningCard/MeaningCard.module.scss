@@ -1,0 +1,47 @@
+.meanings {
+  @apply rounded-3xl mt-8 shadow-md
+  md:rounded-3xl;
+
+  .meaning-header {
+    @apply flex justify-between bg-[#EBEEFF] items-center p-4 rounded-t-3xl 
+    md:p-6;
+  }
+
+  .meaning-content {
+    @apply flex flex-wrap flex-col rounded-b-3xl justify-center w-[100%] 
+    md:justify-start;
+
+    > div {
+      @apply flex flex-col justify-between w-[100%] relative;
+
+      .content {
+        @apply font-medium text-xl leading-7 p-4
+        md:p-6;
+
+        .meaning {
+          @apply flex;
+
+          .number {
+            @apply text-purple-100 rounded-lg bg-purple-300 font-bold px-2 h-fit py-1 text-sm;
+          }
+        }
+
+        .synonyms {
+          @apply mt-7 flex gap-2 overflow-x-auto;
+
+          button {
+            @apply text-black mt-2 text-sm py-3 px-3 flex items-center rounded-2xl bg-[#C9F8E1] font-medium mb-2 w-max;
+
+            > span {
+              @apply mt-[2px] h-[18px];
+            }
+          }
+        }
+      }
+    }
+
+    .exams {
+      @apply p-4 w-full;
+    }
+  }
+}
