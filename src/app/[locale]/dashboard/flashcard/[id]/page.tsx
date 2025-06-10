@@ -178,10 +178,9 @@ export default function SingleFlashcardPage({ params }: TSingleFlashcardPage) {
                   swiperRef.current = swiper
                 }}
                 onSlideChange={() => checkIfLastSlide()}
-                //TODO: Uncommit for production
-                // allowTouchMove={false}
-                // noSwiping={true}
-                // simulateTouch={false}
+                allowTouchMove={false}
+                noSwiping={true}
+                simulateTouch={false}
                 spaceBetween={20}
                 centeredSlides={true}
                 breakpoints={{
