@@ -9,7 +9,7 @@ import { getSession } from '@/lib/auth'
 import { useRouter } from 'next/navigation'
 
 const AdminAuth = () => {
-  const [isSignInModal, setSignInModal] = useState(false)
+  const [isSignInModal, setSignInModal] = useState(true)
   const router = useRouter()
 
   useEffect(() => {
